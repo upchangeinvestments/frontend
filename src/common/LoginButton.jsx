@@ -4,7 +4,7 @@ const LoginButton = (props) => {
     return (
         <a href="#" className="">
             <button style={{ backgroundImage: `url(${bgImage})`}}
-            className="whitespace-nowrap px-6 py-2 rounded-full text-base font-medium text-black bg-no-repeat bg-cover bg-center text-black">
+            className="whitespace-nowrap px-6 py-2 rounded-full text-base font-medium text-black bg-no-repeat bg-cover bg-center">
                 {props.Text} 
             </button>
         </a>
