@@ -11,10 +11,10 @@ const quizData = [
   },
   {
     question: "How much would you like to invest?",
-    a: "$100-#1,000",
+    a: "$100-$5,000",
     b: "$1,000-$5,000",
     c: "$5,000-$20,000",
-    d: "$20,000-#100,000",
+    d: "$20,000-$100,000",
   },
   {
     question: "Which secor would you like to invest in?",
