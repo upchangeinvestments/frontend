@@ -1,19 +1,4 @@
 
-body {
-  background: #FDFFFF;
-  height: 100vh;
-}
-
-.container {
-  width: 100%;
-}
-
-.text-container {
-  width: 520px;
-  font-size: 40px;
-  height: 50px;
-}
-
 .dynamic-text,
 .static-text {
   display: inline-block;
@@ -32,8 +17,8 @@ body {
 
 .item {
   position: relative;
-  top: -30%;
-  animation: move 2s infinite 5s;
+  top: -40%;
+  animation: move 10s infinite 2s;
 }
 
 @keyframes move {
@@ -43,13 +28,13 @@ body {
   20% {
     top: -50px;
   }
-  50% {
+  40% {
     top: -96px;
   }
   80% {
     top: -196px;
   }
   60% {
-    top: -206px;
+    top: -146px;
   }
 }
