@@ -1,5 +1,6 @@
 import React from 'react';
 import ExploreMoreButton from "../../common/exploreMoreButton";
+import Tagline from "./Tagline";
 
 function LandingPage() {
   return (
@@ -8,8 +9,11 @@ function LandingPage() {
         <div className="text-5xl mb-4">Your Search Engine For</div>
         <div className="text-5xl mb-8 text-white">Real Estate Investments</div>
         <div className="flex justify-center">
-          <ExploreMoreButton className="" Text="Explore More"/>
+          <ExploreMoreButton className="" Text="Explore More" />
         </div>
+      </div>
+      <div className="absolute inset-x-0 bottom-2">
+        <Tagline />
       </div>
     </div>
   )
