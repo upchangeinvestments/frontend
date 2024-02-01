@@ -12,11 +12,13 @@ import FeaturedProject from "./FeaturedProject";
 
 function LandingPage() {
     return (
-        <div className="main">
-            <div className='navbar'>
-                <NavBar />
+        <div >
+            <div className="main">
+                <div className='navbar'>
+                    <NavBar />
+                </div>
+                <Landing />
             </div>
-            <Landing />
             <Unique />
             <Questions />
             <Features />

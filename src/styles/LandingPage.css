@@ -9,7 +9,7 @@ body{
 .main{
     position: relative;
     /* background-color: var(--bg); */
-    background-image: url("../assets/Building.jpg");
+    background-image: url("../assets/Building.jpg"), linear-gradient(#eb01a5, #d13531);
     height: 100vh;
     background-position: center; 
     background-repeat: no-repeat; 

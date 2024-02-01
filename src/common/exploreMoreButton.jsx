@@ -4,7 +4,7 @@ function ExploreMoreButton(props) {
   return (
     <a href="#" className="bg-[#A474E2] opacity-[.70] px-4 py-2 rounded-full">
       <button className='text-black flex items-center justify-center gap-4'>
-        <div>
+        <div className='text-md font-bold'>
           {props.Text}
         </div>
         <div className="">
