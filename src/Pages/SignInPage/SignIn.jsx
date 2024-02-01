@@ -10,7 +10,7 @@ const App = () => {
   };
 
   return (
-    <div>
+    <div className='SignInBody'>
       <div className={isSignUp ? 'SignInContainer' : 'SignInContainer change'}>
         <div className="forms-container">
           <div className="form-control signup-form">

@@ -20,7 +20,7 @@ const NavBar = () => {
                     src={logo}
                     alt=""
                   />
-                  <p className='text-xl font-bold	'>UPCIN</p>
+                  <p className='text-3xl font-extrabold'>UPCIN</p>
                 </div>
               </a>
             </div>
