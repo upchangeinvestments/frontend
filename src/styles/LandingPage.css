@@ -1,0 +1,17 @@
+:root {
+    --bg: #D8C5D9;
+    --white: #ffffff;
+}
+body{
+    background-color: var(--bg);
+}
+
+.main{
+    position: relative;
+    /* background-color: var(--bg); */
+    background-image: url("../assets/Building.jpg");
+    height: 100vh;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;
+}

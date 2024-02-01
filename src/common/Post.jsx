@@ -4,7 +4,7 @@ import "../styles/Post.css";
 function Post() {
     return (
         <div className="">
-            <div className="flex mx-auto px-4 w-[50vw] h-[60vh] ">
+            <div className="flex mx-auto w-[50vw] h-[60vh] ">
                 {/* <div className="flex mx-auto px-4 "> */}
                 <div className="flex">
                     <img className="rounded-l-lg" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
