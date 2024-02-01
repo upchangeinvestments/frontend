@@ -7,7 +7,7 @@ function Unique() {
         return `${(params.value)}%`;
     };
     return (
-        <div className="container mx-auto p-4">
+        <div className="mx-auto p-4">
             <div className="">
                 <div className="p-4">
                     <h2 className="text-2xl font-semibold mb-6">What Makes Us Different?</h2>

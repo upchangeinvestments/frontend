@@ -1,6 +1,6 @@
 import React from 'react';
 import logo from "../assets/logo.svg"
-import LoginButton from "./LoginButton"
+import LoginButton from "./LoginButton";
 
 const NavBar = () => {
   const [open, setOpen] = React.useState(false);
@@ -8,7 +8,7 @@ const NavBar = () => {
   return (
     <>
       {/* This example requires Tailwind CSS v2.0+ */}
-      <div className="relative z-1 backdrop-blur-sm bg-slate-50/10	 ">
+      <div className="relative z-1 backdrop-blur-sm bg-slate-50/10">
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-2">
             <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -20,8 +20,8 @@ const NavBar = () => {
                     src={logo}
                     alt=""
                   />
-                    <p>UPCIN</p>
-                  </div>
+                  <p className='text-xl font-bold	'>UPCIN</p>
+                </div>
               </a>
             </div>
             <div className="-mr-2 -my-2 md:hidden">
@@ -49,30 +49,30 @@ const NavBar = () => {
                 </svg>
               </button>
             </div>
-            <nav className="hidden md:flex gap-7">
-            <a href="#" className="text-base font-medium text-black hover:text-gray-900">
-                  Real Estate
-                </a>                
-                <a href="#" className="text-base font-medium text-black hover:text-gray-900">
-                  About Us
-                </a>                
-                <a href="#" className="text-base font-medium text-black hover:text-gray-900">
-                  Investments
-                </a>                
-                <a href="#" className="text-base font-medium text-black hover:text-gray-900">
-                  Education
-                </a>                
-                <a href="#" className="text-base font-medium text-black hover:text-gray-900">
-                  Contact Us
-                </a>       
+            <nav className="hidden md:flex gap-7 text-lg">
+              <a href="#" className="font-medium text-black hover:text-gray-900">
+                Real Estate
+              </a>
+              <a href="#" className="font-medium text-black hover:text-gray-900">
+                About Us
+              </a>
+              <a href="#" className="font-medium text-black hover:text-gray-900">
+                Investments
+              </a>
+              <a href="#" className="font-medium text-black hover:text-gray-900">
+                Education
+              </a>
+              <a href="#" className="font-medium text-black hover:text-gray-900">
+                Contact Us
+              </a>
             </nav>
             <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
-                <a
-                  href="#"
-                  className="mr-8 whitespace-nowrap inline-flex items-center justify-center px-4 py-2 border border-transparent rounded-full shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700">
-                  Sign up
-                </a>
-                <LoginButton Text="Login"/>
+              <a
+                href="#"
+                className="mr-8 whitespace-nowrap inline-flex items-center justify-center px-6 py-2.5 border border-transparent rounded-full shadow-sm text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec]">
+                Sign up
+              </a>
+              <LoginButton Text="Login" />
             </div>
           </div>
         </div>
@@ -106,10 +106,10 @@ const NavBar = () => {
                         src={logo}
                         alt=""
                       />
-                        <p>UPCIN</p>
-                      </div>
+                      <p>UPCIN</p>
+                    </div>
                   </a>
-              </div>
+                </div>
                 <div className="-mr-2">
                   <button
                     type="button"

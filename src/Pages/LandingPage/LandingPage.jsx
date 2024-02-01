@@ -1,4 +1,3 @@
-import { Fragment } from 'react';
 import "../../styles/LandingPage.css";
 import NavBar from "../../common/NavBar";
 import Landing from "./Landing";
