@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import './App.css';
+import '../../styles/SignIn.css';
 // import { FaUser, FaLock } from "react-icons/fa";
 
 const App = () => {
@@ -16,31 +16,41 @@ const App = () => {
         <div className="form-control signup-form">
             <form action="#">
               <h2>SIGN UP</h2>
+              <div className = 'social'>
+            <a href="#" class="social"><i className="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i className='fab fa-apple'></i></a>
+            </div>
               <input type="email" placeholder="Email" required />
               <div class="underline"></div>
-              <input type="password" placeholder="Password" required />
+              <input type="password"  placeholder="Password" required />
               <div class="underline"></div>
               <input type="password" placeholder="Confirm password" required />
               <div class="underline"></div>
               <button type="submit">REGISTER</button>
               <p>
-              <input type="checkbox" />
-                I agree to all statements in terms of service
-              <p>Already have an account?<div id="signin-btn" onClick={SignInButtonClick}>Sign In.</div></p></p>
+              <input type="checkbox" /> I agree to all statements in terms of service
+                <p>Already have an account? <span id="signUp" onClick={SignInButtonClick}>Sign In.</span></p>
+              </p>
             </form>
             
         </div>
         <div className="form-control signin-form">
-          <form action="#">
+          <form>
             <h2>SIGN IN</h2>
+            <div className = 'social'>
+            <a href="#" class="social"><i className="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i className='fab fa-apple'></i></a>
+            </div>
             <input type="text" placeholder="Username" required />
             {/* <FaUser className='icon'/> */}
             <input type="password" placeholder="Password" required />
             {/* <FaLock className='icon'/> */}
             <button type='submit'>LOGIN</button>
             <p>
-            <input type="checkbox" />I agree to all statements in terms of service 
-            <p>Don't have an account? <div id="signUp" onClick={SignInButtonClick}>Sign Up.</div></p> </p>
+            <input type="checkbox" />   I agree to all statements in terms of service 
+            <p>Don't have an account? <span id="signUp" onClick={SignInButtonClick}>Sign Up.</span>
+            </p>
+         </p>
           </form>
         </div>
       </div>
@@ -50,12 +60,13 @@ const App = () => {
             <h2>
             <font color="#0c0b0b">WELCOME BACK TO</font> UPCHANGE INVESTMENT
             </h2>
-            <h4>connect with us</h4>
-            <div className="socials">
-            <a href="/auth/facebook" class="social"><i className="fab fa-facebook-f"></i></a>
+            
+            <div className="socials1">
+            <p>connect with us</p>
+            <a href="#" class="social"><i className="fab fa-facebook-f"></i></a>
             {/* <i class="tnb-icon fa fa-facebook-square" aria-hidden="true"></i> */}
-            <a href="/auth/google" class="social"><i className="fab fa-google-plus-g"></i></a>
-            <a href="/auth/apple" class="social"><i className='fab fa-apple'></i></a>
+            <a href="#" class="social"><i className="fab fa-google-plus-g"></i></a>
+            <a href="#" class="social"><i className='fab fa-apple'></i></a>
             
             </div>
           </div>
@@ -63,15 +74,21 @@ const App = () => {
         <div className="intro-control signup-intro">
           <div className="intro-control__inner">
           <h2>
-            <font color="#0c0b0b">WELCOME TO</font> UPCHANGE INVESTMENT
+            <font color="#0c0b0b">WELCOME TO</font> <br/> UPCHANGE INVESTMENT
             </h2>
             
-            <p>Your Search Engine For <font color="#9747FF">REAL ESTATE INVESTMENT</font></p>
-            <h4>Register to access all features of our services</h4>
+            <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p>
             <div className="socials">
-            <a href="/auth/facebook" class="social"><i className="fab fa-facebook-f"></i></a>
-            <a href="/auth/google" class="social"><i className="fab fa-google-plus-g"></i></a>
-            <a href="/auth/apple" class="social"><i className='fab fa-apple'></i></a>
+            <p>Register to access all features of our services</p>
+            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-b3a7b80" target="_blank">
+            <span class="elementor-screen-only"></span>
+            <i class="fab fa-facebook"></i> </a>
+            <a class="elementor-icon elementor-social-icon elementor-social-icon-google elementor-repeater-item-b3a7b80" target="_blank">
+            <span class="elementor-screen-only"></span>
+            <i class="fab fa-google-plus-g"></i> </a>
+            <a class="elementor-icon elementor-social-icon elementor-social-icon-facebook elementor-repeater-item-b3a7b80" target="_blank">
+            <span class="elementor-screen-only"></span>
+            <i class="fab fa-apple"></i> </a>
           </div>
           </div>
         </div>
