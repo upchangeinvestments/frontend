@@ -8,6 +8,7 @@ import Unique from "./Unique";
 import OurUsers from "./OurUsers";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
+import Explore from "./Explore";
 
 
 function LandingPage() {
@@ -22,9 +23,10 @@ function LandingPage() {
             <Unique />
             <Questions />
             <Features />
-            <HowItWorks />
-            <OurUsers />
             <HowInvestmentWorks />
+            <HowItWorks />
+            <Explore />
+            <OurUsers />
             <FeaturedProject />
         </div>
     );

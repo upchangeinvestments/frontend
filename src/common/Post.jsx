@@ -42,7 +42,6 @@ function Post() {
                                     <progress className="progress progress1" max="100" value="57"></progress>
                                     <p className="text-xs text-nowrap ml-2">57% Funded</p>
                                 </div>
-
                             </div>
                         </div>
                         <div className="flex overflow-x-scroll gap-x-2 ButtonsSection "
