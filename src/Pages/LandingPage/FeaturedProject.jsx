@@ -6,11 +6,11 @@ import ReactCardCarousel from "react-card-carousel";
 function FeaturedProject() {
     return (
         <div className='grid grid-row gap-8 w-[100%] h-[80%] mt-4'>
-            <div className="flex items-center justify-center text-3xl font-bold mb-52">
+            <div className="flex items-center justify-center text-3xl font-bold vsm:mb-80 lg:mb-52">
                 Our Featured Project
             </div>
             <div className="relative mb-72" >
-                <ReactCardCarousel autoplay={true} autoplay_speed={3000}>
+                <ReactCardCarousel autoplay={false} autoplay_speed={3000}>
                     <div className=''>
                         <Post />
                     </div>

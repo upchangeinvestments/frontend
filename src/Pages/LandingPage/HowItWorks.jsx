@@ -4,7 +4,8 @@ import React from 'react';
 // import carousel1 from "../../assets/carousel1.svg"
 // import carousel2 from "../../assets/carousel2.svg"
 // import carousel3 from "../../assets/carousel3.svg"
-import video from "../../assets/introVideo.mp4"
+// import video from "../../assets/introVideo.mp4"
+import img2 from "../../assets/HowItWorks.png"
 
 const HowItWorks = () => {
   return (
@@ -20,7 +21,7 @@ const HowItWorks = () => {
               UpChange Investments makes it easy for retail investors to access the real investment opportunities through a simple integrated platform.
             </p>
           </div>
-          <div className="w-[80%] my-6">
+          <div className="w-[80%] mt-2 mb-6 flex items-center justify-center ">
             {/* <Carousel showArrows={true} swipeable={true} showThumbs={false} infiniteLoop={true} autoPlay={true} interval="5000">
               <div>
                 <img src={carousel1} />
@@ -35,7 +36,7 @@ const HowItWorks = () => {
                 {/* <p className="legend">Legend 3</p> */}
             {/* </div> 
             </Carousel> */}
-            <video src={video} autoPlay controls loop></video>
+            <img className="w-56" src={img2} alt="" />
 
           </div>
           <div className="w-[80%]">

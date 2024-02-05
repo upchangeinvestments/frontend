@@ -21,7 +21,7 @@ const RealEstateCard = ({ location }) => {
                         <p className="text-xs text-nowrap ml-2">57% Funded</p>
                     </div>
                 </div>
-                <div className="flex justify-between items-center  mt-4">
+                <div className="flex justify-between items-center mt-4">
                     <button className="bg-[#9747FF] text-white py-2 px-4 rounded-lg  hover:bg-purple-600">Know more...</button>
                     <div className="flex-nowrap">
                         <p>

@@ -26,9 +26,9 @@ function Features() {
     // https://postimg.cc/gallery/C5XC4Ys -> gallery for images -> postimg.cc
   ];
   return (
-    <div className="flex flex-col items-center my-16 justify-items-center overflow-hidden vsm:mx-6 lg:mx-24">
+    <div className="flex flex-col items-center my-16 justify-items-center overflow-hidden vsm:mx-6 lg:mx-20">
       <h2 className="vsm:text-2xl md:text-4xl font-bold mb-8">FEATURES OF THIS PLATFORM</h2>
-      <div className="grid md:grid-cols-2 sm:gap-x-8 gap-y-8 md:gap-x-8 lg:gap-x-16 text-black">
+      <div className="grid md:grid-cols-2 sm:gap-x-8 gap-y-8 md:gap-x-8 lg:gap-x-16 text-black py-8">
         {data.map((feature, index) => (
           <GlassCard className="" key={index} title={feature.title} image={feature.image} description={feature.description} />
         ))}

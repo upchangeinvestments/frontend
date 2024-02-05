@@ -5,17 +5,22 @@ import "react-multi-carousel/lib/styles.css";
 
 const responsive = {
     desktop: {
-        breakpoint: { max: 3000, min: 1024 },
-        items: 3,
+        breakpoint: { max: 3000, min: 1440 },
+        items: 4,
         slidesToSlide: 3 // optional, default to 1.
     },
+    laptop: {
+        breakpoint: { max: 1440, min: 1024 },
+        items: 3,
+        slidesToSlide: 2 // optional, default to 1.
+    },
     tablet: {
-        breakpoint: { max: 1024, min: 464 },
+        breakpoint: { max: 1024, min: 624 },
         items: 2,
         slidesToSlide: 2 // optional, default to 1.
     },
     mobile: {
-        breakpoint: { max: 464, min: 0 },
+        breakpoint: { max: 624, min: 0 },
         items: 1,
         slidesToSlide: 1 // optional, default to 1.
     }
@@ -24,10 +29,10 @@ const responsive = {
 function Explore() {
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="mx-auto text-2xl font-bold">
+            <div className="mx-auto text-2xl font-bold mb-6">
                 Explore Projects
             </div>
-            <div className="vsm:w-[100%] md:w-[95vw]">
+            <div className="vsm:w-[100%] md:w-[100%]">
                 <Carousel
                     swipeable={true}
                     draggable={true}
