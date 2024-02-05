@@ -13,13 +13,9 @@ import Explore from "./Explore";
 
 function LandingPage() {
     return (
-        <div >
-            <div className="main">
-                <div className='navbar'>
-                    <NavBar />
-                </div>
-                <Landing />
-            </div>
+        <div className="main vsm:w-[125vw] md:w-[107vw] lg:w-[100%]">
+            <NavBar />
+            <Landing />
             <Unique />
             <Questions />
             <Features />

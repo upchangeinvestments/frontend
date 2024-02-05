@@ -27,9 +27,9 @@ function Explore() {
             <div className="mx-auto text-2xl font-bold">
                 Explore Projects
             </div>
-            <div className="w-[95vw]">
+            <div className="vsm:w-[100%] md:w-[95vw]">
                 <Carousel
-                    swipeable={false}
+                    swipeable={true}
                     draggable={true}
                     showDots={true}
                     responsive={responsive}

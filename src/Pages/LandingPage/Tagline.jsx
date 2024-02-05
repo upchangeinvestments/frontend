@@ -3,16 +3,16 @@ import React from 'react';
 
 function Tagline() {
   return (
-    <div className='flex flex-row w-full gap-8 justify-center text-3xl	'>
-        <div className="">
-          ONE <span className="text-white">PLATFORM</span>
-        </div>
-       <div className="text-container flex">
-            <p className="static-text">ENDLESS <span className="text-white">OPPORTUNITIES</span></p>
-            <ul className="dynamic-text text-white">
-                {/* <li class="item"> OPPORTUNITIES</li> */}
-                {/* <li class="item">COMPANIES</li> */}
-            </ul>
+    <div className='flex md:flex-row vsm:flex-col w-full md:gap-8 items-center justify-center text-3xl	'>
+      <div className="">
+        ONE <span className="text-white">PLATFORM</span>
+      </div>
+      <div className="text-container flex">
+        <p className="static-text">ENDLESS <span className="text-white">OPPORTUNITIES</span></p>
+        <ul className="dynamic-text text-white">
+          {/* <li class="item"> OPPORTUNITIES</li> */}
+          {/* <li class="item">COMPANIES</li> */}
+        </ul>
       </div>
     </div>
   )
