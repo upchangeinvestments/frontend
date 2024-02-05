@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import '../../styles/Questions.css';
+import video from "../../assets/introVideo.mp4"
 
 const quizData = [
   {
@@ -34,7 +35,7 @@ const Questions = () => {
     const currentQuizData = quizData[currentQuiz];
 
     return (
-      <div className="quiz-container px-4 py-2 flex flex-col w-[75%] ">
+      <div className="quiz-container px-4 py-2 flex flex-col vsm:w-full md:w-[75%] lg:text-xl">
         <h2 className='text-left px-4'>{currentQuizData.question}</h2>
         <ul className=''>
           <li>
@@ -103,21 +104,21 @@ const Questions = () => {
 
   return (
     <div
-      className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center shadow-lg hover:shadow-xl py-2 my-12 mx-24"
+      className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center shadow-lg hover:shadow-xl py-2 my-12 vsm:mx-6 lg:mx-24"
       style={{
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
         backgroundBlendMode: "overlay",
       }}>
-      <div className="my-4 text-2xl">
+      <div className="my-4 text-2xl lg:text-3xl lg:mb-8">
         {/* headline */}
-        Let us know you better
+        LET US KNOW YOU BETTER
       </div>
-      <div className="flex w-full mx-16">
-        <div className="w-6/12 flex items-center justify-center">
-
+      <div className="flex vsm:flex-col lg:flex-row w-full mx-16 lg:items-center lg:justify-center">
+        <div className="vsm:w-full vsm:px-6 vsm:mb-6 lg:w-6/12 flex items-center justify-center px-4 xl:w-[40%]">
+          <video className="rounded-xl" src={video} autoPlay controls loop></video>
           {/* illustration */}
         </div>
-        <div className="w-6/12 flex items-center justify-center">
+        <div className="vsm:w-full vsm:px-6  lg:w-6/12 flex items-center justify-center">
           {currentQuiz < quizData.length ? (
             loadQuiz()
           ) : (

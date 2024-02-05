@@ -8,7 +8,7 @@ import video from "../../assets/introVideo.mp4"
 
 const HowItWorks = () => {
   return (
-    <div className='grid grid-cols-2 my-8 mx-24 gap-16'>
+    <div className='grid vsm:grid-cols-1 md:grid-cols-2 my-8 vsm:mx-6 lg:mx-24 vsm:gap-8 lg:gap-16 vsm:mb-12'>
       <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center shadow-lg hover:shadow-xl pb-8"
         style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))", backgroundBlendMode: "overlay" }}>
         <div className="my-4 text-2xl">
@@ -45,7 +45,7 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col gap-6 w-[80%] items-left justify-center">
+      <div className="flex flex-col vsm:gap-y-4 md:gap-2 lg:gap-6 vsm:w-[95%] items-left justify-center">
         <div className="flex flex-row items-center gap-4">
           <div className="">
             <svg className="h-10 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#9747FF" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>

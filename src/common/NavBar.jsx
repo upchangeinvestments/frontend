@@ -8,7 +8,12 @@ const NavBar = () => {
   return (
     <>
       {/* This example requires Tailwind CSS v2.0+ */}
-      <div className="relative z-1 backdrop-blur-sm bg-slate-50/10">
+      {/* <div className="relative z-1 z-40 backdrop-blur-3xl bg-white/20"
+        style={{
+          backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
+          backgroundBlendMode: "overlay",
+        }}></div> */}
+      <div className="relative backdrop-blur-sm bg-slate-50/10 z-40">
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-between items-center py-2">
             <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -159,7 +164,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Analytics
+                      Real Estate
                     </span>
                   </a>
                   <a
@@ -183,7 +188,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Engagement
+                      About Us
                     </span>
                   </a>
                   <a
@@ -207,7 +212,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Security
+                      Investments
                     </span>
                   </a>
                   <a
@@ -231,7 +236,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Integrations
+                      Education
                     </span>
                   </a>
                   <a
@@ -255,7 +260,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Automations
+                      Contact Us
                     </span>
                   </a>
                 </nav>
