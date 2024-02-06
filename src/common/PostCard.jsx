@@ -1,12 +1,12 @@
 import React from 'react';
 
-const RealEstateCard = ({ location }) => {
+const RealEstateCard = ({ location, Image }) => {
     return (
         <div className='flex flex-col items-center justify-center mb-20 '>
-            <div className="w-[80%]">
-                <img className="rounded-t-lg" src="https://images.unsplash.com/photo-1560448204-e02f11c3d0e2?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+            <div className="w-72 h-40 bg-bottom">
+                <img className="rounded-t-lg " src={Image} alt="" />
             </div>
-            <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-[80%]">
+            <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-72">
                 <div className="flex items-center justify-center">
                     <div className="text-lg font-bold">NE Real Estate title</div>
                 </div>

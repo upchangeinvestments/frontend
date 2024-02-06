@@ -16,13 +16,13 @@ const NavBar = () => {
       <div className="relative backdrop-blur-sm bg-slate-50/10 z-40">
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-center items-center py-2">
-            <div className="flex md:flex-none md:justify-start ">
+            <div className="flex vsm:w-[100%] vsm:justify-between md:w-auto md:flex-none md:justify-start ">
               <div className="">
                 <a href="#">
                   <span className="sr-only">Workflow</span>
                   <div className="flex flex-row items-center lg:gap-2 ">
                     <img
-                      className="w-auto sm:h-10 md:h-10"
+                      className="w-auto vsm:h-12"
                       src={logo}
                       alt=""
                     />
@@ -30,16 +30,16 @@ const NavBar = () => {
                   </div>
                 </a>
               </div>
-              <div className="-mr-2 -my-2 md:hidden">
+              <div className="md:hidden ">
                 <button
                   type="button"
-                  className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  className="rounded-md p-2 inline-flex items-center justify-center text-gray-600 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
                   onClick={() => setOpen(!open)}
                 >
                   <span className="sr-only">Open menu</span>
                   {/* Heroicon name: outline/menu */}
                   <svg
-                    className="h-6 w-6"
+                    className="h-10 w-10"
                     xmlns="http://www.w3.org/2000/svg"
                     fill="none"
                     viewBox="0 0 24 24"
@@ -86,11 +86,15 @@ const NavBar = () => {
         <div
           className={
             open
-              ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden  bg-white/20 backdrop-blur-sm"
               : "opacity-0 scale-95 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
           }
+          style={{
+            backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
+            backgroundBlendMode: "overlay",
+          }}
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2  bg-white/10 backdrop-blur-sm divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -98,11 +102,10 @@ const NavBar = () => {
                     <span className="sr-only">Workflow</span>
                     <div className="flex flex-row items-center gap-2 ">
                       <img
-                        className="h-8 w-auto sm:h-10"
+                        className="h-8 w-auto vsm:h-12"
                         src={logo}
                         alt=""
                       />
-                      <p>UPCIN</p>
                     </div>
                   </a>
                 </div>

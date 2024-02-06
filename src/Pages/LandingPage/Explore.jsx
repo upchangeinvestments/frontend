@@ -29,7 +29,7 @@ const responsive = {
 function Explore() {
     return (
         <div className="flex flex-col items-center justify-center">
-            <div className="mx-auto text-2xl font-bold mb-6">
+            <div className="mx-auto text-3xl font-bold m-6">
                 Explore Projects
             </div>
             <div className="vsm:w-[100%] md:w-[100%]">
@@ -52,31 +52,31 @@ function Explore() {
                     itemClass="carousel-item-padding-100-px"
                 >
                     <div className="">
-                        <PostCard location="Texas, US" />
+                        <PostCard location="Texas, US" Image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div className="">
-                        <PostCard location="California, US" />
+                        <PostCard location="California, US" Image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div className="">
-                        <PostCard location="New York, US" />
+                        <PostCard location="New York, US" Image="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww" />
                     </div>
                     <div className="">
-                        <PostCard location="California, US" />
+                        <PostCard location="California, US" Image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div className="">
-                        <PostCard location="Las Vegas, US" />
+                        <PostCard location="Las Vegas, US" Image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div className="">
-                        <PostCard location="Connecticut, US" />
+                        <PostCard location="Connecticut, US" Image="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww" />
                     </div>
                     <div className="">
-                        <PostCard location="Texas, US" />
+                        <PostCard location="Texas, US" Image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div className="">
-                        <PostCard location="New York, US" />
+                        <PostCard location="New York, US" Image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div className="">
-                        <PostCard location="Texas, US" />
+                        <PostCard location="Texas, US" Image="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww" />
                     </div>
                 </Carousel>;
             </div>
