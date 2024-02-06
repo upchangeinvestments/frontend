@@ -12,8 +12,8 @@ const NavBar = () => {
         style={{
           backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
           backgroundBlendMode: "overlay",
-        }}></div> */}
-      <div className="relative backdrop-blur-sm bg-slate-50/10 z-40">
+        }}>*/}
+      <div className={open ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh]" : "relative backdrop-blur-sm bg-slate-50/10 z-40 "}>
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-center items-center py-2">
             <div className="flex vsm:w-[100%] vsm:justify-between md:w-auto md:flex-none md:justify-start ">
@@ -23,7 +23,7 @@ const NavBar = () => {
                   <div className="flex flex-row items-center lg:gap-2 ">
                     <img
                       className="w-auto vsm:h-12"
-                      src={logo}
+                      src={open ? "" : logo}
                       alt=""
                     />
                     {/* <p className='md:text-xl lg:text-3xl font-extrabold'>UPCIN</p> */}
@@ -86,16 +86,16 @@ const NavBar = () => {
         <div
           className={
             open
-              ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden  bg-white/20 backdrop-blur-sm"
-              : "opacity-0 scale-95 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden bg-white/20 backdrop-blur-3xl"
+              : "opacity-0 scale-0 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
           }
           style={{
             backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
             backgroundBlendMode: "overlay",
           }}
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2  bg-white/10 backdrop-blur-sm divide-gray-50">
-            <div className="pt-5 pb-6 px-5">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2  bg-white/10 backdrop-blur-sm">
+            <div className="pt-2 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
                   <a href="#">
@@ -264,13 +264,13 @@ const NavBar = () => {
               <div>
                 <a
                   href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-indigo-600 hover:bg-indigo-700"
+                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
                 >
                   Sign up
                 </a>
-                <p className="mt-6 text-center text-base font-medium text-gray-500">
+                <p className="mt-6 text-center text-xl font-medium text-gray-500">
                   Existing User?
-                  <a href="#" className="ml-2 text-indigo-600 hover:text-indigo-500">
+                  <a href="#" className="ml-2 text-[#9747FF] hover:text-purple-600">
                     Sign in
                   </a>
                 </p>
