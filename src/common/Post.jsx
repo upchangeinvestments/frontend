@@ -3,35 +3,35 @@ import "../styles/Post.css";
 
 function Post() {
     return (
-        <div className="">
-            <div className="flex mx-auto w-[50vw] h-[60vh] ">
+        <div className="vsm:w-64 sm:w-80 md:w-96 lg:w-full">
+            <div className="vsm:flex vsm:flex-col lg:flex lg:flex-row mx-auto">
                 {/* <div className="flex mx-auto px-4 "> */}
                 <div className="flex">
-                    <img className="rounded-l-lg" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                    <img className="md:rounded-l-lg w-auto" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
                 </div>
-                <div className="bg-white shadow-md p-8 w-1/2 rounded-r-lg">
-                    <h3 className="text-xl font-semibold flex justify-center">POST TITLE</h3>
+                <div className="bg-white shadow-md vsm:p-6 md:p-4 lg:w-1/2 md:rounded-r-lg">
+                    <h3 className="vsm:text-base md:text-xl font-semibold flex justify-center">POST TITLE</h3>
                     <p className="text-gray-600 mb-2">property location</p>
                     <p className="text-gray-700 text-xs	text-justify">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi
                         non Voluptatum ducimus voluptates voluptas.... see more
                     </p>
-                    <div className="mt-2 grid grid-cols-2 gap-y-4 gap-x-2">
+                    <div className="mt-2 grid grid-cols-2 gap-y-4 gap-x-4 vsm:text-xs sm:text-base md:text-base">
                         <div className="w-auto">
                             <div className="text-gray-600">Min Investment</div>
-                            <div className="font-bold">$ 10K</div>
+                            <div className="font-bold vsm:text-base sm:text-lg ">$ 10K</div>
                         </div>
                         <div className="w-auto">
                             <p className="text-gray-600">Hold period</p>
-                            <p className="font-bold">24 months</p>
+                            <p className="font-bold vsm:text-base sm:text-lg">24 months</p>
                         </div>
                         <div className="w-auto">
                             <div className="text-gray-600">Category type</div>
-                            <div className="font-bold">Rental Property</div>
+                            <div className="font-bold vsm:text-base sm:text-lg">Rental Property</div>
                         </div>
                         <div className="w-auto">
                             <p className="text-gray-600">Cash-on-cash period</p>
-                            <p className="font-bold">Quarterly</p>
+                            <p className="font-bold vsm:text-base sm:text-lg">Quarterly</p>
                         </div>
                     </div>
 
@@ -65,7 +65,7 @@ function Post() {
                             </div>
                         </div>
                     </div>
-                    <div className="mt-2 flex items-center justify-center">
+                    <div className="mt-4 flex items-center justify-center">
                         <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button>
                     </div>
                 </div>

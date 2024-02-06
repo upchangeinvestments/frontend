@@ -1,5 +1,6 @@
 import React from 'react';
-import logo from "../assets/logo.svg"
+// import logo from "../assets/logo.svg"
+import logo from "../assets/logo1.png"
 import LoginButton from "./LoginButton";
 
 const NavBar = () => {
@@ -7,7 +8,6 @@ const NavBar = () => {
 
   return (
     <>
-      {/* This example requires Tailwind CSS v2.0+ */}
       {/* <div className="relative z-1 z-40 backdrop-blur-3xl bg-white/20"
         style={{
           backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
@@ -15,91 +15,86 @@ const NavBar = () => {
         }}></div> */}
       <div className="relative backdrop-blur-sm bg-slate-50/10 z-40">
         <div className="w-full mx-auto px-4 sm:px-6">
-          <div className="flex justify-between items-center py-2">
-            <div className="flex justify-start lg:w-0 lg:flex-1">
-              <a href="#">
-                <span className="sr-only">Workflow</span>
-                <div className="flex flex-row items-center gap-2 ">
-                  <img
-                    className="h-8 w-auto sm:h-10"
-                    src={logo}
-                    alt=""
-                  />
-                  <p className='text-3xl font-extrabold'>UPCIN</p>
-                </div>
-              </a>
-            </div>
-            <div className="-mr-2 -my-2 md:hidden">
-              <button
-                type="button"
-                className="bg-white rounded-md p-2 inline-flex items-center justify-center text-gray-400 hover:text-gray-500 hover:bg-gray-100 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
-                onClick={() => setOpen(!open)}
-              >
-                <span className="sr-only">Open menu</span>
-                {/* Heroicon name: outline/menu */}
-                <svg
-                  className="h-6 w-6"
-                  xmlns="http://www.w3.org/2000/svg"
-                  fill="none"
-                  viewBox="0 0 24 24"
-                  stroke="currentColor"
-                  aria-hidden="true"
+          <div className="flex justify-center items-center py-2">
+            <div className="flex vsm:w-[100%] vsm:justify-between md:w-auto md:flex-none md:justify-start ">
+              <div className="">
+                <a href="#">
+                  <span className="sr-only">Workflow</span>
+                  <div className="flex flex-row items-center lg:gap-2 ">
+                    <img
+                      className="w-auto vsm:h-12"
+                      src={logo}
+                      alt=""
+                    />
+                    {/* <p className='md:text-xl lg:text-3xl font-extrabold'>UPCIN</p> */}
+                  </div>
+                </a>
+              </div>
+              <div className="md:hidden ">
+                <button
+                  type="button"
+                  className="rounded-md p-2 inline-flex items-center justify-center text-gray-600 hover:text-gray-700 focus:outline-none focus:ring-2 focus:ring-inset focus:ring-indigo-500"
+                  onClick={() => setOpen(!open)}
                 >
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
-                </svg>
-              </button>
+                  <span className="sr-only">Open menu</span>
+                  {/* Heroicon name: outline/menu */}
+                  <svg
+                    className="h-10 w-10"
+                    xmlns="http://www.w3.org/2000/svg"
+                    fill="none"
+                    viewBox="0 0 24 24"
+                    stroke="currentColor"
+                    aria-hidden="true"
+                  >
+                    <path
+                      strokeLinecap="round"
+                      strokeLinejoin="round"
+                      strokeWidth={2}
+                      d="M4 6h16M4 12h16M4 18h16"
+                    />
+                  </svg>
+                </button>
+              </div>
             </div>
-            <nav className="hidden md:flex gap-7 text-lg">
-              <a href="#" className="font-medium text-black hover:text-gray-900">
+            <div className="hidden md:flex md:justify-center md:items-center md:flex-auto md:gap-4 md:text-sm lg:text-lg">
+              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Real Estate
               </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900">
+              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 About Us
               </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900">
+              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Investments
               </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900">
+              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Education
               </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900">
+              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Contact Us
               </a>
-            </nav>
-            <div className="hidden md:flex items-center justify-end md:flex-1 lg:w-0">
+            </div>
+            <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ">
               <a
                 href="#"
-                className="mr-8 whitespace-nowrap inline-flex items-center justify-center px-6 py-2.5 border border-transparent rounded-full shadow-sm text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec]">
+                className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1.5 lg:px-6 lg:py-2.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec]">
                 Sign up
               </a>
               <LoginButton Text="Login" />
             </div>
           </div>
         </div>
-        {/*
-    Mobile menu, show/hide based on mobile menu state.
-
-    Entering: "duration-200 ease-out"
-      From: ""
-      To: ""
-    Leaving: "duration-100 ease-in"
-      From: "opacity-100 scale-100"
-      To: "opacity-0 scale-95"
-  */}
-
         <div
           className={
             open
-              ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
+              ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden  bg-white/20 backdrop-blur-sm"
               : "opacity-0 scale-95 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
           }
+          style={{
+            backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
+            backgroundBlendMode: "overlay",
+          }}
         >
-          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 bg-white divide-y-2 divide-gray-50">
+          <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2  bg-white/10 backdrop-blur-sm divide-gray-50">
             <div className="pt-5 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
@@ -107,11 +102,10 @@ const NavBar = () => {
                     <span className="sr-only">Workflow</span>
                     <div className="flex flex-row items-center gap-2 ">
                       <img
-                        className="h-8 w-auto sm:h-10"
+                        className="h-8 w-auto vsm:h-12"
                         src={logo}
                         alt=""
                       />
-                      <p>UPCIN</p>
                     </div>
                   </a>
                 </div>

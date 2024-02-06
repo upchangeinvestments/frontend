@@ -3,9 +3,9 @@ import "../../styles/Platform.css";
 
 const HowInvestmentWorks = () => {
     return (
-        <div className="mx-24">
-            <h1 className="text-3xl font-bold my-8">How Investment Works</h1>
-            <div className="flex flex-col items-center justify-center">
+        <div className="md:mx-12 lg:mx-24">
+            <h1 className="flex justify-center text-3xl font-bold w-full my-8 mx-auto">How Investment Works</h1>
+            <div className="flex flex-col items-center justify-center vsm:hidden md:block">
                 <div className="flex flex-row justify-center mb-8 items-start">
                     <div className="w-1/3 flex flex-col items-center justify-center">
                         <h2 className="text-xl font-bold mb-4 text-[#9747FF] border-t border-[#9747FF] w-2/3 mx-auto">USERS</h2>

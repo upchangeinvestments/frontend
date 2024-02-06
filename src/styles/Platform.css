@@ -6,15 +6,76 @@
     animation: slide1 5s 1;
     animation-iteration-count: infinite;
 }
-@keyframes slide {
-    to {
-        transform: translateX(-200%);
-        opacity: 50%;
-    }
+
+  @media screen and (min-width: 768px) {
+    @keyframes slide {
+        to {
+            transform: translateX(-27vw);
+            opacity: 0%;
+        }
+      }
+    @keyframes slide1 {
+        to {
+            transform: translateX(27vw);
+            opacity: 0%;
+        }
+      }
   }
-@keyframes slide1 {
-    to {
-        transform: translateX(200%);
-        opacity: 50%;
-    }
+  @media screen and (min-width: 1440px) {
+    @keyframes slide {
+        to {
+            transform: translateX(-28vw);
+            opacity: 0%;
+        }
+      }
+    @keyframes slide1 {
+        to {
+            transform: translateX(28vw);
+            opacity: 0%;
+        }
+      }
+  }
+  @media screen and (min-width: 1600px) {
+    @keyframes slide {
+        to {
+            transform: translateX(-24vw);
+            opacity: 0%;
+        }
+      }
+    @keyframes slide1 {
+        to {
+            transform: translateX(24vw);
+            opacity: 0%;
+        }
+      }
+  }
+ 
+  @media screen and (min-width: 1800px) {
+    @keyframes slide {
+        to {
+            transform: translateX(-21vw);
+            opacity: 0%;
+        }
+      }
+    @keyframes slide1 {
+        to {
+            transform: translateX(21vw);
+            opacity: 0%;
+        }
+      }
+  }
+ 
+  @media screen and (min-width: 2000px) {
+    @keyframes slide {
+        to {
+            transform: translateX(-16vw);
+            opacity: 0%;
+        }
+      }
+    @keyframes slide1 {
+        to {
+            transform: translateX(16vw);
+            opacity: 0%;
+        }
+      }
   }
