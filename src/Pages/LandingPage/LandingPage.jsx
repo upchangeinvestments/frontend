@@ -20,10 +20,10 @@ function LandingPage() {
             <Unique />
             <Questions />
             <Features />
+            <OurUsers />
             <HowInvestmentWorks />
             <HowItWorks />
             <Explore />
-            <OurUsers />
             <FeaturedProject />
             <Footer />
         </div>

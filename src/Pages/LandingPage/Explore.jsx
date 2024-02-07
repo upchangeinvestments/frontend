@@ -30,7 +30,7 @@ function Explore() {
     return (
         <div className="flex flex-col items-center justify-center">
             <div className="mx-auto text-3xl font-bold m-6">
-                Explore Projects
+                EXPLORE PROJECTS
             </div>
             <div className="vsm:w-[100%] md:w-[100%]">
                 <Carousel

@@ -9,7 +9,7 @@ function Unique() {
     return (
         <div className="mx-auto p-4">
             <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-6">What Makes Us Different?</h2>
+                <h2 className="text-2xl font-semibold mb-6">WHAT MAKES US DIFFERENT?</h2>
                 <div className="flex items-center justify-around">
                     <div className="flex items-center justify-center flex-col">
                         <p className="text-xl font-semibold">2,000</p>

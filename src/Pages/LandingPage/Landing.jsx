@@ -12,7 +12,7 @@ function LandingPage() {
           <ExploreMoreButton className="" Text="Explore More" />
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-2">
+      <div className="absolute inset-x-0 bottom-6">
         <Tagline />
       </div>
     </div>
