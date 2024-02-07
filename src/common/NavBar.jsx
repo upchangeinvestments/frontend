@@ -56,27 +56,27 @@ const NavBar = () => {
                 </button>
               </div>
             </div>
-            <div className="hidden md:flex md:justify-center md:items-center md:flex-auto md:gap-4 md:text-sm lg:text-lg">
+            <div className="hidden md:flex md:justify-center md:items-center md:flex-auto md:gap-4 lg:gap-8 xl:gap-10 md:text-sm lg:text-lg">
               <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
-                Real Estate
-              </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
-                About Us
+                About
               </a>
               <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Investments
               </a>
               <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+                How it works
+              </a>
+              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Education
               </a>
               <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
-                Contact Us
+                Contact
               </a>
             </div>
             <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ">
               <a
                 href="#"
-                className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1.5 lg:px-6 lg:py-2.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec]">
+                className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec]">
                 SIGN UP
               </a>
               <LoginButton Text="LOGIN" />
@@ -158,7 +158,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Real Estate
+                      About
                     </span>
                   </a>
                   <a
@@ -182,7 +182,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      About Us
+                      Investments
                     </span>
                   </a>
                   <a
@@ -206,7 +206,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Investments
+                      How it works
                     </span>
                   </a>
                   <a
@@ -254,7 +254,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Contact Us
+                      Contact
                     </span>
                   </a>
                 </nav>

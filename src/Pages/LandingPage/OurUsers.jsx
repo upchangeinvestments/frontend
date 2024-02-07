@@ -17,7 +17,7 @@ function OurUsers() {
     return (
         <section className="bg-white py-6">
             <div className="mx-auto">
-                <h2 className="text-3xl font-bold mb-8 text-center">Our Users</h2>
+                <h2 className="text-3xl font-bold mb-8 text-center">OUR USERS</h2>
                 <p className="text-lg mx-auto mb-4 text-[#A474E2] text-center">
                     Where Professionals Unite: From Wall Street to Main Street, we bring
                     together the best of Bank of America, PWC, 7/11, Citi Bank, Amazon,

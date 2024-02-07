@@ -19,7 +19,7 @@ const quizData = [
     d: "$20,000-$100,000",
   },
   {
-    question: "Which secor would you like to invest in?",
+    question: "Which sector would you like to invest in?",
     a: "RESIDENTIAL",
     b: "COMMERCICAL",
     c: "HOTEL",
@@ -40,9 +40,9 @@ const Questions = () => {
     const currentQuizData = quizData[currentQuiz];
 
     return (
-      <div className="quiz-container px-4 py-2 flex flex-col vsm:w-full md:w-[75%] lg:text-xl">
-        <h2 className='text-left px-4'>{currentQuizData.question}</h2>
-        <ul className=''>
+      <div className="quiz-container px-4 py-2 flex flex-col vsm:w-full lg:text-xl">
+        <p className='text-left px-4 md:w-[100%]'>{currentQuizData.question}</p>
+        <ul className='md:w-[65%] ml-8'>
           <li>
             <input
               type="radio"
@@ -103,6 +103,11 @@ const Questions = () => {
               {currentQuizData.d}
             </label>
           </li>
+          <div className={currentQuiz > 0 ? "flex justify-center" : "hidden"} onClick={() => {
+            setCurrentQuiz(currentQuiz - 1);
+          }}>
+            <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="black" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z" /></svg>
+          </div>
         </ul>
       </div>
     );
@@ -115,7 +120,7 @@ const Questions = () => {
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
         backgroundBlendMode: "overlay",
       }}>
-      <div className="my-4 text-2xl lg:text-3xl lg:mb-8">
+      <div className="my-4 lg:mb-8 vsm:text-2xl md:text-3xl font-bold" style={{ color: "#9747FF" }}>
         {/* headline */}
         LET US KNOW YOU BETTER
       </div>

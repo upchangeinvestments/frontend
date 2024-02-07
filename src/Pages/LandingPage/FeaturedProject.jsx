@@ -8,7 +8,7 @@ function FeaturedProject() {
     return (
         <div className='grid grid-row gap-8 w-[100%] h-[100%] mt-4 vsm:mb-80 md:mb-92 lg:mb-40 lg:-mt-28 xl:-mt-44'>
             <div className="flex items-center justify-center text-3xl font-bold vsm:mb-40 sm:mb-64 lg:-mb-24 xl:-mb-40">
-                Our Featured Project
+                OUR FEATURED PROJECTS
             </div>
             <div className="relative vsm:mb-92">
                 <button className="absolute vsm:left-2 md:left-12 z-10"

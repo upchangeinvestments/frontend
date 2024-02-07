@@ -46,8 +46,8 @@ function Post() {
                         </div>
                         <div className="flex overflow-x-scroll gap-x-2 ButtonsSection "
                             style={{
-                                '-webkit-scrollbar': 'width: 3px; background-color: #f5f5f5;',
-                                '-webkit-scrollbar-thumb': 'background-color: #cccccc; border-radius: 3px;',
+                                'WebkitScrollbar': 'width: 3px; background-color: #f5f5f5',
+                                'WebkitScrollbarThumb': 'background-color: #cccccc; border-radius: 3px',
                                 /* Add other vendor prefixes as needed */
                             }}
                         >
