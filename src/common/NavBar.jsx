@@ -76,10 +76,10 @@ const NavBar = () => {
             <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ">
               <a
                 href="#"
-                className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1.5 lg:px-6 lg:py-2.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec]">
-                Sign up
+                className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1.5 lg:px-6 lg:py-2.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec]">
+                SIGN UP
               </a>
-              <LoginButton Text="Login" />
+              <LoginButton Text="LOGIN" />
             </div>
           </div>
         </div>
@@ -266,12 +266,12 @@ const NavBar = () => {
                   href="#"
                   className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
                 >
-                  Sign up
+                  SIGN UP
                 </a>
                 <p className="mt-6 text-center text-xl font-medium text-gray-500">
                   Existing User?
                   <a href="#" className="ml-2 text-[#9747FF] hover:text-purple-600">
-                    Sign in
+                    LOGIN
                   </a>
                 </p>
               </div>
