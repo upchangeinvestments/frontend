@@ -26,7 +26,7 @@ function Features() {
     // https://postimg.cc/gallery/C5XC4Ys -> gallery for images -> postimg.cc
   ];
   return (
-    <div className="flex flex-col items-center my-16 justify-items-center overflow-hidden vsm:mx-6 lg:mx-20">
+    <div className="flex flex-col items-center my-8 justify-items-center overflow-hidden vsm:mx-6 lg:mx-20">
       <h2 className="vsm:text-2xl md:text-3xl font-bold mb-4">FEATURES OF THIS PLATFORM</h2>
       <div className="grid md:grid-cols-2 sm:gap-x-8 gap-y-8 md:gap-x-8 lg:gap-x-16 text-black py-4">
         {data.map((feature, index) => (

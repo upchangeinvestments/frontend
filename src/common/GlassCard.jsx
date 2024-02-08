@@ -3,7 +3,7 @@ import React from 'react'
 function GlassCard(props) {
   return (
     <div
-      className="w-auto bg-white/20 backdrop-blur-sm rounded-lg flex flex-row justify-center items-center shadow-lg hover:shadow-xl py-2"
+      className="w-auto bg-white/20 backdrop-blur-sm  flex flex-row justify-center items-center shadow-lg hover:shadow-xl py-2"
       style={{
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
         backgroundBlendMode: "overlay",

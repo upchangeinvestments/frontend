@@ -1,10 +1,12 @@
 import React from 'react';
 import "../../styles/Platform.css";
+import HowItWorks from './HowItWorks';
 
 const HowInvestmentWorks = () => {
     return (
         <div className="md:mx-12 lg:mx-24">
             <h1 className="flex justify-center font-bold w-full my-8 mx-auto vsm:text-2xl md:text-3xl">HOW INVESTMENT WORKS</h1>
+            <HowItWorks />
             <div className="flex flex-col items-center justify-center vsm:hidden md:block">
                 <div className="flex flex-row justify-center mb-8 items-start">
                     <div className="w-1/3 flex flex-col items-center justify-center">

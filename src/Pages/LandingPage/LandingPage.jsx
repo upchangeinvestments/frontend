@@ -3,7 +3,7 @@ import NavBar from "../../common/NavBar";
 import Landing from "./Landing";
 import Features from "./Features";
 import Questions from "./Questions";
-import HowItWorks from "./HowItWorks";
+// import HowItWorks from "./HowItWorks";
 import Unique from "./Unique";
 import OurUsers from "./OurUsers";
 import HowInvestmentWorks from "./Platform";
@@ -22,7 +22,6 @@ function LandingPage() {
             <Features />
             <OurUsers />
             <HowInvestmentWorks />
-            <HowItWorks />
             <Explore />
             <FeaturedProject />
             <Footer />
