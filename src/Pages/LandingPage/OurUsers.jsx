@@ -15,15 +15,15 @@ import Samsung from "../../assets/UsersLogos/samsung.png";
 
 function OurUsers() {
     return (
-        <section className="bg-white py-6">
+        <section className="bg-transparent pb-2 ">
             <div className="mx-auto">
-                <h2 className="text-3xl font-bold mb-8 text-center">OUR USERS</h2>
-                <p className="text-lg mx-auto mb-4 text-[#A474E2] text-center">
+                <h2 className="text-3xl font-bold mb-2 text-center">OUR USERS</h2>
+                <p className="text-lg mx-auto text-[#A474E2] text-center">
                     Where Professionals Unite: From Wall Street to Main Street, we bring
                     together the best of Bank of America, PWC, 7/11, Citi Bank, Amazon,
                     and more!
                 </p>
-                <p className="text-center mb-8 text-[#A474E2] font-bold">
+                <p className="text-center text-[#A474E2] font-bold">
                     Join the synergy of success with our multi-background community.
                 </p>
                 <div className="flex items-center justify-center">
@@ -31,7 +31,7 @@ function OurUsers() {
                         gradient={false}
                         loop={0}
                         direction="left"
-                        speed={100}>
+                        speed={60}>
                         <UsersComponent image={SevenEleven} className="" />
                         <UsersComponent image={Amazon} className="mt-4" />
                         <UsersComponent image={EY} className="w-24 -mt-6" />

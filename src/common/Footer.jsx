@@ -1,5 +1,8 @@
 import React from 'react'
 import '../styles/Footer.css'
+import { AiFillTwitterCircle, AiFillGoogleCircle } from "react-icons/ai";
+import { FaFacebook } from "react-icons/fa6";
+
 
 const Footer = () => {
     return (
@@ -53,10 +56,10 @@ const Footer = () => {
                                 </div>
                                 <div className="footer-social-icon grid grid-rows-2">
                                     <div className='mx-auto lg:mx-0'><span>Follow us</span></div>
-                                    <div className="mx-auto lg:mx-0">
-                                        <a href="#"><i className="fab fa-facebook-f facebook-bg"></i></a>
-                                        <a href="#"><i className="fab fa-twitter twitter-bg"></i></a>
-                                        <a href="#"><i className="fab fa-google-plus-g google-bg"></i></a>
+                                    <div className="mx-auto lg:mx-0 flex">
+                                        <a href="" ><AiFillTwitterCircle size="40px" /></a>
+                                        <a href="" ><FaFacebook size="37px" /></a>
+                                        <a href="" ><AiFillGoogleCircle size="40px" /></a>
                                     </div>
                                 </div>
                             </div>

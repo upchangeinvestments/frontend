@@ -1,15 +1,21 @@
 import React from 'react';
-import { PieChart } from '@mui/x-charts/PieChart';
-
+// import { PieChart } from '@mui/x-charts/PieChart';
+import SimpleCard from './SimpleCard';
+import ReactCardCarousel from "react-card-carousel";
 
 function Unique() {
     const getArcLabel = (params) => {
         return `${(params.value)}%`;
     };
+    const Headings = ["Category Type", "Location", "Investment Range"]
+    const LI1 = ["Commerical Property", "Rental Property", "Single-House Property", "Multi-House Property", "Housing Property"]
+    const LI2 = ["Texas", "New York", "California", "Massachusetts", "Colorado", "Seattle"]
+    const LI3 = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K"]
+
     return (
-        <div className="mx-auto p-4">
+        <div className="mx-auto p-4 md:mb-[30vh] lg:mb-0">
             <div className="p-4">
-                <h2 className="text-2xl font-semibold mb-6">WHAT MAKES US DIFFERENT?</h2>
+                <h2 className="text-2xl md:text-3xl font-semibold mb-6">WHAT MAKES US DIFFERENT?</h2>
                 <div className="flex items-center justify-around">
                     <div className="flex items-center justify-center flex-col">
                         <p className="text-xl font-semibold">2,000</p>
@@ -26,7 +32,7 @@ function Unique() {
                 </div>
             </div>
             <div className="px-4 vsm:grid vsm:grid-rows-2 vsm:gap-4 md:gap-x-6 vsm:mx-4 md:mx-24 lg:flex">
-                <div className="lg:w-[60%]">
+                <div className="lg:w-[50%]">
                     <h2 className="text-2xl font-semibold">WHO ARE WE?</h2>
                     <p className='text-justify'>
                         UpChange Investment offers a comprehensive perspective on a diverse
@@ -38,31 +44,18 @@ function Unique() {
                         maximizing their potential returns.
                     </p>
                 </div>
-                <div className='h-[280px] md:-mt-12 lg:w-[60%] lg:mt-0'>
-                    {/* pie chart here */}
-                    <PieChart
-                        series={[
-                            {
-                                data: [
-                                    { id: 1, value: 18, label: 'Commercial Properties', color: "#1CD0BB" },
-                                    { id: 2, value: 7, label: 'Single Family Properties', color: "#F5F5F5" },
-                                    { id: 3, value: 9, label: 'Town Homes Properties', color: "#DFDFDF" },
-                                    { id: 4, value: 19, label: 'Rental Properties', color: "#00A9D7" },
-                                    { id: 0, value: 47, label: 'Housing Properties', color: "#3A8DDE" },
-                                ],
-                                innerRadius: 80,
-                                outerRadius: 120,
-                                paddingAngle: 1,
-                                cornerRadius: 0,
-                                startAngle: 0,
-                                endAngle: 360,
-                                arcLabel: getArcLabel,
-                                arcLabelRadius: 100,
-                                cx: 120,
-                                cy: 130,
-                            },
-                        ]}
-                    />
+                <div className='h-full relative md:mt-[15vh] lg:mx-[23vw] lg:my-[25vh]'>
+                    <ReactCardCarousel autoplay={true} autoplay_speed={5000} cl1assName="absolute ">
+                        <div>
+                            <SimpleCard heading={Headings[0]} items={LI1} />
+                        </div>
+                        <div>
+                            <SimpleCard heading={Headings[1]} items={LI2} />
+                        </div>
+                        <div>
+                            <SimpleCard heading={Headings[2]} items={LI3} />
+                        </div>
+                    </ReactCardCarousel>
                 </div>
             </div>
         </div>

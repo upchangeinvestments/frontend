@@ -2,10 +2,11 @@ import React, { useState } from 'react';
 import '../../styles/Questions.css';
 import video from "../../assets/introVideo.mp4"
 import LoginButton from "../../common/LoginButton"
+import { select } from '@material-tailwind/react';
 
 const quizData = [
   {
-    question: "What is your Investment Goals?",
+    question: "What is your Investment Goal?",
     a: "SHORT-TERM",
     b: "MID-TERM",
     c: "LONG-TERM",
@@ -14,16 +15,16 @@ const quizData = [
   {
     question: "How much would you like to invest?",
     a: "$100-$5,000",
-    b: "$1,000-$5,000",
-    c: "$5,000-$20,000",
-    d: "$20,000-$100,000",
+    b: "$5,000-$50,000",
+    c: "$50,000-$100,000",
+    d: "$100,000-$1M+",
   },
   {
     question: "Which sector would you like to invest in?",
     a: "RESIDENTIAL",
-    b: "COMMERCICAL",
-    c: "HOTEL",
-    d: "MEDICAL & SCHOOL",
+    b: "COMMERCIAL",
+    c: "WAREHOUSE",
+    d: "NOT SURE",
   }
 ];
 
@@ -33,15 +34,14 @@ const Questions = () => {
   // const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
 
-  const UpdateQuestion = (value) => {
-  }
+  // console.log(selectedAnswer);
 
   const loadQuiz = () => {
     const currentQuizData = quizData[currentQuiz];
 
     return (
-      <div className="quiz-container px-4 py-2 flex flex-col vsm:w-full lg:text-xl">
-        <p className='text-left px-4 md:w-[100%]'>{currentQuizData.question}</p>
+      <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
+        <p className='text-left px-4 md:w-[100%] flex justify-center'>{currentQuizData.question}</p>
         <ul className='md:w-[65%] ml-8'>
           <li>
             <input
@@ -50,7 +50,7 @@ const Questions = () => {
               id="a"
               className="answer text-center"
               onClick={() => {
-                setSelectedAnswer(...selectedAnswer, "a");
+                setSelectedAnswer([...selectedAnswer, "a"]);
                 setCurrentQuiz(currentQuiz + 1);
               }}
             />
@@ -65,7 +65,7 @@ const Questions = () => {
               id="b"
               className="answer"
               onClick={() => {
-                setSelectedAnswer(...selectedAnswer, "b");
+                setSelectedAnswer([...selectedAnswer, "b"]);
                 setCurrentQuiz(currentQuiz + 1);
               }}
             />
@@ -80,7 +80,7 @@ const Questions = () => {
               id="c"
               className="answer"
               onClick={() => {
-                setSelectedAnswer(...selectedAnswer, "c");
+                setSelectedAnswer([...selectedAnswer, "c"]);
                 setCurrentQuiz(currentQuiz + 1);
               }}
             />
@@ -95,7 +95,7 @@ const Questions = () => {
               id="d"
               className="answer"
               onClick={() => {
-                setSelectedAnswer(...selectedAnswer, "d");
+                setSelectedAnswer([...selectedAnswer, "d"]);
                 setCurrentQuiz(currentQuiz + 1);
               }}
             />
@@ -104,9 +104,10 @@ const Questions = () => {
             </label>
           </li>
           <div className={currentQuiz > 0 ? "flex justify-center" : "hidden"} onClick={() => {
+            setSelectedAnswer(selectedAnswer.slice(0, -1)); // Remove the last selected answer
             setCurrentQuiz(currentQuiz - 1);
           }}>
-            <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="black" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z" /></svg>
+            <p className='ml-4'>PREVIOUS</p>
           </div>
         </ul>
       </div>
@@ -133,8 +134,17 @@ const Questions = () => {
             loadQuiz()
           ) : (
             // <h2>You answered {score}/{quizData.length} questions correctly</h2>
-            <div className="">
-              <LoginButton Text="Login" />
+            <div className="w-full vsm:pb-6">
+              <form className='flex flex-col justify-center items-center w-ful gap-8'>
+                <p className="text-2xl">Get your results!</p>
+                <input className='bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]' type="text" placeholder="Email" required />
+                <input className='bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]' type="text" placeholder="Name" required />
+                <a
+                  href="#"
+                  className="whitespace-nowrap inline-flex items-center justify-center vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm vsm:text-base lg:text-base xl:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec] bg-gradient-to-r from-purple-500 to-purple-700">
+                  <button type='submit'>SUBMIT</button>
+                </a>
+              </form>
             </div>
           )}
         </div>

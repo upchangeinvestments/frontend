@@ -1,5 +1,5 @@
 :root {
-  --accent-color: #e068cc;
+  --accent-color: #9747FF;
 }
 
 .quiz-container {
@@ -39,7 +39,7 @@ ul {
   padding: 0;
 }
 
-ul li {
+.quiz-container ul li {
   /* font-size: 1.2rem; */
   margin: 1rem 0;
 }

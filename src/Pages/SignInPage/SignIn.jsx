@@ -78,7 +78,7 @@ const App = () => {
                     <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                     <a href="#" className="social"><i className='fab fa-apple'></i></a>
                   </div>
-                  <input className='' type="text" placeholder="Username" required />
+                  <input className='' type="text" placeholder="Email" required />
                   {/* <FaUser className='icon'/> */}
                   <input type="password" placeholder="Password" required />
                   {/* <FaLock className='icon'/> */}
@@ -101,7 +101,7 @@ const App = () => {
                 <div className="intro-control__inner">
                   <div className="">
                     <h2 className="md:text-xl lg:text-2xl font-bold">
-                      <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> UPCHANGE INVESTMENT
+                      <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> UPCHANGE INVESTMENTS
                     </h2>
                   </div>
 
@@ -129,7 +129,7 @@ const App = () => {
                 <div className="intro-control__inner">
                   <div className="">
                     <h2 className='md:text-xl lg:text-2xl font-bold'>
-                      <font color="#0c0b0b">WELCOME TO</font> <br /> UPCHANGE INVESTMENT
+                      <font color="#0c0b0b">WELCOME TO</font> <br /> UPCHANGE INVESTMENTS
                     </h2>
                   </div>
                   {/* <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p> */}
@@ -163,7 +163,7 @@ const App = () => {
           <div className={isSignUp ? 'SignUP' : 'hidden'} >
             <div className="mt-8">
               <h2 className='text-2xl font-bold '>
-                <font color="#0c0b0b">WELCOME TO</font> <br /><p className='UPCIN'>UPCHANGE INVESTMENT</p>
+                <font color="#0c0b0b">WELCOME TO</font> <br /><p className='UPCIN'>UPCHANGE INVESTMENTS</p>
               </h2>
             </div>
             <div className="m-8 py-6 px-2 rounded-lg " style={{
@@ -193,7 +193,7 @@ const App = () => {
           <div className={isSignUp ? 'hidden' : 'LogIn'}>
             <div className="mt-8">
               <h2 className="text-2xl font-bold">
-                <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> <span className='UPCIN'>UPCHANGE INVESTMENT</span>
+                <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> <span className='UPCIN'>UPCHANGE INVESTMENTS</span>
               </h2>
             </div>
             <div className="m-8 py-6 px-2 rounded-lg " style={{
