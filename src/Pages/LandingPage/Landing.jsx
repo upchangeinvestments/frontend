@@ -1,5 +1,5 @@
 import React from 'react';
-import ExploreMoreButton from "../../common/exploreMoreButton";
+import ExploreMoreButton from "../../commonComponents/exploreMoreButton";
 import Tagline from "./Tagline";
 
 function LandingPage() {

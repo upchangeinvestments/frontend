@@ -1,5 +1,5 @@
 import "../../styles/LandingPage.css";
-import NavBar from "../../common/NavBar";
+import NavBar from "../../commonComponents/NavBar";
 import Landing from "./Landing";
 import Features from "./Features";
 import Questions from "./Questions";
@@ -9,7 +9,7 @@ import OurUsers from "./OurUsers";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
 import Explore from "./Explore";
-import Footer from "../../common/Footer"
+import Footer from "../../commonComponents/Footer"
 
 
 function LandingPage() {

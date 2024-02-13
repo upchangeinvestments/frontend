@@ -1,13 +1,13 @@
 import React, { createRef } from 'react';
-import Post from "../../common/Post";
+import Post from "../../commonComponents/Post";
 import ReactCardCarousel from "react-card-carousel";
 
 
 function FeaturedProject() {
     const carouselRef = createRef();
     return (
-        <div className='grid grid-row gap-8 w-[100%] h-[100%] mt-4 vsm:mb-80 md:mb-92 lg:mb-40 lg:-mt-28 xl:-mt-44'>
-            <div className="flex items-center justify-center text-3xl CustomizeFontH vsm:mb-40 sm:mb-64 lg:-mb-24 xl:-mb-40 ">
+        <div className='grid grid-row gap-8 w-[100%] h-[100%] mt-4 vsm:mb-72 sm:mb-80 md:mb-92 lg:mb-40 vsm:-mt-20 sm:-mt-20 lg:-mt-40 xl:-mt-48'>
+            <div className="flex items-center justify-center text-3xl CustomizeFontH vsm:mb-8 sm:mb-32 lg:-mb-24 xl:-mb-40 ">
                 OUR FEATURED PROJECTS
             </div>
             <div className="relative vsm:mb-92">

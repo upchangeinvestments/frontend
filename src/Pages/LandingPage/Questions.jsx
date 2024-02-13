@@ -1,8 +1,7 @@
 import React, { useState } from 'react';
 import '../../styles/Questions.css';
 import video from "../../assets/introVideo.mp4"
-import LoginButton from "../../common/LoginButton"
-import { select } from '@material-tailwind/react';
+// import { select } from '@material-tailwind/react';
 
 const quizData = [
   {

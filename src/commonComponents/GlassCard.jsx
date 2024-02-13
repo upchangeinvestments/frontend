@@ -21,7 +21,7 @@ function GlassCard(props) {
       </div>
       <div className="w-[60%]">
         <h3 className="text-xl mb-1 text-black CustomizeFontH">{props.title}</h3>
-        <p className="text-black text-left	text-lg">{props.description}</p>
+        <p className="text-black text-left text-lg pr-2">{props.description}</p>
       </div>
     </div>
   )

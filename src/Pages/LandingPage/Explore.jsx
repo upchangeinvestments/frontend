@@ -1,5 +1,5 @@
 import React from 'react'
-import PostCard from "../../common/PostCard";
+import PostCard from "../../commonComponents/PostCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
 

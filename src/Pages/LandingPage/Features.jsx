@@ -1,5 +1,5 @@
 import React, { useLayoutEffect, useRef, useState } from "react";
-import GlassCard from '../../common/GlassCard';
+import GlassCard from '../../commonComponents/GlassCard';
 
 
 function Features() {

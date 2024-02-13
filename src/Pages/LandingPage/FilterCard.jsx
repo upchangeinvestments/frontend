@@ -5,7 +5,7 @@ function FilterCard({ heading, items }) {
     const xNo = [Math.floor(Math.random() * 5), Math.floor(Math.random() * 5)];
 
     return (
-        <div className='flex flex-col items-center rounded-lg justify-center p-4 bg-white w-72 bg-white/50 backdrop-blur-[100px]'
+        <div className='flex flex-col items-center rounded-lg justify-center p-4 bg-white vsm:w-60 msm:w-72 bg-white/50 backdrop-blur-[100px]'
             style={{
                 backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
                 backgroundBlendMode: "overlay",

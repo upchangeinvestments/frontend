@@ -46,7 +46,7 @@ function Unique() {
                         maximizing their potential returns.
                     </p>
                 </div>
-                <div className='relative vsm:h-[67vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] 2xl:h-[40vh]'>
+                <div className='relative vsm:h-[67vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] xl:h-[57vh] 2xl:h-[40vh]'>
                     <div className='nowrap text-nowrap flex items-center justify-center text-2xl CustomizeFontH'>
                         NAVIGATE YOUR WEALTH
                     </div>
