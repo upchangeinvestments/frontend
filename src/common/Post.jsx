@@ -1,16 +1,16 @@
 import React from 'react';
 import "../styles/Post.css";
 
-function Post() {
+function Post({ Image }) {
     return (
         <div className="vsm:w-64 sm:w-80 md:w-96 lg:w-full">
             <div className="vsm:flex vsm:flex-col lg:flex lg:flex-row mx-auto">
                 {/* <div className="flex mx-auto px-4 "> */}
                 <div className="flex">
-                    <img className="md:rounded-l-lg w-auto" src="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="" />
+                    <img className="md:rounded-l-lg w-auto" src={Image} alt="" />
                 </div>
                 <div className="bg-white shadow-md vsm:p-6 md:p-4 lg:w-1/2 md:rounded-r-lg">
-                    <h3 className="vsm:text-base md:text-xl font-semibold flex justify-center">POST TITLE</h3>
+                    <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center">POST TITLE</h3>
                     <p className="text-gray-600 mb-2">property location</p>
                     <p className="text-gray-700 text-xs	text-justify">
                         Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eligendi

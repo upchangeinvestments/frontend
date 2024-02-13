@@ -3,7 +3,7 @@ import React from 'react'
 function GlassCard(props) {
   return (
     <div
-      className="w-auto bg-white/20 backdrop-blur-sm  flex flex-row justify-center items-center shadow-lg hover:shadow-xl py-2"
+      className="w-auto bg-white/20 backdrop-blur-sm  flex flex-row justify-center items-center shadow-lg rounded-lg hover:shadows-xl py-2"
       style={{
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
         backgroundBlendMode: "overlay",
@@ -11,7 +11,7 @@ function GlassCard(props) {
     >
       <div className="">
         <div
-          className="w-32 h-32 mr-4"
+          className={props.index === 2 ? "w-24 h-24 mr-4" : "w-32 h-32 mr-4"}
           style={{
             backgroundImage: `url(${props.image})`,
             backgroundSize: "cover",
@@ -20,7 +20,7 @@ function GlassCard(props) {
         />
       </div>
       <div className="w-[60%]">
-        <h3 className="text-xl font-bold mb-1 text-black">{props.title}</h3>
+        <h3 className="text-xl mb-1 text-black CustomizeFontH">{props.title}</h3>
         <p className="text-black text-left	text-lg">{props.description}</p>
       </div>
     </div>
