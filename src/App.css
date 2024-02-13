@@ -3,10 +3,16 @@
 @font-face{
     font-family: "Archive";
     src:url("./assets/archive-regular-webfont.woff2");
+    font-family: "Abhaya";
+    src:url("./assets/AbhayaLibre-Medium-webfont.woff");
 }
+
 body{
     font-family: 'Asap', sans-serif;
 }
 .CustomizeFontH{
     font-family: "Archive", 'Asap', sans-serif;
+}
+.Font2{
+    font-family: "Abhaya", Helvetica, sans-serif;
 }

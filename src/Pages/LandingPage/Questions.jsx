@@ -127,7 +127,7 @@ const Questions = () => {
       </div>
       <div className="flex vsm:flex-col lg:flex-row w-full mx-16 lg:items-center lg:justify-center">
         <div className="vsm:w-full vsm:px-6 vsm:mb-6 lg:w-6/12 flex items-center vsm:justify-center lg:justify-end px-4 xl:w-[40%]">
-          <video className="rounded-xl lg:-mr-4 " src={video} autoPlay controls loop></video>
+          <video className="rounded-xl lg:-mr-4 " src={video} autoPlay controls loop muted></video>
         </div>
         <div className="vsm:w-full vsm:px-6  lg:w-6/12 flex items-center justify-center lg:-mt-4">
           {currentQuiz < quizData.length ? (

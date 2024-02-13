@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginButton from "./LoginButton";
+import "../styles/Post.css";
 
 const RealEstateCard = ({ location, Image }) => {
     return (
@@ -28,7 +29,7 @@ const RealEstateCard = ({ location, Image }) => {
                     </div>
                 </div>
                 <div className="flex justify-center items-center mt-4">
-                    <LoginButton Text="Know more..." className="text-base" />
+                    <LoginButton Text="Know more..." link="#" className="text-base" />
                     {/* <button className="bg-[#9747FF] text-white py-2 px-4 rounded-lg  hover:bg-purple-600">Know more...</button> */}
                 </div>
             </div>

@@ -84,3 +84,31 @@ body{
     }
 }
 
+.scroller {
+    height: 1.2em;
+    line-height: 1.2em;
+    position: relative;
+    /* overflow: hidden; */
+    text-align: center;
+  }
+  .scroller > span {
+    position: absolute;
+    top: 0;
+    animation: verticalSlider 6s infinite;
+    /* font-weight: bold; */
+    background-color: transparent;
+  }
+  @keyframes verticalSlider {
+    0% {
+      top: 0;
+    }
+    33.3% {
+      top: -1.2em;
+    }
+    66.7% {
+      top: -2.4em;
+    }
+    100% {
+      top: -3.6em;
+    }
+  }

@@ -34,7 +34,7 @@ function Unique() {
                 </div> */}
             </div>
             <div className="px-4 vsm:grid vsm:gap-4 lg:gap-x-8 vsm:mx-4 md:mx-24 lg:flex">
-                <div className="lg:w-[50%] flex flex-col items-center justify-start">
+                <div className="lg:w-[50%] flex flex-col items-center justify-center lg:-mt-12">
                     <h2 className="text-2xl CustomizeFontH">WHO ARE WE?</h2>
                     <p className='text-justify'>
                         UpChange Investment offers a comprehensive perspective on a diverse
@@ -45,12 +45,6 @@ function Unique() {
                         well-informed decisions when allocating their capital, thereby
                         maximizing their potential returns.
                     </p>
-                    <div className='flex-col items-center justify-center my-4 hidden'>
-                        <p className='font-semibold text-xl'>Filter your investment by </p>
-                        <ul className='text-base list-disc flex items-center justify-center flex-col'>
-
-                        </ul>
-                    </div>
                 </div>
                 <div className='relative vsm:h-[67vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] 2xl:h-[40vh]'>
                     <div className='nowrap text-nowrap flex items-center justify-center text-2xl CustomizeFontH'>

@@ -38,9 +38,5 @@
     .progress::-moz-progress-bar {
       border-radius: 10px;
     }
-  
-    .progress1::-webkit-progress-value {
-      background: #dc6fd7;
-    }
   }
   

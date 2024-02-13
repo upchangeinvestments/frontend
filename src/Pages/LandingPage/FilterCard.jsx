@@ -12,7 +12,7 @@ function FilterCard({ heading, items }) {
             }}
         >
             <h2 className="text-[#9747FF] font-bold text-lg">{heading}</h2>
-            <ol className="relative border-s border-purple-500 dark:border-purple-700 -py-8 my-8 h-[30%]">
+            <ol className="relative border-s border-purple-500 dark:border-purple-700 -py-8 my-6 h-[30%]">
                 {items.map((element, index) => (
                     <li className="ms-6" key={index}>
                         <span className="absolute flex items-center justify-center w-2 h-2 rounded-full -left-1 ">
