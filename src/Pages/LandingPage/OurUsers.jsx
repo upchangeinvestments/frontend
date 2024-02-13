@@ -17,7 +17,7 @@ function OurUsers() {
     return (
         <section className="bg-transparent pb-2 ">
             <div className="mx-auto">
-                <h2 className="text-3xl font-bold mb-2 text-center">OUR USERS</h2>
+                <h2 className="text-3xl CustomizeFontH mb-2 text-center">OUR USERS</h2>
                 <p className="text-lg mx-auto text-[#A474E2] text-center">
                     Where Professionals Unite: From Wall Street to Main Street, we bring
                     together the best of Bank of America, PWC, 7/11, Citi Bank, Amazon,
@@ -34,7 +34,7 @@ function OurUsers() {
                         speed={60}>
                         <UsersComponent image={SevenEleven} className="" />
                         <UsersComponent image={Amazon} className="mt-4" />
-                        <UsersComponent image={EY} className="w-24 -mt-6" />
+                        <UsersComponent image={EY} className="w-[60px] -mt-4" />
                         <UsersComponent image={Philips} className="" />
                         <UsersComponent image={TripAdvisor} className="w-36 mt-2" />
                         <UsersComponent image={BankOfAmerica} className="w-44 " />

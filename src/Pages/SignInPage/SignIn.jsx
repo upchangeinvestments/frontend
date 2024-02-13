@@ -42,7 +42,7 @@ const App = () => {
             <div className="forms-container">
               <div className="form-control signup-form">
                 <form action="#">
-                  <h2 className=''>SIGN UP</h2>
+                  <h2 className='CustomizeFontH'>SIGN UP</h2>
                   <div className='social'>
                     <a href="#" className="social"><i className="fab fa-google-plus-g" style={{
                       fontSize: "24px"
@@ -73,7 +73,7 @@ const App = () => {
               </div>
               <div className="form-control signin-form">
                 <form className=''>
-                  <h2 className="text-2xl font-bold">SIGN IN</h2>
+                  <h2 className="text-2xl CustomizeFontH">SIGN IN</h2>
                   <div className='social'>
                     <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                     <a href="#" className="social"><i className='fab fa-apple'></i></a>
@@ -82,12 +82,13 @@ const App = () => {
                   {/* <FaUser className='icon'/> */}
                   <input type="password" placeholder="Password" required />
                   {/* <FaLock className='icon'/> */}
-                  <button type='submit'>LOGIN</button>
+                  <button type='submit' className='w-[65%]'>LOGIN</button>
+                  <a href="#"><p className="">Forgot password</p></a>
                   <p className='mt-8'>
                     {/* <input type="checkbox" />   I agree to all statements in terms of service */}
                     <p>Don't have an account? <span id="signUp" onClick={SignInButtonClick}><a
                       href="#"
-                      className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
+                      className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#9747FF] hover:bg-purple-600"
                     >
                       SIGN UP
                     </a></span>
@@ -100,8 +101,8 @@ const App = () => {
               <div className="intro-control signin-intro">
                 <div className="intro-control__inner">
                   <div className="">
-                    <h2 className="md:text-xl lg:text-2xl font-bold">
-                      <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> UPCHANGE INVESTMENTS
+                    <h2 className="md:text-xl lg:text-2xl CustomizeFontH">
+                      <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> <span className='CustomizeFontH'>UPCHANGE INVESTMENTS</span>
                     </h2>
                   </div>
 
@@ -128,8 +129,8 @@ const App = () => {
               <div className="intro-control signup-intro">
                 <div className="intro-control__inner">
                   <div className="">
-                    <h2 className='md:text-xl lg:text-2xl font-bold'>
-                      <font color="#0c0b0b">WELCOME TO</font> <br /> UPCHANGE INVESTMENTS
+                    <h2 className='md:text-xl lg:text-2xl CustomizeFontH'>
+                      <font color="#0c0b0b ">WELCOME TO</font> <br /> <span className=''>UPCHANGE INVESTMENTS</span>
                     </h2>
                   </div>
                   {/* <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p> */}
@@ -157,6 +158,7 @@ const App = () => {
           </div>
         </div>
       </div >
+      {/* Mobile screen Page */}
       <div className="lg:hidden SignInMobile">
         <NavBar className="" />
         <div className="FormMobile">
@@ -210,6 +212,7 @@ const App = () => {
                 <input type="password" placeholder="Password" required />
                 {/* <FaLock className='icon'/> */}
                 <button type='submit'>LOGIN</button>
+                <a href="#"><p className="">Forgot password</p></a>
                 <p className='mt-8'>
                   {/* <input type="checkbox" />   I agree to all statements in terms of service */}
                   <p>Don't have an account? <span id="signUp" onClick={SignInButtonClick}>SIGN UP</span>

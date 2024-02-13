@@ -57,7 +57,7 @@
   margin-top: -20px;
 }
 
-.forms-container .form-control form {
+.forms-container form {
   display: flex;
   flex-direction: column;
   margin: 0px 30px;
@@ -77,21 +77,6 @@
 
 .signup-form form input{
   width: 120%;
-}
-
-.form-control form button {
-  border: none;
-  padding: 7px;
-  margin-top: 5px;
-  background-color: rgba(255, 251, 251, 0.5);
-  border-radius: 5px;
-  color: #110f0f;
-  cursor: pointer;
-  width: 50%;
-}
-
-.form-control form button:focus {
-  outline: none;
 }
 
 .form-control span {
@@ -218,20 +203,6 @@
 
 }
 
-.intros-container .intro-control button {
-  border: none;
-  padding: 15px 30px;
-  background-color: rgba(248, 245, 245, 0.5);
-  border-radius: 5px;
-  color: #0c0b0b;
-  margin: 10px 0px;
-  cursor: pointer;
-}
-
-.intro-control button:focus,
-.intro-control button:hover {
-  outline: none;
-}
 
 .intro-control h4 {
   display: flex;
@@ -263,7 +234,8 @@
   transform: translateX(-100%);
 }
 
-.change .signup-form button {
+.signin-form button,
+.signup-form button {
   border: none;
   /* background-color: rgba(248, 245, 245, 0.5); */
   border-radius: 5px;
@@ -276,6 +248,9 @@
   background-color: #9747FF;
   color: white;
   font-weight: 600;
+}
+.signin-form button{
+  width: 43%;
 }
 
 .change .signin-form {
@@ -410,14 +385,17 @@
 }
 .FormMobile button{
   border: none;
-  background-color: rgba(248, 245, 245, 0.5);
+  /* background-color: rgba(248, 245, 245, 0.5); */
   border-radius: 5px;
-  color: #0a0a0a;
+  /* color: #0a0a0a; */
   cursor: pointer;
   padding: 7px;
   margin-top: 5px;
   cursor: pointer;
-  width: 50%;
+  width: 75%;
+  background-color: #9747FF;
+  color: white;
+  font-weight: 600;
 }
 .UPCIN{
   color: #9747FF;

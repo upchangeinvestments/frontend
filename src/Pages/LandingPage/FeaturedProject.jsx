@@ -7,7 +7,7 @@ function FeaturedProject() {
     const carouselRef = createRef();
     return (
         <div className='grid grid-row gap-8 w-[100%] h-[100%] mt-4 vsm:mb-80 md:mb-92 lg:mb-40 lg:-mt-28 xl:-mt-44'>
-            <div className="flex items-center justify-center text-3xl font-bold vsm:mb-40 sm:mb-64 lg:-mb-24 xl:-mb-40">
+            <div className="flex items-center justify-center text-3xl CustomizeFontH vsm:mb-40 sm:mb-64 lg:-mb-24 xl:-mb-40 ">
                 OUR FEATURED PROJECTS
             </div>
             <div className="relative vsm:mb-92">
@@ -27,13 +27,13 @@ function FeaturedProject() {
                 </button>
                 <ReactCardCarousel autoplay={true} autoplay_speed={5000} ref={carouselRef}>
                     <div>
-                        <Post />
+                        <Post Image="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div>
-                        <Post />
+                        <Post Image="https://images.unsplash.com/photo-1580587771525-78b9dba3b914?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                     <div>
-                        <Post />
+                        <Post Image="https://images.unsplash.com/photo-1515263487990-61b07816b324?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>
                 </ReactCardCarousel>
                 <button className="absolute vsm:right-2 md:right-12 z-10"

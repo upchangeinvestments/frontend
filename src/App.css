@@ -1,1 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap');
 
+@font-face{
+    font-family: "Archive";
+    src:url("./assets/archive-regular-webfont.woff2");
+}
+body{
+    font-family: 'Asap', sans-serif;
+}
+.CustomizeFontH{
+    font-family: "Archive", 'Asap', sans-serif;
+}
