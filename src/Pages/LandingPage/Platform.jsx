@@ -19,6 +19,9 @@ const HowInvestmentWorks = () => {
                     <div className="w-1/3 flex flex-col items-center justify-center">
                         <h2 className="text-xl CustomizeFontH mb-4 text-[#9747FF] border-t border-[#9747FF] w-5/6 mx-auto">UPCHANGE INVESTMENTS</h2>
                         <p className="mb-4 w-3/4 mx-auto text-justify	">We provide benefits to our users and firms.</p>
+                        <div className="w-full text-center flex justify-center" >
+                            <img className="w-[65%]" src="https://i.postimg.cc/k5YW45LC/footer-Logo.jpg" alt="" />
+                        </div>
                     </div>
                     <div className="w-1/3 flex flex-col items-center justify-center">
                         <h2 className="text-xl CustomizeFontH mb-4 text-[#9747FF] border-t border-[#9747FF] w-2/3 mx-auto">FIRMS</h2>

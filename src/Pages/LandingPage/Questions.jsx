@@ -47,7 +47,7 @@ const Questions = () => {
               type="radio"
               name="answer"
               id="a"
-              className="answer text-center border-[1px]"
+              className="answer text-center"
               onClick={() => {
                 setSelectedAnswer([...selectedAnswer, "a"]);
                 setCurrentQuiz(currentQuiz + 1);
@@ -62,7 +62,7 @@ const Questions = () => {
               type="radio"
               name="answer"
               id="b"
-              className="answer border-[1px]"
+              className="answer"
               onClick={() => {
                 setSelectedAnswer([...selectedAnswer, "b"]);
                 setCurrentQuiz(currentQuiz + 1);
@@ -90,7 +90,7 @@ const Questions = () => {
           <li>
             <input
               type="radio"
-              name="answer border-[1px]"
+              name="answer"
               id="d"
               className="answer"
               onClick={() => {

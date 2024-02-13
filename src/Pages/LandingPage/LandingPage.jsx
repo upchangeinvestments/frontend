@@ -9,6 +9,7 @@ import OurUsers from "./OurUsers";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
 import Explore from "./Explore";
+import ListWithUs from "./ListWithUs"
 import Footer from "../../commonComponents/Footer"
 
 
@@ -24,6 +25,7 @@ function LandingPage() {
             <HowInvestmentWorks />
             <Explore />
             <FeaturedProject />
+            <ListWithUs />
             <Footer />
         </div>
     );

@@ -7,12 +7,13 @@ function Unique() {
     const getArcLabel = (params) => {
         return `${(params.value)}%`;
     };
-    const Headings = ["Category Type", "Location", "Investment Range", "Investment Hold Period", "ROI Percent"]
+    const Headings = ["Category Type", "Location", "Investment Range", "Investment Hold Period", "ROI Percent", "Company"]
     const LI1 = ["Commerical Property", "Rental Property", "Single-House Property", "Multi-House Property", "Housing Property"]
     const LI2 = ["Texas", "New York", "California", "Massachusetts", "Colorado"]
     const LI3 = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K"]
     const LI4 = ["0Yrs-1Yrs", "1rs-2rs", "2rs-5rs", "5rs-7rs", "7rs+"]
     const LI5 = ["0%-2%", "2%-5%", "5%-7%", "7%-10%", "10%+"]
+    const LI6 = ["RealtyMogul", "Cadre", "Fundrise", "Yieldstreet", "DiversyFund"]
 
     return (
         <div className="mx-auto p-4">
@@ -66,6 +67,9 @@ function Unique() {
                             </div>
                             <div>
                                 <FilterCard heading={`Filter by ${Headings[4]}`} items={LI5} />
+                            </div>
+                            <div>
+                                <FilterCard heading={`Filter by ${Headings[5]}`} items={LI6} />
                             </div>
                         </ReactCardCarousel>
                     </div>

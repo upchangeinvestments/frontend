@@ -9,7 +9,7 @@ function Tagline() {
       <div className="">
         ONE <span className="text-white">PLATFORM</span>
       </div>
-      <div className="flex flex-row items-center justify-start vsm:w-[22rem] msm:w-[24rem] vsm:h-[1em] vsm:overflow-y-hidden vsm:ml-4 msm:ml-12 md:ml-0">
+      <div className="flex flex-row items-center justify-start vsm:w-[22rem] msm:w-[24rem] vsm:h-[1em] vsm:overflow-y-hidden vsm:-ml-2 msm:ml-12 md:ml-0">
         <div className=""> <p className="">ENDLESS</p></div>
         <div className='scroller '>
           <span className='text-left ml-2 text-white'>

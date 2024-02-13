@@ -1,4 +1,6 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face{
     font-family: "Archive";
@@ -7,6 +9,18 @@
     src:url("./assets/AbhayaLibre-Medium-webfont.woff");
 }
 
+.public-sans-Stretch {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .montserrat-Stretch {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
 body{
     font-family: 'Asap', sans-serif;
 }

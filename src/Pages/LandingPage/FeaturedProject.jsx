@@ -6,8 +6,8 @@ import ReactCardCarousel from "react-card-carousel";
 function FeaturedProject() {
     const carouselRef = createRef();
     return (
-        <div className='grid grid-row gap-8 w-[100%] h-[100%] mt-4 vsm:mb-72 sm:mb-80 md:mb-92 lg:mb-40 vsm:-mt-20 sm:-mt-20 lg:-mt-40 xl:-mt-48'>
-            <div className="flex items-center justify-center text-3xl CustomizeFontH vsm:mb-8 sm:mb-32 lg:-mb-24 xl:-mb-40 ">
+        <div className='grid grid-row gap-8 w-[100%] h-[100%] mt-4 vsm:mb-72 sm:mb-80 md:mb-92 lg:mb-40 vsm:-mt-20 sm:-mt-20 lg:-mt-48 xl:-mt-64'>
+            <div className="flex items-center justify-center text-3xl CustomizeFontH vsm:mb-8 sm:mb-32 lg:-mb-40 xl:-mb-56 ">
                 OUR FEATURED PROJECTS
             </div>
             <div className="relative vsm:mb-92">
