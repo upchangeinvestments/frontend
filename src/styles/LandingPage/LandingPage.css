@@ -11,7 +11,7 @@ body{
     /* background-color: var(--bg); */
     
     /* background-image: url("../assets/Building.jpg"), linear-gradient(#eeedee31, #d13531); */
-    background-image: linear-gradient(to bottom, rgba(239, 239, 239, 0), #d8c5d9), url('../assets/Building.jpg');
+    background-image: linear-gradient(to bottom, rgba(239, 239, 239, 0), #d8c5d9), url('../../assets/Building.jpg');
     height: 100vh;
     background-position: center; 
     background-repeat: no-repeat; 

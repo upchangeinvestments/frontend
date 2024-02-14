@@ -1,5 +1,5 @@
 import React from 'react';
-import "../../styles/Platform.css";
+import "../../styles/LandingPage/Platform.css";
 import HowItWorks from './HowItWorks';
 
 const HowInvestmentWorks = () => {

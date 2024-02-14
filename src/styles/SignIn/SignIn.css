@@ -2,18 +2,19 @@
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 
 .SignIn{
-  /* background-image: url('../assets/Building.jpg'); */
+  /* background-image: url('../../assets/Building.jpg'); */
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
 .bg1{
-  background-image: url('../assets/Building.jpg');
+  background-image: url('../../assets/Building.jpg');
 }
 .bg2{
-  background-image: url('../assets/Building2.jpg');
+  background-image: url('../../assets/Building2.jpg');
 }
+
 .UserController{
   display: flex;
   justify-content: center;
@@ -23,7 +24,7 @@
 }
 
 .SignInContainer {
-  /* background-image: url('../assets/Building.jpg'); */
+  /* background-image: url('../../assets/Building.jpg'); */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
@@ -365,7 +366,7 @@
 }
 
 .SignInMobile{
-  background-image: url('../assets/Building.jpg');
+  background-image: url('../../assets/Building.jpg');
   /* height: 100vh; */
   background-size: cover;
   background-repeat: no-repeat;

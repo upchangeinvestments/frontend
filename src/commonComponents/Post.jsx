@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/Post.css";
+import "../styles/LandingPage/Post.css";
 
 function Post({ Image }) {
     return (

@@ -1,6 +1,6 @@
 import React from 'react';
 import LoginButton from "./LoginButton";
-import "../styles/Post.css";
+import "../styles/LandingPage/Post.css";
 
 const RealEstateCard = ({ location, Image }) => {
     return (

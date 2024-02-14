@@ -1,5 +1,5 @@
 import React from 'react'
-import '../styles/Footer.css'
+import '../styles/LandingPage/Footer.css'
 import { AiFillTwitterCircle, AiFillGoogleCircle } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa6";
 

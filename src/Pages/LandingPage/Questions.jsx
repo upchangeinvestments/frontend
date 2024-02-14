@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import '../../styles/Questions.css';
+import '../../styles/LandingPage/Questions.css';
 import video from "../../assets/introVideo.mp4"
 // import { select } from '@material-tailwind/react';
 

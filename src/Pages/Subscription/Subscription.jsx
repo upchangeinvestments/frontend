@@ -5,19 +5,19 @@ import NavBar from "../../commonComponents/NavBar"
 
 function Subscription() {
     return (
-        <div className="">
+        <div className="Subscription h-[100vh] overflow-y-scroll">
             <NavBar />
             <div className="flex items-center justify-center">
                 <div className="my-8">
                     <h1 className="text-3xl flex items-center justify-center montserrat-Stretch mb-8">CHOOSE YOUR PLAN</h1>
                     <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                        <div className="bg-transparent border-2 border-[#9747FF] rounded-3xl text-xl shadow p-6 ">
-                            <h2 className="text-xl font-bold mb-2 montserrat-Stretch">STANDARD</h2>
-                            <div className="my-6">
+                        <div className="border-2 border-[#9747FF] bg-[#faf2fa] rounded-3xl text-xl shadow p-6 premiumCard">
+                            <h2 className="text-xl font-bold mb-2 montserrat-Stretch text-[#9747FF]">STANDARD</h2>
+                            <div className="my-6 pricingText">
                                 <p className='text-center text-4xl'>$549</p>
                                 <p className='text-center text-base'>per month</p>
                             </div>
-                            <div className="pl-4 pr-8">
+                            <div className="pr-4">
                                 <ul className=''>
                                     <li className='flex items-center gap-4'>
                                         <div className=""><FaCheck className='text-[#9747FF]' /></div>
@@ -57,13 +57,13 @@ function Subscription() {
                             </div>
                             <button className="w-full mt-2 py-2 public-sans-Stretch text-black">SELECT</button>
                         </div>
-                        <div className="border-2 border-[#9747FF] bg-[#9747FF] rounded-3xl text-xl shadow p-6 text-[#e3e3e3]">
-                            <h2 className="text-xl font-bold mb-2 montserrat-Stretch">BUSINESS</h2>
-                            <div className="my-6">
+                        <div className="border-2 border-[#9747FF] bg-[#9747FF] rounded-3xl text-xl shadow p-6 text-[#e3e3e3] premiumCard">
+                            <h2 className="text-xl font-bold mb-2 montserrat-Stretch text-[#31e4c9]">BUSINESS</h2>
+                            <div className="my-6 pricingText">
                                 <p className='text-center text-4xl' >$795</p>
                                 <p className='text-center text-base'>per month</p>
                             </div>
-                            <div className="pl-4 pr-8">
+                            <div className="pr-4">
                                 <ul className=''>
                                     <li className='flex items-center gap-4'>
                                         <div className=""><FaCheck className='' /></div>
@@ -101,13 +101,13 @@ function Subscription() {
                             </div>
                             <button className="w-full mt-2 py-2 public-sans-Stretch text-black">SELECT</button>
                         </div>
-                        <div className="bg-transparent border-2 border-[#9747FF] rounded-3xl text-xl shadow p-6">
-                            <h2 className="text-xl font-bold mb-2 montserrat-Stretch">ENTERPRISE</h2>
-                            <div className="my-6">
+                        <div className="bg-[#faf2fa] border-2 border-[#9747FF] rounded-3xl text-xl shadow p-6 premiumCard">
+                            <h2 className="text-xl font-bold mb-2 montserrat-Stretch text-[#fd603a]">ENTERPRISE</h2>
+                            <div className="my-6 pricingText">
                                 <p className='text-center text-4xl'>$1495</p>
                                 <p className='text-center text-base'>per month</p>
                             </div>
-                            <div className="pl-4 pr-8">
+                            <div className="pr-4">
                                 <ul className=''>
                                     <li className='flex items-center gap-4'>
                                         <div className=""><FaCheck className='text-[#9747FF]' /></div>

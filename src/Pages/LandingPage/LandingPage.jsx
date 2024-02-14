@@ -1,4 +1,4 @@
-import "../../styles/LandingPage.css";
+import "../../styles/LandingPage/LandingPage.css";
 import NavBar from "../../commonComponents/NavBar";
 import Landing from "./Landing";
 import Features from "./Features";
