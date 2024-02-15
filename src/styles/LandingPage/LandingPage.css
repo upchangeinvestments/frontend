@@ -6,13 +6,14 @@ body{
     background-color: var(--bg);
 }
 
+
 .main{
     position: relative;
-    /* background-color: var(--bg); */
-    
-    /* background-image: url("../assets/Building.jpg"), linear-gradient(#eeedee31, #d13531); */
-    background-image: linear-gradient(to bottom, rgba(239, 239, 239, 0), #d8c5d9), url('../../assets/Building.jpg');
-    height: 100vh;
+    overflow-x: hidden;
+    background-image: -webkit-linear-gradient(
+        rgba(255, 255, 255, 0.2) 30%,
+        rgba(187, 151, 218, 0.7) 100%
+    ), url('../../assets/Building.jpg');
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;   

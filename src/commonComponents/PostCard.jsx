@@ -22,7 +22,7 @@ const RealEstateCard = ({ location, Image }) => {
                         Min Investment: <span className='font-bold'>$10K</span>
                     </p>
                 </div>
-                <div className="progress-section " data-aos="fade-left" data-aos-once="true">
+                <div className="progress-section">
                     <div className="task-progress flex items-center justify-center">
                         <progress className="progress progress1" max="100" value="57"></progress>
                         <p className="text-xs text-nowrap ml-2">57% Funded</p>

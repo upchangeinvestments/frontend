@@ -5,8 +5,19 @@
 @font-face{
     font-family: "Archive";
     src:url("./assets/archive-regular-webfont.woff2");
+}
+@font-face{
+    font-family: "ArchiveLight";
+    src:url("./assets/archives-light.ttf");
+}
+
+@font-face{
     font-family: "Abhaya";
     src:url("./assets/AbhayaLibre-Medium-webfont.woff");
+   
+}
+
+@font-face{
     font-family: "CyGroteskGrand";
     src:url("./assets/cy-grotesk-wide-medium.ttf");
 }
@@ -24,8 +35,6 @@
     font-style: normal;
   }
 
-
-
 body{
     font-family: 'Asap', sans-serif;
 }
@@ -35,14 +44,22 @@ body{
 .Font2{
     font-family: "Abhaya", Helvetica, sans-serif;
 }
+.ButtonFont{
+    font-family:  "ArchiveLight", "Asap", "sans-serif";
+}
 
 /* ...............css for the Subscription Page............... */
 
 .Subscription{
-    background: -webkit-linear-gradient(
-        rgba(255, 255, 255, 0.377) 30%,
+
+    background-image: -webkit-linear-gradient(
+        rgba(255, 255, 255, 0.2) 30%,
         rgba(183, 136, 224, 0.557) 100%
-    ); 
+    ), url('./assets/Building.jpg');
+    height: 100vh;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;  
 }
 .premiumCard{
     background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(183, 136, 224, 0.498) );

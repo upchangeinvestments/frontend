@@ -35,9 +35,9 @@ function Unique() {
                 </div> */}
             </div>
             <div className="px-4 vsm:grid vsm:gap-4 lg:gap-x-8 vsm:mx-4 md:mx-24 lg:flex">
-                <div className="lg:w-[50%] flex flex-col items-center justify-center lg:-mt-12">
+                <div className="lg:w-[50%] flex flex-col items-center justify-center lg:-mt-12 text-white">
                     <h2 className="text-2xl CustomizeFontH">WHO ARE WE?</h2>
-                    <p className='text-justify'>
+                    <p className='text-justify mt-2 xl:pl-16'>
                         UpChange Investment offers a comprehensive perspective on a diverse
                         array of real estate investment opportunities, sourced from various
                         firms. It establishes a streamlined system that enables investors to
@@ -47,7 +47,7 @@ function Unique() {
                         maximizing their potential returns.
                     </p>
                 </div>
-                <div className='relative vsm:h-[67vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] xl:h-[57vh] 2xl:h-[40vh]'>
+                <div className='relative vsm:h-[58vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] xl:h-[57vh] 2xl:h-[40vh] vsm:mb-4 lg:mb-0'>
                     <div className='nowrap text-nowrap flex items-center justify-center text-2xl CustomizeFontH'>
                         NAVIGATE YOUR WEALTH
                     </div>

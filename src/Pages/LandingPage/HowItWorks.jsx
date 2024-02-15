@@ -1,15 +1,15 @@
-import React from 'react';
-// import "react-responsive-carousel/lib/styles/carousel.min.css"; // requires a loader
-// import { Carousel } from 'react-responsive-carousel';
-// import carousel1 from "../../assets/carousel1.svg"
-// import carousel2 from "../../assets/carousel2.svg"
-// import carousel3 from "../../assets/carousel3.svg"
-// import video from "../../assets/introVideo.mp4"
+import React, { useEffect } from 'react';
 import img2 from "../../assets/HowItWorks.png"
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const HowItWorks = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   return (
-    <div className='grid vsm:grid-cols-1 md:grid-cols-2 my-8 vsm:mx-6 lg:mx-12 vsm:gap-8 lg:gap-20 vsm:mb-12'>
+    <div className='grid vsm:grid-cols-1 md:grid-cols-2 my-8 vsm:mx-6 lg:mx-12 vsm:gap-8 lg:gap-20 vsm:mb-12' >
+      {/* data-aos="zoom-out-up" */}
       <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center shadow-lg hover:shadow-xl pb-8"
         style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))", backgroundBlendMode: "overlay" }}>
         <div className="my-4 text-2xl CustomizeFontH">
@@ -51,7 +51,7 @@ const HowItWorks = () => {
           <div className="">
             <svg className="SlideX h-10 w-10" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#9747FF" d="M416 208c0 45.9-14.9 88.3-40 122.7L502.6 457.4c12.5 12.5 12.5 32.8 0 45.3s-32.8 12.5-45.3 0L330.7 376c-34.4 25.2-76.8 40-122.7 40C93.1 416 0 322.9 0 208S93.1 0 208 0S416 93.1 416 208zM208 352a144 144 0 1 0 0-288 144 144 0 1 0 0 288z" /></svg>
           </div>
-          <div className="bg-[#D8C5D9] z-40">
+          <div className="z-40">
             <div className="text-2xl CustomizeFontH">Explore</div>
             <div className="text-lg	text-justify text-wrap	">You can browse through the available Alternative <span className="text-[#9747FF] font-bold"> Investment Opportunities </span> and set up a detailed call with <span className="text-[#9747FF] font-bold">firms</span> to further understand the product.</div>
           </div>

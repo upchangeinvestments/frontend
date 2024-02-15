@@ -1,6 +1,8 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import '../../styles/LandingPage/Questions.css';
 import video from "../../assets/introVideo.mp4"
+import Aos from "aos";
+import "aos/dist/aos.css";
 // import { select } from '@material-tailwind/react';
 
 const quizData = [
@@ -29,6 +31,9 @@ const quizData = [
 
 
 const Questions = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   const [currentQuiz, setCurrentQuiz] = useState(0);
   // const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
@@ -41,7 +46,7 @@ const Questions = () => {
     return (
       <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
         <p className='text-left px-4 md:w-[100%] flex justify-center'>{currentQuizData.question}</p>
-        <ul className='md:w-[65%]'>
+        <ul className='vsm:w-[90%] md:w-[65%]'>
           <li>
             <input
               type="radio"
