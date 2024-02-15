@@ -1,12 +1,74 @@
 @import url('https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap');
 
 @font-face{
     font-family: "Archive";
     src:url("./assets/archive-regular-webfont.woff2");
 }
+@font-face{
+    font-family: "ArchiveLight";
+    src:url("./assets/archives-light.ttf");
+}
+
+@font-face{
+    font-family: "Abhaya";
+    src:url("./assets/AbhayaLibre-Medium-webfont.woff");
+   
+}
+
+@font-face{
+    font-family: "CyGroteskGrand";
+    src:url("./assets/cy-grotesk-wide-medium.ttf");
+}
+
+.public-sans-Stretch {
+    font-family: "Public Sans", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 700;
+    font-style: normal;
+  }
+  .montserrat-Stretch {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 600;
+    font-style: normal;
+  }
+
 body{
     font-family: 'Asap', sans-serif;
 }
 .CustomizeFontH{
     font-family: "Archive", 'Asap', sans-serif;
 }
+.Font2{
+    font-family: "Abhaya", Helvetica, sans-serif;
+}
+.ButtonFont{
+    font-family:  "ArchiveLight", "Asap", "sans-serif";
+}
+
+/* ...............css for the Subscription Page............... */
+
+.Subscription{
+
+    background-image: -webkit-linear-gradient(
+        rgba(255, 255, 255, 0.2) 30%,
+        rgba(183, 136, 224, 0.557) 100%
+    ), url('./assets/Building.jpg');
+    height: 100vh;
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;  
+}
+.premiumCard{
+    background-image: linear-gradient(to bottom, rgba(255, 255, 255, 0), rgba(183, 136, 224, 0.498) );
+}
+.pricingText{
+    font-family: "CyGroteskGrand";
+}
+.pricingText p:first-child{
+    letter-spacing: 5px;
+}
+
+/* ...............End of css for the Subscription Page............... */

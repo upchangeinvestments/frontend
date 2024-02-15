@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/Post.css";
+import "../styles/LandingPage/Post.css";
 
 function Post({ Image }) {
     return (
@@ -37,20 +37,14 @@ function Post({ Image }) {
 
                     <div className="mt-2">
                         <div className="flex items-center mb-4">
-                            <div className="progress-section" data-aos="fade-left" data-aos-once="true">
+                            <div className="progress-section">
                                 <div className="task-progress flex items-center justify-center">
                                     <progress className="progress progress1" max="100" value="57"></progress>
                                     <p className="text-xs text-nowrap ml-2">57% Funded</p>
                                 </div>
                             </div>
                         </div>
-                        <div className="flex overflow-x-scroll gap-x-2 ButtonsSection "
-                            style={{
-                                'WebkitScrollbar': 'width: 3px; background-color: #f5f5f5',
-                                'WebkitScrollbarThumb': 'background-color: #cccccc; border-radius: 3px',
-                                /* Add other vendor prefixes as needed */
-                            }}
-                        >
+                        <div className="flex overflow-x-scroll gap-x-2 ButtonSection">
                             <div className="border-slate-400 border rounded-lg ">
                                 <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">Documents</button>
                             </div>

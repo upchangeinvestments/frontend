@@ -1,5 +1,5 @@
-import "../../styles/LandingPage.css";
-import NavBar from "../../common/NavBar";
+import "../../styles/LandingPage/LandingPage.css";
+import NavBar from "../../commonComponents/NavBar";
 import Landing from "./Landing";
 import Features from "./Features";
 import Questions from "./Questions";
@@ -9,12 +9,13 @@ import OurUsers from "./OurUsers";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
 import Explore from "./Explore";
-import Footer from "../../common/Footer"
+import ListWithUs from "./ListWithUs"
+import Footer from "../../commonComponents/Footer"
 
 
 function LandingPage() {
     return (
-        <div className="main vsm:w-[125vw] md:w-[107vw] lg:w-[100%]">
+        <div className="main vsm:w-[125vw] md:w-[107vw] lg:w-[100%] vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
             <NavBar />
             <Landing />
             <Unique />
@@ -24,6 +25,7 @@ function LandingPage() {
             <HowInvestmentWorks />
             <Explore />
             <FeaturedProject />
+            <ListWithUs />
             <Footer />
         </div>
     );

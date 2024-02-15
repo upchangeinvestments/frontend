@@ -7,12 +7,13 @@ function Unique() {
     const getArcLabel = (params) => {
         return `${(params.value)}%`;
     };
-    const Headings = ["Category Type", "Location", "Investment Range", "Investment Hold Period", "ROI Percent"]
+    const Headings = ["Category Type", "Location", "Investment Range", "Investment Hold Period", "ROI Percent", "Company"]
     const LI1 = ["Commerical Property", "Rental Property", "Single-House Property", "Multi-House Property", "Housing Property"]
     const LI2 = ["Texas", "New York", "California", "Massachusetts", "Colorado"]
     const LI3 = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K"]
     const LI4 = ["0Yrs-1Yrs", "1rs-2rs", "2rs-5rs", "5rs-7rs", "7rs+"]
     const LI5 = ["0%-2%", "2%-5%", "5%-7%", "7%-10%", "10%+"]
+    const LI6 = ["RealtyMogul", "Cadre", "Fundrise", "Yieldstreet", "DiversyFund"]
 
     return (
         <div className="mx-auto p-4">
@@ -34,9 +35,9 @@ function Unique() {
                 </div> */}
             </div>
             <div className="px-4 vsm:grid vsm:gap-4 lg:gap-x-8 vsm:mx-4 md:mx-24 lg:flex">
-                <div className="lg:w-[50%] flex flex-col items-center justify-start">
+                <div className="lg:w-[50%] flex flex-col items-center justify-center lg:-mt-12 text-white">
                     <h2 className="text-2xl CustomizeFontH">WHO ARE WE?</h2>
-                    <p className='text-justify'>
+                    <p className='text-justify mt-2 xl:pl-16'>
                         UpChange Investment offers a comprehensive perspective on a diverse
                         array of real estate investment opportunities, sourced from various
                         firms. It establishes a streamlined system that enables investors to
@@ -45,14 +46,8 @@ function Unique() {
                         well-informed decisions when allocating their capital, thereby
                         maximizing their potential returns.
                     </p>
-                    <div className='flex-col items-center justify-center my-4 hidden'>
-                        <p className='font-semibold text-xl'>Filter your investment by </p>
-                        <ul className='text-base list-disc flex items-center justify-center flex-col'>
-
-                        </ul>
-                    </div>
                 </div>
-                <div className='relative vsm:h-[67vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] 2xl:h-[40vh]'>
+                <div className='relative vsm:h-[58vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] xl:h-[57vh] 2xl:h-[40vh] vsm:mb-4 lg:mb-0'>
                     <div className='nowrap text-nowrap flex items-center justify-center text-2xl CustomizeFontH'>
                         NAVIGATE YOUR WEALTH
                     </div>
@@ -72,6 +67,9 @@ function Unique() {
                             </div>
                             <div>
                                 <FilterCard heading={`Filter by ${Headings[4]}`} items={LI5} />
+                            </div>
+                            <div>
+                                <FilterCard heading={`Filter by ${Headings[5]}`} items={LI6} />
                             </div>
                         </ReactCardCarousel>
                     </div>

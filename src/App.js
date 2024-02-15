@@ -1,7 +1,8 @@
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import './App.css';
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import SubscriptionPage from "./Pages/Subscription/SubscriptionPage";
 
 
 function App() {
@@ -10,6 +11,7 @@ function App() {
       <Routes>
         <Route path="/" element={<LandingPage />} />
         <Route path="/signin" element={<SignInPage />} />
+        <Route path="/premium" element={< SubscriptionPage />} />
       </Routes>
     </BrowserRouter>
     // figure out the css for the zoom-in and zoom-out and implemet as well. 

@@ -15,15 +15,20 @@ import Samsung from "../../assets/UsersLogos/samsung.png";
 
 function OurUsers() {
     return (
-        <section className="bg-transparent pb-2 ">
+        <section className="pb-2 "
+            style={{
+                backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
+                backgroundBlendMode: "overlay",
+            }}
+        >
             <div className="mx-auto">
-                <h2 className="text-3xl CustomizeFontH mb-2 text-center">OUR USERS</h2>
-                <p className="text-lg mx-auto text-[#A474E2] text-center">
+                <h2 className="text-3xl CustomizeFontH mb-2 text-center text-[#9747FF] pt-4">OUR USERS</h2>
+                <p className="text-lg mx-auto text-black text-center">
                     Where Professionals Unite: From Wall Street to Main Street, we bring
                     together the best of Bank of America, PWC, 7/11, Citi Bank, Amazon,
                     and more!
                 </p>
-                <p className="text-center text-[#A474E2] font-bold">
+                <p className="text-center text-black font-bold">
                     Join the synergy of success with our multi-background community.
                 </p>
                 <div className="flex items-center justify-center">

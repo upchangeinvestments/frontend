@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import NavBar from "../../common/NavBar"
-import '../../styles/SignIn.css';
+import NavBar from "../../commonComponents/NavBar"
+import '../../styles/SignIn/SignIn.css';
 // import { FaUser, FaLock } from "react-icons/fa";
 
 const ConnetWithUs = () => {

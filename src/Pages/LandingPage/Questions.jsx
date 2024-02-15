@@ -1,8 +1,9 @@
-import React, { useState } from 'react';
-import '../../styles/Questions.css';
+import React, { useState, useEffect } from 'react';
+import '../../styles/LandingPage/Questions.css';
 import video from "../../assets/introVideo.mp4"
-import LoginButton from "../../common/LoginButton"
-import { select } from '@material-tailwind/react';
+import Aos from "aos";
+import "aos/dist/aos.css";
+// import { select } from '@material-tailwind/react';
 
 const quizData = [
   {
@@ -30,6 +31,9 @@ const quizData = [
 
 
 const Questions = () => {
+  useEffect(() => {
+    Aos.init();
+  }, []);
   const [currentQuiz, setCurrentQuiz] = useState(0);
   // const [score, setScore] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
@@ -42,13 +46,13 @@ const Questions = () => {
     return (
       <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
         <p className='text-left px-4 md:w-[100%] flex justify-center'>{currentQuizData.question}</p>
-        <ul className='md:w-[65%]'>
+        <ul className='vsm:w-[90%] md:w-[65%]'>
           <li>
             <input
               type="radio"
               name="answer"
               id="a"
-              className="answer text-center border-[1px]"
+              className="answer text-center"
               onClick={() => {
                 setSelectedAnswer([...selectedAnswer, "a"]);
                 setCurrentQuiz(currentQuiz + 1);
@@ -63,7 +67,7 @@ const Questions = () => {
               type="radio"
               name="answer"
               id="b"
-              className="answer border-[1px]"
+              className="answer"
               onClick={() => {
                 setSelectedAnswer([...selectedAnswer, "b"]);
                 setCurrentQuiz(currentQuiz + 1);
@@ -91,7 +95,7 @@ const Questions = () => {
           <li>
             <input
               type="radio"
-              name="answer border-[1px]"
+              name="answer"
               id="d"
               className="answer"
               onClick={() => {
@@ -127,7 +131,7 @@ const Questions = () => {
       </div>
       <div className="flex vsm:flex-col lg:flex-row w-full mx-16 lg:items-center lg:justify-center">
         <div className="vsm:w-full vsm:px-6 vsm:mb-6 lg:w-6/12 flex items-center vsm:justify-center lg:justify-end px-4 xl:w-[40%]">
-          <video className="rounded-xl lg:-mr-4 " src={video} autoPlay controls loop></video>
+          <video className="rounded-xl lg:-mr-4 " src={video} autoPlay controls loop muted></video>
         </div>
         <div className="vsm:w-full vsm:px-6  lg:w-6/12 flex items-center justify-center lg:-mt-4">
           {currentQuiz < quizData.length ? (

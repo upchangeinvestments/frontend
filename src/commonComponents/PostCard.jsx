@@ -1,5 +1,6 @@
 import React from 'react';
 import LoginButton from "./LoginButton";
+import "../styles/LandingPage/Post.css";
 
 const RealEstateCard = ({ location, Image }) => {
     return (
@@ -21,14 +22,14 @@ const RealEstateCard = ({ location, Image }) => {
                         Min Investment: <span className='font-bold'>$10K</span>
                     </p>
                 </div>
-                <div className="progress-section " data-aos="fade-left" data-aos-once="true">
+                <div className="progress-section">
                     <div className="task-progress flex items-center justify-center">
                         <progress className="progress progress1" max="100" value="57"></progress>
                         <p className="text-xs text-nowrap ml-2">57% Funded</p>
                     </div>
                 </div>
                 <div className="flex justify-center items-center mt-4">
-                    <LoginButton Text="Know more..." className="text-base" />
+                    <LoginButton Text="Know more" link="#" className="text-base" />
                     {/* <button className="bg-[#9747FF] text-white py-2 px-4 rounded-lg  hover:bg-purple-600">Know more...</button> */}
                 </div>
             </div>
