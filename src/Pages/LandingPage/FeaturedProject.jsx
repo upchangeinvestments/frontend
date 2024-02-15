@@ -6,11 +6,11 @@ import ReactCardCarousel from "react-card-carousel";
 function FeaturedProject() {
     const carouselRef = createRef();
     return (
-        <div className='grid grid-row gap-8 w-[100%] h-[100%] mt-4 vsm:mb-72 sm:mb-80 md:mb-92 lg:mb-32 vsm:-mt-40 sm:-mt-20 lg:-mt-48 xl:-mt-64'>
-            <div className="flex items-center justify-center text-3xl CustomizeFontH vsm:mb-8 sm:mb-32 lg:-mb-40 xl:-mb-56 ">
+        <div className='grid grid-row gap-8 w-[100%] h-[700px] vsm:-mt-[130px] md:-mt-[120px] lg:-mt-[230px] xl:-mt-[210px] vsm:mb-[250px] md:mb-[270px] lg:mb-[130px] 2xl:mb-[190px]'>
+            <div className="flex items-center justify-center text-3xl CustomizeFontH md:mb-[50px] lg:-mb-[190px] xl:-mb-[170px] 2xl:-mb-[120px]">
                 OUR FEATURED PROJECTS
             </div>
-            <div className="relative vsm:mb-92">
+            <div className="relative">
                 <button className="absolute vsm:left-2 md:left-12 z-10"
                     style={{
                         top: "50%",
@@ -25,7 +25,7 @@ function FeaturedProject() {
                     onClick={() => carouselRef.current.prev()}>
                     <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512"><path fill="#E2E2E2" d="M9.4 233.4c-12.5 12.5-12.5 32.8 0 45.3l128 128c12.5 12.5 32.8 12.5 45.3 0s12.5-32.8 0-45.3L109.3 288 480 288c17.7 0 32-14.3 32-32s-14.3-32-32-32l-370.7 0 73.4-73.4c12.5-12.5 12.5-32.8 0-45.3s-32.8-12.5-45.3 0l-128 128z" /></svg>
                 </button>
-                <ReactCardCarousel autoplay={false} autoplay_speed={5000} ref={carouselRef}>
+                <ReactCardCarousel autoplay={true} autoplay_speed={5000} ref={carouselRef}>
                     <div>
                         <Post Image="https://images.unsplash.com/photo-1448630360428-65456885c650?q=80&w=2067&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
                     </div>

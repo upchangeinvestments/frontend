@@ -135,7 +135,7 @@ const App = () => {
                   </div>
                   {/* <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p> */}
                   <div className="socials">
-                    <p className='vsm:text-xs lg:text-sm'>Register to access all features of our services</p>
+                    <p className='vsm:text-xs lg:text-sm'>Connect with us</p>
                     <div className='social'>
                       <a href="#" className="social"><i className="fab fa-facebook-f" style={{
                         fontSize: "20px"

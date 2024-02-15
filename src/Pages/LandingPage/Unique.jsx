@@ -4,9 +4,6 @@ import FilterCard from './FilterCard';
 import ReactCardCarousel from "react-card-carousel";
 
 function Unique() {
-    const getArcLabel = (params) => {
-        return `${(params.value)}%`;
-    };
     const Headings = ["Category Type", "Location", "Investment Range", "Investment Hold Period", "ROI Percent", "Company"]
     const LI1 = ["Commerical Property", "Rental Property", "Single-House Property", "Multi-House Property", "Housing Property"]
     const LI2 = ["Texas", "New York", "California", "Massachusetts", "Colorado"]
@@ -47,7 +44,7 @@ function Unique() {
                         maximizing their potential returns.
                     </p>
                 </div>
-                <div className='relative vsm:h-[58vh] md:h-[70vh] lg:mx-[7vw] lg:h-[63vh] xl:h-[57vh] 2xl:h-[40vh] vsm:mb-4 lg:mb-0'>
+                <div className='relative vsm:h-[410px] lg:h-[390px] lg:mx-[70px] xl:h-[400px] xl:mx-auto'>
                     <div className='nowrap text-nowrap flex items-center justify-center text-2xl CustomizeFontH'>
                         NAVIGATE YOUR WEALTH
                     </div>

@@ -7,7 +7,7 @@ import { FaFacebook } from "react-icons/fa6";
 const Footer = () => {
     return (
         <footer className="footer-section pt-8">
-            <div className="container mx-auto">
+            <div className="px-20 ">
                 <div className="footer-cta py-4">
                     <div className="grid md:grid-cols-3">
                         <div className="">
@@ -15,7 +15,7 @@ const Footer = () => {
                                 <i className="fas fa-map-marker-alt"></i>
                                 <div className="cta-text">
                                     <h4>Find Us</h4>
-                                    <span>USA</span>
+                                    <span>Dallas, TX, USA</span>
                                 </div>
                             </div>
                         </div>

@@ -15,12 +15,7 @@ import Samsung from "../../assets/UsersLogos/samsung.png";
 
 function OurUsers() {
     return (
-        <section className="pb-2 "
-            style={{
-                backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
-                backgroundBlendMode: "overlay",
-            }}
-        >
+        <section className="pb-2 ">
             <div className="mx-auto">
                 <h2 className="text-3xl CustomizeFontH mb-2 text-center text-[#9747FF] pt-4">OUR USERS</h2>
                 <p className="text-lg mx-auto text-black text-center">

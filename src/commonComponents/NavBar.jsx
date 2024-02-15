@@ -2,6 +2,7 @@ import React from 'react';
 // import logo from "../assets/logo.svg"
 import logo from "../assets/logo1.png"
 import LoginButton from "./LoginButton";
+import { Link } from "react-router-dom";
 
 const NavBar = () => {
   const [open, setOpen] = React.useState(false);
@@ -18,7 +19,7 @@ const NavBar = () => {
           <div className="flex justify-center items-center py-2">
             <div className="flex vsm:w-[100%] vsm:justify-between md:w-auto md:flex-none md:justify-start ">
               <div className="">
-                <a href="#">
+                <Link to="/">
                   <span className="sr-only">Workflow</span>
                   <div className="flex flex-row items-center lg:gap-2 ">
                     <img
@@ -28,7 +29,7 @@ const NavBar = () => {
                     />
                     {/* <p className='md:text-xl lg:text-3xl font-extrabold'>UPCIN</p> */}
                   </div>
-                </a>
+                </Link>
               </div>
               <div className="md:hidden ">
                 <button
@@ -99,7 +100,7 @@ const NavBar = () => {
             <div className="pt-2 pb-6 px-5">
               <div className="flex items-center justify-between">
                 <div className="flex justify-start lg:w-0 lg:flex-1">
-                  <a href="#">
+                  <Link to="/">
                     <span className="sr-only">Workflow</span>
                     <div className="flex flex-row items-center gap-2 ">
                       <img
@@ -108,7 +109,7 @@ const NavBar = () => {
                         alt=""
                       />
                     </div>
-                  </a>
+                  </Link>
                 </div>
                 <div className="-mr-2">
                   <button
@@ -271,9 +272,9 @@ const NavBar = () => {
                 </a>
                 <p className="mt-6 text-center text-xl font-medium text-gray-500">
                   Existing User?
-                  <a href="#" className="ml-2 text-[#9747FF] hover:text-purple-600">
+                  <Link href="signin" className="ml-2 text-[#9747FF] hover:text-purple-600">
                     LOGIN
-                  </a>
+                  </Link>
                 </p>
               </div>
             </div>
