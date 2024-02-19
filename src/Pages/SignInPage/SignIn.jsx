@@ -1,30 +1,25 @@
 import React, { useState } from 'react';
 import NavBar from "../../commonComponents/NavBar"
 import '../../styles/SignIn/SignIn.css';
-// import { FaUser, FaLock } from "react-icons/fa";
+import { FaXTwitter } from "react-icons/fa6";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { IoLogoGoogleplus, IoLogoApple } from "react-icons/io";
+
 
 const ConnetWithUs = () => {
   return (
     <div className="mt-6 pb-6">
       <p className='flex items-center justify-center'>Connect with us</p>
-      <div className="flex items-end justify-center ">
-        <a href="#" className="social"><i className="fab fa-facebook-f" style={{
-          fontSize: "20px"
-        }}></i></a>
-        <a href="#" className="social"><i className="fab fa-google-plus-g"
-          style={{
-            fontSize: "24px",
-          }}
-        ></i></a>
-        <a href="#" className="social"><i className='fab fa-apple'
-          style={{
-            fontSize: "20px"
-          }}
-        ></i></a>
+      <div className="flex items-end justify-center gap-x-4 mt-2">
+        <Link to="/"><FaFacebookF size="25px" /></Link>
+        <Link to="/"><FaInstagram size="25px" /></Link>
+        <Link to="/"><FaXTwitter size="25px" /></Link>
       </div>
     </div>
   );
 }
+// /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i; -> regex to validat the email: 
 
 const App = () => {
   const [isSignUp, setIsSignUp] = useState(true);
@@ -43,13 +38,9 @@ const App = () => {
               <div className="form-control signup-form">
                 <form action="#">
                   <h2 className='CustomizeFontH'>SIGN UP</h2>
-                  <div className='social'>
-                    <a href="#" className="social"><i className="fab fa-google-plus-g" style={{
-                      fontSize: "24px"
-                    }}></i></a>
-                    <a href="#" className="social"><i className='fab fa-apple' style={{
-                      fontSize: "24px"
-                    }}></i></a>
+                  <div className="flex items-center justify-center gap-x-4 -mt-2">
+                    <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
+                    <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
                   <input type="email" placeholder="Email" required />
                   <input type="password" placeholder="Password" required />
@@ -74,9 +65,9 @@ const App = () => {
               <div className="form-control signin-form">
                 <form className=''>
                   <h2 className="text-2xl CustomizeFontH">SIGN IN</h2>
-                  <div className='social'>
-                    <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
-                    <a href="#" className="social"><i className='fab fa-apple'></i></a>
+                  <div className="flex items-center justify-center gap-x-4 -mt-2">
+                    <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
+                    <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
                   <input className='' type="text" placeholder="Email" required />
                   {/* <FaUser className='icon'/> */}
@@ -108,20 +99,12 @@ const App = () => {
 
                   <div className="socials1">
                     <p>Connect with us</p>
-                    <div className="flex items-end justify-center">
-                      <a href="#" className="social"><i className="fab fa-facebook-f" style={{
-                        fontSize: "20px"
-                      }}></i></a>
-                      <a href="#" className="social"><i className="fab fa-google-plus-g"
-                        style={{
-                          fontSize: "24px",
-                        }}
-                      ></i></a>
-                      <a href="#" className="social"><i className='fab fa-apple'
-                        style={{
-                          fontSize: "20px"
-                        }}
-                      ></i></a>
+                    <div className="">
+                      <div className="flex items-end justify-center gap-x-4 mt-2">
+                        <Link to="/"><FaFacebookF size="23px" /></Link>
+                        <Link to="/"><FaInstagram size="25px" /></Link>
+                        <Link to="/"><FaXTwitter size="25px" /></Link>
+                      </div>
                     </div>
                   </div>
                 </div>
@@ -135,21 +118,13 @@ const App = () => {
                   </div>
                   {/* <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p> */}
                   <div className="socials">
-                    <p className='vsm:text-xs lg:text-sm'>Connect with us</p>
+                    <p className='vsm:text-xs lg:text-base'>Connect with us</p>
                     <div className='social'>
-                      <a href="#" className="social"><i className="fab fa-facebook-f" style={{
-                        fontSize: "20px"
-                      }}></i></a>
-                      <a href="#" className="social"><i className="fab fa-google-plus-g"
-                        style={{
-                          fontSize: "24px",
-                        }}
-                      ></i></a>
-                      <a href="#" className="social"><i className='fab fa-apple'
-                        style={{
-                          fontSize: "20px"
-                        }}
-                      ></i></a>
+                      <div className="flex items-end justify-center gap-x-4 mt-2">
+                        <Link to="/"><FaFacebookF size="23px" /></Link>
+                        <Link to="/"><FaInstagram size="25px" /></Link>
+                        <Link to="/"><FaXTwitter size="25px" /></Link>
+                      </div>
                     </div>
                   </div>
                 </div>

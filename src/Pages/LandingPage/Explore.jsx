@@ -2,6 +2,7 @@ import React from 'react'
 import PostCard from "../../commonComponents/PostCard";
 import Carousel from "react-multi-carousel";
 import "react-multi-carousel/lib/styles.css";
+import RMData from "../../assets/RMData.json"
 
 const responsive = {
     desktop: {
@@ -51,33 +52,11 @@ function Explore() {
                     dotListClass="custom-dot-list-style"
                     itemClass="carousel-item-padding-100-px"
                 >
-                    <div className="">
-                        <PostCard location="Texas, US" Image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                    </div>
-                    <div className="">
-                        <PostCard location="California, US" Image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                    </div>
-                    <div className="">
-                        <PostCard location="New York, US" Image="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww" />
-                    </div>
-                    <div className="">
-                        <PostCard location="California, US" Image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                    </div>
-                    <div className="">
-                        <PostCard location="Las Vegas, US" Image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                    </div>
-                    <div className="">
-                        <PostCard location="Connecticut, US" Image="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww" />
-                    </div>
-                    <div className="">
-                        <PostCard location="Texas, US" Image="https://images.unsplash.com/photo-1582407947304-fd86f028f716?q=80&w=1896&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                    </div>
-                    <div className="">
-                        <PostCard location="New York, US" Image="https://images.unsplash.com/photo-1486406146926-c627a92ad1ab?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" />
-                    </div>
-                    <div className="">
-                        <PostCard location="Texas, US" Image="https://images.unsplash.com/photo-1600047509807-ba8f99d2cdde?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTJ8fHByb3BlcnR5fGVufDB8fDB8fHww" />
-                    </div>
+                    {RMData.map((element, index) => (
+                        <div className="">
+                            <PostCard data={element} key={index} />
+                        </div>
+                    ))}
                 </Carousel>;
             </div>
 

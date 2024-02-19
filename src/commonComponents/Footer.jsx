@@ -1,7 +1,9 @@
 import React from 'react'
 import '../styles/LandingPage/Footer.css'
-import { AiFillTwitterCircle, AiFillGoogleCircle } from "react-icons/ai";
 import { FaFacebook } from "react-icons/fa6";
+import logo from "../assets/logo.svg"
+import { FaXTwitter } from "react-icons/fa6";
+import { FaInstagram } from "react-icons/fa";
 
 
 const Footer = () => {
@@ -47,37 +49,43 @@ const Footer = () => {
                             <div className="footer-widget w-full">
                                 <div className="footer-logo">
                                     <a href="#">
-                                        <img src={require('../assets/footerLogo.JPG')} className="img-fluid" alt="logo" />
+                                        <img src={logo} className="img-fluid" alt="logo" />
                                     </a>
                                 </div>
                                 <div className="footer-text lg:w-[90%]">
-                                    <p>Lorem ipsum dolor sit amet, consec tetur adipisicing elit, sed do eiusmod tempor incididuntut consec tetur adipisicing
-                                        elit.</p>
+                                    <p className=''>Your Search Engine for Real Estate Investments.</p>
+                                </div>
+                            </div>
+                            <div className="footer-social-icon flex items-center justify-center my-4 vsm:hidden lg:block">
+                                <div className='mr-8'><span className=''>Follow us</span></div>
+                                <div className="lg:mx-0 flex">
+                                    <a href="" ><FaXTwitter size="30px" /></a>
+                                    <a href="" ><FaFacebook size="30px" /></a>
+                                    <a href="" ><FaInstagram size="30px" /></a>
                                 </div>
                             </div>
                         </div>
-                        <div className="w-full md:col-span-2 lg:col-span-1 ">
+                        <div className="w-full md:col-span-2 lg:col-span-1 lg:-ml-8">
                             <div className="footer-widget mx-auto">
                                 <div className="footer-widget-heading">
                                     <h3 className='vsm:mx-auto'>Useful Links</h3>
                                 </div>
-                                <ul className='grid vsm:grid-cols-2 md:grid-cols-3 gap-x-4 vsm:text-center md:text-left vsm:-mt-6  '>
-                                    <li className='text-left'><a href="#">Home</a></li>
-                                    <li className='text-left'><a href="#">About us</a></li>
-                                    <li className='text-left'><a href="#">Services</a></li>
-                                    <li className='text-left'><a href="#">Portfolio</a></li>
-                                    <li className='text-left'><a href="#">Contact us</a></li>
-                                    <li className='text-left'><a href="#">About us</a></li>
-                                    <li className='text-left'><a href="#">Our services</a></li>
-                                    <li className='text-left'><a href="#">Expert team</a></li>
-                                    <li className='text-left'><a href="#">Contact us</a></li>
-                                    <li className='text-left'><a href="#">Support</a></li>
-                                    <li className='text-left'><a href="#">Real Estates</a></li>
-                                    <li className='text-left'><a href="#">UPCIN</a></li>
-                                    <li className='text-left'><a href="#">Support</a></li>
-                                    <li className='text-left'><a href="#">Real Estates</a></li>
-                                    <li className='text-left'><a href="#">UPCIN</a></li>
+                                <ul className='grid vsm:grid-cols-2 md:grid-cols-3 gap-x-4 vsm:text-center md:text-left vsm:-mt-6'>
+                                    <li className='text-left'><a href="#">About</a></li>
+                                    <li className='text-left'><a href="#">Investment</a></li>
+                                    <li className='text-left'><a href="#">How it Works</a></li>
+                                    <li className='text-left'><a href="#">Education</a></li>
+                                    <li className='text-left'><a href="#">Contact</a></li>
+                                    <li className='text-left'><a href="#">Link with us</a></li>
                                 </ul>
+                            </div>
+                            <div className="footer-social-icon flex items-center justify-center my-4 vsm:hidden md:block lg:hidden">
+                                <div className='mr-8'><span className=''>Follow us</span></div>
+                                <div className="lg:mx-0 flex">
+                                    <a href="" ><FaXTwitter size="30px" /></a>
+                                    <a href="" ><FaFacebook size="30px" /></a>
+                                    <a href="" ><FaInstagram size="30px" /></a>
+                                </div>
                             </div>
                         </div>
                         <div className="col-xl-4 col-lg-4 col-md-6 md:-ml-12 lg:col-span-1">
@@ -95,24 +103,16 @@ const Footer = () => {
                                     </form>
                                 </div>
                             </div>
-                            <div className="footer-social-icon flex items-center justify-center my-4 md:hidden lg:flex">
-                                <div className='mr-8'><span className=''>Follow us</span></div>
-                                <div className="lg:mx-0 flex">
-                                    <a href="" ><AiFillTwitterCircle size="40px" /></a>
-                                    <a href="" ><FaFacebook size="37px" /></a>
-                                    <a href="" ><AiFillGoogleCircle size="40px" /></a>
-                                </div>
-                            </div>
                         </div>
                     </div>
                 </div>
             </div>
-            <div className="footer-social-icon flex items-center justify-center my-4 vsm:hidden md:flex lg:hidden">
+            <div className="footer-social-icon flex items-center justify-center my-4 md:hidden ">
                 <div className='mr-8'><span className=''>Follow us</span></div>
                 <div className="lg:mx-0 flex">
-                    <a href="" ><AiFillTwitterCircle size="40px" /></a>
-                    <a href="" ><FaFacebook size="37px" /></a>
-                    <a href="" ><AiFillGoogleCircle size="40px" /></a>
+                    <a href="" ><FaXTwitter size="30px" /></a>
+                    <a href="" ><FaFacebook size="30px" /></a>
+                    <a href="" ><FaInstagram size="30px" /></a>
                 </div>
             </div>
             <div className="copyright-area">

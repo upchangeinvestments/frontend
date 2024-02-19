@@ -1,0 +1,86 @@
+[
+  {
+    "Position": "1",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/458/e2d2d97f-55ba-4ee0-90b8-7392df010ce2.jpg",
+    "title": "The Marlow Gainesville",
+    "value": "$9.09M",
+    "location": "Gainesville, FL"
+  },
+  {
+    "Position": "2",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/457/b3b62436-21d0-4243-84b0-14d5c1885e6e.jpg",
+    "title": "The Pointe at Palm Bay",
+    "value": "$10.5M",
+    "location": "Palm Bay, FL"
+  },
+  {
+    "Position": "3",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/456/df68debf-0bdb-44ec-b3e6-b8c57ea1fe7c.jpg",
+    "title": "Highland Townhomes",
+    "value": "$73.3M",
+    "location": "North Charleston, SC"
+  },
+  {
+    "Position": "4",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/452/fdc98da1-b285-484b-831e-d87816191593.png",
+    "title": "Public REIT equities",
+    "value": "$10.0M",
+    "location": "Multiple locations"
+  },
+  {
+    "Position": "5",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/453/b974b736-6e64-4d89-9ee9-9a18d1fcc233.jpg",
+    "title": "Public REIT equities",
+    "value": "$12.6M",
+    "location": "Multiple locations"
+  },
+  {
+    "Position": "6",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/454/72794883-9a35-43f7-b968-2a38fac36bda.jpg",
+    "title": "Public REIT equities",
+    "value": "$4.30M",
+    "location": "Multiple locations"
+  },
+  {
+    "Position": "7",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/455/df3675d0-4246-4a08-895b-f73e8ed0a6b5.jpg",
+    "title": "Public REIT equities",
+    "value": "$7.00M",
+    "location": "Multiple locations"
+  },
+  {
+    "Position": "8",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/451/de7d23af-39b1-4360-a3ec-2b0c51300ffe.jpg",
+    "title": "Public REIT equities",
+    "value": "$34.6M",
+    "location": "Multiple locations"
+  },
+  {
+    "Position": "9",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/450/2caf1bdb-a239-4795-966c-7fb9b64d6245.jpg",
+    "title": "Blue Jay Commons",
+    "value": "$36.1M",
+    "location": "Rincon, GA"
+  },
+  {
+    "Position": "10",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/449/4bebf0a5-05ed-4f96-ba87-bcc3e8bf6f33.jpg",
+    "title": "215 Interchange",
+    "value": "$44.0M",
+    "location": "Las Vegas, NV"
+  },
+  {
+    "Position": "11",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/447/f33ef19a-a8d9-4db0-9320-35d859d9ce97.jpg",
+    "title": "Integral Union Station III",
+    "value": "$20.6M",
+    "location": "Union City, CA"
+  },
+  {
+    "Position": "12",
+    "image": "https://d10cq78zmnjvsx.cloudfront.net/images/reit-elements/444/bad84485-ddff-4d24-8299-989d2cfd0a0b.jpg",
+    "title": "Thompson Reserve",
+    "value": "$9.00M",
+    "location": "San Tan Valley, AZ"
+  }
+]

@@ -12,9 +12,9 @@ const faqData = [
             "To create an account, go to <https://platform.upcin.com/register> and fill out the registration form. Once you've submitted the form, you'll receive an email to verify your account. Follow the instructions in the email to complete the account creation process."
     },
     {
-        title: "Who can invest in the UPCIN Funds?",
+        title: "What is the minimum investment?",
         content:
-            "At this time, only accredited investors can invest in the UPCIN Funds. An accredited investor is a person or entity that meets certain net worth or income requirements set forth by the SEC."
+            "The minimum investment amount is typically $100 for the Fund. Deal-by-Deal investing but may be higher or lower in some cases."
     },
     {
         title: "What is an accredited investor?",

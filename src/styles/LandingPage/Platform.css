@@ -1,81 +1,132 @@
-.right_image{
-    animation: slide 5s 1;
-    animation-iteration-count: infinite;
+
+.leftArrow {
+  position: absolute;
+  transform: rotate(90deg);
 }
-.left_image{
-    animation: slide1 5s 1;
-    animation-iteration-count: infinite;
+.rightArrow {
+  position: absolute;
+  transform: rotate(-90deg);
 }
 
-  @media screen and (min-width: 768px) {
-    @keyframes slide {
-        to {
-            transform: translateX(-27vw);
-            opacity: 0%;
-        }
-      }
-    @keyframes slide1 {
-        to {
-            transform: translateX(27vw);
-            opacity: 0%;
-        }
-      }
+.arrow span {
+  display: block;
+  width: 15px;
+  height: 15px;
+  border-bottom: 5px solid rgb(77, 77, 77);
+  border-right: 5px solid rgb(77, 77, 77);
+  transform: rotate(45deg);
+  /* margin: -10px; */
+  animation: animate 6s infinite;
+}
+
+.arrow span:nth-child(2) {
+  animation-delay: -0.2s;
+}
+
+.arrow span:nth-child(3) {
+  animation-delay: -0.4s;
+}
+.arrow span:nth-child(4) {
+  animation-delay: -0.6s;
+  visibility: visible;
+}
+.arrow span:nth-child(5) {
+  animation-delay: -0.8s;
+  visibility: visible;
+}
+
+@keyframes animate {
+  0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(-10px, -10px);
   }
-  @media screen and (min-width: 1440px) {
-    @keyframes slide {
-        to {
-            transform: translateX(-28vw);
-            opacity: 0%;
-        }
-      }
-    @keyframes slide1 {
-        to {
-            transform: translateX(28vw);
-            opacity: 0%;
-        }
-      }
+  50% {
+      opacity: 1;
   }
-  @media screen and (min-width: 1600px) {
-    @keyframes slide {
-        to {
-            transform: translateX(-24vw);
-            opacity: 0%;
-        }
-      }
-    @keyframes slide1 {
-        to {
-            transform: translateX(24vw);
-            opacity: 0%;
-        }
-      }
+  100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(120px, 120px);
   }
- 
-  @media screen and (min-width: 1800px) {
-    @keyframes slide {
-        to {
-            transform: translateX(-21vw);
-            opacity: 0%;
-        }
-      }
-    @keyframes slide1 {
-        to {
-            transform: translateX(21vw);
-            opacity: 0%;
-        }
-      }
+}
+@media screen and (max-width: 1023px) {
+  .arrow span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-bottom: 5px solid rgb(77, 77, 77);
+    border-right: 5px solid rgb(77, 77, 77);
+    transform: rotate(45deg);
+    /* margin: -10px; */
+    animation: animate 3s infinite;
   }
- 
-  @media screen and (min-width: 2000px) {
-    @keyframes slide {
-        to {
-            transform: translateX(-16vw);
-            opacity: 0%;
-        }
-      }
-    @keyframes slide1 {
-        to {
-            transform: translateX(16vw);
-            opacity: 0%;
-        }
-      }
+  .arrow span:nth-child(2) {
+    animation-delay: -0.2s;
   }
+  
+  .arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+  }
+  .arrow span:nth-child(4) {
+    animation-delay: -0.6s;
+    visibility: visible;
+  } 
+  .arrow span:nth-child(5) {
+    animation-delay: -0.8s;
+    visibility: hidden;
+  }
+  
+@keyframes animate {
+  0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(-10px, -10px);
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(60px, 60px);
+  }
+}
+}
+@media screen and (max-width: 767px) {
+  .arrow span {
+    display: block;
+    width: 15px;
+    height: 15px;
+    border-bottom: 5px solid rgb(77, 77, 77);
+    border-right: 5px solid rgb(77, 77, 77);
+    transform: rotate(45deg);
+    /* margin: -10px; */
+    animation: animate 3s infinite;
+  }
+  .arrow span:nth-child(2) {
+    animation-delay: -0.2s;
+  }
+  
+  .arrow span:nth-child(3) {
+    animation-delay: -0.4s;
+  }
+  .arrow span:nth-child(4) {
+    animation-delay: -0.6s;
+    visibility: hidden;
+  }
+  .arrow span:nth-child(5) {
+    animation-delay: -0.8s;
+    visibility: hidden;
+  }
+  
+@keyframes animate {
+  0% {
+      opacity: 0;
+      transform: rotate(45deg) translate(-10px, -10px);
+  }
+  50% {
+      opacity: 1;
+  }
+  100% {
+      opacity: 0;
+      transform: rotate(45deg) translate(35px, 35px);
+  }
+}
+}

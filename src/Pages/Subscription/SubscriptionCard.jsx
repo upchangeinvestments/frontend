@@ -9,7 +9,7 @@ function SubscriptionCard() {
             <div className="my-8">
                 <h1 className="text-3xl flex items-center justify-center montserrat-Stretch mb-8">CHOOSE YOUR PLAN</h1>
                 <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-4">
-                    <div className="border-[1px] border-[#9747FF] bg-[#faf2fa] rounded-3xl text-xl shadow p-6 premiumCard">
+                    <div className="border-[1px] border-[#9747FF] bg-[#faf2fa] rounded-3xl text-xl shadow p-6 premiumCard hover:transition-all hover:duration-300 hover:ease-in hover:transform hover:scale-105">
                         <h2 className="text-xl font-bold mb-2 montserrat-Stretch text-[#9747FF]">STANDARD</h2>
                         <div className="my-6 pricingText">
                             <p className='text-center text-4xl'>$549</p>
@@ -55,7 +55,7 @@ function SubscriptionCard() {
                         </div>
                         <button className="w-full mt-2 py-2 public-sans-Stretch text-black">SELECT</button>
                     </div>
-                    <div className="border-[1px] border-[#9747FF] bg-[#9747FF] rounded-3xl text-xl shadow p-6 text-[#e3e3e3] premiumCard">
+                    <div className="border-[1px] border-[#9747FF] bg-[#9747FF] rounded-3xl text-xl shadow p-6 text-[#e3e3e3] premiumCard hover:transition-all hover:duration-300 hover:ease-in hover:transform hover:scale-105">
                         <h2 className="text-xl font-bold mb-2 montserrat-Stretch ">BUSINESS</h2>
                         <div className="my-6 pricingText">
                             <p className='text-center text-4xl' >$795</p>
@@ -99,7 +99,7 @@ function SubscriptionCard() {
                         </div>
                         <button className="w-full mt-2 py-2 public-sans-Stretch text-black">SELECT</button>
                     </div>
-                    <div className="bg-[#faf2fa] border-[1px] border-[#9747FF] rounded-3xl text-xl shadow p-6 premiumCard">
+                    <div className="bg-[#faf2fa] border-[1px] border-[#9747FF] rounded-3xl text-xl shadow p-6 premiumCard hover:transition-all hover:duration-300 hover:ease-in hover:transform hover:scale-105">
                         <h2 className="text-xl font-bold mb-2 montserrat-Stretch text-[#fd603a]">ENTERPRISE</h2>
                         <div className="my-6 pricingText">
                             <p className='text-center text-4xl'>$1495</p>

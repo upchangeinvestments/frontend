@@ -1,6 +1,5 @@
 import React from 'react';
-// import logo from "../assets/logo.svg"
-import logo from "../assets/logo1.png"
+import logo from "../assets/logo.svg"
 import LoginButton from "./LoginButton";
 import { Link } from "react-router-dom";
 
@@ -272,7 +271,7 @@ const NavBar = () => {
                 </a>
                 <p className="mt-6 text-center text-xl font-medium text-gray-500">
                   Existing User?
-                  <Link href="signin" className="ml-2 text-[#9747FF] hover:text-purple-600">
+                  <Link to="signin" className="ml-2 text-[#9747FF] hover:text-purple-600">
                     LOGIN
                   </Link>
                 </p>

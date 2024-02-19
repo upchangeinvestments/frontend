@@ -16,32 +16,14 @@ function Unique() {
         <div className="mx-auto p-4">
             <div className="p-4">
                 <h2 className="text-2xl md:text-3xl mb-2 CustomizeFontH">WHAT MAKES US <span className='text-[#9747FF]'>DIFFERENT</span>?</h2>
-                {/* <div className="flex items-center justify-around">
-                    <div className="flex items-center justify-center flex-col">
-                        <p className="text-xl font-semibold">2,000</p>
-                        <p className="">Active Users</p>
-                    </div>
-                    <div className="flex items-center flex-col">
-                        <p className="text-xl font-semibold">50+</p>
-                        <p className="">Properties</p>
-                    </div>
-                    <div className="flex items-center justify-center flex-col">
-                        <p className="text-xl font-semibold">$2.5M</p>
-                        <p className="">Portfolio Value</p>
-                    </div>
-                </div> */}
             </div>
             <div className="px-4 vsm:grid vsm:gap-4 lg:gap-x-8 vsm:mx-4 md:mx-24 lg:flex">
                 <div className="lg:w-[50%] flex flex-col items-center justify-center lg:-mt-12 text-white">
                     <h2 className="text-2xl CustomizeFontH">WHO ARE WE?</h2>
-                    <p className='text-justify mt-2 xl:pl-16'>
-                        UpChange Investment offers a comprehensive perspective on a diverse
-                        array of real estate investment opportunities, sourced from various
-                        firms. It establishes a streamlined system that enables investors to
-                        conveniently evaluate and compare m ultiple investment options on a
-                        single platform. This platform empowers investors to make
-                        well-informed decisions when allocating their capital, thereby
-                        maximizing their potential returns.
+                    <p className='text-justify mt-2 lg:pl-16'>
+                        Welcome to the world of Lynkinfinite Investments..
+                        where we provide a comprehensive perspective on a diverse array of real estate investment opportunities sourced from various firms. Our platform establishes a streamlined system that empowers investors to conveniently evaluate and compare multiple investment options in one place. With Lynkinfinite, you can tailor your investment strategy to align with your specific preferences, offering flexibility in choosing an investment range, preferred location, selecting reputable investment firms and much more. Customize your Return on Investment (ROI) expectations and other parameters to suit your individual requirements.
+                        We believe in empowering you to make well-informed decisions, maximizing your potential returns as you embark on your investment journey.
                     </p>
                 </div>
                 <div className='relative vsm:h-[410px] lg:h-[390px] lg:mx-[70px] xl:h-[400px] xl:mx-auto'>

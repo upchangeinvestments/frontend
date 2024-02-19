@@ -124,24 +124,6 @@
   align-items: flex-end;
 }
 
-.socials .fa-facebook-f {
-  /* padding: 5px 8px; */
-  background-color: transparent;
-  color: #e4e4e9;
-}
-
-.socials .fa-google-plus-g {
-  /* padding: 5px 4px; */
-  background-color: transparent;
-  color: #e4e4e9;
-}
-
-.socials .fa-apple {
-  /* padding: 5px 6px; */
-  background-color: transparent;
-  color: #e4e4e9;
-}
-
 .socials .h4 {
   align-items: flex-end;
 }

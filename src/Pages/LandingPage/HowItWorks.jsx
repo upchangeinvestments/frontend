@@ -13,12 +13,12 @@ const HowItWorks = () => {
       <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center shadow-lg hover:shadow-xl pb-8"
         style={{ backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))", backgroundBlendMode: "overlay" }}>
         <div className="my-4 text-2xl CustomizeFontH">
-          How it works?
+          What to expect?
         </div>
         <div className="flex flex-col items-center justify-center">
           <div className="w-[80%]">
             <p className="text-justify justify-self-center ">
-              UpChange Investments makes it easy for retail investors to access the real investment opportunities through a simple integrated platform.
+              LynkInfinite Investments makes it easy for investors to access the real estate investment opportunities through a simple integrated platform.
             </p>
           </div>
           <div className="w-[80%] mt-2 mb-6 flex items-center justify-center ">
@@ -41,7 +41,7 @@ const HowItWorks = () => {
           </div>
           <div className="w-[80%]">
             <p className="text-justify justify-self-center">
-              UpChange Investments makes it easy for retail investors to access the real investment opportunities through a simple integrated platform.
+              Here you can tailor your investment strategy to align with your specific preferences, allowing for flexibility in choosing an investment range, preferred location, and selecting reputable investment firms. Customize your Return on Investment (ROI) expectations and other parameters to suit your individual requirements.
             </p>
           </div>
         </div>
@@ -56,7 +56,8 @@ const HowItWorks = () => {
           </div>
           <div className="z-40">
             <div className="text-2xl CustomizeFontH">Explore</div>
-            <div className="text-lg	text-justify text-wrap	">You can browse through the available Alternative <span className="text-[#9747FF] font-bold"> Investment Opportunities </span> and set up a detailed call with <span className="text-[#9747FF] font-bold">firms</span> to further understand the product.</div>
+            {/* <div className="text-lg	text-justify text-wrap	">You can browse through the available Alternative <span className="text-[#9747FF] font-bold"> Investment Opportunities </span> and set up a detailed call with <span className="text-[#9747FF] font-bold">firms</span> to further understand the product.</div> */}
+            <div className="text-lg	text-justify text-wrap	">You can browse through the available  <span className="text-[#9747FF] font-bold"> Investment Opportunities </span> that we offer and set up a detailed call with selected  <span className="text-[#9747FF] font-bold">firms</span> to further understand the product.</div>
           </div>
         </div>
         <hr className="" />
