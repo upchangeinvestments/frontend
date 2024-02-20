@@ -57,21 +57,21 @@ const NavBar = () => {
               </div>
             </div>
             <div className="hidden md:flex md:justify-center md:items-center md:flex-auto md:gap-4 lg:gap-8 xl:gap-10 md:text-sm lg:text-lg">
-              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 About
-              </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              </Link>
+              <Link to="/category" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Investments
-              </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              </Link>
+              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 How it works
-              </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              </Link>
+              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Education
-              </a>
-              <a href="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              </Link>
+              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Contact
-              </a>
+              </Link>
             </div>
             <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
               <a
@@ -162,8 +162,8 @@ const NavBar = () => {
                       About
                     </span>
                   </a>
-                  <a
-                    href="#"
+                  <Link
+                    to="/category"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/cursor-click */}
@@ -185,7 +185,7 @@ const NavBar = () => {
                     <span className="ml-3 text-base font-medium text-gray-900">
                       Investments
                     </span>
-                  </a>
+                  </Link>
                   <a
                     href="#"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"

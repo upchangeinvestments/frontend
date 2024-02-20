@@ -20,7 +20,7 @@ const RealEstateCard = (props) => {
                 <div className="text-gray-600 my-2 text-sm text-justify">{props.data.description}</div>
                 <div className="flex-nowrap">
                     <p>
-                        Targeted Irr: <span className='font-bold'>{props.data.IRR}</span>
+                        Targeted IRR: <span className='font-bold'>{props.data.IRR}</span>
                     </p>
                 </div>
                 <div className="progress-section">
