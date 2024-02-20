@@ -1,5 +1,7 @@
 import FilterSubSection from "./FilterSubSection";
-import { Slider } from "@material-tailwind/react";
+// import { Slider } from "@material-tailwind/react";
+// import { Range } from 'react-range';
+import React, { useState } from 'react'
 
 
 function FilterSection() {
@@ -9,13 +11,18 @@ function FilterSection() {
     const InvestmentRange = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K", "$500K-$1M", "$1M+"];
     const HoldPeriod = ["0Yrs-1Yrs", "1rs-2rs", "2rs-5rs", "5rs-7rs", "7rs-10Yrs", "10Yrs+"]
 
+    const [price, setPrice] = useState(0);
+    const updateIrrValue = (event) => {
+        let value = event.target.value;
+        setPrice(value);
+    };
     return (
-        <div className="bg-white/20 backdrop-blur-sm rounded-lg w-[20%] p-2" style={{
+        <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg w-[20%] p-2" style={{
             backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
             backgroundBlendMode: "overlay",
         }}>
-            <FilterSubSection list={CategoryType} title="Category Type" inputType="checkbox" />
-            <FilterSubSection list={LocationType} title="Location" inputType="checkbox" />
+            <FilterSubSection list={CategoryType} title="Categories" inputType="checkbox" />
+            <FilterSubSection list={LocationType} title="Locations" inputType="checkbox" />
             <FilterSubSection list={InvestmentRange} title="Investment Range" inputType="radio" />
             <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
                 <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">Zip Code </div>
@@ -26,7 +33,8 @@ function FilterSection() {
             <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
                 <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">IRR </div>
                 <div className="w-[80%]">
-                    <Slider className="color-[#9747FF]" defaultValue={0} style={{ color: "red" }} />
+                    <p>{price}</p>
+                    <input type="range" name="priceIRR" min={0} max={100} value={price} onChange={updateIrrValue} step="1" className="w-full mt-4" />
                 </div>
             </div>
             <FilterSubSection list={HoldPeriod} title="Hold Period" inputType="radio" />

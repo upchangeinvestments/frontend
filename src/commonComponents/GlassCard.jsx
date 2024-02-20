@@ -1,7 +1,6 @@
 import React, { useEffect } from 'react'
 import Aos from "aos";
 import "aos/dist/aos.css";
-import { propTypesSelected } from '@material-tailwind/react/types/components/select';
 
 function GlassCard(props) {
   useEffect(() => {

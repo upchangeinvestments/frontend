@@ -20,7 +20,7 @@ function Unique() {
                 <div className="lg:w-[50%] flex flex-col items-center justify-center lg:-mt-12 text-white">
                     <h2 className="text-2xl CustomizeFontH">WHO ARE WE?</h2>
                     <p className='text-justify mt-2 lg:pl-16'>
-                        Welcome to the world of Lynkinfinite Investments..
+                        <span className='flex items-start justify-center'>Welcome to the world of Lynkinfinite Investments: </span>
                         where we provide a comprehensive perspective on a diverse array of real estate investment opportunities sourced from various firms. Our platform establishes a streamlined system that empowers investors to conveniently evaluate and compare multiple investment options in one place. With Lynkinfinite, you can tailor your investment strategy to align with your specific preferences, offering flexibility in choosing an investment range, preferred location, selecting reputable investment firms and much more. Customize your Return on Investment (ROI) expectations and other parameters to suit your individual requirements.
                         We believe in empowering you to make well-informed decisions, maximizing your potential returns as you embark on your investment journey.
                     </p>

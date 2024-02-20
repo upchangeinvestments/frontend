@@ -37,17 +37,17 @@ const HowInvestmentWorks = () => {
                         <div className="h-16 w-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">3</div>
                     </div>
                 </div>
-                <div className="grid grid-cols-9 w-[60%] my-2">
+                <div className="grid grid-cols-9 vsm:w-[80%] md:w-[70%] lg:w-[60%] my-2 ">
                     <div className="col-span-1 flex flex-col items-center justify-center">
-                        <div className="text-xl font-bold ">USERS</div>
+                        <div className="text-xl font-bold text-center">USERS</div>
                     </div>
                     <div className="col-span-3"></div>
                     <div className="col-span-1 flex flex-col items-center justify-center">
-                        <div className="text-xl font-bold">UPCIN</div>
+                        <div className="text-xl font-bold uppercase text-center">LynkInfinite</div>
                     </div>
                     <div className="col-span-3"></div>
                     <div className="col-span-1 flex flex-col items-center justify-center">
-                        <div className="text-xl font-bold text-nowrap">INVESTMENT FIRMS</div>
+                        <div className="text-xl font-bold sm:text-wrap md:text-nowrap text-center">INVESTMENT FIRMS</div>
                     </div>
 
                 </div>

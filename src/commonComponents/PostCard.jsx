@@ -3,7 +3,6 @@ import LoginButton from "./LoginButton";
 import "../styles/LandingPage/Post.css";
 
 const RealEstateCard = (props) => {
-    console.log(props.data)
     return (
         <div className='flex flex-col items-center justify-center mb-20 '>
             <div className="w-72 h-32 bg-bottom">

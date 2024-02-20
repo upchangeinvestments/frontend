@@ -3,13 +3,13 @@ import Collapse from 'react-collapse';
 
 const faqData = [
     {
-        title: "How can I contact the UPCIN team if I have questions?",
-        content: "You can contact the UPCIN team by emailing <support@upcin.com> or by calling (845) 673-1234."
+        title: "How can I contact the LynkInfinite team if I have questions?",
+        content: "You can contact the LynkInfinite team by emailing <support@lynkinfinite.com> or by calling (845) 673-1234."
     },
     {
         title: "How do I create an account?",
         content:
-            "To create an account, go to <https://platform.upcin.com/register> and fill out the registration form. Once you've submitted the form, you'll receive an email to verify your account. Follow the instructions in the email to complete the account creation process."
+            "To create an account, go to <https://platform.lynkinfinite.com/register> and fill out the registration form. Once you've submitted the form, you'll receive an email to verify your account. Follow the instructions in the email to complete the account creation process."
     },
     {
         title: "What is the minimum investment?",
@@ -23,7 +23,7 @@ const faqData = [
     {
         title: "Can international investors participate?",
         content:
-            "At this time, UPCIN is only open to U.S. investors. We are working on expanding our offerings to international investors in the future."
+            "At this time, LynkInfinite is only open to U.S. investors. We are working on expanding our offerings to international investors in the future."
     }
 ];
 

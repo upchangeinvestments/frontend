@@ -1,8 +1,8 @@
-import React, { useState } from 'react';
+import React from 'react';
 // import "../../styles/Tagline.css";
 
 function Tagline() {
-  const [words, setWords] = useState(["OPPORTUNITIES", "INVESTMENTS", "PROJECTS", "COMPANIES"]);
+  const words = ["OPPORTUNITIES", "INVESTMENTS", "PROJECTS", "COMPANIES"];
 
   return (
     <div className='flex md:flex-row vsm:flex-col w-full md:gap-8 items-center justify-center text-3xl	text-nowrap overflow-y-hidden'>

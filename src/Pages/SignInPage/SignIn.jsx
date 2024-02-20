@@ -93,7 +93,7 @@ const App = () => {
                 <div className="intro-control__inner">
                   <div className="">
                     <h2 className="md:text-xl lg:text-2xl CustomizeFontH">
-                      <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> <span className='CustomizeFontH'>UPCHANGE INVESTMENTS</span>
+                      <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> <span className='CustomizeFontH'>LYNKINFINTE INVESTMENTS</span>
                     </h2>
                   </div>
 
@@ -113,7 +113,7 @@ const App = () => {
                 <div className="intro-control__inner">
                   <div className="">
                     <h2 className='md:text-xl lg:text-2xl CustomizeFontH'>
-                      <font color="#0c0b0b ">WELCOME TO</font> <br /> <span className=''>UPCHANGE INVESTMENTS</span>
+                      <font color="#0c0b0b ">WELCOME TO</font> <br /> <span className=''>LYNKINFINTE INVESTMENTS</span>
                     </h2>
                   </div>
                   {/* <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p> */}
@@ -140,7 +140,7 @@ const App = () => {
           <div className={isSignUp ? 'SignUP' : 'hidden'} >
             <div className="mt-8">
               <h2 className='text-2xl font-bold '>
-                <font color="#0c0b0b">WELCOME TO</font> <br /><p className='UPCIN'>UPCHANGE INVESTMENTS</p>
+                <font color="#0c0b0b">WELCOME TO</font> <br /><p className='UPCIN'>LYNKINFINTE INVESTMENTS</p>
               </h2>
             </div>
             <div className="m-8 py-6 px-2 rounded-lg " style={{
@@ -170,7 +170,7 @@ const App = () => {
           <div className={isSignUp ? 'hidden' : 'LogIn'}>
             <div className="mt-8">
               <h2 className="text-2xl font-bold">
-                <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> <span className='UPCIN'>UPCHANGE INVESTMENTS</span>
+                <font color="#0c0b0b" >WELCOME BACK! <br /> <span className='text-xl'>TO</span> <br /></font> <span className='UPCIN'>LYNKINFINTE INVESTMENTS</span>
               </h2>
             </div>
             <div className="m-8 py-6 px-2 rounded-lg " style={{
