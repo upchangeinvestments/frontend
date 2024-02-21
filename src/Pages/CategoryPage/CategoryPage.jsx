@@ -61,7 +61,7 @@ function CategoryPage() {
                 <p className='uppercase text-white font-bold vsm:text-2xl md:text-5xl flex items-center justify-center h-[50vh]'>Explore Categories</p>
             </div>
             {/* <SearchBox /> */}
-            <div className="flex my-8">
+            <div className="flex my-16 mt-32 ">
                 <FilterSection />
                 <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
                     <div className="relative vsm:block md:hidden my-4 bg-white/20 backdrop-blur-sm py-4">

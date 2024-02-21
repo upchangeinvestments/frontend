@@ -1,6 +1,6 @@
 .categoryMain{
     background-image: linear-gradient(to bottom, rgba(239, 239, 239, 0), #d8c5d9), url('../../assets/Building.jpg');
-    height: 90vh;
+    height: 100vh;
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;  

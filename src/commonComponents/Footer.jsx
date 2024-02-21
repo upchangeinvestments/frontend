@@ -28,7 +28,7 @@ const Footer = () => {
                                 ></i>
                                 <div className="cta-text">
                                     <h4>Call Us</h4>
-                                    <span>1234567890</span>
+                                    <span><p>(469) 587-9543</p></span>
                                 </div>
                             </div>
                         </div>

@@ -5,7 +5,8 @@ import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { Link } from "react-router-dom";
 import { IoLogoGoogleplus, IoLogoApple } from "react-icons/io";
-
+import axios from "axios"
+import { useNavigate } from 'react-router-dom';
 
 const ConnetWithUs = () => {
   return (
@@ -23,9 +24,35 @@ const ConnetWithUs = () => {
 
 const App = () => {
   const [isSignUp, setIsSignUp] = useState(true);
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const navigate = useNavigate();
 
   const SignInButtonClick = () => {
     setIsSignUp(!isSignUp);
+  };
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    console.log("in frontend", email, password);
+    try {
+      const response = await axios.post('http://localhost:5000/auth/login', {
+        email,
+        password,
+      });
+      console.log('Login Successful', response.data);
+      navigate('/category');
+    } catch (error) {
+      if (error.response) {
+        console.error('Login failed:', error.response.data);
+        // Handle failed login, the server responded with a status code outside the 2xx range
+      } else if (error.request) {
+        console.error('The request was made but no response was received', error.request);
+        // The request was made but no response was received
+      } else {
+        console.error('Error setting up the request', error.message);
+      }
+    }
   };
 
   return (
@@ -36,7 +63,7 @@ const App = () => {
           <div className={isSignUp ? 'SignInContainer bg1' : 'SignInContainer bg2 change'}>
             <div className="forms-container">
               <div className="form-control signup-form">
-                <form action="#">
+                <form >
                   <h2 className='CustomizeFontH'>SIGN UP</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
@@ -47,44 +74,40 @@ const App = () => {
                   <input type="password" placeholder="Confirm password" required />
                   <div className="checkbox flex items-center justify-center gap-2 mt-4">
                     <input type="checkbox" id="terms" name="terms" required />
-                    <label for="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
+                    <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
                   </div>
                   <button type="submit" className='my-6'>SIGN UP</button>
-                  <p>
-                    <p>Have an account? <span id="signUp" onClick={SignInButtonClick}>
-                      <a
-                        href="#"
-                        className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#9747FF] hover:bg-purple-600"
-                      >
+                  <div>
+                    <p>Have an account?</p> <span id="signUp" onClick={SignInButtonClick}>
+                      <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#9747FF] hover:bg-purple-600" >
                         SIGN IN
-                      </a></span></p>
-                  </p>
+                      </div></span>
+                  </div>
                 </form>
 
               </div>
               <div className="form-control signin-form">
-                <form className=''>
+                <form onSubmit={handleSubmit}>
                   <h2 className="text-2xl CustomizeFontH">SIGN IN</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
                     <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
-                  <input className='' type="text" placeholder="Email" required />
+                  <input className='' type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
                   {/* <FaUser className='icon'/> */}
-                  <input type="password" placeholder="Password" required />
+                  <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
                   {/* <FaLock className='icon'/> */}
                   <button type='submit' className='w-[65%]'>LOGIN</button>
                   <a href="#"><p className="">Forgot password</p></a>
-                  <p className='mt-8'>
+                  <div className='mt-8'>
                     {/* <input type="checkbox" />   I agree to all statements in terms of service */}
-                    <p>Don't have an account? <span id="signUp" onClick={SignInButtonClick}><a
+                    <p>Don't have an account? </p><span id="signUp" onClick={SignInButtonClick}><a
                       href="#"
                       className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#9747FF] hover:bg-purple-600"
                     >
                       SIGN UP
                     </a></span>
-                    </p>
-                  </p>
+                  </div>
                 </form>
               </div>
             </div>
@@ -157,12 +180,12 @@ const App = () => {
                 <input type="password" placeholder="Confirm password" required />
                 <div className="checkbox flex items-center justify-center gap-2 mt-4">
                   <input type="checkbox" id="terms" name="terms" required />
-                  <label for="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
+                  <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
                 </div>
                 <button type="submit" className='my-6'>SIGN UP</button>
-                <p>
+                <div>
                   <p>Have an account? <span id="signUp" onClick={SignInButtonClick}>LOGIN</span></p>
-                </p>
+                </div>
               </form>
             </div>
             <ConnetWithUs />
@@ -188,11 +211,11 @@ const App = () => {
                 {/* <FaLock className='icon'/> */}
                 <button type='submit'>LOGIN</button>
                 <a href="#"><p className="">Forgot password</p></a>
-                <p className='mt-8'>
+                <div className='mt-8'>
                   {/* <input type="checkbox" />   I agree to all statements in terms of service */}
                   <p>Don't have an account? <span id="signUp" onClick={SignInButtonClick}>SIGN UP</span>
                   </p>
-                </p>
+                </div>
               </form>
             </div>
             <ConnetWithUs />

@@ -21,7 +21,7 @@ function LandingPage() {
             <Unique />
             <Questions />
             <Features />
-            <OurUsers />
+            {/* <OurUsers /> */}
             <HowInvestmentWorks />
             <Explore />
             <FeaturedProject />
