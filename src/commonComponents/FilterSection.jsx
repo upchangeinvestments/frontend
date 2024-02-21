@@ -17,7 +17,7 @@ function FilterSection() {
         setPrice(value);
     };
     return (
-        <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg w-[20%] p-2" style={{
+        <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg w-[20%] p-2 pr-6" style={{
             backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
             backgroundBlendMode: "overlay",
         }}>
@@ -26,8 +26,8 @@ function FilterSection() {
             <FilterSubSection list={InvestmentRange} title="Investment Range" inputType="radio" />
             <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
                 <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">Zip Code </div>
-                <div className="font-['Asap']">
-                    <input type="text" name="" className="bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#9747FF]" />
+                <div className="font-['Asap'] w-[80%]">
+                    <input type="text" name="" className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#9747FF]" />
                 </div>
             </div>
             <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">

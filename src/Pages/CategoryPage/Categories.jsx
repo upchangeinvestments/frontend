@@ -19,9 +19,9 @@ const categoryData = Images.map((image, index) => ({
 
 function Categories() {
     return (
-        <div className="grid vsm:grid-cols-1 lg:grid-cols-3 grid-rows-3 gap-x-6 gap-y-12 mx-8 ">
+        <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 grid-rows-3 gap-x-6 gap-y-12 mx-8 ">
             {categoryData.map((element, index) => (
-                <div key={index} className="">
+                <div key={index} className="flex flex-col items-center justify-center">
                     <div className='vsm:w-[100%] lg:w-[80%] flex items-center justify-center'>
                         <img src={element.image} alt="" className='rounded-3xl object-cover h-[350px]' />
                     </div>

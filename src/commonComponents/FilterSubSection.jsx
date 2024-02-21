@@ -5,7 +5,7 @@ function FilterSubSection(props) {
         <div>
             <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
                 <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">{props.title}</div>
-                <form className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Asap']">
+                <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Asap']">
                     {props.list.map((propertyType, index) => (
                         <label key={index} className="flex flex-row gap-4 w-full items-center">
                             <input
@@ -17,7 +17,7 @@ function FilterSubSection(props) {
                             <div className="text-sm">{propertyType}</div>
                         </label>
                     ))}
-                </form>
+                </div>
             </div>
         </div>
     )
