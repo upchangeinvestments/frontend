@@ -26,32 +26,33 @@ const App = () => {
   const [isSignUp, setIsSignUp] = useState(true);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [confirmPassword, setConfirmPassword] = useState('');
   const navigate = useNavigate();
 
   const SignInButtonClick = () => {
     setIsSignUp(!isSignUp);
   };
 
-  const handleSubmit = async (event) => {
+  const handleLogin = async (event) => {
     event.preventDefault();
-    console.log("in frontend", email, password);
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', {
-        email,
-        password,
-      });
-      console.log('Login Successful', response.data);
+      const response = await axios.post('http://localhost:5000/auth/login', { email, password });
+      localStorage.setItem('token', response.data.token);
       navigate('/category');
     } catch (error) {
-      if (error.response) {
-        console.error('Login failed:', error.response.data);
-        // Handle failed login, the server responded with a status code outside the 2xx range
-      } else if (error.request) {
-        console.error('The request was made but no response was received', error.request);
-        // The request was made but no response was received
-      } else {
-        console.error('Error setting up the request', error.message);
-      }
+      console.log(error);
+    }
+  };
+
+  const handleSignUp = async (event) => {
+    event.preventDefault();
+
+    try {
+      const response = await axios.post('http://localhost:5000/auth/signup', { email, password, confirmPassword })
+      localStorage.setItem('token', response.data.token);
+      navigate('/category');
+    } catch (error) {
+      console.log(error);
     }
   };
 
@@ -63,15 +64,15 @@ const App = () => {
           <div className={isSignUp ? 'SignInContainer bg1' : 'SignInContainer bg2 change'}>
             <div className="forms-container">
               <div className="form-control signup-form">
-                <form >
+                <form onSubmit={handleSignUp}>
                   <h2 className='CustomizeFontH'>SIGN UP</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
                     <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
-                  <input type="email" placeholder="Email" required />
-                  <input type="password" placeholder="Password" required />
-                  <input type="password" placeholder="Confirm password" required />
+                  <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+                  <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                  <input type="password" placeholder="Confirm password" onChange={(e) => setConfirmPassword(e.target.value)} required />
                   <div className="checkbox flex items-center justify-center gap-2 mt-4">
                     <input type="checkbox" id="terms" name="terms" required />
                     <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
@@ -87,7 +88,7 @@ const App = () => {
 
               </div>
               <div className="form-control signin-form">
-                <form onSubmit={handleSubmit}>
+                <form onSubmit={handleLogin}>
                   <h2 className="text-2xl CustomizeFontH">SIGN IN</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
