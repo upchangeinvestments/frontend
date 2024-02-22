@@ -95,9 +95,7 @@ const App = () => {
                     <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
                   <input className='' type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                  {/* <FaUser className='icon'/> */}
                   <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-                  {/* <FaLock className='icon'/> */}
                   <button type='submit' className='w-[65%]'>LOGIN</button>
                   <a href="#"><p className="">Forgot password</p></a>
                   <div className='mt-8'>
@@ -176,9 +174,9 @@ const App = () => {
                   <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                   <a href="#" className="social"><i className='fab fa-apple'></i></a>
                 </div>
-                <input type="email" placeholder="Email" required />
-                <input type="password" placeholder="Password" required />
-                <input type="password" placeholder="Confirm password" required />
+                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                <input type="password" placeholder="Confirm password" onChange={(e) => setConfirmPassword(e.target.value)} required />
                 <div className="checkbox flex items-center justify-center gap-2 mt-4">
                   <input type="checkbox" id="terms" name="terms" required />
                   <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
@@ -206,10 +204,8 @@ const App = () => {
                   <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                   <a href="#" className="social"><i className='fab fa-apple'></i></a>
                 </div>
-                <input className='' type="text" placeholder="Username" required />
-                {/* <FaUser className='icon'/> */}
-                <input type="password" placeholder="Password" required />
-                {/* <FaLock className='icon'/> */}
+                <input className='' type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
+                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
                 <button type='submit'>LOGIN</button>
                 <a href="#"><p className="">Forgot password</p></a>
                 <div className='mt-8'>

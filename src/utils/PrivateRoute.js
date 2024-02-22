@@ -10,7 +10,11 @@ const PrivateRoute = () => {
         const handleVerify = async (token) => {
             try {
                 const response = await axios.post(`http://localhost:5000/auth/verify?token=${token}`);
-                setIsValid(true);
+                if (response.status === 200 && response.data.status === 'success') {
+                    setIsValid(true);
+                } else {
+                    setIsValid(false);
+                }
             } catch (error) {
                 console.log(error);
                 setIsValid(false);

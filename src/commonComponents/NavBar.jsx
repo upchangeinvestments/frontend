@@ -58,7 +58,7 @@ const NavBar = () => {
               </div>
             </div>
             <div className="hidden md:flex md:justify-center md:items-center md:flex-auto md:gap-4 lg:gap-8 xl:gap-10 md:text-sm lg:text-lg">
-              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link to="/about" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 About
               </Link>
               <Link to="/category" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
@@ -139,10 +139,7 @@ const NavBar = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  <a
-                    href="#"
-                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
-                  >
+                  <Link to="/about" className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
                     {/* Heroicon name: outline/chart-bar */}
                     <svg
                       className="flex-shrink-0 h-6 w-6 text-indigo-600"
@@ -162,7 +159,7 @@ const NavBar = () => {
                     <span className="ml-3 text-base font-medium text-gray-900">
                       About
                     </span>
-                  </a>
+                  </Link>
                   <Link
                     to="/category"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"

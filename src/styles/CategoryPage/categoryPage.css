@@ -6,3 +6,20 @@
     background-size: cover;  
     position: relative;
 }
+
+.aboutMain{
+    background-image: linear-gradient(to bottom, rgba(51, 51, 51, 0), #bebebe87), url('../../assets/Building.jpg');
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;  
+    /* position: relative; */
+}
+.AboutCard{
+    background-image: url('../../assets/Building.jpg');
+    
+    background-position: center; 
+    background-repeat: no-repeat; 
+    background-size: cover;  
+    /* position: relative; */
+
+}

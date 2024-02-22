@@ -5,6 +5,7 @@ import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
 import SubscriptionPage from "./Pages/Subscription/SubscriptionPage";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
+import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
 
 
 function App() {
@@ -14,6 +15,7 @@ function App() {
         <Route path="/" element={<LandingPage />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/premium" element={< SubscriptionPage />} />
+        <Route path="/about" element={< AboutUs />} />
         <Route element={<PrivateRoute />}>
           <Route path="/category" element={< CategoryPage />} />
         </Route>
