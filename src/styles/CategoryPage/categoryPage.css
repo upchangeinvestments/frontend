@@ -12,14 +12,34 @@
     background-position: center; 
     background-repeat: no-repeat; 
     background-size: cover;  
-    /* position: relative; */
+    height: 80vh;
+    position: relative;
 }
-.AboutCard{
+.AboutCard {
     background-image: url('../../assets/Building.jpg');
-    
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover;  
-    /* position: relative; */
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    color: white;
+    position: relative; /* Allows overlay element to be positioned within */
+  }
+  
+  .AboutCard .overlay {
+    /* Adjust opacity and background color as needed */
+    background-color: rgba(0, 0, 0, 0.5); /* Semi-transparent black */
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+  }
 
-}
+  .AboutCard::backdrop {
+    background-color: rgba(0,0,0,0.7);
+    transition:
+      display 0.7s allow-discrete,
+      overlay 0.7s allow-discrete,
+      background-color 0.7s;
+    /* Equivalent to
+    transition: all 0.7s allow-discrete; */
+  }

@@ -16,8 +16,8 @@ function App() {
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/premium" element={< SubscriptionPage />} />
         <Route path="/about" element={< AboutUs />} />
+        <Route path="/category" element={< CategoryPage />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/category" element={< CategoryPage />} />
         </Route>
       </Routes>
     </BrowserRouter>
