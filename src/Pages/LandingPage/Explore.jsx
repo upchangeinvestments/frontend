@@ -53,8 +53,8 @@ function Explore() {
                     itemClass="carousel-item-padding-100-px"
                 >
                     {RMData.map((element, index) => (
-                        <div className="">
-                            <PostCard data={element} key={index} />
+                        <div className="" key={index} >
+                            <PostCard data={element} />
                         </div>
                     ))}
                 </Carousel>;

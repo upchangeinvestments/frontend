@@ -6,6 +6,8 @@ import SignInPage from "./Pages/SignInPage/SignIn";
 import SubscriptionPage from "./Pages/Subscription/SubscriptionPage";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
+import { ToastContainer, Bounce } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 
 function App() {
@@ -13,13 +15,26 @@ function App() {
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<LandingPage />} />
-        <Route path="/signin" element={<SignInPage />} />
         <Route path="/premium" element={< SubscriptionPage />} />
         <Route path="/about" element={< AboutUs />} />
+        <Route path="/signin" element={<SignInPage />} />
         <Route path="/category" element={< CategoryPage />} />
         <Route element={<PrivateRoute />}>
         </Route>
       </Routes>
+      <ToastContainer
+        position="top-center"
+        bodyClassName="text-sm"
+        autoClose={5000}
+        hideProgressBar={false}
+        newestOnTop={false}
+        closeOnClick
+        rtl={false}
+        pauseOnFocusLoss
+        draggable
+        pauseOnHover
+        theme="colored"
+        transition={Bounce} />
     </BrowserRouter>
     // figure out the css for the zoom-in and zoom-out and implemet as well. 
   );

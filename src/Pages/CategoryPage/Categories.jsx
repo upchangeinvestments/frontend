@@ -7,10 +7,11 @@ import resident from "../../assets/categories/resident.jpg";
 import retail from "../../assets/categories/retail.jpg";
 import school from "../../assets/categories/school.jpg";
 import warehouse from "../../assets/categories/warehouse.jpg";
-import storage from "../../assets/categories/storage.jpg";
+import BlurBuilding from "../../assets/Building_blur-xl.jpg";
+// import storage from "../../assets/categories/storage.jpg";
 
-const Images = [hospital, hotel, warehouse, storage, school, retail, office, infrastructure, resident];
-const Texts = ["Hospital", "Hotels", "Warehouse", "Storage", "School", "Retail", "Office", "Infrastructure", "Resident"];
+const Images = [resident, retail, hotel, warehouse, hospital, school, office, infrastructure];
+const Texts = ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Infrastructure"];
 
 const categoryData = Images.map((image, index) => ({
     image: image,
@@ -30,6 +31,14 @@ function Categories() {
                     </div>
                 </div>
             ))}
+            <div className="flex flex-col items-center justify-center">
+                <div className='vsm:w-[100%] lg:w-[80%]  xl:w-[55%] flex items-center justify-center'>
+                    <img src={BlurBuilding} alt="" className='rounded-3xl object-cover h-[350px]' />
+                </div>
+                <div className='vsm:w-[100%] lg:w-[80%] flex items-center justify-center pt-2'>
+                    <p className='CustomizeFontH text-lg'>See more</p>
+                </div>
+            </div>
         </div>
     )
 }

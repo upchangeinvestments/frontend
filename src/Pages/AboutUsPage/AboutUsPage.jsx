@@ -16,7 +16,7 @@ function AboutUsPage() {
                 <div className="bg-white/20 backdrop-blur-xl p-4 xl:p-8 absolute bottom-0 w-full">
                     <div className="flex vsm:flex-col md:flex-row items-center justify-center mx-auto vsm:w-[100%] md:w-[60%]">
                         <div className="flex basis-1/2 items-center justify-center">
-                            <h2 className="text-2xl font-semibold flex items-center justify-center vsm:mb-4 md:mb-0">Company at a glance</h2>
+                            <h2 className="text-2xl font-semibold flex items-center justify-center vsm:mb-4 md:mb-0 uppercase">Company at a glance</h2>
                         </div>
                         <div className="basis-1/2 flex items-center justify-center text-white gap-x-16">
                             <div className="">

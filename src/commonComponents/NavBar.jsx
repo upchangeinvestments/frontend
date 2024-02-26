@@ -1,7 +1,7 @@
 import React from 'react';
 // import logo from "../assets/logo.svg"
-import logo from "../assets/logo.png"
-import LoginButton from "./LoginButton";
+import bgImage from "../assets/login_BG.jpeg";
+import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 
 const NavBar = () => {
@@ -75,13 +75,15 @@ const NavBar = () => {
               </Link>
             </div>
             <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
-              <a
-                href="#"
-                className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] "
-              >
+              <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
                 SIGN UP
-              </a>
-              <LoginButton Text="LOGIN" link="/signin" />
+              </Link>
+              <Link to="/signin" state={{ isLogin: true }} className="">
+                <button style={{ backgroundImage: `url(${bgImage})` }}
+                  className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover">
+                  LOGIN
+                </button>
+              </Link>
             </div>
           </div>
         </div>

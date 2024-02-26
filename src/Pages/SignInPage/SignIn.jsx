@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-import NavBar from "../../commonComponents/NavBar"
-import '../../styles/SignIn/SignIn.css';
+import { useNavigate, useLocation, Link } from 'react-router-dom';
 import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
-import { Link } from "react-router-dom";
 import { IoLogoGoogleplus, IoLogoApple } from "react-icons/io";
+import NavBar from "../../commonComponents/NavBar"
+import '../../styles/SignIn/SignIn.css';
 import axios from "axios"
-import { useNavigate } from 'react-router-dom';
+import Error from "../../utils/Error";
+import SuccessToast from "../../utils/successToast";
 
 const ConnetWithUs = () => {
   return (
@@ -22,8 +23,16 @@ const ConnetWithUs = () => {
 }
 // /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i; -> regex to validat the email: 
 
-const App = () => {
-  const [isSignUp, setIsSignUp] = useState(true);
+const SignIn = () => {
+  const location = useLocation();
+  var isLogin;
+  if (!location.state) {
+    isLogin = false;
+  } else {
+    isLogin = location.state.isLogin;
+
+  }
+  const [isSignUp, setIsSignUp] = useState(isLogin);
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
   const [confirmPassword, setConfirmPassword] = useState('');
@@ -39,8 +48,9 @@ const App = () => {
       const response = await axios.post('http://localhost:5000/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
       navigate('/category');
+      SuccessToast("Welcome to LynkInfinite Investment!");
     } catch (error) {
-      console.log(error);
+      return Error(error.response.data.message);
     }
   };
 
@@ -51,8 +61,9 @@ const App = () => {
       const response = await axios.post('http://localhost:5000/auth/signup', { email, password, confirmPassword })
       localStorage.setItem('token', response.data.token);
       navigate('/category');
+      SuccessToast("Welcome to LynkInfinite Investment!");
     } catch (error) {
-      console.log(error);
+      return Error(error.response.data.message);
     }
   };
 
@@ -223,4 +234,4 @@ const App = () => {
   );
 };
 
-export default App;
+export default SignIn;

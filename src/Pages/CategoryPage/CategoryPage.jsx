@@ -15,7 +15,7 @@ const dataObject = [
     },
     {
         title: "Locations",
-        options: ["Dallas, Texas", "New York", "California", "Austin", "Seattle"],
+        options: ["Texas", "New York", "California", "Austin", "Seattle"],
         inputType: 'checkbox',
     },
     {

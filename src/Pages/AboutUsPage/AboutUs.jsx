@@ -8,7 +8,7 @@ function AboutUs() {
     return (
         <div className="overflow-x-hidden vsm:mb-12 md:mb-24">
             <div className="flex mx-auto mt-16 vsm:w-[90%] lg:w-[70%] xl:w-[50%]">
-                <div className="bg-white/20 backdrop-blur-xl vsm: p-4 md:p-8 md:px-10 relative w-full">
+                <div className="bg-white/20 backdrop-blur-xl vsm:p-4 md:p-8 lg:p-6 xl:p-4 md:px-10 relative w-full">
                     <img className='w-32 rounded-full absolute -right-10 -top-10 bg-center' src={Lipika_mam} alt="Lipika Sharma" />
                     <div className="absolute -top-5 left-0"><ImQuotesLeft color='gray' size="50px" className='opacity-[0.2]' /></div>
                     <div className="text-2xl">Words from CEO</div>
@@ -25,7 +25,7 @@ function AboutUs() {
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 vsm:w-[90%] lg:w-[80%] xl:w-[60%] mx-auto">
                 <div className="p-4 AboutCard border border-1 border-[#9747FF]">
-                    <h2 className="text-xl font-semibold mb-2">Vision</h2>
+                    <h2 className="text-xl font-semibold mb-2 ">Vision</h2>
                     <p className="">
                         We envision a dynamic platform for seamless exploration and comparison of
                         diverse opportunities, empowering investors with robust analytics.
@@ -41,7 +41,7 @@ function AboutUs() {
                 </div>
                 <div className="p-4 AboutCard border border-1 border-[#9747FF]">
                     <h2 className="text-xl font-semibold mb-2">Values</h2>
-                    <p>
+                    <div>
                         We are driven by the following values:
                         <br />
                         <span className="font-bold text-[#9747FF]"> <p>Comprehensive Search:</p> </span>
@@ -50,7 +50,7 @@ function AboutUs() {
                         <p> Robust analytics enable investors to evaluate and compare investment options. </p> <br />
                         <span className="font-bold text-[#9747FF]">Network Building:</span>
                         <p>  Real estate funding companies gain visibility, expanding their network for project funding. </p> <br />
-                    </p>
+                    </div>
                 </div>
             </div>
         </div>
