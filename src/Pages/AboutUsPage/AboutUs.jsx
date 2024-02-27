@@ -24,6 +24,36 @@ function AboutUs() {
                 <h2 className="text-2xl font-semibold text-center my-8">Modern Real Estate Investment solutions</h2>
             </div>
             <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 vsm:w-[90%] lg:w-[80%] xl:w-[60%] mx-auto">
+                <div className='rounded-lg p-4 bg-white/20 backdrop-blur-[50px] border-[1px] border-[#9747FF]'>
+                    <h2 className="text-xl font-semibold mb-2 ">Vision</h2>
+                    <p className="">
+                        We envision a dynamic platform for seamless exploration and comparison of
+                        diverse opportunities, empowering investors with robust analytics.
+                    </p>
+                </div>
+                <div className="rounded-lg p-4 bg-white/20 backdrop-blur-[50px] border-[1px] border-[#9747FF]">
+                    <h2 className="text-xl font-semibold mb-2">Mission</h2>
+                    <p className="">
+                        To empower investors with the tools and information needed to make
+                        informed real estate investment decisions, while facilitating collaboration
+                        and growth within the real estate funding industry.
+                    </p>
+                </div>
+                <div className="rounded-lg p-4 bg-white/20 backdrop-blur-[50px] border-[1px] border-[#9747FF]">
+                    <h2 className="text-xl font-semibold mb-2">Values</h2>
+                    <div>
+                        We are driven by the following values:
+                        <br />
+                        <span className="font-bold text-[#9747FF]"> <p>Comprehensive Search:</p> </span>
+                        <p> Investors efficiently find real estate opportunities from diverse companies in one place. </p> <br />
+                        <span className="font-bold text-[#9747FF]"> <p>Comparison Tools:</p> </span>
+                        <p> Robust analytics enable investors to evaluate and compare investment options. </p> <br />
+                        <span className="font-bold text-[#9747FF]">Network Building:</span>
+                        <p>  Real estate funding companies gain visibility, expanding their network for project funding. </p> <br />
+                    </div>
+                </div>
+            </div>
+            {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 vsm:w-[90%] lg:w-[80%] xl:w-[60%] mx-auto">
                 <div className="p-4 AboutCard border border-1 border-[#9747FF]">
                     <h2 className="text-xl font-semibold mb-2 ">Vision</h2>
                     <p className="">
@@ -52,7 +82,7 @@ function AboutUs() {
                         <p>  Real estate funding companies gain visibility, expanding their network for project funding. </p> <br />
                     </div>
                 </div>
-            </div>
+            </div> */}
         </div>
 
     )
