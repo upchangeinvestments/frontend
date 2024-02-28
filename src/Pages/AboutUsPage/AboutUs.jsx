@@ -45,7 +45,7 @@ function AboutUs() {
                         <p className='text-white absolute m-0 text-5xl CustomizeFontH'>VISION</p>
                     </CardHeader>
                     <CardBody>
-                        <p className="py-4 h-60 text-base text-justify">
+                        <p className="py-4 h-60 text-base">
                             We envision a dynamic platform for seamless exploration and comparison of
                             diverse opportunities, empowering investors with robust analytics.
                         </p>
@@ -60,7 +60,7 @@ function AboutUs() {
                         <p className='text-white absolute m-0 text-5xl CustomizeFontH'>Mission</p>
                     </CardHeader>
                     <CardBody>
-                        <p className="py-4 h-60 text-base text-justify">
+                        <p className="py-4 h-60 text-base">
                             To empower investors with the tools and information needed to make
                             informed real estate investment decisions, while facilitating collaboration
                             and growth within the real estate funding industry.
@@ -76,7 +76,7 @@ function AboutUs() {
                         <p className='text-white absolute m-0 text-5xl CustomizeFontH'>VALUES</p>
                     </CardHeader>
                     <CardBody>
-                        <p className="py-4 h-60 text-base text-justify">
+                        <p className="py-4 h-60 text-base">
                             We are committed to empowering individuals
                             by simplifying real estate investing with transparency, fostering trust
                             through clear information, and propelling innovation to redefine the
