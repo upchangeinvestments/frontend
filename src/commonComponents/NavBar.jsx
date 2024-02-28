@@ -1,4 +1,5 @@
 import React from 'react';
+import { NavHashLink } from 'react-router-hash-link';
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
@@ -64,13 +65,13 @@ const NavBar = () => {
               <Link to="/category" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Investments
               </Link>
-              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <NavHashLink to="/#HowItWorks" smooth className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 How it works
-              </Link>
+              </NavHashLink>
               <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Education
               </Link>
-              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link to="/contact" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Contact
               </Link>
             </div>
@@ -234,11 +235,9 @@ const NavBar = () => {
                       Education
                     </span>
                   </a>
-                  <a
-                    href="#"
+                  <Link to="/contact"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
-                    {/* Heroicon name: outline/refresh */}
                     <svg
                       className="flex-shrink-0 h-6 w-6 text-indigo-600"
                       xmlns="http://www.w3.org/2000/svg"
@@ -257,7 +256,7 @@ const NavBar = () => {
                     <span className="ml-3 text-base font-medium text-gray-900">
                       Contact
                     </span>
-                  </a>
+                  </Link>
                 </nav>
               </div>
             </div>

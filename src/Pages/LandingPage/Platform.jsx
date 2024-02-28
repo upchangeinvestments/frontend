@@ -5,7 +5,7 @@ import HowItWorks from './HowItWorks';
 
 const HowInvestmentWorks = () => {
     return (
-        <div className="md:mx-12 lg:mx-12 xl:mx-24">
+        <div id="HowItWorks" className="md:mx-12 lg:mx-12 xl:mx-24">
             <h1 className="flex justify-center CustomizeFontH w-full my-8 mx-auto vsm:text-2xl md:text-3xl">HOW INVESTMENT WORKS</h1>
             <div className="flex flex-col items-center justify-center w-[100%]">
                 <div className="grid grid-cols-9 vsm:w-[80%] md:w-[70%] lg:w-[60%]">

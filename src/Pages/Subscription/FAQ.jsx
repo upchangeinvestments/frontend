@@ -4,7 +4,7 @@ import Collapse from 'react-collapse';
 const faqData = [
     {
         title: "How can I contact the LynkInfinite team if I have questions?",
-        content: "You can contact the LynkInfinite team by emailing <support@lynkinfinite.com> or by calling (845) 673-1234."
+        content: "You can contact the LynkInfinite team by emailing at lynkinfiniteinvestments@gmail.com or by calling +1 (469) 587-9543."
     },
     {
         title: "How do I create an account?",
@@ -27,15 +27,15 @@ const faqData = [
     }
 ];
 
-const FAQ = () => {
+const FAQ = (props) => {
 
     return (
-        <div className="bg-white/20 backdrop-blur-sm mx-auto max-w-2xl vsm:py-12 vsm:px-12 lg:max-w-7xl lg:px-8 rounded-lg my-6 mb-24">
+        <div className={`mx-auto max-w-2xl lg:max-w-7xl lg:px-8 rounded-lg my-6 ${props.class}`}>
             <h2 className="text-2xl font-bold tracking-tight text-black">
                 Frequently Asked Questions
             </h2>
 
-            <div className="mt-6 space-y-6">
+            <div className="mt-6 space-y-6 break-words	">
                 {faqData.map((element, index) => (
                     <FAQItem key={index}
                         title={element.title}

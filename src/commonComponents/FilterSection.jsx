@@ -17,7 +17,7 @@ function FilterSection() {
         setPrice(value);
     };
     return (
-        <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg w-[20%] p-2 pr-6" style={{
+        <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg lg:w-[22%] xl:w-[18%] p-2 pr-6" style={{
             backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
             backgroundBlendMode: "overlay",
         }}>

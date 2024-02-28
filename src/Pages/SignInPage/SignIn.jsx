@@ -50,6 +50,9 @@ const SignIn = () => {
       navigate('/category');
       SuccessToast("Welcome to LynkInfinite Investment!");
     } catch (error) {
+      if (!error.response) {
+        return Error(error.message);
+      }
       return Error(error.response.data.message);
     }
   };
@@ -145,8 +148,11 @@ const SignIn = () => {
               <div className="intro-control signup-intro">
                 <div className="intro-control__inner">
                   <div className="">
-                    <h2 className='md:text-xl lg:text-2xl CustomizeFontH'>
+                    {/* <h2 className='md:text-xl lg:text-2xl CustomizeFontH'>
                       <font color="#0c0b0b ">WELCOME TO</font> <br /> <span className=''>LYNKINFINTE INVESTMENTS</span>
+                    </h2> */}
+                    <h2 className='md:text-xl lg:text-2xl CustomizeFontH'>
+                      <font color="#0c0b0b ">SignUp to </font> <br /> <span className=''>Explore INVESTMENTS</span>
                     </h2>
                   </div>
                   {/* <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p> */}
@@ -179,7 +185,7 @@ const SignIn = () => {
             <div className="m-8 py-6 px-2 rounded-lg " style={{
               backgroundColor: "rgba(34, 25, 25, 0.5)"
             }}>
-              <form action="" className='flex flex-col items-center justify-center'>
+              <form className='flex flex-col items-center justify-center' onSubmit={handleSignUp}>
                 <h2 className=''>SIGN UP</h2>
                 <div className='social'>
                   <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
@@ -209,7 +215,7 @@ const SignIn = () => {
             <div className="m-8 py-6 px-2 rounded-lg " style={{
               backgroundColor: "rgba(34, 25, 25, 0.5)"
             }}>
-              <form className='flex flex-col items-center justify-center'>
+              <form className='flex flex-col items-center justify-center' onSubmit={handleLogin}>
                 <h2 className="text-2xl font-bold">SIGN IN</h2>
                 <div className='social'>
                   <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>

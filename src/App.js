@@ -6,6 +6,8 @@ import SignInPage from "./Pages/SignInPage/SignIn";
 import SubscriptionPage from "./Pages/Subscription/SubscriptionPage";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
+import Contact from "./Pages/ContactPage/ContactPage";
+import HowInvestmentWorks from "./Pages/LandingPage/Platform";
 import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -18,6 +20,8 @@ function App() {
         <Route path="/premium" element={< SubscriptionPage />} />
         <Route path="/about" element={< AboutUs />} />
         <Route path="/signin" element={<SignInPage />} />
+        <Route path="/how-it-works" element={<HowInvestmentWorks />} />
+        <Route path="/contact" element={< Contact />} />
         <Route path="/category" element={< CategoryPage />} />
         <Route element={<PrivateRoute />}>
         </Route>

@@ -54,14 +54,14 @@ function CategoryPage() {
     useEffect(() => { }, [data]);
 
     return (
-        <div className='categoryMain'>
+        <div className='categoryMain lg:h-[60vh] xl:h-[55vh]'>
             <MobileFilter open={open} closeDrawer={openDrawer} data={data} Index={Id} className="" />   {/* filter section for mobile view */}
             <NavBar />
             <div className="">
-                <p className='uppercase text-white font-bold vsm:text-2xl md:text-5xl flex items-center justify-center h-[50vh]'>Explore Categories</p>
+                <p className='uppercase text-white font-bold vsm:text-2xl md:text-5xl flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]'>Explore Categories</p>
             </div>
             {/* <SearchBox /> */}
-            <div className="flex my-16 mt-32 ">
+            <div className="flex lg:-mt-[50px] xl:-mt-[100px] mb-16">
                 <FilterSection />
                 <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
                     <div className="relative vsm:block md:hidden my-4 bg-white/20 backdrop-blur-sm py-4">

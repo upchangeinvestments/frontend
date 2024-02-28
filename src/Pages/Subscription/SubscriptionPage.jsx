@@ -9,7 +9,7 @@ function Subscriptption() {
         <div className="Subscription h-[100vh] overflow-y-scroll">
             <NavBar />
             <SubscriptionCard />
-            <FAQ />
+            <FAQ class="bg-white/20 backdrop-blur-sm mb-24 vsm:p-12" />
             <Footer />
         </div>
     )
