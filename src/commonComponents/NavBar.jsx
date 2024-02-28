@@ -1,12 +1,31 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { verifyAuth } from "../utils/verifyAuth.js"
 
 const NavBar = () => {
+  const token = localStorage.getItem('token');
   const [open, setOpen] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (token) {
+        try {
+          const result = await verifyAuth(token);
+          setIsAuthenticated(result);
+        } catch (error) {
+          console.error('Error verifying authentication:', error);
+          setIsAuthenticated(false);
+        }
+      }
+    };
+
+    fetchData();
+  }, [token]);
 
   return (
     <>
@@ -75,17 +94,45 @@ const NavBar = () => {
                 Contact
               </Link>
             </div>
-            <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
-              <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
-                SIGN UP
-              </Link>
-              <Link to="/signin" state={{ isLogin: true }} className="">
-                <button style={{ backgroundImage: `url(${bgImage})` }}
-                  className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover">
-                  LOGIN
-                </button>
-              </Link>
-            </div>
+            {isAuthenticated === true ? (
+              <div className="">
+                <img id="avatarButton" type="button" data-dropdown-toggle="userDropdown" data-dropdown-placement="bottom-start" class="w-10 h-10 rounded-full cursor-pointer" src="/docs/images/people/profile-picture-5.jpg" alt="User dropdown" />
+
+                <div id="userDropdown" class="z-10 hidden bg-white divide-y divide-gray-100 rounded-lg shadow w-44 dark:bg-gray-700 dark:divide-gray-600">
+                  <div class="px-4 py-3 text-sm text-gray-900 dark:text-white">
+                    <div>Bonnie Green</div>
+                    <div class="font-medium truncate">name@flowbite.com</div>
+                  </div>
+                  <ul class="py-2 text-sm text-gray-700 dark:text-gray-200" aria-labelledby="avatarButton">
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Dashboard</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Settings</a>
+                    </li>
+                    <li>
+                      <a href="#" class="block px-4 py-2 hover:bg-gray-100 dark:hover:bg-gray-600 dark:hover:text-white">Earnings</a>
+                    </li>
+                  </ul>
+                  <div class="py-1">
+                    <a href="#" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 dark:hover:bg-gray-600 dark:text-gray-200 dark:hover:text-white">Sign out</a>
+                  </div>
+                </div>
+              </div>
+            ) : (
+              <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
+                <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
+                  SIGN UP
+                </Link>
+                <Link to="/signin" state={{ isLogin: true }} className="">
+                  <button style={{ backgroundImage: `url(${bgImage})` }}
+                    className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover">
+                    LOGIN
+                  </button>
+                </Link>
+              </div>
+            )}
+
           </div>
         </div>
         <div
