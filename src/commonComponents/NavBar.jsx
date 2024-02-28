@@ -1,12 +1,122 @@
-import React from 'react';
+import React, { useEffect } from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
+import { verifyAuth } from "../utils/verifyAuth.js"
+import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
+import { HiInboxArrowDown } from "react-icons/hi2";
+import { RiArrowDropDownLine } from "react-icons/ri";
+import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
+
+import {
+  Typography,
+  Button,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+} from "@material-tailwind/react";
+
+const profileMenuItems = [
+  {
+    label: "My Profile",
+    icon: FaUserCircle,
+  },
+  {
+    label: "Edit Profile",
+    icon: IoMdSettings,
+  },
+  {
+    label: "Inbox",
+    icon: HiInboxArrowDown,
+  },
+  {
+    label: "Help",
+    icon: IoMdHelpCircle,
+  },
+  {
+    label: "Sign Out",
+    icon: FaSignOutAlt,
+  },
+];
+
+function ProfileMenu() {
+  const [isMenuOpen, setIsMenuOpen] = React.useState(false);
+
+  const closeMenu = () => setIsMenuOpen(false);
+
+  return (
+    <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
+      <MenuHandler>
+        <Button
+          variant="text"
+          color="blue-gray"
+          className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
+        >
+          <FaUserCircle
+            variant="circular"
+            size="sm"
+            alt="user"
+            className="border border-gray-900 p-0.5 rounded-full w-10"
+            src=""
+          />
+          <RiArrowDropDownLine className={`h-5 w-5 transition-transform ${isMenuOpen ? "rotate-180" : ""}`} />
+        </Button>
+      </MenuHandler>
+      <MenuList className="p-4 w-[200px] bg-white/50 backdrop-blur-xl border-none z-50">
+        {profileMenuItems.map(({ label, icon }, key) => {
+          const isLastItem = key === profileMenuItems.length - 1;
+          return (
+            <MenuItem
+              key={label}
+              onClick={closeMenu}
+              className={`flex items-center gap-3 my-1 rounded ${isLastItem
+                ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
+                : ""
+                }`}
+            >
+              {React.createElement(icon, {
+                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
+                strokeWidth: 2,
+              })}
+              <Typography
+                as="span"
+                variant="lead"
+                className="font-normal"
+                color={isLastItem ? "red" : "inherit"}
+              >
+                {label}
+              </Typography>
+            </MenuItem>
+          );
+        })}
+      </MenuList>
+    </Menu>
+  );
+}
 
 const NavBar = () => {
+  const token = localStorage.getItem('token');
   const [open, setOpen] = React.useState(false);
+  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+
+  useEffect(() => {
+    const fetchData = async () => {
+      if (token) {
+        try {
+          const result = await verifyAuth(token);
+          setIsAuthenticated(result);
+        } catch (error) {
+          console.error('Error verifying authentication:', error);
+          setIsAuthenticated(false);
+        }
+      }
+    };
+
+    fetchData();
+  }, [token]);
 
   return (
     <>
@@ -75,17 +185,21 @@ const NavBar = () => {
                 Contact
               </Link>
             </div>
-            <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
-              <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
-                SIGN UP
-              </Link>
-              <Link to="/signin" state={{ isLogin: true }} className="">
-                <button style={{ backgroundImage: `url(${bgImage})` }}
-                  className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover">
-                  LOGIN
-                </button>
-              </Link>
-            </div>
+            {isAuthenticated === true ? (
+              <ProfileMenu />
+            ) : (
+              <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
+                <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
+                  SIGN UP
+                </Link>
+                <Link to="/signin" state={{ isLogin: true }} className="">
+                  <button style={{ backgroundImage: `url(${bgImage})` }}
+                    className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover">
+                    LOGIN
+                  </button>
+                </Link>
+              </div>
+            )}
           </div>
         </div>
         <div
@@ -261,20 +375,21 @@ const NavBar = () => {
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
-              <div>
-                <a
-                  href="#"
-                  className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
-                >
-                  SIGN UP
-                </a>
-                <p className="mt-6 text-center text-xl font-medium text-gray-500">
-                  Existing User?
-                  <Link to="signin" className="ml-2 text-[#9747FF] hover:text-purple-600">
-                    LOGIN
+              {isAuthenticated === false && (
+                <div>
+                  <Link to="/signin" state={{ isLogin: false }}
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
+                  >
+                    SIGN UP
                   </Link>
-                </p>
-              </div>
+                  <p className="mt-6 text-center text-xl font-medium text-gray-500">
+                    Existing User?
+                    <Link to="/signin" state={{ isLogin: true }} className="ml-2 text-[#9747FF] hover:text-purple-600">
+                      LOGIN
+                    </Link>
+                  </p>
+                </div>
+              )}
             </div>
           </div>
         </div>

@@ -72,3 +72,25 @@ body{
 }
 
 /* ...............End of css for the Subscription Page............... */
+
+/* ...............Styling of filter input range ............... */
+
+/* For Chrome, Safari, and Opera */
+.FilterSection input[type="range"]::-webkit-slider-thumb {
+    background-color: #9747FF !important; /* Change thumb color */
+    cursor: pointer;
+    -webkit-appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
+
+/* For Firefox */
+.FilterSection input[type="range"]::-moz-range-thumb {
+    background-color: #9747FF; /* Change thumb color */
+    cursor: pointer;
+    appearance: none;
+    width: 16px;
+    height: 16px;
+    border-radius: 50%;
+}
