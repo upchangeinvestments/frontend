@@ -3,6 +3,9 @@ import '../../styles/LandingPage/Questions.css';
 import video from "../../assets/introVideo.mp4"
 import Aos from "aos";
 import "aos/dist/aos.css";
+import { useNavigate } from 'react-router-dom';
+
+
 // import { select } from '@material-tailwind/react';
 
 const quizData = [
@@ -31,14 +34,22 @@ const quizData = [
 
 
 const Questions = () => {
-  useEffect(() => {
-    Aos.init();
-  }, []);
-  const [currentQuiz, setCurrentQuiz] = useState(0);
-  // const [score, setScore] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState([]);
 
+  const [currentQuiz, setCurrentQuiz] = useState(0);
+  const [email, setEmail] = useState('');
+  const [name, setName] = useState('');
+  const [selectedAnswer, setSelectedAnswer] = useState([]);
+  const navigate = useNavigate();
   // console.log(selectedAnswer);
+
+  const QuizHandler = (event) => {
+    event.preventDefault();
+    const responses = selectedAnswer;
+    // console.log("Submitted Data:", {  });
+    const userData = { email, name, responses };
+    navigate('/signin', { state: { isLogin: false, userData: userData } });
+  };
+
 
   const loadQuiz = () => {
     const currentQuizData = quizData[currentQuiz];
@@ -139,15 +150,14 @@ const Questions = () => {
           ) : (
             // <h2>You answered {score}/{quizData.length} questions correctly</h2>
             <div className="w-full vsm:pb-6">
-              <form className='flex flex-col justify-center items-center w-ful gap-8'>
+              <form className='flex flex-col justify-center items-center w-ful gap-8' onSubmit={QuizHandler}>
                 <p className="text-2xl">Get your results!</p>
-                <input className='bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]' type="text" placeholder="Email" required />
-                <input className='bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]' type="text" placeholder="Name" required />
-                <a
-                  href="#"
+                <input onChange={(e) => setEmail(e.target.value)} className='bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]' type="email" placeholder="Email" required />
+                <input onChange={(e) => setName(e.target.value)} className='bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]' type="text" placeholder="Name" required />
+                <div
                   className="whitespace-nowrap inline-flex items-center justify-center vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm vsm:text-base lg:text-base xl:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec] bg-gradient-to-r from-purple-500 to-purple-700">
-                  <button type='submit'>SUBMIT</button>
-                </a>
+                  <button >SUBMIT</button>
+                </div>
               </form>
             </div>
           )}

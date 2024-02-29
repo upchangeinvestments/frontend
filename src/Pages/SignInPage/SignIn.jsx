@@ -25,17 +25,11 @@ const ConnetWithUs = () => {
 
 const SignIn = () => {
   const location = useLocation();
-  var isLogin;
-  if (!location.state) {
-    isLogin = false;
-  } else {
-    isLogin = location.state.isLogin;
 
-  }
+  const isLogin = location.state?.isLogin || false;
+
   const [isSignUp, setIsSignUp] = useState(isLogin);
-  const [email, setEmail] = useState('');
-  const [password, setPassword] = useState('');
-  const [confirmPassword, setConfirmPassword] = useState('');
+  const [userData, setUserData] = useState(location.state?.userData || null);
   const navigate = useNavigate();
 
   const SignInButtonClick = () => {
@@ -44,6 +38,8 @@ const SignIn = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
+    const email = event.target.email.value;
+    const password = event.target.password.value;
     try {
       const response = await axios.post('http://localhost:5000/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
@@ -61,6 +57,11 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
+      const email = event.target.email.value;
+      const password = event.target.password.value;
+      const confirmPassword = event.target.confirmPassword.value;
+      console.log(email, password, confirmPassword);
+
       const response = await axios.post('http://localhost:5000/auth/signup', { email, password, confirmPassword })
       localStorage.setItem('token', response.data.token);
       navigate('/category');
@@ -84,9 +85,9 @@ const SignIn = () => {
                     <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
                     <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
-                  <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                  <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-                  <input type="password" placeholder="Confirm password" onChange={(e) => setConfirmPassword(e.target.value)} required />
+                  <input type="email" placeholder="Email" name="email" value={userData !== null ? userData.email : ""} onChange={(e) => setUserData({ ...userData, email: e.target.value })} required />
+                  <input type="password" placeholder="Password" name="password" required />
+                  <input type="password" placeholder="Confirm password" name="confirmPassword" required />
                   <div className="checkbox flex items-center justify-center gap-2 mt-4">
                     <input type="checkbox" id="terms" name="terms" required />
                     <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
@@ -108,8 +109,9 @@ const SignIn = () => {
                     <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
                     <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
-                  <input className='' type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                  <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                  <input className='' type="text" name="email" placeholder="Email" required />
+                  <input type="password" placeholder="Password" name="password" required />
+
                   <button type='submit' className='w-[65%]'>LOGIN</button>
                   <a href="#"><p className="">Forgot password</p></a>
                   <div className='mt-8'>
@@ -191,9 +193,9 @@ const SignIn = () => {
                   <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                   <a href="#" className="social"><i className='fab fa-apple'></i></a>
                 </div>
-                <input type="email" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
-                <input type="password" placeholder="Confirm password" onChange={(e) => setConfirmPassword(e.target.value)} required />
+                <input type="email" placeholder="Email" name="email" value={userData !== null ? userData.email : ""} required />
+                <input type="password" placeholder="Password" name="password" required />
+                <input type="password" placeholder="Confirm password" name="confirmPassword" required />
                 <div className="checkbox flex items-center justify-center gap-2 mt-4">
                   <input type="checkbox" id="terms" name="terms" required />
                   <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
@@ -221,8 +223,8 @@ const SignIn = () => {
                   <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                   <a href="#" className="social"><i className='fab fa-apple'></i></a>
                 </div>
-                <input className='' type="text" placeholder="Email" onChange={(e) => setEmail(e.target.value)} required />
-                <input type="password" placeholder="Password" onChange={(e) => setPassword(e.target.value)} required />
+                <input className='' type="text" placeholder="Email" name="email" required />
+                <input type="password" placeholder="Password" name="password" required />
                 <button type='submit'>LOGIN</button>
                 <a href="#"><p className="">Forgot password</p></a>
                 <div className='mt-8'>

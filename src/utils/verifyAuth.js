@@ -10,7 +10,7 @@ export const verifyAuth = async (token) => {
             return false;
         }
     } catch (error) {
-        console.log("in verifyAuth", error);
+        // console.log("in verifyAuth", error);
         return false;
     }
 };
