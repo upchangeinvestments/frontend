@@ -5,6 +5,7 @@ import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
 import SubscriptionPage from "./Pages/Subscription/SubscriptionPage";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
+import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
 import Contact from "./Pages/ContactPage/ContactPage";
 import HowInvestmentWorks from "./Pages/LandingPage/Platform";
@@ -22,8 +23,9 @@ function App() {
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/how-it-works" element={<HowInvestmentWorks />} />
         <Route path="/contact" element={< Contact />} />
+        <Route path="/category" element={< CategoryPage />} />
+        <Route path="/profile" element={< ProfilePage />} />
         <Route element={<PrivateRoute />}>
-          <Route path="/category" element={< CategoryPage />} />
         </Route>
       </Routes>
       <ToastContainer
