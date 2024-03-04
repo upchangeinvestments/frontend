@@ -8,6 +8,7 @@ import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
 import Contact from "./Pages/ContactPage/ContactPage";
+import VerifyUser from "./Pages/VerifyUser/VerifyUser";
 import HowInvestmentWorks from "./Pages/LandingPage/Platform";
 import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
@@ -23,6 +24,7 @@ function App() {
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/how-it-works" element={<HowInvestmentWorks />} />
         <Route path="/contact" element={< Contact />} />
+        <Route path="/:id/verify/:token" element={< VerifyUser />} />
         <Route path="/category" element={< CategoryPage />} />
         <Route path="/profile" element={< ProfilePage />} />
         <Route element={<PrivateRoute />}>

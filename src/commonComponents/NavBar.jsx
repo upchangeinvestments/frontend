@@ -23,22 +23,27 @@ const profileMenuItems = [
   {
     label: "My Profile",
     icon: FaUserCircle,
+    link: "/profile"
   },
   {
     label: "Edit Profile",
     icon: IoMdSettings,
+    link: "#"
   },
   {
     label: "Inbox",
     icon: HiInboxArrowDown,
+    link: "#"
   },
   {
     label: "Help",
     icon: IoMdHelpCircle,
+    link: "#"
   },
   {
     label: "Sign Out",
     icon: FaSignOutAlt,
+    link: "#"
   },
 ];
 
@@ -66,7 +71,7 @@ function ProfileMenu() {
         </Button>
       </MenuHandler>
       <MenuList className="p-4 w-[200px] bg-white/50 backdrop-blur-xl border-none z-50">
-        {profileMenuItems.map(({ label, icon }, key) => {
+        {profileMenuItems.map(({ label, icon, link }, key) => {
           const isLastItem = key === profileMenuItems.length - 1;
           return (
             <MenuItem
@@ -81,19 +86,21 @@ function ProfileMenu() {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
                 strokeWidth: 2,
               })}
-              <Typography
-                as="span"
-                variant="lead"
-                className="font-normal"
-                color={isLastItem ? "red" : "inherit"}
-              >
-                {label}
-              </Typography>
+              <Link to={link}>
+                <Typography
+                  as="span"
+                  variant="lead"
+                  className="font-normal"
+                  color={isLastItem ? "red" : "inherit"}
+                >
+                  {label}
+                </Typography>
+              </Link>
             </MenuItem>
           );
         })}
       </MenuList>
-    </Menu>
+    </Menu >
   );
 }
 
