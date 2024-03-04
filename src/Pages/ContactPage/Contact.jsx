@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import { FaXTwitter, FaLocationDot } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
-import { useNavigate, useLocation, Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import Faq from "../Subscription/FAQ";
 
 function ContactForm() {
