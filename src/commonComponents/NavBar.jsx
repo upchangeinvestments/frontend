@@ -188,7 +188,7 @@ const NavBar = () => {
               <NavHashLink to="/#HowItWorks" smooth className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 How it works
               </NavHashLink>
-              <Link to="#" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link to="/education" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Education
               </Link>
               <Link to="/contact" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
@@ -335,8 +335,7 @@ const NavBar = () => {
                       How it works
                     </span>
                   </a>
-                  <a
-                    href="#"
+                  <Link to="/education"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/view-grid */}
@@ -358,7 +357,7 @@ const NavBar = () => {
                     <span className="ml-3 text-base font-medium text-gray-900">
                       Education
                     </span>
-                  </a>
+                  </Link>
                   <Link to="/contact"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
