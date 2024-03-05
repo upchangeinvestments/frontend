@@ -1,14 +1,12 @@
 import React, { useEffect, useState } from 'react';
-import { useParams } from 'react-router-dom';
+import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios"
+import VerifiedGIF from "../../assets/verified.webp"
 
 function VerifyUser() {
     let { id, token } = useParams();
     const [isVerified, setIsVerified] = useState(false);
-    // console.log(id)
-    // console.log(token);
-    console.log(process.env.REACT_APP_BACKEND_URL)
-    console.log("url=", `${process.env.REACT_APP_BACKEND_URL}${id}/verify/${token}`)
+    const navigate = useNavigate();
 
     useEffect(() => {
         const verifyToken = async () => {
@@ -24,13 +22,18 @@ function VerifyUser() {
             }
         };
         verifyToken();
+        setTimeout(() => {
+            navigate('/category');
+        }, 2000);
     }, [])
 
     return (
-        <div>
-            {isVerified ? (
-                <div>
-
+        <div className=" h-[100vh] aboutMain flex items-center justify-center " >
+            {isVerified === false ? (
+                <div className="bg-white/20 backdrop-blur-xl p-8 rounded-lg flex flex-col items-center text-white">
+                    <img src={VerifiedGIF} className="w-80" alt="Verify" />
+                    <p className="text-4xl font-bold ">You are verified.</p>
+                    <p className="text-2xl font-bold ">Thanks for verifying you ID</p>
                 </div>
             ) : (
                 <div></div>
