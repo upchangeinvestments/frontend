@@ -9,6 +9,9 @@ import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
 import { HiInboxArrowDown } from "react-icons/hi2";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
+import { GrArticle } from "react-icons/gr";
+
+
 
 import {
   Typography,
@@ -31,9 +34,9 @@ const profileMenuItems = [
     link: "#"
   },
   {
-    label: "Inbox",
-    icon: HiInboxArrowDown,
-    link: "#"
+    label: "Education",
+    icon: GrArticle,
+    link: "/education"
   },
   {
     label: "Help",
