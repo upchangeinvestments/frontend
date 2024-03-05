@@ -26,11 +26,11 @@ function ContactForm() {
             <div className="flex flex-col ml-10 w-full">
               <div className="basis-1/3 relative">
                 <div className="flex flex-col mt-28 items-center justify-end h-[60px]">
-                  <div className="w-80 ">
+                  <div className="w-64">
                     <img src={logo} alt="" />
                   </div>
-                  <div className="flex items-center mt-8 justify-center">
-                    <div className="right-0 top-0  p-2">
+                  <div className="flex flex-col items-center justify-center">
+                    <div className="right-0 top-0 mt-2 p-2">
                       <FaLocationDot size="20px" />
                     </div>
                     <p>Dallas Texas, USA</p>
@@ -38,17 +38,17 @@ function ContactForm() {
                 </div>
               </div>
               <div className="flex flex-col items-center justify-center basis-1/3 my-4">
-                <div className="flex flex-center items-center">
+                <div className="flex flex-col flex-center items-center">
                   <div className="right-0 top-0  p-2">
                     <FaPhone size="20px" />
                   </div>
                   <p>+1 (469) 587-9543</p>
                 </div>
-                <div className="flex ml-8 mt-5 flex-center items-center">
-                  <div className=" ml-4  right-0 top-0  p-2">
+                <div className="flex flex-col mt-5 flex-center items-center">
+                  <div className=" right-0 top-0  p-2">
                     <MdOutlineMail size="20px" />
                   </div>
-                  <p>lynkinfiniteinvestments@gmail.com</p>
+                  <p className="ml-8">Lynkinfiniteinvestments@gmail.com</p>
                 </div>
               </div>
               <div className="flex flex-col mt-20 items-center justify-center basis-1/3">
@@ -73,13 +73,13 @@ function ContactForm() {
               title="Google Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67236648232!2d-96.89636237485647!3d32.820556582433206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1709581944715!5m2!1sen!2sin"
               width="280"
-              height="380"
+              height="420"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
             ></iframe>
           </div>
-          <div className="vsm:mb-12 col-span-2 lg:pl-[100px] rounded-lg md:mb-0 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-purple-400 to-purple-300  py-8  flex flex-col items-center justify-center">
+          <div className="vsm:mb-12 col-span-2 lg:pl-[100px] rounded-lg md:mb-0 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#9747FF] to-purple-300  py-8  flex flex-col items-center justify-center">
             <form
               onSubmit={handleSubmit}
               className=" rounded md:px-8 pt-6   w-full"
@@ -87,7 +87,7 @@ function ContactForm() {
               <div className="mb-4">
                 <label
                   htmlFor="firstName"
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-white text-sm font-bold mb-2"
                 >
                   Name
                 </label>
@@ -96,14 +96,14 @@ function ContactForm() {
                   id="firstName"
                   value={firstName}
                   onChange={(event) => setFirstName(event.target.value)}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                   required
                 />
               </div>
               <div className="mb-4">
                 <label
                   htmlFor="email"
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-white text-sm font-bold mb-2"
                 >
                   Email
                 </label>
@@ -112,14 +112,14 @@ function ContactForm() {
                   id="email"
                   value={email}
                   onChange={(event) => setEmail(event.target.value)}
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                   required
                 />
               </div>
               <div className="mb-6">
                 <label
                   htmlFor="message"
-                  className="block text-gray-700 text-sm font-bold mb-2"
+                  className="block text-white text-sm font-bold mb-2"
                 >
                   Message
                 </label>
@@ -128,7 +128,7 @@ function ContactForm() {
                   value={message}
                   onChange={(event) => setMessage(event.target.value)}
                   rows="5"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                  className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                   required
                 />
               </div>
@@ -146,7 +146,7 @@ function ContactForm() {
           </div>
         </div>
       </div>
-      <div className="rounded-lg mt-[80px]  px-6 py-12 bg-[#c7b3ee] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-8 md:px-10 -mt-[100px] backdrop-blur-[30px]">
+      <div className="rounded-lg mt-[40px]  px-6 py-12 bg-[#c7b3ee] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-8 md:px-10 -mt-[100px] backdrop-blur-[30px]">
         <Faq class="w-full" />
       </div>
     </div>
