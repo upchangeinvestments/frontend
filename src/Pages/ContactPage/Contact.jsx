@@ -1,6 +1,7 @@
 import React, { useState } from "react";
-import { FaXTwitter, FaLocationDot } from "react-icons/fa6";
+import { FaXTwitter, FaLocationDot, FaPhone } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
+import { MdOutlineMail } from "react-icons/md";
 import { Link } from "react-router-dom";
 import Faq from "../Subscription/FAQ";
 
@@ -18,11 +19,71 @@ function ContactForm() {
   return (
     <div className="container mx-auto md:px-12">
       <div className="block rounded-lg bg-gradient-to-b from-white/30  to-[#c7b3ee] bg-opacity-10 px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-8 md:px-10 -mt-[100px] backdrop-blur-[30px]">
-        <div className=" text-black grid vsm:grid-cols-1 lg:grid-cols-5 ">
-          <div className="vsm:mb-12 col-span-2 md:mb-0 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 flex flex-col items-center justify-center">
+        <div className=" text-black grid vsm:grid-cols-1 lg:grid-cols-4 ">
+          <div className="col-span-1 ml-5 flex items-center justify-end lg:-mt-4">
+            <div className="flex flex-col ml-10 w-full">
+              <div className="basis-1/3 relative">
+                <div className="flex flex-col items-center justify-end h-[60px]">
+                  <p className="font-bold text-xl uppercase">
+                    LynkInfinite Investments
+                  </p>
+                  <div className="flex items-center mt-8 justify-center">
+                    <p>Dallas Texas, USA</p>
+                    <div className=" ml-4  right-0 top-0  p-2">
+                      <FaLocationDot size="20px" />
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-center justify-center basis-1/3 my-4">
+                <div className="flex flex-center items-center">
+                  <p>+1 (469) 587-9543</p>
+                  <div className=" ml-4  right-0 top-0  p-2">
+                    <FaPhone size="20px" />
+                  </div>
+                </div>
+                <div className="flex mt-5 flex-center items-center">
+                  <p>
+                    lynkinfiniteinvestments<br></br>@gmail.com
+                  </p>
+                  <div className=" ml-4  right-0 top-0  p-2">
+                    <MdOutlineMail size="20px" />
+                  </div>
+                </div>
+              </div>
+              <div className="flex flex-col items-center justify-center basis-1/3">
+                <p>Connect with us</p>
+
+                <div className="flex  gap-x-4 mt-4">
+                  <Link to="/">
+                    <FaFacebookF size="23px" />
+                  </Link>
+                  <Link to="/">
+                    <FaInstagram size="25px" />
+                  </Link>
+                  <Link to="/">
+                    <FaXTwitter size="25px" />
+                  </Link>
+                </div>
+              </div>
+            </div>
+          </div>
+          <div className="w-full col-span-1 ml-[60px] mb-8 map">
+            <iframe
+              className="absolute rounded-lg  mt-4 w-80"
+              title="Google Map"
+              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67236648232!2d-96.89636237485647!3d32.820556582433206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1709581944715!5m2!1sen!2sin"
+              width="280"
+              height="380"
+              style={{ border: 0 }}
+              allowFullScreen=""
+              loading="lazy"
+            ></iframe>
+          </div>
+          <div className="vsm:mb-12 col-span-2 lg:pl-[100px]  md:mb-0 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-[#c7b3ee] flex flex-col items-center justify-center">
             <form
               onSubmit={handleSubmit}
-              className=" rounded md:px-8 pt-6 w-full"
+              className=" rounded md:px-8 pt-6   w-full"
             >
               <div className="mb-4">
                 <label
@@ -82,58 +143,6 @@ function ContactForm() {
                 </button>
               </div>
             </form>
-          </div>
-          <div className="w-full mb-8 relative">
-            <iframe
-              className="absolute rounded-lg shadow-lg w-80 shadow-2xl"
-              title="Google Map"
-              src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67236648232!2d-96.89636237485647!3d32.820556582433206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1709581944715!5m2!1sen!2sin"
-              width="280"
-              height="380"
-              style={{ border: 0 }}
-              allowFullScreen=""
-              loading="lazy"
-            ></iframe>
-          </div>
-          <div className="col-span-2 flex items-center justify-center lg:-mt-4">
-            <div className="flex flex-col w-full">
-              <div className="basis-1/3 relative">
-                <div className="absolute right-0 top-0 border border-black border-1 rounded-full p-2">
-                  <FaLocationDot size="20px" />
-                </div>
-                <div className="flex flex-col items-center justify-end h-[60px]">
-                  <p className="font-bold text-lg uppercase">Address</p>
-                  <div className="flex flex-col items-center justify-center">
-                    <p>Dallas</p>
-                    <p>Texas, USA</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center basis-1/3 my-4">
-                <div className="flex flex-col flex-center items-center">
-                  <p className="font-bold text-lg uppercase">Phone</p>
-                  <p>+1 (469) 587-9543</p>
-                </div>
-                <div className="flex flex-col mt-5 flex-center items-center">
-                  <p className="font-bold text-lg uppercase">Email</p>
-                  <p>lynkinfiniteinvestments@gmail.com</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center basis-1/3">
-                <p>Connect with us</p>
-                <div className="flex  gap-x-4 mt-4">
-                  <Link to="/">
-                    <FaFacebookF size="23px" />
-                  </Link>
-                  <Link to="/">
-                    <FaInstagram size="25px" />
-                  </Link>
-                  <Link to="/">
-                    <FaXTwitter size="25px" />
-                  </Link>
-                </div>
-              </div>
-            </div>
           </div>
         </div>
       </div>
