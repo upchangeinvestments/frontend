@@ -64,8 +64,8 @@ const SignIn = () => {
 
       const response = await axios.post('http://localhost:5000/auth/signup', { email, password, confirmPassword })
       localStorage.setItem('token', response.data.token);
-      navigate('/category');
-      SuccessToast("Welcome to LynkInfinite Investment!");
+      // navigate('/category');
+      SuccessToast("Check your Inbox, and verify your account!");
     } catch (error) {
       return Error(error.response.data.message);
     }
