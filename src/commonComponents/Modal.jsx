@@ -19,7 +19,7 @@ function Modal() {
       {isOpen && (
         <div className="fixed inset-0 flex items-center justify-center z-50">
           <div className="absolute inset-0 bg-gray-900 opacity-50"></div>
-          <div className="bg-[#c7b3ee] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  rounded-lg p-8 max-w-md z-50">
+          <div className="bg-[#c7b3ee] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] h-5/6 rounded-lg p-8 max-w-md z-50">
             <h2 className="text-xl font-bold mb-4">
               Let's get the basics so we can give the goods
             </h2>
