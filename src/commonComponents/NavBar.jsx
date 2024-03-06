@@ -6,7 +6,6 @@ import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
 import { verifyAuth } from "../utils/verifyAuth.js"
 import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
-import { HiInboxArrowDown } from "react-icons/hi2";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import { GrArticle } from "react-icons/gr";
