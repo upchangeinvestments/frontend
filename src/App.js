@@ -11,6 +11,7 @@ import Contact from "./Pages/ContactPage/ContactPage";
 import VerifyUser from "./Pages/VerifyUser/VerifyUser";
 import EducationPage from "./Pages/EducationPage/EducationPage";
 import HowInvestmentWorks from "./Pages/LandingPage/Platform";
+import SpecificPage from "./Pages/SpecificCategoryPage/SpecificPage";
 import { ToastContainer, Bounce } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
@@ -28,7 +29,7 @@ function App() {
         <Route path="/contact" element={< Contact />} />
         <Route path="/:id/verify/:token" element={< VerifyUser />} />
         <Route path="/category" element={< CategoryPage />} />
-        <Route path="/category/:type" exact element={< ProfilePage />} />
+        <Route path="/category/:type" exact element={< SpecificPage />} />
         <Route path="/profile" element={< ProfilePage />} />
         <Route element={<PrivateRoute />}>
         </Route>
