@@ -33,7 +33,7 @@ import { LeftArrow, RightArrow } from "../../commonComponents/CarouselButton"
 
 const NewsCard = ({ data, index }) => {
     return (
-        <Link to={data.url} target="_blank" className="h-[300px] bg-white/20 backdrop-blur-xl rounded-lg shadow-md overflow-hidden flex flex-col items-center justify-center py-2 px-4 mb-4 mx-8 ">
+        <Link to={data.url} target="_blank" key={index} className="h-[300px] bg-white/20 backdrop-blur-xl rounded-lg shadow-md overflow-hidden flex flex-col items-center justify-center py-2 px-4 mb-4 mx-2 lg:mx-8 ">
             <img src={data.urlToImage} alt="Card image" className="w-[270px] h-[170px] rounded-lg " />
             <div className="p-4 hover:underline">
                 <h3 className="text-base font-medium"> {data.title.length > 55 ? `${data.title.substring(0, 55)}...` : data.title}</h3>

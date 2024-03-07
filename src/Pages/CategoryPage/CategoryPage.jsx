@@ -79,7 +79,7 @@ function CategoryPage() {
     setOpen((prevOpen) => !prevOpen);
     setId(index);
   };
-  useEffect(() => {}, [data]);
+  useEffect(() => { }, [data]);
 
   return (
     <div className="categoryMain lg:h-[60vh] xl:h-[55vh]">
