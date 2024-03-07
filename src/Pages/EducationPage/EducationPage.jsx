@@ -24,19 +24,19 @@ const Card = ({ title, content, date }) => {
 
 const MainData = [
     {
-        ImageSrc: "https://thumbs.dreamstime.com/b/articles-complex-like-puzzle-pictured-as-word-pieces-to-show-can-be-difficult-needs-cooperating-fit-together-d-164200470.jpg",
-        Type: "Articles",
+        ImageSrc: "https://i.postimg.cc/j5vwbk8T/article.jpg",
+        Type: "Article",
     },
     {
-        ImageSrc: "https://slidemodel.com/wp-content/uploads/8165-01-education-word-cloud-picture-1.jpg",
+        ImageSrc: "https://i.postimg.cc/Gps7pVVk/education.jpg",
         Type: "Education",
     },
     {
-        ImageSrc: "https://images.unsplash.com/photo-1585829365295-ab7cd400c167?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+        ImageSrc: "https://i.postimg.cc/0yCm0fSL/news.jpg",
         Type: "News",
     },
     {
-        ImageSrc: "https://sasahost.ke/zetu_files/2020/08/keywords-and-research-sasahost.png",
+        ImageSrc: "https://i.postimg.cc/d3p1B7Qk/keywords.jpg",
         Type: "Keywords",
     },
 ]
