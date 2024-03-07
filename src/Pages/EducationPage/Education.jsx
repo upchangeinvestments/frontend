@@ -44,6 +44,14 @@ const cardsData = [
         title: "How to Invest?",
         description: "Learn why, when, and how to start investing your money.",
     },
+    {
+        title: "Why invest in private real estate?",
+        description: "Private real estate has outperformed US equities and fixed income on an absolute and risk-adjusted basis since 2000.",
+    },
+    {
+        title: "Benefits of Investing With Your IRA",
+        description: "Long-term retirement plans are typically designed to benefit individuals by reducing their tax bill while earning interest over time.",
+    },
 ];
 
 
@@ -73,7 +81,7 @@ const Card = (props) => {
 const Education = () => {
     return (
         <div className="w-full" >
-            <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg">
+            <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6">
                 <h1 className="text-xl font-semibold text-center mb-4 text-black">
                     Learn the basics
                 </h1>
@@ -85,6 +93,8 @@ const Education = () => {
                         <ServiceCard key={index} {...card} />
                     ))}
                 </div>
+            </div>
+            <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 mt-10">
                 <h1 className="text-xl font-semibold text-center mb-4 text-black mt-6">
                     Understand the different types of investment funds
                 </h1>
@@ -94,8 +104,6 @@ const Education = () => {
                     managed and offshore funds. Then you can start to develop an investment
                     strategy around your own personal goals and preferences.
                 </p>
-            </div>
-            <div className="my-6">
                 <div className="flex flex-wrap">
                     {EducationData.map((data, index) => (
                         <div className="w-full md:w-1/2 lg:w-1/3 p-2" key={index}>

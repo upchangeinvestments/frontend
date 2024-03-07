@@ -33,9 +33,9 @@ const profileMenuItems = [
     link: "#"
   },
   {
-    label: "Education",
+    label: "Resouerces",
     icon: GrArticle,
-    link: "/education"
+    link: "/resources"
   },
   {
     label: "Help",
@@ -187,8 +187,8 @@ const NavBar = () => {
               <NavHashLink to="/#HowItWorks" smooth className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 How it works
               </NavHashLink>
-              <Link to="/education" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
-                Education
+              <Link to="/resources" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+                Resouerces
               </Link>
               <Link to="/contact" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Contact
@@ -334,7 +334,7 @@ const NavBar = () => {
                       How it works
                     </span>
                   </a>
-                  <Link to="/education"
+                  <Link to="/resources"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/view-grid */}
@@ -354,7 +354,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Education
+                      Resouerces
                     </span>
                   </Link>
                   <Link to="/contact"

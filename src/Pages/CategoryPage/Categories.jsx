@@ -1,4 +1,5 @@
 import React from 'react'
+import { Link } from "react-router-dom"
 import hospital from "../../assets/categories/hospital.jpg";
 import hotel from "../../assets/categories/hotel.jpg";
 import infrastructure from "../../assets/categories/infrastructure.jpg";
@@ -14,10 +15,12 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Images = [resident, retail, hotel, warehouse, hospital, school, office, infrastructure, BlurBuilding];
 const Texts = ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Infrastructure", "View All"];
+const type = ["residential", "hotel", "retail", "warehouse", "medical", "school", "office", "infrastructure", "all"];
 
 const categoryData = Images.map((image, index) => ({
     image: image,
     text: Texts[index],
+    type: type[index]
 }));
 
 function Categories() {
@@ -37,14 +40,14 @@ function Categories() {
                         </div>
                     </div>
                 ) : (
-                    <div key={index} className="flex flex-col items-center justify-center">
+                    <Link to={element.type} key={index} className="flex flex-col items-center justify-center">
                         <div className='vsm:w-[100%] lg:w-[80%] flex items-center justify-center'>
                             <img src={element.image} alt="" className='rounded-3xl object-cover h-[350px] shadow-xl' />
                         </div>
                         <div className='vsm:w-[100%] lg:w-[80%] flex items-center justify-center pt-2'>
                             <p className='CustomizeFontH text-lg'>{element.text}</p>
                         </div>
-                    </div>
+                    </Link>
                 ))}
             </div >
             {/* <div className="mt-4 flex items-center justify-center CustomizeFontH p-4 ">

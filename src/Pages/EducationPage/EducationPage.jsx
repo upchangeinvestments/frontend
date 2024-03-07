@@ -50,7 +50,7 @@ function EducationPage() {
         <div className="main vsm:w-[125vw] md:w-[107vw] lg:w-[100%] vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
             <NavBar />
             <div className="max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8">
-                <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH ">Education</h1>
+                <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH ">Resources</h1>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
                     <div className="flex flex-col pt-1">
                         <img className='rounded-t-lg' src="https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg" alt="Real-Estate Investment" />
@@ -71,7 +71,7 @@ function EducationPage() {
                     </div>
                 </div>
                 <div className="pt-8">
-                    {/* <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH">Education</h1> */}
+                    <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH">Education</h1>
                     <Education />
                     {/* <div className="">
                         <Carousel cols={3} rows={1} gap={10} arrowLeft={<LeftArrow dir="right" />} arrowRight={<RightArrow dir="right" />} loop>
