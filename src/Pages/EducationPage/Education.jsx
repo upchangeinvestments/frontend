@@ -68,9 +68,9 @@ function ServiceCard({ title, description }) {
 const Card = (props) => {
     return (
         <a href={props.data.href} className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg h-[200px] relative border border-1 border-[#9747FF]">
-            <h2 className="vsm:text-2xl lg:text-lg font-semibold mb-2 md:hidden">{props.data.title.length > 33 ? `${props.data.title.substring(0, 30)}...` : props.data.title}</h2>
+            <h2 className="vsm:text-xl lg:text-lg font-semibold mb-2 md:hidden">{props.data.title.length > 33 ? `${props.data.title.substring(0, 30)}...` : props.data.title}</h2>
             <h2 className="vsm:text-2xl lg:text-lg font-semibold mb-2 vsm:hidden md:block">{props.data.title}</h2>
-            <p className=""> {props.data.description.length > 130 ? `${props.data.description.substring(0, 127)}...` : props.data.description}</p>
+            <p className=""> {props.data.description.length > 120 ? `${props.data.description.substring(0, 117)}...` : props.data.description}</p>
             <button className="bg-[#9747FF] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 absolute bottom-4">
                 {props.data.linkText}
             </button>

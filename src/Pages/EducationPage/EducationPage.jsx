@@ -9,19 +9,6 @@ import NavBar from "../../commonComponents/NavBar"
 import ArticleData from "../../assets/ArticlesEduPage.json"
 
 
-const Card = ({ title, content, date }) => {
-    return (
-        <div className="bg-white shadow-md rounded-lg p-4 md:p-6 mx-6 mb-4 h-[250px]">
-            <div className="text-xl font-medium mb-2">{title}</div>
-            <div className="text-gray-600 mb-4">{date}</div>
-            <div className="text-gray-800">
-                <p>{content}</p>
-            </div>
-        </div>
-    );
-};
-
-
 const MainData = [
     {
         ImageSrc: "https://i.postimg.cc/j5vwbk8T/article.jpg",
@@ -89,11 +76,11 @@ function EducationPage() {
                         <Carousel cols={2} rows={1} gap={10} arrowLeft={<LeftArrow dir="left" />} arrowRight={<RightArrow dir="left" />} loop>
                             {ArticleData.map((article, index) => (
                                 <Carousel.Item key={index} >
-                                    <div className="bg-white/20 backdrop-blur-xl shadow-md rounded-md p-6 mx-2 lg:mx-8 mb-4 vsm:h-[250px] md:h-[300px] lg:h-[250px]">
+                                    <div className="bg-white/20 backdrop-blur-xl shadow-md rounded-md p-6 mx-2 lg:mx-8 mb-4 vsm:h-[300px] lg:h-[250px]">
                                         <h2 className="text-lg font-semibold text-gray-800 text-left ">{article.title}</h2>
                                         <div className="mt-2">
-                                            <p className="text-black md:hidden">{article.desc.length > 75 ? `${article.desc.substring(0, 65)}...` : article.desc}</p>
-                                            <p className="text-black vsm:hidden md:block">{article.desc}</p>
+                                            <p className="text-black md:hidden">{article.desc.length > 175 ? `${article.desc.substring(0, 165)}...` : article.desc}</p>
+                                            <p className="text-black vsm:hidden md:block">{article.desc.length > 210 ? `${article.desc.substring(0, 200)}...` : article.desc}</p>
                                         </div>
                                         <div className="mt-4">
                                             <Link to={article.url} target="_blank" className="text-[#9747FF] hover:underline ">Read More</Link>
