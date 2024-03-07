@@ -1,22 +1,13 @@
-import React, { useState, useEffect } from "react";
+import React, { useState } from "react";
 import { MdOutlineEdit, MdOutlineFileUpload } from "react-icons/md";
-import VerticalTabs from "./VerticalTabs";
-import FilterSection from "../../commonComponents/FilterSection";
+import Sidebar from "./sidebar";
 
 const Profile = () => {
   const [imageSrc, setImageSrc] = useState(
     "https://cdn.vectorstock.com/i/1000x1000/20/76/man-avatar-profile-vector-21372076.webp"
   );
   const [isEditing, setIsEditing] = useState(false);
-  const [showWelcomeMessage, setShowWelcomeMessage] = useState(true);
-
-  useEffect(() => {
-    const timer = setTimeout(() => {
-      setShowWelcomeMessage(false);
-    }, 5000);
-
-    return () => clearTimeout(timer);
-  }, []);
+  const [tabContent, setTabContent] = useState("");
 
   const handleImageChange = (event) => {
     const file = event.target.files[0];
@@ -31,14 +22,14 @@ const Profile = () => {
     }
   };
 
+  const handleIncomingData = (data) => {
+    setTabContent(data);
+  };
+
   return (
     <div className="w-[80%] mx-auto">
+      <Sidebar sendDataToProfile={handleIncomingData} />
       <div className="bg-white/20 backdrop-blur-lg rounded shadow-md mx-auto m-4 p-4 relative w-full">
-        {showWelcomeMessage && (
-          <div className="text-center mb-4">
-            <p className="text-gray-600">Welcome, User Name!</p>
-          </div>
-        )}
         <div className="flex items-center">
           <div className="flex-shrink-0">
             {isEditing ? (
@@ -64,13 +55,8 @@ const Profile = () => {
             )}
           </div>
           <div className="ml-8">
-            {showWelcomeMessage ? (
-              <h2 className="text-xl font-bold flex flex-start">
-                Welcome, User Name!
-              </h2>
-            ) : (
-              <h2 className="text-xl font-bold flex flex-start">User Name</h2>
-            )}
+            <h2 className="text-xl font-bold flex flex-start">User Name</h2>
+            <p className="text-gray-600">User ID</p>
             {isEditing ? (
               <input
                 type="text"
@@ -78,7 +64,7 @@ const Profile = () => {
                 placeholder="location"
               />
             ) : (
-              <p className="text-gray-600 hidden">User Location</p>
+              <p className="text-gray-600">User Location</p>
             )}
           </div>
         </div>
@@ -95,6 +81,10 @@ const Profile = () => {
             </p>
           )}
         </div>
+        {/* <div className="mt-4">
+                <h3 className="text-lg font-bold">Your Contributions</h3>
+                <p className="text-gray-600">0 trips, 0 photos, 0 reviews, 0 forums</p>
+            </div> */}
         <div className="mt-4 ">
           {isEditing ? (
             <button
@@ -106,8 +96,7 @@ const Profile = () => {
           ) : (
             <button
               onClick={() => setIsEditing(!isEditing)}
-              className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded absolute top-8 right-8 flex items-center justify
-              -center"
+              className="bg-purple-500 hover:bg-purple-600 text-white font-bold py-2 px-4 rounded absolute top-8 right-8 flex items-center justify-center"
             >
               <span className="mr-2">
                 <MdOutlineEdit size="20px" />
@@ -117,9 +106,10 @@ const Profile = () => {
           )}
         </div>
       </div>
-
-      <div className="w-full mx-auto">
-        <VerticalTabs />
+      <div className="grid grid-cols-12 my-8 gap-8">
+        <div className="bg-white/20 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-9 xl:col-span-10">
+          {tabContent}
+        </div>
       </div>
     </div>
   );
