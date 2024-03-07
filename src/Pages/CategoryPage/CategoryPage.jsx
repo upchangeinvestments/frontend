@@ -79,7 +79,7 @@ function CategoryPage() {
     setOpen((prevOpen) => !prevOpen);
     setId(index);
   };
-  useEffect(() => {}, [data]);
+  useEffect(() => { }, [data]);
 
   return (
     <div className="categoryMain lg:h-[60vh] xl:h-[55vh]">
@@ -92,7 +92,6 @@ function CategoryPage() {
       />{" "}
       {/* filter section for mobile view */}
       <NavBar />
-      <Modal />
       <div className="">
         <p className="uppercase text-white font-bold vsm:text-2xl md:text-5xl flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
           Explore Categories
@@ -118,6 +117,7 @@ function CategoryPage() {
           <Categories />
         </div>
       </div>
+      <Modal />
       <Footer />
     </div>
   );

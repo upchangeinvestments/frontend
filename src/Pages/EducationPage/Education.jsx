@@ -44,12 +44,20 @@ const cardsData = [
         title: "How to Invest?",
         description: "Learn why, when, and how to start investing your money.",
     },
+    {
+        title: "Why invest in private real estate?",
+        description: "Private real estate has outperformed US equities and fixed income on an absolute and risk-adjusted basis since 2000.",
+    },
+    {
+        title: "Benefits of Investing With Your IRA",
+        description: "Long-term retirement plans are typically designed to benefit individuals by reducing their tax bill while earning interest over time.",
+    },
 ];
 
 
 function ServiceCard({ title, description }) {
     return (
-        <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md overflow-hidden text-center mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
+        <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md overflow-hidden text-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
             <h3 className="text-xl font-medium mb-2">{title}</h3>
             <p className="line-clamp-3">{description}</p>
             <button className="bg-[#9747FF] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 w-[50%] mx-auto">Learn More</button>
@@ -60,8 +68,9 @@ function ServiceCard({ title, description }) {
 const Card = (props) => {
     return (
         <a href={props.data.href} className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg h-[200px] relative border border-1 border-[#9747FF]">
-            <h2 className="text-lg font-semibold mb-2">{props.data.title}</h2>
-            <p className="">{props.data.description}</p>
+            <h2 className="vsm:text-2xl lg:text-lg font-semibold mb-2 md:hidden">{props.data.title.length > 33 ? `${props.data.title.substring(0, 30)}...` : props.data.title}</h2>
+            <h2 className="vsm:text-2xl lg:text-lg font-semibold mb-2 vsm:hidden md:block">{props.data.title}</h2>
+            <p className=""> {props.data.description.length > 130 ? `${props.data.description.substring(0, 127)}...` : props.data.description}</p>
             <button className="bg-[#9747FF] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 absolute bottom-4">
                 {props.data.linkText}
             </button>
@@ -71,31 +80,25 @@ const Card = (props) => {
 
 const Education = () => {
     return (
-        <div className="p-4 ">
-            <div className="">
-                <h1 className="text-xl font-semibold text-center mb-4 text-white">
+        <div className="w-full" >
+            <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6">
+                <h1 className="text-xl font-semibold text-center mb-4 text-black">
                     Learn the basics
                 </h1>
-                <p className="mb-6 text-left text-white w-[70%] mx-auto">
+                <p className="mb-6 text-justify text-black w-[90%] md:w-[70%] mx-auto ">
                     Many people never start investing their money because they don’t understand things like qualified longevity annuity contracts – and to be honest, we can’t blame them. We are here to help demystify financial terminology and make investing easier for everyone.
-
-                    At BlackRock, we strive to help more and more people achieve their financial goals and experience financial well-being.
-
-                    If you’re new to the world of investing, start here and learn about why you should invest, how to get started, and improve your financial vocabulary.
                 </p>
                 <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
                     {cardsData.map((card, index) => (
                         <ServiceCard key={index} {...card} />
                     ))}
                 </div>
-
-
             </div>
-            <div className="my-6">
-                <h1 className="text-xl font-semibold text-center mb-4 text-white">
+            <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 mt-10">
+                <h1 className="text-xl font-semibold text-center mb-4 text-black mt-6">
                     Understand the different types of investment funds
                 </h1>
-                <p className="mb-6 text-left text-white w-[70%] mx-auto">
+                <p className="mb-6 text-justify text-black w-[90%] md:w-[70%] mx-auto">
                     Learn about the different kinds of investment funds available to investors,
                     from cost-effective exchange-traded funds (ETFs) and index funds to actively
                     managed and offshore funds. Then you can start to develop an investment
@@ -103,7 +106,7 @@ const Education = () => {
                 </p>
                 <div className="flex flex-wrap">
                     {EducationData.map((data, index) => (
-                        <div className="w-full md:w-1/3 p-2" key={index}>
+                        <div className="w-full md:w-1/2 lg:w-1/3 p-2" key={index}>
                             <Card data={data} />
                         </div>
                     ))}

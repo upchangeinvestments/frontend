@@ -24,10 +24,11 @@ function App() {
         <Route path="/about" element={< AboutUs />} />
         <Route path="/signin" element={<SignInPage />} />
         <Route path="/how-it-works" element={<HowInvestmentWorks />} />
-        <Route path="/education" element={<EducationPage />} />
+        <Route path="/resources" element={<EducationPage />} />
         <Route path="/contact" element={< Contact />} />
         <Route path="/:id/verify/:token" element={< VerifyUser />} />
         <Route path="/category" element={< CategoryPage />} />
+        <Route path="/category/:type" exact element={< ProfilePage />} />
         <Route path="/profile" element={< ProfilePage />} />
         <Route element={<PrivateRoute />}>
         </Route>
