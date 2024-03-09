@@ -8,6 +8,7 @@ import '../../styles/SignIn/SignIn.css';
 import axios from "axios"
 import Error from "../../utils/Error";
 import SuccessToast from "../../utils/successToast";
+import { useAuth } from "../../utils/AuthContext";
 
 const ConnetWithUs = () => {
   return (
@@ -25,12 +26,12 @@ const ConnetWithUs = () => {
 
 const SignIn = () => {
   const location = useLocation();
-
   const isLogin = location.state?.isLogin || false;
 
   const [isSignUp, setIsSignUp] = useState(isLogin);
   const [userData, setUserData] = useState(location.state?.userData || null);
   const navigate = useNavigate();
+  const { handleUpdateAuth } = useAuth();
 
   const SignInButtonClick = () => {
     setIsSignUp(!isSignUp);
@@ -43,6 +44,7 @@ const SignIn = () => {
     try {
       const response = await axios.post('http://localhost:5000/auth/login', { email, password });
       localStorage.setItem('token', response.data.token);
+      handleUpdateAuth(true);
       navigate('/category');
       SuccessToast("Welcome to LynkInfinite Investment!");
     } catch (error) {
