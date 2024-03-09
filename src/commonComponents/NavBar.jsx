@@ -1,17 +1,14 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
 import { Link } from "react-router-dom";
-import { verifyAuth } from "../utils/verifyAuth.js"
+import { useAuth } from "../utils/AuthContext"
 import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import { GrArticle } from "react-icons/gr";
-
-
-
 import {
   Typography,
   Button,
@@ -107,33 +104,11 @@ function ProfileMenu() {
 }
 
 const NavBar = () => {
-  const token = localStorage.getItem('token');
   const [open, setOpen] = React.useState(false);
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
-
-  useEffect(() => {
-    const fetchData = async () => {
-      if (token) {
-        try {
-          const result = await verifyAuth(token);
-          setIsAuthenticated(result);
-        } catch (error) {
-          console.error('Error verifying authentication:', error);
-          setIsAuthenticated(false);
-        }
-      }
-    };
-
-    fetchData();
-  }, [token]);
+  const { isAuth } = useAuth();
 
   return (
     <>
-      {/* <div className="relative z-1 z-40 backdrop-blur-3xl bg-white/20"
-        style={{
-          backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
-          backgroundBlendMode: "overlay",
-        }}>*/}
       <div className={open ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] CustomizeFontH" : "relative backdrop-blur-sm bg-slate-50/10 z-40 CustomizeFontH"}>
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-center items-center py-2">
@@ -194,7 +169,7 @@ const NavBar = () => {
                 Contact
               </Link>
             </div>
-            {isAuthenticated === true ? (
+            {isAuth === true ? (
               <ProfileMenu />
             ) : (
               <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
@@ -383,7 +358,7 @@ const NavBar = () => {
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
-              {isAuthenticated === false && (
+              {isAuth === false && (
                 <div>
                   <Link to="/signin" state={{ isLogin: false }}
                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
