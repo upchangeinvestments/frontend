@@ -34,7 +34,7 @@ const MainData = [
     Type: "News",
   },
   {
-    ImageSrc: "https://i.postimg.cc/SxsBW9Vp/keywords-removebg-preview.png",
+    ImageSrc: "https://i.postimg.cc/d3p1B7Qk/keywords.jpg",
     Type: "Keywords",
   },
 ];
@@ -75,11 +75,17 @@ function EducationPage() {
                 key={index}
                 className="py-8 flex flex-col items-center justify-between bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
               >
-                <img
+                <div
+                  className="w-[150px] h-[130px] lg:w-64 lg:h-40 rounded-lg bg-center bg-cover"
+                  style={{
+                    backgroundImage: `url(${data.ImageSrc})`,
+                  }}
+                ></div>
+                {/* <img
                   src={data.ImageSrc}
-                  className="w-[150px] h-[130px] lg:w-60 lg:h-40 rounded-lg "
+                  className="w-[150px] h-[130px] lg:w-64 lg:h-40 rounded-lg "
                   alt=""
-                />
+                /> */}
                 <p className="flex items-center justify-center uppercase CustomizeFontH text-3xl text-[#9747FF] vsm:mt-4 md:mt-0">
                   {data.Type}
                 </p>
