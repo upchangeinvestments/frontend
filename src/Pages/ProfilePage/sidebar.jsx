@@ -24,12 +24,11 @@ const Sidebar = ({ sendDataToProfile }) => {
             <img src={logo} alt="" />
           </div>
           {tabs.map((tab, index) => (
-            <li
-              className={`p-4 ${
-                isActive === index
-                  ? "bg-purple-500 rounded-lg text-white w-full"
-                  : ""
-              }`}
+            <li key={index}
+              className={`p-4 ${isActive === index
+                ? "bg-purple-500 rounded-lg text-white w-full"
+                : ""
+                }`}
               onClick={() => handleContent(index)}
             >
               <div className="flex items-center justify-between">
