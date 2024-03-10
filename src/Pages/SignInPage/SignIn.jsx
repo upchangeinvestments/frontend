@@ -91,7 +91,7 @@ const SignIn = () => {
                   <input type="password" placeholder="Password" name="password" required />
                   <input type="password" placeholder="Confirm password" name="confirmPassword" required />
                   <div className="checkbox flex items-center justify-center gap-2 mt-4">
-                    <input type="checkbox" id="terms" name="terms" required />
+                    <input type="checkbox" name="terms" required />
                     <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
                   </div>
                   <button type="submit" className='my-6'>SIGN UP</button>
@@ -195,11 +195,11 @@ const SignIn = () => {
                   <a href="#" className="social"><i className="fab fa-google-plus-g"></i></a>
                   <a href="#" className="social"><i className='fab fa-apple'></i></a>
                 </div>
-                <input type="email" placeholder="Email" name="email" value={userData !== null ? userData.email : ""} required />
+                <input type="email" placeholder="Email" name="email" defaultValue={userData !== null ? userData.email : ""} required />
                 <input type="password" placeholder="Password" name="password" required />
                 <input type="password" placeholder="Confirm password" name="confirmPassword" required />
                 <div className="checkbox flex items-center justify-center gap-2 mt-4">
-                  <input type="checkbox" id="terms" name="terms" required />
+                  <input type="checkbox" name="terms" required />
                   <label htmlFor="terms"><p className='text-xs'>I agree to all statements in terms of service</p></label>
                 </div>
                 <button type="submit" className='my-6'>SIGN UP</button>

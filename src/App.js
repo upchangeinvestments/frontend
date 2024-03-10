@@ -33,9 +33,9 @@ function App() {
           <Route path="/category/:type" exact element={< SpecificPage />} />
           <Route path="/profile" element={< ProfilePage />} />
           <Route path="/category" element={
-            <PrivateRoute>
-              <CategoryPage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <CategoryPage />
+            // </PrivateRoute>
           } />
 
         </Routes>

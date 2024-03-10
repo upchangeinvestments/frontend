@@ -1,22 +1,15 @@
 import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/AuthContext"
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
-import { useAuth } from "../utils/AuthContext"
 import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import { GrArticle } from "react-icons/gr";
-import {
-  Typography,
-  Button,
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-} from "@material-tailwind/react";
+import { Typography, Button, Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 
 const profileMenuItems = [
   {
@@ -46,7 +39,7 @@ const profileMenuItems = [
   },
 ];
 
-function ProfileMenu() {
+function ProfileMenu({ HandleLogout }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -85,27 +78,47 @@ function ProfileMenu() {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
                 strokeWidth: 2,
               })}
-              <Link to={link}>
-                <Typography
-                  as="span"
-                  variant="lead"
-                  className="font-normal"
-                  color={isLastItem ? "red" : "inherit"}
-                >
-                  {label}
-                </Typography>
-              </Link>
+              {isLastItem ? (
+                <div onClick={HandleLogout}>
+                  <Typography
+                    as="span"
+                    variant="lead"
+                    className="font-normal"
+                    color={isLastItem ? "red" : "inherit"}
+                  >
+                    {label}
+                  </Typography>
+                </div>
+              ) : (
+                <Link to={link}>
+                  <Typography
+                    as="span"
+                    variant="lead"
+                    className="font-normal"
+                    color={isLastItem ? "red" : "inherit"}
+                  >
+                    {label}
+                  </Typography>
+                </Link>
+              )}
             </MenuItem>
           );
         })}
-      </MenuList>
+
+      </MenuList >
     </Menu >
   );
 }
 
 const NavBar = () => {
   const [open, setOpen] = React.useState(false);
-  const { isAuth } = useAuth();
+  const { isAuth, logout } = useAuth();
+  const navigate = useNavigate();
+
+  const HandleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <>
@@ -170,7 +183,7 @@ const NavBar = () => {
               </Link>
             </div>
             {isAuth === true ? (
-              <ProfileMenu />
+              <ProfileMenu HandleLogout={HandleLogout} />
             ) : (
               <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
                 <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
@@ -285,8 +298,7 @@ const NavBar = () => {
                       Investments
                     </span>
                   </Link>
-                  <a
-                    href="#"
+                  <NavHashLink to="/#HowItWorks"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/shield-check */}
@@ -308,7 +320,7 @@ const NavBar = () => {
                     <span className="ml-3 text-base font-medium text-gray-900">
                       How it works
                     </span>
-                  </a>
+                  </NavHashLink>
                   <Link to="/resources"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >

@@ -14,11 +14,16 @@ const AuthProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem('token'));
     const [user, setUser] = useState({});
     const contextValue = {
-        isAuth, handleUpdateAuth, user
+        isAuth, handleUpdateAuth, user, logout
     };
 
     function handleUpdateAuth(value) {
         return setIsAuth(value);
+    }
+    function logout() {
+        localStorage.removeItem('token');
+        setIsAuth(false);
+        setUser({});
     }
 
     useEffect(() => {
