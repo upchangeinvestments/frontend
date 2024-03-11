@@ -18,7 +18,7 @@ const Sidebar = ({ sendDataToProfile }) => {
 
   return (
     <div>
-      <div className="flex flex-col items-start bg-white/20 h-[500px] w-[280px] mt-8 ml-12 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 xl:col-span-2">
+      <div className="flex flex-col items-start bg-white/10 h-[500px] w-[280px] mt-8 ml-12 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 xl:col-span-2">
         <ul className="flex flex-col  space-y-2 w-full">
           <div className="my-4 ml-8 mb-12 w-48">
             <img src={logo} alt="" />
