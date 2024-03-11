@@ -3,10 +3,10 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import logo from "../../assets/logo2.png";
 
 const tabs = [
-  { title: "Terms & Conditions", content: "content1" },
-  { title: "Privacy Policy", content: "content2" },
-  { title: "About", content: "content3" },
-  { title: "Logout", content: "content4" },
+  { title: "TERMS & CONDITIONS", content: "content1" },
+  { title: "PRIVACY POLICY", content: "content2" },
+  { title: "ABOUT", content: "content3" },
+  { title: "LOGOUT", content: "content4" },
 ];
 const Sidebar = ({ sendDataToProfile }) => {
   const [isActive, setIsActive] = useState(0);
@@ -18,9 +18,9 @@ const Sidebar = ({ sendDataToProfile }) => {
 
   return (
     <div>
-      <div className="flex flex-col items-start bg-white/20 h-[700px] backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 xl:col-span-2">
+      <div className="flex flex-col items-start bg-white/20 h-[500px] w-[280px] mt-8 ml-12 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 xl:col-span-2">
         <ul className="flex flex-col  space-y-2 w-full">
-          <div className="my-4 ml-12 w-48">
+          <div className="my-4 ml-8 mb-12 w-48">
             <img src={logo} alt="" />
           </div>
           {tabs.map((tab, index) => (
