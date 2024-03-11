@@ -23,14 +23,9 @@ const profileMenuItems = [
     link: "#"
   },
   {
-    label: "Resouerces",
-    icon: GrArticle,
-    link: "/resources"
-  },
-  {
-    label: "Help",
+    label: "Contact",
     icon: IoMdHelpCircle,
-    link: "#"
+    link: "/contact"
   },
   {
     label: "Sign Out",
@@ -71,12 +66,12 @@ function ProfileMenu({ HandleLogout }) {
               onClick={closeMenu}
               className={`flex items-center gap-3 my-1 rounded ${isLastItem
                 ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                : ""
+                : "text-[#9747FF]"
                 }`}
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
-                strokeWidth: 2,
+                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#9747FF]"}`,
+                strokeWidth: 1,
               })}
               {isLastItem ? (
                 <div onClick={HandleLogout}>

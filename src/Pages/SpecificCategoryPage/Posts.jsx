@@ -2,14 +2,16 @@ import React from 'react';
 import "../../styles/LandingPage/Post.css";
 
 function Post({ data, type }) {
+    const isEven = data.index % 2 === 0;
     return (
         <div className="vsm:w-64 sm:w-80 md:w-96 lg:w-full">
-            <div className="vsm:flex vsm:flex-col lg:flex lg:flex-row mx-auto">
+            <div className={`vsm:flex vsm:flex-col md:flex ${isEven ? 'md:flex-row-reverse' : 'md:flex-row'} xl:flex-row`}>
+                {/* <div className="vsm:flex vsm:flex-col lg:flex lg:flex-row mx-auto"> */}
                 {/* <div className="flex mx-auto px-4 "> */}
                 <div className="flex">
-                    <img className="md:rounded-l-lg w-auto" src={data.image} alt="" />
+                    <img className={`w-auto ${isEven ? 'md:rounded-r-lg' : 'md:rounded-l-lg'} xl:rounded-none xl:rounded-l-lg`} src={data.image} alt="" />
                 </div>
-                <div className="bg-white shadow-md vsm:p-6 md:p-4 lg:w-1/2 md:rounded-r-lg">
+                <div className={`bg-white shadow-md vsm:p-6 md:p-4 lg:w-1/2 ${isEven ? 'md:rounded-l-lg' : 'md:rounded-r-lg'}  xl:rounded-none xl:rounded-r-lg`}>
                     <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center">{data.title}</h3>
                     <p className="text-gray-600 mb-2">{data.location}</p>
                     <p className="text-gray-700 text-xs	text-justify">
@@ -26,7 +28,7 @@ function Post({ data, type }) {
                         </div>
                         <div className="w-auto">
                             <div className="text-gray-600">Category type</div>
-                            <div className="font-bold vsm:text-base sm:text-lg">{`${type}`}</div>
+                            <div className="font-bold vsm:text-base sm:text-lg capitalize">{`${type}`}</div>
                         </div>
                         <div className="w-auto">
                             <p className="text-gray-600">Target IRR</p>
@@ -49,6 +51,9 @@ function Post({ data, type }) {
                             </div>
                             <div className="border-slate-400 border rounded-lg ">
                                 <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">IRA eligibilty</button>
+                            </div>
+                            <div className="border-slate-400 border rounded-lg ">
+                                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">Listed Company</button>
                             </div>
                             <div className="border-slate-400 border rounded-lg ">
                                 <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">Terms</button>

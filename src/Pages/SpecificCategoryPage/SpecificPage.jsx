@@ -26,7 +26,7 @@ function SpecificPage() {
     };
 
     return (
-        <div className="categoryMain vsm:h-[60vh] md:h-[60vh] xl:h-[55vh] mobile-filter-drawer">
+        <div className="categoryMain vsm:h-[60vh] md:h-[62vh] xl:h-[55vh] mobile-filter-drawer">
             <MobileFilterDrawer
                 open={open}
                 closeDrawer={openDrawer}
@@ -39,22 +39,22 @@ function SpecificPage() {
             <div className="w-full">
                 <div className="uppercase text-white font-bold vsm:text-4xl flex flex-col items-center justify-center h-[50vh] gap-8">
                     <div className="">
-                        <p className='text-5xl'> {`Explore ${type} Properties`}</p>
+                        <p className='lg:text-4xl xl:text-5xl' style={{ wordSpacing: '0.25em' }}> {`Explore ${type} Properties`}</p>
                     </div>
                     <div className="w-full bg-black">
                         <SearchBox />
                     </div>
                 </div>
             </div>
-            <div className="flex vsm:-mt-[100px] lg:-mt-[50px] xl:-mt-[100px] mb-16">
+            <div className="flex vsm:-mt-[100px] lg:mt-[50px] xl:mt-[10px] mb-16">
                 <FilterSection />
                 <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
                     <MobileFilter openDrawer={openDrawer} passDataObject={receiveDataObject} />
                     <div className=" mx-8 ">
-                        <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 2xl:grid-cols-3 gap-x-6 gap-y-12">
+                        <div className="grid vsm:grid-cols-1 md:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 gap-y-12">
                             {PropertyData.map((data, index) => (
                                 <div key={index}>
-                                    <Post data={data} type={type} />
+                                    <Post data={{ ...data, "index": index }} type={type} />
                                 </div>
                             ))}
                         </div >
