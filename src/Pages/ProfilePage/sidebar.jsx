@@ -18,14 +18,14 @@ const Sidebar = ({ sendDataToProfile }) => {
 
   return (
     <div>
-      <div className="flex flex-col items-start bg-white/20 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 xl:col-span-2">
-        <ul className="flex flex-col space-y-2 w-full">
-          <div className="my-4">
+      <div className="flex flex-col items-start bg-white/20 h-[700px] backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 xl:col-span-2">
+        <ul className="flex flex-col  space-y-2 w-full">
+          <div className="my-4 ml-12 w-48">
             <img src={logo} alt="" />
           </div>
           {tabs.map((tab, index) => (
             <li
-              className={`p-4 ${
+              className={`p-4  ${
                 isActive === index
                   ? "bg-purple-500 rounded-lg text-white w-full"
                   : ""

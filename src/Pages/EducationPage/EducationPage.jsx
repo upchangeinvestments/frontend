@@ -8,25 +8,13 @@ import Footer from "../../commonComponents/Footer";
 import NavBar from "../../commonComponents/NavBar";
 import ArticleData from "../../assets/ArticlesEduPage.json";
 
-const Card = ({ title, content, date }) => {
-  return (
-    <div className="bg-white shadow-md rounded-lg p-4 md:p-6 mx-6 mb-4 h-[250px]">
-      <div className="text-xl font-medium mb-2">{title}</div>
-      <div className="text-gray-600 mb-4">{date}</div>
-      <div className="text-gray-800">
-        <p>{content}</p>
-      </div>
-    </div>
-  );
-};
-
 const MainData = [
   {
-    ImageSrc: "https://i.postimg.cc/y60sd0pQ/article-removebg-preview.png",
+    ImageSrc: "https://i.postimg.cc/j5vwbk8T/article.jpg",
     Type: "Article",
   },
   {
-    ImageSrc: "https://i.postimg.cc/4x2TMPnd/education-removebg-preview.png",
+    ImageSrc: "https://i.postimg.cc/Gps7pVVk/education.jpg",
     Type: "Education",
   },
   {
@@ -75,17 +63,11 @@ function EducationPage() {
                 key={index}
                 className="py-8 flex flex-col items-center justify-between bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
               >
-                <div
-                  className="w-[150px] h-[130px] lg:w-64 lg:h-40 rounded-lg bg-center bg-cover"
-                  style={{
-                    backgroundImage: `url(${data.ImageSrc})`,
-                  }}
-                ></div>
-                {/* <img
+                <img
                   src={data.ImageSrc}
-                  className="w-[150px] h-[130px] lg:w-64 lg:h-40 rounded-lg "
+                  className="w-[150px] h-[130px] lg:w-60 lg:h-40 rounded-lg "
                   alt=""
-                /> */}
+                />
                 <p className="flex items-center justify-center uppercase CustomizeFontH text-3xl text-[#9747FF] vsm:mt-4 md:mt-0">
                   {data.Type}
                 </p>
@@ -123,18 +105,20 @@ function EducationPage() {
             >
               {ArticleData.map((article, index) => (
                 <Carousel.Item key={index}>
-                  <div className="bg-white/20 backdrop-blur-xl shadow-md rounded-md p-6 mx-2 lg:mx-8 mb-4 vsm:h-[250px] md:h-[300px] lg:h-[250px]">
+                  <div className="bg-white/20 backdrop-blur-xl shadow-md rounded-md p-6 mx-2 lg:mx-8 mb-4 vsm:h-[300px] lg:h-[250px]">
                     <h2 className="text-lg font-semibold text-gray-800 text-left ">
                       {article.title}
                     </h2>
                     <div className="mt-2">
                       <p className="text-black md:hidden">
-                        {article.desc.length > 75
-                          ? `${article.desc.substring(0, 65)}...`
+                        {article.desc.length > 175
+                          ? `${article.desc.substring(0, 165)}... `
                           : article.desc}
                       </p>
                       <p className="text-black vsm:hidden md:block">
-                        {article.desc}
+                        {article.desc.length > 210
+                          ? `${article.desc.substring(0, 200)}... `
+                          : article.desc}
                       </p>
                     </div>
                     <div className="mt-4">
