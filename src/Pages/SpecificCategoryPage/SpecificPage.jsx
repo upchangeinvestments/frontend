@@ -34,11 +34,13 @@ function SpecificPage() {
                 Index={Id}
                 className="bg-transparent"
             />
-            {/* filter section for mobile view */}
+            {/* filter section for mobile view random */}
             <NavBar />
             <div className="w-full">
-                <div className="uppercase text-white font-bold vsm:text-4xl flex flex-col items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
-                    <p className='text-5xl'> {`Explore ${type} Properties`}</p>
+                <div className="uppercase text-white font-bold vsm:text-4xl flex flex-col items-center justify-center h-[50vh] gap-8">
+                    <div className="">
+                        <p className='text-5xl'> {`Explore ${type} Properties`}</p>
+                    </div>
                     <div className="w-full bg-black">
                         <SearchBox />
                     </div>
