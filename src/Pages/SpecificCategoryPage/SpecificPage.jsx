@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { useParams } from 'react-router-dom';
 import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/MobileFilterDrawer";
@@ -25,10 +25,6 @@ function SpecificPage() {
         setId(index);
     };
 
-
-    useEffect(() => {
-        console.log(type)
-    }, [])
     return (
         <div className="categoryMain vsm:h-[60vh] md:h-[60vh] xl:h-[55vh] mobile-filter-drawer">
             <MobileFilterDrawer
@@ -42,7 +38,7 @@ function SpecificPage() {
             <NavBar />
             <div className="w-full">
                 <div className="uppercase text-white font-bold vsm:text-4xl flex flex-col items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
-                    <p className='text-5xl'> {`Explore ${type}`}</p>
+                    <p className='text-5xl'> {`Explore ${type} Properties`}</p>
                     <div className="w-full bg-black">
                         <SearchBox />
                     </div>

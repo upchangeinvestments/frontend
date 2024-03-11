@@ -2,7 +2,7 @@ import React from 'react'
 
 function SearchBox(props) {
     return (
-        <div className="max-w-7xl flex items-center justify-center bg-black w-full p-4">
+        <div className="max-w-7xl mx-auto bg-black w-full p-4">
             <form className="w-[60%] ">
                 <label for="default-search" className="mb-2 text-sm font-medium sr-only">Search</label>
                 <div className="relative flex items-center">
