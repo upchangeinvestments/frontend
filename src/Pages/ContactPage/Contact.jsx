@@ -67,9 +67,9 @@ function ContactForm() {
               </div>
             </div>
           </div>
-          <div className="w-full vsm:mt-8 vsm:ml-2 sm:mt-8 md:ml-2 md:col-span-1 lg:ml-[40px] mb-8 map">
+          <div className="w-full vsm:mt-8 vsm:ml-2 sm:mt-8 md:ml-2 md:col-span-1 lg:ml-[50px] xl:ml-[30px] mb-8 map">
             <iframe
-              className="absolute rounded-lg vsm:w-[260px] md:w-[280px] lg:w-[300px] xl:w-80"
+              className="absolute rounded-lg vsm:w-[260px] md:w-[280px] lg:w-[250px] xl:w-80"
               title="Google Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67236648232!2d-96.89636237485647!3d32.820556582433206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1709581944715!5m2!1sen!2sin"
               width="280"

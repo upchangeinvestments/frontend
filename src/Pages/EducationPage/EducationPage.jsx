@@ -41,7 +41,7 @@ function EducationPage() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="flex flex-col pt-1 bg-white/30 backdrop-blur-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg">
-            <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] w-[500px] h-[200px] mx-auto mt-4 rounded-lg"></div>
+            <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] w-[450px] h-[200px] mx-auto mt-4 rounded-lg"></div>
             <div className="p-4">
               <p className="text-xs uppercase montserrat-Stretch mb-2">
                 Time to invest
