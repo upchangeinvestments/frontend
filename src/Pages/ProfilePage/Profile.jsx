@@ -42,38 +42,31 @@ const Profile = () => {
       </div>
       <div className="col-span-9">
         <div className="bg-white/20 backdrop-blur-lg rounded shadow-md mx-6 my-6 p-4 relative">
-          {showWelcomeMessage && (
-            <div className="text-gray-600 text-center">
-              <p>Welcome! Your profile is loading...</p>
-            </div>
-          )}
-          {!showWelcomeMessage && (
-            <>
-              <div className="flex items-center">
-                <div className="flex-shrink-0">
-                  {isEditing ? (
-                    <div className="flex flex-col">
-                      <img
-                        className="w-32 h-32 border rounded-full"
-                        src={imageSrc}
-                        alt=""
-                      />
-                      <input
-                        type="file"
-                        className="mt-4 "
-                        accept="image/*"
-                        onChange={handleImageChange}
-                      />
-                    </div>
-                  ) : (
-                    <img
-                      src={imageSrc}
-                      alt="Profile"
-                      className="w-32 h-32 rounded-full"
-                    />
-                  )}
+          <div className="flex items-center">
+            <div className="flex-shrink-0">
+              {showWelcomeMessage ? (
+                <div className="flex flex-col">
+                  <img
+                    className="w-32 h-32 border rounded-full"
+                    src={imageSrc}
+                    alt=""
+                  />
                 </div>
-                <div className="ml-8">
+              ) : (
+                <img
+                  src={imageSrc}
+                  alt="Profile"
+                  className="w-32 h-32 rounded-full"
+                />
+              )}
+            </div>
+            <div className="ml-8">
+              {showWelcomeMessage ? (
+                <h2 className="text-xl font-bold flex flex-start">
+                  Welcome User!
+                </h2>
+              ) : (
+                <>
                   <h2 className="text-xl font-bold flex flex-start">
                     User Name
                   </h2>
@@ -87,22 +80,28 @@ const Profile = () => {
                   ) : (
                     <p className="text-gray-600">User Location</p>
                   )}
-                </div>
-              </div>
-              <div className="mt-4">
-                {isEditing ? (
-                  <textarea
-                    className="w-full border rounded py-1 px-2 bg-[#e4e4e7] outline-none"
-                    placeholder="Add your bio"
-                    rows="4"
-                  />
-                ) : (
-                  <p className="text-gray-600">
-                    Start sharing to unlock your experience!
-                  </p>
-                )}
-              </div>
-              <div className="mt-4 ">
+                </>
+              )}
+            </div>
+          </div>
+          {!showWelcomeMessage && (
+            <div className="mt-4">
+              {isEditing ? (
+                <textarea
+                  className="w-full border rounded py-1 px-2 bg-[#e4e4e7] outline-none"
+                  placeholder="Add your bio"
+                  rows="4"
+                />
+              ) : (
+                <p className="text-gray-600">
+                  Start sharing to unlock your experience!
+                </p>
+              )}
+            </div>
+          )}
+          <div className="mt-4">
+            {!showWelcomeMessage && (
+              <>
                 {isEditing ? (
                   <button
                     onClick={() => setIsEditing(!isEditing)}
@@ -121,9 +120,9 @@ const Profile = () => {
                     Edit Profile
                   </button>
                 )}
-              </div>
-            </>
-          )}
+              </>
+            )}
+          </div>
         </div>
         <div className="grid col-span-9 mx-6 my-6 ">
           <div className="bg-white/20 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-9 xl:col-span-10">
