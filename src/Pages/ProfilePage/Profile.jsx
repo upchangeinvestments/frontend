@@ -28,7 +28,9 @@ const Profile = () => {
 
   return (
     <div className="w-[80%] mx-auto">
-      <Sidebar sendDataToProfile={handleIncomingData} />
+      <div>
+        <Sidebar sendDataToProfile={handleIncomingData} />
+      </div>
       <div className="bg-white/20 backdrop-blur-lg rounded shadow-md mx-auto m-4 p-4 relative w-full">
         <div className="flex items-center">
           <div className="flex-shrink-0">
