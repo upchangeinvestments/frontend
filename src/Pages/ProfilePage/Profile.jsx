@@ -124,7 +124,7 @@ const Profile = () => {
             )}
           </div>
         </div>
-        {/* hello */}
+
         <div className="grid col-span-9 mx-6 my-6 ">
           <div className="bg-white/20 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-9 xl:col-span-10">
             {tabContent}
