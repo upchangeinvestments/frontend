@@ -12,12 +12,12 @@ const Profile = () => {
   };
 
   return (
-    <div className="grid grid-cols-12 ">
+    <div className="grid grid-cols-12  ">
       <div className="col-span-3">
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="col-span-9">
-        <div className="bg-white/20 backdrop-blur-lg rounded-lg shadow-md mt-8 w-[96%] p-4 relative">
+        <div className="bg-gradient-to-r from-pink-200  to-purple-300 rounded-lg shadow-md mt-8 w-[96%] p-4 relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (
@@ -93,7 +93,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid col-span-9 w-[96%] mt-6 ">
-          <div className="bg-white/20 backdrop-blur-lg rounded-lg shadow-md p-4 col-span-9 xl:col-span-10">
+          <div className="bg-gradient-to-r from-pink-200  to-purple-400  rounded-lg shadow-md p-4 col-span-9 xl:col-span-10">
             {tabContent}
           </div>
         </div>
