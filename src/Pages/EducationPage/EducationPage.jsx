@@ -112,12 +112,12 @@ function EducationPage() {
                     <div className="mt-2">
                       <p className="text-black md:hidden">
                         {article.desc.length > 175
-                          ? `${article.desc.substring(0, 165)}... `
+                          ? `${article.desc.substring(0, 165)}...`
                           : article.desc}
                       </p>
                       <p className="text-black vsm:hidden md:block">
                         {article.desc.length > 210
-                          ? `${article.desc.substring(0, 200)}... `
+                          ? `${article.desc.substring(0, 200)}...`
                           : article.desc}
                       </p>
                     </div>

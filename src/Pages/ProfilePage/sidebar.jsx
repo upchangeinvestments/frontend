@@ -25,7 +25,8 @@ const Sidebar = ({ sendDataToProfile }) => {
           </div>
           {tabs.map((tab, index) => (
             <li
-              className={`p-4  ${
+              key={index}
+              className={`p-4 ${
                 isActive === index
                   ? "bg-purple-500 rounded-lg text-white w-full"
                   : ""

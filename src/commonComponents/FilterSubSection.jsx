@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 
 function FilterSubSection({ list, title, inputType }) {
-    const [showAll, setShowAll] = useState(false);
+    const [showAll, setShowAll] = useState(true);
 
     const visibleItems = showAll ? list : list.slice(0, 3);
 
