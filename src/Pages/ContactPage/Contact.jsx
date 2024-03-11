@@ -22,7 +22,7 @@ function ContactForm() {
     <div className="max-w-7xl vsm:mx-4 sm:mx-6 md:mx-auto md:px-12">
       <div className="block rounded-lg bg-gradient-to-b from-white/30  to-[#c7b3ee] bg-opacity-10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  px-6 py-12  md:py-8 md:px-10 -mt-[120px] backdrop-blur-[30px]">
         <div className=" text-black grid vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 ">
-          <div className="md:col-span-1 ml-5 flex items-center justify-end lg:-mt-4">
+          <div className="md:col-span-1 flex items-center justify-end lg:-mt-4">
             <div className="flex flex-col vsm:ml-0 sm:ml-0  lg:ml-12 w-full">
               <div className="basis-1/3 relative">
                 <div className="flex flex-col vsm:mt-16 sm:mt-20 lg:mt-28 items-center justify-end h-[60px]">
@@ -67,9 +67,9 @@ function ContactForm() {
               </div>
             </div>
           </div>
-          <div className="w-full vsm:mt-8 vsm:ml-2  msm:ml-4  sm:mt-8 sm:ml-12   md:col-span-1 lg:ml-[60px] mb-8 map">
+          <div className="w-full vsm:mt-8 vsm:ml-2 sm:mt-8 md:ml-2 md:col-span-1 lg:ml-[40px] mb-8 map">
             <iframe
-              className="absolute rounded-lg vsm:w-56 msm:w-64 sm:w-64 md:w-60  lg:w-60 xl:w-80"
+              className="absolute rounded-lg vsm:w-[260px] md:w-[280px] lg:w-[300px] xl:w-80"
               title="Google Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67236648232!2d-96.89636237485647!3d32.820556582433206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1709581944715!5m2!1sen!2sin"
               width="280"
@@ -79,10 +79,10 @@ function ContactForm() {
               loading="lazy"
             ></iframe>
           </div>
-          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 lg:pl-[100px] rounded-lg md:mb-0 w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#9747FF] to-purple-300  py-8  flex flex-col items-center justify-center">
+          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 lg:pl-[100px] rounded-lg w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#9747FF] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
             <form
               onSubmit={handleSubmit}
-              className=" rounded md:px-8 pt-6 w-full"
+              className=" rounded vsm:p-4 md:px-8 md:pt-6 w-full"
             >
               <div className="mb-4">
                 <label

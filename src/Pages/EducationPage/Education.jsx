@@ -80,9 +80,9 @@ const Card = (props) => {
 
 const Education = () => {
     return (
-        <div className="w-full" >
+        <div className="w-full " >
             <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6">
-                <h1 className="text-xl font-semibold text-center mb-4 text-black">
+                <h1 className="text-xl font-semibold text-center mb-4 text-black uppercase">
                     Learn the basics
                 </h1>
                 <p className="mb-6 text-justify text-black w-[90%] md:w-[70%] mx-auto ">
@@ -95,7 +95,7 @@ const Education = () => {
                 </div>
             </div>
             <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 mt-10">
-                <h1 className="text-xl font-semibold text-center mb-4 text-black mt-6">
+                <h1 className="text-xl font-semibold text-center mb-4 text-black mt-6 uppercase">
                     Understand the different types of investment funds
                 </h1>
                 <p className="mb-6 text-justify text-black w-[90%] md:w-[70%] mx-auto">
