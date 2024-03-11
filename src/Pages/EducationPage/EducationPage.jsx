@@ -10,11 +10,11 @@ import ArticleData from "../../assets/ArticlesEduPage.json";
 
 const MainData = [
   {
-    ImageSrc: "https://i.postimg.cc/j5vwbk8T/article.jpg",
+    ImageSrc: "https://i.postimg.cc/y60sd0pQ/article-removebg-preview.png",
     Type: "Article",
   },
   {
-    ImageSrc: "https://i.postimg.cc/Gps7pVVk/education.jpg",
+    ImageSrc: "https://i.postimg.cc/4x2TMPnd/education-removebg-preview.png",
     Type: "Education",
   },
   {
