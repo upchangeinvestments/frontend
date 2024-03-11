@@ -1,5 +1,5 @@
 import React from 'react';
-import "../styles/LandingPage/Post.css";
+import "../../styles/LandingPage/Post.css";
 
 function Post({ data, type }) {
     return (

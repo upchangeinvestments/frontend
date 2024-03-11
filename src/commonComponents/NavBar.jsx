@@ -1,25 +1,15 @@
-import React, { useEffect } from 'react';
+import React from 'react';
 import { NavHashLink } from 'react-router-hash-link';
+import { Link, useNavigate } from "react-router-dom";
+import { useAuth } from "../utils/AuthContext"
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
-import { Link } from "react-router-dom";
-import { verifyAuth } from "../utils/verifyAuth.js"
 import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import { GrArticle } from "react-icons/gr";
-
-
-
-import {
-  Typography,
-  Button,
-  Menu,
-  MenuHandler,
-  MenuList,
-  MenuItem,
-} from "@material-tailwind/react";
+import { Typography, Button, Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 
 const profileMenuItems = [
   {
@@ -49,7 +39,7 @@ const profileMenuItems = [
   },
 ];
 
-function ProfileMenu() {
+function ProfileMenu({ HandleLogout }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
@@ -88,52 +78,50 @@ function ProfileMenu() {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : ""}`,
                 strokeWidth: 2,
               })}
-              <Link to={link}>
-                <Typography
-                  as="span"
-                  variant="lead"
-                  className="font-normal"
-                  color={isLastItem ? "red" : "inherit"}
-                >
-                  {label}
-                </Typography>
-              </Link>
+              {isLastItem ? (
+                <div onClick={HandleLogout}>
+                  <Typography
+                    as="span"
+                    variant="lead"
+                    className="font-normal"
+                    color={isLastItem ? "red" : "inherit"}
+                  >
+                    {label}
+                  </Typography>
+                </div>
+              ) : (
+                <Link to={link}>
+                  <Typography
+                    as="span"
+                    variant="lead"
+                    className="font-normal"
+                    color={isLastItem ? "red" : "inherit"}
+                  >
+                    {label}
+                  </Typography>
+                </Link>
+              )}
             </MenuItem>
           );
         })}
-      </MenuList>
+
+      </MenuList >
     </Menu >
   );
 }
 
 const NavBar = () => {
-  const token = localStorage.getItem('token');
   const [open, setOpen] = React.useState(false);
-  const [isAuthenticated, setIsAuthenticated] = React.useState(false);
+  const { isAuth, logout } = useAuth();
+  const navigate = useNavigate();
 
-  useEffect(() => {
-    const fetchData = async () => {
-      if (token) {
-        try {
-          const result = await verifyAuth(token);
-          setIsAuthenticated(result);
-        } catch (error) {
-          console.error('Error verifying authentication:', error);
-          setIsAuthenticated(false);
-        }
-      }
-    };
-
-    fetchData();
-  }, [token]);
+  const HandleLogout = () => {
+    logout();
+    navigate('/');
+  };
 
   return (
     <>
-      {/* <div className="relative z-1 z-40 backdrop-blur-3xl bg-white/20"
-        style={{
-          backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
-          backgroundBlendMode: "overlay",
-        }}>*/}
       <div className={open ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] CustomizeFontH" : "relative backdrop-blur-sm bg-slate-50/10 z-40 CustomizeFontH"}>
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-center items-center py-2">
@@ -194,8 +182,8 @@ const NavBar = () => {
                 Contact
               </Link>
             </div>
-            {isAuthenticated === true ? (
-              <ProfileMenu />
+            {isAuth === true ? (
+              <ProfileMenu HandleLogout={HandleLogout} />
             ) : (
               <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
                 <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
@@ -310,8 +298,7 @@ const NavBar = () => {
                       Investments
                     </span>
                   </Link>
-                  <a
-                    href="#"
+                  <NavHashLink to="/#HowItWorks"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/shield-check */}
@@ -333,7 +320,7 @@ const NavBar = () => {
                     <span className="ml-3 text-base font-medium text-gray-900">
                       How it works
                     </span>
-                  </a>
+                  </NavHashLink>
                   <Link to="/resources"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
@@ -383,7 +370,7 @@ const NavBar = () => {
               </div>
             </div>
             <div className="py-6 px-5 space-y-6">
-              {isAuthenticated === false && (
+              {isAuth === false && (
                 <div>
                   <Link to="/signin" state={{ isLogin: false }}
                     className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
