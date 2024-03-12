@@ -64,10 +64,7 @@ function ProfileMenu({ HandleLogout }) {
             <MenuItem
               key={label}
               onClick={closeMenu}
-              className={`flex items-center gap-3 my-1 rounded ${isLastItem
-                ? "hover:bg-red-500/10 focus:bg-red-500/10 active:bg-red-500/10"
-                : "text-[#9747FF]"
-                }`}
+              className="flex items-center gap-3 my-1 rounded "
             >
               {React.createElement(icon, {
                 className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#9747FF]"}`,
@@ -79,7 +76,6 @@ function ProfileMenu({ HandleLogout }) {
                     as="span"
                     variant="lead"
                     className="font-normal"
-                    color={isLastItem ? "red" : "inherit"}
                   >
                     {label}
                   </Typography>
@@ -171,7 +167,7 @@ const NavBar = () => {
                 How it works
               </NavHashLink>
               <Link to="/resources" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
-                Resouerces
+                Resources
               </Link>
               <Link to="/contact" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
                 Contact
@@ -336,7 +332,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Resouerces
+                      Resources
                     </span>
                   </Link>
                   <Link to="/contact"

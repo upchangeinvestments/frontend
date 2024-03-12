@@ -39,21 +39,25 @@ function SpecificPage() {
             <div className="w-full">
                 <div className="uppercase text-white font-bold vsm:text-4xl flex flex-col items-center justify-center h-[50vh] gap-8">
                     <div className="">
-                        <p className='lg:text-4xl xl:text-5xl' style={{ wordSpacing: '0.25em' }}> {`Explore ${type} Properties`}</p>
+                        <p className='vsm:hidden md:block lg:text-4xl xl:text-5xl' style={{ wordSpacing: '0.25em' }}> {`Explore ${type} Properties`}</p>
+                        <div className='text-3xl md:hidden flex flex-col items-center justify-center' style={{ wordSpacing: '0.25em' }}>
+                            <div className="">Explore </div>
+                            <div className="">{`${type} Properties`}</div>
+                        </div>
                     </div>
                     <div className="w-full bg-black">
                         <SearchBox />
                     </div>
                 </div>
             </div>
-            <div className="flex vsm:-mt-[100px] lg:mt-[50px] xl:mt-[10px] mb-16">
+            <div className="flex vsm:-mt-[30px] lg:mt-[50px] xl:mt-[10px] mb-16">
                 <FilterSection />
                 <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
                     <MobileFilter openDrawer={openDrawer} passDataObject={receiveDataObject} />
-                    <div className=" mx-8 ">
-                        <div className="grid vsm:grid-cols-1 md:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 gap-y-12">
+                    <div className="lg:mx-8">
+                        <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-10 xl:gap-y-12">
                             {PropertyData.map((data, index) => (
-                                <div key={index}>
+                                <div className="flex items-center justify-center" key={index}>
                                     <Post data={{ ...data, "index": index }} type={type} />
                                 </div>
                             ))}
