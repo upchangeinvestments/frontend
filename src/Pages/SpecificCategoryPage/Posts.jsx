@@ -5,7 +5,7 @@ function Post({ data, type }) {
     const isEven = data.index % 2 === 0;
     return (
         <div className="">
-            <div className="hidden xl:grid grid-cols-2 xl:mx-6 rounded-lg bg-white p-4">
+            <div className="hidden xl:grid grid-cols-2 xl:mx-6 rounded-lg bg-white p-4">         {/* for xl screens only*/}
                 <div className="">
                     <div className="">
                         <img src={data.image} alt="Property Image" />
@@ -67,6 +67,7 @@ function Post({ data, type }) {
                     </div>
                 </div>
             </div >
+            {/* for vsm to lg screens */}
             <div className={`xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'} xl:flex-row items-center justify-center`}>
                 <div className="relative flex">
                     <img className={`vsm:w-[300px] md:w-[300px] lg:w-auto lg:h-[350px] vsm:rounded-t-lg lg:rounded-none ${isEven ? 'lg:rounded-r-lg' : 'lg:rounded-l-lg'} xl:rounded-none xl:rounded-l-lg`} src={data.image} alt="" />
