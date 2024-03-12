@@ -13,3 +13,7 @@
     background-size: cover;  
     position: relative;
 }
+.PostPage{
+    background-image: linear-gradient(to bottom, rgba(239, 239, 239, 0), #d8c5d9), url('../../assets/Building.jpg');
+    
+}
