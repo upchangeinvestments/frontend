@@ -50,12 +50,12 @@ function SpecificPage() {
                     </div>
                 </div>
             </div>
-            <div className="flex vsm:-mt-[30px] lg:mt-[50px] xl:mt-[10px] mb-16">
+            <div className="flex vsm:-mt-[30px] md:mt-[10px] lg:mt-[50px] xl:mt-[10px] mb-16">
                 <FilterSection />
                 <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
                     <MobileFilter openDrawer={openDrawer} passDataObject={receiveDataObject} />
                     <div className="lg:mx-8">
-                        <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-10 xl:gap-y-12">
+                        <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
                             {PropertyData.map((data, index) => (
                                 <div className="flex items-center justify-center" key={index}>
                                     <Post data={{ ...data, "index": index }} type={type} />
