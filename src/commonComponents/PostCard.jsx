@@ -11,22 +11,26 @@ const RealEstateCard = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center relative mb-20 ">
-      <div className="w-72 h-32 bg-bottom">
+    <div className="flex flex-col items-center justify-center relative mb-20">
+      <div className="w-72 bg-bottom relative">
         {firstStarActive ? (
           <FaRegStar
             onClick={toggleStars}
-            className="absolute top-2 right-12  mt-2 text-yellow-500 text-2xl"
+            className="absolute top-2 right-0 mt-2 mr-2 text-yellow-500 text-2xl"
           />
         ) : (
           <FaStar
             onClick={toggleStars}
-            className="absolute top-2 right-12  mt-2 text-yellow-500 text-2xl"
+            className="absolute top-2 right-0 mt-2 mr-2 text-yellow-500 text-2xl"
           />
         )}
-        <img className="rounded-t-lg " src={props.data.image} alt="" />
+        <img
+          className="rounded-t-lg object-cover w-full h-32"
+          src={props.data.image}
+          alt=""
+        />
       </div>
-      <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-72">
+      <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-72 mt-0">
         <div className="flex items-center justify-center">
           <div className="text-lg CustomizeFontH">{props.data.title}</div>
         </div>
