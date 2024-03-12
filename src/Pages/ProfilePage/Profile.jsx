@@ -1,14 +1,14 @@
 import React, { useState } from "react";
 import { MdOutlineEdit, MdOutlineFileUpload } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
-import Sidebar from "./sidebar";
+import Sidebar from "./Sidebar";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [tabContent, setTabContent] = useState("");
 
-  const handleIncomingData = (data) => {
-    setTabContent(data);
+  const handleIncomingData = (data, title) => {
+    setTabContent({ data, title });
   };
 
   return (
@@ -17,7 +17,7 @@ const Profile = () => {
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="col-span-9">
-        <div className="bg-gradient-to-r from-gray-200  to-purple-300 rounded-lg shadow-md mt-8 w-[96%] p-4 relative">
+        <div className="bg-gradient-to-r from-pink-100  to-purple-300 rounded-lg shadow-md mt-[50px] ml-[60px]  w-[80%] p-4 relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (
@@ -50,7 +50,7 @@ const Profile = () => {
               {isEditing ? (
                 <input
                   type="text"
-                  className="w-full border rounded py-1 px-2 mt-2 bg-[#e4e4e7] outline-none"
+                  className="w-full border rounded py-1 px-2 mt-2 bg-purple-200 outline-none"
                   placeholder="location"
                 />
               ) : (
@@ -61,7 +61,7 @@ const Profile = () => {
           <div className="mt-4">
             {isEditing ? (
               <textarea
-                className="w-full border rounded py-1 px-2 bg-[#e4e4e7] outline-none"
+                className="w-full border rounded py-1 px-2 bg-purple-200 outline-none"
                 placeholder="Add your bio"
                 rows="4"
               />
@@ -92,9 +92,18 @@ const Profile = () => {
             )}
           </div>
         </div>
-        <div className="grid col-span-9 w-[96%] mt-6 ">
-          <div className="bg-gradient-to-r from-gray-200  to-purple-400  rounded-lg shadow-md p-4 col-span-9 xl:col-span-10">
-            {tabContent}
+        <div className="grid col-span-9">
+          <div className="bg-gradient-to-r from-pink-100 to-purple-300 rounded-lg shadow-md mt-[40px] ml-[60px]  w-[80%] p-4 relative">
+            {tabContent && (
+              <>
+                <h2 className="text-xl text-purple-600 my-8 font-bold text-center">
+                  {tabContent.title}
+                </h2>
+                <div className="text-pretty items-center text-left m-8">
+                  {tabContent.data}
+                </div>
+              </>
+            )}
           </div>
         </div>
       </div>

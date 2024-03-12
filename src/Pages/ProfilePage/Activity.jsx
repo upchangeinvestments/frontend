@@ -8,7 +8,7 @@ function Activity() {
   return (
     <div>
       <h2 className="text-3xl mt-12 text-white font-bold mb-4">Favourites</h2>
-      <div className="grid grid-cols-3 gap-4 mt-12 justify-center">
+      <div className="grid grid-cols-3 gap-0 mt-12 justify-center">
         {sixCardsData.map((element, index) => (
           <div key={index} className="flex justify-center">
             <PostCard data={element} />
