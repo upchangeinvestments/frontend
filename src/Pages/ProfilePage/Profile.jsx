@@ -17,7 +17,7 @@ const Profile = () => {
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="col-span-9">
-        <div className="bg-gradient-to-r from-pink-100  to-purple-300 rounded-lg shadow-md mt-[50px] ml-[60px]  w-[80%] p-4 relative">
+        <div className="bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md mt-[50px] ml-[60px]  w-[80%] p-4 relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (
@@ -93,13 +93,13 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid col-span-9">
-          <div className="bg-gradient-to-r from-pink-100 to-purple-300 rounded-lg shadow-md mt-[40px] ml-[60px]  w-[80%] p-4 relative">
+          <div className="bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md mt-[40px] ml-[60px]  w-[80%] p-4 relative">
             {tabContent && (
               <>
-                <h2 className="text-xl text-purple-600 my-8 font-bold text-center">
+                <h2 className="text-xl text-purple-600 mt-6 font-bold text-center">
                   {tabContent.title}
                 </h2>
-                <div className="text-pretty items-center text-left m-8">
+                <div className="text-pretty items-center text-left p-4">
                   {tabContent.data}
                 </div>
               </>
