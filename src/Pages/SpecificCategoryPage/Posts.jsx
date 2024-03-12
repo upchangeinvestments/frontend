@@ -9,7 +9,7 @@ function Post({ data, type }) {
     return (
         <div className="">
             <div className="hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4">
-                <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center px-2 pb-2">{data.title}</h3>
+                <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center px-2 pb-1">{data.title}</h3>
                 <div className="grid grid-cols-2 ">         {/* for xl screens only*/}
                     <div className="">
                         <div className="">
@@ -24,7 +24,7 @@ function Post({ data, type }) {
                                     </div>
                                 </div>
                             </div>
-                            <div className="flex flex-wrap gap-y-3 gap-x-2">
+                            <div className="flex flex-wrap gap-y-3 gap-x-2 text-base">
                                 <div className="border-slate-400 border rounded-lg ">
                                     <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">Documents</button>
                                 </div>
@@ -46,9 +46,9 @@ function Post({ data, type }) {
                     <div className="">
                         <p className="text-gray-600 mb-2 px-4 flex items-center gap-1"><span><IoLocationSharp /></span>{data.location}</p>
                         <p className="text-gray-700 md:text-xs xl:text-base	px-4">
-                            {data.description.length > 105 ? `${data.description.substring(0, 100)}...` : data.description}
+                            {data.description.length > 100 ? `${data.description.substring(0, 105)}...` : data.description}
                         </p>
-                        <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-6 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
+                        <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-2 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
                             <div className="flex items-center justify-center flex-col">
                                 <div className="text-gray-600 text-sm">Min Investment</div>
                                 <div className="font-bold text-base ">$ 10K</div>
