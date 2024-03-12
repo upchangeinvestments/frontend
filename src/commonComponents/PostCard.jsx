@@ -1,14 +1,29 @@
-import React from "react";
+import React, { useState } from "react";
 import LoginButton from "./LoginButton";
 import "../styles/LandingPage/Post.css";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 
 const RealEstateCard = (props) => {
+  const [firstStarActive, setFirstStarActive] = useState(true);
+
+  const toggleStars = () => {
+    setFirstStarActive((prev) => !prev);
+  };
+
   return (
     <div className="flex flex-col items-center justify-center relative mb-20 ">
       <div className="w-72 h-32 bg-bottom">
-        <FaRegStar className="absolute top-2 right-16  mt-2 text-yellow-500 text-2xl" />
-        <FaStar className="absolute top-2 right-16  mt-2 text-yellow-500 text-2xl" />
+        {firstStarActive ? (
+          <FaRegStar
+            onClick={toggleStars}
+            className="absolute top-2 right-12  mt-2 text-yellow-500 text-2xl"
+          />
+        ) : (
+          <FaStar
+            onClick={toggleStars}
+            className="absolute top-2 right-12  mt-2 text-yellow-500 text-2xl"
+          />
+        )}
         <img className="rounded-t-lg " src={props.data.image} alt="" />
       </div>
       <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-72">
@@ -45,7 +60,6 @@ const RealEstateCard = (props) => {
         </div>
         <div className="flex justify-center items-center mt-4">
           <LoginButton Text="Know more" link="#" className="text-base" />
-          {/* <button className="bg-[#9747FF] text-white py-2 px-4 rounded-lg  hover:bg-purple-600">Know more...</button> */}
         </div>
       </div>
     </div>
