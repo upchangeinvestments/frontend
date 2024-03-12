@@ -9,7 +9,7 @@ function Post({ data, type }) {
                 <div className="flex">
                     <img className="md:rounded-l-lg w-auto" src={data.image} alt="" />
                 </div>
-                <div className="bg-white shadow-md vsm:p-6 md:p-4 lg:w-1/2 md:rounded-r-lg">
+                <div className="bg-white shadow-md vsm:p-6 md:p-4 lg:w-auto md:rounded-r-lg">
                     <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center">{data.title}</h3>
                     <p className="text-gray-600 mb-2">{data.location}</p>
                     <p className="text-gray-700 text-xs	text-justify">
