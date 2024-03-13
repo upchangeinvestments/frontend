@@ -91,7 +91,7 @@ function PostPage() {
                                         <p className='whitespace-nowrap '>Location</p>
                                     </div>
                                 </div>
-                                <div className="w-[85%] md:w-[60%] ">
+                                <div className="w-[85%] md:w-[80%]">
                                     <Progressbar val={val} />
                                 </div>
                                 <div className="my-4">
@@ -101,7 +101,7 @@ function PostPage() {
                                     <Link to='/contact' target='_blank'>Questions?</Link>
                                 </div>
                                 <div className="flex flex-col items-center justify-center">
-                                    <p className='text-gray-600 text-sm px-4'>*Please carefully review all sections before investing your money</p>
+                                    <p className='text-gray-600 text-xs px-4'>*Please carefully review all sections before investing your money</p>
                                 </div>
                             </div>
                         </div>
