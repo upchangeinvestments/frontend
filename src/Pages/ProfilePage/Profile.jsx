@@ -2,18 +2,41 @@ import React, { useState } from "react";
 import { MdOutlineEdit } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import Sidebar from "./Sidebar";
+import MobileSidebar from "./mobileSidebar";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [tabContent, setTabContent] = useState("");
+  const [sidebarOpen, setSidebarOpen] = useState(false);
 
   const handleIncomingData = (data, title) => {
     setTabContent({ data, title });
   };
+  const sidebarHandler = () => {
+    setSidebarOpen(!sidebarOpen);
+  }
 
   return (
     <div className="grid grid-cols-12">
-      <div className="col-span-3">
+      <div className="md:hidden" onClick={sidebarHandler}>
+        <svg
+          className="h-6 w-6"
+          xmlns="http://www.w3.org/2000/svg"
+          fill="none"
+          viewBox="0 0 24 24"
+          stroke="currentColor"
+          aria-hidden="true"
+        >
+          <path
+            strokeLinecap="round"
+            strokeLinejoin="round"
+            strokeWidth={2}
+            d="M4 6h16M4 12h16M4 18h16"
+          />
+        </svg>
+        {sidebarOpen && (<div className="mobile-filter-drawer"><MobileSidebar handleIncomingData={handleIncomingData} open={sidebarOpen} /></div>)}
+      </div>
+      <div className="hidden md:block col-span-3">
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="col-span-9">
@@ -28,12 +51,6 @@ const Profile = () => {
                     alt="user"
                     className="border border-gray-900 p-0.5 rounded-full w-32 h-32"
                   />
-                  {/* <input
-                    type="file"
-                    className="mt-4 "
-                    accept="image/*"
-                    onChange={handleImageChange}
-                  /> */}
                 </div>
               ) : (
                 <FaUserCircle

@@ -37,11 +37,10 @@ const Sidebar = ({ sendDataToProfile }) => {
           {tabs.map((tab, index) => (
             <li
               key={index}
-              className={`md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] ${
-                isActive === index
-                  ? "bg-purple-500 rounded-lg text-white w-full"
-                  : ""
-              }`}
+              className={`md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] ${isActive === index
+                ? "bg-purple-500 rounded-lg text-white w-full"
+                : ""
+                }`}
               onClick={() => handleContent(index)}
             >
               <div className="flex items-center justify-between">

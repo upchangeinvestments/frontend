@@ -6,7 +6,7 @@ import React, { useState } from 'react'
 
 
 function FilterSection() {
-    const CategoryType = ['Commercial Property', 'Rental Property', 'Single-Family Property', 'Multi-Family Property', 'Housing Property'];
+    const CategoryType = ["Residential Property", "Hotels Property", "Retail Property", "Warehouse & Storage Property", "Medical Facilites Property", "School Property", "Office Property", "Infrastructure Property"];
     const LocationType = ["Dallas, Texas", "New York", "California", "Austin", "Seattle"];
     const CompanyType = ["Diversified Healthcare Trust", "Angel Oak Mortgage, Inc.", "Tanger, Inc", "Modiv Industrial, Inc.", "Park Hotels & Resorts"];
     const InvestmentRange = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K", "$500K-$1M", "$1M+"];
@@ -23,14 +23,7 @@ function FilterSection() {
             backgroundBlendMode: "overlay",
         }}>
             <FilterSubSection list={CategoryType} title="Categories" inputType="checkbox" />
-            <FilterSubSection list={LocationType} title="Locations" inputType="checkbox" />
             <FilterSubSection list={InvestmentRange} title="Investment Range" inputType="radio" />
-            <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
-                <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">Zip Code </div>
-                <div className="font-['Asap'] w-[80%]">
-                    <input type="text" name="" className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#9747FF]" />
-                </div>
-            </div>
             <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
                 <Tooltip content="Internal rate of return" placement="right" className="bg-white/50 p-1 px-3 text-black ml-2">
                     <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">IRR </div>
@@ -54,6 +47,13 @@ function FilterSection() {
                 </div>
             </div>
             <FilterSubSection list={HoldPeriod} title="Hold Period" inputType="radio" />
+            <FilterSubSection list={LocationType} title="Locations" inputType="checkbox" />
+            <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
+                <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">Zip Code </div>
+                <div className="font-['Asap'] w-[80%]">
+                    <input type="text" name="" className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#9747FF]" />
+                </div>
+            </div>
             <FilterSubSection list={CompanyType} title="Companies" inputType="checkbox" />
         </div>
     )
