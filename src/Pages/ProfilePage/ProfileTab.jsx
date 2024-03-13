@@ -14,7 +14,7 @@ const Tabs = ({ tabs }) => {
           </p>
         </div>
         <div className="">
-          <div className="flex bg-white/20 backdrop-blur-xl p-2 absolute bottom-0 w-full items-center justify-center gap-8">
+          <div className="flex bg-white/20 backdrop-blur-xl p-2 absolute bottom-0 w-full items-center justify-center vsm:gap-2 md:gap-8">
             {tabs.map((tab, index) => (
               <button
                 key={index}

@@ -29,18 +29,19 @@ const Sidebar = ({ sendDataToProfile }) => {
 
   return (
     <div>
-      <div className="flex flex-col items-center bg-gradient-to-r from-pink-200 to-purple-300 h-[500px] w-[280px] mt-[50px] ml-[80px] backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 xl:col-span-2">
+      <div className="md:w-[200px] md:h-[400px] md:mt-[50px] md:ml-[20px] lg:h-[550px] lg:w-[280px] lg:mt-[50px] lg:ml-[40px] xl:col-span-3 xl:w-[320px] xl:ml-[60px] xl:h-[600px] flex flex-col items-center bg-gradient-to-r from-pink-200 to-purple-300  backdrop-blur-lg rounded-lg shadow-md p-4 col-span-3 ">
         <ul className="flex flex-col space-y-2 w-full">
-          <div className="my-4 ml-8 mb-12 w-48">
+          <div className="md:w-[150px] md:ml-[5px] md:mb-[40px] lg:mx-[20px] lg:mt-[20px] lg:mb-[80px] lg:w-[200px] xl:w-[230px]">
             <img src={logo} alt="" />
           </div>
           {tabs.map((tab, index) => (
             <li
               key={index}
-              className={`p-4 ${isActive === index
+              className={`md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] ${
+                isActive === index
                   ? "bg-purple-500 rounded-lg text-white w-full"
                   : ""
-                }`}
+              }`}
               onClick={() => handleContent(index)}
             >
               <div className="flex items-center justify-between">
