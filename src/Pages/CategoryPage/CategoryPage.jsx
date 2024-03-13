@@ -23,10 +23,10 @@ function CategoryPage() {
     setId(index);
   };
 
-  useEffect(() => { }, [data]);
+  useEffect(() => {}, [data]);
 
   return (
-    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] xl:h-[55vh] mobile-filter-drawer">
+    <div className="categoryMain  vsm:h-[60vh] md:h-[62vh] xl:h-[55vh] mobile-filter-drawer">
       <MobileFilterDrawer
         open={open}
         closeDrawer={openDrawer}
@@ -38,14 +38,17 @@ function CategoryPage() {
       <NavBar />
       <div className="">
         <div className="uppercase text-white font-bold vsm:text-4xl text-5xl flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
-          <p className='text-5xl tracking-wider'> Explore Categories</p>
+          <p className="text-5xl tracking-wider"> Explore Categories</p>
         </div>
       </div>
       {/* <SearchBox /> */}
       <div className="flex vsm:-mt-[100px] lg:-mt-[50px] xl:-mt-[100px] mb-16">
         <FilterSection />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
-          <MobileFilter openDrawer={openDrawer} passDataObject={receiveDataObject} />
+          <MobileFilter
+            openDrawer={openDrawer}
+            passDataObject={receiveDataObject}
+          />
           <Categories />
         </div>
       </div>

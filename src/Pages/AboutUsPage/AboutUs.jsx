@@ -14,7 +14,7 @@ import {
 
 function AboutUs() {
   return (
-    <div className="overflow-x-hidden vsm:mb-12 md:mb-12">
+    <div className="overflow-x-hidden  vsm:mb-12 md:mb-12">
       <div className="flex vsm:flex vsm:flex-col md:flex md:flex-row md:mt-2 lg:mt-8">
         <div class=" vsm:w-72 vsm:h-60 vsm:ml-4 vsm:mt-8 msm:ml-6 msm:w-80 sm:w-96 md:w-44 md:mt-[400px] md:ml-8  lg:ml-12 lg:mt-[350px] lg:w-72 lg:h-60 xl:mt-[230px] xl:ml-24 bg-white/20  backdrop-blur-xl bottom-0    flex justify-center items-center rounded-lg">
           <div class="text-center">
