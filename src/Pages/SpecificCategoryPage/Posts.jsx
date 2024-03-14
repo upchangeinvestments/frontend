@@ -46,7 +46,7 @@ function Post({ data, type }) {
                     <div className="">
                         <p className="text-gray-600 mb-2 px-4 flex items-center gap-1"><span><IoLocationSharp /></span>{data.location}</p>
                         <p className="text-gray-700 md:text-xs xl:text-base	px-4">
-                            {data.description.length > 100 ? `${data.description.substring(0, 105)}...` : data.description}
+                            {data.description.length > 85 ? `${data.description.substring(0, 85)}...` : data.description}
                         </p>
                         <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-2 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
                             <div className="flex items-center justify-center flex-col">
@@ -67,7 +67,7 @@ function Post({ data, type }) {
                             </div>
                         </div>
                         <div className="flex items-center justify-center mt-2">
-                            <Button Text="Know More" link="#" />
+                            <Button Text="Know More" link="/post" />
                             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
                         </div>
                     </div>
@@ -133,7 +133,7 @@ function Post({ data, type }) {
                         </div>
                     </div>
                     <div className="flex items-center justify-center">
-                        <Button Text="Know More" link="#" />
+                        <Button Text="Know More" link="/post" />
                         {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
                     </div>
                 </div>

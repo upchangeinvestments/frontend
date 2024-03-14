@@ -3,18 +3,12 @@ import React from 'react'
 const dataObject = [
     {
         title: "Categories",
-        options: [
-            "Commercial Property",
-            "Rental Property",
-            "Single-Family Property",
-            "Multi-Family Property",
-            "Housing Property",
-        ],
+        options: ["Residential Property", "Hotels Property", "Retail Property", "Warehouse & Storage Property", "Medical Facilites Property", "School Property", "Office Property", "Infrastructure Property"],
         inputType: "checkbox",
     },
     {
-        title: "Locations",
-        options: ["Texas", "New York", "California", "Austin", "Seattle"],
+        title: "Location",
+        options: ["West", "Central", "South", "Midwest", "East"],
         inputType: "checkbox",
     },
     {

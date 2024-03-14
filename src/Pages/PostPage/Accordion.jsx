@@ -9,6 +9,7 @@ import {
 const ListedCompany = () => {
     return (
         <div className="flex flex-col">
+            <h2 className="CustomizeFontH text-lg">The Reilea Group</h2>
             <p>
                 Founded in 1981, rilea group has been at the forefront of miami’s real estate development landscape, leaving an indelible mark through iconic buildings like J.P.Morgan’s headquarters at 1450 brickell. with a legacy spanning over four decades, our mission is unwavering: to be a beacon of innovation, progress, and community enrichment in the world of real estate development. at rilea group, we take immense pride in our ability to create enduring value for our stakeholders.
                 Our commitment to excellence is evident through the thousands of jobs we’ve generated via construction, property management, and our thriving retail ventures. with a track record encompassing 10,000,000 rentable square feet, we’ve redefined urban living and working spaces, setting new standards for quality and sustainability. Our global reach extends to investors in over a dozen countries, a testament to our dedication to fostering international partnerships. We recognize that our success is interwoven with the prosperity of the communities we serve.
@@ -24,12 +25,12 @@ const ListedCompany = () => {
     )
 }
 const DropDownData = [
-    {
-        title: "Overview",
-        content: "View the project overview",
-        desc: "View the project overview",
+    // {
+    //     title: "Overview",
+    //     content: "View the project overview",
+    //     desc: "View the project overview",
 
-    },
+    // },
     {
         title: "Documents",
         content: "View the project documentations",
@@ -40,18 +41,18 @@ const DropDownData = [
         content: "View the business plan",
         desc: "View the business plan",
     },
-    {
-        title: "Property",
-        content: "Explore property details, comparable, locations and photos.",
-        desc: "Explore property details, comparable, locations and photos.",
-    },
+    // {
+    //     title: "Property",
+    //     content: "Explore property details, comparable, locations and photos.",
+    //     desc: "Explore property details, comparable, locations and photos.",
+    // },
     {
         title: "Financials",
         content: "Reveiw debt assumptions, closing dates, caps and more",
         desc: "Reveiw debt assumptions, closing dates, caps and more",
     },
     {
-        title: "the reilea group",
+        title: "Listed company",
         content: "Review the listed company in detail.",
         desc: <ListedCompany />,
     },

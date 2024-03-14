@@ -1,6 +1,7 @@
 import React from 'react';
 import "../../styles/LandingPage/Platform.css";
 import HowItWorks from './HowItWorks';
+import Explore from "./Explore";
 
 
 const HowInvestmentWorks = () => {
@@ -52,6 +53,7 @@ const HowInvestmentWorks = () => {
 
                 </div>
             </div>
+            <Explore />
             <HowItWorks />
         </div>
     );

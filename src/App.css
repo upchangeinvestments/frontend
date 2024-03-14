@@ -20,6 +20,13 @@
   font-family: "CyGroteskGrand";
   src: url("./assets/cy-grotesk-wide-medium.ttf");
 }
+@font-face {
+  font-family: "LinikSans";
+  src: url("./assets/LinikSans-SemiBold.ttf");
+}
+.FontLinikSans{
+  font-family: "LinikSans", sans-serif;
+}
 
 .public-sans-Stretch {
   font-family: "Public Sans", sans-serif;
