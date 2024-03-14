@@ -8,7 +8,6 @@ import logo from "../assets/logo.png";
 import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
-import { GrArticle } from "react-icons/gr";
 import { Typography, Button, Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
 
 const profileMenuItems = [
@@ -113,7 +112,7 @@ const NavBar = () => {
 
   return (
     <>
-      <div className={open ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] CustomizeFontH" : "relative backdrop-blur-sm bg-slate-50/10 z-40 CustomizeFontH"}>
+      <div className={open ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] FontLinikSans" : "relative backdrop-blur-sm bg-slate-50/10 z-40 FontLinikSans"}>
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-center items-center py-2">
             <div className="flex vsm:w-[100%] vsm:justify-between md:w-auto md:flex-none md:justify-start ">

@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import NavBar from "../../commonComponents/NavBar";
-import SearchBox from '../../commonComponents/SearchBox';
+// import SearchBox from '../../commonComponents/SearchBox';
 import "../../styles/CategoryPage/categoryPage.css";
 import { PiMapPinLineBold } from "react-icons/pi";
 import Button from "../../commonComponents/LoginButton";
@@ -29,14 +29,33 @@ const OverViewContent = () => {
         </div>
     )
 }
+
+const ListedCompany = () => {
+    return (
+        <div className="flex flex-col">
+            <h2 className="CustomizeFontH text-lg">The Reilea Group</h2>
+            <p>
+                Founded in 1981, rilea group has been at the forefront of miami’s real estate development landscape, leaving an indelible mark through iconic buildings like J.P.Morgan’s headquarters at 1450 brickell. with a legacy spanning over four decades, our mission is unwavering: to be a beacon of innovation, progress, and community enrichment in the world of real estate development. at rilea group, we take immense pride in our ability to create enduring value for our stakeholders.
+                Our commitment to excellence is evident through the thousands of jobs we’ve generated via construction, property management, and our thriving retail ventures. with a track record encompassing 10,000,000 rentable square feet, we’ve redefined urban living and working spaces, setting new standards for quality and sustainability. Our global reach extends to investors in over a dozen countries, a testament to our dedication to fostering international partnerships. We recognize that our success is interwoven with the prosperity of the communities we serve.
+            </p>
+            <p>
+                Therefore, we pledge to continue our tradition of responsible development, prioritizing the well-being of our neighbors, and the preservation of the environment. At Rilea Group, we are more than developers; we are community builders, job creators, and global collaborators. our enduring mission is to shape urban landscapes, enrich lives, provide financial return for our partners and leave a lasting legacy of excellence in real estate development.
+            </p>
+            <div className="flex flex-col my-2 items-center justify-center">
+                <p className="CustomizeFontH mb-2">TO KNOW MORE ABOUT THE FIRM AND INVEST IN THE PROJECT PLEASE GO TO THE LINK BELOW.</p>
+                <Button link="#" Text="Visit the website" />
+            </div>
+        </div>
+    )
+}
 const tabs = [
     { title: "Overview", content: <OverViewContent /> },
-    { title: "Listed Company", content: 'content' },
-    { title: "Business Plan", content: 'content' },
-    { title: "Property", content: 'content' },
-    { title: "Financials", content: 'content' },
-    { title: "Documents", content: 'content' },
-    { title: "Disclaimers", content: 'content' },
+    { title: "Listed Company", content: <ListedCompany /> },
+    // { title: "Business Plan", content: 'content' },
+    // { title: "Property", content: 'content' },
+    // { title: "Financials", content: 'content' },
+    // { title: "Documents", content: 'content' },
+    // { title: "Disclaimers", content: 'content' },
 ];
 
 
@@ -48,14 +67,14 @@ function PostPage() {
             <div className='flex flex-col items-center justify-center'>
                 <div className="PostPage bg-top w-[100%]">
                     <NavBar />
-                    <div className="w-full bg-black/20">
+                    {/* <div className="w-full bg-black/20">
                         <SearchBox />
-                    </div>
+                    </div> */}
                 </div>
                 <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl">
                     <div className="flex flex-col items-center justify-center w-full py-4">
                         <div className="flex vsm:flex-col md:flex-row items-center justify-center text-2xl">
-                            <span className='CustomizeFontH md:border-r md:border-gray-600 pr-2'>Post title</span>
+                            <span className='CustomizeFontH md:border-r md:border-gray-600 pr-2'>The Highlands</span>
                             <span className='pl-2'>Residential property</span>
                         </div>
                         <span className='flex items-center'><PiMapPinLineBold /> Ardent Housing Fund II, LP</span>
@@ -73,12 +92,12 @@ function PostPage() {
                                     <div className="flex flex-col items-center justify-center pb-2">
                                         <div className='bg-white/20 backdrop-blur-xl rounded-full p-4'><PiMapPinLineBold size="20" /></div>
                                         <p className='mt-1'>10.00%</p>
-                                        <p className='whitespace-nowrap '>High Rental Yield</p>
+                                        <p className='whitespace-nowrap '>Targeted IRR</p>
                                     </div>
                                     <div className="flex flex-col items-center justify-center pb-2">
                                         <div className='bg-white/20 backdrop-blur-xl rounded-full p-4'><PiMapPinLineBold size="20" /></div>
-                                        <p className='mt-1'>17.50%</p>
-                                        <p className='whitespace-nowrap '>High Returns</p>
+                                        <p className='mt-1'>2 YRS</p>
+                                        <p className='whitespace-nowrap '>Hold period</p>
                                     </div>
                                     <div className="flex flex-col items-center justify-center pb-2">
                                         <div className='bg-white/20 backdrop-blur-xl rounded-full p-4'><PiMapPinLineBold size="20" /></div>
@@ -87,7 +106,7 @@ function PostPage() {
                                     </div>
                                     <div className="flex flex-col items-center justify-center pb-2">
                                         <div className='bg-white/20 backdrop-blur-xl rounded-full p-4'><PiMapPinLineBold size="20" /></div>
-                                        <p className='mt-1'>Outer Ring Road</p>
+                                        <p className='mt-1'>Dallas, TX</p>
                                         <p className='whitespace-nowrap '>Location</p>
                                     </div>
                                 </div>
@@ -113,7 +132,7 @@ function PostPage() {
                             key={index}
                             className={`mb-4 ${activeTab === index ? "block" : "hidden"}`}
                         >
-                            <h2 className='CustomizeFontH text-xl text-center'>{tab.title}</h2>
+                            <h2 className='CustomizeFontH text-xl text-left'>{tab.title}</h2>
                             {tab.content}
                         </div>
                     ))}

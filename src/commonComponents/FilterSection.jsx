@@ -1,13 +1,13 @@
 import FilterSubSection from "./FilterSubSection";
 // import { Slider } from "@material-tailwind/react";
-import { Tooltip, Button } from "@material-tailwind/react";
+import { Tooltip } from "@material-tailwind/react";
 // import { Range } from 'react-range';
 import React, { useState } from 'react'
 
 
 function FilterSection() {
     const CategoryType = ["Residential Property", "Hotels Property", "Retail Property", "Warehouse & Storage Property", "Medical Facilites Property", "School Property", "Office Property", "Infrastructure Property"];
-    const LocationType = ["Dallas, Texas", "New York", "California", "Austin", "Seattle"];
+    const LocationType = ["West", "Central", "South", "Midwest", "East"];
     const CompanyType = ["Diversified Healthcare Trust", "Angel Oak Mortgage, Inc.", "Tanger, Inc", "Modiv Industrial, Inc.", "Park Hotels & Resorts"];
     const InvestmentRange = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K", "$500K-$1M", "$1M+"];
     const HoldPeriod = ["0YRS-1YRS", "1YRS-2YRS", "2YRS-5YRS", "5YRS-7YRS", "7YRS-10YRS", "10YRS+"]
@@ -22,6 +22,9 @@ function FilterSection() {
             backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
             backgroundBlendMode: "overlay",
         }}>
+            <div className="flex items-center justify-center text-xl font-['Archive'] mt-2">
+                <p>Filter Projects</p>
+            </div>
             <FilterSubSection list={CategoryType} title="Categories" inputType="checkbox" />
             <FilterSubSection list={InvestmentRange} title="Investment Range" inputType="radio" />
             <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
