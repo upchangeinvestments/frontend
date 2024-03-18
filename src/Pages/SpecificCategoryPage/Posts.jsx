@@ -13,7 +13,7 @@ function Post({ data, type }) {
                 <div className="grid grid-cols-2 ">         {/* for xl screens only*/}
                     <div className="">
                         <div className="">
-                            <img src={data.image} alt="Property Image" />
+                            <img src={data.image} alt="Property" />
                         </div>
                         <div className="">
                             <div className="flex items-center">
@@ -79,7 +79,7 @@ function Post({ data, type }) {
             {/* for vsm to lg screens */}
             <div className={`shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? 'lg:flex-row-reverse' : 'lg:flex-row'} xl:flex-row items-center justify-center`}>
                 <div className="flex">
-                    <img className={`vsm:w-[300px] md:w-[300px] lg:w-auto lg:h-[360px] vsm:rounded-t-lg lg:rounded-none ${isEven ? 'lg:rounded-r-lg' : 'lg:rounded-l-lg'} xl:rounded-none xl:rounded-l-lg`} src={data.image} alt="" />
+                    <img className={`vsm:w-[300px] md:w-[300px] lg:w-auto lg:h-[360px] vsm:rounded-t-lg lg:rounded-none ${isEven ? 'lg:rounded-r-lg' : 'lg:rounded-l-lg'} xl:rounded-none xl:rounded-l-lg`} src={data.image} alt="Property" />
                 </div>
                 <div className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? 'lg:rounded-l-lg' : 'lg:rounded-r-lg'}  xl:rounded-none xl:rounded-r-lg`}>
                     <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center">{data.title}</h3>

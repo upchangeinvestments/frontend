@@ -88,7 +88,7 @@ function AboutUs() {
             <img
               className="w-[100%] h-[100%]"
               src={BlurBuilding}
-              alt="card-image"
+              alt="card"
             />
             <p className="text-white absolute m-0 text-5xl CustomizeFontH">
               VISION
@@ -107,7 +107,7 @@ function AboutUs() {
             <img
               className="w-[100%] h-[100%]"
               src={BlurBuilding}
-              alt="card-image"
+              alt="card"
             />
             <p className="text-white absolute m-0 text-5xl CustomizeFontH">
               Mission
@@ -126,7 +126,7 @@ function AboutUs() {
             <img
               className="w-[100%] h-[100%]"
               src={BlurBuilding}
-              alt="card-image"
+              alt="card"
             />
             <p className="text-white absolute m-0 text-5xl CustomizeFontH">
               VALUES
@@ -142,114 +142,6 @@ function AboutUs() {
           </CardBody>
         </Card>
       </div>
-
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 md:gap-x-16 lg:gap-x-12 xl:gap-x-4 vsm:w-[90%] lg:w-[70%] xl:w-[50%] mx-auto">
-                <div className='flex flex-col items-center justify-center mb-20 '>
-                    <div className="max-w-[250px] h-[120px] bg-bottom">
-                        <div className="relative flex items-center justify-center">
-                            <img src={BlurBuilding} className="w-[100%] h-[100%] rounded-t-lg" alt="" />
-                            <p className='text-white absolute m-0 text-5xl CustomizeFontH'>VISION</p>
-                        </div>
-                    </div>
-                    <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-[250px]">
-                        <p className="py-4 h-60 ">
-                            We envision a dynamic platform for seamless exploration and comparison of
-                            diverse opportunities, empowering investors with robust analytics.
-                        </p>
-                    </div>
-                </div>
-                <div className='flex flex-col items-center justify-center mb-20 '>
-                    <div className="max-w-[250px] h-[120px] bg-bottom">
-                        <div className="relative flex items-center justify-center AboutCard">
-                            <img src={BlurBuilding} className="w-[100%] h-[100%] rounded-t-lg" alt="" />
-                            <p className='text-white absolute m-0 text-5xl CustomizeFontH'>Mission</p>
-                        </div>
-                    </div>
-                    <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-[250px]">
-                        <p className="py-4 h-60">
-                            To empower investors with the tools and information needed to make
-                            informed real estate investment decisions, while facilitating collaboration
-                            and growth within the real estate funding industry.
-                        </p>
-                    </div>
-                </div>
-                <div className='flex flex-col items-center justify-center mb-20 '>
-                    <div className="max-w-[250px] h-[120px] bg-bottom">
-                        <div className="relative flex items-center justify-center AboutCard">
-                            <img src={BlurBuilding} className="w-[100%] h-[100%] rounded-t-lg" alt="" />
-                            <p className='text-white absolute m-0 text-5xl CustomizeFontH'>Values</p>
-                        </div>
-                    </div>
-                    <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-[250px]">
-                        <p className='py-4 h-60'>We are committed to empowering individuals
-                            by simplifying real estate investing with transparency, fostering trust
-                            through clear information, and propelling innovation to redefine the
-                            investment experience.
-                        </p>
-                    </div>
-                </div>
-            </div> */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 vsm:w-[90%] lg:w-[80%] xl:w-[60%] mx-auto">
-                <div className='rounded-lg p-4 bg-white/20 backdrop-blur-[50px] border-[1px] border-[#9747FF]'>
-                    <h2 className="text-xl font-semibold mb-2 ">Vision</h2>
-                    <p className="text-justify">
-                        We envision a dynamic platform for seamless exploration and comparison of
-                        diverse opportunities, empowering investors with robust analytics.
-                    </p>
-                </div>
-                <div className="rounded-lg p-4 bg-white/20 backdrop-blur-[50px] border-[1px] border-[#9747FF]">
-                    <h2 className="text-xl font-semibold mb-2">Mission</h2>
-                    <p className="text-justify">
-                        To empower investors with the tools and information needed to make
-                        informed real estate investment decisions, while facilitating collaboration
-                        and growth within the real estate funding industry.
-                    </p>
-                </div>
-                <div className="rounded-lg p-4 bg-white/20 backdrop-blur-[50px] border-[1px] border-[#9747FF]">
-                    <h2 className="text-xl font-semibold mb-2">Values</h2>
-                    <p className='text-justify'>we are committed to empowering individuals by simplifying real estate investing with transparency, fostering trust through clear information, and propelling innovation to redefine the investment experience.</p>
-                    {/* <div>
-                        We are driven by the following values:
-                        <br />
-                        <span className="font-bold text-[#9747FF]"> <p>Comprehensive Search:</p> </span>
-                        <p> Investors efficiently find real estate opportunities from diverse companies in one place. </p> <br />
-                        <span className="font-bold text-[#9747FF]"> <p>Comparison Tools:</p> </span>
-                        <p> Robust analytics enable investors to evaluate and compare investment options. </p> <br />
-                        <span className="font-bold text-[#9747FF]">Network Building:</span>
-                        <p>  Real estate funding companies gain visibility, expanding their network for project funding. </p> <br />
-                    </div> */}
-      {/* </div>
-            </div >  */}
-      {/* <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-4 vsm:w-[90%] lg:w-[80%] xl:w-[60%] mx-auto">
-                <div className="p-4 AboutCard border border-1 border-[#9747FF]">
-                    <h2 className="text-xl font-semibold mb-2 ">Vision</h2>
-                    <p className="">
-                        We envision a dynamic platform for seamless exploration and comparison of
-                        diverse opportunities, empowering investors with robust analytics.
-                    </p>
-                </div>
-                <div className="p-4 AboutCard border border-1 border-[#9747FF]">
-                    <h2 className="text-xl font-semibold mb-2">Mission</h2>
-                    <p className="">
-                        To empower investors with the tools and information needed to make
-                        informed real estate investment decisions, while facilitating collaboration
-                        and growth within the real estate funding industry.
-                    </p>
-                </div>
-                <div className="p-4 AboutCard border border-1 border-[#9747FF]">
-                    <h2 className="text-xl font-semibold mb-2">Values</h2>
-                    <div>
-                        We are driven by the following values:
-                        <br />
-                        <span className="font-bold text-[#9747FF]"> <p>Comprehensive Search:</p> </span>
-                        <p> Investors efficiently find real estate opportunities from diverse companies in one place. </p> <br />
-                        <span className="font-bold text-[#9747FF]"> <p>Comparison Tools:</p> </span>
-                        <p> Robust analytics enable investors to evaluate and compare investment options. </p> <br />
-                        <span className="font-bold text-[#9747FF]">Network Building:</span>
-                        <p>  Real estate funding companies gain visibility, expanding their network for project funding. </p> <br />
-                    </div>
-                </div>
-            </div> */}
     </div>
   );
 }

@@ -5,7 +5,6 @@ import Features from "./Features";
 import Questions from "./Questions";
 // import HowItWorks from "./HowItWorks";
 import Unique from "./Unique";
-import OurUsers from "./OurUsers";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
 import ListWithUs from "./ListWithUs"

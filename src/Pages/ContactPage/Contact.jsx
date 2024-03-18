@@ -9,7 +9,7 @@ import logo from "../../assets/logo2.png";
 
 function ContactForm() {
   const [firstName, setFirstName] = useState("");
-  const [lastName, setLastName] = useState("");
+  // const [lastName, setLastName] = useState("");
   const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
 
