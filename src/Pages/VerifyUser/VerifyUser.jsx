@@ -2,16 +2,18 @@ import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios"
 import VerifiedGIF from "../../assets/verified.webp"
+import { useAuth } from "../../utils/AuthContext";
 
 function VerifyUser() {
     let { id, token } = useParams();
     const [isVerified, setIsVerified] = useState(false);
     const navigate = useNavigate();
+    const { backendUrl } = useAuth();
 
     useEffect(() => {
         const verifyToken = async () => {
             try {
-                const response = await axios.get(`${process.env.REACT_APP_BACKEND_URL}auth/${id}/verify/${token}`);
+                const response = await axios.get(`${backendUrl}/auth/${id}/verify/${token}`);
                 console.log(response);
                 if (response.status === 200) {
                     setIsVerified(true);

@@ -4,6 +4,15 @@ import axios from 'axios';
 
 const AuthContext = React.createContext();
 
+var baseUrl, backendUrl;
+if (process.env.REACT_APP_NODE_ENV === "dev") {
+    baseUrl = process.env.REACT_APP_BASE_URL;
+    backendUrl = process.env.REACT_APP_BACKEND_URL;
+} else {
+    baseUrl = process.env.REACT_APP_BASE_URL_PROD;
+    backendUrl = process.env.REACT_APP_BACKEND_URL_PROD;
+}
+
 export function useAuth() {
     return useContext(AuthContext);
 }
@@ -14,7 +23,7 @@ const AuthProvider = ({ children }) => {
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem('token'));
     const [user, setUser] = useState({});
     const contextValue = {
-        isAuth, handleUpdateAuth, user, logout
+        isAuth, handleUpdateAuth, user, logout, baseUrl, backendUrl
     };
 
     function handleUpdateAuth(value) {
@@ -29,7 +38,7 @@ const AuthProvider = ({ children }) => {
     useEffect(() => {
         const handleVerify = async (token) => {
             try {
-                const response = await axios.get(`http://localhost:5000/auth/verify?token=${token}`);
+                const response = await axios.get(`${backendUrl}/auth/verify?token=${token}`);
                 if (response.status === 200 && response.data.status === 'success') {
                     // console.log(response.data);
                     setIsAuth(true);

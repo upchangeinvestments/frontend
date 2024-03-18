@@ -10,6 +10,7 @@ import Error from "../../utils/Error";
 import SuccessToast from "../../utils/successToast";
 import { useAuth } from "../../utils/AuthContext";
 
+
 const ConnetWithUs = () => {
   return (
     <div className="mt-6 pb-6">
@@ -31,7 +32,7 @@ const SignIn = () => {
   const [isSignUp, setIsSignUp] = useState(isLogin);
   const [userData, setUserData] = useState(location.state?.userData || null);
   const navigate = useNavigate();
-  const { handleUpdateAuth } = useAuth();
+  const { handleUpdateAuth, backendUrl } = useAuth();
 
   const SignInButtonClick = () => {
     setIsSignUp(!isSignUp);
@@ -42,7 +43,7 @@ const SignIn = () => {
     const email = event.target.email.value;
     const password = event.target.password.value;
     try {
-      const response = await axios.post('http://localhost:5000/auth/login', { email, password });
+      const response = await axios.post(`${backendUrl}/auth/login`, { email, password });
       localStorage.setItem('token', response.data.token);
       handleUpdateAuth(true);
       navigate('/category');
@@ -62,9 +63,9 @@ const SignIn = () => {
       const email = event.target.email.value;
       const password = event.target.password.value;
       const confirmPassword = event.target.confirmPassword.value;
-      console.log(email, password, confirmPassword);
+      // console.log(email, password, confirmPassword);
 
-      const response = await axios.post('http://localhost:5000/auth/signup', { email, password, confirmPassword })
+      const response = await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword })
       localStorage.setItem('token', response.data.token);
       // navigate('/category');
       SuccessToast("Check your Inbox, and verify your account!");
