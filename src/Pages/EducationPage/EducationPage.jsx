@@ -59,7 +59,7 @@ function EducationPage() {
                 key={index}
                 className="py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
               >
-                <p className="flex items-center justify-center uppercase CustomizeFontH text-3xl text-[#9747FF] vsm:mt-4 md:mt-0">
+                <p className="flex items-center justify-center uppercase CustomizeFontH text-3xl border-2 p-8 border-purple-500 text-[#9747FF] vsm:mt-4 md:mt-0">
                   {data.Type}
                 </p>
               </div>
