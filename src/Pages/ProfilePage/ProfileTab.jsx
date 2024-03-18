@@ -14,14 +14,15 @@ const Tabs = ({ tabs }) => {
           </p>
         </div>
         <div className="">
-          <div className="flex bg-white/20 backdrop-blur-xl p-2 absolute bottom-0 w-full items-center justify-center md:gap-8">
+          <div className="flex bg-white/20 backdrop-blur-xl p-2 absolute bottom-0 w-full vsm:gap-4 items-center justify-center ">
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`py-2 px-4 mr-4 text-xl focus:outline-none ${activeTab === index
-                  ? "border-b-2 border-purple-500 text-purple-700"
-                  : ""
-                  }`}
+                className={`py-2 vsm:px-2 lg:px-4 vsm:text-md sm:text-xl focus:outline-none ${
+                  activeTab === index
+                    ? "border-b-2 border-purple-500 text-purple-700"
+                    : ""
+                }`}
                 onClick={() => setActiveTab(index)}
               >
                 {tab.title}
