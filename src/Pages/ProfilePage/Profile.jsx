@@ -14,10 +14,10 @@ const Profile = () => {
   };
   const sidebarHandler = () => {
     setSidebarOpen(!sidebarOpen);
-  }
+  };
 
   return (
-    <div className="grid grid-cols-12">
+    <div className="grid  grid-cols-12">
       <div className="md:hidden" onClick={sidebarHandler}>
         <svg
           className="h-6 w-6"
@@ -34,13 +34,20 @@ const Profile = () => {
             d="M4 6h16M4 12h16M4 18h16"
           />
         </svg>
-        {sidebarOpen && (<div className="mobile-filter-drawer"><MobileSidebar handleIncomingData={handleIncomingData} open={sidebarOpen} /></div>)}
+        {sidebarOpen && (
+          <div className="mobile-filter-drawer">
+            <MobileSidebar
+              handleIncomingData={handleIncomingData}
+              open={sidebarOpen}
+            />
+          </div>
+        )}
       </div>
-      <div className="hidden md:block col-span-3">
+      <div className="hidden md:block vsm:col-span-2 md:col-span-3 lg:col-span-3">
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
-      <div className="col-span-9">
-        <div className="md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
+      <div className="vsm:col-span-10 md:col-span-9 lg:col-span-9">
+        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[20px]  sm:w-[100%] sm:mt-[20px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (
@@ -49,7 +56,7 @@ const Profile = () => {
                     variant="circular"
                     size="6x"
                     alt="user"
-                    className="border border-gray-900 p-0.5 rounded-full w-32 h-32"
+                    className="border border-gray-900 p-0.5 rounded-full"
                   />
                 </div>
               ) : (
@@ -57,15 +64,15 @@ const Profile = () => {
                   variant="circular"
                   size="6x"
                   alt="user"
-                  className="border border-gray-900 p-0.5 md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] xl:w-[150px] xl:h-[150px] rounded-full w-32 h-32"
+                  className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] xl:w-[150px] xl:h-[150px] rounded-full"
                 />
               )}
             </div>
-            <div className="ml-8">
-              <h2 className="md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
+            <div className=" vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
+              <h2 className="vsm:text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
                 User Name
               </h2>
-              <p className="text-gray-600 md:text-[12px] lg:text-[15px] xl:text-[18px]">
+              <p className="text-gray-600 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
                 User ID
               </p>
               {isEditing ? (
@@ -75,7 +82,7 @@ const Profile = () => {
                   placeholder="location"
                 />
               ) : (
-                <p className="text-gray-600 md:text-[12px] lg:text-[15px] xl:text-[18px]">
+                <p className="text-gray-600 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
                   User Location
                 </p>
               )}
@@ -89,7 +96,7 @@ const Profile = () => {
                 rows="4"
               />
             ) : (
-              <p className="text-gray-600 md:text-[13px] lg:text-[15px] xl:text-[18px]">
+              <p className="text-gray-600 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
                 Start sharing to unlock your experience!
               </p>
             )}
@@ -105,10 +112,13 @@ const Profile = () => {
             ) : (
               <button
                 onClick={() => setIsEditing(!isEditing)}
-                className="bg-purple-500 hover:bg-purple-600 text-white font-bold md:px-[5px] md:py-[5px]   lg:py-2 lg:px-4 rounded absolute top-8 right-8 flex items-center justify-center"
+                className="bg-purple-500 hover:bg-purple-600 text-white font-bold vsm:text-[10px] vsm:px-[4px] vsm:py-[3px] vsm:mt-[40px] sm:text-[12px] sm:px-[5px] sm:ml-[20px] md:px-[5px] md:py-[5px]   lg:py-2 lg:px-4 rounded absolute top-8 right-8 flex items-center justify-center"
               >
                 <span className="mr-2">
-                  <MdOutlineEdit size="20px" />
+                  <MdOutlineEdit
+                    className="vsm:size-[13px] sm:size-[12px]"
+                    size="20px"
+                  />
                 </span>
                 Edit Profile
               </button>
@@ -116,13 +126,13 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid col-span-9">
-          <div className="md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-gradient-to-r from-pink-200 to-purple-300 rounded-lg shadow-md relative">
+          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-gradient-to-r from-pink-200 to-purple-300 rounded-lg shadow-md relative">
             {tabContent && (
               <>
-                <h2 className="md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-purple-600  font-bold text-center">
+                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-purple-600  font-bold text-center">
                   {tabContent.title}
                 </h2>
-                <div className="md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
+                <div className="vsm:text-[15px] vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
                   {tabContent.data}
                 </div>
               </>
