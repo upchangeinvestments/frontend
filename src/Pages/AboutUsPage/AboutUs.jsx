@@ -3,39 +3,39 @@ import Lipika_mam from "../../assets/LS_Photo.png";
 import { ImQuotesLeft } from "react-icons/im";
 import BlurBuilding from "../../assets/Building_blur-md.jpg";
 import logo from "../../assets/logo2.png";
-import {
-  Card,
-  CardHeader,
-  CardBody,
-} from "@material-tailwind/react";
+import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 
 function AboutUs() {
   return (
-    <div className="overflow-x-hidden  vsm:mb-12 md:mb-12">
-      <div className="flex vsm:flex vsm:flex-col md:flex md:flex-row md:mt-2 lg:mt-8">
-        <div class=" vsm:w-72 vsm:h-60 vsm:ml-4 vsm:mt-8 msm:ml-6 msm:w-80 sm:w-96 md:w-44 md:mt-[400px] md:ml-8  lg:ml-12 lg:mt-[350px] lg:w-72 lg:h-60 xl:mt-[230px] xl:ml-24 bg-white/20  backdrop-blur-xl bottom-0    flex justify-center items-center rounded-lg">
+    <div className="overflow-x-hidden bg-gradient-to-r from-purple-300 to-pink-200 lg:mb-0 vsm:mb-12 md:mb-12">
+      <div className="flex vsm:flex vsm:flex-col md:flex md:flex-row md:mt-2 lg:mt-8 relative">
+        <div class="lg:ml-[120px] lg:mt-[50px] lg:w-[280px] lg:h-[680px] bg-purple-500 backdrop-blur-xl bottom-0 flex flex-col items-center rounded-lg rounded-t-full">
+          <img
+            className="lg:w-[200px] lg:h-[200px] lg:mt-[30px] rounded-full "
+            src={Lipika_mam}
+            alt="Lipika Sharma"
+          />
           <div class="text-center">
-            <h2 class=" vsm:text-xl lg:text-2xl text-[#9747FF] font-semibold mb-4 uppercase">
+            <h2 class="lg:text-[22px] text-white font-semibold lg:mt-[50px] lg:mb-4 uppercase">
               Company at a glance
             </h2>
             <div class="flex flex-col items-center">
-              <div class="mb-4">
-                <p class="text-sm text-white font-medium mb-2">Founded</p>
-                <p class="text-lg">2024</p>
-              </div>
               <div>
-                <p class="text-sm text-white font-medium mb-2">Founder</p>
-                <p class="text-lg">Lipika Sharma</p>
+                <p class="lg:text-[18px] text-white font-medium mb-2">
+                  Founder
+                </p>
+                <p class="lg:text-[20px] lg:mb-[15px]">Lipika Sharma</p>
+              </div>
+              <div class="mb-4">
+                <p class="lg:text-[18px] text-white font-medium mb-2">
+                  Founded
+                </p>
+                <p class="lg:text-[20px]">2024</p>
               </div>
             </div>
           </div>
         </div>
-        <div className="vsm:p-4 vsm:w-[90%] vsm:ml-4 vsm:mt-16 md:w-[68%] md:p-8 md:px-10 lg:p-6 lg:w-[60%] lg:ml-8 xl:p-4 xl:ml-20 bg-white/20   rounded-lg backdrop-blur-xl relative ">
-          <img
-            className="vsm:w-16 vsm:left-[240px] vsm:top-[-32px] msm:w-20 msm:left-[270px] msm:top-[-35px] sm:left-[322px] md:left-[440px] md:w-24  lg:w-32 lg:left-[515px] lg:-top-10 xl:left-[785px] xl:top-[-65px] rounded-full absolute  bg-center"
-            src={Lipika_mam}
-            alt="Lipika Sharma"
-          />
+        <div className="vsm:p-4 vsm:w-[90%] vsm:ml-4 vsm:mt-16 md:w-[68%] md:p-8 md:px-10 lg:p-6 lg:w-[60%] lg:ml-[40px] xl:p-4 xl:ml-[80px] bg-white/20   rounded-lg backdrop-blur-xl relative ">
           <div className="absolute -top-5 left-0">
             <ImQuotesLeft color="gray" size="50px" className="opacity-[0.2]" />
           </div>
@@ -85,11 +85,7 @@ function AboutUs() {
       <div className="flex flex-wrap gap-x-12 items-center justify-center w-full">
         <Card className="my-6 w-[250px] ">
           <CardHeader className="relative flex md:flex items-center justify-center -mt-6">
-            <img
-              className="w-[100%] h-[100%]"
-              src={BlurBuilding}
-              alt="card"
-            />
+            <img className="w-[100%] h-[100%]" src={BlurBuilding} alt="card" />
             <p className="text-white absolute m-0 text-5xl CustomizeFontH">
               VISION
             </p>
@@ -104,11 +100,7 @@ function AboutUs() {
         </Card>
         <Card className="my-6 w-[250px]">
           <CardHeader className="relative flex items-center justify-center">
-            <img
-              className="w-[100%] h-[100%]"
-              src={BlurBuilding}
-              alt="card"
-            />
+            <img className="w-[100%] h-[100%]" src={BlurBuilding} alt="card" />
             <p className="text-white absolute m-0 text-5xl CustomizeFontH">
               Mission
             </p>
@@ -123,11 +115,7 @@ function AboutUs() {
         </Card>
         <Card className="my-6 w-[250px]">
           <CardHeader className="relative flex items-center justify-center">
-            <img
-              className="w-[100%] h-[100%]"
-              src={BlurBuilding}
-              alt="card"
-            />
+            <img className="w-[100%] h-[100%]" src={BlurBuilding} alt="card" />
             <p className="text-white absolute m-0 text-5xl CustomizeFontH">
               VALUES
             </p>
