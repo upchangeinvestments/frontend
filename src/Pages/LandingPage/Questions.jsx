@@ -1,8 +1,6 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import '../../styles/LandingPage/Questions.css';
 import video from "../../assets/introVideo.mp4"
-import Aos from "aos";
-import "aos/dist/aos.css";
 import { useNavigate } from 'react-router-dom';
 
 

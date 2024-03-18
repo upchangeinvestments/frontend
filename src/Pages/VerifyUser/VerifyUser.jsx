@@ -27,6 +27,7 @@ function VerifyUser() {
         setTimeout(() => {
             navigate('/category');
         }, 2000);
+        // eslint-disable-next-line
     }, [])
 
     return (

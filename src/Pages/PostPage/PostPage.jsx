@@ -86,7 +86,7 @@ function PostPage() {
                             ))}
                         </div>
                         <div className="flex vsm:flex-col md:flex-row w-full bg-white/20 backdrop-blur-xl shadow-md shadow-black-400 rounded-lg">
-                            <img className="vsm:w-[100%] md:w-[55%] lg:w-[60%] object-cover" src="https://app.realtymogul.com/sites/default/files/styles/private_placement_gallery_thumbnail/public/rendering1.jpg?itok=m_QV1feH" alt="property image" />
+                            <img className="vsm:w-[100%] md:w-[55%] lg:w-[60%] object-cover" src="https://app.realtymogul.com/sites/default/files/styles/private_placement_gallery_thumbnail/public/rendering1.jpg?itok=m_QV1feH" alt="property" />
                             <div className="flex flex-col  md:w-[45%] lg:w-[40%] items-center justify-center vsm:pb-4 md:pb-2 ">
                                 <div className="grid grid-cols-2 mt-4 mb-2 vsm:gap-x-4 md:gap-x-6 md:px-2 lg:px-0">
                                     <div className="flex flex-col items-center justify-center pb-2">
@@ -161,7 +161,7 @@ function PostPage() {
                     <div className="lg:col-span-8 p-4 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 ">
                         <h2 className='CustomizeFontH text-xl'>Location</h2>
                         <div className="flex items-start justify-center h-full">
-                            <iframe className='h-[90%] w-[90%]' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67344082994!2d-96.89670148459179!3d32.82055613767164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1710268840150!5m2!1sen!2sin" width="800" height="300" allowfullscreen="" loading="lazy" referrerpolicy="no-referrer-when-downgrade"></iframe>
+                            <iframe className='h-[90%] w-[90%]' src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67344082994!2d-96.89670148459179!3d32.82055613767164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1710268840150!5m2!1sen!2sin" width="800" height="300" allowfullscreen="" loading="lazy" title="Google Maps - Dallas, TX, USA" referrerpolicy="no-referrer-when-downgrade"></iframe>
                         </div>
                     </div>
                 </div>
