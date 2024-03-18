@@ -20,7 +20,7 @@ const Profile = () => {
     <div className="grid  grid-cols-12">
       <div className="md:hidden" onClick={sidebarHandler}>
         <svg
-          className="h-6 w-6"
+          className="h-6 w-6 vsm:mt-[15px] vsm:ml-[8px]"
           xmlns="http://www.w3.org/2000/svg"
           fill="none"
           viewBox="0 0 24 24"
@@ -47,7 +47,7 @@ const Profile = () => {
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="vsm:col-span-10 md:col-span-9 lg:col-span-9">
-        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[20px]  sm:w-[100%] sm:mt-[20px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
+        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (

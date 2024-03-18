@@ -39,7 +39,7 @@ const Sidebar = ({ sendDataToProfile }) => {
               key={index}
               className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] ${
                 isActive === index
-                  ? "bg-purple-500 rounded-lg text-white w-full"
+                  ? "md:bg-purple-500 md:text-white lg:bg-purple-500 lg:text-white xl:bg-purple-500 xl:text-white rounded-lg  w-full"
                   : ""
               }`}
               onClick={() => handleContent(index)}
