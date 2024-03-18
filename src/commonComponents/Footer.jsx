@@ -2,8 +2,9 @@ import React from "react";
 import "../styles/LandingPage/Footer.css";
 import { FaFacebook } from "react-icons/fa6";
 import logo from "../assets/logo.png";
-import { FaXTwitter } from "react-icons/fa6";
 import { FaInstagram } from "react-icons/fa";
+import { IoLocationSharp, IoCall, IoMail } from "react-icons/io5";
+import { CiLinkedin } from "react-icons/ci";
 
 const Footer = () => {
   return (
@@ -13,7 +14,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-3">
             <div className="">
               <div className="single-cta md:flex">
-                <i className="fas fa-map-marker-alt"></i>
+                <IoLocationSharp className="text-purple-500 text-[35px]" />
                 <div className="cta-text">
                   <h4>Find Us</h4>
                   <span>Dallas, TX, USA</span>
@@ -22,10 +23,7 @@ const Footer = () => {
             </div>
             <div className="">
               <div className="single-cta md:flex">
-                <i
-                  className="fas fa-phone"
-                  style={{ transform: "scaleX(-1)" }}
-                ></i>
+                <IoCall className="text-purple-500 text-[35px]" />
                 <div className="cta-text">
                   <h4>Call Us</h4>
                   <span>
@@ -36,10 +34,10 @@ const Footer = () => {
             </div>
             <div className="truncate">
               <div className="single-cta md:flex">
-                <i className="far fa-envelope-open"></i>
+                <IoMail className="text-purple-500 text-[35px]" />
                 <div className="cta-text">
                   <h4>Mail Us</h4>
-                  <span className="">lynkinfiniteinvestments@gmail.com</span>
+                  <span className="">LynkInfiniteInvestments@gmail.com</span>
                 </div>
               </div>
             </div>
@@ -66,7 +64,7 @@ const Footer = () => {
                 </div>
                 <div className="lg:mx-0 flex">
                   <a href="">
-                    <FaXTwitter size="30px" />
+                    <CiLinkedin size="32px" />
                   </a>
                   <a href="">
                     <FaFacebook size="30px" />
@@ -109,7 +107,7 @@ const Footer = () => {
                 </div>
                 <div className="lg:mx-0 flex">
                   <a href="">
-                    <FaXTwitter size="30px" />
+                    <CiLinkedin size="30px" />
                   </a>
                   <a href="">
                     <FaFacebook size="30px" />
@@ -150,7 +148,7 @@ const Footer = () => {
         </div>
         <div className="lg:mx-0 flex">
           <a href="">
-            <FaXTwitter size="30px" />
+            <CiLinkedin size="30px" />
           </a>
           <a href="">
             <FaFacebook size="30px" />
