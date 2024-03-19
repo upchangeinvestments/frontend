@@ -1,35 +1,42 @@
-import React from 'react';
-import { NavHashLink } from 'react-router-hash-link';
+import React from "react";
+import { NavHashLink } from "react-router-hash-link";
 import { Link, useNavigate } from "react-router-dom";
-import { useAuth } from "../utils/AuthContext"
+import { useAuth } from "../utils/AuthContext";
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
 import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
-import { Typography, Button, Menu, MenuHandler, MenuList, MenuItem } from "@material-tailwind/react";
+import {
+  Typography,
+  Button,
+  Menu,
+  MenuHandler,
+  MenuList,
+  MenuItem,
+} from "@material-tailwind/react";
 
 const profileMenuItems = [
   {
     label: "My Profile",
     icon: FaUserCircle,
-    link: "/profile"
+    link: "/profile",
   },
   {
     label: "Edit Profile",
     icon: IoMdSettings,
-    link: "#"
+    link: "#",
   },
   {
     label: "Contact",
     icon: IoMdHelpCircle,
-    link: "/contact"
+    link: "/contact",
   },
   {
     label: "Sign Out",
     icon: FaSignOutAlt,
-    link: "#"
+    link: "#",
   },
 ];
 
@@ -53,7 +60,11 @@ function ProfileMenu({ HandleLogout }) {
             className="border border-gray-900 p-0.5 rounded-full w-10"
             src=""
           />
-          <RiArrowDropDownLine className={`h-5 w-5 transition-transform ${isMenuOpen ? "rotate-180" : ""}`} />
+          <RiArrowDropDownLine
+            className={`h-5 w-5 transition-transform ${
+              isMenuOpen ? "rotate-180" : ""
+            }`}
+          />
         </Button>
       </MenuHandler>
       <MenuList className="p-4 w-[200px] bg-white/50 backdrop-blur-xl border-none z-50">
@@ -66,16 +77,14 @@ function ProfileMenu({ HandleLogout }) {
               className="flex items-center gap-3 my-1 rounded "
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#9747FF]"}`,
+                className: `h-4 w-4 ${
+                  isLastItem ? "text-red-500" : "text-[#9747FF]"
+                }`,
                 strokeWidth: 1,
               })}
               {isLastItem ? (
                 <div onClick={HandleLogout}>
-                  <Typography
-                    as="span"
-                    variant="lead"
-                    className="font-normal"
-                  >
+                  <Typography as="span" variant="lead" className="font-normal">
                     {label}
                   </Typography>
                 </div>
@@ -94,9 +103,8 @@ function ProfileMenu({ HandleLogout }) {
             </MenuItem>
           );
         })}
-
-      </MenuList >
-    </Menu >
+      </MenuList>
+    </Menu>
   );
 }
 
@@ -107,12 +115,18 @@ const NavBar = () => {
 
   const HandleLogout = () => {
     logout();
-    navigate('/');
+    navigate("/");
   };
 
   return (
     <>
-      <div className={open ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] FontLinikSans" : "relative backdrop-blur-sm bg-slate-50/10 z-40 FontLinikSans"}>
+      <div
+        className={
+          open
+            ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] FontLinikSans"
+            : "relative backdrop-blur-sm bg-slate-50/10 z-40 FontLinikSans"
+        }
+      >
         <div className="w-full mx-auto px-4 sm:px-6">
           <div className="flex justify-center items-center py-2">
             <div className="flex vsm:w-[100%] vsm:justify-between md:w-auto md:flex-none md:justify-start ">
@@ -156,19 +170,35 @@ const NavBar = () => {
               </div>
             </div>
             <div className="hidden md:flex md:justify-center md:items-center md:flex-auto md:gap-4 lg:gap-8 xl:gap-10 md:text-sm lg:text-lg">
-              <Link to="/about" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link
+                to="/about"
+                className="font-medium text-black hover:text-gray-900 md:text-nowrap"
+              >
                 About
               </Link>
-              <Link to="/category" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link
+                to="/category"
+                className="font-medium text-black hover:text-gray-900 md:text-nowrap"
+              >
                 Investments
               </Link>
-              <NavHashLink to="/#HowItWorks" smooth className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <NavHashLink
+                to="/#HowItWorks"
+                smooth
+                className="font-medium text-black hover:text-gray-900 md:text-nowrap"
+              >
                 How it works
               </NavHashLink>
-              <Link to="/resources" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link
+                to="/resources"
+                className="font-medium text-black hover:text-gray-900 md:text-nowrap"
+              >
                 Resources
               </Link>
-              <Link to="/contact" className="font-medium text-black hover:text-gray-900 md:text-nowrap">
+              <Link
+                to="/contact"
+                className="font-medium text-black hover:text-gray-900 md:text-nowrap"
+              >
                 Contact
               </Link>
             </div>
@@ -176,12 +206,18 @@ const NavBar = () => {
               <ProfileMenu HandleLogout={HandleLogout} />
             ) : (
               <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
-                <Link to="/signin" state={{ isLogin: false }} className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#9747FF] hover:bg-[#8e47ec] ">
+                <Link
+                  to="/signin"
+                  state={{ isLogin: false }}
+                  className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#6e30a7] hover:bg-[#8e47ec] "
+                >
                   SIGN UP
                 </Link>
                 <Link to="/signin" state={{ isLogin: true }} className="">
-                  <button style={{ backgroundImage: `url(${bgImage})` }}
-                    className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover">
+                  <button
+                    style={{ backgroundImage: `url(${bgImage})` }}
+                    className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover"
+                  >
                     LOGIN
                   </button>
                 </Link>
@@ -196,7 +232,8 @@ const NavBar = () => {
               : "opacity-0 scale-0 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
           }
           style={{
-            backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
+            backgroundImage:
+              "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
             backgroundBlendMode: "overlay",
           }}
         >
@@ -207,11 +244,7 @@ const NavBar = () => {
                   <Link to="/">
                     <span className="sr-only">Workflow</span>
                     <div className="flex flex-row items-center gap-2 ">
-                      <img
-                        className="h-8 w-auto vsm:h-12"
-                        src={logo}
-                        alt=""
-                      />
+                      <img className="h-8 w-auto vsm:h-12" src={logo} alt="" />
                     </div>
                   </Link>
                 </div>
@@ -243,7 +276,10 @@ const NavBar = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                  <Link to="/about" className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50">
+                  <Link
+                    to="/about"
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                  >
                     {/* Heroicon name: outline/chart-bar */}
                     <svg
                       className="flex-shrink-0 h-6 w-6 text-indigo-600"
@@ -288,7 +324,8 @@ const NavBar = () => {
                       Investments
                     </span>
                   </Link>
-                  <NavHashLink to="/#HowItWorks"
+                  <NavHashLink
+                    to="/#HowItWorks"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/shield-check */}
@@ -311,7 +348,8 @@ const NavBar = () => {
                       How it works
                     </span>
                   </NavHashLink>
-                  <Link to="/resources"
+                  <Link
+                    to="/resources"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/view-grid */}
@@ -334,7 +372,8 @@ const NavBar = () => {
                       Resources
                     </span>
                   </Link>
-                  <Link to="/contact"
+                  <Link
+                    to="/contact"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <svg
@@ -362,14 +401,20 @@ const NavBar = () => {
             <div className="py-6 px-5 space-y-6">
               {isAuth === false && (
                 <div>
-                  <Link to="/signin" state={{ isLogin: false }}
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#9747FF] hover:bg-purple-600"
+                  <Link
+                    to="/signin"
+                    state={{ isLogin: false }}
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#6e30a7] hover:bg-purple-600"
                   >
                     SIGN UP
                   </Link>
                   <p className="mt-6 text-center text-xl font-medium text-gray-500">
                     Existing User?
-                    <Link to="/signin" state={{ isLogin: true }} className="ml-2 text-[#9747FF] hover:text-purple-600">
+                    <Link
+                      to="/signin"
+                      state={{ isLogin: true }}
+                      className="ml-2 text-[#9747FF] hover:text-purple-600"
+                    >
                       LOGIN
                     </Link>
                   </p>

@@ -1,4 +1,5 @@
 import React from "react";
+import bgImage from "../../assets/login_BG.jpeg";
 
 const EducationData = [
   {
@@ -68,10 +69,13 @@ const cardsData = [
 
 function ServiceCard({ title, description }) {
   return (
-    <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md overflow-hidden text-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
+    <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
       <h3 className="text-xl font-medium mb-2">{title}</h3>
       <p className="line-clamp-3">{description}</p>
-      <button className="bg-[#9747FF] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 w-[50%] mx-auto">
+      <button
+        style={{ backgroundImage: `url(${bgImage})` }}
+        className={`bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base lg:w-[150px] lg:mt-4  xl:text-lg text-black font-bold  bg-cover `}
+      >
         Learn More
       </button>
     </div>

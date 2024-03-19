@@ -36,8 +36,8 @@ function EducationPage() {
     <div className="main vsm:w-[125vw] md:w-[107vw] lg:w-[100%] vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
       <NavBar />
       <div className="max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8">
-        <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH ">
-          Resources
+        <h1 className="text-5xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display'] ">
+          RESOURCES
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="flex flex-col pt-1 bg-white/30 backdrop-blur-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg">
@@ -59,16 +59,18 @@ function EducationPage() {
                 key={index}
                 className="py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
               >
-                <p className="flex items-center justify-center uppercase CustomizeFontH text-3xl border-2 p-8 border-purple-500 text-[#9747FF] vsm:mt-4 md:mt-0">
-                  {data.Type}
-                </p>
+                <div className="lg:w-[220px]  lg:h-[100px] flex justify-center items-center border-2 border-[#6e30a7]">
+                  <p className="flex items-center justify-center uppercase CustomizeFontH text-3xl  text-[#9747FF] vsm:mt-4 md:mt-0">
+                    {data.Type}
+                  </p>
+                </div>
               </div>
             ))}
           </div>
         </div>
         <div className="pt-8">
-          <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH">
-            Education
+          <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+            EDUCATION
           </h1>
           <Education />
           {/* <div className="">
@@ -82,8 +84,8 @@ function EducationPage() {
                     </div> */}
         </div>
         <div className="pt-8">
-          <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH">
-            Articles
+          <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+            ARTICLES
           </h1>
           <div className="">
             <Carousel
@@ -128,8 +130,8 @@ function EducationPage() {
           </div>
         </div>
         <div className="py-8">
-          <h1 className="text-4xl text-white pb-6 flex justify-center CustomizeFontH">
-            News
+          <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+            NEWS
           </h1>
           <News />
         </div>

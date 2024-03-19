@@ -109,7 +109,7 @@
   bottom: -15px;
   height: 2px;
   width: 50px;
-  background: rgb(168 85 247);
+  background: #6e30a7;
 }
 
 .footer-widget ul li {
@@ -120,7 +120,7 @@
 }
 
 .footer-widget ul li a:hover {
-  color: rgb(168 85 247);
+  color: #6e30a7;
 }
 
 .footer-widget ul li a {
@@ -130,29 +130,6 @@
 .subscribe-form {
   position: relative;
   overflow: hidden;
-}
-
-.subscribe-form input {
-  width: 100%;
-  padding: 14px 28px;
-  background: #2e2e2e;
-  border: 1px solid #2e2e2e;
-  color: #fff;
-}
-
-.subscribe-form button {
-  position: absolute;
-  right: 0;
-  background: rgb(168 85 247);
-  padding: 13px 20px;
-  border: 1px solid rgb(168 85 247);
-  top: 0;
-}
-
-.subscribe-form button i {
-  color: #fff;
-  font-size: 22px;
-  transform: rotate(-6deg);
 }
 
 .copyright-area {

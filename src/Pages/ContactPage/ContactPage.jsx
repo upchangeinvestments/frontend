@@ -10,7 +10,7 @@ function ContactPage() {
         <div className="">
           <Navbar />
           <div className="h-[35vh] overflow-hidden flex items-center justify-center">
-            <p className="uppercase text-white font-bold vsm:text-4xl md:text-5xl mt-[-120px]">
+            <p className="uppercase font-['Playfair-Display'] lg:text-5xl text-white  vsm:text-4xl md:text-5xl mt-[-120px]">
               CONTACT US
             </p>
           </div>

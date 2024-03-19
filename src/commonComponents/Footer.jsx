@@ -14,7 +14,7 @@ const Footer = () => {
           <div className="grid md:grid-cols-3">
             <div className="">
               <div className="single-cta md:flex">
-                <IoLocationSharp className="text-purple-500 text-[35px]" />
+                <IoLocationSharp className="text-[#6e30a7] text-[35px]" />
                 <div className="cta-text">
                   <h4>Find Us</h4>
                   <span>Dallas, TX, USA</span>
@@ -23,7 +23,7 @@ const Footer = () => {
             </div>
             <div className="">
               <div className="single-cta md:flex">
-                <IoCall className="text-purple-500 text-[35px]" />
+                <IoCall className="text-[#6e30a7] text-[35px]" />
                 <div className="cta-text">
                   <h4>Call Us</h4>
                   <span>
@@ -32,14 +32,16 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="truncate">
-              <div className="single-cta md:flex">
-                <IoMail className="text-purple-500 text-[35px]" />
+            <div className="">
+              <div className="single-cta md:flex  ">
+                <IoMail className="text-[#6e30a7] text-[30px]" />
                 <div className="cta-text">
                   <h4>Mail Us</h4>
-                  <span className="">LynkInfiniteInvestments@gmail.com</span>
                 </div>
               </div>
+              <span className="text-[#878787] md:ml-[20px] text-[14px]">
+                LynkInfiniteInvestments@gmail.com
+              </span>
             </div>
           </div>
         </div>
@@ -64,10 +66,10 @@ const Footer = () => {
                 </div>
                 <div className="lg:mx-0 flex">
                   <a href="">
-                    <CiLinkedin size="32px" />
+                    <FaFacebook size="30px" />
                   </a>
                   <a href="">
-                    <FaFacebook size="30px" />
+                    <CiLinkedin size="32px" />
                   </a>
                   <a href="">
                     <FaInstagram size="30px" />
@@ -80,7 +82,7 @@ const Footer = () => {
                 <div className="footer-widget-heading">
                   <h3 className="vsm:mx-auto">Useful Links</h3>
                 </div>
-                <ul className="grid vsm:grid-cols-2 md:grid-cols-3 gap-x-4 vsm:text-center md:text-left vsm:-mt-6">
+                <ul className="grid vsm:grid-cols-2 vsm:-mt-6 vsm:text-center md:grid-cols-3 md:text-left gap-x-4 md:mt-[8px] lg:mt-[10px] xl:mt-[10px]">
                   <li className="text-left">
                     <a href="#">About</a>
                   </li>
@@ -107,10 +109,10 @@ const Footer = () => {
                 </div>
                 <div className="lg:mx-0 flex">
                   <a href="">
-                    <CiLinkedin size="30px" />
+                    <FaFacebook size="30px" />
                   </a>
                   <a href="">
-                    <FaFacebook size="30px" />
+                    <CiLinkedin size="30px" />
                   </a>
                   <a href="">
                     <FaInstagram size="30px" />
@@ -129,11 +131,18 @@ const Footer = () => {
                     form below.
                   </p>
                 </div>
-                <div className="subscribe-form">
+                <div className="subscribe-form md:mb-[30px]">
                   <form action="#">
-                    <input type="text" placeholder="Email Address" />
-                    <button type="submit">
-                      <i className="fab fa-telegram-plane"></i>
+                    <input
+                      type="text"
+                      placeholder="Email Address"
+                      className="w-[100%] bg-[#2e2e2e] text-white vsm:py-[10px] vsm:px-[10px] md:py-[10px] md:px-[10px] lg:py-[14px] lg:px-[28px] "
+                    />
+                    <button
+                      type="submit"
+                      className="absolute bg-[#6e30a7] vsm:py-[10px] vsm:px-[15px] md:py-[10px] md:px-[15px] lg:py-[13px] lg:px-[20px] top-0 right-0 "
+                    >
+                      <i className="fab fa-telegram-plane text-white md:text-[18px] lg:text-[22px] -rotate-6"></i>
                     </button>
                   </form>
                 </div>
@@ -148,10 +157,10 @@ const Footer = () => {
         </div>
         <div className="lg:mx-0 flex">
           <a href="">
-            <CiLinkedin size="30px" />
+            <FaFacebook size="30px" />
           </a>
           <a href="">
-            <FaFacebook size="30px" />
+            <CiLinkedin size="30px" />
           </a>
           <a href="">
             <FaInstagram size="30px" />

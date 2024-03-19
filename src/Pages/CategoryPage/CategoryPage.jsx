@@ -37,8 +37,11 @@ function CategoryPage() {
       {/* filter section for mobile view */}
       <NavBar />
       <div className="">
-        <div className="uppercase text-white font-bold vsm:text-4xl text-5xl flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
-          <p className="text-5xl tracking-wider"> Explore Categories</p>
+        <div className="uppercase text-white vsm:text-4xl text-5xl flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
+          <p className="text-5xl  font-['Playfair-Display']">
+            {" "}
+            Explore Categories
+          </p>
         </div>
       </div>
       {/* <SearchBox /> */}

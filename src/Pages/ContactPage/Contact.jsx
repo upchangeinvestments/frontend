@@ -79,7 +79,7 @@ function ContactForm() {
               loading="lazy"
             ></iframe>
           </div>
-          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 lg:pl-[100px] rounded-lg w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#9747FF] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
+          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 lg:pl-[100px] rounded-lg w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
             <form
               onSubmit={handleSubmit}
               className=" rounded vsm:p-4 md:px-8 md:pt-6 w-full"
