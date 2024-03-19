@@ -38,6 +38,18 @@ const SignIn = () => {
     setIsSignUp(!isSignUp);
   };
 
+  const GoogleLoginHandler = async (event) => {
+    event.preventDefault();
+    try {
+      console.log("event fired");
+      const response = await axios.get(`${backendUrl}/auth/google`);
+      console.log(response);
+    } catch (error) {
+      console.log(error);
+
+    }
+  };
+
   const handleLogin = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
@@ -85,7 +97,7 @@ const SignIn = () => {
                 <form onSubmit={handleSignUp}>
                   <h2 className='CustomizeFontH'>SIGN UP</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
-                    <Link to="/"><IoLogoGoogleplus size="30px" /></Link>
+                    <div onClick={GoogleLoginHandler}><IoLogoGoogleplus size="30px" /></div>
                     <Link to="/"><IoLogoApple size="30px" /></Link>
                   </div>
                   <input type="email" placeholder="Email" name="email" value={userData !== null ? userData.email : ""} onChange={(e) => setUserData({ ...userData, email: e.target.value })} required />
