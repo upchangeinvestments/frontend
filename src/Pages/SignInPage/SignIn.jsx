@@ -47,13 +47,7 @@ const SignIn = () => {
   const GoogleLoginHandler = async (event) => {
     event.preventDefault();
     try {
-      console.log("event fired");
-      // window.location.href = `${backendUrl}/auth/google`;
       window.open(`${backendUrl}/auth/google`, "_self");
-
-      const url = `${backendUrl}/auth/googlelog/success`;
-      const response = await axios.get(url, { withCredentials: true });
-      console.log("google data: ", response);
     } catch (error) {
       console.log(error);
     }
@@ -123,9 +117,9 @@ const SignIn = () => {
                 <form onSubmit={handleSignUp}>
                   <h2 className="CustomizeFontH">SIGN UP</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
-                    <Link to="/">
+                    <div onClick={GoogleLoginHandler}>
                       <IoLogoGoogleplus size="30px" />
-                    </Link>
+                    </div>
                     <Link to="/">
                       <IoLogoApple size="30px" />
                     </Link>

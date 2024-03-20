@@ -1,6 +1,6 @@
 import React from "react";
 import { NavHashLink } from "react-router-hash-link";
-import { Link, useNavigate } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
@@ -40,11 +40,10 @@ const profileMenuItems = [
   },
 ];
 
-function ProfileMenu({ HandleLogout }) {
+function ProfileMenu({ HandleLogout, user }) {
   const [isMenuOpen, setIsMenuOpen] = React.useState(false);
 
   const closeMenu = () => setIsMenuOpen(false);
-
   return (
     <Menu open={isMenuOpen} handler={setIsMenuOpen} placement="bottom-end">
       <MenuHandler>
@@ -53,17 +52,22 @@ function ProfileMenu({ HandleLogout }) {
           color="blue-gray"
           className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
-          <FaUserCircle
-            variant="circular"
-            size="sm"
-            alt="user"
-            className="border border-gray-900 p-0.5 rounded-full w-10"
-            src=""
-          />
+          {user.googleId?.length > 0 ? (
+            <div>
+              <img src={user.image} alt="user" className="rounded-full w-10" />
+            </div>
+          ) : (
+            <FaUserCircle
+              variant="circular"
+              size="sm"
+              alt="user"
+              className="border border-gray-900 p-0.5 rounded-full w-10"
+              src=""
+            />
+          )}
           <RiArrowDropDownLine
-            className={`h-5 w-5 transition-transform ${
-              isMenuOpen ? "rotate-180" : ""
-            }`}
+            className={`h-5 w-5 transition-transform ${isMenuOpen ? "rotate-180" : ""
+              }`}
           />
         </Button>
       </MenuHandler>
@@ -77,9 +81,8 @@ function ProfileMenu({ HandleLogout }) {
               className="flex items-center gap-3 my-1 rounded "
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${
-                  isLastItem ? "text-red-500" : "text-[#9747FF]"
-                }`,
+                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#9747FF]"
+                  }`,
                 strokeWidth: 1,
               })}
               {isLastItem ? (
@@ -110,12 +113,10 @@ function ProfileMenu({ HandleLogout }) {
 
 const NavBar = () => {
   const [open, setOpen] = React.useState(false);
-  const { isAuth, logout } = useAuth();
-  const navigate = useNavigate();
+  const { isAuth, logout, user } = useAuth();
 
   const HandleLogout = () => {
     logout();
-    navigate("/");
   };
 
   return (
@@ -203,7 +204,7 @@ const NavBar = () => {
               </Link>
             </div>
             {isAuth === true ? (
-              <ProfileMenu HandleLogout={HandleLogout} />
+              <ProfileMenu HandleLogout={HandleLogout} user={user} />
             ) : (
               <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
                 <Link

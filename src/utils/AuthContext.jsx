@@ -1,5 +1,5 @@
 import React, { useEffect, useState, useContext } from 'react';
-// import { Navigate, Outlet } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import axios from 'axios';
 
 const AuthContext = React.createContext();
@@ -22,6 +22,7 @@ const AuthProvider = ({ children }) => {
     const token = localStorage.getItem('token');
     const [isAuth, setIsAuth] = useState(!!localStorage.getItem('token'));
     const [user, setUser] = useState({});
+    const navigate = useNavigate();
     const contextValue = {
         isAuth, handleUpdateAuth, user, logout, baseUrl, backendUrl
     };
@@ -30,21 +31,16 @@ const AuthProvider = ({ children }) => {
         return setIsAuth(value);
     }
     function logout() {
-        localStorage.removeItem('token');
+        console.log(user);
+        if (user.googleId) {
+            window.open(`${backendUrl}/auth/logout`, '_self');
+        } else {
+            localStorage.removeItem('token');
+            navigate("/");
+        }
         setIsAuth(false);
         setUser({});
     }
-
-    const getUser = async () => {
-        try {
-            const url = `${backendUrl}/auth/googlelog/success`;
-            const response = await axios.get(url, { withCredentials: true });
-            console.log("google data: ", response);
-            // setUser(data.user._json);
-        } catch (err) {
-            console.log(err);
-        }
-    };
 
     const handleVerify = async (token) => {
         try {
@@ -56,6 +52,21 @@ const AuthProvider = ({ children }) => {
             }
         } catch (error) {
             console.log(error);
+            setIsAuth(false);
+        }
+    };
+    const getUser = async () => {
+        try {
+            const url = `${backendUrl}/auth/googlelog/success`;
+            const response = await axios.get(url, { withCredentials: true });
+            // console.log("google data: ", response.data.user);
+
+            setUser(response.data.user);
+            setIsAuth(true);
+
+        } catch (err) {
+            console.log(err);
+            setIsAuth(false);
         }
     };
 
@@ -64,7 +75,6 @@ const AuthProvider = ({ children }) => {
             handleVerify(token);
         } else {
             getUser();
-            setIsAuth(false);
         }
     }, [token]);
 
