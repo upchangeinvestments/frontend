@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-import { FaXTwitter } from "react-icons/fa6";
+// import { FaXTwitter } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { IoLogoGoogleplus, IoLogoApple } from "react-icons/io";
 import { CiLinkedin } from "react-icons/ci";
