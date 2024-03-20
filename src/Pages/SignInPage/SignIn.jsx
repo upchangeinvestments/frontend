@@ -42,8 +42,12 @@ const SignIn = () => {
     event.preventDefault();
     try {
       console.log("event fired");
-      const response = await axios.get(`${backendUrl}/auth/google`);
-      console.log(response);
+      // window.location.href = `${backendUrl}/auth/google`;
+      window.open(`${backendUrl}/auth/google`, "_self");
+
+      const url = `${backendUrl}/auth/googlelog/success`;
+      const response = await axios.get(url, { withCredentials: true });
+      console.log("google data: ", response);
     } catch (error) {
       console.log(error);
 
