@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
-import { CiLinkedin } from "react-icons/ci";
+import { FaLinkedinIn } from "react-icons/fa";
 import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Faq from "../Subscription/FAQ";
@@ -20,7 +20,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="max-w-7xl vsm:mx-4 sm:mx-6 md:mx-auto md:px-12">
+    <div className="max-w-7xl vsm:mx-4 sm:mx-6 font-['Playfair-Display']  md:mx-auto md:px-12">
       <div className="block rounded-lg bg-gradient-to-b from-white/30  to-[#c7b3ee] bg-opacity-10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  px-6 py-12  md:py-8 md:px-10 -mt-[120px] backdrop-blur-[30px]">
         <div className=" text-black grid vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-4 ">
           <div className="md:col-span-1 flex items-center justify-end lg:-mt-4">
@@ -49,7 +49,7 @@ function ContactForm() {
                   <div className=" right-0 top-0  p-2">
                     <IoMdMail size="20px" />
                   </div>
-                  <p className="lg:ml-8">LynkinfiniteInvestments@gmail.com</p>
+                  <p className="lg:ml-8">LynkinfIniteInvestments@gmail.com</p>
                 </div>
               </div>
               <div className="flex flex-col vsm:mt-4 sm:mt-4 md:mt-12 lg:mt-20 items-center justify-center basis-1/3">
@@ -62,7 +62,7 @@ function ContactForm() {
                     <FaInstagram size="25px" />
                   </Link>
                   <Link to="/">
-                    <CiLinkedin size="28px" />
+                    <FaLinkedinIn size="25px" />
                   </Link>
                 </div>
               </div>
@@ -74,13 +74,14 @@ function ContactForm() {
               title="Google Map"
               src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67236648232!2d-96.89636237485647!3d32.820556582433206!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1709581944715!5m2!1sen!2sin"
               width="280"
-              height="420"
+              height="450"
               style={{ border: 0 }}
               allowFullScreen=""
               loading="lazy"
             ></iframe>
           </div>
-          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 lg:pl-[100px] rounded-lg w-full shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
+          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 lg:pl-[100px] rounded-lg w-full font-['Playfair-Display']  shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
+            <p className="text-2xl font-bold ">Send Us Message</p>
             <form
               onSubmit={handleSubmit}
               className=" rounded vsm:p-4 md:px-8 md:pt-6 w-full"
@@ -147,7 +148,7 @@ function ContactForm() {
           </div>
         </div>
       </div>
-      <div className="rounded-lg mt-[30px]  px-6 py-12 bg-[#c7b3ee] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-8 md:px-10 -mt-[100px] backdrop-blur-[30px]">
+      <div className="rounded-lg mt-[30px]  px-6 py-12 bg-[#c7b3ee] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-8 md:px-10  backdrop-blur-[30px]">
         <Faq class="w-full" />
       </div>
     </div>

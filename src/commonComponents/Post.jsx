@@ -78,7 +78,7 @@ function Post({ data, type }) {
           <div className="mt-4 flex items-center justify-center">
             <button
               style={{ backgroundImage: `url(${bgImage})` }}
-              className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 rounded-md md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover`}
+              className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover`}
             >
               Know More{" "}
             </button>

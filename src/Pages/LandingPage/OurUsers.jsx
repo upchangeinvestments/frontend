@@ -1,4 +1,4 @@
-import React from 'react'
+import React from "react";
 import Marquee from "react-fast-marquee";
 import UsersComponent from "./UsersComponent";
 import SevenEleven from "../../assets/UsersLogos/711-2.png";
@@ -12,41 +12,44 @@ import CitiBank from "../../assets/UsersLogos/citiBank.png";
 import Microsoft from "../../assets/UsersLogos/microsoft.png";
 import Samsung from "../../assets/UsersLogos/samsung.png";
 
-
 function OurUsers() {
-    return (
-        <section className="pb-2 ">
-            <div className="mx-auto">
-                <h2 className="text-3xl CustomizeFontH mb-2 text-center text-[#9747FF] pt-4">OUR USERS</h2>
-                <p className="text-lg mx-auto text-black text-center">
-                    Where Professionals Unite: From Wall Street to Main Street, we bring
-                    together the best of Bank of America, PWC, 7/11, Citi Bank, Amazon,
-                    and more!
-                </p>
-                <p className="text-center text-black font-bold">
-                    Join the synergy of success with our multi-background community.
-                </p>
-                <div className="flex items-center justify-center">
-                    <Marquee className="flex items-start"
-                        gradient={false}
-                        loop={0}
-                        direction="left"
-                        speed={60}>
-                        <UsersComponent image={SevenEleven} className="" />
-                        <UsersComponent image={Amazon} className="mt-4" />
-                        <UsersComponent image={EY} className="w-[60px] -mt-4" />
-                        <UsersComponent image={Philips} className="" />
-                        <UsersComponent image={TripAdvisor} className="w-36 mt-2" />
-                        <UsersComponent image={BankOfAmerica} className="w-44 " />
-                        <UsersComponent image={capitalOne} className="-mt-2" />
-                        <UsersComponent image={CitiBank} className="-mt-2" />
-                        <UsersComponent image={Microsoft} className="" />
-                        <UsersComponent image={Samsung} className="" />
-                    </Marquee>
-                </div>
-            </div>
-        </section>
-    )
+  return (
+    <section className="pb-2 ">
+      <div className="mx-auto">
+        <h2 className="text-3xl font-['Playfair-Display'] mb-2 text-center text-[#9747FF] pt-4">
+          OUR USERS
+        </h2>
+        <p className="text-lg mx-auto text-black text-center">
+          Where Professionals Unite: From Wall Street to Main Street, we bring
+          together the best of Bank of America, PWC, 7/11, Citi Bank, Amazon,
+          and more!
+        </p>
+        <p className="text-center text-black font-bold">
+          Join the synergy of success with our multi-background community.
+        </p>
+        <div className="flex items-center justify-center">
+          <Marquee
+            className="flex items-start"
+            gradient={false}
+            loop={0}
+            direction="left"
+            speed={60}
+          >
+            <UsersComponent image={SevenEleven} className="" />
+            <UsersComponent image={Amazon} className="mt-4" />
+            <UsersComponent image={EY} className="w-[60px] -mt-4" />
+            <UsersComponent image={Philips} className="" />
+            <UsersComponent image={TripAdvisor} className="w-36 mt-2" />
+            <UsersComponent image={BankOfAmerica} className="w-44 " />
+            <UsersComponent image={capitalOne} className="-mt-2" />
+            <UsersComponent image={CitiBank} className="-mt-2" />
+            <UsersComponent image={Microsoft} className="" />
+            <UsersComponent image={Samsung} className="" />
+          </Marquee>
+        </div>
+      </div>
+    </section>
+  );
 }
 
 export default OurUsers;
