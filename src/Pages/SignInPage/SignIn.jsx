@@ -44,6 +44,21 @@ const SignIn = () => {
     setIsSignUp(!isSignUp);
   };
 
+  const GoogleLoginHandler = async (event) => {
+    event.preventDefault();
+    try {
+      console.log("event fired");
+      // window.location.href = `${backendUrl}/auth/google`;
+      window.open(`${backendUrl}/auth/google`, "_self");
+
+      const url = `${backendUrl}/auth/googlelog/success`;
+      const response = await axios.get(url, { withCredentials: true });
+      console.log("google data: ", response);
+    } catch (error) {
+      console.log(error);
+    }
+  };
+
   const handleLogin = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;

@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { FaXTwitter, FaLocationDot, FaPhone } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { MdOutlineMail } from "react-icons/md";
+import { CiLinkedin } from "react-icons/ci";
 import { Link } from "react-router-dom";
 import Faq from "../Subscription/FAQ";
 import bgImage from "../../assets/login_BG.jpeg";

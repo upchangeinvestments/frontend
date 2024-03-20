@@ -35,23 +35,35 @@ const AuthProvider = ({ children }) => {
         setUser({});
     }
 
-    useEffect(() => {
-        const handleVerify = async (token) => {
-            try {
-                const response = await axios.get(`${backendUrl}/auth/verify?token=${token}`);
-                if (response.status === 200 && response.data.status === 'success') {
-                    // console.log(response.data);
-                    setIsAuth(true);
-                    setUser(response.data.user);
-                }
-            } catch (error) {
-                console.log(error);
-            }
-        };
+    const getUser = async () => {
+        try {
+            const url = `${backendUrl}/auth/googlelog/success`;
+            const response = await axios.get(url, { withCredentials: true });
+            console.log("google data: ", response);
+            // setUser(data.user._json);
+        } catch (err) {
+            console.log(err);
+        }
+    };
 
+    const handleVerify = async (token) => {
+        try {
+            const response = await axios.get(`${backendUrl}/auth/verify?token=${token}`);
+            if (response.status === 200 && response.data.status === 'success') {
+                // console.log(response.data);
+                setIsAuth(true);
+                setUser(response.data.user);
+            }
+        } catch (error) {
+            console.log(error);
+        }
+    };
+
+    useEffect(() => {
         if (token) {
             handleVerify(token);
         } else {
+            getUser();
             setIsAuth(false);
         }
     }, [token]);
