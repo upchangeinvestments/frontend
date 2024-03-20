@@ -1,8 +1,8 @@
 import React, { useState } from "react";
-import { FaXTwitter, FaLocationDot, FaPhone } from "react-icons/fa6";
+import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
-import { MdOutlineMail } from "react-icons/md";
 import { CiLinkedin } from "react-icons/ci";
+import { IoMdMail } from "react-icons/io";
 import { Link } from "react-router-dom";
 import Faq from "../Subscription/FAQ";
 import bgImage from "../../assets/login_BG.jpeg";
@@ -47,9 +47,9 @@ function ContactForm() {
                 </div>
                 <div className="flex flex-col mt-5 flex-center items-center">
                   <div className=" right-0 top-0  p-2">
-                    <MdOutlineMail size="20px" />
+                    <IoMdMail size="20px" />
                   </div>
-                  <p className="lg:ml-8">Lynkinfiniteinvestments@gmail.com</p>
+                  <p className="lg:ml-8">LynkinfiniteInvestments@gmail.com</p>
                 </div>
               </div>
               <div className="flex flex-col vsm:mt-4 sm:mt-4 md:mt-12 lg:mt-20 items-center justify-center basis-1/3">
@@ -62,7 +62,7 @@ function ContactForm() {
                     <FaInstagram size="25px" />
                   </Link>
                   <Link to="/">
-                    <CiLinkedin size="25px" />
+                    <CiLinkedin size="28px" />
                   </Link>
                 </div>
               </div>

@@ -43,10 +43,10 @@ function EducationPage() {
           <div className="flex flex-col pt-1 bg-white/30 backdrop-blur-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg">
             <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] w-[450px] h-[200px] mx-auto mt-4 rounded-lg"></div>
             <div className="p-4">
-              <p className="text-xs uppercase montserrat-Stretch mb-2">
+              <p className="text-xs uppercase font-['Playfair-Display'] mb-2">
                 Time to invest
               </p>
-              <p className="font-semibold hover:underline montserrat-Stretch mb-2">
+              <p className="font-semibold hover:underline font-['Playfair-Display'] mb-2">
                 7% rise in investors in residential properties in second half of
                 2023
               </p>
@@ -60,7 +60,7 @@ function EducationPage() {
                 className="py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
               >
                 <div className="lg:w-[220px]  lg:h-[100px] flex justify-center items-center border-2 border-[#6e30a7]">
-                  <p className="flex items-center justify-center uppercase CustomizeFontH text-3xl  text-[#9747FF] vsm:mt-4 md:mt-0">
+                  <p className="flex items-center justify-center uppercase font-['Playfair-Display'] text-3xl  text-[#6e30a7] vsm:mt-4 md:mt-0">
                     {data.Type}
                   </p>
                 </div>
@@ -98,7 +98,7 @@ function EducationPage() {
             >
               {ArticleData.map((article, index) => (
                 <Carousel.Item key={index}>
-                  <div className="bg-white/20 backdrop-blur-xl shadow-md rounded-md p-6 mx-2 lg:mx-8 mb-4 vsm:h-[300px] lg:h-[250px]">
+                  <div className="bg-white/20 backdrop-blur-xl font-['Playfair-Display']  shadow-md rounded-md p-6 mx-2 lg:mx-8 mb-4 vsm:h-[300px] lg:h-[250px]">
                     <h2 className="text-lg font-semibold text-gray-800 text-left ">
                       {article.title}
                     </h2>
@@ -118,7 +118,7 @@ function EducationPage() {
                       <Link
                         to={article.url}
                         target="_blank"
-                        className="text-[#9747FF] hover:underline "
+                        className="text-[#6e30a7] hover:underline "
                       >
                         Read More
                       </Link>
@@ -130,7 +130,7 @@ function EducationPage() {
           </div>
         </div>
         <div className="py-8">
-          <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+          <h1 className="text-4xl my-[20px] text-white  pb-6 flex justify-center font-['Playfair-Display']">
             NEWS
           </h1>
           <News />

@@ -12,7 +12,9 @@ function FilterSubSection({ list, title, inputType }) {
   return (
     <div>
       <div className="flex flex-col w-full items-start justify-center px-4 md:px-0 my-4 mx-2">
-        <div className="text-xl text-[#6e30a7] font-['Archive']">{title}</div>
+        <div className="text-xl mb-2 font-bold text-[#6e30a7] font-['Playfair-Display']">
+          {title}
+        </div>
         <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Asap']">
           {visibleItems.map((propertyType, index) => (
             <label

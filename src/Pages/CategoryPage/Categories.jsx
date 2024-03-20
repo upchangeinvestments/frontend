@@ -69,7 +69,7 @@ function Categories() {
                   alt=""
                   className="rounded-3xl object-cover h-[350px] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
                 />
-                <div className="CustomizeFontH text-lg absolute m-0 hover:underline flex items-center justify-center">
+                <div className="font-['Playfair-Display'] font-bold text-xl absolute m-0 hover:underline flex items-center justify-center">
                   <p>{element.text}</p>
                   <MdKeyboardArrowRight size="25px" />
                 </div>
@@ -89,7 +89,9 @@ function Categories() {
                 />
               </div>
               <div className="vsm:w-[100%] lg:w-[80%] flex items-center justify-center pt-2">
-                <p className="CustomizeFontH text-lg">{element.text}</p>
+                <p className="font-['Playfair-Display'] font-bold text-xl">
+                  {element.text}
+                </p>
               </div>
             </Link>
           )

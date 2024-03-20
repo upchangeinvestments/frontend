@@ -55,7 +55,7 @@ function FilterSection() {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="flex items-center justify-center text-xl font-['Archive'] mt-2">
+      <div className="flex items-center justify-center text-2xl font-bold font-['Playfair-Display'] text-[#6e30a7]  mt-2">
         <p>Filter Projects</p>
       </div>
       <FilterSubSection
@@ -68,13 +68,13 @@ function FilterSection() {
         title="Investment Range"
         inputType="radio"
       />
-      <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
+      <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <Tooltip
           content="Internal rate of return"
           placement="right"
           className="bg-white/50 p-1 px-3 text-black ml-2"
         >
-          <div className="text-xl text-[#6e30a7]">IRR </div>
+          <div className="text-2xl text-[#6e30a7]">IRR </div>
         </Tooltip>
         <div className="w-[75%] flex items-center justify-center gap-x-4 FilterSection">
           <p>{price}</p>
@@ -105,13 +105,13 @@ function FilterSection() {
         title="Locations"
         inputType="checkbox"
       />
-      <div className="flex flex-col w-full font-['Archive'] items-start justify-center px-4 md:px-0 my-4 mx-2">
-        <div className="text-xl text-[#6e30a7]">Zip Code </div>
+      <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
+        <div className="text-2xl mb-2 text-[#6e30a7]">Zip Code </div>
         <div className="font-['Asap'] w-[80%]">
           <input
             type="text"
             name=""
-            className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#9747FF]"
+            className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#6e30a7]"
           />
         </div>
       </div>

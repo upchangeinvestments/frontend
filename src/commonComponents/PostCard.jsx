@@ -16,12 +16,12 @@ const RealEstateCard = (props) => {
         {firstStarActive ? (
           <FaRegStar
             onClick={toggleStars}
-            className="absolute top-2 right-0 mt-2 mr-2 text-yellow-500 text-2xl"
+            className="absolute  right-0 mt-2 mr-2 text-yellow-500 text-2xl"
           />
         ) : (
           <FaStar
             onClick={toggleStars}
-            className="absolute top-2 right-0 mt-2 mr-2 text-yellow-500 text-2xl"
+            className="absolute  right-0 mt-2 mr-2 text-yellow-500 text-2xl"
           />
         )}
         <img

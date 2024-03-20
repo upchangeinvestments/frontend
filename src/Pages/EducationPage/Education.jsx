@@ -69,7 +69,7 @@ const cardsData = [
 
 function ServiceCard({ title, description }) {
   return (
-    <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
+    <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
       <h3 className="text-xl font-medium mb-2">{title}</h3>
       <p className="line-clamp-3">{description}</p>
       <button
@@ -88,12 +88,12 @@ const Card = (props) => {
       href={props.data.href}
       className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg h-[200px] relative border border-1 border-[#9747FF]"
     >
-      <h2 className="vsm:text-xl lg:text-lg font-semibold mb-2 md:hidden">
+      <h2 className="vsm:text-xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 md:hidden">
         {props.data.title.length > 33
           ? `${props.data.title.substring(0, 30)}...`
           : props.data.title}
       </h2>
-      <h2 className="vsm:text-2xl lg:text-lg font-semibold mb-2 vsm:hidden md:block">
+      <h2 className="vsm:text-2xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 vsm:hidden md:block">
         {props.data.title}
       </h2>
       <p className="">
@@ -102,7 +102,7 @@ const Card = (props) => {
           ? `${props.data.description.substring(0, 117)}...`
           : props.data.description}
       </p>
-      <button className="bg-[#9747FF] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 absolute bottom-4">
+      <button className="bg-[#6e30a7] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 absolute bottom-4">
         {props.data.linkText}
       </button>
     </a>
@@ -113,33 +113,33 @@ const Education = () => {
   return (
     <div className="w-full ">
       <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6">
-        <h1 className="text-xl font-semibold text-center mb-4 text-black uppercase">
+        <h1 className="text-xl font-semibold font-['Playfair-Display'] text-center mb-4 text-black uppercase">
           Learn the basics
         </h1>
-        <p className="mb-6 text-justify text-black w-[90%] md:w-[70%] mx-auto ">
+        <p className="mb-6 text-justify font-['Playfair-Display'] text-black w-[90%] md:w-[70%] mx-auto ">
           Many people never start investing their money because they don’t
           understand things like qualified longevity annuity contracts – and to
           be honest, we can’t blame them. We are here to help demystify
           financial terminology and make investing easier for everyone.
         </p>
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
+        <div className="grid grid-cols-1  md:grid-cols-2 gap-4">
           {cardsData.map((card, index) => (
             <ServiceCard key={index} {...card} />
           ))}
         </div>
       </div>
       <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 mt-10">
-        <h1 className="text-xl font-semibold text-center mb-4 text-black mt-6 uppercase">
+        <h1 className="text-xl font-semibold text-center font-['Playfair-Display'] mb-4 text-black mt-6 uppercase">
           Understand the different types of investment funds
         </h1>
-        <p className="mb-6 text-justify text-black w-[90%] md:w-[70%] mx-auto">
+        <p className="mb-6 text-justify font-['Playfair-Display'] text-black w-[90%] md:w-[70%] mx-auto">
           Learn about the different kinds of investment funds available to
           investors, from cost-effective exchange-traded funds (ETFs) and index
           funds to actively managed and offshore funds. Then you can start to
           develop an investment strategy around your own personal goals and
           preferences.
         </p>
-        <div className="flex flex-wrap">
+        <div className="flex font-['Playfair-Display'] flex-wrap">
           {EducationData.map((data, index) => (
             <div className="w-full md:w-1/2 lg:w-1/3 p-2" key={index}>
               <Card data={data} />
