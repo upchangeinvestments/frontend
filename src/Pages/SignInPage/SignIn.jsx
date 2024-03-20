@@ -114,12 +114,6 @@ const SignIn = () => {
                     <Link to="/">
                       <IoLogoApple size="30px" />
                     </Link>
-                    <div onClick={GoogleLoginHandler}>
-                      <IoLogoGoogleplus size="30px" />
-                    </div>
-                    <Link to="/">
-                      <IoLogoApple size="30px" />
-                    </Link>
                   </div>
                   <input
                     type="email"

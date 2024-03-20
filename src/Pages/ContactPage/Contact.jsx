@@ -61,7 +61,7 @@ function ContactForm() {
                     <FaInstagram size="25px" />
                   </Link>
                   <Link to="/">
-                    <FaXTwitter size="25px" />
+                    <CiLinkedin size="25px" />
                   </Link>
                 </div>
               </div>
