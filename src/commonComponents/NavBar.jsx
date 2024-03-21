@@ -172,7 +172,13 @@ const NavBar = () => {
                 </button>
               </div>
             </div>
-            <div className="hidden md:flex md:justify-center font-['Playfair-Display']  md:items-center md:flex-auto md:gap-4 lg:gap-8 xl:gap-10 md:text-sm font-bold lg:text-2xl">
+            <div className="hidden md:flex md:justify-center font-['Playfair-Display']  md:items-center md:flex-auto md:gap-4 lg:gap-6 xl:gap-8 md:text-sm font-bold lg:text-xl">
+              <Link
+                to="/"
+                className="font-medium text-black hover:text-gray-900 md:text-nowrap"
+              >
+                Home
+              </Link>
               <Link
                 to="/about"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"

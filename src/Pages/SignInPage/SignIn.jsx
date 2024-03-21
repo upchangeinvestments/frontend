@@ -117,11 +117,15 @@ const SignIn = () => {
                   <h2 className="">SIGN UP</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <div onClick={GoogleLoginHandler}>
-                      <IoLogoGoogleplus size="30px" />
+                      <img
+                        className="w-[45px]"
+                        src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
+                        alt="googlelogo"
+                      />
                     </div>
-                    <Link to="/">
+                    {/* <Link to="/">
                       <IoLogoApple size="30px" />
-                    </Link>
+                    </Link> */}
                   </div>
                   <input
                     type="email"
@@ -171,11 +175,15 @@ const SignIn = () => {
                   <h2 className="text-2xl">SIGN IN</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <Link to="/">
-                      <IoLogoGoogleplus size="30px" />
+                      <img
+                        className="w-[45px]"
+                        src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
+                        alt="googlelogo"
+                      />
                     </Link>
-                    <Link to="/">
+                    {/* <Link to="/">
                       <IoLogoApple size="30px" />
-                    </Link>
+                    </Link> */}
                   </div>
                   <input
                     className=""
@@ -221,9 +229,7 @@ const SignIn = () => {
                         WELCOME BACK! <br /> <span className="text-xl">TO</span>{" "}
                         <br />
                       </font>{" "}
-                      <span className="CustomizeFontH">
-                        LYNKINFINTE INVESTMENTS
-                      </span>
+                      <span className="">LYNKINFINTE INVESTMENTS</span>
                     </h2>
                   </div>
 

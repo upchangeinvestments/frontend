@@ -72,10 +72,7 @@ function ServiceCard({ title, description }) {
     <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
       <h3 className="text-xl font-medium mb-2">{title}</h3>
       <p className="line-clamp-3">{description}</p>
-      <button
-        style={{ backgroundImage: `url(${bgImage})` }}
-        className={`bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base lg:w-[150px] lg:mt-4  xl:text-lg text-black font-bold  bg-cover `}
-      >
+      <button className="bg-[#6e30a7] text-white  py-1 px-3 rounded mt-2 bottom-4">
         Learn More
       </button>
     </div>
@@ -86,7 +83,7 @@ const Card = (props) => {
   return (
     <a
       href={props.data.href}
-      className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg h-[200px] relative border border-1 border-[#9747FF]"
+      className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg h-[200px] relative border border-1 border-[#6e30a7]"
     >
       <h2 className="vsm:text-xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 md:hidden">
         {props.data.title.length > 33

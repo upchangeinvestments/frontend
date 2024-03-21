@@ -1,10 +1,10 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import hospital from "../../assets/categories/hospital.jpg";
-import hotel from "../../assets/categories/hotel.jpg";
+import hotel from "../../assets/categories/hotels.jpeg";
 import infrastructure from "../../assets/categories/infrastructure.jpg";
-import office from "../../assets/categories/office.jpg";
-import resident from "../../assets/categories/resident.jpg";
+import office from "../../assets/categories/office1.jpeg";
+import resident from "../../assets/categories/residential.jpeg";
 import retail from "../../assets/categories/retail.jpg";
 import school from "../../assets/categories/school.jpg";
 import warehouse from "../../assets/categories/warehouse.jpg";
@@ -26,8 +26,8 @@ const Images = [
 ];
 const Texts = [
   "Residential",
-  "Hotels",
   "Retail",
+  "Hotels",
   "Warehouse & Storage",
   "Medical Facilites",
   "School",
@@ -37,8 +37,8 @@ const Texts = [
 ];
 const type = [
   "residential",
-  "hotel",
   "retail",
+  "hotel",
   "warehouse",
   "medical",
   "school",
@@ -63,7 +63,7 @@ function Categories() {
               key={index}
               className="flex flex-col items-center justify-center "
             >
-              <div className="vsm:w-[100%] lg:w-[80%] flex items-center justify-center relative ">
+              <div className="vsm:w-[100%] lg:w-[70%] flex items-center justify-center relative ">
                 <img
                   src={element.image}
                   alt=""
@@ -81,7 +81,7 @@ function Categories() {
               key={index}
               className="flex flex-col items-center justify-center"
             >
-              <div className="vsm:w-[100%] lg:w-[80%] flex items-center justify-center">
+              <div className="vsm:w-[100%] lg:w-[70%] flex items-center justify-center">
                 <img
                   src={element.image}
                   alt=""

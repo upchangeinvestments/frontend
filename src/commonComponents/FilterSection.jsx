@@ -1,8 +1,5 @@
-import FilterSubSection from "./FilterSubSection";
-// import { Slider } from "@material-tailwind/react";
-import { Tooltip } from "@material-tailwind/react";
-// import { Range } from 'react-range';
 import React, { useState } from "react";
+import FilterSubSection from "./FilterSubSection";
 
 function FilterSection() {
   const CategoryType = [
@@ -41,11 +38,13 @@ function FilterSection() {
     "10YRS+",
   ];
 
+  const [showAllCompanies, setShowAllCompanies] = useState(false);
   const [price, setPrice] = useState(0);
   const updateIrrValue = (event) => {
     let value = event.target.value;
     setPrice(value);
   };
+
   return (
     <div
       className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg lg:w-[22%] xl:w-[18%] p-2 pr-6"
@@ -71,13 +70,7 @@ function FilterSection() {
         inputType="radio"
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
-        <Tooltip
-          content="Internal rate of return"
-          placement="right"
-          className="bg-white/50 p-1 px-3 text-black ml-2"
-        >
-          <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
-        </Tooltip>
+        <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         <div className="w-[75%] flex items-center justify-center gap-x-4 FilterSection">
           <p>0</p>
           <input
@@ -120,6 +113,8 @@ function FilterSection() {
         list={CompanyType}
         title="Companies"
         inputType="checkbox"
+        showAll={showAllCompanies}
+        setShowAll={setShowAllCompanies}
       />
     </div>
   );
