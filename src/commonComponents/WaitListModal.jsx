@@ -1,7 +1,5 @@
 import React, { useState } from "react";
-// import {
-//     Button,
-// } from "@material-tailwind/react";
+import OtpInput from 'react-otp-input';
 import { ImCross } from "react-icons/im";
 import axios from "axios";
 import Error from "../utils/Error";
@@ -16,26 +14,36 @@ import {
 
 function DialogDefault() {
     const [isOpen, setOpen] = useState(true);
+    const [otpHide, setOtpHide] = useState(false);
+    const [otp, setOtp] = useState('');
+    const [email, setEmail] = useState("");
+    const [name, setName] = useState("");
     const handleOpen = () => setOpen(!isOpen);
     const { backendUrl } = useAuth();
 
-    const otpGenerated = Math.floor(100000 + Math.random() * 900000);
-    const OtpHandler = async () => {
+    const OtpHandler = async (event) => {
+        event.preventDefault();
+        const otpGenerated = Math.floor(10000 + Math.random() * 900000);
+        console.log(otpGenerated);
+
+        const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email, otpGenerated });
+        console.log(otpSendResponse);
+        if (otpSendResponse.status === 200) {
+            setOtpHide(!otpHide);
+        } else {
+            return Error("Something went wrong!");
+        }
         // add the blurred effect on teh post 
     }
     const WaitListHandler = async (event) => {
         event.preventDefault();
         try {
-            const name = event.target.Name.value;
-            const email = event.target.Mail.value;
-
             const response = await axios.post(`${backendUrl}/waitlist`, { name, email });
             if (response.status === 200) {
                 SuccessToast("We have added you in our list.");
             } else if (response.status === 202) {
                 SuccessToast("We have added you in our list.");
             }
-            event.target.reset();
             handleOpen();
         } catch (error) {
             console.log(error)
@@ -55,7 +63,7 @@ function DialogDefault() {
                         <img src={logo} alt="logo" className="w-[70%]" />
                     </div>
                     <div className="">
-                        <form onSubmit={WaitListHandler} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 ">
+                        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 ">
                             <div className="mb-1 flex flex-col gap-6">
                                 <p variant="h6" color="blue-gray" className="-mb-3">
                                     Your Name
@@ -68,6 +76,7 @@ function DialogDefault() {
                                     labelProps={{
                                         className: "before:content-none after:content-none",
                                     }}
+                                    onChange={(event) => setName(event.target.value)}
                                 />
                                 <p variant="h6" color="blue-gray" className="-mb-3">
                                     Your Email
@@ -80,9 +89,25 @@ function DialogDefault() {
                                     labelProps={{
                                         className: "before:content-none after:content-none",
                                     }}
+                                    onChange={(event) => setEmail(event.target.value)}
                                 />
                             </div>
-                            <button className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
+                            <button onClick={OtpHandler} className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
+                                Send OTP
+                            </button>
+                            <div className="w-full flex items-center justify-center OtpField">
+                                <OtpInput
+                                    className="p-4 text-lg m-4 bg-transparent"
+                                    value={otp}
+                                    onChange={setOtp}
+                                    numInputs={5}
+                                    onPaste={true}
+                                    renderSeparator={<span>-</span>}
+                                    renderInput={(props) => <input {...props} />}
+                                />
+                            </div>
+                            <p className="text-sm">OTP send to your entered email address</p>
+                            <button onClick={WaitListHandler} className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
                                 Join Waitlist
                             </button>
                         </form>
