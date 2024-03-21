@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-
+//
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { IoLogoGoogleplus, IoLogoApple } from "react-icons/io";
 import { CiLinkedin } from "react-icons/ci";
