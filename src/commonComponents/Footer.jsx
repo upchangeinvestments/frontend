@@ -4,6 +4,8 @@ import logo from "../assets/logo.png";
 import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { IoLocationSharp, IoCall, IoMail } from "react-icons/io5";
 import { FaLinkedinIn } from "react-icons/fa";
+import { Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -63,7 +65,7 @@ const Footer = () => {
                 <div className="mr-8">
                   <span className="">Follow us</span>
                 </div>
-                <div className="lg:mx-0 flex">
+                <div className="flex">
                   <a href="">
                     <FaFacebookF size="28px" />
                   </a>
@@ -74,6 +76,9 @@ const Footer = () => {
                     <FaLinkedinIn size="30px" />
                   </a>
                 </div>
+                <p className="text-[#7e7e7e] my-[15px]">
+                  Copyright &copy; 2024, All Right Reserved
+                </p>
               </div>
             </div>
             <div className="w-full md:col-span-2 lg:col-span-1 lg:-ml-8">
@@ -83,22 +88,31 @@ const Footer = () => {
                 </div>
                 <ul className="grid vsm:grid-cols-2 vsm:-mt-6 vsm:text-center md:grid-cols-3 md:text-left gap-x-4 md:mt-[8px] lg:mt-[10px] xl:mt-[10px]">
                   <li className="text-left">
-                    <a href="#">About</a>
+                    <Link to="/about">About</Link>
                   </li>
                   <li className="text-left">
-                    <a href="#">Investment</a>
+                    <Link to="/category">Investments</Link>
                   </li>
                   <li className="text-left">
-                    <a href="#">How it Works</a>
+                    <NavHashLink to="/#HowItWorks" smooth>
+                      How it works
+                    </NavHashLink>
                   </li>
                   <li className="text-left">
-                    <a href="#">Education</a>
+                    <Link to="/resources">Resources</Link>
                   </li>
                   <li className="text-left">
-                    <a href="#">Contact</a>
+                    <Link to="/contact">Contact</Link>
                   </li>
                   <li className="text-left">
-                    <a href="#">Link with us</a>
+                    <NavHashLink to="/profile/#terms" smooth>
+                      Terms &
+                    </NavHashLink>
+                    /
+                    <NavHashLink to="/profile/#privacy-policy" smooth>
+                      Privacy Policy
+                    </NavHashLink>
+                    /
                   </li>
                 </ul>
               </div>
@@ -164,36 +178,6 @@ const Footer = () => {
           <a href="">
             <FaLinkedinIn size="30px" />
           </a>
-        </div>
-      </div>
-      <div className="copyright-area">
-        <div className="container vsm:mx-auto md:flex md:mx-auto md:w-[80%] md:items-center md:justify-between">
-          <div className="">
-            <div className="copyright-text flex justify-center">
-              <p>Copyright &copy; 2024, All Right Reserved</p>
-            </div>
-          </div>
-          <div className="mx-auto">
-            <div className="footer-menu">
-              <ul className="space-x-4 flex justify-center">
-                <li>
-                  <a href="#">Home</a>
-                </li>
-                <li>
-                  <a href="#">Terms</a>
-                </li>
-                <li>
-                  <a href="#">Privacy</a>
-                </li>
-                <li>
-                  <a href="#">Policy</a>
-                </li>
-                <li>
-                  <a href="#">Contact</a>
-                </li>
-              </ul>
-            </div>
-          </div>
         </div>
       </div>
     </footer>

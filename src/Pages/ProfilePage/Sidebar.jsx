@@ -3,27 +3,29 @@ import { MdKeyboardArrowRight } from "react-icons/md";
 import logo from "../../assets/logo2.png";
 
 const tabs = [
-  { title: "ABOUT", content: "content 1" },
+  { title: "ABOUT", content: "content 1", linkId: "" },
   {
     title: "TERMS & CONDITIONS",
     content: `
 Lynkinfinite Investments.com (the “Website”) is a website operated by Quadro Partners, Inc. (“Lynkinfinite Investments Web Host”). By accessing the Website, the pages contained on it, and the information and material contained or described herein (together the “Information”), you acknowledge your agreement to be bound by, and understanding and acceptance of, these Terms and Conditions of Use, our Privacy Policy and our User Confidentiality Policy.
 `,
+    linkId: "terms",
   },
   {
     title: "PRIVACY POLICY",
     content: `
 We value your privacy at Lynkinfinite Investments.com. Our Privacy Policy outlines how we collect, use, and protect your personal information when you use our website. By accessing our website, you consent to our Privacy Policy.
 `,
+    linkId: "privacy-policy",
   },
-  { title: "LOGOUT", content: "content 4" },
+  { title: "LOGOUT", content: "content 4", linkId: "" },
 ];
 
 const Sidebar = ({ sendDataToProfile }) => {
   const [isActive, setIsActive] = useState(0);
 
   const handleContent = (i) => {
-    sendDataToProfile(tabs[i].content, tabs[i].title);
+    sendDataToProfile(tabs[i].content, tabs[i].title, tabs[i].linkId);
     setIsActive(i);
   };
 
