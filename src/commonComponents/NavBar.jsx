@@ -208,7 +208,7 @@ const NavBar = () => {
             {isAuth === true ? (
               <ProfileMenu HandleLogout={HandleLogout} user={user} />
             ) : (
-              <div className="hidden md:flex md:justify-end items-center md:flex-none gap-x-4 ButtonFont font-semibold">
+              <div className="hidden md:flex md:justify-end items-center font-['Playfair-Display'] md:flex-none gap-x-4 font-semibold">
                 <Link
                   to="/signin"
                   state={{ isLogin: false }}
@@ -401,13 +401,13 @@ const NavBar = () => {
                 </nav>
               </div>
             </div>
-            <div className="py-6 px-5 space-y-6">
+            <div className="py-6 font-['Playfair-Display'] px-5 space-y-6">
               {isAuth === false && (
                 <div>
                   <Link
                     to="/signin"
                     state={{ isLogin: false }}
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white bg-[#6e30a7] hover:bg-purple-600"
+                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white  bg-[#6e30a7] hover:bg-purple-600"
                   >
                     SIGN UP
                   </Link>
