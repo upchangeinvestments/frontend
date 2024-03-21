@@ -5,7 +5,9 @@ function ExploreMoreButton(props) {
   return (
     <Link to="/signin" className="bg-[#ccaaf8]  px-4 py-2 rounded-full">
       <button className="text-black flex items-center justify-center gap-4">
-        <div className="text-sm font-semibold">{props.Text}</div>
+        <div className="text-lg font-['Playfair-Display']  font-semibold">
+          {props.Text}
+        </div>
         <div className="">
           <svg
             className="w-6"

@@ -10,7 +10,7 @@ function AboutUs() {
   return (
     <div className="overflow-x-hidden bg-gradient-to-r from-purple-300 to-pink-200 lg:mb-0 ">
       <div className="vsm:flex vsm:items-center justify-center vsm:flex-col md:flex  md:flex-row md:mt-2 xl:mt-8 relative">
-        <div class="vsm:h-[700px] vsm:w-[280px]  vsm:mt-[30px] msm:w-[300px]   sm:w-[350px] md:w-[180px] md:h-[980px]  md:ml-[25px] md:mt-[50px] lg:ml-[60px] lg:mt-[50px] lg:w-[280px] lg:h-[1000px] xl:ml-[60px] xl:mt-[50px] xl:w-[280px] xl:h-[840px]  bg-[#6e30a7] backdrop-blur-xl bottom-0 flex flex-col  items-center rounded-lg font-['Playfair-Display'] rounded-t-full">
+        <div class="vsm:h-[700px] vsm:w-[280px]  vsm:mt-[30px] msm:w-[300px]   sm:w-[350px] md:w-[180px] md:h-[980px]  md:ml-[25px] md:mt-[50px] lg:ml-[60px] lg:mt-[50px] lg:w-[280px] lg:h-[1000px] xl:ml-[60px] xl:mt-[50px] xl:w-[280px] xl:h-[840px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 backdrop-blur-xl bottom-0 flex flex-col  items-center rounded-lg font-['Playfair-Display'] rounded-t-full">
           <img
             className="vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] md:w-[120px] md:h-[120px] md:mt-[30px] lg:w-[200px] lg:h-[200px] lg:mt-[30px] border-2 border-yellow-500 rounded-full "
             src={Lipika_mam}
@@ -93,19 +93,19 @@ function AboutUs() {
       </div>
 
       <div className="vsm:mb-[30px] md:mb-[50px] lg:mb-[50px]">
-        <h2 className="vsm:text-[22px] md:text-[26px] lg:text-[32px] font-bold md:mt-12 lg:mt-12 text-center font-['Playfair-Display'] my-8 uppercase text-[#9747FF]">
+        <h2 className="vsm:text-[22px] md:text-[26px] lg:text-[32px] font-bold md:mt-12 lg:mt-12 text-center font-['Playfair-Display'] my-8 uppercase text-[#6e30a7]">
           Modern Real Estate Investment solutions
         </h2>
 
-        <div className="flex flex-wrap md:gap-6 lg:gap-x-12 xl:gap-x-12 items-center justify-center w-full">
-          <Card className="lg:my-6 border-2 border-purple-500 vsm:w-[250px] vsm:mt-8 md:mt-[10px] md:w-[200px] lg:w-[250px] ">
+        <div className="flex flex-wrap md:gap-6 lg:gap-x-12 xl:gap-x-12 items-center font-['Playfair-Display'] justify-center w-full">
+          <Card className="lg:my-6 border-2 border-[#6e30a7] vsm:w-[250px] vsm:mt-8 md:mt-[10px] md:w-[200px] lg:w-[250px] ">
             <CardHeader className="relative flex md:flex items-center justify-center -mt-6">
               <img
                 className="w-[100%] h-[100%]"
                 src={BlurBuilding}
                 alt="card"
               />
-              <p className="text-white absolute m-0 vsm:text-4xl md:text-3xl lg:text-5xl CustomizeFontH">
+              <p className="text-white absolute m-0  vsm:text-4xl md:text-3xl lg:text-5xl ">
                 VISION
               </p>
             </CardHeader>
@@ -117,15 +117,15 @@ function AboutUs() {
               </p>
             </CardBody>
           </Card>
-          <Card className="border-2 border-purple-500 vsm:mt-12 vsm:w-[250px] md:w-[200px] md:mt-[10px] lg:w-[250px]">
+          <Card className="border-2 border-[#6e30a7] vsm:mt-12 vsm:w-[250px] md:w-[200px] md:mt-[10px] lg:w-[250px]">
             <CardHeader className="relative flex items-center justify-center">
               <img
                 className="w-[100%] h-[100%]"
                 src={BlurBuilding}
                 alt="card"
               />
-              <p className="text-white absolute m-0 vsm:text-4xl md:text-3xl lg:text-5xl CustomizeFontH">
-                Mission
+              <p className="text-white absolute m-0 vsm:text-4xl md:text-3xl lg:text-5xl ">
+                MISSION
               </p>
             </CardHeader>
             <CardBody>
@@ -137,14 +137,14 @@ function AboutUs() {
               </p>
             </CardBody>
           </Card>
-          <Card className="vsm:mt-12 border-2 border-purple-500 vsm:w-[250px] md:w-[200px] md:mt-[10px] lg:w-[250px]">
+          <Card className="vsm:mt-12 border-2 border-[#6e30a7] vsm:w-[250px] md:w-[200px] md:mt-[10px] lg:w-[250px]">
             <CardHeader className="relative flex items-center justify-center">
               <img
                 className="w-[100%] h-[100%]"
                 src={BlurBuilding}
                 alt="card"
               />
-              <p className="text-white absolute m-0 vsm:text-4xl md:text-3xl lg:text-5xl CustomizeFontH">
+              <p className="text-white absolute m-0 vsm:text-4xl md:text-3xl lg:text-5xl">
                 VALUES
               </p>
             </CardHeader>

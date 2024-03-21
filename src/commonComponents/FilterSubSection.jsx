@@ -31,14 +31,6 @@ function FilterSubSection({ list, title, inputType }) {
             </label>
           ))}
         </div>
-        {list.length > 3 && (
-          <button
-            onClick={toggleShowAll}
-            className="text-[#6e30a7] mt-2 text-sm underline"
-          >
-            {showAll ? "See less" : "See more"}
-          </button>
-        )}
       </div>
     </div>
   );

@@ -32,7 +32,9 @@ const RealEstateCard = (props) => {
       </div>
       <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-72 mt-0">
         <div className="flex items-center justify-center">
-          <div className="text-base CustomizeFontH">{props.data.title}</div>
+          <div className="text-base font-bold font-['Playfair-Display']">
+            {props.data.title}
+          </div>
         </div>
         <div className="flex gap-1 items-center">
           <svg

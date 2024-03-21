@@ -17,7 +17,7 @@ function Unique() {
     "Multi-House Property",
     "Housing Property",
   ];
-  const LI2 = ["Texas", "New York", "California", "Massachusetts", "Colorado"];
+  const LI2 = ["West", "Central", "South", "Midwest", "East"];
   const LI3 = [
     "$100-$1K",
     "$1K-$10K",
@@ -32,13 +32,13 @@ function Unique() {
   return (
     <div className="mx-auto p-4">
       <div className="p-4">
-        <h2 className="text-2xl md:text-3xl mb-2 CustomizeFontH">
-          WHAT MAKES US <span className="text-[#9747FF]">DIFFERENT</span>?
+        <h2 className="text-2xl md:text-3xl mb-2 font-['Playfair-Display'] ">
+          WHAT MAKES US <span className="text-[#6e30a7]">DIFFERENT</span>?
         </h2>
       </div>
       <div className="px-4 vsm:grid vsm:gap-4 lg:gap-x-40 vsm:mx-4 md:mx-24 lg:mx-20 xl:mx-24 lg:mt-[10px] lg:flex">
         <div className="relative vsm:h-[410px] lg:h-[390px] lg:ml-[150px] xl:ml-[200px] xl:h-[400px] xl:mx-auto">
-          <div className="nowrap text-nowrap flex items-center justify-center text-2xl CustomizeFontH text-white">
+          <div className="nowrap text-nowrap flex items-center justify-center text-2xl font-['Playfair-Display']  text-white">
             NAVIGATE YOUR WEALTH
           </div>
           <div className="">
@@ -69,9 +69,9 @@ function Unique() {
           </div>
         </div>
         <div className="lg:w-[50%] flex flex-col items-center justify-center lg:-mt-12 lg:ml-[20px] xl:ml-[40px]">
-          <h2 className="text-2xl CustomizeFontH">WHO ARE WE?</h2>
-          <p className="text-justify mt-2">
-            <span className="flex items-start justify-center">
+          <h2 className="text-2xl font-['Playfair-Display']">WHO ARE WE?</h2>
+          <p className="text-justify font-['Playfair-Display'] font-medium  mt-2">
+            <span className="flex items-start  justify-center">
               Welcome to the world of Lynkinfinite Investments:{" "}
             </span>
             where we provide a comprehensive perspective on a diverse array of

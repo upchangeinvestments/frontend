@@ -6,14 +6,14 @@ import React, { useState } from "react";
 
 function FilterSection() {
   const CategoryType = [
-    "Residential Property",
-    "Hotels Property",
-    "Retail Property",
-    "Warehouse & Storage Property",
-    "Medical Facilites Property",
-    "School Property",
-    "Office Property",
-    "Infrastructure Property",
+    "Residential",
+    "Hotels",
+    "Retail",
+    "Warehouse & Storage",
+    "Medical Facilites",
+    "School",
+    "Office",
+    "Infrastructure",
   ];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const CompanyType = [
@@ -56,7 +56,9 @@ function FilterSection() {
       }}
     >
       <div className="flex items-center justify-center text-2xl font-bold font-['Playfair-Display'] text-[#6e30a7]  mt-2">
-        <p>Filter Projects</p>
+        <p>
+          <u>Filter Projects</u>
+        </p>
       </div>
       <FilterSubSection
         list={CategoryType}
@@ -74,10 +76,10 @@ function FilterSection() {
           placement="right"
           className="bg-white/50 p-1 px-3 text-black ml-2"
         >
-          <div className="text-2xl text-[#6e30a7]">IRR </div>
+          <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         </Tooltip>
         <div className="w-[75%] flex items-center justify-center gap-x-4 FilterSection">
-          <p>{price}</p>
+          <p>0</p>
           <input
             type="range"
             name="priceIRR"
@@ -88,11 +90,10 @@ function FilterSection() {
             step="1"
             className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
             style={{
-              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price /
-                100) *
-                100}%, #CBD5E0 ${(price / 100) * 100}%, #CBD5E0 100%)`,
+              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${price}%, #CBD5E0 ${price}%, #CBD5E0 100%)`,
             }}
           />
+          <p>{price}</p>
         </div>
       </div>
       <FilterSubSection
@@ -106,7 +107,7 @@ function FilterSection() {
         inputType="checkbox"
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
-        <div className="text-2xl mb-2 text-[#6e30a7]">Zip Code </div>
+        <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
         <div className="font-['Asap'] w-[80%]">
           <input
             type="text"

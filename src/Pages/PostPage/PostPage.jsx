@@ -133,7 +133,7 @@ function PostPage() {
             </span>
           </div>
           <div className="flex flex-col items-center justify-center w-full ">
-            <div className="flex justify-start lg:justify-evenly bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
+            <div className="flex justify-start lg:justify-evenly lg:gap-[380px] bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
               {tabs.map((value, index) => (
                 <p
                   className={`font-semibold text-lg p-4 cursor-default whitespace-nowrap ${

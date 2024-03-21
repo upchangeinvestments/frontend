@@ -1,14 +1,13 @@
 import React from "react";
 import "../styles/LandingPage/Footer.css";
-import { FaFacebook } from "react-icons/fa6";
 import logo from "../assets/logo.png";
-import { FaInstagram } from "react-icons/fa";
+import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { IoLocationSharp, IoCall, IoMail } from "react-icons/io5";
-import { CiLinkedin } from "react-icons/ci";
+import { FaLinkedinIn } from "react-icons/fa";
 
 const Footer = () => {
   return (
-    <footer className="footer-section pt-8">
+    <footer className="footer-section font-['Playfair-Display'] pt-8">
       <div className="px-20 ">
         <div className="footer-cta py-4">
           <div className="grid md:grid-cols-3">
@@ -66,13 +65,13 @@ const Footer = () => {
                 </div>
                 <div className="lg:mx-0 flex">
                   <a href="">
-                    <FaFacebook size="30px" />
-                  </a>
-                  <a href="">
-                    <CiLinkedin size="32px" />
+                    <FaFacebookF size="28px" />
                   </a>
                   <a href="">
                     <FaInstagram size="30px" />
+                  </a>
+                  <a href="">
+                    <FaLinkedinIn size="30px" />
                   </a>
                 </div>
               </div>
@@ -109,13 +108,13 @@ const Footer = () => {
                 </div>
                 <div className="lg:mx-0 flex">
                   <a href="">
-                    <FaFacebook size="30px" />
-                  </a>
-                  <a href="">
-                    <CiLinkedin size="30px" />
+                    <FaFacebookF size="28px" />
                   </a>
                   <a href="">
                     <FaInstagram size="30px" />
+                  </a>
+                  <a href="">
+                    <FaLinkedinIn size="30px" />
                   </a>
                 </div>
               </div>
@@ -157,13 +156,13 @@ const Footer = () => {
         </div>
         <div className="lg:mx-0 flex">
           <a href="">
-            <FaFacebook size="30px" />
-          </a>
-          <a href="">
-            <CiLinkedin size="30px" />
+            <FaFacebookF size="28px" />
           </a>
           <a href="">
             <FaInstagram size="30px" />
+          </a>
+          <a href="">
+            <FaLinkedinIn size="30px" />
           </a>
         </div>
       </div>

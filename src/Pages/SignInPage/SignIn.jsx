@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
-// import { FaXTwitter } from "react-icons/fa6";
-import { FaFacebookF, FaInstagram } from "react-icons/fa";
+//
+import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import { IoLogoGoogleplus, IoLogoApple } from "react-icons/io";
 import { CiLinkedin } from "react-icons/ci";
 import NavBar from "../../commonComponents/NavBar";
@@ -23,7 +23,7 @@ const ConnetWithUs = () => {
           <FaInstagram size="25px" />
         </Link>
         <Link to="/">
-          <CiLinkedin size="25px" />
+          <FaLinkedinIn size="30px" />
         </Link>
       </div>
     </div>
@@ -239,7 +239,7 @@ const SignIn = () => {
                           <FaInstagram size="25px" />
                         </Link>
                         <Link to="/">
-                          <CiLinkedin size="25px" />
+                          <FaLinkedinIn size="25px" />
                         </Link>
                       </div>
                     </div>
@@ -269,7 +269,7 @@ const SignIn = () => {
                           <FaInstagram size="25px" />
                         </Link>
                         <Link to="/">
-                          <CiLinkedin size="25px" />
+                          <FaLinkedinIn size="25px" />
                         </Link>
                       </div>
                     </div>

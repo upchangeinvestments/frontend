@@ -66,8 +66,9 @@ function ProfileMenu({ HandleLogout, user }) {
             />
           )}
           <RiArrowDropDownLine
-            className={`h-5 w-5 transition-transform ${isMenuOpen ? "rotate-180" : ""
-              }`}
+            className={`h-5 w-5 transition-transform ${
+              isMenuOpen ? "rotate-180" : ""
+            }`}
           />
         </Button>
       </MenuHandler>
@@ -81,8 +82,9 @@ function ProfileMenu({ HandleLogout, user }) {
               className="flex items-center gap-3 my-1 rounded "
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#9747FF]"
-                  }`,
+                className: `h-4 w-4 ${
+                  isLastItem ? "text-red-500" : "text-[#9747FF]"
+                }`,
                 strokeWidth: 1,
               })}
               {isLastItem ? (
@@ -170,7 +172,7 @@ const NavBar = () => {
                 </button>
               </div>
             </div>
-            <div className="hidden md:flex md:justify-center md:items-center md:flex-auto md:gap-4 lg:gap-8 xl:gap-10 md:text-sm lg:text-lg">
+            <div className="hidden md:flex md:justify-center font-['Playfair-Display']  md:items-center md:flex-auto md:gap-4 lg:gap-8 xl:gap-10 md:text-sm font-bold lg:text-2xl">
               <Link
                 to="/about"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"

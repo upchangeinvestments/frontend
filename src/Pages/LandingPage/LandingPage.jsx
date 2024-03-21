@@ -7,27 +7,24 @@ import Questions from "./Questions";
 import Unique from "./Unique";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
-import ListWithUs from "./ListWithUs"
-import Footer from "../../commonComponents/Footer"
-import WaitListModal from "../../commonComponents/WaitListModal";
-
+import ListWithUs from "./ListWithUs";
+import Footer from "../../commonComponents/Footer";
 
 function LandingPage() {
-    return (
-        <div className="main vsm:w-[125vw] md:w-[107vw] lg:w-[100%] vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
-            <WaitListModal />
-            <NavBar />
-            <Landing />
-            <Unique />
-            <Questions />
-            <Features />
-            {/* <OurUsers /> */}
-            <HowInvestmentWorks />
-            <FeaturedProject />
-            <ListWithUs />
-            <Footer />
-        </div>
-    );
+  return (
+    <div className="main vsm:w-[125vw] md:w-[107vw] font-['Playfair-Display'] lg:w-[100%]  vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
+      <NavBar />
+      <Landing />
+      <Unique />
+      <Questions />
+      <Features />
+      {/* <OurUsers /> */}
+      <HowInvestmentWorks />
+      <FeaturedProject />
+      <ListWithUs />
+      <Footer />
+    </div>
+  );
 }
 
 export default LandingPage;
