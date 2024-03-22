@@ -1,4 +1,3 @@
-
 .leftArrow {
   position: absolute;
   transform: rotate(90deg);
@@ -37,15 +36,15 @@
 
 @keyframes animate {
   0% {
-      opacity: 0;
-      transform: rotate(45deg) translate(-10px, -10px);
+    opacity: 0;
+    transform: rotate(45deg) translate(-10px, -10px);
   }
   50% {
-      opacity: 1;
+    opacity: 1;
   }
   100% {
-      opacity: 0;
-      transform: rotate(45deg) translate(120px, 120px);
+    opacity: 0;
+    transform: rotate(45deg) translate(120px, 120px);
   }
 }
 @media screen and (max-width: 1023px) {
@@ -62,32 +61,32 @@
   .arrow span:nth-child(2) {
     animation-delay: -0.2s;
   }
-  
+
   .arrow span:nth-child(3) {
     animation-delay: -0.4s;
   }
   .arrow span:nth-child(4) {
     animation-delay: -0.6s;
     visibility: visible;
-  } 
+  }
   .arrow span:nth-child(5) {
     animation-delay: -0.8s;
     visibility: hidden;
   }
-  
-@keyframes animate {
-  0% {
+
+  @keyframes animate {
+    0% {
       opacity: 0;
       transform: rotate(45deg) translate(-10px, -10px);
-  }
-  50% {
+    }
+    50% {
       opacity: 1;
-  }
-  100% {
+    }
+    100% {
       opacity: 0;
       transform: rotate(45deg) translate(60px, 60px);
+    }
   }
-}
 }
 @media screen and (max-width: 767px) {
   .arrow span {
@@ -103,7 +102,7 @@
   .arrow span:nth-child(2) {
     animation-delay: -0.2s;
   }
-  
+
   .arrow span:nth-child(3) {
     animation-delay: -0.4s;
   }
@@ -115,18 +114,18 @@
     animation-delay: -0.8s;
     visibility: hidden;
   }
-  
-@keyframes animate {
-  0% {
+
+  @keyframes animate {
+    0% {
       opacity: 0;
       transform: rotate(45deg) translate(-10px, -10px);
-  }
-  50% {
+    }
+    50% {
       opacity: 1;
-  }
-  100% {
+    }
+    100% {
       opacity: 0;
       transform: rotate(45deg) translate(35px, 35px);
+    }
   }
-}
 }
