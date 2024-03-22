@@ -14,7 +14,6 @@ function VerifyUser() {
         const verifyToken = async () => {
             try {
                 const response = await axios.get(`${backendUrl}/auth/${id}/verify/${token}`);
-                console.log(response);
                 if (response.status === 200) {
                     setIsVerified(true);
                 }

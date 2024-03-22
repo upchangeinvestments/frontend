@@ -25,12 +25,12 @@ function AboutUs() {
                 <p class="vsm:text-[19px] md:text-[18px] lg:text-[20px] text-white font-medium md:mb-[20px] lg:mb-[15px]">
                   FOUNDER
                 </p>
-                <p class="vsm:text-[20px] vsm:mb-[10px] md:text-[19px] md:mb-[20px] lg:text-[21px] font-medium lg:mb-[15px]">
+                <p class="vsm:text-[20px] vsm:mb-[10px] md:text-[19px] md:mb-[21px] lg:text-[21px] font-medium lg:mb-[15px]">
                   LIPIKA SHARMA
                 </p>
               </div>
               <div class="mb-4">
-                <p class="vsm:text-[19px] md:text-[18px] lg:text-[18px] text-white font-medium md:mb-[20px] lg:mb-[15px]">
+                <p class="vsm:text-[19px] md:text-[18px] lg:text-[20px] text-white font-medium md:mb-[20px] lg:mb-[15px]">
                   FOUNDED
                 </p>
                 <p class="vsm:text-[20px] md:text-[19px] md:mb-[50px] lg:text-[21px] font-medium lg:mb-[50px] xl:mb-[30px]">
