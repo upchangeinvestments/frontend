@@ -30,7 +30,7 @@ const responsive = {
 function Explore() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mx-auto text-3xl my-[50px] font-['Playfair-Display']">
+      <div className="mx-auto text-3xl mt-[40px] mb-[60px] font-['Playfair-Display']">
         EXPLORE PROJECTS
       </div>
       <div className="vsm:w-[100%] md:w-[100%]">
