@@ -17,7 +17,7 @@ const Profile = () => {
   };
 
   return (
-    <div className="grid  grid-cols-12">
+    <div className="grid font-['Playfair-Display'] grid-cols-12">
       <div className="md:hidden" onClick={sidebarHandler}>
         <svg
           className="h-6 w-6 vsm:mt-[15px] vsm:ml-[8px]"
@@ -47,7 +47,7 @@ const Profile = () => {
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="vsm:col-span-10 md:col-span-9 lg:col-span-9">
-        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
+        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg shadow-md  relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (
@@ -72,7 +72,7 @@ const Profile = () => {
               <h2 className="vsm:text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
                 User Name
               </h2>
-              <p className="text-gray-600 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
+              <p className="text-gray-200 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
                 User ID
               </p>
               {isEditing ? (
@@ -82,7 +82,7 @@ const Profile = () => {
                   placeholder="location"
                 />
               ) : (
-                <p className="text-gray-600 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
+                <p className="text-gray-200 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
                   User Location
                 </p>
               )}
@@ -96,7 +96,7 @@ const Profile = () => {
                 rows="4"
               />
             ) : (
-              <p className="text-gray-600 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
+              <p className="text-gray-100 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
                 Start sharing to unlock your experience!
               </p>
             )}
@@ -126,13 +126,13 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid col-span-9">
-          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-gradient-to-r from-pink-200 to-purple-300 rounded-lg shadow-md relative">
+          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg shadow-md relative">
             {tabContent && (
               <div id={tabContent.linkId}>
-                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-purple-600  font-bold text-center">
+                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-white  font-bold text-center">
                   {tabContent.title}
                 </h2>
-                <div className="vsm:text-[15px] vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
+                <div className="vsm:text-[15px] text-white vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
                   {tabContent.data}
                 </div>
               </div>

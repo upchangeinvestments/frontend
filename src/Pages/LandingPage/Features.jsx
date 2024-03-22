@@ -11,7 +11,7 @@ function Features() {
           Income
         </span>,
       ],
-      image: "https://i.postimg.cc/56W291tM/coin.png",
+      // image: "https://i.postimg.cc/56W291tM/coin.png",
       description: [
         `Earn `,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
@@ -19,7 +19,7 @@ function Features() {
           Periodic income
         </span>,
         ` and receive `,
-        <span className="text-[#9747FF] font-medium	"> monetary benefits</span>,
+        <span className="text-[#6e30a7] font-medium	"> monetary benefits</span>,
       ],
     },
     {
@@ -32,7 +32,7 @@ function Features() {
           Investments
         </span>,
       ],
-      image: "https://i.postimg.cc/QF08qTJX/right-aud.png",
+      // image: "https://i.postimg.cc/QF08qTJX/right-aud.png",
       description: [
         `Customize your Investment needs by `,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium">
@@ -53,7 +53,7 @@ function Features() {
           Portfolio
         </span>,
       ],
-      image: "https://i.postimg.cc/tsXRP5PS/portfolio.png",
+      // image: "https://i.postimg.cc/tsXRP5PS/portfolio.png",
       description: [
         `Add Real estates to your portfolio & `,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium">
@@ -72,7 +72,7 @@ function Features() {
           Reach
         </span>,
       ],
-      image: "https://i.postimg.cc/hf8PfwJQ/globe.png",
+      // image: "https://i.postimg.cc/hf8PfwJQ/globe.png",
       description: [
         `Attracting `,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
