@@ -7,7 +7,6 @@ import Categories from "./Categories";
 import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/MobileFilterDrawer";
 import MobileFilter from "../../commonComponents/MobileFilter";
-import Modal from "../../commonComponents/Modal";
 
 function CategoryPage() {
   const [open, setOpen] = useState(false);
@@ -23,7 +22,7 @@ function CategoryPage() {
     setId(index);
   };
 
-  useEffect(() => {}, [data]);
+  useEffect(() => { }, [data]);
 
   return (
     <div className="categoryMain  vsm:h-[60vh] md:h-[62vh] xl:h-[55vh] mobile-filter-drawer">
@@ -55,7 +54,6 @@ function CategoryPage() {
           <Categories />
         </div>
       </div>
-      <Modal />
       <Footer />
     </div>
   );

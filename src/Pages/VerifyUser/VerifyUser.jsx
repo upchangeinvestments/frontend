@@ -24,7 +24,7 @@ function VerifyUser() {
         };
         verifyToken();
         setTimeout(() => {
-            navigate('/category');
+            navigate('/profile');
         }, 2000);
         // eslint-disable-next-line
     }, [])
