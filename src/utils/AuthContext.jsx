@@ -31,7 +31,6 @@ const AuthProvider = ({ children }) => {
         return setIsAuth(value);
     }
     function logout() {
-        console.log(user);
         if (user.googleId) {
             window.open(`${backendUrl}/auth/logout`, '_self');
         } else {

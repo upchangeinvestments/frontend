@@ -35,7 +35,7 @@ const Questionnaire = () => {
   const QuizHandler = (event) => {
     event.preventDefault();
     const responses = selectedAnswer;
-    console.log(responses);
+    // console.log(responses);
     SuccessToast("Questionnaire updated");
   };
 

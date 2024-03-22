@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import { copy } from 'clipboard-copy';
 import OtpInput from 'react-otp-input';
 import { ImCross } from "react-icons/im";
 import axios from "axios";
@@ -12,7 +13,6 @@ import { Stepper } from "@material-tailwind/react";
 
 function DialogDefault() {
     const [isOpen, setOpen] = useState(!localStorage.getItem('waitlist'));
-    console.log(isOpen);
     const [otp, setOtp] = useState('');
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
@@ -23,14 +23,16 @@ function DialogDefault() {
     const [isFirstStep, setIsFirstStep] = useState(false);
     const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
 
-
+    const handlePaste = (event) => {
+        event.preventDefault();
+        copy(event.clipboardData.getData('text'));
+        setOtp(event.clipboardData.getData('text'));
+    };
     const otpGenerated = Math.floor(10000 + Math.random() * 90000);
     const OtpHandler = async (event) => {
         event.preventDefault();
-        console.log(otpGenerated);
 
         const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email, otpGenerated });
-        console.log(otpSendResponse);
         if (otpSendResponse.status === 200) {
             setActiveStep(1);
         } else {
@@ -117,7 +119,7 @@ function DialogDefault() {
                                         value={otp}
                                         onChange={setOtp}
                                         numInputs={5}
-                                        onPaste={true}
+                                        onPaste={handlePaste}
                                         renderSeparator={<span>-</span>}
                                     />
                                 </div>
