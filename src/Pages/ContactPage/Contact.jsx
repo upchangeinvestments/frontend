@@ -22,10 +22,10 @@ function ContactForm() {
   return (
     <div className="max-w-7xl vsm:mx-4 sm:mx-6 font-['Playfair-Display']  md:mx-auto md:px-12">
       <div className="block rounded-lg bg-gradient-to-b from-white/30  to-[#c7b3ee] bg-opacity-10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  px-6 py-12  md:py-8 md:px-10 -mt-[120px] backdrop-blur-[30px]">
-        <div className=" text-black grid vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-4 xl:grid-cols-3 ">
-          <div className="md:col-span-1 flex items-center justify-end lg:-mt-4">
-            <div className="flex flex-col vsm:ml-0 sm:ml-0  lg:ml-12  w-full">
-              <div className="basis-1/3 relative">
+        <div className=" text-black grid relative vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-2 lg:grid-cols-2 xl:grid-cols-2">
+          <div className="md:col-span-1 flex items-center justify-end">
+            <div className="flex flex-col w-[90%] mr-[20px] shadow-2xl  shadow-purple-500 rounded-lg pb-[40px] vsm:ml-0 sm:ml-0  lg:ml-12 ">
+              <div className="basis-1/3  relative">
                 <div className="flex flex-col vsm:mt-16 sm:mt-20 lg:mt-28 items-center justify-end h-[60px]">
                   <div className="w-64 vsm:w-44 sm:w-48 md:w-52">
                     <img src={logo} alt="" />
@@ -68,7 +68,7 @@ function ContactForm() {
               </div>
             </div>
           </div>
-          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 ml-[40px] rounded-lg w-[90%] font-['Playfair-Display']  shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
+          <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0  md:col-span-2 lg:col-span-1 rounded-lg w-full    font-['Playfair-Display']  shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
             <p className="text-2xl text-white font-bold ">Send Us a Message</p>
             <form
               onSubmit={handleSubmit}

@@ -1,7 +1,7 @@
 @import url("https://fonts.googleapis.com/css2?family=Asap:wght@500&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
 @import url("https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&family=Public+Sans:ital,wght@0,100..900;1,100..900&display=swap");
-@import url('https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap');
+@import url("https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400..900;1,400..900&display=swap");
 
 @font-face {
   font-family: "Archive";
@@ -25,7 +25,7 @@
   font-family: "LinikSans";
   src: url("./assets/LinikSans-SemiBold.ttf");
 }
-.FontLinikSans{
+.FontLinikSans {
   font-family: "LinikSans", sans-serif;
 }
 
@@ -111,7 +111,7 @@ body {
   box-shadow: 20px 20px 10px 10px rgba(20, 13, 23, 0.2);
 }
 
- /* for cateogry page -> bug  */
+/* for cateogry page -> bug  */
 .mobile-filter-drawer .bg-black {
   background-color: transparent !important;
 }
@@ -125,7 +125,16 @@ body {
   border: 1px solid rgb(223, 223, 223);
   border-radius: 5px;
   color: white;
-  font-weight: 500; 
-  font-size: 18px;   
+  font-weight: 500;
+  font-size: 18px;
   min-width: 3em;
+}
+
+.input-quiz::placeholder {
+  color: #6e30a7;
+}
+
+.input-quiz::-ms-input-placeholder {
+  /* Vendor prefix for IE */
+  color: #6e30a7;
 }

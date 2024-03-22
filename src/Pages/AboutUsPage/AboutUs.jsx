@@ -8,7 +8,7 @@ import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 
 function AboutUs() {
   return (
-    <div className="overflow-x-hidden bg-gradient-to-r from-purple-300 to-pink-200 lg:mb-0 ">
+    <div className="overflow-x-hidden bg-gradient-to-r from-purple-200 to-purple-300 lg:mb-0 ">
       <div className="vsm:flex vsm:items-center justify-center vsm:flex-col md:flex  md:flex-row md:mt-2 xl:mt-8 relative">
         <div class="vsm:h-[700px] vsm:w-[280px]  vsm:mt-[30px] msm:w-[300px]   sm:w-[350px] md:w-[180px] md:h-[980px]  md:ml-[25px] md:mt-[50px] lg:ml-[60px] lg:mt-[50px] lg:w-[280px] lg:h-[1000px] xl:ml-[60px] xl:mt-[50px] xl:w-[280px] xl:h-[840px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 backdrop-blur-xl bottom-0 flex flex-col  items-center rounded-lg font-['Playfair-Display'] rounded-t-full">
           <img

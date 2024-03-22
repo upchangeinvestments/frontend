@@ -62,9 +62,9 @@ const HowItWorks = () => {
         <div className="flex flex-row items-center gap-4">
           <div className="md:hidden">
             <svg
-              className="SlideX h-10 w-10"
+              className="FlipY h-10 w-10"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
+              viewBox="0 0 576 512"
             >
               <path
                 fill="white"
@@ -74,9 +74,9 @@ const HowItWorks = () => {
           </div>
           <div className="hidden md:block">
             <svg
-              className="SlideX h-10 w-10"
+              className="FlipY h-10 w-10"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
+              viewBox="0 0 576 512"
             >
               <path
                 fill="#6e30a7"
@@ -127,9 +127,9 @@ const HowItWorks = () => {
         <div className="flex flex-row items-center gap-4 overflow-y-hidden">
           <div className="md:hidden">
             <svg
-              className="Move h-10 w-10"
+              className="FlipY h-10 w-10"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
+              viewBox="0 0 576 512"
             >
               <path
                 fill="white"
@@ -139,9 +139,9 @@ const HowItWorks = () => {
           </div>
           <div className="hidden md:block">
             <svg
-              className="Move h-10 w-10"
+              className="FlipY h-10 w-10"
               xmlns="http://www.w3.org/2000/svg"
-              viewBox="0 0 512 512"
+              viewBox="0 0 576 512"
             >
               <path
                 fill="#6e30a7"

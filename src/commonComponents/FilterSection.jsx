@@ -14,11 +14,10 @@ function FilterSection() {
   ];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const CompanyType = [
-    "Diversified Healthcare Trust",
-    "Angel Oak Mortgage, Inc.",
-    "Tanger, Inc",
-    "Modiv Industrial, Inc.",
-    "Park Hotels & Resorts",
+    "TerraForte Realty",
+    "Dreamland Living",
+    "Purple Sky Homes",
+    "Fly Heights",
   ];
   const InvestmentRange = [
     "$100-$1K",
