@@ -24,7 +24,7 @@ const AuthProvider = ({ children }) => {
     const [user, setUser] = useState({});
     const navigate = useNavigate();
     const contextValue = {
-        isAuth, handleUpdateAuth, user, logout, baseUrl, backendUrl
+        isAuth, handleUpdateAuth, user, setUser, logout, baseUrl, backendUrl
     };
 
     function handleUpdateAuth(value) {
