@@ -13,7 +13,7 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-pink-100  to-purple-300">
+    <div className="bg-purple-300">
       <div className="">
         <Tabs tabs={tabs} />
       </div>

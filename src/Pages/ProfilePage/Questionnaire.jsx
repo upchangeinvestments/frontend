@@ -44,11 +44,11 @@ const Questionnaire = () => {
     const quizLength = quizData.length;
 
     return (
-      <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
-        <p className="text-left px-4 md:w-[100%] flex justify-center">
+      <div className="quiz-container px-4 py-2 flex flex-col items-center  justify-center vsm:w-full lg:text-xl">
+        <p className="text-left px-4 md:w-[100%] font-['Playfair-Display'] flex justify-center">
           {currentQuizData.question}
         </p>
-        <ul className="vsm:w-[90%] md:w-[65%]">
+        <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[65%]">
           <li>
             <input
               type="radio"
@@ -63,7 +63,7 @@ const Questionnaire = () => {
               }}
             />
             <label
-              className="text-center border-[1px] border-[#9747FF]"
+              className="text-center border-[1px] border-[#6e30a7]"
               htmlFor="a"
               id="a_text"
             >
@@ -84,7 +84,7 @@ const Questionnaire = () => {
               }}
             />
             <label
-              className="text-center border-[1px] border-[#9747FF]"
+              className="text-center border-[1px] border-[#6e30a7]"
               htmlFor="b"
               id="b_text"
             >
@@ -105,7 +105,7 @@ const Questionnaire = () => {
               }}
             />
             <label
-              className="text-center border-[1px] border-[#9747FF]"
+              className="text-center border-[1px] border-[#6e30a7]"
               htmlFor="c"
               id="c_text"
             >
@@ -126,7 +126,7 @@ const Questionnaire = () => {
               }}
             />
             <label
-              className="text-center border-[1px] border-[#9747FF]"
+              className="text-center  border-[1px] border-[#6e30a7]"
               htmlFor="d"
               id="d_text"
             >
@@ -157,7 +157,7 @@ const Questionnaire = () => {
       <div className="vsm:mt-[300px] vsm:right-[15px] md:mt-[300px] md:right-[15px]  lg:mt-4 absolute lg:bottom-8 lg:right-8">
         <button
           onClick={QuizHandler}
-          className="bg-purple-500 hover:bg-purple-600 text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded"
+          className="bg-[#6e30a7] hover:bg-purple-600 font-['Playfair-Display'] text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded"
         >
           Save Changes
         </button>
