@@ -12,7 +12,7 @@ const HowInvestmentWorks = () => {
       <div className="flex flex-col items-center justify-center w-[100%]">
         <div className="grid grid-cols-9 vsm:w-[80%] md:w-[70%] lg:w-[60%]">
           <div className="col-span-1 flex flex-col items-center justify-center">
-            <div className="h-16 w-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">
+            <div className="h-16 w-16 bg-purple-300 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">
               2
             </div>
           </div>
@@ -26,7 +26,7 @@ const HowInvestmentWorks = () => {
             </div>
           </div>
           <div className="col-span-1 flex flex-col items-center justify-center">
-            <div className="h-16 w-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">
+            <div className="h-16 w-16 bg-purple-200 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">
               1
             </div>
           </div>
@@ -40,7 +40,7 @@ const HowInvestmentWorks = () => {
             </div>
           </div>
           <div className="col-span-1 flex flex-col items-center justify-center">
-            <div className="h-16 w-16 bg-white/20 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">
+            <div className="h-16 w-16 bg-purple-200 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">
               3
             </div>
           </div>

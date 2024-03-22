@@ -175,7 +175,6 @@ const Questions = () => {
           {currentQuiz < quizData.length ? (
             loadQuiz()
           ) : (
-            // <h2>You answered {score}/{quizData.length} questions correctly</h2>
             <div className="w-full font-['Playfair-Display'] vsm:pb-6">
               <form
                 className="flex flex-col justify-center items-center w-ful gap-8"
@@ -184,21 +183,30 @@ const Questions = () => {
                 <p className="text-2xl">Get your results!</p>
                 <input
                   onChange={(e) => setEmail(e.target.value)}
-                  className="bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]"
+                  className="bg-transparent border-b-2 w-[65%] p-2 text-[#6e30a7] focus:border-transparent focus:outline-none border-b-[#6e30a7] focus:border-b-[#6e30a7] input-quiz"
                   type="email"
                   placeholder="Email"
                   required
                 />
                 <input
                   onChange={(e) => setName(e.target.value)}
-                  className="bg-transparent border-b-2 w-[65%] p-2 text-black focus:border-transparent focus:outline-none border-b-[#c9c9c9] focus:border-b-[#c9c9c9]"
+                  className="bg-transparent border-b-2 w-[65%] p-2 text-[#6e30a7] focus:border-transparent focus:outline-none border-b-[#6e30a7] focus:border-b-[#6e30a7] input-quiz"
                   type="text"
                   placeholder="Name"
                   required
                 />
-                <div className="whitespace-nowrap inline-flex items-center justify-center vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm vsm:text-base lg:text-base xl:text-lg font-medium text-white bg-[#9747FF] hover:bg-[#8e47ec] bg-gradient-to-r from-purple-500 to-purple-700">
+
+                <div className="whitespace-nowrap inline-flex items-center justify-center vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm vsm:text-base lg:text-base xl:text-lg font-medium text-white bg-[#6e30a7] hover:bg-[#8e47ec] bg-gradient-to-r from-purple-500 to-purple-700">
                   <button>SUBMIT</button>
                 </div>
+                {currentQuiz > 0 && (
+                  <div
+                    className="flex justify-center mt-4"
+                    onClick={() => setCurrentQuiz(quizData.length - 1)}
+                  >
+                    <p className="ml-4 font-['Playfair-Display']">PREVIOUS</p>
+                  </div>
+                )}
               </form>
             </div>
           )}
