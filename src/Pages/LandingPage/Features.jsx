@@ -5,10 +5,12 @@ function Features() {
   const data = [
     {
       title: [
-        <span className="font-['Playfair-Display'] font-bold">PASSIVE</span>,
+        <span className="font-['Playfair-Display'] font-bold">
+          NATIONWIDE{" "}
+        </span>,
         <span className="text-[#6e30a7] font-['Playfair-Display']">
           {" "}
-          Income
+          Reach
         </span>,
       ],
       // image: "https://i.postimg.cc/56W291tM/coin.png",
@@ -16,16 +18,19 @@ function Features() {
         `Earn `,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
           {" "}
-          Periodic income
+          Select local
         </span>,
-        ` and receive `,
-        <span className="text-[#6e30a7] font-medium	"> monetary benefits</span>,
+        ` & `,
+        <span className="text-[#6e30a7] font-medium	">
+          {" "}
+          national Investments
+        </span>,
       ],
     },
     {
       title: [
         <span className="font-['Playfair-Display'] font-bold uppercase">
-          Right Targeted
+          RIGHT TARGETED
         </span>,
         <span className="text-[#6e30a7] font-['Playfair-Display']">
           {" "}
@@ -39,14 +44,14 @@ function Features() {
           {" "}
           filtering{" "}
         </span>,
-        `your type of projects and `,
-        <span className="text-[#6e30a7] font-medium	"> ROI</span>,
+        `your type of `,
+        <span className="text-[#6e30a7] font-medium	">projects and ROI</span>,
       ],
     },
     {
       title: [
         <span className="font-['Playfair-Display'] font-bold uppercase">
-          Diverify
+          Diversify
         </span>,
         <span className="text-[#6e30a7] font-['Playfair-Display']">
           {" "}
@@ -55,31 +60,46 @@ function Features() {
       ],
       // image: "https://i.postimg.cc/tsXRP5PS/portfolio.png",
       description: [
-        `Add Real estates to your portfolio & `,
+        `Diversify your `,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium">
           {" "}
-          diversify your Investments
+          Real estate investments {""}
         </span>,
+        `by category :`,
+        <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium">
+          {" "}
+          Hotels, Retail, Land, warehouse
+        </span>,
+        `, etc.`,
       ],
     },
     {
       title: [
+        <span className="font-['Playfair-Display'] font-bold uppercase">
+          REPUTABLE
+        </span>,
         <span className="text-[#6e30a7] font-['Playfair-Display']">
           {" "}
-          Global
-        </span>,
-        <span className="font-['Playfair-Display'] font-bold uppercase ml-2">
-          Reach
+          Firms
         </span>,
       ],
       // image: "https://i.postimg.cc/hf8PfwJQ/globe.png",
       description: [
-        `Attracting `,
+        `Access `,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
           {" "}
-          local & inter-national{" "}
+          investment projects{" "}
         </span>,
-        ` Investments`,
+        `  from various`,
+        <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
+          {" "}
+          reputable firms{" "}
+        </span>,
+        `through our`,
+        <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
+          {" "}
+          centralized platform{" "}
+        </span>,
       ],
     },
     // https://postimg.cc/gallery/C5XC4Ys -> gallery for images -> postimg.cc
