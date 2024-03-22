@@ -30,7 +30,10 @@ function UserDataModal() {
       postData.name = event.target.name.value;
     }
     const res = await axios.post(`${backendUrl}/updateUser`, postData);
-    console.log(res)
+    // console.log(res);
+    if (res.status === 200) {
+      setUser(res.data.user);
+    }
     if (res.status === 500) {
       Error("Internal Server Error, try again later!");
     }
