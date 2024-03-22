@@ -118,9 +118,23 @@ const SignIn = () => {
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <div onClick={GoogleLoginHandler}>
                       <img
-                        className="w-[45px]"
+                        className="w-[50px]"
                         src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
                         alt="googlelogo"
+                      />
+                    </div>
+                    <div onClick={GoogleLoginHandler}>
+                      <img
+                        className="w-[40px]"
+                        src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
+                        alt="outlook"
+                      />
+                    </div>
+                    <div onClick={GoogleLoginHandler}>
+                      <img
+                        className="w-[40px]"
+                        src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
+                        alt="outlook"
                       />
                     </div>
                     {/* <Link to="/">
@@ -174,13 +188,27 @@ const SignIn = () => {
                 <form onSubmit={handleLogin}>
                   <h2 className="text-2xl">SIGN IN</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
-                    <Link to="/">
+                    <div onClick={GoogleLoginHandler}>
                       <img
-                        className="w-[45px]"
+                        className="w-[50px]"
                         src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
                         alt="googlelogo"
                       />
-                    </Link>
+                    </div>
+                    <div onClick={GoogleLoginHandler}>
+                      <img
+                        className="w-[40px]"
+                        src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
+                        alt="outlook"
+                      />
+                    </div>
+                    <div onClick={GoogleLoginHandler}>
+                      <img
+                        className="w-[40px]"
+                        src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
+                        alt="outlook"
+                      />
+                    </div>
                     {/* <Link to="/">
                       <IoLogoApple size="30px" />
                     </Link> */}
@@ -307,13 +335,28 @@ const SignIn = () => {
                 onSubmit={handleSignUp}
               >
                 <h2 className="">SIGN UP</h2>
-                <div className="social">
-                  <a href="#" className="social">
-                    <i className="fab fa-google-plus-g"></i>
-                  </a>
-                  <a href="#" className="social">
-                    <i className="fab fa-apple"></i>
-                  </a>
+                <div className="flex items-center justify-center gap-x-4">
+                  <div onClick={GoogleLoginHandler}>
+                    <img
+                      className="w-[50px]"
+                      src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
+                      alt="googlelogo"
+                    />
+                  </div>
+                  <div onClick={GoogleLoginHandler}>
+                    <img
+                      className="w-[40px]"
+                      src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
+                      alt="outlook"
+                    />
+                  </div>
+                  <div onClick={GoogleLoginHandler}>
+                    <img
+                      className="w-[40px]"
+                      src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
+                      alt="outlook"
+                    />
+                  </div>
                 </div>
                 <input
                   type="email"
@@ -378,13 +421,28 @@ const SignIn = () => {
                 onSubmit={handleLogin}
               >
                 <h2 className="text-2xl font-bold">SIGN IN</h2>
-                <div className="social">
-                  <a href="#" className="social">
-                    <i className="fab fa-google-plus-g"></i>
-                  </a>
-                  <a href="#" className="social">
-                    <i className="fab fa-apple"></i>
-                  </a>
+                <div className="flex items-center justify-center gap-x-4">
+                  <div onClick={GoogleLoginHandler}>
+                    <img
+                      className="w-[50px]"
+                      src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
+                      alt="googlelogo"
+                    />
+                  </div>
+                  <div onClick={GoogleLoginHandler}>
+                    <img
+                      className="w-[40px]"
+                      src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
+                      alt="outlook"
+                    />
+                  </div>
+                  <div onClick={GoogleLoginHandler}>
+                    <img
+                      className="w-[40px]"
+                      src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
+                      alt="outlook"
+                    />
+                  </div>
                 </div>
                 <input
                   className=""
