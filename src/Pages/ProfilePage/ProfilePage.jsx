@@ -4,6 +4,8 @@ import Tabs from "./ProfileTab";
 import Profile from "./Profile";
 import Activity from "./Activity";
 import Questionnaire from "./Questionnaire";
+import UserDataModal from "../../commonComponents/getUserDataModal";
+
 
 const ProfilePage = () => {
   const tabs = [
@@ -17,6 +19,7 @@ const ProfilePage = () => {
       <div className="">
         <Tabs tabs={tabs} />
       </div>
+      <UserDataModal />
       <div className="mt-[100px]">
         <Footer />
       </div>

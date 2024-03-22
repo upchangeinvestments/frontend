@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { copy } from 'clipboard-copy';
 import OtpInput from 'react-otp-input';
 import { ImCross } from "react-icons/im";
+import { FaArrowLeftLong } from "react-icons/fa6";
 import axios from "axios";
 import Error from "../utils/Error";
 import SuccessToast from "../utils/successToast";
@@ -28,6 +29,7 @@ function DialogDefault() {
         copy(event.clipboardData.getData('text'));
         setOtp(event.clipboardData.getData('text'));
     };
+
     const otpGenerated = Math.floor(10000 + Math.random() * 90000);
     const OtpHandler = async (event) => {
         event.preventDefault();
@@ -67,7 +69,7 @@ function DialogDefault() {
                 <div className="flex flex-col justify-center items-center w-[600px] bg-gradient-to-r from-[#6e30a7] to-purple-300 p-6 py-8 rounded-xl relative">
                     <div className="absolute right-4 top-4" onClick={handleOpen}><ImCross size="20px" /></div>
                     <div>
-                        <p className="text-3xl">Join waitlist</p>
+                        <p className="text-3xl">Join Project Waitlist</p>
                     </div>
                     <div className="flex items-center justify-center">
                         <img src={logo} alt="logo" className="w-[70%]" />
@@ -110,7 +112,7 @@ function DialogDefault() {
                             </form>
                         </div>
                         <div className={activeStep === 1 ? "flex flex-col items-center justify-center" : "hidden"}>
-                            <p className="text-sm flex-wrap mt-8 ">We have sent a confirmation code on your mobile number & on your email address</p>
+                            <p className="text-sm flex-wrap mt-8 uppercase">Confirmation code</p>
                             <form onSubmit={WaitListHandler} className="mb-2 w-80 max-w-screen-lg sm:w-96 ">
                                 <div className="w-full flex items-center justify-center OtpField">
                                     <OtpInput
@@ -129,10 +131,11 @@ function DialogDefault() {
                                     </button>
                                 </div>
                             </form>
+                            <p onClick={handleOpen} className="hover:underline">Explore Website</p>
                         </div>
-                        <div className="mt-4 flex justify-start">
+                        <div className="flex justify-start">
                             <button className={activeStep === 1 ? "block" : "hidden"} onClick={handlePrev} disabled={isFirstStep}>
-                                Prev
+                                <FaArrowLeftLong size="15px" />
                             </button>
                         </div>
                     </div>
