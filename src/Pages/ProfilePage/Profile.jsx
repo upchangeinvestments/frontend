@@ -9,8 +9,8 @@ const Profile = () => {
   const [tabContent, setTabContent] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
 
-  const handleIncomingData = (data, title) => {
-    setTabContent({ data, title });
+  const handleIncomingData = (data, title, linkId) => {
+    setTabContent({ data, title, linkId });
   };
   const sidebarHandler = () => {
     setSidebarOpen(!sidebarOpen);
@@ -128,14 +128,14 @@ const Profile = () => {
         <div className="grid col-span-9">
           <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-gradient-to-r from-pink-200 to-purple-300 rounded-lg shadow-md relative">
             {tabContent && (
-              <>
+              <div id={tabContent.linkId}>
                 <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-purple-600  font-bold text-center">
                   {tabContent.title}
                 </h2>
                 <div className="vsm:text-[15px] vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
                   {tabContent.data}
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>

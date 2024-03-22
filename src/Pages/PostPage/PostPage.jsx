@@ -58,7 +58,7 @@ const OverViewContent = () => {
 const ListedCompany = () => {
   return (
     <div className="flex flex-col">
-      <h2 className="CustomizeFontH text-lg">The Reilea Group</h2>
+      <h2 className="font-['Playfair-Display'] text-lg">The Reilea Group</h2>
       <p>
         Founded in 1981, rilea group has been at the forefront of miami’s real
         estate development landscape, leaving an indelible mark through iconic
@@ -86,7 +86,7 @@ const ListedCompany = () => {
         legacy of excellence in real estate development.
       </p>
       <div className="flex flex-col my-2 items-center justify-center">
-        <p className="CustomizeFontH mb-2">
+        <p className="font-['Playfair-Display'] mb-2">
           TO KNOW MORE ABOUT THE FIRM AND INVEST IN THE PROJECT PLEASE GO TO THE
           LINK BELOW.
         </p>
@@ -122,17 +122,17 @@ function PostPage() {
         </div>
         <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl">
           <div className="flex flex-col items-center justify-center w-full py-4">
-            <div className="flex vsm:flex-col md:flex-row items-center justify-center text-2xl">
-              <span className="CustomizeFontH md:border-r md:border-gray-600 pr-2">
+            <div className="flex vsm:flex-col md:flex-row font-['Playfair-Display'] items-center justify-center text-2xl">
+              <span className="md:border-r md:border-gray-600 font-semibold pr-2">
                 The Highlands
               </span>
-              <span className="pl-2">Residential property</span>
+              <span className="pl-2 font-medium">Residential property</span>
             </div>
-            <span className="flex items-center">
+            <span className="flex font-['Playfair-Display'] items-center">
               <PiMapPinLineBold /> Ardent Housing Fund II, LP
             </span>
           </div>
-          <div className="flex flex-col items-center justify-center w-full ">
+          <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
             <div className="flex justify-start lg:justify-evenly lg:gap-[380px] bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
               {tabs.map((value, index) => (
                 <p
@@ -210,13 +210,13 @@ function PostPage() {
             </div>
           </div>
         </div>
-        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/40  backdrop-blur-xl rounded-lg my-6 shadow-md shadow-black-400 p-6">
+        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/40 font-['Playfair-Display']  backdrop-blur-xl rounded-lg my-6 shadow-md shadow-black-400 p-6">
           {tabs.map((tab, index) => (
             <div
               key={index}
               className={`mb-4 ${activeTab === index ? "block" : "hidden"}`}
             >
-              <h2 className="CustomizeFontH text-xl text-[#6e30a7] text-left">
+              <h2 className="text-xl text-[#6e30a7] font-bold text-left">
                 {tab.title}
               </h2>
               {tab.content}
@@ -228,10 +228,10 @@ function PostPage() {
             <PhotoSection />
           </div>
           <div className="w-[100%] vsm:mt-4 lg:mt-0 lg:col-span-4 p-4 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 ">
-            <h2 className="CustomizeFontH text-[#6e30a7] mb-2 text-xl">
+            <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
               Investment Highlights
             </h2>
-            <div className="px-4 ">
+            <div className="px-4 font-['Playfair-Display'] ">
               <p className="mb-1">
                 This is a rare opportunity to purchase 1,71,402 sf in a LEED
                 Platinum building – Prestige Tech Platina on Outer Ring Road in
@@ -250,10 +250,10 @@ function PostPage() {
         </div>
         <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl vsm:flex vsm:flex-col-reverse lg:grid lg:grid-cols-12 gap-4 my-6">
           <div className="lg:col-span-4  bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 p-4">
-            <h2 className="CustomizeFontH text-[#6e30a7] mb-2 text-xl">
+            <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
               Location Highlights
             </h2>
-            <div className="px-4 ">
+            <div className="px-4 font-['Playfair-Display'] ">
               <p className="mb-1">
                 The Fund’s primary focus is on development within the Southern
                 United States, a region that is increasing in population up to
@@ -272,7 +272,7 @@ function PostPage() {
             </div>
           </div>
           <div className="lg:col-span-8 p-4 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 ">
-            <h2 className="CustomizeFontH text-[#6e30a7] mb-2 text-xl">
+            <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
               Location
             </h2>
             <div className="flex items-start justify-center h-full">

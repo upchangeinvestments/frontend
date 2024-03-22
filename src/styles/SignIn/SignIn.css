@@ -1,21 +1,21 @@
 @import url("https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600&display=swap");
 @import url("https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.2/css/all.min.css");
 
-.SignIn{
+.SignIn {
   /* background-image: url('../../assets/Building.jpg'); */
   height: 100vh;
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-.bg1{
-  background-image: url('../../assets/Building.jpg');
+.bg1 {
+  background-image: url("../../assets/Building.jpg");
 }
-.bg2{
-  background-image: url('../../assets/Building2.jpg');
+.bg2 {
+  background-image: url("../../assets/Building2.jpg");
 }
 
-.UserController{
+.UserController {
   display: flex;
   justify-content: center;
   align-items: center;
@@ -35,12 +35,10 @@
   overflow-x: hidden;
 }
 
-
 .SignInContainer .forms-container {
   position: relative;
   width: 50%;
   text-align: center;
-  
 }
 
 .forms-container .form-control {
@@ -76,7 +74,7 @@
   width: 75%;
 }
 
-.signup-form form input{
+.signup-form form input {
   width: 120%;
 }
 
@@ -107,13 +105,12 @@
   align-items: flex-end;
 }
 
-.socials1{
+.socials1 {
   margin: 0 5px;
   color: #f6f6f8;
   position: relative;
   bottom: -130%;
   /* align-items: flex-end; */
-
 }
 
 .socials {
@@ -128,12 +125,11 @@
   align-items: flex-end;
 }
 
-
 .form-control.signup-form {
   display: flex;
-	justify-content: center;
-	align-items: center;
-	text-align: center;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
   opacity: 0;
   z-index: 1;
   left: 200%;
@@ -153,7 +149,7 @@
   overflow-y: hidden;
 }
 
-.signin-form form .social{
+.signin-form form .social {
   margin-bottom: 20px;
 }
 
@@ -176,16 +172,14 @@
 
 .intro-control .intro-control__inner h2 {
   margin: 10px 30px;
-  color: #9747FF;
+  color: #6e30a7;
 }
 .intro-control .intro-control__inner {
   width: 100%;
   /* margin: 0px 30px; */
   color: #e4e4e9;
   position: relative;
-
 }
-
 
 .intro-control h4 {
   display: flex;
@@ -228,11 +222,11 @@
   margin-top: 5px;
   cursor: pointer;
   width: 75%;
-  background-color: #9747FF;
+  background-color: #6e30a7;
   color: white;
   font-weight: 600;
 }
-.signin-form button{
+.signin-form button {
   width: 43%;
 }
 
@@ -247,7 +241,7 @@
   bottom: 0%;
   width: 100%;
   text-align: center;
-  background-color: #0a0a0a; 
+  background-color: #0a0a0a;
   color: #e4e4e9;
   padding: 10px;
   align-items: end;
@@ -275,7 +269,7 @@
 .change .signup-intro {
   opacity: 1;
   z-index: 2;
-  align-items: flex-end;;
+  align-items: flex-end;
   width: 100%;
 }
 
@@ -328,18 +322,18 @@
 }
 
 @media (min-width: 768px) and (max-width: 1024px) {
-  .socials{
+  .socials {
     bottom: -100%;
   }
-  .socials1{
+  .socials1 {
     bottom: -100%;
   }
 }
 @media (min-width: 425px) and (max-width: 768px) {
-  .socials{
+  .socials {
     bottom: -50%;
   }
-  .socials1{
+  .socials1 {
     bottom: -50%;
   }
   .intro-control .intro-control__inner {
@@ -347,14 +341,14 @@
   }
 }
 
-.SignInMobile{
-  background-image: url('../../assets/Building.jpg');
+.SignInMobile {
+  background-image: url("../../assets/Building.jpg");
   /* height: 100vh; */
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
 }
-.FormMobile{
+.FormMobile {
   color: white;
 }
 .FormMobile form input {
@@ -366,7 +360,7 @@
   border-bottom: 1px solid white;
   width: 75%;
 }
-.FormMobile button{
+.FormMobile button {
   border: none;
   /* background-color: rgba(248, 245, 245, 0.5); */
   border-radius: 5px;
@@ -376,10 +370,10 @@
   margin-top: 5px;
   cursor: pointer;
   width: 75%;
-  background-color: #9747FF;
+  background-color: #9747ff;
   color: white;
   font-weight: 600;
 }
-.UPCIN{
-  color: #9747FF;
+.UPCIN {
+  color: #9747ff;
 }

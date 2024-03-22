@@ -4,14 +4,14 @@ import bgImage from "../assets/login_BG.jpeg";
 
 function Post({ data, type }) {
   return (
-    <div className="vsm:w-64 sm:w-80 md:w-96 lg:w-full">
+    <div className="vsm:w-64  sm:w-80 md:w-96 lg:w-full">
       <div className="vsm:flex vsm:flex-col lg:flex lg:flex-row mx-auto">
         {/* <div className="flex mx-auto px-4 "> */}
         <div className="flex">
           <img className="md:rounded-l-lg w-auto" src={data.image} alt="" />
         </div>
         <div className="bg-white shadow-md vsm:p-6 md:p-4 lg:w-1/2 xl:w-auto md:rounded-r-lg">
-          <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center">
+          <h3 className="vsm:text-base md:text-xl font-['Playfair-Display'] font-bold flex justify-center">
             {data.title}
           </h3>
           <p className="text-gray-600 mb-2">{data.location}</p>

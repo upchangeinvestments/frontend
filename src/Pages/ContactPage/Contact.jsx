@@ -49,7 +49,7 @@ function ContactForm() {
                   <div className=" right-0 top-0  p-2">
                     <IoMdMail size="20px" />
                   </div>
-                  <p className="lg:ml-8">LynkinfIniteInvestments@gmail.com</p>
+                  <p className="lg:ml-8">LynkInfniteInvestments@gmail.com</p>
                 </div>
               </div>
               <div className="flex flex-col vsm:mt-4 sm:mt-4 md:mt-12 lg:mt-20 items-center justify-center basis-1/3">
@@ -81,7 +81,7 @@ function ContactForm() {
             ></iframe>
           </div>
           <div className="md:mb-6 vsm:mt-[450px] vsm:px-4 sm:mt-[450px] sm:px-6  md:mt-20 lg:mt-0 md:col-span-2 lg:pl-[100px] rounded-lg w-full font-['Playfair-Display']  shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 vsm:py-4 md:py-8  flex flex-col items-center justify-center">
-            <p className="text-2xl font-bold ">Send Us Message</p>
+            <p className="text-2xl text-white font-bold ">Send Us a Message</p>
             <form
               onSubmit={handleSubmit}
               className=" rounded vsm:p-4 md:px-8 md:pt-6 w-full"
