@@ -8,28 +8,31 @@ import bgImage from "../assets/login_BG.jpeg";
 import { useAuth } from "../utils/AuthContext"
 import "../App.css";
 import logo from "../assets/logo.png";
-import {
-    Input,
-} from "@material-tailwind/react";
+import { Stepper } from "@material-tailwind/react";
 
 function DialogDefault() {
-    const [isOpen, setOpen] = useState(true);
-    const [otpHide, setOtpHide] = useState(false);
+    const [isOpen, setOpen] = useState(!localStorage.getItem('waitlist'));
+    console.log(isOpen);
     const [otp, setOtp] = useState('');
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
     const handleOpen = () => setOpen(!isOpen);
     const { backendUrl } = useAuth();
 
+    const [activeStep, setActiveStep] = useState(0);
+    const [isFirstStep, setIsFirstStep] = useState(false);
+    const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
+
+
+    const otpGenerated = Math.floor(10000 + Math.random() * 90000);
     const OtpHandler = async (event) => {
         event.preventDefault();
-        const otpGenerated = Math.floor(10000 + Math.random() * 900000);
         console.log(otpGenerated);
 
         const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email, otpGenerated });
         console.log(otpSendResponse);
         if (otpSendResponse.status === 200) {
-            setOtpHide(!otpHide);
+            setActiveStep(1);
         } else {
             return Error("Something went wrong!");
         }
@@ -38,13 +41,18 @@ function DialogDefault() {
     const WaitListHandler = async (event) => {
         event.preventDefault();
         try {
-            const response = await axios.post(`${backendUrl}/waitlist`, { name, email });
+            const response = await axios.post(`${backendUrl}/waitlist`, { name, email, otp });
             if (response.status === 200) {
-                SuccessToast("We have added you in our list.");
+                SuccessToast("Verified Confirmation code & we have added you in our waited list.");
+                localStorage.setItem("waitlist", "joined");
+                handleOpen();
             } else if (response.status === 202) {
-                SuccessToast("We have added you in our list.");
+                SuccessToast("Verified Confirmation code & You are in our waiting list already.");
+                localStorage.setItem("waitlist", "joined");
+                handleOpen();
+            } else if (response.status === 203) {
+                Error("Invalid Confirmation code");
             }
-            handleOpen();
         } catch (error) {
             console.log(error)
             return Error(error.response.data.message);
@@ -63,54 +71,68 @@ function DialogDefault() {
                         <img src={logo} alt="logo" className="w-[70%]" />
                     </div>
                     <div className="">
-                        <form className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 ">
-                            <div className="mb-1 flex flex-col gap-6">
-                                <p variant="h6" color="blue-gray" className="-mb-3">
-                                    Your Name
-                                </p>
-                                <Input
-                                    name="Name"
-                                    size="lg"
-                                    placeholder="name@mail.com"
-                                    className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                    labelProps={{
-                                        className: "before:content-none after:content-none",
-                                    }}
-                                    onChange={(event) => setName(event.target.value)}
-                                />
-                                <p variant="h6" color="blue-gray" className="-mb-3">
-                                    Your Email
-                                </p>
-                                <Input
-                                    name="Mail"
-                                    size="lg"
-                                    placeholder="name@mail.com"
-                                    className=" !border-t-blue-gray-200 focus:!border-t-gray-900"
-                                    labelProps={{
-                                        className: "before:content-none after:content-none",
-                                    }}
-                                    onChange={(event) => setEmail(event.target.value)}
-                                />
-                            </div>
-                            <button onClick={OtpHandler} className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
-                                Send OTP
+                        <Stepper
+                            activeStep={activeStep}
+                            isFirstStep={(value) => setIsFirstStep(value)}
+                        >
+                            <div onClick={() => setActiveStep(0)}>1</div>
+                            <div onClick={() => setActiveStep(1)}>2</div>
+                        </Stepper>
+                        <div className={activeStep === 0 ? "block" : "hidden"}>
+                            <form onSubmit={OtpHandler} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 ">
+                                <div className="mb-1 flex flex-col gap-6">
+                                    <p variant="h6" color="blue-gray" className="-mb-3">
+                                        Your Name
+                                    </p>
+                                    <input
+                                        type="text"
+                                        onChange={(event) => setName(event.target.value)}
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                        required
+                                    />
+                                    <p variant="h6" color="blue-gray" className="-mb-3">
+                                        Your Email
+                                    </p>
+                                    <input
+                                        type="text"
+                                        onChange={(event) => setEmail(event.target.value)}
+                                        className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                        required
+                                    />
+                                </div>
+                                <div className="flex items-center justify-center">
+                                    <button className="mt-6 bg-top vsm:px-4 vsm:py-1 lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
+                                        Send Confirmation Code
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className={activeStep === 1 ? "flex flex-col items-center justify-center" : "hidden"}>
+                            <p className="text-sm flex-wrap mt-8 ">We have sent a confirmation code on your mobile number & on your email address</p>
+                            <form onSubmit={WaitListHandler} className="mb-2 w-80 max-w-screen-lg sm:w-96 ">
+                                <div className="w-full flex items-center justify-center OtpField">
+                                    <OtpInput
+                                        renderInput={(props) => <input {...props} />}
+                                        className="p-4 text-lg m-4"
+                                        value={otp}
+                                        onChange={setOtp}
+                                        numInputs={5}
+                                        onPaste={true}
+                                        renderSeparator={<span>-</span>}
+                                    />
+                                </div>
+                                <div className="flex items-center justify-center">
+                                    <button className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
+                                        Verify & Join Waitlist
+                                    </button>
+                                </div>
+                            </form>
+                        </div>
+                        <div className="mt-4 flex justify-start">
+                            <button className={activeStep === 1 ? "block" : "hidden"} onClick={handlePrev} disabled={isFirstStep}>
+                                Prev
                             </button>
-                            <div className="w-full flex items-center justify-center OtpField">
-                                <OtpInput
-                                    className="p-4 text-lg m-4 bg-transparent"
-                                    value={otp}
-                                    onChange={setOtp}
-                                    numInputs={5}
-                                    onPaste={true}
-                                    renderSeparator={<span>-</span>}
-                                    renderInput={(props) => <input {...props} />}
-                                />
-                            </div>
-                            <p className="text-sm">OTP send to your entered email address</p>
-                            <button onClick={WaitListHandler} className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
-                                Join Waitlist
-                            </button>
-                        </form>
+                        </div>
                     </div>
                 </div>
             </div>)}
