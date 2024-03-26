@@ -1,5 +1,5 @@
 import React from "react";
-import Lipika_mam from "../../assets/LS_Photo.png";
+import Lipika_mam from "../../assets/founder2.jpg";
 import { ImQuotesLeft } from "react-icons/im";
 import BlurBuilding from "../../assets/Building_blur-md.jpg";
 import logo from "../../assets/logo2.png";
@@ -11,11 +11,10 @@ function AboutUs() {
     <div className="overflow-x-hidden bg-gradient-to-r from-purple-300 to-pink-200 lg:mb-0 ">
       <div className="vsm:flex vsm:items-center justify-center vsm:flex-col md:flex  md:flex-row md:mt-2 xl:mt-8 relative">
         <div class="vsm:h-[700px] vsm:w-[280px]  vsm:mt-[30px] msm:w-[300px]   sm:w-[350px] md:w-[180px] md:h-[980px]  md:ml-[25px] md:mt-[50px] lg:ml-[60px] lg:mt-[50px] lg:w-[280px] lg:h-[1000px] xl:ml-[60px] xl:mt-[50px] xl:w-[280px] xl:h-[840px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 backdrop-blur-xl bottom-0 flex flex-col  items-center rounded-lg font-['Playfair-Display'] rounded-t-full">
-          <img
-            className="vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] md:w-[120px] md:h-[120px] md:mt-[30px] lg:w-[200px] lg:h-[200px] lg:mt-[30px] border-2 border-yellow-500 rounded-full "
-            src={Lipika_mam}
-            alt="Lipika Sharma"
-          />
+          <div
+            className="vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] md:w-[120px] md:h-[120px] md:mt-[30px] lg:w-[200px] lg:h-[200px] lg:mt-[30px] border-2 border-yellow-500 rounded-full bg-center bg-cover"
+            style={{ backgroundImage: `url(${Lipika_mam})` }}
+          ></div>
           <div class="text-center">
             <h2 class="vsm:mt-[30px] vsm:text-[20px] vsm:mb-[30px] md:mt-[70px] md:text-[20px] md:mb-[50px] lg:text-[22px] text-white font-semibold lg:mt-[60px] lg:mb-[50px] uppercase">
               Company at a glance

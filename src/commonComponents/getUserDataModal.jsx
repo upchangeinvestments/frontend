@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { ImCross } from "react-icons/im";
 import DatePicker from 'react-date-picker';
 import 'react-date-picker/dist/DatePicker.css';
 import 'react-calendar/dist/Calendar.css';
@@ -12,9 +11,9 @@ import "../App.css";
 
 
 function UserDataModal() {
-  const { user, setUser, backendUrl } = useAuth();
-  console.log(user)
-  const [isOpen, setOpen] = useState(!user.updatedInfo);
+  const { user, setUser, backendUrl, isAuth } = useAuth();
+  // console.log(isAuth)
+  const [isOpen, setOpen] = useState(isAuth && !user.updatedInfo);
   // const handleOpen = () => setOpen(!isOpen);
   const [valueDOB, onChangeDOB] = useState(new Date());
 

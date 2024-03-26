@@ -130,13 +130,13 @@ const SignIn = () => {
                         alt="outlook"
                       />
                     </div>
-                    <div onClick={GoogleLoginHandler}>
+                    {/* <div onClick={GoogleLoginHandler}>
                       <img
                         className="w-[40px]"
                         src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
                         alt="outlook"
                       />
-                    </div>
+                    </div> */}
                     {/* <Link to="/">
                       <IoLogoApple size="30px" />
                     </Link> */}
@@ -202,13 +202,13 @@ const SignIn = () => {
                         alt="outlook"
                       />
                     </div>
-                    <div onClick={GoogleLoginHandler}>
+                    {/* <div onClick={GoogleLoginHandler}>
                       <img
                         className="w-[40px]"
                         src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
                         alt="outlook"
                       />
-                    </div>
+                    </div> */}
                     {/* <Link to="/">
                       <IoLogoApple size="30px" />
                     </Link> */}
@@ -350,13 +350,13 @@ const SignIn = () => {
                       alt="outlook"
                     />
                   </div>
-                  <div onClick={GoogleLoginHandler}>
+                  {/* <div onClick={GoogleLoginHandler}>
                     <img
                       className="w-[40px]"
                       src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
                       alt="outlook"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <input
                   type="email"
@@ -436,13 +436,13 @@ const SignIn = () => {
                       alt="outlook"
                     />
                   </div>
-                  <div onClick={GoogleLoginHandler}>
+                  {/* <div onClick={GoogleLoginHandler}>
                     <img
                       className="w-[40px]"
                       src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
                       alt="outlook"
                     />
-                  </div>
+                  </div> */}
                 </div>
                 <input
                   className=""
