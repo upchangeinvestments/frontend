@@ -6,7 +6,7 @@ import "../../styles/CategoryPage/categoryPage.css";
 function ContactPage() {
   return (
     <div className="">
-      <div className="aboutMain">
+      <div className="contactMain">
         <div className="">
           <Navbar />
           <div className="h-[35vh] overflow-hidden flex items-center justify-center">

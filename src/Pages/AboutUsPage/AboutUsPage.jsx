@@ -9,8 +9,8 @@ function AboutUsPage() {
     <div className="">
       <div className="aboutMain text-white">
         <Navbar />
-        <div className="h-[24vh] flex items-center justify-center">
-          <p className="uppercase text-white  vsm:text-4xl font-['Playfair-Display'] md:text-4xl lg:text-5xl mt-[12px]">
+        <div className="h-[55vh] flex items-center justify-center">
+          <p className="uppercase text-white  vsm:text-4xl font-['Playfair-Display'] md:text-4xl lg:text-5xl mt-[-151px]">
             ABOUT US
           </p>
         </div>

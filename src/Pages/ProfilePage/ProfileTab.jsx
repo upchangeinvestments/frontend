@@ -6,7 +6,7 @@ const Tabs = ({ tabs }) => {
 
   return (
     <div className="w-full">
-      <div className="aboutMain font-['Playfair-Display'] text-white">
+      <div className="contactMain font-['Playfair-Display'] text-white">
         <NavBar />
         <div className="h-[49vh] flex items-center justify-center">
           <p className="uppercase text-white font-bold vsm:text-2xl md:text-5xl mt-[12px]">
@@ -18,11 +18,10 @@ const Tabs = ({ tabs }) => {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`py-2 vsm:px-2 lg:px-4 vsm:text-md sm:text-xl focus:outline-none ${
-                  activeTab === index
-                    ? "border-b-2 border-[#6e30a7] text-[#6e30a7]"
-                    : ""
-                }`}
+                className={`py-2 vsm:px-2 lg:px-4 vsm:text-md sm:text-xl focus:outline-none ${activeTab === index
+                  ? "border-b-2 border-[#6e30a7] text-[#6e30a7]"
+                  : ""
+                  }`}
                 onClick={() => setActiveTab(index)}
               >
                 {tab.title}
