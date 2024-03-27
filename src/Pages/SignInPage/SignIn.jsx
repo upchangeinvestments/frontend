@@ -51,6 +51,14 @@ const SignIn = () => {
       console.log(error);
     }
   };
+  const OutLookLoginHandler = async (event) => {
+    event.preventDefault();
+    try {
+      window.open(`${backendUrl}/auth/outlook`, "_self");
+    } catch (error) {
+      console.log(error);
+    }
+  };
 
   const handleLogin = async (event) => {
     event.preventDefault();
@@ -123,7 +131,7 @@ const SignIn = () => {
                         alt="googlelogo"
                       />
                     </div>
-                    <div onClick={GoogleLoginHandler}>
+                    <div onClick={OutLookLoginHandler}>
                       <img
                         className="w-[40px]"
                         src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
@@ -195,7 +203,7 @@ const SignIn = () => {
                         alt="googlelogo"
                       />
                     </div>
-                    <div onClick={GoogleLoginHandler}>
+                    <div onClick={OutLookLoginHandler}>
                       <img
                         className="w-[40px]"
                         src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
@@ -343,7 +351,7 @@ const SignIn = () => {
                       alt="googlelogo"
                     />
                   </div>
-                  <div onClick={GoogleLoginHandler}>
+                  <div onClick={OutLookLoginHandler}>
                     <img
                       className="w-[40px]"
                       src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
@@ -429,7 +437,7 @@ const SignIn = () => {
                       alt="googlelogo"
                     />
                   </div>
-                  <div onClick={GoogleLoginHandler}>
+                  <div onClick={OutLookLoginHandler}>
                     <img
                       className="w-[40px]"
                       src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"

@@ -31,7 +31,7 @@ const AuthProvider = ({ children }) => {
         return setIsAuth(value);
     }
     function logout() {
-        if (user.googleId) {
+        if (user.AccountId) {
             window.open(`${backendUrl}/auth/logout`, '_self');
         } else {
             localStorage.removeItem('token');
@@ -56,9 +56,9 @@ const AuthProvider = ({ children }) => {
     };
     const getUser = async () => {
         try {
-            const url = `${backendUrl}/auth/googlelog/success`;
+            const url = `${backendUrl}/auth/provider/success`;
             const response = await axios.get(url, { withCredentials: true });
-            // console.log("google data: ", response.data.user);
+            console.log("google data: ", response);
 
             setUser(response.data.user);
             setIsAuth(true);
@@ -66,6 +66,7 @@ const AuthProvider = ({ children }) => {
         } catch (err) {
             console.log(err);
             setIsAuth(false);
+            console.log(user);
         }
     };
 

@@ -52,7 +52,7 @@ function ProfileMenu({ HandleLogout, user }) {
           color="blue-gray"
           className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
-          {user.googleId?.length > 0 ? (
+          {user.image?.length > 0 ? (
             <div>
               <img src={user.image} alt="user" className="rounded-full w-10" />
             </div>
@@ -66,9 +66,8 @@ function ProfileMenu({ HandleLogout, user }) {
             />
           )}
           <RiArrowDropDownLine
-            className={`h-5 w-5 transition-transform ${
-              isMenuOpen ? "rotate-180" : ""
-            }`}
+            className={`h-5 w-5 transition-transform ${isMenuOpen ? "rotate-180" : ""
+              }`}
           />
         </Button>
       </MenuHandler>
@@ -82,9 +81,8 @@ function ProfileMenu({ HandleLogout, user }) {
               className="flex items-center gap-3 my-1 rounded "
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${
-                  isLastItem ? "text-red-500" : "text-[#9747FF]"
-                }`,
+                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#9747FF]"
+                  }`,
                 strokeWidth: 1,
               })}
               {isLastItem ? (
