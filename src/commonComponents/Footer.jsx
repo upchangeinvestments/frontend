@@ -10,11 +10,11 @@ import { NavHashLink } from "react-router-hash-link";
 const Footer = () => {
   return (
     <footer className="footer-section font-['Playfair-Display'] pt-8">
-      <div className="px-20 ">
+      <div className="vsm:px-8 md:px-20 ">
         <div className="footer-cta py-4">
           <div className="grid md:grid-cols-3">
             <div className="">
-              <div className="single-cta md:flex">
+              <div className="single-cta vsm:flex md:flex">
                 <IoLocationSharp className="text-[#6e30a7] text-[35px]" />
                 <div className="cta-text">
                   <h4>Find Us</h4>
@@ -23,7 +23,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="">
-              <div className="single-cta md:flex">
+              <div className="single-cta vsm:flex vsm:py-6 md:flex">
                 <IoCall className="text-[#6e30a7] text-[35px]" />
                 <div className="cta-text">
                   <h4>Call Us</h4>
@@ -34,7 +34,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="">
-              <div className="single-cta md:flex  ">
+              <div className="single-cta vsm:flex  md:flex  ">
                 <IoMail className="text-[#6e30a7] text-[30px]" />
                 <div className="cta-text">
                   <h4>Mail Us</h4>
@@ -76,9 +76,6 @@ const Footer = () => {
                     <FaLinkedinIn size="30px" />
                   </a>
                 </div>
-                <p className="text-[#7e7e7e] my-[15px]">
-                  Copyright &copy; 2024, All Right Reserved
-                </p>
               </div>
             </div>
             <div className="w-full md:col-span-2 lg:col-span-1 lg:-ml-8">
@@ -105,14 +102,8 @@ const Footer = () => {
                     <Link to="/contact">Contact</Link>
                   </li>
                   <li className="text-left">
-                    <NavHashLink to="/profile/#terms" smooth>
-                      Terms &
-                    </NavHashLink>
-                    /
-                    <NavHashLink to="/profile/#privacy-policy" smooth>
-                      Privacy Policy
-                    </NavHashLink>
-                    /
+                    <Link to="/Terms">Terms &</Link>
+                    <Link to="/Privacy">Privacy Policy</Link>
                   </li>
                 </ul>
               </div>
@@ -164,7 +155,7 @@ const Footer = () => {
           </div>
         </div>
       </div>
-      <div className="footer-social-icon flex items-center justify-center my-4 md:hidden ">
+      <div className="footer-social-icon font-['Playfair-Display'] flex items-center justify-center mt-4  md:hidden ">
         <div className="mr-8">
           <span className="">Follow us</span>
         </div>

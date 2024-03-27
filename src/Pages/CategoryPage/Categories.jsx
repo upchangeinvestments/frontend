@@ -63,11 +63,11 @@ function Categories() {
               key={index}
               className="flex flex-col items-center justify-center "
             >
-              <div className="vsm:w-[100%] lg:w-[70%] flex items-center justify-center relative ">
+              <div className="vsm:w-[100%] xl:w-[90%] flex items-center justify-center relative ">
                 <img
                   src={element.image}
                   alt=""
-                  className="rounded-3xl object-cover h-[350px] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
+                  className="rounded-3xl object-cover vsm:w-[250px] h-[350px] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
                 />
                 <div className="font-['Playfair-Display'] font-bold text-xl absolute m-0 hover:underline flex items-center justify-center">
                   <p>{element.text}</p>
@@ -81,14 +81,14 @@ function Categories() {
               key={index}
               className="flex flex-col items-center justify-center"
             >
-              <div className="vsm:w-[100%] lg:w-[70%] flex items-center justify-center">
+              <div className="vsm:w-[100%] msm:w-[80%] sm:w-[70%] md:w-[100%] xl:w-[70%] flex items-center justify-center">
                 <img
                   src={element.image}
                   alt=""
                   className="rounded-3xl object-cover h-[350px] shadow-xl"
                 />
               </div>
-              <div className="vsm:w-[100%] lg:w-[80%] flex items-center justify-center pt-2">
+              <div className="flex items-center justify-center pt-2">
                 <p className="font-['Playfair-Display'] font-bold text-xl">
                   {element.text}
                 </p>

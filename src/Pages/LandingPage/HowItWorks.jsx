@@ -58,7 +58,7 @@ const HowItWorks = () => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col vsm:gap-y-4 md:gap-2 lg:gap-6 vsm:w-[95%] items-left justify-center">
+      <div className="flex flex-col vsm:backdrop-blur-3xl vsm:px-4 vsm:py-4 md:px-6 lg:backdrop-blur-none lg:bg-transparent  vsm:rounded-lg vsm:gap-y-4 md:gap-2 lg:gap-6 vsm:w-[100%] lg:w-[95%]  items-left justify-center">
         <div className="flex flex-row items-center gap-4">
           <div className="md:hidden">
             <svg
@@ -84,7 +84,7 @@ const HowItWorks = () => {
               />
             </svg>
           </div>
-          <div className="z-40 font-['Playfair-Display']">
+          <div className="z-40  font-['Playfair-Display']">
             <div className="text-2xl font-bold ">Explore</div>
             {/* <div className="text-lg	text-justify text-wrap	">You can browse through the available Alternative <span className="text-[#9747FF] font-bold"> Investment Opportunities </span> and set up a detailed call with <span className="text-[#9747FF] font-bold">firms</span> to further understand the product.</div> */}
             <div className="text-lg	text-justify text-wrap	">

@@ -40,7 +40,7 @@ function SpecificPage() {
         <div className="uppercase text-white font-['Playfair-Display'] font-bold vsm:text-4xl flex flex-col items-center justify-center h-[50vh] gap-8">
           <div className="">
             <p
-              className="vsm:hidden md:block lg:text-4xl xl:text-5xl"
+              className="vsm:hidden md:block lg:text-4xl font-medium xl:text-5xl"
               style={{ wordSpacing: "0.25em" }}
             >
               {" "}
