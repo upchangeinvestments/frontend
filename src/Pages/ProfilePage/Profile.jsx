@@ -47,7 +47,7 @@ const Profile = () => {
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="vsm:col-span-10 md:col-span-9 lg:col-span-9">
-        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg shadow-md  relative">
+        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-white-20 rounded-lg shadow-md  relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (
@@ -126,7 +126,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid col-span-9">
-          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg shadow-md relative">
+          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-white-20 rounded-lg shadow-md relative">
             {tabContent && (
               <div id={tabContent.linkId}>
                 <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-white  font-bold text-center">

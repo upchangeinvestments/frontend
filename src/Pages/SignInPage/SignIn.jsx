@@ -126,14 +126,14 @@ const SignIn = () => {
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <div onClick={GoogleLoginHandler}>
                       <img
-                        className="w-[50px]"
+                        className="w-[40px]"
                         src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
                         alt="googlelogo"
                       />
                     </div>
                     <div onClick={OutLookLoginHandler}>
                       <img
-                        className="w-[40px]"
+                        className="w-[35px]"
                         src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
                         alt="outlook"
                       />
@@ -175,7 +175,8 @@ const SignIn = () => {
                     <input type="checkbox" name="terms" required />
                     <label htmlFor="terms">
                       <p className="text-xs">
-                        I agree to all statements in terms of service
+                        I agree to all statements in terms of service and
+                        privacy policy
                       </p>
                     </label>
                   </div>
@@ -346,14 +347,14 @@ const SignIn = () => {
                 <div className="flex items-center justify-center gap-x-4">
                   <div onClick={GoogleLoginHandler}>
                     <img
-                      className="w-[50px]"
+                      className="w-[40px]"
                       src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
                       alt="googlelogo"
                     />
                   </div>
                   <div onClick={OutLookLoginHandler}>
                     <img
-                      className="w-[40px]"
+                      className="w-[35px]"
                       src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
                       alt="outlook"
                     />
@@ -389,7 +390,8 @@ const SignIn = () => {
                   <input type="checkbox" name="terms" required />
                   <label htmlFor="terms">
                     <p className="text-xs">
-                      I agree to all statements in terms of service
+                      I agree to all statements in terms of service and privacy
+                      policy
                     </p>
                   </label>
                 </div>

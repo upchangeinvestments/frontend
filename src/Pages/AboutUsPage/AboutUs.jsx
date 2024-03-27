@@ -49,7 +49,7 @@ function AboutUs() {
             </div>
           </div>
         </div>
-        <div className="vsm:p-4 vsm:w-[90%] md:ml-4 vsm:mt-[30px] md:w-[68%]  md:p-8 md:mt-[50px] lg:p-6 lg:w-[60%] lg:ml-[40px] xl:p-4 xl:ml-[50px] lg:mt-[50px] xl:mt-[50px]  bg-white/20 shadow-2xl shadow-purle-500/50 font-['Playfair-Display']   rounded-lg backdrop-blur-xl relative ">
+        <div className="vsm:p-4 vsm:w-[90%] md:ml-4 vsm:mt-[30px] md:w-[68%]  md:p-8 md:mt-[50px] lg:p-6 lg:w-[60%] lg:ml-[40px] xl:p-4 xl:ml-[50px] lg:mt-[50px] xl:mt-[50px]  bg-white/20 shadow-2xl shadow-purle-500/50 font-['Playfair-Display'] rounded-lg backdrop-blur-xl relative ">
           <div className="absolute -top-5 left-0">
             <ImQuotesLeft color="gray" size="50px" className="opacity-[0.2]" />
           </div>

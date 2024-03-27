@@ -6,7 +6,6 @@ import Activity from "./Activity";
 import Questionnaire from "./Questionnaire";
 import UserDataModal from "../../commonComponents/getUserDataModal";
 
-
 const ProfilePage = () => {
   const tabs = [
     { title: "Profile", content: <Profile /> },
@@ -15,7 +14,7 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="bg-purple-300">
+    <div className="bg-white/20">
       <div className="">
         <Tabs tabs={tabs} />
       </div>

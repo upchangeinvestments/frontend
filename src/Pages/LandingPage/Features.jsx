@@ -15,16 +15,16 @@ function Features() {
       ],
       // image: "https://i.postimg.cc/56W291tM/coin.png",
       description: [
-        `Earn `,
+        `We offer`,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
           {" "}
-          Select local
+          Selected local and national investment opportunities {""}
         </span>,
-        ` & `,
+        `providing investors with access to`,
         <span className="text-[#6e30a7] font-medium	">
-          {" "}
-          national Investments
+          {""} diverse markets{" "}
         </span>,
+        `across the country`,
       ],
     },
     {
@@ -70,7 +70,7 @@ function Features() {
           {" "}
           Hotels, Retail, Land, warehouse
         </span>,
-        `, etc.`,
+        `, etc`,
       ],
     },
     {
@@ -106,7 +106,7 @@ function Features() {
   ];
   return (
     <div className="flex flex-col items-center my-12 font-['Playfair-Display'] lg:mb-6 justify-items-center vsm:mx-6 lg:mx-20 ">
-      <h2 className="vsm:text-2xl md:text-3xl mb-4">
+      <h2 className="vsm:text-2xl md:text-3xl font-semibold mb-4">
         FEATURES OF THIS PLATFORM
       </h2>
       <div className="grid md:grid-cols-2 sm:gap-x-8 gap-y-8 md:gap-x-8 lg:gap-x-16 font-['Playfair-Display'] text-black py-4">

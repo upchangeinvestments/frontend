@@ -41,7 +41,7 @@ function EducationPage() {
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           <div className="flex flex-col pt-1 bg-white/30 backdrop-blur-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg">
-            <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] w-[450px] h-[200px] mx-auto mt-4 rounded-lg"></div>
+            <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] vsm:w-[300px] msm:w-[380px] vsm:h-[150px] md:w-[300px] md:h-[200px] lg:w-[400px] xl:w-[500px]  mx-auto mt-4 rounded-lg"></div>
             <div className="p-4">
               <p className="text-xs uppercase font-['Playfair-Display'] mb-2">
                 Time to invest
@@ -59,8 +59,8 @@ function EducationPage() {
                 key={index}
                 className="py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
               >
-                <div className="lg:w-[220px]  lg:h-[100px] flex justify-center items-center border-2 border-[#6e30a7]">
-                  <p className="flex items-center justify-center uppercase font-['Playfair-Display'] text-3xl  text-[#6e30a7] vsm:mt-4 md:mt-0">
+                <div className="vsm:w-[150px] msm:w-[160px] vsm:h-[80px] md:w-[160px] lg:w-[200px] lg:h-[80px]  xl:w-[220px]  xl:h-[100px] flex justify-center items-center border-2 border-[#6e30a7]">
+                  <p className="flex items-center justify-center uppercase font-['Playfair-Display'] vsm:text-2xl md:text-2xl lg:text-3xl  text-[#6e30a7] vsm:mt-4 md:mt-0">
                     {data.Type}
                   </p>
                 </div>

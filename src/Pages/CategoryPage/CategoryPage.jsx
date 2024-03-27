@@ -22,7 +22,7 @@ function CategoryPage() {
     setId(index);
   };
 
-  useEffect(() => { }, [data]);
+  useEffect(() => {}, [data]);
 
   return (
     <div className="categoryMain  vsm:h-[60vh] md:h-[62vh] xl:h-[55vh] mobile-filter-drawer">
@@ -36,8 +36,8 @@ function CategoryPage() {
       {/* filter section for mobile view */}
       <NavBar />
       <div className="">
-        <div className="uppercase text-white vsm:text-4xl text-5xl flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
-          <p className="text-5xl  font-['Playfair-Display']">
+        <div className="uppercase text-white flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
+          <p className="vsm:text-2xl msm:text-3xl md:text-5xl  font-['Playfair-Display']">
             {" "}
             Explore Categories
           </p>

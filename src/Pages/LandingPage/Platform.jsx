@@ -6,7 +6,7 @@ import Explore from "./Explore";
 const HowInvestmentWorks = () => {
   return (
     <div id="HowItWorks" className="md:mx-12 lg:mx-12 xl:mx-24">
-      <h1 className="flex justify-center font-['Playfair-Display'] w-full my-8 mx-auto vsm:text-2xl md:text-3xl">
+      <h1 className="flex justify-center font-semibold font-['Playfair-Display'] w-full my-8 mx-auto vsm:text-2xl md:text-3xl">
         HOW INVESTMENT WORKS
       </h1>
       <div className="flex flex-col items-center justify-center w-[100%]">

@@ -9,7 +9,7 @@ function GlassCard(props) {
   return (
     <div
       // data-aos={(props.index % 2) == 0 ? "fade-right" : "fade-left"}
-      className="w-auto bg-white/20 backdrop-blur-sm flex flex-row justify-center items-center shadow-lg rounded-lg hover:shadows-xl py-4"
+      className="md:w-[350px] lg:w-[450px] xl:w-[550px] bg-white/20 backdrop-blur-lg flex flex-row justify-center items-center shadow-lg rounded-lg hover:shadows-xl py-6"
       style={{
         backgroundImage:
           "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
@@ -26,7 +26,7 @@ function GlassCard(props) {
           }}
         />
       </div>
-      <div className="w-[60%]">
+      <div className="w-[100%] px-8">
         <h3 className="text-xl mb-1 text-black">{props.title}</h3>
         <p className="text-black text-left text-lg pr-2">{props.description}</p>
       </div>
