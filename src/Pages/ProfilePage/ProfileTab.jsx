@@ -10,7 +10,7 @@ const Tabs = ({ tabs }) => {
         <NavBar />
         <div className="h-[49vh] flex items-center justify-center">
           <p className="uppercase text-white font-bold vsm:text-2xl md:text-5xl mt-[12px]">
-            Profile{" "}
+            Profile
           </p>
         </div>
         <div className="">

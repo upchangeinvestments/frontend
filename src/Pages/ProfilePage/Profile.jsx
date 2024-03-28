@@ -3,11 +3,13 @@ import { MdOutlineEdit } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 import MobileSidebar from "./mobileSidebar";
+import { useAuth } from "../../utils/AuthContext";
 
 const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
-  const [tabContent, setTabContent] = useState("");
   const [sidebarOpen, setSidebarOpen] = useState(false);
+  const { user } = useAuth();
+  const [tabContent, setTabContent] = useState({ data: user, title: "ABOUT", linkId: "" });
 
   const handleIncomingData = (data, title, linkId) => {
     setTabContent({ data, title, linkId });
@@ -15,6 +17,19 @@ const Profile = () => {
   const sidebarHandler = () => {
     setSidebarOpen(!sidebarOpen);
   };
+  let date = new Date(user.createdAt);
+  let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  let day = date.getUTCDate().toString().padStart(2, '0');
+  let month = monthNames[date.getUTCMonth()];
+  let year = date.getUTCFullYear().toString().slice(2);
+  const dateOfJoined = `${day} ${month} ${year}`;
+  date = new Date(user.dob);
+  monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  day = date.getUTCDate().toString().padStart(2, '0');
+  month = monthNames[date.getUTCMonth()];
+  year = date.getUTCFullYear().toString().slice(2);
+  const DOB = `${day} ${month} ${year}`;
+
 
   return (
     <div className="grid font-['Playfair-Display'] grid-cols-12">
@@ -50,19 +65,14 @@ const Profile = () => {
         <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-white-20 rounded-lg shadow-md  relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
-              {isEditing ? (
-                <div className="flex flex-col">
-                  <FaUserCircle
-                    variant="circular"
-                    size="6x"
-                    alt="user"
-                    className="border border-gray-900 p-0.5 rounded-full"
-                  />
+              {user.image ? (
+                <div>
+                  <img src={user.image} alt="user" className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] xl:w-[150px] xl:h-[150px] rounded-full" />
                 </div>
               ) : (
                 <FaUserCircle
                   variant="circular"
-                  size="6x"
+                  size="100px"
                   alt="user"
                   className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] xl:w-[150px] xl:h-[150px] rounded-full"
                 />
@@ -70,10 +80,10 @@ const Profile = () => {
             </div>
             <div className=" vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
               <h2 className="vsm:text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
-                User Name
+                Welcome {user.name}
               </h2>
-              <p className="text-gray-200 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
-                User ID
+              <p className="vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
+                Email address: {user.email}
               </p>
               {isEditing ? (
                 <input
@@ -82,8 +92,8 @@ const Profile = () => {
                   placeholder="location"
                 />
               ) : (
-                <p className="text-gray-200 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
-                  User Location
+                <p className="vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
+                  User Location: {user.location}
                 </p>
               )}
             </div>
@@ -96,7 +106,7 @@ const Profile = () => {
                 rows="4"
               />
             ) : (
-              <p className="text-gray-100 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
+              <p className="vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
                 Start sharing to unlock your experience!
               </p>
             )}
@@ -129,11 +139,34 @@ const Profile = () => {
           <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-white-20 rounded-lg shadow-md relative">
             {tabContent && (
               <div id={tabContent.linkId}>
-                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-white  font-bold text-center">
+                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px]   font-bold text-center">
                   {tabContent.title}
                 </h2>
-                <div className="vsm:text-[15px] text-white vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
-                  {tabContent.data}
+                <div className="vsm:text-[15px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] xl:text-[18px] text-pretty items-center text-left ">
+                  {/* {tabContent.data} */}
+                  <table class="table-auto">
+                    <tbody>
+                      <tr>
+                        <td className="pr-6">Name: </td>
+                        <td>{user.name}</td>
+                      </tr>
+                      <tr>
+                        <td className="pr-6">Email address: </td>
+                        <td>{user.email}</td>
+                      </tr>
+                      <tr>
+                        <td className="pr-6">Location: </td>
+                        <td>{user.location}</td>
+                      </tr>
+                      <tr>
+                        <td className="pr-6">Date of birth: </td>
+                        <td>{DOB}</td>
+                      </tr>
+                    </tbody>
+                  </table>
+                  <div className="">
+                    Member since {dateOfJoined}
+                  </div>
                 </div>
               </div>
             )}

@@ -89,7 +89,7 @@ const SignIn = () => {
       const password = event.target.password.value;
       const confirmPassword = event.target.confirmPassword.value;
       // console.log(email, password, confirmPassword);
-
+      console.log(backendUrl);
       const response = await axios.post(`${backendUrl}/auth/signup`, {
         email,
         password,
