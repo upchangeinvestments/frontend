@@ -308,7 +308,7 @@ const PrivacyPolicy = () => {
 };
 
 const tabs = [
-  { title: "ABOUT", content: "content 1", linkId: "" },
+  { title: "PROFILE SECTION", content: "content 1", linkId: "" },
   {
     title: "TERMS OF SERVICE",
     content: <TermsOfServce />,
@@ -320,6 +320,7 @@ const tabs = [
     linkId: "privacy-policy",
   },
   { title: "LOGOUT", content: "content 4", linkId: "" },
+  { title: "COMMUNICATION", content: "content 4", linkId: "" },
 ];
 
 const Sidebar = ({ sendDataToProfile }) => {
