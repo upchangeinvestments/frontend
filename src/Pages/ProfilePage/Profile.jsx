@@ -17,6 +17,7 @@ const Profile = () => {
   const sidebarHandler = () => {
     setSidebarOpen(!sidebarOpen);
   };
+
   let date = new Date(user.createdAt);
   let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
   let day = date.getUTCDate().toString().padStart(2, '0');

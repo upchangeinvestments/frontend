@@ -61,12 +61,12 @@ function ProfileMenu({ HandleLogout, user }) {
               variant="circular"
               size="sm"
               alt="user"
-              className="border border-gray-900 p-0.5 rounded-full w-10"
+              className="border border-gray-900 p-0.5 rounded-full w-10 text-[#6e30a7]"
               src=""
             />
           )}
           <RiArrowDropDownLine
-            className={`h-5 w-5 transition-transform ${isMenuOpen ? "rotate-180" : ""
+            className={`h-5 w-5 transition-transform text-[#6e30a7] ${isMenuOpen ? "rotate-180" : ""
               }`}
           />
         </Button>
@@ -81,7 +81,7 @@ function ProfileMenu({ HandleLogout, user }) {
               className="flex items-center gap-3 my-1 rounded "
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#9747FF]"
+                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#6e30a7]"
                   }`,
                 strokeWidth: 1,
               })}

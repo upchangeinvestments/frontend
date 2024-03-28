@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import NavBar from "../../commonComponents/NavBar";
+import { Link } from "react-router-dom";
+import { NavHashLink } from "react-router-hash-link";
 // import SearchBox from '../../commonComponents/SearchBox';
 import "../../styles/CategoryPage/categoryPage.css";
 import { PiMapPinLineBold } from "react-icons/pi";
@@ -11,7 +13,6 @@ import Button from "../../commonComponents/LoginButton";
 import MaterialUIAccordion from "./Accordion";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
-import { Link } from "react-router-dom";
 import PhotoSection from "./PhotosSection";
 
 const Progressbar = ({ val }) => {
@@ -100,12 +101,11 @@ const tabs = [
     title: "Overview",
     content: <OverViewContent />,
   },
-  { title: "Listed Company", content: <ListedCompany /> },
-  // { title: "Business Plan", content: 'content' },
-  // { title: "Property", content: 'content' },
-  // { title: "Financials", content: 'content' },
-  // { title: "Documents", content: 'content' },
-  // { title: "Disclaimers", content: 'content' },
+  {
+    title: "Listed Company",
+    content: <ListedCompany />,
+  },
+
 ];
 
 function PostPage() {
@@ -116,9 +116,6 @@ function PostPage() {
       <div className="flex flex-col items-center justify-center">
         <div className="PostPage bg-top w-[100%]">
           <NavBar />
-          {/* <div className="w-full bg-black/20">
-                        <SearchBox />
-                    </div> */}
         </div>
         <div className="vsm:w-[90%] xl:w-[70%]  2xl:max-w-7xl">
           <div className="flex flex-col items-center justify-center w-full py-4">
@@ -135,17 +132,16 @@ function PostPage() {
           <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
             <div className="flex justify-start lg:justify-evenly lg:gap-[380px] bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
               {tabs.map((value, index) => (
-                <p
-                  className={`font-semibold text-lg p-4 cursor-default whitespace-nowrap ${
-                    activeTab === index
-                      ? "border-b-4 border-[#6e30a7] text-[#6e30a7]"
-                      : ""
-                  }`}
+                <NavHashLink to="/post/#Section" smooth
+                  className={`font-semibold text-lg p-4 cursor-default whitespace-nowrap ${activeTab === index
+                    ? "border-b-4 border-[#6e30a7] text-[#6e30a7]"
+                    : ""
+                    }`}
                   key={index}
                   onClick={() => setActiveTab(index)}
                 >
                   {value.title}
-                </p>
+                </NavHashLink>
               ))}
             </div>
             <div className="flex vsm:flex-col md:flex-row w-full bg-white/20 backdrop-blur-xl shadow-md shadow-black-400 rounded-lg">
@@ -210,7 +206,7 @@ function PostPage() {
             </div>
           </div>
         </div>
-        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/40 font-['Playfair-Display']  backdrop-blur-xl rounded-lg my-6 shadow-md shadow-black-400 p-6">
+        <div id="Section" className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/40 font-['Playfair-Display']  backdrop-blur-xl rounded-lg my-6 shadow-md shadow-black-400 p-6">
           {tabs.map((tab, index) => (
             <div
               key={index}
