@@ -14,12 +14,12 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="bg-white/20">
-      <div className="">
+    <div className="bg-gradient-to-r from-purple-300 to-pink-200">
+      <div className="mb-[50px]">
         <Tabs tabs={tabs} />
       </div>
       <UserDataModal />
-      <div className="mt-[100px]">
+      <div className="">
         <Footer />
       </div>
     </div>

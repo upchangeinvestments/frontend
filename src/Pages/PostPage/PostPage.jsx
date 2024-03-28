@@ -112,7 +112,7 @@ function PostPage() {
   const [activeTab, setActiveTab] = useState(0);
   const val = "71";
   return (
-    <div className="">
+    <div className="bg-gradient-to-r from-purple-300 to-pink-200 ">
       <div className="flex flex-col items-center justify-center">
         <div className="PostPage bg-top w-[100%]">
           <NavBar />
@@ -120,7 +120,7 @@ function PostPage() {
                         <SearchBox />
                     </div> */}
         </div>
-        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl">
+        <div className="vsm:w-[90%] xl:w-[70%]  2xl:max-w-7xl">
           <div className="flex flex-col items-center justify-center w-full py-4">
             <div className="flex vsm:flex-col md:flex-row font-['Playfair-Display'] items-center justify-center text-2xl">
               <span className="md:border-r md:border-gray-600 font-semibold pr-2">

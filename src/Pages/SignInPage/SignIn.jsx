@@ -149,6 +149,9 @@ const SignIn = () => {
                       <IoLogoApple size="30px" />
                     </Link> */}
                   </div>
+                  <div>
+                    <p className="or">OR</p>
+                  </div>
                   <input
                     type="email"
                     placeholder="Email"
@@ -221,6 +224,9 @@ const SignIn = () => {
                     {/* <Link to="/">
                       <IoLogoApple size="30px" />
                     </Link> */}
+                  </div>
+                  <div>
+                    <p className="or">OR</p>
                   </div>
                   <input
                     className=""
@@ -367,6 +373,9 @@ const SignIn = () => {
                     />
                   </div> */}
                 </div>
+                <div>
+                  <p className="or">OR</p>
+                </div>
                 <input
                   type="email"
                   placeholder="Email"
@@ -453,6 +462,9 @@ const SignIn = () => {
                       alt="outlook"
                     />
                   </div> */}
+                </div>
+                <div>
+                  <p className="or">OR</p>
                 </div>
                 <input
                   className=""

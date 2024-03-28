@@ -46,8 +46,8 @@ const Profile = () => {
       <div className="hidden md:block vsm:col-span-2 md:col-span-3 lg:col-span-3">
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
-      <div className="vsm:col-span-10 md:col-span-9 lg:col-span-9">
-        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-white-20 rounded-lg shadow-md  relative">
+      <div className="vsm:col-span-10  md:col-span-9 lg:col-span-9">
+        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-[#f1f1f8] rounded-lg shadow-md  relative">
           <div className="flex items-center">
             <div className="flex-shrink-0">
               {isEditing ? (
@@ -68,11 +68,11 @@ const Profile = () => {
                 />
               )}
             </div>
-            <div className=" vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
-              <h2 className="vsm:text-[14px] sm:text-[15px] md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
+            <div className=" vsm:ml-3 sm:ml-4  md:ml-8 lg:ml-8">
+              <h2 className="vsm:text-[14px] sm:text-[15px] text-purple-800 md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
                 User Name
               </h2>
-              <p className="text-gray-200 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
+              <p className="text-purple-500 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
                 User ID
               </p>
               {isEditing ? (
@@ -82,7 +82,7 @@ const Profile = () => {
                   placeholder="location"
                 />
               ) : (
-                <p className="text-gray-200 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
+                <p className="text-purple-500 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
                   User Location
                 </p>
               )}
@@ -96,7 +96,7 @@ const Profile = () => {
                 rows="4"
               />
             ) : (
-              <p className="text-gray-100 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
+              <p className="text-purple-500 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
                 Start sharing to unlock your experience!
               </p>
             )}
@@ -112,11 +112,11 @@ const Profile = () => {
             ) : (
               <button
                 onClick={() => setIsEditing(!isEditing)}
-                className="bg-purple-500 hover:bg-purple-600 text-white font-bold vsm:text-[10px] vsm:px-[4px] vsm:py-[3px] vsm:mt-[40px] sm:text-[12px] sm:px-[5px] sm:ml-[20px] md:px-[5px] md:py-[5px]   lg:py-2 lg:px-4 rounded absolute top-8 right-8 flex items-center justify-center"
+                className="bg-[#6e30a7] hover:bg-purple-600 text-white font-bold vsm:text-[10px] vsm:px-[4px] vsm:py-[3px] vsm:mt-[40px] sm:text-[12px] sm:px-[5px] sm:ml-[20px] md:px-[5px] md:py-[5px] lg:text-[18px]   lg:py-2 lg:px-4 rounded absolute top-8 right-8 flex items-center justify-center"
               >
                 <span className="mr-2">
                   <MdOutlineEdit
-                    className="vsm:size-[13px] sm:size-[12px]"
+                    className="vsm:size-[13px] sm:size-[12px] lg:size-[18px]"
                     size="20px"
                   />
                 </span>
@@ -126,7 +126,7 @@ const Profile = () => {
           </div>
         </div>
         <div className="grid col-span-9">
-          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-white-20 rounded-lg shadow-md relative">
+          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-[#f1f1f8] rounded-lg shadow-md relative">
             {tabContent && (
               <div id={tabContent.linkId}>
                 <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-white  font-bold text-center">
