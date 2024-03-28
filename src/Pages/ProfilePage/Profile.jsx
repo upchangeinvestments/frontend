@@ -9,7 +9,11 @@ const Profile = () => {
   const [isEditing, setIsEditing] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user } = useAuth();
-  const [tabContent, setTabContent] = useState({ data: user, title: "ABOUT", linkId: "" });
+  const [tabContent, setTabContent] = useState({
+    data: user,
+    title: "ABOUT",
+    linkId: "",
+  });
 
   const handleIncomingData = (data, title, linkId) => {
     setTabContent({ data, title, linkId });
@@ -19,16 +23,54 @@ const Profile = () => {
   };
 
   let date = new Date(user.createdAt);
-  let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  let day = date.getUTCDate().toString().padStart(2, '0');
+  let monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  let day = date
+    .getUTCDate()
+    .toString()
+    .padStart(2, "0");
   let month = monthNames[date.getUTCMonth()];
-  let year = date.getUTCFullYear().toString().slice(2);
+  let year = date
+    .getUTCFullYear()
+    .toString()
+    .slice(2);
   const dateOfJoined = `${day} ${month} ${year}`;
   date = new Date(user.dob);
-  monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  day = date.getUTCDate().toString().padStart(2, '0');
+  monthNames = [
+    "January",
+    "February",
+    "March",
+    "April",
+    "May",
+    "June",
+    "July",
+    "August",
+    "September",
+    "October",
+    "November",
+    "December",
+  ];
+  day = date
+    .getUTCDate()
+    .toString()
+    .padStart(2, "0");
   month = monthNames[date.getUTCMonth()];
-  year = date.getUTCFullYear().toString().slice(2);
+  year = date
+    .getUTCFullYear()
+    .toString()
+    .slice(2);
   const DOB = `${day} ${month} ${year}`;
 
   return (
@@ -67,14 +109,18 @@ const Profile = () => {
             <div className="flex-shrink-0">
               {user.image ? (
                 <div>
-                  <img src={user.image} alt="user" className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] xl:w-[150px] xl:h-[150px] rounded-full" />
+                  <img
+                    src={user.image}
+                    alt="user"
+                    className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px] rounded-full"
+                  />
                 </div>
               ) : (
                 <FaUserCircle
                   variant="circular"
                   size="100px"
                   alt="user"
-                  className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[120px] lg:h-[120px] xl:w-[150px] xl:h-[150px] rounded-full"
+                  className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px] rounded-full"
                 />
               )}
             </div>
@@ -139,10 +185,10 @@ const Profile = () => {
           <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-[#f1f1f8] rounded-lg shadow-md relative">
             {tabContent && (
               <div id={tabContent.linkId}>
-                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-white  font-bold text-center">
+                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-[#6e30a7]  font-bold text-center">
                   {tabContent.title}
                 </h2>
-                <div className="vsm:text-[15px] text-white vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
+                <div className="vsm:text-[15px] text-black vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
                   <table class="table-auto">
                     <tbody>
                       <tr>
@@ -163,9 +209,7 @@ const Profile = () => {
                       </tr>
                     </tbody>
                   </table>
-                  <div className="">
-                    Member since {dateOfJoined}
-                  </div>
+                  <div className="">Member since {dateOfJoined}</div>
                 </div>
               </div>
             )}
