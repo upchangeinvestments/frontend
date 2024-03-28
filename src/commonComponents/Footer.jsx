@@ -23,7 +23,7 @@ const Footer = () => {
               </div>
             </div>
             <div className="">
-              <div className="single-cta vsm:flex vsm:py-6 md:flex">
+              <div className="single-cta vsm:flex vsm:py-6 md:py-0 md:flex">
                 <IoCall className="text-[#6e30a7] text-[35px]" />
                 <div className="cta-text">
                   <h4>Call Us</h4>
@@ -102,7 +102,7 @@ const Footer = () => {
                     <Link to="/contact">Contact</Link>
                   </li>
                   <li className="text-left">
-                    <Link to="/Terms">Terms &</Link>
+                    <Link to="/Terms">Terms & Conditions </Link>
                     <Link to="/Privacy">Privacy Policy</Link>
                   </li>
                 </ul>

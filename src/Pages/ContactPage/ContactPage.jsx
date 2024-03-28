@@ -9,15 +9,15 @@ function ContactPage() {
       <div className="contactMain">
         <div className="">
           <Navbar />
-          <div className="h-[35vh] overflow-hidden flex items-center justify-center">
-            <p className="uppercase font-['Playfair-Display'] lg:text-5xl text-white  vsm:text-4xl md:text-5xl mt-[-120px]">
+          <div className="h-[55vh] overflow-hidden   flex items-center justify-center">
+            <p className="uppercase font-['Playfair-Display'] lg:text-5xl text-white  vsm:text-4xl md:text-5xl mt-[-151px]">
               CONTACT US
             </p>
           </div>
         </div>
       </div>
       <ContactForm />
-      <div className="mt-8">
+      <div className="">
         <Footer />
       </div>
     </div>

@@ -20,11 +20,11 @@ function ContactForm() {
   };
 
   return (
-    <div className="max-w-7xl vsm:mx-4 sm:mx-6 font-['Playfair-Display']  md:mx-auto md:px-12">
-      <div className="block rounded-lg bg-gradient-to-b from-white/30  to-[#c7b3ee] bg-opacity-10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  px-6 py-12  md:py-8 md:px-10 -mt-[120px] backdrop-blur-[30px]">
+    <div className=" bg-gradient-to-r from-purple-300 to-pink-200  font-['Playfair-Display'] lg:-mt-[240px] xl:-mt-[200px]  w-full md:mx-auto md:px-12 pb-12">
+      <div className="block lg:max-w-7xl mx-auto rounded-lg bg-white/10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  lg:px-6 lg:py-12  md:py-8 md:px-10 -mt-[120px] backdrop-blur-xl">
         <div className=" text-black grid relative vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
           <div className="md:col-span-2 lg:col-span-1 flex items-center justify-end">
-            <div className="flex flex-col vsm:ml-0 vsm:w-[100%] sm:ml-0 md:w-[100%] md:mr-[15px]  lg:ml-12 lg:w-[90%] lg:mr-[20px] pb-[40px] shadow-2xl rounded-lg">
+            <div className="flex flex-col  vsm:mx-4 vsm:mt-8x vsm:w-[100%] sm:ml-0 md:w-[100%] md:mr-[15px]  lg:ml-12 lg:w-[90%] lg:mr-[20px] pb-[40px] shadow-2xl rounded-lg">
               <div className="basis-1/3  relative">
                 <div className="flex flex-col vsm:mt-16 sm:mt-20 lg:mt-28 items-center justify-end h-[60px]">
                   <div className="lg:w-64 vsm:w-44 sm:w-48  md:w-52">
@@ -70,7 +70,7 @@ function ContactForm() {
               </div>
             </div>
           </div>
-          <div className="md:mb-6 vsm:mt-[50px] vsm:px-4 sm:mt-[50px] sm:px-6  md:mt-[40px] lg:mt-0  md:col-span-2 lg:col-span-1 rounded-lg w-full    font-['Playfair-Display']  shrink-0 grow-0 basis-auto md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 vsm:py-4 flex flex-col items-center justify-center">
+          <div className="vsm:mt-[30px] vsm:py-4 vsm:px-4 vsm:mx-4 sm:mt-[50px]  sm:px-6  md:mt-[40px] md:mb-6 lg:mt-0  md:col-span-2 lg:col-span-1  md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg  flex flex-col items-center justify-center">
             <p className="vsm:text-xl vsm:mb-[10px] msm:text-2xl md:text-2xl text-white font-bold ">
               Send Us a Message
             </p>
@@ -140,7 +140,7 @@ function ContactForm() {
           </div>
         </div>
       </div>
-      <div className="rounded-lg mt-[30px]  px-6 py-12 bg-[#c7b3ee] shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  md:py-8 md:px-10  backdrop-blur-[30px]">
+      <div className="rounded-lg max-w-7xl md:mx-auto mt-[30px]   px-6 py-12  shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] bg-white/20  md:py-8 md:px-10  backdrop-blur-xl">
         <Faq class="w-full" />
       </div>
     </div>

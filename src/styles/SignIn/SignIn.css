@@ -377,3 +377,35 @@
 .UPCIN {
   color: #9747ff;
 }
+
+.or {
+  max-width: 200px;
+  text-align: center;
+  margin: auto;
+  position: relative;
+  font-size: 15px;
+}
+
+.or::before {
+  content: "";
+  width: 120px;
+  height: 2px;
+  color: #fff;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  top: 50%;
+  left: 30px;
+}
+
+.or::after {
+  content: "";
+  width: 120px;
+  height: 2px;
+  color: #fff;
+  background-color: #fff;
+  display: block;
+  position: absolute;
+  top: 50%;
+  right: 30px;
+}
