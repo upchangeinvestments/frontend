@@ -189,7 +189,7 @@ const Profile = () => {
                   {tabContent.title}
                 </h2>
                 <div className="vsm:text-[15px] text-black vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
-                  <table class="table-auto">
+                  <table className="table-auto">
                     <tbody>
                       <tr>
                         <td className="pr-6">Name: </td>

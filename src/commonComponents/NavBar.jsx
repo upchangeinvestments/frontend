@@ -52,11 +52,7 @@ function ProfileMenu({ HandleLogout, user }) {
           color="blue-gray"
           className="flex items-center gap-1 rounded-full py-0.5 pr-2 pl-0.5 lg:ml-auto"
         >
-          {user.image?.length > 0 ? (
-            <div>
-              <img src={user.image} alt="user" className="rounded-full w-10" />
-            </div>
-          ) : (
+          {user.image === undefined ? (
             <FaUserCircle
               variant="circular"
               size="sm"
@@ -64,6 +60,10 @@ function ProfileMenu({ HandleLogout, user }) {
               className="border border-gray-900 p-0.5 rounded-full w-10 text-[#6e30a7]"
               src=""
             />
+          ) : (
+            <div>
+              <img src={user.image} alt="user" className="rounded-full w-10" />
+            </div>
           )}
           <RiArrowDropDownLine
             className={`h-5 w-5 transition-transform text-[#6e30a7] ${isMenuOpen ? "rotate-180" : ""

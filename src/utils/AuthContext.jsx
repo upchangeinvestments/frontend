@@ -12,7 +12,6 @@ if (process.env.REACT_APP_NODE_ENV === "dev") {
   baseUrl = process.env.REACT_APP_BASE_URL_PROD;
   backendUrl = process.env.REACT_APP_BACKEND_URL_PROD;
 }
-console.log("in auth context", baseUrl, backendUrl);
 
 export function useAuth() {
   return useContext(AuthContext);
@@ -20,6 +19,8 @@ export function useAuth() {
 
 const AuthProvider = ({ children }) => {
   const token = localStorage.getItem("token");
+  const tokenExpiration = localStorage.getItem("tokenExpiration");
+
   const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
   const [user, setUser] = useState({});
   const navigate = useNavigate();
@@ -49,9 +50,7 @@ const AuthProvider = ({ children }) => {
 
   const handleVerify = async (token) => {
     try {
-      const response = await axios.get(
-        `${backendUrl}/auth/verify?token=${token}`
-      );
+      const response = await axios.get(`${backendUrl}/auth/verify?token=${token}`);
       if (response.status === 200 && response.data.status === "success") {
         // console.log(response.data);
         setIsAuth(true);
@@ -59,9 +58,13 @@ const AuthProvider = ({ children }) => {
       }
     } catch (error) {
       console.log(error);
+      localStorage.removeItem("token");
       setIsAuth(false);
+      setUser({});
+      navigate("/");
     }
   };
+
   const getUser = async () => {
     try {
       const url = `${backendUrl}/auth/provider/success`;
@@ -73,17 +76,23 @@ const AuthProvider = ({ children }) => {
     } catch (err) {
       console.log(err);
       setIsAuth(false);
-      console.log(user);
+      navigate("/");
+      setUser({});
     }
   };
 
   useEffect(() => {
     if (token) {
-      handleVerify(token);
+      if (tokenExpiration && new Date() > tokenExpiration) {
+        localStorage.removeItem("token");
+      } else {
+        handleVerify(token);
+      }
     } else {
       getUser();
     }
-  }, [token]);
+    // eslint-disable-next-line
+  }, [token, tokenExpiration]);
 
   return (
     <AuthContext.Provider value={contextValue}>{children}</AuthContext.Provider>

@@ -70,6 +70,10 @@ const SignIn = () => {
         password,
       });
       localStorage.setItem("token", response.data.token);
+      const currentDate = new Date();
+      const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
+      localStorage.setItem("tokenExpiration", tokenExpiration);
+
       handleUpdateAuth(true);
       navigate("/category");
       SuccessToast("Welcome to LynkInfinite Investment!");
@@ -88,15 +92,8 @@ const SignIn = () => {
       const email = event.target.email.value;
       const password = event.target.password.value;
       const confirmPassword = event.target.confirmPassword.value;
-      // console.log(email, password, confirmPassword);
-      console.log(backendUrl);
-      const response = await axios.post(`${backendUrl}/auth/signup`, {
-        email,
-        password,
-        confirmPassword,
-      });
-      localStorage.setItem("token", response.data.token);
-      // navigate('/category');
+
+      await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
       SuccessToast("Check your Inbox, and verify your account!");
     } catch (error) {
       return Error(error.response.data.message);
@@ -138,16 +135,6 @@ const SignIn = () => {
                         alt="outlook"
                       />
                     </div>
-                    {/* <div onClick={GoogleLoginHandler}>
-                      <img
-                        className="w-[40px]"
-                        src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
-                        alt="outlook"
-                      />
-                    </div> */}
-                    {/* <Link to="/">
-                      <IoLogoApple size="30px" />
-                    </Link> */}
                   </div>
                   <div>
                     <p className="or">OR</p>
@@ -214,16 +201,6 @@ const SignIn = () => {
                         alt="outlook"
                       />
                     </div>
-                    {/* <div onClick={GoogleLoginHandler}>
-                      <img
-                        className="w-[40px]"
-                        src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
-                        alt="outlook"
-                      />
-                    </div> */}
-                    {/* <Link to="/">
-                      <IoLogoApple size="30px" />
-                    </Link> */}
                   </div>
                   <div>
                     <p className="or">OR</p>
@@ -297,15 +274,11 @@ const SignIn = () => {
               <div className="intro-control signup-intro">
                 <div className="intro-control__inner">
                   <div className="font-['Playfair-Display']">
-                    {/* <h2 className='md:text-xl lg:text-2xl CustomizeFontH'>
-                      <font color="#0c0b0b ">WELCOME TO</font> <br /> <span className=''>LYNKINFINTE INVESTMENTS</span>
-                    </h2> */}
                     <h2 className="md:text-xl lg:text-2xl">
                       <font color="#0c0b0b ">SignUp to </font> <br />{" "}
                       <span className="">Explore INVESTMENTS</span>
                     </h2>
                   </div>
-                  {/* <p><font color="#0c0b0b">Your Search Engine For</font> <font color="#9747FF">REAL ESTATE INVESTMENT</font></p> */}
                   <div className="socials">
                     <p className="vsm:text-xs lg:text-base">Connect with us</p>
                     <div className="social">
@@ -365,13 +338,6 @@ const SignIn = () => {
                       alt="outlook"
                     />
                   </div>
-                  {/* <div onClick={GoogleLoginHandler}>
-                    <img
-                      className="w-[40px]"
-                      src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
-                      alt="outlook"
-                    />
-                  </div> */}
                 </div>
                 <div>
                   <p className="or">OR</p>
@@ -455,13 +421,6 @@ const SignIn = () => {
                       alt="outlook"
                     />
                   </div>
-                  {/* <div onClick={GoogleLoginHandler}>
-                    <img
-                      className="w-[40px]"
-                      src="https://i.postimg.cc/HJfYVxBj/computer-icons-email-facebook-login-bluetie-inc-facebook-icon-removebg-preview.png"
-                      alt="outlook"
-                    />
-                  </div> */}
                 </div>
                 <div>
                   <p className="or">OR</p>
