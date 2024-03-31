@@ -1,5 +1,4 @@
 import React, { useState } from "react";
-import { copy } from 'clipboard-copy';
 import OtpInput from 'react-otp-input';
 import { ImCross } from "react-icons/im";
 import { FaArrowLeftLong } from "react-icons/fa6";
@@ -10,7 +9,8 @@ import bgImage from "../assets/login_BG.jpeg";
 import { useAuth } from "../utils/AuthContext"
 import "../App.css";
 import logo from "../assets/logo.png";
-import { Stepper } from "@material-tailwind/react";
+import { TiTick } from "react-icons/ti";
+
 
 function DialogDefault() {
     const [isOpen, setOpen] = useState(!localStorage.getItem('waitlist'));
@@ -20,13 +20,14 @@ function DialogDefault() {
     const handleOpen = () => setOpen(!isOpen);
     const { backendUrl } = useAuth();
 
-    const [activeStep, setActiveStep] = useState(0);
-    const [isFirstStep, setIsFirstStep] = useState(false);
-    const handlePrev = () => !isFirstStep && setActiveStep((cur) => cur - 1);
+    const steps = ["User Info", "Verification"];
+    const [currentStep, setCurrentStep] = useState(0);
+    const [complete, setComplete] = useState(false);
+
+    const handlePrev = () => setCurrentStep((cur) => cur - 1);
 
     const handlePaste = (event) => {
         event.preventDefault();
-        copy(event.clipboardData.getData('text'));
         setOtp(event.clipboardData.getData('text'));
     };
 
@@ -36,22 +37,22 @@ function DialogDefault() {
 
         const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email, otpGenerated });
         if (otpSendResponse.status === 200) {
-            setActiveStep(1);
+            currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
         } else {
             return Error("Something went wrong!");
         }
-        // add the blurred effect on teh post 
     }
+
     const WaitListHandler = async (event) => {
         event.preventDefault();
         try {
             const response = await axios.post(`${backendUrl}/waitlist`, { name, email, otp });
             if (response.status === 200) {
-                SuccessToast("Verified Confirmation code & we have added you in our waited list.");
+                SuccessToast("We have added you in our waited list.");
                 localStorage.setItem("waitlist", "joined");
                 handleOpen();
             } else if (response.status === 202) {
-                SuccessToast("Verified Confirmation code & You are in our waiting list already.");
+                SuccessToast("You are in our waiting list already.");
                 localStorage.setItem("waitlist", "joined");
                 handleOpen();
             } else if (response.status === 203) {
@@ -74,16 +75,29 @@ function DialogDefault() {
                     <div className="flex items-center justify-center">
                         <img src={logo} alt="logo" className="w-[70%]" />
                     </div>
+                    <div className="flex justify-between w-full">
+                        {steps?.map((step, i) => (
+                            <div
+                                key={i}
+                                className={`step-item relative flex flex-col justify-center items-center w-full ${currentStep === i ? "active"
+                                    : (i < currentStep || complete) && "complete"
+                                    } `}
+                            >
+                                <div className={`step w-10 h-10 flex items-center justify-center z-10 relative bg-slate-700 rounded-full font-semibold text-white`}>
+                                    {i < currentStep || complete ? <TiTick size={24} /> : i + 1}
+                                </div>
+                                <p
+                                    className={`text-gray-500 ${(i + 1 < currentStep || complete) && "text-white"
+                                        }`}
+                                >
+                                    {step}
+                                </p>
+                            </div>
+                        ))}
+                    </div>
                     <div className="">
-                        <Stepper
-                            activeStep={activeStep}
-                            isFirstStep={(value) => setIsFirstStep(value)}
-                        >
-                            <div onClick={() => setActiveStep(0)}>1</div>
-                            <div onClick={() => setActiveStep(1)}>2</div>
-                        </Stepper>
-                        <div className={activeStep === 0 ? "block" : "hidden"}>
-                            <form onSubmit={OtpHandler} className="mt-8 mb-2 w-80 max-w-screen-lg sm:w-96 ">
+                        <div className={currentStep === 0 ? "block" : "hidden"}>
+                            <form onSubmit={OtpHandler} className="mb-2 w-80 max-w-screen-lg sm:w-96 ">
                                 <div className="mb-1 flex flex-col gap-6">
                                     <p variant="h6" color="blue-gray" className="-mb-3">
                                         Your Name
@@ -111,8 +125,8 @@ function DialogDefault() {
                                 </div>
                             </form>
                         </div>
-                        <div className={activeStep === 1 ? "flex flex-col items-center justify-center" : "hidden"}>
-                            <p className="text-sm flex-wrap mt-8 uppercase">Confirmation code</p>
+                        <div className={currentStep === 1 ? "flex flex-col items-center justify-center" : "hidden"}>
+                            <p className="text-sm flex-wrap uppercase">Confirmation code</p>
                             <form onSubmit={WaitListHandler} className="mb-2 w-80 max-w-screen-lg sm:w-96 ">
                                 <div className="w-full flex items-center justify-center OtpField">
                                     <OtpInput
@@ -134,7 +148,7 @@ function DialogDefault() {
                             <p onClick={handleOpen} className="hover:underline">Explore Website</p>
                         </div>
                         <div className="flex justify-start">
-                            <button className={activeStep === 1 ? "block" : "hidden"} onClick={handlePrev} disabled={isFirstStep}>
+                            <button className={currentStep === 1 ? "block" : "hidden"} onClick={handlePrev} >
                                 <FaArrowLeftLong size="15px" />
                             </button>
                         </div>
