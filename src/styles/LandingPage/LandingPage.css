@@ -1,114 +1,117 @@
-:root {
-    --bg: #D8C5D9;
-}
-body{
-    background-color: var(--bg);
+body {
+  background-image: linear-gradient(to right, #dcb7fc, #fbcfe8);
 }
 
-
-.main{
-    position: relative;
-    overflow-x: hidden;
-    background-image: -webkit-linear-gradient(
-        rgba(255, 255, 255, 0.2) 30%,
-        rgba(187, 151, 218, 0.7) 100%
-    ), url('../../assets/Building.jpg');
-    background-position: center; 
-    background-repeat: no-repeat; 
-    background-size: cover;   
+.main {
+  position: relative;
+  overflow-x: hidden;
+  background-image: url("../../assets/building_effect.png");
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: cover;
 }
 
-.SlideX{
-    /* animation: spin; */
-    animation-name: slideX;
-    animation-duration: 3s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
-    /* animation-direction: alternate; */
+.SlideX {
+  /* animation: spin; */
+  animation-name: slideX;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
+  /* animation-direction: alternate; */
 }
 @keyframes slideX {
-    25% {
-        transform: translate(100px, 0);
-        opacity: 0;
-    }
-    30%{
-        opacity: 0;
-        transform: translate(-50px, 0);
-    }
-    55%{
-        opacity: 1;
-        transform: translate(0, 0px);
-    }
-    70%{
-        opacity: 1;
-        transform: translate(0, 0);
-    }
+  25% {
+    transform: translate(100px, 0);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+    transform: translate(-50px, 0);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(0, 0px);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
-.FlipY{
-    animation-name: FlipY;
-    animation-duration: 5s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
+.FlipY {
+  animation-name: FlipY;
+  animation-duration: 5s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
 }
 
 @keyframes FlipY {
-    0%{transform: rotateY(0deg);}
-    15%{transform: rotateY(90deg);}
-    30%{transform: rotateY(180deg);}
-    45%{transform: rotateY(90deg);}
-    60%{transform: rotateY(0deg);}
+  0% {
+    transform: rotateY(0deg);
+  }
+  15% {
+    transform: rotateY(90deg);
+  }
+  30% {
+    transform: rotateY(180deg);
+  }
+  45% {
+    transform: rotateY(90deg);
+  }
+  60% {
+    transform: rotateY(0deg);
+  }
 }
-.Move{
-    animation-name: Transition;
-    animation-duration: 3s;
-    animation-delay: 2s;
-    animation-iteration-count: infinite;
+.Move {
+  animation-name: Transition;
+  animation-duration: 3s;
+  animation-delay: 2s;
+  animation-iteration-count: infinite;
 }
 @keyframes Transition {
-    25% {
-        transform: translate(0, 100px);
-        opacity: 0;
-    }
-    30%{
-        opacity: 0;
-        transform: translate(0, -100px);
-    }
-    55%{
-        opacity: 1;
-        transform: translate(0, 0px);
-    }
-    70%{
-        opacity: 1;
-        transform: translate(0, 0);
-    }
+  25% {
+    transform: translate(0, 100px);
+    opacity: 0;
+  }
+  30% {
+    opacity: 0;
+    transform: translate(0, -100px);
+  }
+  55% {
+    opacity: 1;
+    transform: translate(0, 0px);
+  }
+  70% {
+    opacity: 1;
+    transform: translate(0, 0);
+  }
 }
 
 .scroller {
-    height: 1.2em;
-    line-height: 1.2em;
-    position: relative;
-    /* overflow: hidden; */
-    text-align: center;
-  }
-  .scroller > span {
-    position: absolute;
+  height: 1.2em;
+  line-height: 1.2em;
+  position: relative;
+  /* overflow: hidden; */
+  text-align: center;
+}
+.scroller > span {
+  position: absolute;
+  top: 0;
+  animation: verticalSlider 6s infinite;
+  /* font-weight: bold; */
+  background-color: transparent;
+}
+@keyframes verticalSlider {
+  0% {
     top: 0;
-    animation: verticalSlider 6s infinite;
-    /* font-weight: bold; */
-    background-color: transparent;
   }
-  @keyframes verticalSlider {
-    0% {
-      top: 0;
-    }
-    33.3% {
-      top: -1.2em;
-    }
-    66.7% {
-      top: -2.4em;
-    }
-    100% {
-      top: -3.6em;
-    }
+  33.3% {
+    top: -1.2em;
   }
+  66.7% {
+    top: -2.4em;
+  }
+  100% {
+    top: -3.6em;
+  }
+}

@@ -26,7 +26,7 @@ function SpecificPage() {
   };
 
   return (
-    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] xl:h-[55vh] mobile-filter-drawer">
+    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] xl:h-[85vh] mobile-filter-drawer">
       <MobileFilterDrawer
         open={open}
         closeDrawer={openDrawer}
