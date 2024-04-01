@@ -22,7 +22,8 @@
   position: relative;
 }
 .PostPage {
-  background-image: url("../../assets/Building.jpg");
+  background-image: url("../../assets/building_effect.png");
+  background-position: bottom;
   background-repeat: no-repeat;
   background-size: cover;
   position: relative;
