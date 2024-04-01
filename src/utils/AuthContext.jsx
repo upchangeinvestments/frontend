@@ -42,6 +42,7 @@ const AuthProvider = ({ children }) => {
       window.open(`${backendUrl}/auth/logout`, "_self");
     } else {
       localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiration");
       navigate("/");
     }
     setIsAuth(false);
@@ -59,6 +60,7 @@ const AuthProvider = ({ children }) => {
     } catch (error) {
       console.log(error);
       localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiration");
       setIsAuth(false);
       setUser({});
       navigate("/");
@@ -85,6 +87,7 @@ const AuthProvider = ({ children }) => {
     if (token) {
       if (tokenExpiration && new Date() > tokenExpiration) {
         localStorage.removeItem("token");
+        localStorage.removeItem("tokenExpiration");
       } else {
         handleVerify(token);
       }
