@@ -39,26 +39,13 @@ const Profile = () => {
   ];
   let day = date.getUTCDate().toString().padStart(2, "0");
   let month = monthNames[date.getUTCMonth()];
-  let year = date.getUTCFullYear().toString().slice(2);
+  let year = date.getUTCFullYear().toString();
   const dateOfJoined = `${day} ${month} ${year}`;
+
   date = new Date(user.dob);
-  monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
   day = date.getUTCDate().toString().padStart(2, "0");
   month = monthNames[date.getUTCMonth()];
-  year = date.getUTCFullYear().toString().slice(2);
+  year = date.getUTCFullYear().toString();
   const DOB = `${day} ${month} ${year}`;
 
   return (

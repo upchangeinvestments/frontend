@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import { FaLocationDot, FaPhone } from "react-icons/fa6";
 import { FaFacebookF, FaInstagram, FaTelegramPlane } from "react-icons/fa";
 import { FaLinkedinIn } from "react-icons/fa";
@@ -7,16 +7,34 @@ import { Link } from "react-router-dom";
 import Faq from "../Subscription/FAQ";
 import bgImage from "../../assets/login_BG.jpeg";
 import logo from "../../assets/logo2.png";
+import axios from "axios";
+import { useAuth } from "../../utils/AuthContext";
+import SuccessToast from "../../utils/successToast";
+import Error from "../../utils/Error";
+
 
 function ContactForm() {
-  const [firstName, setFirstName] = useState("");
-  // const [lastName, setLastName] = useState("");
-  const [email, setEmail] = useState("");
-  const [message, setMessage] = useState("");
+  const { backendUrl, user } = useAuth();
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    // Handle form submission here
+    // console.log(user);
+    const email = event.target.email.value;
+    const name = event.target.name.value;
+    const message = event.target.message.value;
+    const authProvider = user.provider;
+    const userId = user._id;
+
+    try {
+      const response = await axios.post(`${backendUrl}/contact`, { email, name, message, authProvider, userId });
+      if (response.status === 200) {
+        SuccessToast("We'll get back to you soon!");
+        event.target.reset();
+      }
+    } catch (error) {
+      // console.error("Error saving contact query:", error);
+      Error("Something went wrong, please try again later.");
+    }
   };
 
   return (
@@ -87,9 +105,7 @@ function ContactForm() {
                 </label>
                 <input
                   type="text"
-                  id="firstName"
-                  value={firstName}
-                  onChange={(event) => setFirstName(event.target.value)}
+                  name="name"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                   required
                 />
@@ -103,9 +119,7 @@ function ContactForm() {
                 </label>
                 <input
                   type="email"
-                  id="email"
-                  value={email}
-                  onChange={(event) => setEmail(event.target.value)}
+                  name="email"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                   required
                 />
@@ -118,9 +132,7 @@ function ContactForm() {
                   Message
                 </label>
                 <textarea
-                  id="message"
-                  value={message}
-                  onChange={(event) => setMessage(event.target.value)}
+                  name="message"
                   rows="5"
                   className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                   required

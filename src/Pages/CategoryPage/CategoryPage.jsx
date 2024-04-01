@@ -22,7 +22,7 @@ function CategoryPage() {
     setId(index);
   };
 
-  useEffect(() => {}, [data]);
+  useEffect(() => { }, [data]);
 
   return (
     <div className="categoryMain lg:h-[55vh]  vsm:h-[60vh] md:h-[62vh] xl:h-[85vh] mobile-filter-drawer">

@@ -6,7 +6,7 @@ import axios from "axios";
 import Error from "../utils/Error";
 import SuccessToast from "../utils/successToast";
 import bgImage from "../assets/login_BG.jpeg";
-import { useAuth } from "../utils/AuthContext"
+import { useAuth } from "../utils/AuthContext";
 import "../App.css";
 import logo from "../assets/logo.png";
 import { TiTick } from "react-icons/ti";
