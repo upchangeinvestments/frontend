@@ -36,8 +36,8 @@ function CategoryPage() {
       {/* filter section for mobile view */}
       <NavBar />
       <div className="">
-        <div className="uppercase  text-white flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
-          <p className="vsm:text-2xl msm:text-3xl md:text-5xl  font-['Playfair-Display']">
+        <div className="uppercase  text-white flex items-center justify-end h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] ">
+          <p className="vsm:text-2xl msm:text-3xl md:text-5xl mt-[-100px] mr-[100px]  font-['Playfair-Display']">
             {" "}
             Explore Categories
           </p>

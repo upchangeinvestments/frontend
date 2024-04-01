@@ -36,7 +36,7 @@ function EducationPage() {
     <div className="aboutMain  vsm:w-[125vw] md:w-[107vw] lg:w-[100%] vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
       <NavBar />
       <div className="max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8">
-        <h1 className="text-5xl mt-[160px] mb-[80px] text-white pb-6 flex justify-center font-['Playfair-Display'] ">
+        <h1 className="text-5xl mt-[100px] mb-[200px] text-white pb-6 flex justify-end mr-[150px] font-['Playfair-Display'] ">
           RESOURCES
         </h1>
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">

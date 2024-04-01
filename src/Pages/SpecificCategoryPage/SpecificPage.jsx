@@ -37,7 +37,7 @@ function SpecificPage() {
       {/* filter section for mobile view random */}
       <NavBar />
       <div className="w-full">
-        <div className="uppercase text-white font-['Playfair-Display'] font-bold vsm:text-4xl flex flex-col items-center justify-center h-[50vh] gap-8">
+        <div className="uppercase text-white font-['Playfair-Display'] font-bold vsm:text-4xl flex flex-col items-center justify-center ml-[600px] mt-[-60px] h-[50vh] gap-8">
           <div className="">
             <p
               className="vsm:hidden md:block lg:text-4xl font-medium xl:text-5xl"
@@ -54,9 +54,9 @@ function SpecificPage() {
               <div className="">{`${type} Properties`}</div>
             </div>
           </div>
-          <div className="w-full bg-black">
-            <SearchBox />
-          </div>
+        </div>
+        <div className="w-full mt-[-100px] mb-[100px] bg-black">
+          <SearchBox />
         </div>
       </div>
       <div className="flex vsm:-mt-[30px] md:mt-[10px] lg:mt-[50px] xl:mt-[10px] mb-16">
