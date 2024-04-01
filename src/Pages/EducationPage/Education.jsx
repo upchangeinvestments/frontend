@@ -75,10 +75,13 @@ function ServiceCard({ title, description }) {
   return (
     <div onClick={handleOpen} className="">
       <EduModal isOpen={modalOpen} handleOpen={handleOpen} />
-      <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#9747FF] flex flex-col ">
+      <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#6e30a7] flex flex-col ">
         <h3 className="text-xl font-medium mb-2">{title}</h3>
         <p className="line-clamp-3">{description}</p>
-        <button onClick={handleOpen} className="bg-[#6e30a7] text-white  py-1 px-3 rounded mt-2 bottom-4">
+        <button
+          onClick={handleOpen}
+          className="bg-[#6e30a7] text-white  py-1 px-3 rounded mt-2 bottom-4"
+        >
           Learn More
         </button>
       </div>
@@ -114,7 +117,6 @@ const Card = (props) => {
 };
 
 const Education = () => {
-
   return (
     <div className="w-full ">
       <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6">

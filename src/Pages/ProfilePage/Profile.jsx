@@ -37,15 +37,9 @@ const Profile = () => {
     "November",
     "December",
   ];
-  let day = date
-    .getUTCDate()
-    .toString()
-    .padStart(2, "0");
+  let day = date.getUTCDate().toString().padStart(2, "0");
   let month = monthNames[date.getUTCMonth()];
-  let year = date
-    .getUTCFullYear()
-    .toString()
-    .slice(2);
+  let year = date.getUTCFullYear().toString().slice(2);
   const dateOfJoined = `${day} ${month} ${year}`;
   date = new Date(user.dob);
   monthNames = [
@@ -62,15 +56,9 @@ const Profile = () => {
     "November",
     "December",
   ];
-  day = date
-    .getUTCDate()
-    .toString()
-    .padStart(2, "0");
+  day = date.getUTCDate().toString().padStart(2, "0");
   month = monthNames[date.getUTCMonth()];
-  year = date
-    .getUTCFullYear()
-    .toString()
-    .slice(2);
+  year = date.getUTCFullYear().toString().slice(2);
   const DOB = `${day} ${month} ${year}`;
 
   return (
@@ -161,7 +149,7 @@ const Profile = () => {
             {isEditing ? (
               <button
                 onClick={() => setIsEditing(!isEditing)}
-                className="bg-purple-500 hover:bg-purple-600 text-white font-bold lg:py-2 lg:px-4 rounded"
+                className="bg-[#6e30a7] hover:bg-purple-600 text-white font-bold lg:py-2 lg:px-4 rounded"
               >
                 Save Changes
               </button>
