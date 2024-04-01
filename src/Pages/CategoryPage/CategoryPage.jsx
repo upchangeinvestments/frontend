@@ -25,7 +25,7 @@ function CategoryPage() {
   useEffect(() => { }, [data]);
 
   return (
-    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] xl:h-[55vh] mobile-filter-drawer">
+    <div className="categoryMain lg:h-[55vh]  vsm:h-[60vh] md:h-[62vh] xl:h-[85vh] mobile-filter-drawer">
       <MobileFilterDrawer
         open={open}
         closeDrawer={openDrawer}
@@ -36,7 +36,7 @@ function CategoryPage() {
       {/* filter section for mobile view */}
       <NavBar />
       <div className="">
-        <div className="uppercase text-white flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
+        <div className="uppercase  text-white flex items-center justify-center h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] mt-[5px]">
           <p className="vsm:text-2xl msm:text-3xl md:text-5xl  font-['Playfair-Display']">
             {" "}
             Explore Categories
@@ -44,7 +44,7 @@ function CategoryPage() {
         </div>
       </div>
       {/* <SearchBox /> */}
-      <div className="flex vsm:-mt-[100px] lg:-mt-[50px] xl:-mt-[100px] mb-16">
+      <div className="flex   vsm:-mt-[100px] lg:-mt-[50px] xl:-mt-[100px] mb-16">
         <FilterSection />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
           <MobileFilter

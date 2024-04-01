@@ -13,7 +13,7 @@ import WaitListModal from "../../commonComponents/WaitListModal";
 
 function LandingPage() {
   return (
-    <div className="main vsm:w-[125vw] md:w-[107vw] font-['Playfair-Display'] lg:w-[100%]  vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
+    <div className="main vsm:w-[125vw] md:w-[107vw]  font-['Playfair-Display'] lg:w-[100%]  vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
       <WaitListModal />
       <NavBar />
       <Landing />

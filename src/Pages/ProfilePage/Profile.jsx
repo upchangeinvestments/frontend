@@ -136,7 +136,7 @@ const Profile = () => {
             {isEditing ? (
               <button
                 onClick={() => setIsEditing(!isEditing)}
-                className="bg-purple-500 hover:bg-purple-600 text-white font-bold lg:py-2 lg:px-4 rounded"
+                className="bg-[#6e30a7] hover:bg-purple-600 text-white font-bold lg:py-2 lg:px-4 rounded"
               >
                 Save Changes
               </button>
