@@ -21,7 +21,7 @@ function ContactForm() {
 
   return (
     <div className=" bg-gradient-to-r from-purple-300 to-pink-200  font-['Playfair-Display'] lg:-mt-[200px]   w-full md:mx-auto md:px-12 pb-12">
-      <div className="block lg:max-w-7xl mx-auto rounded-lg vsm:py-[20px] bg-white/10 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]  lg:px-6 lg:py-12  md:py-8 md:px-10 -mt-[120px] backdrop-blur-xl">
+      <div className="block lg:max-w-7xl mx-auto r vsm:py-[20px]  lg:px-6 lg:py-12  md:py-8 md:px-10 -mt-[120px] ">
         <div className=" text-black grid relative vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
           <div className="md:col-span-2 lg:col-span-1 flex items-center justify-end">
             <div className="flex flex-col  vsm:mx-4 vsm:mt-8x vsm:w-[100%] sm:ml-0 md:w-[100%] md:mr-[15px]  lg:ml-12 lg:w-[90%] lg:mr-[20px] pb-[40px] shadow-2xl rounded-lg">
