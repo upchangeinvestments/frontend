@@ -36,7 +36,7 @@ function UserDataModal() {
       age--;
     }
     if (age < 18) {
-      Error("You must be at least 18 years old to submit this form.");
+      Error("You must be at least 18 years old to invest.");
       return;
     }
 
@@ -95,7 +95,7 @@ function UserDataModal() {
 
                 <div className="mt-4">
                   <p variant="h6" color="blue-gray" className="">
-                    Date of birth
+                    Date of Birth
                   </p>
                   <DatePicker onChange={onChangeDOB} required={true} value={valueDOB} maxDate={new Date()} name="" className="w-full text-black focus:outline-non " calendarIcon={<CiCalendar size="25px" />} />
                 </div>

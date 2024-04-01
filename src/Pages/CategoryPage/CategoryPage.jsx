@@ -25,7 +25,7 @@ function CategoryPage() {
   useEffect(() => { }, [data]);
 
   return (
-    <div className="categoryMain lg:h-[55vh]  vsm:h-[60vh] md:h-[62vh] xl:h-[85vh] mobile-filter-drawer">
+    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] lg:h-[105vh] mobile-filter-drawer">
       <MobileFilterDrawer
         open={open}
         closeDrawer={openDrawer}

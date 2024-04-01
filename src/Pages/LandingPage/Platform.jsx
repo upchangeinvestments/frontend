@@ -9,6 +9,9 @@ const HowInvestmentWorks = () => {
       <h1 className="flex justify-center font-semibold font-['Playfair-Display'] w-full my-8 mx-auto vsm:text-2xl md:text-3xl">
         HOW INVESTMENT WORKS
       </h1>
+      {/* <div className="flex items-center justify-center" >
+        <img src="https://i.postimg.cc/BvHDk9Z5/image1.png" alt="" />
+      </div> */}
       <div className="flex flex-col items-center justify-center w-[100%]">
         <div className="grid grid-cols-9 vsm:w-[80%] md:w-[70%] lg:w-[60%]">
           <div className="col-span-1 flex flex-col items-center justify-center">
