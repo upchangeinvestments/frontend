@@ -73,7 +73,7 @@ function DialogDefault() {
                         <p className="text-3xl">Join Project Waitlist</p>
                     </div>
                     <div className="flex items-center justify-center">
-                        <img src={logo} alt="logo" className="w-[70%]" />
+                        <img src={logo} alt="logo" className="w-[50%]" />
                     </div>
                     <div className="flex justify-between w-full">
                         {steps?.map((step, i) => (

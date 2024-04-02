@@ -10,6 +10,7 @@ import { useAuth } from "../utils/AuthContext"
 import "../App.css";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
+import logo from "../assets/logo.png";
 import UsStates from "../assets/US_states.json"
 
 
@@ -77,6 +78,9 @@ function UserDataModal() {
             <div>
               <p className="text-2xl">Let us know more about you!</p>
             </div>
+            <div className="flex items-center justify-center">
+              <img src={logo} alt="logo" className="w-[50%]" />
+            </div>
             <div className="my-2 w-80 max-w-screen-lg sm:w-96 text-lg">
               <form onSubmit={updateUserDataHandler}>
                 {!user.name && (
@@ -105,7 +109,7 @@ function UserDataModal() {
                   <div>Select State</div>
                   <div
                     onClick={() => setDropdown(!openDropdown)}
-                    className={`bg-white/20 backdrop-blur-sm w-full p-2 flex items-center justify-between rounded ${!selectedState && "text-black"}`}>
+                    className={`bg-white text-black w-full p-2 flex items-center justify-between rounded-t-lg ${!selectedState && "text-black"}`}>
                     {selectedState
                       ? selectedState?.length > 25
                         ? selectedState?.substring(0, 25) + "..."
@@ -114,21 +118,21 @@ function UserDataModal() {
                     <BiChevronDown size={20} className={`${openDropdown && "rotate-180"}`} />
                   </div>
                   <ul>
-                    <div className={`flex items-center px-2 sticky top-0 bg-white/20 backdrop-blur-sm  ${openDropdown ? "block" : "hidden"}`}>
-                      <AiOutlineSearch size={18} className="text-gray-700" />
+                    <div className={`flex items-center px-2 sticky top-0 bg-white ${openDropdown ? "block" : "hidden"}`}>
+                      <AiOutlineSearch size={18} className="text-black" />
                       <input
                         type="text"
                         value={inputStateValue}
                         onChange={(e) => setInputStateValue(e.target.value.toLowerCase())}
                         placeholder="Enter State "
-                        className="placeholder:text-gray-700 p-2 outline-none bg-transparent"
+                        className="placeholder:text-gray-700 p-2 outline-none bg-transparent text-black"
                       />
                     </div>
-                    <div className={`overflow-y-auto ${openDropdown ? "max-h-60" : "max-h-0"} `}>
+                    <div className={`overflow-y-auto rounded-b-lg ${openDropdown ? "max-h-60" : "max-h-0"} `}>
                       {UsStates?.map((country) => (
                         <li
                           key={country?.name}
-                          className={`p-2 pl-6 text-sm bg-white/20 backdrop-blur-sm hover:bg-[#6e30a7] hover:text-white ${country?.name?.toLowerCase() === selectedState?.toLowerCase() &&
+                          className={`p-2 pl-6 text-sm bg-white text-black hover:bg-[#6e30a7] hover:text-white ${country?.name?.toLowerCase() === selectedState?.toLowerCase() &&
                             "bg-[#6e30a7] "} ${country?.name?.toLowerCase().startsWith(inputStateValue)
                               ? "block"
                               : "hidden"
