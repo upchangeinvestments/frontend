@@ -341,9 +341,8 @@ const Sidebar = ({ sendDataToProfile }) => {
           {tabs.map((tab, index) => (
             <li
               key={index}
-              className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] ${
-                isActive === index ? " md:bg-white  rounded-lg  w-full" : ""
-              }`}
+              className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] ${isActive === index ? " md:bg-white  rounded-lg  w-full" : ""
+                }`}
               onClick={() => handleContent(index)}
             >
               <div className="flex items-center justify-between">

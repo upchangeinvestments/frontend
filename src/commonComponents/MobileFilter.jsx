@@ -45,7 +45,7 @@ const dataObject = [
             "7rs-10Yrs",
             "10Yrs+",
         ],
-        inputType: "radio",
+        inputType: "checkbox",
     },
     {
         title: "Zip Code",

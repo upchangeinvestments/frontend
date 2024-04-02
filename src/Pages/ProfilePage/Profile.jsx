@@ -1,17 +1,15 @@
 import React, { useState } from "react";
-import { MdOutlineEdit } from "react-icons/md";
 import { FaUserCircle } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 import MobileSidebar from "./mobileSidebar";
 import { useAuth } from "../../utils/AuthContext";
 
 const Profile = () => {
-  const [isEditing, setIsEditing] = useState(false);
   const [sidebarOpen, setSidebarOpen] = useState(false);
   const { user } = useAuth();
   const [tabContent, setTabContent] = useState({
     data: user,
-    title: "ABOUT",
+    title: "PROFILE SECTION",
     linkId: "",
   });
 
@@ -99,61 +97,16 @@ const Profile = () => {
                 />
               )}
             </div>
-            <div className=" vsm:ml-3 sm:ml-4  md:ml-8 lg:ml-8">
+            <div className=" vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8 flex justify-start">
               <h2 className="vsm:text-[14px] sm:text-[15px] text-purple-800 md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
                 Welcome {user.name}
               </h2>
-              <p className="text-purple-500 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
-                Email address: {user.email}
-              </p>
-              {isEditing ? (
-                <input
-                  type="text"
-                  className="w-full border rounded py-1 px-2 mt-2 bg-purple-200 outline-none"
-                  placeholder="location"
-                />
-              ) : (
-                <p className="text-purple-500 vsm:text-[11px] sm:text-[12px] md:text-[12px] lg:text-[15px] xl:text-[18px]">
-                  User Location
-                </p>
-              )}
             </div>
           </div>
           <div className="mt-4">
-            {isEditing ? (
-              <textarea
-                className="w-full border rounded py-1 px-2 bg-purple-200 outline-none"
-                placeholder="Add your bio"
-                rows="4"
-              />
-            ) : (
-              <p className="text-purple-500 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
-                Start sharing to unlock your experience!
-              </p>
-            )}
-          </div>
-          <div className="mt-4 ">
-            {isEditing ? (
-              <button
-                onClick={() => setIsEditing(!isEditing)}
-                className="bg-[#6e30a7] hover:bg-purple-600 text-white font-bold lg:py-2 lg:px-4 rounded"
-              >
-                Save Changes
-              </button>
-            ) : (
-              <button
-                onClick={() => setIsEditing(!isEditing)}
-                className="bg-[#6e30a7] hover:bg-purple-600 text-white font-bold vsm:text-[10px] vsm:px-[4px] vsm:py-[3px] vsm:mt-[40px] sm:text-[12px] sm:px-[5px] sm:ml-[20px] md:px-[5px] md:py-[5px] lg:text-[18px]   lg:py-2 lg:px-4 rounded absolute top-8 right-8 flex items-center justify-center"
-              >
-                <span className="mr-2">
-                  <MdOutlineEdit
-                    className="vsm:size-[13px] sm:size-[12px] lg:size-[18px]"
-                    size="20px"
-                  />
-                </span>
-                Edit Profile
-              </button>
-            )}
+            <p className="text-purple-500 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
+              Start sharing to unlock your experience!
+            </p>
           </div>
         </div>
         <div className="grid col-span-9">

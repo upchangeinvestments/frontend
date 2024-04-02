@@ -71,7 +71,6 @@ function FilterSection() {
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         <div className="w-[75%] flex items-center justify-center gap-x-4 FilterSection">
-          <p>0</p>
           <input
             type="range"
             name="priceIRR"
@@ -91,7 +90,7 @@ function FilterSection() {
       <FilterSubSection
         list={HoldPeriod}
         title="Hold Period"
-        inputType="radio"
+        inputType="checkbox"
       />
       <FilterSubSection
         list={LocationType}
