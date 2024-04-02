@@ -10,7 +10,7 @@ const HowInvestmentWorks = () => {
         HOW INVESTMENT WORKS
       </h1>
       <div className="flex flex-col items-center justify-center w-[100%]">
-        <div className="grid grid-cols-9 vsm:w-[80%] md:w-[70%] lg:w-[60%]">
+        {/* <div className="grid grid-cols-9 vsm:w-[80%] md:w-[70%] lg:w-[60%]">
           <div className="col-span-1 flex flex-col items-center justify-center">
             <div className="h-16 w-16 bg-purple-200 backdrop-blur-sm rounded-full flex items-center justify-center text-xl font-bold">
               2
@@ -63,7 +63,7 @@ const HowInvestmentWorks = () => {
               Users
             </div>
           </div>
-        </div>
+        </div> */}
       </div>
       <Explore />
       <HowItWorks />
