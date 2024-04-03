@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 import MobileSidebar from "./mobileSidebar";
@@ -7,33 +7,52 @@ import { MuiTelInput } from 'mui-tel-input';
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import UsStates from "../../assets/US_states.json";
+import axios from "axios";
+import Error from "../../utils/Error";
+import SuccessToast from "../../utils/successToast";
 
 const Profile = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { user } = useAuth();
+  const { user, backendUrl, setUser } = useAuth();
   const [tabContent, setTabContent] = useState({
     data: user,
     title: "PROFILE SECTION",
     linkId: "",
   });
   console.log(user);
-  const [firstName, setFirstName] = useState(user.name);
-  const [dateOfBirth, setDateOfBirth] = useState('');
-  const [phone, setPhone] = useState('');
+  const [Name, setName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [phone, setPhone] = useState("");
   const [isFormChanged, setIsFormChanged] = useState(false);
 
   const [inputStateValue, setInputStateValue] = useState("");
-  const [selectedState, setSelectedState] = useState(user.location);
+  const [selectedState, setSelectedState] = useState("");
   const [openStateDropdown, setStateDropdown] = useState(false);
 
+  useEffect(() => {
+    setName(user.name || '');
+    setDateOfBirth(user.dob ? new Date(user.dob).toISOString().split('T')[0] : "");
+    setPhone(user.phone || '');
+    setSelectedState(user.location || '');
+  }, [user]);
 
-  const handleSubmit = (e) => {
+  const updateProfile = async (e) => {
     e.preventDefault();
-    // Update the user's information here
-    console.log(firstName, dateOfBirth, phone);
-
+    const newDetails = { user, name: Name, dob: dateOfBirth, phone: phone, location: selectedState };
+    console.log(newDetails);
+    const res = await axios.post(`${backendUrl}/updateUser`, newDetails);
+    if (res.status === 200) {
+      setUser(res.data.user);
+      SuccessToast("Data updated successfully");
+    } else if (res.status === 500) {
+      Error("Internal Server Error, try again later!");
+    } else {
+      Error("Something went wrong, please try again later!");
+    }
   }
   const handleInputChange = () => {
+    console.log(dateOfBirth);
+    console.log(typeof dateOfBirth);
     setIsFormChanged(true);
   }
   const handleIncomingData = (data, title, linkId) => {
@@ -43,18 +62,18 @@ const Profile = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  let date = new Date(user.createdAt);
-  let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  let day = date.getUTCDate().toString().padStart(2, "0");
-  let month = monthNames[date.getUTCMonth()];
-  let year = date.getUTCFullYear().toString();
-  const dateOfJoined = `${day} ${month} ${year}`;
+  // let date = new Date(user.createdAt);
+  // let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  // let day = date.getUTCDate().toString().padStart(2, "0");
+  // let month = monthNames[date.getUTCMonth()];
+  // let year = date.getUTCFullYear().toString();
+  // const dateOfJoined = `${day} ${month} ${year}`;
 
-  date = new Date(user.dob);
-  day = date.getUTCDate().toString().padStart(2, "0");
-  month = monthNames[date.getUTCMonth()];
-  year = date.getUTCFullYear().toString();
-  const DOB = `${day} ${month} ${year}`;
+  // date = new Date(user.dob);
+  // day = date.getUTCDate().toString().padStart(2, "0");
+  // month = monthNames[date.getUTCMonth()];
+  // year = date.getUTCFullYear().toString();
+  // const DOB = `${day} ${month} ${year}`;
 
   return (
     <div className="grid font-['Playfair-Display'] grid-cols-12">
@@ -127,17 +146,17 @@ const Profile = () => {
                   {tabContent.title}
                 </h2>
                 <div className="">
-                  <form className="mx-auto w-[90%]" onSubmit={handleSubmit}>
+                  <form className="mx-auto w-[90%]" onSubmit={updateProfile}>
                     <div className="mb-4">
-                      <label htmlFor="firstName" className="block mb-1">
+                      <label htmlFor="Name" className="block mb-1">
                         First Name
                       </label>
-                      <input type="text" id="firstName" value={firstName} onChange={(e) => { setFirstName(e.target.value); handleInputChange(); }}
+                      <input type="text" id="Name" value={Name} onChange={(e) => { setName(e.target.value); handleInputChange(); }}
                         className="bg-transparent w-full border-gray-300 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7]"
                       />
                     </div>
                     <div className="mb-4">
-                      <label htmlFor="firstName" className="block mb-1">
+                      <label htmlFor="Name" className="block mb-1">
                         Email
                       </label>
                       <input type="email" id="email" value={user.email} readOnly={true}

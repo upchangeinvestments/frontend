@@ -81,7 +81,7 @@ const DropDownData = [
 ];
 
 function MaterialUIAccordion() {
-  const [open, setOpen] = React.useState(1);
+  const [open, setOpen] = React.useState(3);
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
@@ -100,22 +100,19 @@ function MaterialUIAccordion() {
             <div className="vsm:w-3/4 md:w-1/4 font-bold ">{data.title}</div>
             <div className="vsm:w-1/4 vsm:-mr-6 md:mr-0 md:w-3/4 grow vsm:text-xs lg:text-base flex vsm:justify-end lg:justify-between">
               <span
-                className={`vsm:hidden ${
-                  open === index ? "md:hidden" : "lg:block"
-                }`}
+                className={`vsm:hidden ${open === index ? "md:hidden" : "lg:block"
+                  }`}
               >
                 {data.content}
               </span>
               <span
-                className={`flex items-center justify-center  ${
-                  open === index ? "hidden" : "block"
-                } whitespace-nowrap`}
+                className={`flex items-center justify-center  ${open === index ? "hidden" : "block"
+                  } whitespace-nowrap`}
               >
                 <p>see more</p>
                 <svg
-                  className={`h-5 w-5 transform ${
-                    open ? "rotate-0" : "rotate-180"
-                  }`}
+                  className={`h-5 w-5 transform ${open ? "rotate-0" : "rotate-180"
+                    }`}
                   viewBox="0 0 20 20"
                   fill="currentColor"
                 >

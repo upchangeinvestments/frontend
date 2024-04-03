@@ -32,19 +32,24 @@ function App() {
           <Route path="/resources" element={<EducationPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/:id/verify/:token" element={<VerifyUser />} />
-          <Route path="/category/:type" exact element={<SpecificPage />} />
-          <Route path="/post" exact element={<PostPage />} />
-          <Route path="/profile" element={<ProfilePage />} />
+          <Route path="/category/:type" exact element={
+            <PrivateRoute>
+              <SpecificPage />
+            </PrivateRoute>
+          } />
+          <Route path="/post" exact element={
+            <PrivateRoute>
+              <PostPage />
+            </PrivateRoute>
+          } />
+          <Route path="/profile" element={
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
+          } />
           <Route path="/Terms" element={<Termsandconditions />} />
           <Route path="/Privacy" element={<Privacyandpolicy />} />
-          <Route
-            path="/category"
-            element={
-              // <PrivateRoute>
-              <CategoryPage />
-              // </PrivateRoute>
-            }
-          />
+          <Route path="/category" element={<CategoryPage />} />
         </Routes>
         <ToastContainer
           position="top-center"

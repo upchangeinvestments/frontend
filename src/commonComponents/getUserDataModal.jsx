@@ -43,7 +43,7 @@ function UserDataModal() {
 
     const postData = {
       location: selectedState,
-      valueDOB: valueDOB,
+      dob: valueDOB,
       user: user,
     };
 

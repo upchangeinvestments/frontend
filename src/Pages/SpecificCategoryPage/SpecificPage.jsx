@@ -70,7 +70,7 @@ function SpecificPage() {
             <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
               {PropertyData.map((data, index) => (
                 <div className="flex items-center justify-center" key={index}>
-                  <Post data={{ ...data, index: index }} type={type} />
+                  <Post data={{ ...data, index: index }} type={type} blur={index === 0 ? "noBlur" : "blur"} />
                 </div>
               ))}
             </div>
