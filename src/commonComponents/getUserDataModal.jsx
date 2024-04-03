@@ -11,7 +11,7 @@ import "../App.css";
 import { BiChevronDown } from "react-icons/bi";
 import { AiOutlineSearch } from "react-icons/ai";
 import logo from "../assets/logo.png";
-import UsStates from "../assets/US_states.json"
+import UsStates from "../assets/US_states.json";
 
 
 function UserDataModal() {
