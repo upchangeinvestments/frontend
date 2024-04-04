@@ -9,7 +9,7 @@ const Error = (message) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "colored",
+        className: "ToastErrorBg"
     });
 }
 

@@ -13,7 +13,6 @@ import { AiOutlineSearch } from "react-icons/ai";
 import logo from "../assets/logo.png";
 import UsStates from "../assets/US_states.json";
 
-
 function UserDataModal() {
   const { user, setUser, backendUrl, isAuth } = useAuth();
   const [isOpen, setOpen] = useState(isAuth && !user.updatedInfo);
@@ -22,7 +21,6 @@ function UserDataModal() {
   const [selectedState, setSelectedState] = useState("");
   const [openDropdown, setDropdown] = useState(false);
 
-  // const handleOpen = () => setOpen(!isOpen);
   const [valueDOB, onChangeDOB] = useState(new Date());
 
   const updateUserDataHandler = async (event) => {
@@ -64,8 +62,10 @@ function UserDataModal() {
   React.useEffect(() => {
     if (isAuth && !user.updatedInfo) {
       setOpen(true);
+      document.body.style.overflow = 'hidden';
     } else {
       setOpen(false);
+      document.body.style.overflow = 'auto';
     }
   }, [isAuth, user]);
 
@@ -74,7 +74,6 @@ function UserDataModal() {
       {isOpen && (
         <div className="absolute inset-0 z-50 bg-white/20 backdrop-blur-sm flex items-center justify-center text-white font-['Playfair-Display']">
           <div className="flex flex-col justify-center items-center w-[600px] bg-gradient-to-r from-[#6e30a7] to-purple-300 p-6 py-8 rounded-xl relative">
-            {/* <div className="absolute right-4 top-4" onClick={handleOpen}><ImCross size="20px" /></div> */}
             <div>
               <p className="text-2xl">Let us know more about you!</p>
             </div>

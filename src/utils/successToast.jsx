@@ -10,7 +10,7 @@ const successToast = (message) => {
         pauseOnHover: true,
         draggable: true,
         progress: undefined,
-        theme: "toast-color",
+        className: "ToastSuccessBg"
     });
 }
 

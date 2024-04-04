@@ -159,7 +159,9 @@ body {
 }
 /* -------------------- end of stepper css used in waitlist modal-------------------- */
 
-.toast-color{
-  background-color: #6e30a7;
-  color: aliceblue;
+.ToastSuccessBg{
+  background-color: #b381e2 !important;
+}
+.ToastErrorBg{
+  background-color: rgb(235, 120, 120) !important;
 }

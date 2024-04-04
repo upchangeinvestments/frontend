@@ -12,8 +12,7 @@ import logo from "../assets/logo.png";
 import { TiTick } from "react-icons/ti";
 
 
-function DialogDefault() {
-    const [isOpen, setOpen] = useState(!localStorage.getItem('waitlist'));
+function DialogDefault({ isOpen, setOpen }) {
     const [otp, setOtp] = useState('');
     const [email, setEmail] = useState("");
     const [name, setName] = useState("");
