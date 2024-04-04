@@ -3,7 +3,7 @@ import "./App.css";
 import PrivateRoute from "./utils/PrivateRoute";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
-import SubscriptionPage from "./Pages/Subscription/SubscriptionPage";
+import SubscriptionPlan from "./Pages/SubscriptionPlan/SubscriptionPlan";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
@@ -25,7 +25,7 @@ function App() {
       <AuthProvider>
         <Routes>
           <Route path="/" element={<LandingPage />} />
-          <Route path="/premium" element={<SubscriptionPage />} />
+          <Route path="/premium" element={<SubscriptionPlan />} />
           <Route path="/about" element={<AboutUs />} />
           <Route path="/signin" element={<SignInPage />} />
           <Route path="/how-it-works" element={<HowInvestmentWorks />} />

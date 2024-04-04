@@ -56,37 +56,6 @@ function CategoryPage() {
         <Footer />
       </div>
     </div>
-    // <div className="categoryMain vsm:h-[60vh] md:h-[62vh] lg:h-[105vh] mobile-filter-drawer">
-    // <MobileFilterDrawer
-    //   open={open}
-    //   closeDrawer={openDrawer}
-    //   data={data}
-    //   Index={Id}
-    //   className="bg-transparent"
-    // />
-    // {/* filter section for mobile view */}
-    //   <NavBar />
-    //   <div className="">
-    //     <div className="uppercase  text-white flex items-center justify-end h-[50vh] lg:ml-[80px] xl:ml-[60px] 2xl:ml-[0px] ">
-    //       <p className="vsm:text-2xl msm:text-3xl md:text-5xl mt-[-100px] mr-[100px]  font-['Playfair-Display']">
-    //         {" "}
-    //         Explore Categories
-    //       </p>
-    //     </div>
-    //   </div>
-    //   {/* <SearchBox /> */}
-    // <div className="flex  vsm:-mt-[100px] lg:-mt-[50px] xl:-mt-[100px] mb-16">
-    //   <FilterSection />
-    //   <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
-    //     <MobileFilter
-    //       openDrawer={openDrawer}
-    //       passDataObject={receiveDataObject}
-    //     />
-    //     <Categories />
-    //   </div>
-    // </div>
-    //   <Footer />
-    // </div>
   );
 }
 
