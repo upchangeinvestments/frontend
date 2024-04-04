@@ -123,12 +123,12 @@ function PostPage() {
           <div className="flex flex-col items-center justify-center w-full py-4">
             <div className="flex vsm:flex-col md:flex-row font-['Playfair-Display'] items-center justify-center text-2xl">
               <span className="md:border-r md:border-gray-600 font-semibold pr-2">
-                The Highlands
+                Sample Project
               </span>
-              <span className="pl-2 font-medium">Residential property</span>
+              <span className="pl-2 font-medium">Residential Property</span>
             </div>
             <span className="flex font-['Playfair-Display'] items-center">
-              <PiMapPinLineBold /> Ardent Housing Fund II, LP
+              <PiMapPinLineBold /> Dallas, TX
             </span>
           </div>
           <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
@@ -149,7 +149,7 @@ function PostPage() {
             <div className="flex vsm:flex-col md:flex-row w-full bg-white/20 backdrop-blur-xl shadow-md shadow-black-400 rounded-lg">
               <img
                 className="vsm:w-[100%] md:w-[55%] lg:w-[60%] object-cover"
-                src="https://app.realtymogul.com/sites/default/files/styles/private_placement_gallery_thumbnail/public/rendering1.jpg?itok=m_QV1feH"
+                src="https://i.postimg.cc/pLFgbVK7/photo-1570129477492-45c003edd2be.jpg"
                 alt="property"
               />
               <div className="flex flex-col  md:w-[45%] lg:w-[40%] items-center justify-center vsm:pb-4 md:pb-2 ">

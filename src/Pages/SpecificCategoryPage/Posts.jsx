@@ -123,7 +123,7 @@ function Post({ data, type, blur }) {
           className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"
             }  xl:rounded-none xl:rounded-r-lg`}
         >
-          <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center">
+          <h3 className="vsm:text-base md:text-xl flex justify-center">
             {data.title}
           </h3>
           <p className="text-gray-600 mb-2">{data.location}</p>

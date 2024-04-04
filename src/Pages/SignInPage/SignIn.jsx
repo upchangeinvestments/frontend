@@ -74,7 +74,7 @@ const SignIn = () => {
 
       handleUpdateAuth(true);
       navigate("/category");
-      SuccessToast("Welcome to LynkInfinite Investment!");
+      SuccessToast("Welcome to LynkInfinite Investment!",{className:"bg-[#6e30a7]"});
     } catch (error) {
       if (!error.response) {
         return Error(error.message);
