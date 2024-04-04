@@ -17,15 +17,18 @@ const HowInvestmentWorks = () => {
             <img className="bg-white/20 backdrop-blur-xl rounded-lg" src="https://i.postimg.cc/C14NnWHN/40151ff3-f6bf-4aa0-8162-f374736a537c-removebg-preview.png" alt="" />
           </div>
           <div className="text-center w-[80%]">
-            <p className="">
+            <p className=" font-['Playfair-Display']">
               <span className="text-2xl font-bold">What is an Aggregator System?{" "}</span><br></br>
-              Lynkinfinite Investments utilizes an aggregator system to consolidate real estate investment opportunities from various reputable firms into a single, centralized platform. This system streamlines the process for users, allowing them to easily explore, compare, and select tailored investment options in one convenient location.</p>
+              <span className="text-justify">
+                Lynkinfinite Investments utilizes an aggregator system to consolidate real estate investment opportunities from various reputable firms into a single, centralized platform. This system streamlines the process for users, allowing them to easily explore, compare, and select tailored investment options in one convenient location.
+              </span>
+            </p>
           </div>
         </div>
       </div>
       <Explore />
       <HowItWorks />
-    </div>
+    </div >
   );
 };
 

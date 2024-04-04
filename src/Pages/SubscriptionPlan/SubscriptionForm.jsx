@@ -48,9 +48,9 @@ function SubscriptionForm() {
                         <div className="mb-4 basis-1/2">
                             <label
                                 htmlFor="name"
-                                className="block text-white text-base font-bold mb-2"
+                                className="block text-white text-base mb-2"
                             >
-                                Name:
+                                Name
                             </label>
                             {isAuth && user.name ? (
                                 <input
@@ -73,9 +73,9 @@ function SubscriptionForm() {
                         <div className="mb-4 basis-1/2">
                             <label
                                 htmlFor="companyName"
-                                className="block text-white text-base font-bold mb-2"
+                                className="block text-white text-base mb-2"
                             >
-                                Comapny Name:
+                                Company Name
                             </label>
                             <input
                                 type="text"
@@ -89,9 +89,9 @@ function SubscriptionForm() {
                         <div className="mb-4 basis-1/2">
                             <label
                                 htmlFor="name"
-                                className="block text-white text-base font-bold mb-2"
+                                className="block text-white text-base mb-2"
                             >
-                                Email:
+                                Email
                             </label>
                             {isAuth && user.email ? (
                                 <input
@@ -114,9 +114,9 @@ function SubscriptionForm() {
                         <div className="mb-4 basis-1/2">
                             <label
                                 htmlFor="phone"
-                                className="block text-white text-base font-bold mb-2"
+                                className="block text-white text-base mb-2"
                             >
-                                Phone Number:
+                                Phone Number
                             </label>
                             <input
                                 type="number"
@@ -131,9 +131,9 @@ function SubscriptionForm() {
                     <div className="mb-4">
                         <label
                             htmlFor="input1"
-                            className="block text-white text-base font-bold"
+                            className="block text-white text-base"
                         >
-                            Please select the type of real estate project you're looking to list on LynkInfinite Investments:
+                            Please select the type of real estate project you're looking to list on LynkInfinite Investments
                         </label>
                         <select value={input1Value} onChange={(e) => handleInputChange(e, setInput1Value)} name="input1" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
                             {Formoptions[0].map((option) => (
@@ -146,7 +146,7 @@ function SubscriptionForm() {
                     <div className="mb-4">
                         <label
                             htmlFor="input2"
-                            className="block text-white text-base font-bold"
+                            className="block text-white text-base"
                         >
                             What is the estimated value of your project that you are seeking funding for?
                         </label>
@@ -161,7 +161,7 @@ function SubscriptionForm() {
                     <div className="mb-4">
                         <label
                             htmlFor="input3"
-                            className="block text-white text-base font-bold"
+                            className="block text-white text-base"
                         >
                             What duration would you prefer for your project to be listed on our platform?
                         </label>
@@ -176,7 +176,7 @@ function SubscriptionForm() {
                     <div className="mb-4">
                         <label
                             htmlFor="input4"
-                            className="block text-white text-base font-bold"
+                            className="block text-white text-base"
                         >
                             Are you interested in any additional services or features for your listing?
                         </label>
