@@ -26,6 +26,7 @@ const faqData = [
     content:
       "At this time, LynkInfinite is only open to U.S. investors. We are working on expanding our offerings to international investors in the future.",
   },
+  
 ];
 
 const FAQ = (props) => {

@@ -102,19 +102,19 @@ const Profile = () => {
           </div>
         )}
       </div>
-      <div className="hidden md:block vsm:col-span-2 md:col-span-3 lg:col-span-3">
+      <div className="hidden md:block vsm:col-span-2 md:col-span-3 lg:col-span-4 xl:col-span-5 ">
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
-      <div className="vsm:col-span-10  md:col-span-9 lg:col-span-9">
-        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[80%] lg:p-4 xl:w-[80%] xl:p-[20px] xl:ml-[100px] bg-[#f1f1f8] rounded-lg shadow-md  relative">
+      <div className="vsm:col-span-10  md:col-span-9 lg:col-span-8 xl:col-span-7">
+        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[60%] lg:p-4 xl:w-[70%] xl:p-[20px]  bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
           <div className="flex items-center">
-            <div className="flex-shrink-0">
+            <div className="">
               {user.image ? (
                 <div>
                   <img
                     src={user.image}
                     alt="user"
-                    className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px] rounded-full"
+                    className="border border-gray-200 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px] rounded-full"
                   />
                 </div>
               ) : (
@@ -126,57 +126,58 @@ const Profile = () => {
                 />
               )}
             </div>
-            <div className=" vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8 flex justify-start">
-              <h2 className="vsm:text-[14px] sm:text-[15px] text-purple-800 md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
-                Welcome {user.name} !
-              </h2>
+            <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8 mt-6 grid grid-rows-2 gap-y-4">
+             <h2 className="vsm:text-[14px] sm:text-[15px] text-purple-800 md:text-[17px] lg:text-[28px] xl:text-5xl font-bold">
+               Welcome!
+             </h2>
+              <p className="text-2xl font-semibold ml-2">{user.name}</p>
             </div>
           </div>
           <div className="mt-4">
-            <p className="text-purple-500 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
-              Start sharing to unlock your experience.
+            <p className="text-[#6e30a7] vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
+            Embark on Your Investment Journey: Let's Discover Your Preferences Together!
             </p>
           </div>
         </div>
         <div className="grid col-span-9">
-          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[80%] lg:p-[15px]  bg-[#f1f1f8] rounded-lg shadow-md relative">
+          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[60%] lg:p-[15px] xl:w-[70%]  bg-gradient-to-r from-purple-300 to-pink-200 backdrop-blur-xl rounded-lg shadow-md relative">
             {tabContent && (
               <div id={tabContent.linkId}>
-                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-[#6e30a7]  font-bold text-center">
+                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-[#6e30a7]   font-bold text-center">
                   {tabContent.title}
                 </h2>
                 <div className="">
                   <form className="mx-auto w-[90%]" onSubmit={updateProfile}>
-                    <div className="mb-4">
-                      <label htmlFor="Name" className="block mb-1">
+                    <div className="mb-4 mt-10">
+                      <label htmlFor="Name" className="block mb-1 uppercase font-bold text-xl">
                         First Name
                       </label>
                       <input type="text" id="Name" value={Name} onChange={(e) => { setName(e.target.value); handleInputChange(); }}
-                        className="bg-transparent w-full border-gray-300 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7]"
+                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] text-xl "
                       />
                     </div>
                     <div className="mb-4">
-                      <label htmlFor="Name" className="block mb-1">
+                      <label htmlFor="Name" className="block mb-1 uppercase font-bold text-xl ">
                         Email
                       </label>
                       <input type="email" id="email" value={user.email} readOnly={true}
-                        className="bg-transparent w-full border-gray-300 border-b-2 p-2 focus:outline-none "
+                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none text-xl "
                       />
                     </div>
                     <div className="mb-4">
-                      <label htmlFor="dateOfBirth" className="block mb-1">
+                      <label htmlFor="dateOfBirth" className="block mb-1 uppercase font-bold text-xl">
                         Date of Birth
                       </label>
                       <input type="date" id="dateOfBirth" value={dateOfBirth} onChange={(e) => { setDateOfBirth(e.target.value); handleInputChange(); }}
-                        className="bg-transparent w-full border-gray-300 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7]"
+                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] text-xl"
                       />
                     </div>
                     {/* -----------------US states dropdown ----------------- */}
-                    <div className="mb-4">
-                      <div>State</div>
+                    <div className="mb-4 uppercase">
+                      <div className="font-bold text-xl">State</div>
                       <div
                         onClick={() => setStateDropdown(!openStateDropdown)}
-                        className={`bg-white text-black w-full p-2 flex items-center justify-between ${openStateDropdown ? "rounded-t-lg" : "rounded-lg"} ${!selectedState && "text-black"}`}>
+                        className={`bg-gray-200 text-black w-full p-2 flex items-center justify-between ${openStateDropdown ? "rounded-t-lg" : "rounded-lg"} ${!selectedState && "text-black"}`}>
                         {selectedState
                           ? selectedState?.length > 25
                             ? selectedState?.substring(0, 25) + "..."
@@ -192,7 +193,7 @@ const Profile = () => {
                             value={inputStateValue}
                             onChange={(e) => setInputStateValue(e.target.value.toLowerCase())}
                             placeholder="Enter State "
-                            className="placeholder:text-gray-700 p-2 outline-none bg-transparent text-black"
+                            className="placeholder:text-gray-700  p-2 outline-none bg-transparent text-black"
                           />
                         </div>
                         <div className={`overflow-y-auto rounded-b-lg ${openStateDropdown ? "max-h-60" : "max-h-0"} `}>
@@ -220,7 +221,7 @@ const Profile = () => {
                     </div>
                     {/* -----------------end of US states dropdown ----------------- */}
                     <div className="mb-4">
-                      <label htmlFor="phone" className="block mb-1">
+                      <label htmlFor="phone" className="block mb-1 uppercase font-bold text-xl">
                         Phone
                       </label>
                       <div className="">

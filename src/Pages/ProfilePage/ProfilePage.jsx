@@ -9,7 +9,7 @@ import UserDataModal from "../../commonComponents/getUserDataModal";
 const ProfilePage = () => {
   const tabs = [
     { title: "Profile", content: <Profile /> },
-    { title: "Activity", content: <Activity /> },
+    { title: "Saved Projects", content: <Activity /> },
     { title: "Questionnaire", content: <Questionnaire /> },
   ];
 
