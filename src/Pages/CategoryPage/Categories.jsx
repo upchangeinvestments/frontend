@@ -55,7 +55,7 @@ const categoryData = Images.map((image, index) => ({
 
 function Categories() {
   return (
-    <div className="mx-8">
+    <div className="mx-8 z-[1]">
       <div className="grid  vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  gap-x-6  gap-y-12">
         {categoryData.map((element, index) =>
           index === 8 ? (
