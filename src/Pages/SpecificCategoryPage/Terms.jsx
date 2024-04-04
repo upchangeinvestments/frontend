@@ -2,7 +2,7 @@ import React from "react";
 
 function Terms() {
   return (
-    <div className="bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg  backdrop-blur-lg mx-20 my-20 py-12 px-16 text-white">
+    <div className="vsm:mx-[15px] vsm:px-[10px] vsm:py-[20px] vsm:-mt-[160px] md:mx-[50px] md:px-[20px]  lg:mx-20 lg:mb-20 lg:py-12 lg:-mt-[270px] lg:px-16 mb-[50px] bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg  backdrop-blur-lg  text-white">
       <b>Acceptance of Terms:</b>
       <br /> By accessing or using Lynkinfinite Investments, you agree to abide
       by these Terms of Service.

@@ -78,16 +78,16 @@ function ProfileMenu({ HandleLogout, user }) {
             <MenuItem
               key={label}
               onClick={closeMenu}
-              className="flex items-center gap-3 my-1 rounded "
+              className="flex items-center font-['Playfair-Display'] gap-3 my-1 rounded "
             >
               {React.createElement(icon, {
-                className: `h-4 w-4 ${isLastItem ? "text-red-500" : "text-[#6e30a7]"
+                className: `h-4 w-4  ${isLastItem ? "text-[#6e30a7]" : "text-[#6e30a7]"
                   }`,
                 strokeWidth: 1,
               })}
               {isLastItem ? (
                 <div onClick={HandleLogout}>
-                  <Typography as="span" variant="lead" className="font-normal">
+                  <Typography as="span" variant="lead" className="font-['Playfair-Display']">
                     {label}
                   </Typography>
                 </div>
@@ -97,7 +97,7 @@ function ProfileMenu({ HandleLogout, user }) {
                     as="span"
                     variant="lead"
                     className="font-normal"
-                    color={isLastItem ? "red" : "inherit"}
+                    color={isLastItem ? "[#6e30a7]" : "inherit"}
                   >
                     {label}
                   </Typography>
@@ -124,8 +124,8 @@ const NavBar = () => {
       <div
         className={
           open
-            ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] FontLinikSans"
-            : "relative backdrop-blur-sm bg-slate-50/10 z-40 FontLinikSans"
+            ? "absolute w-full backdrop-blur-3xl bg-slate-50/10 z-40 h-[90vh] font-['Playfair-Display']"
+            : "relative backdrop-blur-sm bg-slate-50/10 z-40 font-['Playfair-Display']"
         }
       >
         <div className="w-full mx-auto px-4 sm:px-6">
