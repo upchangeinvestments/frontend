@@ -132,17 +132,17 @@ function PostPage() {
             </span>
           </div>
           <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
-            <div className="flex justify-start lg:justify-evenly lg:gap-[380px] bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
+            <div className="flex justify-stretch gap-4 bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
               {tabs.map((value, index) => (
                 <NavHashLink to="/post/#Section" smooth
-                  className={`font-semibold text-lg p-4 cursor-default whitespace-nowrap ${activeTab === index
-                    ? "border-b-4 border-[#6e30a7] text-[#6e30a7]"
+                  className={`w-full font-semibold text-lg p-4 cursor-default whitespace-nowrap ${activeTab === index
+                    ? "border-b-4 border-[#6e30a7] text-[#6e30a7] bg-purple-500/20 rounded-md "
                     : ""
                     }`}
                   key={index}
                   onClick={() => setActiveTab(index)}
                 >
-                  {value.title}
+                  <p className="text-center">{value.title}</p>
                 </NavHashLink>
               ))}
             </div>

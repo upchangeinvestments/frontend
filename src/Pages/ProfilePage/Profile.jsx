@@ -1,18 +1,60 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { FaUserCircle } from "react-icons/fa";
 import Sidebar from "./Sidebar";
 import MobileSidebar from "./mobileSidebar";
 import { useAuth } from "../../utils/AuthContext";
+import { MuiTelInput } from 'mui-tel-input';
+import { BiChevronDown } from "react-icons/bi";
+import { AiOutlineSearch } from "react-icons/ai";
+import UsStates from "../../assets/US_states.json";
+import axios from "axios";
+import Error from "../../utils/Error";
+import SuccessToast from "../../utils/successToast";
 
 const Profile = () => {
   const [sidebarOpen, setSidebarOpen] = useState(false);
-  const { user } = useAuth();
+  const { user, backendUrl, setUser } = useAuth();
   const [tabContent, setTabContent] = useState({
     data: user,
     title: "PROFILE SECTION",
     linkId: "",
   });
+  console.log(user);
+  const [Name, setName] = useState("");
+  const [dateOfBirth, setDateOfBirth] = useState("");
+  const [phone, setPhone] = useState("");
+  const [isFormChanged, setIsFormChanged] = useState(false);
 
+  const [inputStateValue, setInputStateValue] = useState("");
+  const [selectedState, setSelectedState] = useState("");
+  const [openStateDropdown, setStateDropdown] = useState(false);
+
+  useEffect(() => {
+    setName(user.name || '');
+    setDateOfBirth(user.dob ? new Date(user.dob).toISOString().split('T')[0] : "");
+    setPhone(user.phone || '');
+    setSelectedState(user.location || '');
+  }, [user]);
+
+  const updateProfile = async (e) => {
+    e.preventDefault();
+    const newDetails = { user, name: Name, dob: dateOfBirth, phone: phone, location: selectedState };
+    console.log(newDetails);
+    const res = await axios.post(`${backendUrl}/updateUser`, newDetails);
+    if (res.status === 200) {
+      setUser(res.data.user);
+      SuccessToast("Data updated successfully");
+    } else if (res.status === 500) {
+      Error("Internal Server Error, try again later!");
+    } else {
+      Error("Something went wrong, please try again later!");
+    }
+  }
+  const handleInputChange = () => {
+    console.log(dateOfBirth);
+    console.log(typeof dateOfBirth);
+    setIsFormChanged(true);
+  }
   const handleIncomingData = (data, title, linkId) => {
     setTabContent({ data, title, linkId });
   };
@@ -20,31 +62,18 @@ const Profile = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  let date = new Date(user.createdAt);
-  let monthNames = [
-    "January",
-    "February",
-    "March",
-    "April",
-    "May",
-    "June",
-    "July",
-    "August",
-    "September",
-    "October",
-    "November",
-    "December",
-  ];
-  let day = date.getUTCDate().toString().padStart(2, "0");
-  let month = monthNames[date.getUTCMonth()];
-  let year = date.getUTCFullYear().toString();
-  const dateOfJoined = `${day} ${month} ${year}`;
+  // let date = new Date(user.createdAt);
+  // let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
+  // let day = date.getUTCDate().toString().padStart(2, "0");
+  // let month = monthNames[date.getUTCMonth()];
+  // let year = date.getUTCFullYear().toString();
+  // const dateOfJoined = `${day} ${month} ${year}`;
 
-  date = new Date(user.dob);
-  day = date.getUTCDate().toString().padStart(2, "0");
-  month = monthNames[date.getUTCMonth()];
-  year = date.getUTCFullYear().toString();
-  const DOB = `${day} ${month} ${year}`;
+  // date = new Date(user.dob);
+  // day = date.getUTCDate().toString().padStart(2, "0");
+  // month = monthNames[date.getUTCMonth()];
+  // year = date.getUTCFullYear().toString();
+  // const DOB = `${day} ${month} ${year}`;
 
   return (
     <div className="grid font-['Playfair-Display'] grid-cols-12">
@@ -99,13 +128,13 @@ const Profile = () => {
             </div>
             <div className=" vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8 flex justify-start">
               <h2 className="vsm:text-[14px] sm:text-[15px] text-purple-800 md:text-[17px] lg:text-[19px] xl:text-[23px]  font-bold flex flex-start">
-                Welcome {user.name}
+                Welcome {user.name} !
               </h2>
             </div>
           </div>
           <div className="mt-4">
             <p className="text-purple-500 vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
-              Start sharing to unlock your experience!
+              Start sharing to unlock your experience.
             </p>
           </div>
         </div>
@@ -116,28 +145,93 @@ const Profile = () => {
                 <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-[#6e30a7]  font-bold text-center">
                   {tabContent.title}
                 </h2>
-                <div className="vsm:text-[15px] text-black vsm:mt-[10px] sm:mt-[12px] sm:text-[14px] md:p-[15px] lg:p-[15px] md:text-[15px] lg:text-[16px] lg:mt-[15px] xl:text-[18px] xl:mt-[15px] text-pretty items-center text-left ">
-                  <table className="table-auto">
-                    <tbody>
-                      <tr>
-                        <td className="pr-6">Name: </td>
-                        <td>{user.name}</td>
-                      </tr>
-                      <tr>
-                        <td className="pr-6">Email address: </td>
-                        <td>{user.email}</td>
-                      </tr>
-                      <tr>
-                        <td className="pr-6">Location: </td>
-                        <td>{user.location}</td>
-                      </tr>
-                      <tr>
-                        <td className="pr-6">Date of birth: </td>
-                        <td>{DOB}</td>
-                      </tr>
-                    </tbody>
-                  </table>
-                  <div className="">Member since {dateOfJoined}</div>
+                <div className="">
+                  <form className="mx-auto w-[90%]" onSubmit={updateProfile}>
+                    <div className="mb-4">
+                      <label htmlFor="Name" className="block mb-1">
+                        First Name
+                      </label>
+                      <input type="text" id="Name" value={Name} onChange={(e) => { setName(e.target.value); handleInputChange(); }}
+                        className="bg-transparent w-full border-gray-300 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7]"
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label htmlFor="Name" className="block mb-1">
+                        Email
+                      </label>
+                      <input type="email" id="email" value={user.email} readOnly={true}
+                        className="bg-transparent w-full border-gray-300 border-b-2 p-2 focus:outline-none "
+                      />
+                    </div>
+                    <div className="mb-4">
+                      <label htmlFor="dateOfBirth" className="block mb-1">
+                        Date of Birth
+                      </label>
+                      <input type="date" id="dateOfBirth" value={dateOfBirth} onChange={(e) => { setDateOfBirth(e.target.value); handleInputChange(); }}
+                        className="bg-transparent w-full border-gray-300 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7]"
+                      />
+                    </div>
+                    {/* -----------------US states dropdown ----------------- */}
+                    <div className="mb-4">
+                      <div>State</div>
+                      <div
+                        onClick={() => setStateDropdown(!openStateDropdown)}
+                        className={`bg-white text-black w-full p-2 flex items-center justify-between ${openStateDropdown ? "rounded-t-lg" : "rounded-lg"} ${!selectedState && "text-black"}`}>
+                        {selectedState
+                          ? selectedState?.length > 25
+                            ? selectedState?.substring(0, 25) + "..."
+                            : selectedState
+                          : "Select State"}
+                        <BiChevronDown size={20} className={`${openStateDropdown && "rotate-180"}`} />
+                      </div>
+                      <ul>
+                        <div className={`flex items-center px-2 sticky top-0 bg-white ${openStateDropdown ? "block" : "hidden"}`}>
+                          <AiOutlineSearch size={18} className="text-black" />
+                          <input
+                            type="text"
+                            value={inputStateValue}
+                            onChange={(e) => setInputStateValue(e.target.value.toLowerCase())}
+                            placeholder="Enter State "
+                            className="placeholder:text-gray-700 p-2 outline-none bg-transparent text-black"
+                          />
+                        </div>
+                        <div className={`overflow-y-auto rounded-b-lg ${openStateDropdown ? "max-h-60" : "max-h-0"} `}>
+                          {UsStates?.map((country) => (
+                            <li
+                              key={country?.name}
+                              className={`p-2 pl-6 text-sm bg-white text-black hover:bg-[#6e30a7] hover:text-white ${country?.name?.toLowerCase() === selectedState?.toLowerCase() &&
+                                "bg-[#6e30a7] "} ${country?.name?.toLowerCase().startsWith(inputStateValue)
+                                  ? "block"
+                                  : "hidden"
+                                }`}
+                              onClick={() => {
+                                if (country?.name?.toLowerCase() !== selectedState.toLowerCase()) {
+                                  setSelectedState(country?.name);
+                                  setStateDropdown(false);
+                                  setInputStateValue("");
+                                }
+                              }}
+                            >
+                              {country?.name}
+                            </li>
+                          ))}
+                        </div>
+                      </ul>
+                    </div>
+                    {/* -----------------end of US states dropdown ----------------- */}
+                    <div className="mb-4">
+                      <label htmlFor="phone" className="block mb-1">
+                        Phone
+                      </label>
+                      <div className="">
+                        <MuiTelInput className="w-full border-b-2 " value={phone} onChange={(newValue) => { setPhone(newValue); handleInputChange(); }} />
+                      </div>
+                    </div>
+                    <button type="submit" className={isFormChanged ? "bg-[#6e30a7] text-white py-2 px-4 rounded-md hover:bg-purple-600 focus:outline-none focus:ring-[#6e30a7]"
+                      : "hidden"}>
+                      Update Profile
+                    </button>
+                  </form>
                 </div>
               </div>
             )}

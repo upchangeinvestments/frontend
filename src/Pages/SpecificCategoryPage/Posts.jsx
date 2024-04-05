@@ -3,11 +3,14 @@ import "../../styles/LandingPage/Post.css";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
 
-function Post({ data, type }) {
+function Post({ data, type, blur }) {
   const isEven = data.index % 2 === 0;
   return (
     <div className="font-['Playfair-Display']">
-      <div className="hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4">
+      <div className={`relative hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4 ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}>
+        <div className="absolute top-0 -left-4 bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10">
+          Sample Project
+        </div>
         <h3 className="vsm:text-base md:text-xl font-['Playfair-Display'] font-bold flex justify-center px-2 pb-1">
           {data.title}
         </h3>
@@ -102,23 +105,23 @@ function Post({ data, type }) {
       </div>
       {/* for vsm to lg screens */}
       <div
-        className={`shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${
-          isEven ? "lg:flex-row-reverse" : "lg:flex-row"
-        } xl:flex-row items-center justify-center`}
+        className={`relative shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+          } xl:flex-row items-center justify-center ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}
       >
+        <div className="absolute top-0 -left-4 bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10">
+          Sample Project
+        </div>
         <div className="flex">
           <img
-            className={`vsm:w-[300px] md:w-[300px] lg:w-auto lg:h-[360px] vsm:rounded-t-lg lg:rounded-none ${
-              isEven ? "lg:rounded-r-lg" : "lg:rounded-l-lg"
-            } xl:rounded-none xl:rounded-l-lg`}
+            className={`vsm:w-[300px] md:w-[300px] lg:w-auto lg:h-[360px] vsm:rounded-t-lg lg:rounded-none ${isEven ? "lg:rounded-r-lg" : "lg:rounded-l-lg"
+              } xl:rounded-none xl:rounded-l-lg`}
             src={data.image}
             alt="Property"
           />
         </div>
         <div
-          className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${
-            isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"
-          }  xl:rounded-none xl:rounded-r-lg`}
+          className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"
+            }  xl:rounded-none xl:rounded-r-lg`}
         >
           <h3 className="vsm:text-base md:text-xl CustomizeFontH flex justify-center">
             {data.title}

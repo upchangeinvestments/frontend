@@ -1,8 +1,6 @@
 import React, { useState } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
-import { IoLogoGoogleplus, IoLogoApple } from "react-icons/io";
-import { CiLinkedin } from "react-icons/ci";
 import NavBar from "../../commonComponents/NavBar";
 import "../../styles/SignIn/SignIn.css";
 import axios from "axios";
@@ -21,7 +19,7 @@ const ConnetWithUs = () => {
         <Link to="/">
           <FaInstagram size="25px" />
         </Link>
-        <Link to="/">
+        <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
           <FaLinkedinIn size="30px" />
         </Link>
       </div>
@@ -136,9 +134,6 @@ const SignIn = () => {
                       />
                     </div>
                   </div>
-                  <div>
-                    <p className="or">OR</p>
-                  </div>
                   <input
                     type="email"
                     placeholder="Email"
@@ -165,8 +160,7 @@ const SignIn = () => {
                     <input type="checkbox" name="terms" required />
                     <label htmlFor="terms">
                       <p className="text-xs">
-                        I agree to all statements in terms of service and
-                        privacy policy
+                        I agree to all statements in <Link to='/Terms' target="_blank" className="hover:underline">terms of service</Link> and <Link to='/Privacy' target="_blank" className="hover:underline">privacy policy</Link>
                       </p>
                     </label>
                   </div>
@@ -201,9 +195,6 @@ const SignIn = () => {
                         alt="outlook"
                       />
                     </div>
-                  </div>
-                  <div>
-                    <p className="or">OR</p>
                   </div>
                   <input
                     className=""
@@ -263,7 +254,7 @@ const SignIn = () => {
                         <Link to="/">
                           <FaInstagram size="25px" />
                         </Link>
-                        <Link to="/">
+                        <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
                           <FaLinkedinIn size="25px" />
                         </Link>
                       </div>
@@ -289,7 +280,7 @@ const SignIn = () => {
                         <Link to="/">
                           <FaInstagram size="25px" />
                         </Link>
-                        <Link to="/">
+                        <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
                           <FaLinkedinIn size="25px" />
                         </Link>
                       </div>
@@ -339,9 +330,6 @@ const SignIn = () => {
                     />
                   </div>
                 </div>
-                <div>
-                  <p className="or">OR</p>
-                </div>
                 <input
                   type="email"
                   placeholder="Email"
@@ -365,8 +353,7 @@ const SignIn = () => {
                   <input type="checkbox" name="terms" required />
                   <label htmlFor="terms">
                     <p className="text-xs">
-                      I agree to all statements in terms of service and privacy
-                      policy
+                      I agree to all statements in <Link to='/Terms' target="_blank" className="hover:underline">terms of service</Link> and <Link to='/Privacy' target="_blank" className="hover:underline">privacy policy</Link>
                     </p>
                   </label>
                 </div>
@@ -421,9 +408,6 @@ const SignIn = () => {
                       alt="outlook"
                     />
                   </div>
-                </div>
-                <div>
-                  <p className="or">OR</p>
                 </div>
                 <input
                   className=""

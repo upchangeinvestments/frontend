@@ -68,12 +68,16 @@ function DialogDefault() {
         <div className="">
             {isOpen && (<div className="absolute inset-0 z-50 bg-white/20 backdrop-blur-sm flex items-center justify-center  text-white">
                 <div className="flex flex-col justify-center items-center w-[600px] bg-gradient-to-r from-[#6e30a7] to-purple-300 p-6 py-8 rounded-xl relative">
-                    <div className="absolute right-4 top-4" onClick={handleOpen}><ImCross size="20px" /></div>
+                    <div className="absolute right-4 top-4" onClick={handleOpen}>
+                        <div className={currentStep === 0 ? "block" : "hidden"}>
+                            <ImCross size="20px" />
+                        </div>
+                    </div>
                     <div>
                         <p className="text-3xl">Join Project Waitlist</p>
                     </div>
                     <div className="flex items-center justify-center">
-                        <img src={logo} alt="logo" className="w-[70%]" />
+                        <img src={logo} alt="logo" className="w-[50%]" />
                     </div>
                     <div className="flex justify-between w-full">
                         {steps?.map((step, i) => (
