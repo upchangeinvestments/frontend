@@ -17,7 +17,7 @@ function ResouceContent() {
     <div className="max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8 -mt-[200px] lg:-mt-[240px] xl:-mt-[300px]">
       <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
         <div className="flex flex-col pt-1 bg-white/30 backdrop-blur-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg">
-          <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] vsm:w-[300px] msm:w-[380px] vsm:h-[150px] md:w-[300px] md:h-[200px] lg:w-[400px] xl:w-[500px]  mx-auto mt-4 rounded-lg"></div>
+          <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] vsm:w-[220px] msm:w-[300px] sm:w-[340px] vsm:h-[150px] md:w-[300px] md:h-[200px] lg:w-[400px] xl:w-[500px]  mx-auto mt-4 rounded-lg"></div>
           <div className="p-4">
             <p className="text-xs uppercase font-['Playfair-Display'] mb-2">
               Time to invest
@@ -35,8 +35,8 @@ function ResouceContent() {
               key={index}
               className="py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
             >
-              <div className="vsm:w-[150px]  msm:w-[160px] vsm:h-[70px] md:w-[160px] lg:w-[200px] lg:h-[80px]  xl:w-[220px]  xl:h-[100px] flex justify-center items-center border-2 border-[#6e30a7]">
-                <p className="flex items-center justify-center uppercase font-['Playfair-Display'] vsm:text-2xl md:text-2xl lg:text-3xl  text-[#6e30a7]  md:mt-0">
+              <div className="vsm:w-[110px]   msm:w-[120px] sm:w-[140px] vsm:h-[70px] md:w-[145px] lg:w-[200px] lg:h-[80px]  xl:w-[220px]  xl:h-[100px] flex justify-center items-center border-2 border-[#6e30a7]">
+                <p className="flex items-center justify-center uppercase font-['Playfair-Display'] vsm:text-lg md:text-xl lg:text-3xl  text-[#6e30a7]  md:mt-0">
                   {data.Type}
                 </p>
               </div>

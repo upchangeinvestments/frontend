@@ -20,7 +20,7 @@ const EducationData = [
   {
     title: "A guide to investing in closed end funds",
     description:
-      "Looking for greater flexibility in your investment strategy with higher potential income and return? Explore closed end funds at BlackRock.",
+      "Looking for greater flexibility in your investment strategy with higher potential income and return?",
     linkText: "Learn More",
     href: "#",
   },
@@ -93,7 +93,7 @@ const Card = (props) => {
   return (
     <a
       href={props.data.href}
-      className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg h-[200px] relative border border-1 border-[#6e30a7]"
+      className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg vsm:h-[250px] msm:h-[230px] lg:h-[220px] xl:h-[200px] relative border border-1 border-[#6e30a7]"
     >
       <h2 className="vsm:text-xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 md:hidden">
         {props.data.title.length > 33
