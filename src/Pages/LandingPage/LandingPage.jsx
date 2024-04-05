@@ -8,7 +8,7 @@ import Questions from "./Questions";
 import Unique from "./Unique";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
-import ListWithUs from "./ListWithUs";
+// import ListWithUs from "./ListWithUs";
 import Footer from "../../commonComponents/Footer";
 import WaitListModal from "../../commonComponents/WaitListModal";
 
@@ -28,7 +28,7 @@ function LandingPage() {
           {/* <OurUsers /> */}
           <HowInvestmentWorks />
           <FeaturedProject />
-          <ListWithUs />
+          {/* <ListWithUs /> */}
           <Footer />
         </>
       )}
