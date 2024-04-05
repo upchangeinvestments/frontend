@@ -7,13 +7,11 @@ function ContactPage() {
   return (
     <div className="">
       <div className="categoryMain">
-        <div className="">
-          <Navbar />
-          <div className="h-[85vh] overflow-hidden   flex items-center justify-end">
-            <p className="uppercase font-['Playfair-Display'] lg:text-5xl text-white  vsm:text-4xl md:text-5xl mt-[-290px] mr-[250px]">
-              CONTACT US
-            </p>
-          </div>
+        <Navbar />
+        <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-4xl md:text-5xl xl:text-6xl lg:-mt-[350px] lg:mr-[220px] xl:-mt-[430px] xl:mr-[250px] ">
+            CONTACT US
+          </p>
         </div>
       </div>
       <ContactForm />
