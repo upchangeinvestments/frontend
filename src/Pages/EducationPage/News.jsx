@@ -66,9 +66,8 @@ function News() {
       <Carousel
         cols={3}
         rows={1}
-        gap={10}
-        arrowLeft={<LeftArrow dir="right" />}
-        arrowRight={<RightArrow dir="right" />}
+        gap={10} arrowLeft={<LeftArrow dir="left" />}
+        arrowRight={<RightArrow dir="left" />}
         loop
       >
         {newsData.map(
