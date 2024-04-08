@@ -332,8 +332,8 @@ const Sidebar = ({ sendDataToProfile }) => {
   };
 
   return (
-    <div className="flex justify-end items-center">
-      <div className="h-[100vh] md:w-[200px] md:mt-[50px] md:ml-[20px] lg:w-[280px] lg:mt-[50px] lg:ml-[40px] xl:w-[70%] xl:ml-[70px] flex flex-col items-center bg-gradient-to-r from-[#6e30a7] to-purple-300  backdrop-blur-lg md:rounded-lg lg:rounded-lg shadow-md p-4 ">
+    <div className="flex vsm:justify-start lg:justify-end items-center">
+      <div className="vsm:w-full h-[100vh] md:w-[200px] md:mt-[50px] md:ml-[20px] lg:w-[280px] lg:mt-[50px] lg:ml-[40px] xl:w-[60%] xl:mr-[70px] flex flex-col items-center bg-gradient-to-r from-[#6e30a7] to-purple-300  backdrop-blur-lg md:rounded-lg lg:rounded-lg shadow-md p-4 ">
         <ul className="flex flex-col space-y-2 w-full">
           <div className="vsm:w-[180px] vsm:ml-[30px] vsm:mb-[50px] sm:w-[200px] sm:ml-[30px] sm:mb-[50px] md:w-[150px] md:ml-[5px] md:mb-[40px] lg:mx-[20px] lg:mt-[20px] lg:mb-[80px] lg:w-[200px] xl:w-[230px]">
             <img src={logo} alt="" />

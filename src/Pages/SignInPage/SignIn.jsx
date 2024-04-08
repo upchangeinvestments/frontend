@@ -102,6 +102,9 @@ const SignIn = () => {
       const password = event.target.password.value;
       const confirmPassword = event.target.confirmPassword.value;
 
+      if (!validateEmail(email)) {
+        return Error("Email entered is Invalid");
+      }
       await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
       SuccessToast("Check your Inbox, and verify your account!");
     } catch (error) {
