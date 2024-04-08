@@ -51,30 +51,32 @@ const cardsData = [
   {
     title: "What is inflation?",
     description: "Is inflation a good or bad? Explore what it means.",
+    modalContent: "Inflation is the rate at which the general level of prices for goods and services in an economy is rising over a period of time. In other words, it represents the decrease in purchasing power of a nation's currency. When inflation occurs, each unit of currency buys fewer goods and services than it did before. Inflation is typically measured as an annual percentage increase in the Consumer Price Index (CPI) or the Producer Price Index (PPI), which are indexes that track the prices of a basket of goods and services commonly purchased by households or businesses, respectively."
   },
   {
     title: "How to Invest?",
     description: "Learn why, when, and how to start investing your money.",
+    modalContent: "Investing involves committing capital with the expectation of earning a return over time. Start by setting clear investment goals and understanding your risk tolerance. Educate yourself on different investment options and develop a diversified investment strategy. Choose suitable investments based on your goals, risk tolerance, and research. Open an investment account with a reputable platform and allocate your assets according to your strategy. Regularly monitor and rebalance your portfolio, staying informed about market trends. Consider seeking professional advice if needed, but remember that investing involves risks and requires careful consideration of your financial situation and objectives."
   },
   {
     title: "Why invest in private real estate?",
-    description:
-      "Private real estate has outperformed US equities and fixed income on an absolute and risk-adjusted basis since 2000.",
+    description: "Private real estate has outperformed US equities and fixed income on an absolute and risk-adjusted basis since 2000.",
+    modalContent: "Investing in private real estate offers several advantages. Firstly, it provides the potential for attractive returns through rental income and property appreciation. Unlike public real estate investment options like real estate investment trusts (REITs), private real estate allows for direct ownership, offering greater control over property selection, management, and value-add opportunities. Additionally, private real estate investments may provide diversification benefits to a portfolio, as they often have low correlation with traditional stocks and bonds. Moreover, real estate investments offer the potential for tax advantages such as depreciation deductions and the ability to defer capital gains taxes through 1031 exchanges. Overall, private real estate can be an appealing option for investors seeking income, diversification, and potential tax benefits within their investment portfolio."
   },
   {
     title: "Benefits of Investing With Your IRA",
-    description:
-      "Long-term retirement plans are typically designed to benefit individuals by reducing their tax bill while earning interest over time.",
+    description: "Long-term retirement plans are typically designed to benefit individuals by reducing their tax bill while earning interest over time.",
+    modalContent: "Investing with your Individual Retirement Account (IRA) offers several benefits. Firstly, contributions to a traditional IRA may be tax-deductible, potentially reducing your taxable income for the year in which contributions are made. Alternatively, contributions to a Roth IRA are made with after-tax dollars, but qualified withdrawals, including earnings, are tax-free in retirement. Secondly, IRAs offer a wide range of investment options, including stocks, bonds, mutual funds, ETFs, real estate, and more, allowing you to tailor your portfolio to your investment goals and risk tolerance. Additionally, investments within an IRA can grow tax-deferred or tax-free, depending on the type of account, potentially accelerating wealth accumulation over time. Moreover, IRAs offer the advantage of disciplined retirement savings, as funds are earmarked for retirement and may be subject to penalties for early withdrawal, helping investors stay on track with their long-term financial goals. Overall, investing with your IRA can provide tax advantages, investment flexibility, and a disciplined approach to retirement savings, making it a valuable tool for building wealth for retirement."
   },
 ];
 
-function ServiceCard({ title, description }) {
+function ServiceCard({ title, description, modalContent }) {
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(!modalOpen);
 
   return (
     <div onClick={handleOpen} className="">
-      <EduModal isOpen={modalOpen} handleOpen={handleOpen} />
+      <EduModal isOpen={modalOpen} handleOpen={handleOpen} modalContent={modalContent} />
       <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#6e30a7] flex flex-col ">
         <h3 className="text-xl font-medium mb-2">{title}</h3>
         <p className="line-clamp-3">{description}</p>

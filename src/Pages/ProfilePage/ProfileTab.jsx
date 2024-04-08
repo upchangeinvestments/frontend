@@ -20,7 +20,7 @@ const Tabs = ({ tabs }) => {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`py-2 vsm:px-2 lg:px-4  vsm:text-md sm:text-xl md:text-2xl lg:text-[28px]  focus:outline-none ${activeTab === index
+                className={`py-2 vsm:px-2 lg:px-4 vsm:text-sm msm:text-lg sm:text-xl md:text-2xl lg:text-[28px]  focus:outline-none ${activeTab === index
                     ? "border-b-2 border-[#6e30a7] text-[#6e30a7]"
                     : ""
                   }`}

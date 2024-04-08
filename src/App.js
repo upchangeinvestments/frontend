@@ -18,6 +18,7 @@ import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "./utils/AuthContext";
 import Termsandconditions from "./Pages/SpecificCategoryPage/Termsandconditions";
 import Privacyandpolicy from "./Pages/SpecificCategoryPage/Privacyandpolicy";
+import Welcome from "./Pages/SignInPage/Welcome";
 
 function App() {
   return (
@@ -50,6 +51,7 @@ function App() {
           <Route path="/Terms" element={<Termsandconditions />} />
           <Route path="/Privacy" element={<Privacyandpolicy />} />
           <Route path="/category" element={<CategoryPage />} />
+          <Route path="/welcome" element={<Welcome />} />
         </Routes>
         <ToastContainer
           position="top-center"
