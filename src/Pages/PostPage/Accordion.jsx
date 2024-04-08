@@ -57,11 +57,14 @@ const DropDownData = [
     title: "Documents",
     content: "View the project documentations",
     desc: "View the project documentations",
+    id: "documents",
+
   },
   {
     title: "Business Plan",
     content: "View the business plan",
     desc: "View the business plan",
+    id: "business",
   },
   // {
   //     title: "Property",
@@ -72,6 +75,7 @@ const DropDownData = [
     title: "Financials",
     content: "Reveiw debt assumptions, closing dates, caps and more",
     desc: "Reveiw debt assumptions, closing dates, caps and more",
+    id: "financial",
   },
   {
     title: "Listed company",
@@ -91,6 +95,7 @@ function MaterialUIAccordion() {
         <Accordion
           className="my-4 rounded-lg bg-[#F3F3F3] border-[1px] border-solid border-gray-600 py-0"
           key={index}
+          id={data.id ? data.id : ""}
           open={open === index}
         >
           <AccordionHeader

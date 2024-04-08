@@ -44,7 +44,7 @@ function SubscriptionForm() {
                     onSubmit={handleSubmit}
                     className=" rounded vsm:p-4 md:px-8 md:pt-6 w-full"
                 >
-                    <div className="flex gap-8">
+                    <div className="flex vsm:flex-col md:flex-row vsm:gap-0 md:gap-8">
                         <div className="mb-4 basis-1/2">
                             <label
                                 htmlFor="name"
@@ -85,7 +85,7 @@ function SubscriptionForm() {
                             />
                         </div>
                     </div>
-                    <div className="flex gap-8">
+                    <div className="flex vsm:flex-col md:flex-row vsm:gap-0 md:gap-8">
                         <div className="mb-4 basis-1/2">
                             <label
                                 htmlFor="name"
