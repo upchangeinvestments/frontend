@@ -58,10 +58,21 @@ const SignIn = () => {
     }
   };
 
+  const validateEmail = (enteredEmail) => {
+    const emailRegex = /^[a-z0-9]+([._-][a-z0-9]+)*@(gmail\.com|yahoo\.com|outlook\.com)$/;
+    if (!emailRegex.test(enteredEmail)) {
+      return false;
+    }
+    return true;
+  }
+
   const handleLogin = async (event) => {
     event.preventDefault();
     const email = event.target.email.value;
     const password = event.target.password.value;
+    if (!validateEmail(email)) {
+      return Error("Email entered is Invalid");
+    }
     try {
       const response = await axios.post(`${backendUrl}/auth/login`, {
         email,
@@ -74,7 +85,7 @@ const SignIn = () => {
 
       handleUpdateAuth(true);
       navigate("/category");
-      SuccessToast("Welcome to LynkInfinite Investment!",{className:"bg-[#6e30a7]"});
+      SuccessToast("Welcome to LynkInfinite Investment!", { className: "bg-[#6e30a7]" });
     } catch (error) {
       if (!error.response) {
         return Error(error.message);

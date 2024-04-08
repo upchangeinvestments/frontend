@@ -72,9 +72,9 @@ const Footer = () => {
                   <a href="">
                     <FaInstagram size="30px" />
                   </a>
-                  <a href="">
+                  <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
                     <FaLinkedinIn size="30px" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -123,9 +123,9 @@ const Footer = () => {
                   <a href="">
                     <FaInstagram size="30px" />
                   </a>
-                  <a href="">
+                  <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
                     <FaLinkedinIn size="30px" />
-                  </a>
+                  </Link>
                 </div>
               </div>
             </div>
@@ -171,12 +171,12 @@ const Footer = () => {
           <a href="">
             <FaInstagram size="30px" />
           </a>
-          <a href="">
+          <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
             <FaLinkedinIn size="30px" />
-          </a>
+          </Link>
         </div>
       </div>
-    </footer>
+    </footer >
   );
 };
 
