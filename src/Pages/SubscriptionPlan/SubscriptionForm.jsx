@@ -27,14 +27,14 @@ function SubscriptionForm() {
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        const name = event.target.name.value;
-        const email = event.target.email.value;
+        // const name = event.target.name.value;
+        // const email = event.target.email.value;
 
 
     };
 
     return (
-        <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 rounded-lg max-w-7xl px-6 py-12 md:py-8">
+        <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 rounded-lg max-w-7xl px-6 py-12 md:py-8 vsm:-mt-[250px] md:-mt-[240px]" >
             <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-4 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg flex flex-col items-center justify-center">
                 <p className="vsm:text-xl vsm:mb-[10px] msm:text-2xl md:text-2xl text-white font-bold ">
                     Listing Inquiry Form
@@ -118,13 +118,23 @@ function SubscriptionForm() {
                             >
                                 Phone Number
                             </label>
-                            <input
-                                type="number"
-                                name="phone"
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
-                                required
-                            />
-
+                            {isAuth && user.phone ? (
+                                <input
+                                    type="text"
+                                    name="phone"
+                                    value={user.phone}
+                                    readOnly
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    required
+                                />
+                            ) : (
+                                <input
+                                    type="number"
+                                    name="phone"
+                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    required
+                                />
+                            )}
                         </div>
                     </div>
 

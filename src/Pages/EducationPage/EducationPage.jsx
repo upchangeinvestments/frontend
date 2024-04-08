@@ -4,9 +4,34 @@ import Carousel from "react-grid-carousel";
 import News from "./News";
 import { LeftArrow, RightArrow } from "../../commonComponents/CarouselButton";
 import Education from "./Education";
+import { NavHashLink } from "react-router-hash-link";
 import Footer from "../../commonComponents/Footer";
 import NavBar from "../../commonComponents/NavBar";
 import ArticleData from "../../assets/ArticlesEduPage.json";
+
+const MainData = [
+  {
+    ImageSrc: "https://i.postimg.cc/y60sd0pQ/article-removebg-preview.png",
+    Type: "Article",
+    linkToSection: "/resources/#articles",
+  },
+  {
+    ImageSrc: "https://i.postimg.cc/4x2TMPnd/education-removebg-preview.png",
+    Type: "Education",
+    linkToSection: "/resources/#education",
+  },
+  {
+    ImageSrc: "https://i.postimg.cc/0yCm0fSL/news.jpg",
+    Type: "News",
+    linkToSection: "/resources/#news",
+  },
+  {
+    ImageSrc: "https://i.postimg.cc/d3p1B7Qk/keywords.jpg",
+    Type: "Keywords",
+    linkToSection: "/resources/#keywords",
+  },
+];
+
 
 function ResouceContent() {
   const description =
@@ -31,7 +56,7 @@ function ResouceContent() {
         </div>
         <div className="grid grid-cols-2 grid-rows-2 gap-4">
           {MainData.map((data, index) => (
-            <div
+            <NavHashLink to={data.linkToSection} smooth
               key={index}
               className="py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
             >
@@ -40,17 +65,17 @@ function ResouceContent() {
                   {data.Type}
                 </p>
               </div>
-            </div>
+            </NavHashLink>
           ))}
         </div>
       </div>
-      <div className="pt-8">
+      <div className="pt-8" id="education">
         <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
           EDUCATION
         </h1>
         <Education />
       </div>
-      <div className="pt-8">
+      <div className="pt-8" id="articles">
         <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
           ARTICLES
         </h1>
@@ -96,7 +121,15 @@ function ResouceContent() {
           </Carousel>
         </div>
       </div>
-      <div className="py-8">
+      <div className="pt-8" id="keywords">
+        <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+          KEYWORDS
+        </h1>
+        <div className="">
+          {/* keywords to be added... */}2
+        </div>
+      </div>
+      <div className="py-8" id="news">
         <h1 className="text-4xl my-[20px] text-white  pb-6 flex justify-center font-['Playfair-Display']">
           NEWS
         </h1>
@@ -105,25 +138,6 @@ function ResouceContent() {
     </div>
   )
 };
-
-const MainData = [
-  {
-    ImageSrc: "https://i.postimg.cc/y60sd0pQ/article-removebg-preview.png",
-    Type: "Article",
-  },
-  {
-    ImageSrc: "https://i.postimg.cc/4x2TMPnd/education-removebg-preview.png",
-    Type: "Education",
-  },
-  {
-    ImageSrc: "https://i.postimg.cc/0yCm0fSL/news.jpg",
-    Type: "News",
-  },
-  {
-    ImageSrc: "https://i.postimg.cc/d3p1B7Qk/keywords.jpg",
-    Type: "Keywords",
-  },
-];
 
 function EducationPage() {
   return (
