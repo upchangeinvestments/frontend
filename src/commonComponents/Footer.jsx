@@ -9,7 +9,7 @@ import { NavHashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
-    <footer className="footer-section font-['Playfair-Display'] pt-8">
+    <footer className="footer-section font-['Playfair-Display'] pt-8 pb-8">
       <div className="vsm:px-8 md:px-20 ">
         <div className="footer-cta py-4">
           <div className="grid md:grid-cols-3">
@@ -61,29 +61,14 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-              <div className="footer-social-icon flex items-center justify-center my-4 vsm:hidden lg:block">
-                <div className="mr-8">
-                  <span className="">Follow us</span>
-                </div>
-                <div className="flex">
-                  <a href="">
-                    <FaFacebookF size="28px" />
-                  </a>
-                  <a href="">
-                    <FaInstagram size="30px" />
-                  </a>
-                  <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
-                    <FaLinkedinIn size="30px" />
-                  </Link>
-                </div>
-              </div>
+             
             </div>
-            <div className="w-full md:col-span-2 lg:col-span-1 lg:-ml-8">
+            <div className="w-full md:col-span-2 lg:col-span-1 lg:ml-8">
               <div className="footer-widget mx-auto">
                 <div className="footer-widget-heading">
                   <h3 className="vsm:mx-auto">Useful Links</h3>
                 </div>
-                <ul className="grid vsm:grid-cols-2 vsm:-mt-6 vsm:text-center md:grid-cols-3 md:text-left gap-x-4 md:mt-[8px] lg:mt-[10px] xl:mt-[10px]">
+                <ul className="grid vsm:grid-cols-2 vsm:mt-2 vsm:text-center md:grid-cols-3 md:text-left gap-x-4 md:mt-[8px] lg:mt-[10px] xl:mt-[10px]">
                   <li className="text-left">
                     <Link to="/about">About</Link>
                   </li>
@@ -113,8 +98,8 @@ const Footer = () => {
                 </ul>
               </div>
               <div className="footer-social-icon flex items-center justify-center my-4 vsm:hidden md:block lg:hidden">
-                <div className="mr-8">
-                  <span className="">Follow us</span>
+                <div className="mr-8 mb-4">
+                  <span className="md:text-2xl">Follow us</span>
                 </div>
                 <div className="lg:mx-0 flex">
                   <a href="">
@@ -129,8 +114,8 @@ const Footer = () => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-4 col-lg-4 col-md-6 md:-ml-12 lg:col-span-1">
-              <div className="footer-widget md:ml-12">
+            <div className="col-xl-4 col-lg-4 col-md-6 md:ml-8 lg:col-span-1">
+              {/* <div className="footer-widget md:ml-12">
                 <div className="footer-widget-heading">
                   <h3>Subscribe</h3>
                 </div>
@@ -155,27 +140,45 @@ const Footer = () => {
                     </button>
                   </form>
                 </div>
+              </div> */}
+               <div className="footer-social-icon flex items-center justify-center my-4 lg:ml-12 xl:ml-16 vsm:hidden lg:block">
+                <div className="mr-6">
+                  <span className="mb-4 lg:text-2xl">Follow us</span>
+                </div>
+                <div className="flex">
+                  <a href="">
+                    <FaFacebookF size="28px" />
+                  </a>
+                  <a href="">
+                    <FaInstagram size="30px" />
+                  </a>
+                  <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
+                    <FaLinkedinIn size="30px" />
+                  </Link>
+                </div>
               </div>
+              <div className="footer-social-icon font-['Playfair-Display'] flex items-center mt-4  md:hidden ">
+               <div className="mr-16">
+                <span className="vsm:text-2xl">Follow us</span>
+               </div>
+               <div className="lg:mx-0 flex">
+                <a href="">
+                 <FaFacebookF size="28px" />
+                </a>
+                <a href="">
+                <FaInstagram size="30px" />
+                </a>
+                <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
+                 <FaLinkedinIn size="30px" />
+                </Link>
+               </div>
+              </div>
+
             </div>
           </div>
         </div>
       </div>
-      <div className="footer-social-icon font-['Playfair-Display'] flex items-center justify-center mt-4  md:hidden ">
-        <div className="mr-8">
-          <span className="">Follow us</span>
-        </div>
-        <div className="lg:mx-0 flex">
-          <a href="">
-            <FaFacebookF size="28px" />
-          </a>
-          <a href="">
-            <FaInstagram size="30px" />
-          </a>
-          <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
-            <FaLinkedinIn size="30px" />
-          </Link>
-        </div>
-      </div>
+      
     </footer >
   );
 };

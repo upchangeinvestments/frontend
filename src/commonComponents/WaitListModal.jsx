@@ -90,7 +90,7 @@ function DialogDefault({ isOpen, setOpen }) {
                                     {i < currentStep || complete ? <TiTick size={24} /> : i + 1}
                                 </div>
                                 <p
-                                    className={`text-gray-500 ${(i + 1 < currentStep || complete) && "text-white"
+                                    className={`text-[#161b33] ${(i + 1 < currentStep || complete) && "text-white"
                                         }`}
                                 >
                                     {step}
