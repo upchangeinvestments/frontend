@@ -2,6 +2,9 @@ import React from "react";
 import "../styles/LandingPage/Post.css";
 import bgImage from "../assets/login_BG.jpeg";
 
+
+
+
 function Post({ data, type }) {
   return (
     <div className="vsm:w-64  sm:w-80 md:w-96 lg:w-full">

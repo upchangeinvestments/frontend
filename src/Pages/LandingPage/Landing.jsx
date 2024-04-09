@@ -17,14 +17,14 @@ function LandingPage() {
         data-aos="zoom-in-up"
       >
         {/* <div className="absolute vsm:mx-auto md:right-4 md:top-32 md:mr-12 lg:mr-[9vw] lg:top-28 xl:mr-36 xl:mt-20 2xl:mt-32 2xl:mr-72"> */}
-        <div className="mb-4 font-bold vsm:text-4xl xl:text-5xl 2xl:text-6xl Font2 drop-shadow-lg	">
-          Centralized Platform For
+        <div className="mb-4 font-bold vsm:text-4xl xl:text-5xl 2xl:text-6xl drop-shadow-lg	">
+         A Centralized Platform For
         </div>
-        <div className="mb-8 text-white font-bold vsm:text-4xl xl:text-5xl 2xl:text-6xl Font2 drop-shadow-lg vsm:w-[37rem] vsm:h-[1.2em] vsm:overflow-y-hidden">
+        <div className="mb-8 text-white font-bold vsm:text-4xl xl:text-5xl 2xl:text-6xl drop-shadow-lg vsm:w-[37rem] vsm:h-[1.2em] vsm:overflow-y-hidden">
           <div className="">
             <p className="font-['Playfair-Display'] "> Real Estate</p>
           </div>
-          <div className="scroller ">
+          <div className="scroller overflow-hidden ">
             <span className="text-left font-['Playfair-Display'] -ml-[40px] text-white">
               {words[0]}
               <br />
