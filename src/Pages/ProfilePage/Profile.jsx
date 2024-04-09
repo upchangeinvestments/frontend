@@ -106,7 +106,7 @@ const Profile = () => {
         <Sidebar sendDataToProfile={handleIncomingData} />
       </div>
       <div className="vsm:col-span-10  md:col-span-9 lg:col-span-8 xl:col-span-7">
-        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[60%] lg:p-4 xl:w-[70%] xl:p-[20px]  bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
+        <div className="vsm:p-[10px] vsm:ml-[10px] vsm:mt-[45px]  sm:w-[100%] sm:mt-[45px] sm:ml-[10px] sm:p-[15px] md:mt-[50px] md:ml-[60px] md:p-[20px] md:w-[85%] lg:mt-[50px] lg:ml-[100px] lg:w-[70%] lg:p-4 xl:w-[70%] xl:p-[20px]  bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md  relative">
           <div className="flex items-center">
             <div className="">
               {user.image ? (
@@ -127,54 +127,54 @@ const Profile = () => {
               )}
             </div>
             <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8 mt-6 grid grid-rows-2 gap-y-4">
-             <h2 className="vsm:text-[14px] sm:text-[15px] text-purple-800 md:text-[17px] lg:text-[28px] xl:text-5xl font-bold">
+             <h2 className="vsm:text-3xl md:text-4xl xl:text-5xl text-purple-800  font-bold">
                Welcome!
              </h2>
-              <p className="text-2xl font-semibold ml-2">{user.name}</p>
+              <p className="vsm:text-lg md:text-2xl font-semibold ml-2">{user.name}</p>
             </div>
           </div>
           <div className="mt-4">
-            <p className="text-[#6e30a7] vsm:text-[11px] vsm:pt-[15px] sm:text-[12px] md:text-[13px] lg:text-[15px] xl:text-[18px]">
+            <p className="text-[#6e30a7] vsm:text-[13px] vsm:pt-[15px] msm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px]">
             Embark on Your Investment Journey: Let's Discover Your Preferences Together!
             </p>
           </div>
         </div>
         <div className="grid col-span-9">
-          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[60%] lg:p-[15px] xl:w-[70%]  bg-gradient-to-r from-purple-300 to-pink-200 backdrop-blur-xl rounded-lg shadow-md relative">
+          <div className="vsm:mt-[20px] vsm:ml-[10px] vsm:p-[16px] sm:w-[100%] sm:mt-[20px] sm:p-[18px]  sm:ml-[10px] md:mt-[40px] md:w-[85%] md:ml-[60px] lg:mt-[40px]  lg:ml-[100px]  lg:w-[70%] lg:p-[15px] xl:w-[70%]  bg-gradient-to-r from-purple-300 to-pink-200 backdrop-blur-xl rounded-lg shadow-md relative">
             {tabContent && (
               <div id={tabContent.linkId}>
-                <h2 className="vsm:text-[18px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-lg md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-[#6e30a7]   font-bold text-center">
+                <h2 className="vsm:text-[20px] vsm:mt-[10px] sm:text-[20px] sm:mt-[12px] md:text-2xl md:mt-[15px]  lg:text-[22px]  lg:mt-[18px] xl:text-[25px] xl:mt-[20px] text-[#6e30a7]   font-bold text-center">
                   {tabContent.title}
                 </h2>
                 <div className="">
                   <form className="mx-auto w-[90%]" onSubmit={updateProfile}>
                     <div className="mb-4 mt-10">
-                      <label htmlFor="Name" className="block mb-1 uppercase font-bold text-xl">
+                      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">
                         First Name
                       </label>
                       <input type="text" id="Name" value={Name} onChange={(e) => { setName(e.target.value); handleInputChange(); }}
-                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] text-xl "
+                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl "
                       />
                     </div>
                     <div className="mb-4">
-                      <label htmlFor="Name" className="block mb-1 uppercase font-bold text-xl ">
+                      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl ">
                         Email
                       </label>
                       <input type="email" id="email" value={user.email} readOnly={true}
-                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none text-xl "
+                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none md:text-lg lg:text-xl "
                       />
                     </div>
                     <div className="mb-4">
-                      <label htmlFor="dateOfBirth" className="block mb-1 uppercase font-bold text-xl">
+                      <label htmlFor="dateOfBirth" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">
                         Date of Birth
                       </label>
                       <input type="date" id="dateOfBirth" value={dateOfBirth} onChange={(e) => { setDateOfBirth(e.target.value); handleInputChange(); }}
-                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] text-xl"
+                        className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl"
                       />
                     </div>
                     {/* -----------------US states dropdown ----------------- */}
                     <div className="mb-4 uppercase">
-                      <div className="font-bold text-xl">State</div>
+                      <div className="font-bold md:text-lg lg:text-xl mb-2">State</div>
                       <div
                         onClick={() => setStateDropdown(!openStateDropdown)}
                         className={`bg-gray-200 text-black w-full p-2 flex items-center justify-between ${openStateDropdown ? "rounded-t-lg" : "rounded-lg"} ${!selectedState && "text-black"}`}>
@@ -221,7 +221,7 @@ const Profile = () => {
                     </div>
                     {/* -----------------end of US states dropdown ----------------- */}
                     <div className="mb-4">
-                      <label htmlFor="phone" className="block mb-1 uppercase font-bold text-xl">
+                      <label htmlFor="phone" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">
                         Phone
                       </label>
                       <div className="">
