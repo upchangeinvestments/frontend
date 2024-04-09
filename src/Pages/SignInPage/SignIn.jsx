@@ -178,9 +178,11 @@ const SignIn = () => {
                       </p>
                     </label>
                   </div>
-                  <button type="submit" className="my-6">
-                    SIGN UP
+                  <Link to='/welcome'>
+                  <button type="submit" className="">
+                    SIGN UP 
                   </button>
+                  </Link>
                   <div>
                     <p>Have an account?</p>{" "}
                     <span id="signUp" onClick={SignInButtonClick}>

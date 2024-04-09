@@ -218,10 +218,11 @@
   border-radius: 5px;
   /* color: #0a0a0a; */
   cursor: pointer;
-  padding: 7px;
+  padding: 7px 20px;
   margin-top: 5px;
+  margin-bottom: 5px;
   cursor: pointer;
-  width: 75%;
+  width: 100%;
   background-color: #6e30a7;
   color: white;
   font-weight: 600;
