@@ -7,6 +7,10 @@ import axios from "axios";
 import Error from "../../utils/Error";
 import SuccessToast from "../../utils/successToast";
 import { useAuth } from "../../utils/AuthContext";
+import { IoEyeOffOutline } from "react-icons/io5";
+import { IoEyeOutline } from "react-icons/io5";
+
+
 
 const ConnetWithUs = () => {
   return (
@@ -36,6 +40,11 @@ const SignIn = () => {
   const [userData, setUserData] = useState(location.state?.userData || null);
   const navigate = useNavigate();
   const { handleUpdateAuth, backendUrl } = useAuth();
+  const [showPassword, setShowPassword] = useState(false);
+
+  const togglePasswordVisibility = () => {
+    setShowPassword(!showPassword);
+  };
 
   const SignInButtonClick = () => {
     setIsSignUp(!isSignUp);
@@ -107,6 +116,7 @@ const SignIn = () => {
       }
       await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
       SuccessToast("Check your Inbox, and verify your account!");
+      navigate("/welcome", { state: { isLogin: false, userData: userData } });
     } catch (error) {
       return Error(error.response.data.message);
     }
@@ -158,12 +168,20 @@ const SignIn = () => {
                     }
                     required
                   />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    required
-                  />
+                  <div className="relative flex flex-start w-[120%]">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Password"
+                      name="password"
+                      className="w-full"
+                      required
+                    />
+                    {showPassword ? (
+                      <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                    ) : (
+                      <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                    )}
+                  </div>
                   <input
                     type="password"
                     placeholder="Confirm password"
@@ -178,11 +196,9 @@ const SignIn = () => {
                       </p>
                     </label>
                   </div>
-                  <Link to='/welcome'>
                   <button type="submit" className="">
-                    SIGN UP 
+                    SIGN UP
                   </button>
-                  </Link>
                   <div>
                     <p>Have an account?</p>{" "}
                     <span id="signUp" onClick={SignInButtonClick}>
@@ -219,13 +235,19 @@ const SignIn = () => {
                     placeholder="Email"
                     required
                   />
-                  <input
-                    type="password"
-                    placeholder="Password"
-                    name="password"
-                    required
-                  />
-
+                  <div className="logineyeinput relative flex flex-start w-[75%]">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Password"
+                      name="password"
+                      required
+                    />
+                    {showPassword ? (
+                      <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                    ) : (
+                      <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                    )}
+                  </div>
                   <button type="submit" className="w-[65%]">
                     LOGIN
                   </button>
@@ -353,12 +375,20 @@ const SignIn = () => {
                   defaultValue={userData !== null ? userData.email : ""}
                   required
                 />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  required
-                />
+                <div className="relative logineyeinput flex flex-start w-[75%]">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    name="password"
+                    className="w-full"
+                    required
+                  />
+                  {showPassword ? (
+                    <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                  ) : (
+                    <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                  )}
+                </div>
                 <input
                   type="password"
                   placeholder="Confirm password"
@@ -432,12 +462,20 @@ const SignIn = () => {
                   name="email"
                   required
                 />
-                <input
-                  type="password"
-                  placeholder="Password"
-                  name="password"
-                  required
-                />
+                <div className="relative logineyeinput flex flex-start w-[75%]">
+                  <input
+                    type={showPassword ? "text" : "password"}
+                    placeholder="Password"
+                    name="password"
+                    className="w-full"
+                    required
+                  />
+                  {showPassword ? (
+                    <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                  ) : (
+                    <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                  )}
+                </div>
                 <button type="submit">LOGIN</button>
                 <a href="#">
                   <p className="">Forgot password</p>

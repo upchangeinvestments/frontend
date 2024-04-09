@@ -378,6 +378,9 @@
 .UPCIN {
   color: #9747ff;
 }
+.logineyeinput input {
+  width: 100% !important;
+}
 
 /* .or {
   max-width: 200px;

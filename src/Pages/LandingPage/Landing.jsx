@@ -5,6 +5,8 @@ import Aos from "aos";
 import "aos/dist/aos.css";
 
 function LandingPage() {
+  const words = ["Investments", "Opportunities", "Firms", "Investments"];
+
   useEffect(() => {
     Aos.init();
   }, []);
@@ -16,10 +18,23 @@ function LandingPage() {
       >
         {/* <div className="absolute vsm:mx-auto md:right-4 md:top-32 md:mr-12 lg:mr-[9vw] lg:top-28 xl:mr-36 xl:mt-20 2xl:mt-32 2xl:mr-72"> */}
         <div className="mb-4 font-bold vsm:text-4xl xl:text-5xl 2xl:text-6xl Font2 drop-shadow-lg	">
-          Your Search Engine For
+          Centralized Platform For
         </div>
-        <div className="mb-8 text-white font-bold vsm:text-4xl xl:text-5xl 2xl:text-6xl Font2 drop-shadow-lg	">
-          Real Estate Investments
+        <div className="mb-8 text-white font-bold vsm:text-4xl xl:text-5xl 2xl:text-6xl Font2 drop-shadow-lg vsm:w-[37rem] vsm:h-[1.2em] vsm:overflow-y-hidden">
+          <div className="">
+            <p className="font-['Playfair-Display'] "> Real Estate</p>
+          </div>
+          <div className="scroller ">
+            <span className="text-left font-['Playfair-Display'] -ml-[40px] text-white">
+              {words[0]}
+              <br />
+              {words[1]}
+              <br />
+              {words[2]}
+              <br />
+              {words[3]}
+            </span>
+          </div>
         </div>
         <div className="flex justify-center">
           <ExploreMoreButton className="" Text="Explore More" />
