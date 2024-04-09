@@ -1,15 +1,32 @@
-import React from "react";
+import React,{useState} from "react";
 import "../../styles/LandingPage/Post.css";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
+import { FaRegStar, FaStar } from "react-icons/fa6";
+
+
+
 
 function Post({ data, type, blur }) {
+  const [isStarFilled, setIsStarFilled] = useState(false);
+
+  const toggleStar = () => {
+    setIsStarFilled(!isStarFilled);
+  };
+
   const isEven = data.index % 2 === 0;
   return (
     <div className="font-['Playfair-Display']">
       <div className={`relative hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4 ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}>
         <div className="absolute top-0 -left-4 bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10">
           Sample Project
+        </div>
+        <div onClick={toggleStar}>
+          {isStarFilled ? (
+            <FaStar className="absolute right-0 mt-[5px] mr-2 text-yellow-500 text-2xl" />
+          ) : (
+            <FaRegStar className="absolute right-0 mt-[5px] mr-2 text-yellow-500 text-2xl" />
+          )}
         </div>
         <h3 className="vsm:text-base md:text-xl font-['Playfair-Display'] font-bold flex justify-center px-2 pb-1">
           {data.title}
