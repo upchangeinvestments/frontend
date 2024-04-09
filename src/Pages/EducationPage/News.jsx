@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import axios from "axios";
+import { useAuth } from '../../utils/AuthContext';
 import { Link } from "react-router-dom";
 import Carousel from "react-grid-carousel";
 import { LeftArrow, RightArrow } from "../../commonComponents/CarouselButton";
@@ -40,23 +41,24 @@ const NewsCard = ({ data, index }) => {
 };
 function News() {
   const [newsData, setNewsData] = useState([]);
+  const { backendUrl } = useAuth();
 
   useEffect(() => {
     const fetchData = async () => {
-      // https://rapidapi.com/apidojo/api/yahoo-finance1  -> API source
       try {
-        // https://newsapi.org/s/us-business-news-api  -> new API source
-        const response = await axios.get(
-          "https://newsapi.org/v2/top-headlines?country=us&category=business&apiKey=44868c56642945f1b1149e540367a022"
-        );
+
         // console.log(response.data.articles);
-        setNewsData(response.data.articles);
+        await axios.get(`${backendUrl}/api/news/`).then(response => {
+          // console.log(response.data.data.articles);
+          setNewsData(response.data.data.articles);
+        })
       } catch (error) {
         console.error(error);
       }
     };
 
     fetchData();
+    //eslint-disable-next-line
   }, []);
 
   return (

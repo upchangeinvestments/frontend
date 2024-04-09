@@ -100,10 +100,24 @@ const tabs = [
   {
     title: "Overview",
     content: <OverViewContent />,
+    link: "/post/#Section"
   },
   {
     title: "Listed Company",
     content: <ListedCompany />,
+    link: "/post/#Section"
+  },
+  {
+    title: "Business Plan",
+    link: "/post/#business",
+  },
+  {
+    title: "Financials",
+    link: "/post/#financial",
+  },
+  {
+    title: "Documents",
+    link: "/post/#documents",
   },
 
 ];
@@ -134,7 +148,7 @@ function PostPage() {
           <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
             <div className="flex justify-stretch gap-4 bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
               {tabs.map((value, index) => (
-                <NavHashLink to="/post/#Section" smooth
+                <NavHashLink to={value.link} smooth
                   className={`w-full font-semibold text-lg p-4 cursor-default whitespace-nowrap ${activeTab === index
                     ? "border-b-4 border-[#6e30a7] text-[#6e30a7] bg-purple-500/20 rounded-md "
                     : ""
@@ -217,7 +231,7 @@ function PostPage() {
               <h2 className="text-xl text-[#6e30a7] font-bold text-left">
                 {tab.title}
               </h2>
-              {tab.content}
+              {tab.content ? tab.content : null}
             </div>
           ))}
         </div>

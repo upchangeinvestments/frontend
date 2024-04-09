@@ -65,7 +65,7 @@ function ResouceContent() {
           >
             {ArticleData.map((article, index) => (
               <Carousel.Item key={index}>
-                <div className="bg-white/20 backdrop-blur-xl font-['Playfair-Display']  shadow-md rounded-md p-6 mx-2 lg:mx-8 mb-4 vsm:h-[300px] lg:h-[250px]">
+                <div className="bg-white/20 backdrop-blur-xl font-['Playfair-Display'] shadow-md rounded-md w-full p-6 lg:mx-8 mb-4 vsm:h-full md:h-[300px] lg:h-[250px]">
                   <h2 className="text-lg font-semibold text-gray-800 text-left ">
                     {article.title}
                   </h2>
