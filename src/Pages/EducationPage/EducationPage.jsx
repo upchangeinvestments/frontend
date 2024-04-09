@@ -22,8 +22,8 @@ const MainData = [
   },
   {
     ImageSrc: "https://i.postimg.cc/0yCm0fSL/news.jpg",
-    Type: "News",
-    linkToSection: "/resources/#news",
+    Type: "Why REI",
+    linkToSection: "/resources/#REI",
   },
   {
     ImageSrc: "https://i.postimg.cc/d3p1B7Qk/keywords.jpg",
@@ -173,11 +173,15 @@ function ResouceContent() {
           </Carousel>
         </div>
       </div>
-      <div className="py-8" id="news">
+      <div className="py-8" id="REI">
         <h1 className="text-4xl my-[20px] text-white  pb-6 flex justify-center font-['Playfair-Display']">
-          NEWS
+          Why Real Estate Investments
         </h1>
-        <News />
+        <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+          <h1 className="text-xl font-semibold font-['Playfair-Display'] text-center mb-4 text-black uppercase">
+            Why choose real estate investments
+          </h1>
+        </div>
       </div>
 
     </div>
