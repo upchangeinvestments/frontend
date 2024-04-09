@@ -8,42 +8,42 @@ const EducationData = [
     description:
       "Have excess cash in your checking account? Learn about this yielding cash management solution that can help protect your principal and maintain daily liquidity.",
     linkText: "Learn More",
-    href: "#",
+    modalContent: "#",
   },
   {
     title: "What are ETFs?",
     description:
       "Exchange-traded funds, or ETFs, have made investing easier and more accessible. Learn more about them.",
     linkText: "Learn More",
-    href: "#",
+    modalContent: "#",
   },
   {
     title: "A guide to investing in closed end funds",
     description:
       "Looking for greater flexibility in your investment strategy with higher potential income and return?",
     linkText: "Learn More",
-    href: "#",
+    modalContent: "#",
   },
   {
     title: "What are mutual funds?",
     description:
       "Mutual funds for beginners: Learn about this easy way to invest in stocks, bonds, and other assets.",
     linkText: "Learn More",
-    href: "#",
+    modalContent: "#",
   },
   {
     title: "What are commodity funds?",
     description:
       "Explore the unique investment vehicle that lets you invest in commodities, or raw materials.",
     linkText: "Learn More",
-    href: "#",
+    modalContent: "#",
   },
   {
     title: "Understanding Risk-Adjusted Returns",
     description:
       "Discover how risk-adjusted returns help investors evaluate an investment's performance relative to its risk.",
     linkText: "Learn More",
-    href: "#",
+    modalContent: "#",
   },
 ];
 
@@ -92,29 +92,31 @@ function ServiceCard({ title, description, modalContent }) {
 }
 
 const Card = (props) => {
+  const [modalOpen, setModalOpen] = useState(false);
+  const handleOpen = () => setModalOpen(!modalOpen);
   return (
-    <a
-      href={props.data.href}
-      className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg vsm:h-[250px] msm:h-[230px] lg:h-[220px] xl:h-[200px] relative border border-1 border-[#6e30a7]"
-    >
-      <h2 className="vsm:text-xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 md:hidden">
-        {props.data.title.length > 33
-          ? `${props.data.title.substring(0, 30)}...`
-          : props.data.title}
-      </h2>
-      <h2 className="vsm:text-2xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 vsm:hidden md:block">
-        {props.data.title}
-      </h2>
-      <p className="">
-        {" "}
-        {props.data.description.length > 120
-          ? `${props.data.description.substring(0, 117)}...`
-          : props.data.description}
-      </p>
-      <button className="bg-[#6e30a7] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 absolute bottom-4">
-        {props.data.linkText}
-      </button>
-    </a>
+    <div onClick={handleOpen} className="">
+      <EduModal isOpen={modalOpen} handleOpen={handleOpen} modalContent={props.data.modalContent} />
+      <div className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg vsm:h-[250px] msm:h-[230px] lg:h-[220px] xl:h-[200px] relative border border-1 border-[#6e30a7]">
+        <h2 className="vsm:text-xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 md:hidden">
+          {props.data.title.length > 33
+            ? `${props.data.title.substring(0, 30)}...`
+            : props.data.title}
+        </h2>
+        <h2 className="vsm:text-2xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 vsm:hidden md:block">
+          {props.data.title}
+        </h2>
+        <p className="">
+          {" "}
+          {props.data.description.length > 120
+            ? `${props.data.description.substring(0, 117)}...`
+            : props.data.description}
+        </p>
+        <button onClick={handleOpen} className="bg-[#6e30a7] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2 absolute bottom-4">
+          {props.data.linkText}
+        </button>
+      </div>
+    </div>
   );
 };
 
