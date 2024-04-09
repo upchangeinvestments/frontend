@@ -26,7 +26,7 @@ function SpecificPage() {
   };
 
   return (
-    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] xl:h-[85vh] mobile-filter-drawer">
+    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] lg:h-[85vh] xl:h-[100vh] mobile-filter-drawer">
       <MobileFilterDrawer
         open={open}
         closeDrawer={openDrawer}
@@ -37,7 +37,7 @@ function SpecificPage() {
       {/* filter section for mobile view random */}
       <NavBar />
       <div className="w-full">
-        <div className="uppercase text-white font-['Playfair-Display'] font-bold vsm:text-4xl flex flex-col items-center justify-center md: lg:ml-[550px] lg:mt-[-60px] xl:ml-[720px] h-[50vh] gap-8">
+        <div className="uppercase text-white font-['Playfair-Display'] font-bold vsm:text-4xl flex flex-col items-center justify-center md: lg:ml-[550px] lg:mt-[-60px] xl:ml-[750px] h-[50vh] gap-8">
           <div className="">
             <p
               className="vsm:hidden lg:block  lg:text-4xl font-medium xl:text-5xl"
