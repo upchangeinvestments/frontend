@@ -23,9 +23,9 @@ function Post({ data, type, blur }) {
         </div>
         <div onClick={toggleStar}>
           {isStarFilled ? (
-            <FaStar className="absolute right-0 mt-[5px] mr-2 text-yellow-500 text-2xl" />
+            <FaStar className="absolute right-0 mr-6 text-yellow-500 text-2xl" />
           ) : (
-            <FaRegStar className="absolute right-0 mt-[5px] mr-2 text-yellow-500 text-2xl" />
+            <FaRegStar className="absolute right-0  mr-6 text-yellow-500 text-2xl" />
           )}
         </div>
         <h3 className="vsm:text-base md:text-xl font-['Playfair-Display'] font-bold flex justify-center px-2 pb-1">
