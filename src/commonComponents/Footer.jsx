@@ -72,7 +72,7 @@ const Footer = () => {
                   <a href="">
                     <FaInstagram size="30px" />
                   </a>
-                  <a href="">
+                  <a href="https://www.linkedin.com/company/lynkinfiniteinvestments/">
                     <FaLinkedinIn size="30px" />
                   </a>
                 </div>
@@ -123,7 +123,7 @@ const Footer = () => {
                   <a href="">
                     <FaInstagram size="30px" />
                   </a>
-                  <a href="">
+                  <a href="https://www.linkedin.com/company/lynkinfiniteinvestments/">
                     <FaLinkedinIn size="30px" />
                   </a>
                 </div>
@@ -171,7 +171,7 @@ const Footer = () => {
           <a href="">
             <FaInstagram size="30px" />
           </a>
-          <a href="">
+          <a href="https://www.linkedin.com/company/lynkinfiniteinvestments/">
             <FaLinkedinIn size="30px" />
           </a>
         </div>
