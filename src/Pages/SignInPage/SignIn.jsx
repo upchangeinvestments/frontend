@@ -116,7 +116,9 @@ const SignIn = () => {
       }
       await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
       SuccessToast("Check your Inbox, and verify your account!");
-      navigate("/welcome", { state: { isLogin: false, userData: userData } });
+
+      const TempUserData = { email, password, confirmPassword };
+      navigate("/welcome", { state: { isLogin: false, TempUserData: TempUserData } });
     } catch (error) {
       return Error(error.response.data.message);
     }
