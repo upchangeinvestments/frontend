@@ -16,7 +16,7 @@ function LandingPage() {
   const [isOpen, setOpen] = React.useState(!localStorage.getItem('waitlist'));
 
   return (
-    <div className="main vsm:w-[124vw] md:w-[107vw]  font-['Playfair-Display'] lg:w-[100%]  vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
+    <div className="main vsm:w-[125vw] md:w-[107vw]  font-['Playfair-Display'] lg:w-[100%]  vsm:h-[130vh] md:h-[110vh] lg:h-[100vh]">
       <WaitListModal isOpen={isOpen} setOpen={setOpen} />
       <NavBar />
       <Landing />
