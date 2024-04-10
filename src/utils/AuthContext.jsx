@@ -71,7 +71,6 @@ const AuthProvider = ({ children }) => {
     try {
       const url = `${backendUrl}/auth/provider/success`;
       const response = await axios.get(url, { withCredentials: true });
-      console.log("google data: ", response);
 
       setUser(response.data.user);
       setIsAuth(true);
