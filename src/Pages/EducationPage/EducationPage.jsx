@@ -90,9 +90,9 @@ const reiData = [
   },
   {
     title: "Stocks & bonds Vs Real-estate investing",
-    description: "Real estate investing offers several advantages over stocks and bonds, including consistent...",
+    description: "Stocks and bonds and real estate investing are two popular investment strategies that offer different...",
     linkText: "Learn More",
-    modalContent: [<h2 className="text-3xl mb-4">Stocks & bonds vs Real-estate investing</h2>, `Real estate investing offers several advantages over stocks and bonds, including consistent income through rental payments, the ability to borrow more for less through rental property loans, and the potential for appreciation in property value. Real estate also provides a hedge against inflation, as the cost of property and rent tends to rise with inflation. Additionally, real estate investors can take advantage of various tax benefits, such as deductions for mortgage interest, property taxes, and operating expenses. Real estate investing also offers a sense of control and tangibility that stocks and bonds may not provide. However, it's important to consider the potential risks and challenges, such as illiquidity, management responsibilities, and the potential for property damage. Ultimately, the choice between real estate, stocks, and bonds depends on an individual's investment goals, risk tolerance, and time commitment.`]
+    modalContent: [<h2 className="text-3xl mb-4">Stocks & bonds vs Real-estate investing</h2>, `Stocks and bonds, as well as real estate investing, are popular investment strategies that offer different benefits and risks. Investing in stocks and bonds involves buying financial assets traded on the stock market, with stocks offering potential profits from company performance and bonds providing returns from interest payments. Real estate investing, on the other hand, involves buying, selling, or renting properties, offering the potential for rental income and property value appreciation. While stocks and bonds are generally more liquid, real estate can provide higher returns but requires more active management. Diversifying investments in both financial assets and real estate can help mitigate risk and maximize returns.`]
   },
 ]
 

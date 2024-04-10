@@ -4,6 +4,7 @@ import logo from "../../assets/logo2.png";
 import ProfileContent from "./ProfileContent";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../../utils/AuthContext";
+import successToast from "../../utils/successToast";
 
 const LogoutComponent = () => {
   const { logout } = useAuth();
@@ -12,15 +13,30 @@ const LogoutComponent = () => {
     logout();
   };
   return (
-    <div className="flex hover:bg-white/20 items-center justify-start gap-4 rounded-lg">
-      <div className="text-xl">
-        Logout
-      </div>
-      <div onClick={HandleLogout} className="">
-        <FaSignOutAlt size={40} />
-      </div>
+    <div className="flex flex-col items-center gap-4 mt-[30px] rounded-lg">
+      <div className="text-xl text-[#6e30a7]">Thanks for visiting us!</div>
+      <div onClick={HandleLogout} className="text-xl bg-[#6e30a7] text-white px-4 py-2 rounded-md flex flex-row items-center">
+    Logout <FaSignOutAlt className="ml-2"/>
+  </div>
     </div>
   )
+};
+
+const Communication = () => {
+  const handleSubscribe = () => {
+    successToast('You have subscribed successfully!');
+  };
+  return (
+    <div className="flex flex-col items-center mt-[20px] space-y-4">
+      <div className="text-xl font-semibold">Stay Connected with Us</div>
+      <div className="text-[#6e30a7] text-lg text-center">
+        Subscribe to our newsletter to get the latest updates and offers.
+      </div>
+      <button onClick={handleSubscribe} className="bg-[#6e30a7]  text-white font-semibold py-2 px-4 rounded">
+        Unsubscribe
+      </button>
+    </div>
+  );
 };
 
 const TermsOfService = () => {
@@ -157,6 +173,11 @@ const TermsOfService = () => {
       Investments website. These features enable users to explore investment
       opportunities, manage their portfolios, and access other functionalities
       offered on our website.
+      <br />
+      <br />
+       Subcribe:
+       <br/>
+       By signing up for our newsletter, you agree to receive regular updates about our latest news, projects, and promotions. By default, you will be subscribed to all our newsletters and projects. If you wish to opt-out, you can unsubscribe at any time by clicking the 'unsubscribe' link in any of our emails. Please note that unsubscribing will only stop you from receiving future emails, and it will not remove your data from our system. We respect your privacy and will not share your information with third parties.
       <br />
       <br />
       License:
@@ -340,7 +361,7 @@ const tabs = [
     content: <PrivacyPolicy />,
     linkId: "privacy-policy",
   },
-  { title: "COMMUNICATION", content: "content 4", linkId: "" },
+  { title: "COMMUNICATION", content:<Communication/>, linkId: "" },
   { title: "LOGOUT", content: <LogoutComponent />, linkId: "" },
 ];
 
