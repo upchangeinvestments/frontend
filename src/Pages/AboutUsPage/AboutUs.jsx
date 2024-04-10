@@ -41,6 +41,7 @@ function AboutUs() {
                   className="rounded-xl w-[95%]"
                   src={video}
                   autoPlay
+                  playsInline 
                   controls
                   loop
                   muted
