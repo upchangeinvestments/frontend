@@ -69,24 +69,25 @@ function FilterSection() {
         inputType="radio"
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
-        <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
-        <div className="w-[75%] flex items-center justify-center gap-x-4 FilterSection">
-          <input
+       <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
+        <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
+          <p>0</p> {/* Leftmost value */}
+           <input
             type="range"
             name="priceIRR"
             min={0}
-            max={100}
+            max={40}
             value={price}
             onChange={updateIrrValue}
-            step="1"
+            step="5"
             className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
             style={{
-              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${price}%, #CBD5E0 ${price}%, #CBD5E0 100%)`,
-            }}
-          />
-          <p>{price}</p>
-        </div>
-      </div>
+             background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 40) * 100}%, #CBD5E0 ${(price / 40) * 100}%, #CBD5E0 100%)`,
+             }}/>
+           <p>{price}</p>
+         </div>
+       </div>
+
       <FilterSubSection
         list={HoldPeriod}
         title="Hold Period"
