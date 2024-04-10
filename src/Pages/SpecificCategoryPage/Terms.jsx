@@ -136,6 +136,11 @@ function Terms() {
       offered on our website.
       <br />
       <br />
+       Subcribe:
+       <br/>
+       By signing up for our newsletter, you agree to receive regular updates about our latest news, projects, and promotions. By default, you will be subscribed to all our newsletters and projects. If you wish to opt-out, you can unsubscribe at any time by clicking the 'unsubscribe' link in any of our emails. Please note that unsubscribing will only stop you from receiving future emails, and it will not remove your data from our system. We respect your privacy and will not share your information with third parties.
+      <br />
+      <br />
       <b>License:</b>
       <br />
       Subject to the Terms of Service, LynkInfinite Investments grants you a
