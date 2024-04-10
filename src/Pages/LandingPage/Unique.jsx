@@ -11,11 +11,11 @@ function Unique() {
     "ROI Percent",
   ];
   const LI1 = [
-    "Commerical Property",
-    "Rental Property",
-    "Single-House Property",
-    "Multi-House Property",
-    "Housing Property",
+    "Commerical",
+    "Rental",
+    "Single-House",
+    "Multi-House",
+    "Housing",
   ];
   const LI2 = ["West", "Central", "South", "Midwest", "East"];
   const LI3 = [
@@ -25,7 +25,7 @@ function Unique() {
     "$50K-$100K",
     "$100K-$500K",
   ];
-  const LI4 = ["0Yrs-1Yrs", "1rs-2rs", "2rs-5rs", "5rs-7rs", "7rs+"];
+  const LI4 = ["2Yrs-4Yrs", "4Yrs-6Yrs", "6Yrs-8Yrs", "8Yrs-10Yrs", "10Yrs+"];
   const LI5 = ["0%-2%", "2%-5%", "5%-7%", "7%-10%", "10%+"];
   // const LI6 = ["RealtyMogul", "Cadre", "Fundrise", "Yieldstreet", "DiversyFund"]
 

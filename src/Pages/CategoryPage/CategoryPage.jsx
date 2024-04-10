@@ -7,6 +7,7 @@ import Categories from "./Categories";
 import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/MobileFilterDrawer";
 import MobileFilter from "../../commonComponents/MobileFilter";
+import "../../App.css";
 
 function CategoryPage() {
   const [open, setOpen] = useState(false);
@@ -25,7 +26,7 @@ function CategoryPage() {
   useEffect(() => { }, [data]);
 
   return (
-    <div className="">
+    <div className="mobile-filter-drawer">
       <div className="categoryMain">
         <MobileFilterDrawer
           open={open}

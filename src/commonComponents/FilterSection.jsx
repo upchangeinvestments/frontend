@@ -10,7 +10,7 @@ function FilterSection() {
     "Medical Facilites",
     "School",
     "Office",
-    "Infrastructure",
+    "Land & Infrastructure",
   ];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const CompanyType = [
@@ -29,11 +29,11 @@ function FilterSection() {
     "$1M+",
   ];
   const HoldPeriod = [
-    "0YRS-1YRS",
-    "1YRS-2YRS",
-    "2YRS-5YRS",
-    "5YRS-7YRS",
-    "7YRS-10YRS",
+    "2YRS-4YRS",
+    "4YRS-6YRS",
+    "6YRS-8YRS",
+    "8YRS-9YRS",
+    "9YRS-10YRS",
     "10YRS+",
   ];
 
