@@ -17,10 +17,7 @@ function Welcome() {
               src={logo}
               alt="Infinite Investments"
             />
-       <p></p>   
-       <button className="bg-[#6e30a7] hover:bg-purple-700 text-white py-1 px-2 rounded mt-2">
-        Let's Explore
-      </button>  
+       <p className='text-2xl bg-white/20 backdrop:blur-2xl px-2 py-4 text-[#6e30a7] rounded-lg'>Mail has been sent to your E-Mail Account</p>   
       </div>
     </div>
     <Footer />
