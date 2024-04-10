@@ -6,7 +6,7 @@ function Tagline() {
 
   return (
     <div>
-    <div className="lg:flex  vsm:flex-col vsm:hidden  md:flex-row v md:w-full  md:gap-2 items-center justify-center text-3xl	text-nowrap overflow-y-hidden">
+    <div className="lg:flex  vsm:flex-col vsm:hidden lg:text-[26px]   md:flex-row v md:w-full  md:gap-2 items-center justify-center xl:text-3xl	text-nowrap overflow-y-hidden">
       <div className="font-['Playfair-Display']  ">
       Explore your next Investment:  <span className="text-white"> Infinite opportunities</span>
       </div>
@@ -28,7 +28,7 @@ function Tagline() {
         </div> */}
       </div>
     </div>
-    <div className="vsm:flex  vsm:flex-col lg:hidden items-center justify-center vsm:text-3xl md:text-4xl">
+    <div className="vsm:flex  vsm:flex-col lg:hidden items-center justify-center vsm:text-2xl md:text-3xl">
       <div className="font-['Playfair-Display']  ">
       Explore your next Investment: 
       </div>

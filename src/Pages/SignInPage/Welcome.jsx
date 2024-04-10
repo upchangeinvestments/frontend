@@ -7,6 +7,7 @@ import { useAuth } from "../../utils/AuthContext";
 import axios from "axios"
 import Error from "../../utils/Error";
 import SuccessToast from "../../utils/successToast";
+import { FiEdit } from "react-icons/fi";
 
 
 function Welcome() {
@@ -46,9 +47,12 @@ function Welcome() {
             src={logo}
             alt="Infinite Investments"
           />
-          <p className='text-2xl bg-white/20 backdrop:blur-2xl px-2 py-4 text-[#6e30a7] rounded-lg'>Mail has been sent to your E-Mail Account</p>
-          <div onClick={resendEmailHandler} className="hover:underline hover:cursor-pointer">Resend Verification Email</div>
-          <div onClick={changeMailHandler} className="hover:underline hover:cursor-pointer">Change Email</div>
+          <p className='text-2xl bg-white/20 backdrop:blur-2xl px-2 py-4 text-[#6e30a7] rounded-lg'>Verification mail has been sent to your E-Mail Account</p>
+          <div className='flex items-center justify-center mt-[30px] gap-8'>
+          <div onClick={resendEmailHandler} className="hover:underline hover:cursor-pointer bg-[#6e30a7] px-4 py-2 rounded-md">Resend Verification Email</div>
+          <div onClick={changeMailHandler} className="flex items-center hover:underline hover:cursor-pointer text-[#6e30a7] bg-purple-300 backdrop-blur-3xl px-4 py-2 rounded-lg"><FiEdit className="mr-2" />Change Email</div>
+
+          </div>
         </div>
       </div>
       <Footer />
