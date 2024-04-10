@@ -3,7 +3,7 @@ import React from 'react'
 const dataObject = [
     {
         title: "Categories",
-        options: ["Residential Property", "Hotels Property", "Retail Property", "Warehouse & Storage Property", "Medical Facilites Property", "School Property", "Office Property", "Infrastructure Property"],
+        options: ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Land & Infrastructure"],
         inputType: "checkbox",
     },
     {
@@ -38,12 +38,12 @@ const dataObject = [
     {
         title: "Hold Period",
         options: [
-            "0Yrs-1Yrs",
-            "1rs-2rs",
-            "2rs-5rs",
-            "5rs-7rs",
-            "7rs-10Yrs",
-            "10Yrs+",
+            "2YRS-4YRS",
+            "4YRS-6YRS",
+            "6YRS-8YRS",
+            "8YRS-9YRS",
+            "9YRS-10YRS",
+            "10YRS+",
         ],
         inputType: "checkbox",
     },
