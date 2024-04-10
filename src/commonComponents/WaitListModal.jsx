@@ -37,7 +37,7 @@ function DialogDefault({ isOpen, setOpen }) {
 
         const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email, otpGenerated });
         if (otpSendResponse.status === 200) {
-            currentStep === steps.length ? setComplete(true) : setCurrentStep((prev) => prev + 1);
+            currentStep === steps.length ? setComplete(true) : setCurrentStep(1);
         } else {
             return Error("Something went wrong!");
         }
