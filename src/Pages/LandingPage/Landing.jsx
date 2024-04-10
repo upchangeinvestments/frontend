@@ -11,9 +11,9 @@ function LandingPage() {
     Aos.init();
   }, []);
   return (
-    <div className="relative vsm:h-[102vh] md:h-[95vh] lg:h-[90vh] w-full flex flex-col justify-center items-end Playfair-Display  vsm:flex vsm:flex-col vsm:items-center vsm:justify-center">
+    <div className="relative vsm:h-[115vh] md:h-[95vh] lg:h-[90vh] w-full flex flex-col justify-center items-end Playfair-Display  vsm:flex vsm:flex-col vsm:items-center vsm:justify-center">
       <div
-        className="absolute vsm:ml-[227px]   md:right-[-200px] md:top-32 lg:right-[-200px] lg:top-28 xl:-right-[1vw] xl:top-32 2xl:top-72 2xl:right-60"
+        className="absolute vsm:ml-[227px] vsm:top-[350px]   md:right-[-200px] md:top-32 lg:right-[-200px] lg:top-28 xl:-right-[1vw] xl:top-32 2xl:top-72 2xl:right-60"
         data-aos="zoom-in-up"
       >
         {/* <div className="absolute vsm:mx-auto md:right-4 md:top-32 md:mr-12 lg:mr-[9vw] lg:top-28 xl:mr-36 xl:mt-20 2xl:mt-32 2xl:mr-72"> */}
@@ -36,11 +36,11 @@ function LandingPage() {
             </span>
           </div>
         </div>
-        <div className="flex ">
+        <div className="flex vsm:ml-[80px] md:ml-0 ">
           <ExploreMoreButton className="" Text="Explore More" />
         </div>
       </div>
-      <div className="absolute inset-x-0 bottom-6">
+      <div className="absolute inset-x-0  bottom-6">
         <Tagline />
       </div>
     </div>
