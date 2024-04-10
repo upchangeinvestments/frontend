@@ -1,8 +1,29 @@
 import React, { useState } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import logo from "../../assets/logo2.png";
+import ProfileContent from "./ProfileContent";
+import { FaSignOutAlt } from "react-icons/fa";
+import { useAuth } from "../../utils/AuthContext";
 
-const TermsOfServce = () => {
+const LogoutComponent = () => {
+  const { logout } = useAuth();
+
+  const HandleLogout = () => {
+    logout();
+  };
+  return (
+    <div className="flex hover:bg-white/20 items-center justify-start gap-4 rounded-lg">
+      <div className="text-xl">
+        Logout
+      </div>
+      <div onClick={HandleLogout} className="">
+        <FaSignOutAlt size={40} />
+      </div>
+    </div>
+  )
+};
+
+const TermsOfService = () => {
   return (
     <div className="">
       Acceptance of Terms:
@@ -308,10 +329,10 @@ const PrivacyPolicy = () => {
 };
 
 const tabs = [
-  { title: "PROFILE SECTION", content: "content 1", linkId: "" },
+  { title: "PROFILE SECTION", content: <ProfileContent />, linkId: "" },
   {
     title: "TERMS OF SERVICE",
-    content: <TermsOfServce />,
+    content: <TermsOfService />,
     linkId: "terms",
   },
   {
@@ -319,8 +340,8 @@ const tabs = [
     content: <PrivacyPolicy />,
     linkId: "privacy-policy",
   },
-  { title: "LOGOUT", content: "content 4", linkId: "" },
   { title: "COMMUNICATION", content: "content 4", linkId: "" },
+  { title: "LOGOUT", content: <LogoutComponent />, linkId: "" },
 ];
 
 const Sidebar = ({ sendDataToProfile }) => {
@@ -358,3 +379,6 @@ const Sidebar = ({ sendDataToProfile }) => {
 };
 
 export default Sidebar;
+
+
+
