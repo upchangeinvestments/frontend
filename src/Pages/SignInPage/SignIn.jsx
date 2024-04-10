@@ -113,7 +113,7 @@ const SignIn = () => {
         return Error("Email entered is Invalid");
       }
       await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
-      SuccessToast("Check your Inbox, and verify your account!");
+      SuccessToast("Verification email has been sent to your email, please verify your account!");
 
       const TempUserData = { email, password, confirmPassword };
       navigate("/welcome", { state: { isLogin: false, TempUserData: TempUserData } });

@@ -31,6 +31,7 @@ function DialogDefault({ isOpen, setOpen }) {
     };
 
     const otpGenerated = Math.floor(10000 + Math.random() * 90000);
+
     const OtpHandler = async (event) => {
         event.preventDefault();
 
@@ -130,7 +131,7 @@ function DialogDefault({ isOpen, setOpen }) {
                         </div>
                         <div className={currentStep === 1 ? "flex flex-col items-center justify-center" : "hidden"}>
                             <p className="text-sm flex-wrap uppercase">Confirmation code</p>
-                            <form onSubmit={WaitListHandler} className="mb-2 w-80 max-w-screen-lg sm:w-96 ">
+                            <form onSubmit={(event) => WaitListHandler(event)} className="mb-2 w-80 max-w-screen-lg sm:w-96 ">
                                 <div className="w-full flex items-center justify-center OtpField">
                                     <OtpInput
                                         renderInput={(props) => <input {...props} />}
