@@ -19,7 +19,6 @@ const Profile = () => {
     title: "PROFILE SECTION",
     linkId: "",
   });
-  console.log(user);
   const [Name, setName] = useState("");
   const [dateOfBirth, setDateOfBirth] = useState("");
   const [phone, setPhone] = useState("");
@@ -39,7 +38,7 @@ const Profile = () => {
   const updateProfile = async (e) => {
     e.preventDefault();
     const newDetails = { user, name: Name, dob: dateOfBirth, phone: phone, location: selectedState };
-    console.log(newDetails);
+    // console.log(newDetails);
     const res = await axios.post(`${backendUrl}/updateUser`, newDetails);
     if (res.status === 200) {
       setUser(res.data.user);
@@ -51,8 +50,6 @@ const Profile = () => {
     }
   }
   const handleInputChange = () => {
-    console.log(dateOfBirth);
-    console.log(typeof dateOfBirth);
     setIsFormChanged(true);
   }
   const handleIncomingData = (data, title, linkId) => {
@@ -127,15 +124,15 @@ const Profile = () => {
               )}
             </div>
             <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8 mt-6 grid grid-rows-2 gap-y-4">
-             <h2 className="vsm:text-3xl md:text-4xl xl:text-5xl text-purple-800  font-bold">
-               Welcome!
-             </h2>
+              <h2 className="vsm:text-3xl md:text-4xl xl:text-5xl text-purple-800  font-bold">
+                Welcome!
+              </h2>
               <p className="vsm:text-lg md:text-2xl font-semibold ml-2">{user.name}</p>
             </div>
           </div>
           <div className="mt-4">
             <p className="text-[#6e30a7] vsm:text-[13px] vsm:pt-[15px] msm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px]">
-            Embark on Your Investment Journey: Let's Discover Your Preferences Together!
+              Embark on Your Investment Journey: Let's Discover Your Preferences Together!
             </p>
           </div>
         </div>

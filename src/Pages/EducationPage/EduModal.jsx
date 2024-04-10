@@ -15,7 +15,7 @@ function EduModal({ isOpen, handleOpen, modalContent }) {
               <img src={logo} alt="logo" className="w-[30%]" />
             </div>
             <div className="font-['Playfair-Display']">
-              <p className="text-xl">{modalContent}</p>
+              <div className="text-xl">{modalContent}</div>
             </div>
           </div>
         </div>

@@ -1,5 +1,5 @@
 import React from 'react'
-import { useNavigate, useLocation, Link } from "react-router-dom";
+import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from '../../commonComponents/NavBar'
 import Footer from '../../commonComponents/Footer'
 import logo from '../../assets/logo.png'
@@ -15,13 +15,11 @@ function Welcome() {
   const navigate = useNavigate();
   const { backendUrl } = useAuth();
   const userData = location.state?.TempUserData || null;
-  console.log(userData);
   const changeMailHandler = () => {
     navigate("/signin", { state: { isLogin: false, userData: userData } });
   }
   const resendEmailHandler = async () => {
     const response = await axios.post(`${backendUrl}/auth/resendEmailVerification`, { email: userData.email, password: userData.password, confirmPassword: userData.confirmPassword });
-    console.log(response);
     if (response.status === 200) {
       if (response.data.message === "New Email has been sent to your account.") {
         SuccessToast("New Email has been sent to your account")

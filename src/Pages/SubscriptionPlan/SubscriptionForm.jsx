@@ -13,7 +13,6 @@ const Formoptions = [
 
 function SubscriptionForm() {
     const { isAuth, user } = useAuth();
-    console.log(isAuth, user);
     const [formData, setFormData] = useState({ input1: '', input2: '', input3: '', input4: '' });
     const [input1Value, setInput1Value] = useState('');
     const [input2Value, setInput2Value] = useState('');

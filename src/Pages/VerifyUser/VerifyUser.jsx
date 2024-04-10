@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
 import axios from "axios"
+import Error from "../../utils/Error";
 import VerifiedGIF from "../../assets/verified.webp"
 import { useAuth } from "../../utils/AuthContext";
 
@@ -16,20 +17,21 @@ function VerifyUser() {
                 const response = await axios.get(`${backendUrl}/auth/${id}/verify/${token}`);
                 if (response.status === 200) {
                     setIsVerified(true);
+                    localStorage.setItem("token", token);
+                    const currentDate = new Date();
+                    const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
+                    localStorage.setItem("tokenExpiration", tokenExpiration);
+
+                    setTimeout(() => {
+                        navigate('/profile');
+                    }, 2000);
                 }
             } catch (err) {
-                return Error("Token Not Verified");
+                return Error("Link Not Verified, Link Expired, or Invalid");
 
             }
         };
         verifyToken();
-        localStorage.setItem("token", token);
-        const currentDate = new Date();
-        const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
-        localStorage.setItem("tokenExpiration", tokenExpiration);
-        setTimeout(() => {
-            navigate('/profile');
-        }, 2000);
 
         // eslint-disable-next-line
     }, [])
