@@ -10,8 +10,6 @@ import { useAuth } from "../../utils/AuthContext";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
 
-
-
 const ConnetWithUs = () => {
   return (
     <div className="mt-6 pb-6">
@@ -30,7 +28,6 @@ const ConnetWithUs = () => {
     </div>
   );
 };
-// /^[A-Z0-9._%+-]+@[A-Z0-9.-]+\.[A-Z]{2,4}$/i; -> regex to validat the email:
 
 const SignIn = () => {
   const location = useLocation();
@@ -94,7 +91,8 @@ const SignIn = () => {
 
       handleUpdateAuth(true);
       navigate("/category");
-      SuccessToast("Welcome to LynkInfinite Investment!", { className: "bg-[#6e30a7]" });
+      SuccessToast("Welcome to LynkInfinite Investment!");
+
     } catch (error) {
       if (!error.response) {
         return Error(error.message);

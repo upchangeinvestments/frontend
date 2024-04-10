@@ -48,8 +48,8 @@ function App() {
               <ProfilePage />
             </PrivateRoute>
           } />
-          <Route path="/Terms" element={<Termsandconditions />} />
-          <Route path="/Privacy" element={<Privacyandpolicy />} />
+          <Route path="/terms" element={<Termsandconditions />} />
+          <Route path="/privacy" element={<Privacyandpolicy />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/welcome" element={<Welcome />} />
         </Routes>
