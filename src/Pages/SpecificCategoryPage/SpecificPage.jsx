@@ -9,6 +9,7 @@ import "../../styles/CategoryPage/categoryPage.css";
 import FilterSection from "../../commonComponents/FilterSection";
 import PropertyData from "../../assets/RMData.json";
 import Post from "./Posts";
+import "../../App.css";
 
 function SpecificPage() {
   const { type } = useParams();

@@ -41,8 +41,8 @@ function Explore() {
           responsive={responsive}
           ssr={true} // means to render carousel on server-side.
           infinite={true}
-          // autoPlay={this.props.deviceType !== "mobile" ? true : false}
-          // autoPlaySpeed={1000}
+          autoPlay={true}
+          autoPlaySpeed={5000}
           keyBoardControl={true}
           customTransition="all .5"
           transitionDuration={500}
@@ -58,7 +58,6 @@ function Explore() {
             </div>
           ))}
         </Carousel>
-        ;
       </div>
     </div>
   );

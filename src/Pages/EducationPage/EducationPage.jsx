@@ -216,7 +216,7 @@ function ResouceContent() {
         </div>
       </div>
       <div className="py-8" id="REI">
-        <h1 className="text-4xl my-[20px] text-white  pb-6 flex justify-center font-['Playfair-Display']">
+        <h1 className="text-4xl my-[20px] text-white text-center pb-6 flex justify-center font-['Playfair-Display']">
           Why Real Estate Investments
         </h1>
         <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
