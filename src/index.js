@@ -6,7 +6,7 @@ import reportWebVitals from './reportWebVitals';
 import TagManager from 'react-gtm-module'
 
 const tagManagerArgs = {
-  gtmId: 'GTM-WL34MKVS'
+  gtmId: process.env.REACT_APP_GTM_CODE
 }
 
 TagManager.initialize(tagManagerArgs)
