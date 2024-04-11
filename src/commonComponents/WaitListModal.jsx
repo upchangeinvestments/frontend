@@ -56,6 +56,7 @@ function DialogDefault({ isOpen, setOpen }) {
         event.preventDefault();
         try {
             const response = await axios.post(`${backendUrl}/waitlist`, { name, email, otp });
+            console.log(response);
             if (response.status === 200) {
                 SuccessToast("We have added you in our wait-list.");
                 localStorage.setItem("waitlist", "joined");
@@ -68,7 +69,8 @@ function DialogDefault({ isOpen, setOpen }) {
                 Error("Invalid Confirmation code");
             }
         } catch (error) {
-            return Error(error.response.data.message);
+            console.log(error);
+            Error(error.response.data.message);
         }
     }
 
@@ -156,8 +158,8 @@ function DialogDefault({ isOpen, setOpen }) {
                                         Verify & Join Waitlist
                                     </button>
                                     <Tooltip title="Check spam if email not recieved">
-                                      <Button ><CiCircleQuestion className="text-3xl text-[#fff] mt-6" /></Button>
-                                    </Tooltip>     
+                                        <Button ><CiCircleQuestion className="text-3xl text-[#fff] mt-6" /></Button>
+                                    </Tooltip>
                                 </div>
                             </form>
                             <p onClick={resendCodeHandler} className="hover:underline">Resend Confirmation Code</p>
