@@ -31,13 +31,21 @@ function DialogDefault({ isOpen, setOpen }) {
         setOtp(event.clipboardData.getData('text'));
     };
 
-    const otpGenerated = Math.floor(10000 + Math.random() * 90000);
+    const resendCodeHandler = async () => {
+        const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email });
+        if (otpSendResponse.status === 200) {
+            SuccessToast("Confirmation code has been sent again, please check your inbox.");
+        } else {
+            return Error("Something went wrong! Try again later");
+        }
+    }
 
     const OtpHandler = async (event) => {
         event.preventDefault();
 
-        const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email, otpGenerated });
+        const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email });
         if (otpSendResponse.status === 200) {
+            SuccessToast("Confirmation code has been sent to your email, please check your inbox");
             currentStep === steps.length ? setComplete(true) : setCurrentStep(1);
         } else {
             return Error("Something went wrong!");
@@ -48,8 +56,9 @@ function DialogDefault({ isOpen, setOpen }) {
         event.preventDefault();
         try {
             const response = await axios.post(`${backendUrl}/waitlist`, { name, email, otp });
+            console.log(response);
             if (response.status === 200) {
-                SuccessToast("We have added you in our waited list.");
+                SuccessToast("We have added you in our wait-list.");
                 localStorage.setItem("waitlist", "joined");
                 handleOpen();
             } else if (response.status === 202) {
@@ -60,8 +69,8 @@ function DialogDefault({ isOpen, setOpen }) {
                 Error("Invalid Confirmation code");
             }
         } catch (error) {
-            console.log(error)
-            return Error(error.response.data.message);
+            console.log(error);
+            Error(error.response.data.message);
         }
     }
 
@@ -148,11 +157,12 @@ function DialogDefault({ isOpen, setOpen }) {
                                     <button className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
                                         Verify & Join Waitlist
                                     </button>
-                                    <Tooltip title="Check spam if email not recieved" >
-                                      <Button ><CiCircleQuestion className="text-3xl text-[#fff] mt-6" /></Button>
-                                    </Tooltip>     
+                                    <Tooltip title="Check spam if email not recieved">
+                                        <Button ><CiCircleQuestion className="text-3xl text-[#fff] mt-6" /></Button>
+                                    </Tooltip>
                                 </div>
                             </form>
+                            <p onClick={resendCodeHandler} className="hover:underline">Resend Confirmation Code</p>
                             <p onClick={handleOpen} className="hover:underline">Explore Website</p>
                         </div>
                         <div className="flex justify-start">

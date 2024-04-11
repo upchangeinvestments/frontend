@@ -52,7 +52,7 @@ const SignIn = () => {
     try {
       window.open(`${backendUrl}/auth/google`, "_self");
     } catch (error) {
-      console.log(error);
+      Error("Something went wrong, Please try again later.");
     }
   };
   const OutLookLoginHandler = async (event) => {
@@ -60,7 +60,7 @@ const SignIn = () => {
     try {
       window.open(`${backendUrl}/auth/outlook`, "_self");
     } catch (error) {
-      console.log(error);
+      Error("Something went wrong, Please try again later.");
     }
   };
 
@@ -112,11 +112,13 @@ const SignIn = () => {
       if (!validateEmail(email)) {
         return Error("Email entered is Invalid");
       }
-      await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
-      SuccessToast("Verification email has been sent to your email, please verify your account!");
+      const response = await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
+      if (response.status === 200) {
 
-      const TempUserData = { email, password, confirmPassword };
-      navigate("/welcome", { state: { isLogin: false, TempUserData: TempUserData } });
+        SuccessToast("Verification email has been sent to your email, please verify your account!");
+        const TempUserData = { email, password, confirmPassword };
+        navigate("/welcome", { state: { isLogin: false, TempUserData: TempUserData } });
+      }
     } catch (error) {
       return Error(error.response.data.message);
     }
