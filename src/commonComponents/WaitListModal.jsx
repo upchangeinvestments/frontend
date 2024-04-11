@@ -56,7 +56,6 @@ function DialogDefault({ isOpen, setOpen }) {
         event.preventDefault();
         try {
             const response = await axios.post(`${backendUrl}/waitlist`, { name, email, otp });
-            console.log(response);
             if (response.status === 200) {
                 SuccessToast("We have added you in our wait-list.");
                 localStorage.setItem("waitlist", "joined");
@@ -66,11 +65,16 @@ function DialogDefault({ isOpen, setOpen }) {
                 localStorage.setItem("waitlist", "joined");
                 handleOpen();
             } else if (response.status === 203) {
-                Error("Invalid Confirmation code");
+                Error("Invalid confirmation code, please resend the confirmation code.");
             }
         } catch (error) {
-            console.log(error);
-            Error(error.response.data.message);
+            var message;
+            if (error.response) {
+                message = "Error: " + error.response.data.message + ", please resend the confirmation code.";
+            } else {
+                message = "Error occurred, please resend the confirmation code."
+            }
+            Error(message);
         }
     }
 

@@ -36,7 +36,7 @@ function LandingPage() {
               </span>
             </div>
           </div>
-          <div className="flex ml-[45px]">
+          <div className="flex ml-[45px] lg:ml-[0px]">
             <ExploreMoreButton className="" Text="Explore More" />
           </div>
         </div>
