@@ -5,7 +5,7 @@ import { FaFacebookF, FaInstagram } from "react-icons/fa";
 import { IoLocationSharp, IoCall, IoMail } from "react-icons/io5";
 import { FaLinkedinIn } from "react-icons/fa";
 import { Link } from "react-router-dom";
-import { NavHashLink } from "react-router-hash-link";
+// import { NavHashLink } from "react-router-hash-link";
 
 const Footer = () => {
   return (
@@ -76,9 +76,7 @@ const Footer = () => {
                     <Link to="/category">Investments</Link>
                   </li>
                   <li className="text-left">
-                    <NavHashLink to="/#HowItWorks" smooth>
-                      How it works
-                    </NavHashLink>
+                    <Link to="/work">How it Works</Link>
                   </li>
                   <li className="text-left">
                     <Link to="/resources">Resources</Link>

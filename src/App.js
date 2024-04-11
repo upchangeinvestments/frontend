@@ -19,6 +19,8 @@ import AuthProvider from "./utils/AuthContext";
 import Termsandconditions from "./Pages/SpecificCategoryPage/Termsandconditions";
 import Privacyandpolicy from "./Pages/SpecificCategoryPage/Privacyandpolicy";
 import Welcome from "./Pages/SignInPage/Welcome";
+// import HowItWorks from "./Pages/LandingPage/HowItWorks";
+import HowItWorksPage from "./Pages/SpecificCategoryPage/HowItWorksPage";
 
 function App() {
   return (
@@ -52,6 +54,7 @@ function App() {
           <Route path="/privacy" element={<Privacyandpolicy />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/welcome" element={<Welcome />} />
+          <Route path="/work" element= {<HowItWorksPage />}/>
         </Routes>
         <ToastContainer
           position="top-center"
