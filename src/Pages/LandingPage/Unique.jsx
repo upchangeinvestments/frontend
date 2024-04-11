@@ -36,7 +36,7 @@ function Unique() {
           WHAT MAKES US <span className="text-[#6e30a7]">DIFFERENT</span>?
         </h2>
       </div>
-      <div className="px-4 vsm:grid vsm:gap-4 lg:gap-x-40 vsm:mx-4 md:mx-24 lg:mx-20 xl:mx-24 lg:mt-[10px] lg:flex">
+      <div className="px-4 vsm:grid vsm:gap-4 lg:gap-x-40 md:mx-24 lg:mx-20 xl:mx-24 lg:mt-[10px] lg:flex">
         <div className="relative vsm:h-[410px] lg:h-[390px] lg:ml-[20px] xl:ml-[200px] xl:h-[400px] xl:mx-auto">
           <div className="nowrap text-nowrap flex items-center justify-center text-2xl font-['Playfair-Display']  text-white">
             NAVIGATE YOUR WEALTH
@@ -45,7 +45,6 @@ function Unique() {
             <ReactCardCarousel
               autoplay={true}
               autoplay_speed={5000}
-              cl1assName="mt-36"
             >
               <div>
                 <FilterCard heading={`Filter by ${Headings[0]}`} items={LI1} />
