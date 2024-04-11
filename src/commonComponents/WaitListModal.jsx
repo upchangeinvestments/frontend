@@ -10,8 +10,9 @@ import { useAuth } from "../utils/AuthContext";
 import "../App.css";
 import logo from "../assets/logo.png";
 import { TiTick } from "react-icons/ti";
-
-
+import Button from '@mui/material/Button';
+import Tooltip from '@mui/material/Tooltip';
+import { CiCircleQuestion } from "react-icons/ci";
 function DialogDefault({ isOpen, setOpen }) {
     const [otp, setOtp] = useState('');
     const [email, setEmail] = useState("");
@@ -147,6 +148,9 @@ function DialogDefault({ isOpen, setOpen }) {
                                     <button className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
                                         Verify & Join Waitlist
                                     </button>
+                                    <Tooltip title="Check spam if email not recieved">
+                                      <Button ><CiCircleQuestion className="text-3xl text-[#fff] mt-6" /></Button>
+                                    </Tooltip>     
                                 </div>
                             </form>
                             <p onClick={handleOpen} className="hover:underline">Explore Website</p>
