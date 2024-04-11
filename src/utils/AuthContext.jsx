@@ -58,7 +58,6 @@ const AuthProvider = ({ children }) => {
         setUser(response.data.user);
       }
     } catch (error) {
-      console.log(error);
       localStorage.removeItem("token");
       localStorage.removeItem("tokenExpiration");
       setIsAuth(false);
@@ -75,7 +74,6 @@ const AuthProvider = ({ children }) => {
       setUser(response.data.user);
       setIsAuth(true);
     } catch (err) {
-      console.log(err);
       setIsAuth(false);
       navigate("/");
       setUser({});

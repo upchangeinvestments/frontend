@@ -14,21 +14,21 @@ function VerifyUser() {
     useEffect(() => {
         const verifyToken = async () => {
             try {
-                const response = await axios.get(`${backendUrl}/auth/${id}/verify/${token}`);
-                if (response.status === 200) {
-                    setIsVerified(true);
-                    localStorage.setItem("token", token);
-                    const currentDate = new Date();
-                    const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
-                    localStorage.setItem("tokenExpiration", tokenExpiration);
+                await axios.get(`${backendUrl}/auth/${id}/verify/${token}`).then((response) => {
+                    if (response.status === 200) {
+                        setIsVerified(true);
+                        localStorage.setItem("token", token);
+                        const currentDate = new Date();
+                        const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
+                        localStorage.setItem("tokenExpiration", tokenExpiration);
 
-                    setTimeout(() => {
-                        navigate('/profile');
-                    }, 3000);
-                }
+                        setTimeout(() => {
+                            navigate('/profile');
+                        }, 3000);
+                    }
+                })
             } catch (err) {
                 return Error("Link Not Verified, Link Expired, or Invalid");
-
             }
         };
         verifyToken();
