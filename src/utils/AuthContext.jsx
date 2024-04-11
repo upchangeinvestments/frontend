@@ -53,7 +53,6 @@ const AuthProvider = ({ children }) => {
     try {
       const response = await axios.get(`${backendUrl}/auth/verify?token=${token}`);
       if (response.status === 200 && response.data.status === "success") {
-        // console.log(response.data);
         setIsAuth(true);
         setUser(response.data.user);
       }
@@ -70,12 +69,11 @@ const AuthProvider = ({ children }) => {
     try {
       const url = `${backendUrl}/auth/provider/success`;
       const response = await axios.get(url, { withCredentials: true });
-
       setUser(response.data.user);
       setIsAuth(true);
     } catch (err) {
       setIsAuth(false);
-      navigate("/");
+      // navigate("/");
       setUser({});
     }
   };
