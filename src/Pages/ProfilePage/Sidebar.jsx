@@ -33,7 +33,7 @@ const Communication = () => {
         Subscribe to our newsletter to get the latest updates and offers.
       </div>
       <button onClick={handleSubscribe} className="bg-[#6e30a7]  text-white font-semibold py-2 px-4 rounded">
-        Unsubscribe
+        Subscribe
       </button>
     </div>
   );

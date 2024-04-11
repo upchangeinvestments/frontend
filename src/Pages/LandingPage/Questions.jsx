@@ -166,6 +166,7 @@ const Questions = () => {
             className="rounded-xl lg:-mr-4 w-[90%]"
             src={video}
             autoPlay
+            playsInline 
             controls
             loop
             muted
