@@ -25,7 +25,7 @@ function FilterSubSection({ list, title, inputType }) {
                 name={inputType === "radio" ? "radioType" : propertyType}
                 type={inputType}
                 value={propertyType}
-                className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
+                className="w-4 h-4 text-[#6e30a7]"
               />
               <div className="text-sm">{propertyType}</div>
             </label>

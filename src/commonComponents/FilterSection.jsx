@@ -13,12 +13,12 @@ function FilterSection() {
     "Land & Infrastructure",
   ];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
-  const CompanyType = [
-    "TerraForte Realty",
-    "Dreamland Living",
-    "Purple Sky Homes",
-    "Fly Heights",
-  ];
+  // const CompanyType = [
+  //   "TerraForte Realty",
+  //   "Dreamland Living",
+  //   "Purple Sky Homes",
+  //   "Fly Heights",
+  // ];
   const InvestmentRange = [
     "$100-$1K",
     "$1K-$10K",
@@ -71,18 +71,18 @@ function FilterSection() {
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
        <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
-          <p>0</p> {/* Leftmost value */}
+          <p>0</p> 
            <input
             type="range"
             name="priceIRR"
             min={0}
-            max={40}
+            max={50}
             value={price}
             onChange={updateIrrValue}
             step="5"
             className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
             style={{
-             background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 40) * 100}%, #CBD5E0 ${(price / 40) * 100}%, #CBD5E0 100%)`,
+             background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,
              }}/>
            <p>{price}</p>
          </div>
@@ -108,13 +108,13 @@ function FilterSection() {
           />
         </div>
       </div>
-      <FilterSubSection
+      {/* <FilterSubSection
         list={CompanyType}
         title="Companies"
         inputType="checkbox"
         showAll={showAllCompanies}
         setShowAll={setShowAllCompanies}
-      />
+      /> */}
     </div>
   );
 }

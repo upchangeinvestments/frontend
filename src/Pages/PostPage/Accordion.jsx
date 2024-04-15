@@ -9,32 +9,14 @@ import {
 const ListedCompany = () => {
   return (
     <div className="flex flex-col">
-      <h2 className="font-['Playfair-Display'] text-lg">The Reilea Group</h2>
+      <h2 className="font-['Playfair-Display'] text-lg">Fly Heights</h2>
       <p>
-        Founded in 1981, rilea group has been at the forefront of miami’s real
-        estate development landscape, leaving an indelible mark through iconic
-        buildings like J.P.Morgan’s headquarters at 1450 brickell. with a legacy
-        spanning over four decades, our mission is unwavering: to be a beacon of
-        innovation, progress, and community enrichment in the world of real
-        estate development. at rilea group, we take immense pride in our ability
-        to create enduring value for our stakeholders. Our commitment to
-        excellence is evident through the thousands of jobs we’ve generated via
-        construction, property management, and our thriving retail ventures.
-        with a track record encompassing 10,000,000 rentable square feet, we’ve
-        redefined urban living and working spaces, setting new standards for
-        quality and sustainability. Our global reach extends to investors in
-        over a dozen countries, a testament to our dedication to fostering
-        international partnerships. We recognize that our success is interwoven
-        with the prosperity of the communities we serve.
+      Founded in 2023, Fly Heights Enterprises emerges as a dynamic force in the realm of urban development, spearheading transformative projects that redefine city skylines and enhance community living. With a commitment to innovation and sustainability, Fly Heights Enterprises embraces the challenge of shaping tomorrow's cities today.
+      At Fly Heights Enterprises, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. From iconic residential towers to state-of-the-art commercial complexes, we craft spaces that inspire and elevate the human experience. Our portfolio showcases a diverse range of projects, each bearing the hallmark of meticulous design and unparalleled quality.
+      With a legacy spanning over a decade, Fly Heights Enterprises has become synonymous with forward-thinking urban development. Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life, ensuring that every project exceeds expectations.
       </p>
-      <p>
-        Therefore, we pledge to continue our tradition of responsible
-        development, prioritizing the well-being of our neighbors, and the
-        preservation of the environment. At Rilea Group, we are more than
-        developers; we are community builders, job creators, and global
-        collaborators. our enduring mission is to shape urban landscapes, enrich
-        lives, provide financial return for our partners and leave a lasting
-        legacy of excellence in real estate development.
+      <p className="mt-2">
+      Beyond construction, Fly Heights Enterprises is committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
       </p>
       <div className="flex flex-col my-2 items-center justify-center">
         <p className="font-['Playfair-Display'] mb-2">

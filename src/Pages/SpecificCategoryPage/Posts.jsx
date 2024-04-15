@@ -110,7 +110,7 @@ function Post({ data, type, blur }) {
                 <p className="font-bold text-base">{data.IRR}</p>
               </div>
             </div>
-            <div className="flex items-center justify-center mt-2">
+            <div className="flex items-center justify-center mt-8">
               <Button Text="Know More" link="/post" />
               {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
             </div>

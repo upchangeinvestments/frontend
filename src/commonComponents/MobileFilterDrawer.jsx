@@ -29,10 +29,10 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
                     />
                 </svg>
             </div>
-            <div className="flex items-center justify-start CustomizeFontH">
-                <div className="text-xl text-[rgba(151,_71,_255,_0.93)]">{title}</div>
+            <div className="flex items-center justify-start font-['Playfair-Display']">
+                <div className="text-xl text-[#6e30a7]">{title}</div>
             </div>
-            <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Asap']">
+            <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
                 {options &&
                     options.map((propertyType, index) => (
                         <label key={index} className="flex flex-row gap-4 w-full items-center">
@@ -46,18 +46,22 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
                         </label>
                     ))
                 }
-                {Index === 5 && <div className="flex flex-col w-full font-['Archive'] items-start justify-center my-4">
+                {Index === 4 && <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
                     <div className="font-['Asap'] w-[80%]">
-                        <input type="text" name="" className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#9747FF]" />
+                        <input type="text" name="" className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#6e30a7]" />
                     </div>
                 </div>}
 
-                {Index === 6 &&
-                    <div className="flex flex-col w-full font-['Archive'] items-start justify-center my-4">
-                        <div className="w-[80%]">
-                            <p>{price}</p>
-                            <input type="range" name="priceIRR" min={0} max={100} value={price} onChange={updateIrrValue} step="1" className="w-full mt-4" />
-                        </div>
+                {Index === 5 &&
+                    <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
+                        <div className="flex items-center">
+                          <p className='text-[#6e30a7]'>0</p> 
+                           <div className="flex-grow mx-4">
+                            <input type="range" name="priceIRR" min={0} max={50} value={price} onChange={updateIrrValue} step="5" className="w-full appearance-none bg-gray-200 h-2 rounded-full outline-none focus:outline-none"
+                              style={{background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,}}/>
+                           </div>
+                         <p className='text-[#6e30a7]'>{price}</p>
+                       </div>
                     </div>
                 }
             </div >
