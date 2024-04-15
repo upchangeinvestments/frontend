@@ -54,7 +54,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
                     <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
                         <div className="flex items-center">
                           <p className='text-[#6e30a7]'>0</p> 
-                           <div className="flex-grow mx-4">
+                           <div className="flex-grow mx-4 FilterSection">
                             <input type="range" name="priceIRR" min={0} max={50} value={price} onChange={updateIrrValue} step="5" className="w-full appearance-none bg-gray-200 h-2 rounded-full outline-none focus:outline-none"
                               style={{background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,}}/>
                            </div>
