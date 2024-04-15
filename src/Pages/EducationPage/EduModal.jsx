@@ -14,7 +14,7 @@ function EduModal({ isOpen, handleOpen, modalContent }) {
             <div className="flex items-center justify-center mb-3">
               <img src={logo} alt="logo" className="w-[30%]" />
             </div>
-            <div className="font-['Playfair-Display'] overflow-y-scroll">
+            <div className="font-['Playfair-Display'] overflow-y-scroll lg:overflow-hidden">
               <div className="text-xl">{modalContent}</div>
             </div>
           </div>
