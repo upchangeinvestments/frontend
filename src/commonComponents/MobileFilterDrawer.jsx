@@ -1,7 +1,5 @@
 import React, { useState } from 'react';
-import {
-    Drawer,
-} from "@material-tailwind/react";
+import { Drawer } from "@material-tailwind/react";
 
 function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
     const [price, setPrice] = useState(0);

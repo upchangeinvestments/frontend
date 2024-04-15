@@ -42,7 +42,6 @@ function DialogDefault({ isOpen, setOpen }) {
 
     const OtpHandler = async (event) => {
         event.preventDefault();
-
         const otpSendResponse = await axios.post(`${backendUrl}/waitlist/otp`, { email });
         if (otpSendResponse.status === 200) {
             SuccessToast("Confirmation code has been sent to your email, please check your inbox");
@@ -130,8 +129,8 @@ function DialogDefault({ isOpen, setOpen }) {
                                         Your Email
                                     </p>
                                     <input
-                                        type="text"
-                                        onChange={(event) => setEmail(event.target.value)}
+                                        type="email"
+                                        onChange={(event) => setEmail(event.target.value.trim().toLowerCase())}
                                         className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                         required
                                     />

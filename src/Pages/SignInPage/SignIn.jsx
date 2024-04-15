@@ -74,8 +74,9 @@ const SignIn = () => {
 
   const handleLogin = async (event) => {
     event.preventDefault();
-    const email = event.target.email.value;
-    const password = event.target.password.value;
+    const email = event.target.email.value.trim().toLowerCase();
+    const password = event.target.password.value.trim();
+
     if (!validateEmail(email)) {
       return Error("Email entered is Invalid");
     }
@@ -105,9 +106,9 @@ const SignIn = () => {
     event.preventDefault();
 
     try {
-      const email = event.target.email.value;
-      const password = event.target.password.value;
-      const confirmPassword = event.target.confirmPassword.value;
+      const email = event.target.email.value.trim().toLowerCase();
+      const password = event.target.password.value.trim();
+      const confirmPassword = event.target.confirmPassword.value.trim();
 
       if (!validateEmail(email)) {
         return Error("Email entered is Invalid");
