@@ -40,7 +40,6 @@ const Questions = () => {
   const QuizHandler = (event) => {
     event.preventDefault();
     const responses = selectedAnswer;
-    // console.log("Submitted Data:", {  });
     const userData = { email, name, responses };
     navigate("/signin", { state: { isLogin: false, userData: userData } });
   };
@@ -166,7 +165,7 @@ const Questions = () => {
             className="rounded-xl lg:-mr-4 w-[90%]"
             src={video}
             autoPlay
-            playsInline 
+            playsInline
             controls
             loop
             muted
