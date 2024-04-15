@@ -3,6 +3,7 @@ import ExploreMoreButton from "../../commonComponents/exploreMoreButton";
 import Tagline from "./Tagline";
 import Aos from "aos";
 import "aos/dist/aos.css";
+import "../../styles/LandingPage/LandingPage.css";
 
 function LandingPage() {
   const words = ["Investments", "Opportunites", "Investments", "Opportunites"];
@@ -17,14 +18,14 @@ function LandingPage() {
         data-aos="zoom-in-up"
       >
         <div className="vsm:ml-[85px] md:ml-0 font-bold vsm:text-2xl xl:text-4xl 2xl:text-5xl drop-shadow-lg font-['Playfair-Display'] ">
-          <div className="mb-4">
+          <div className="mb-2">
             Centralized Platform For
           </div>
-          <div className="mb-8 text-white vsm:w-[37rem] vsm:h-[1.2em] vsm:overflow-y-hidden">
+          <div className="mb-6 text-white vsm:w-[37rem] vsm:h-[1.2em] overflow-y-hidden">
             <div className="">
               <p className=""> Real Estate</p>
             </div>
-            <div className="scroller">
+            <div className="scroller -z-[1]">
               <span className="text-left vsm:-ml-[167px] xl:-ml-[110px] text-white">
                 {words[0]}
                 <br />

@@ -144,13 +144,11 @@ function ResouceContent() {
 
   const receiveDataObject = (dataObject) => {
     setDrawerData(dataObject);
-    console.log(dataObject)
   };
   const [openDrawer, setOpenDrawer] = React.useState(false);
 
   const handleDrawer = () => {
     setOpenDrawer(!openDrawer);
-    console.log("click")
   }
 
   const description =
