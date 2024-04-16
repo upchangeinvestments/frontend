@@ -3,14 +3,18 @@
     "title": "Sample Project",
     "image": "https://i.postimg.cc/pLFgbVK7/photo-1570129477492-45c003edd2be.jpg",
     "description": "The investment strategy is to develop 284, Class A, apartment units under a Public Facility Corporat.",
+    "category": "Residential",
     "location": "Dallas, TX",
-    "IRR": "20.90%"
+    "IRR": "20.90%",
+    "Investment": "$ 10k",
+    "Hold_period": "2YRS",
+    "zip_code":"75201"
   },
   {
     "title": "The Highlands",
     "image": "https://app.realtymogul.com/sites/default/files/styles/private_placement_gallery_thumbnail/public/rendering1.jpg?itok=m_QV1feH",
     "description": "The investment strategy is to develop 284, Class A, apartment units under a Public Facility Corporat.",
-    "location": "Gainesville, FL",
+    "location": "FL",
     "IRR": "20.90%"
   },
   {
