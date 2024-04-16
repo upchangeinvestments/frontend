@@ -75,7 +75,7 @@ const Questionnaire = () => {
                 }}
               />
               <label
-                className={`text-center font-['Playfair-Display'] border-[#9747FF]  ${selectedAnswer[currentQuiz] === option ? 'border-[3px]' : 'border-[1px]'}`}
+                className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
                 htmlFor={option}
                 id={option + "_text"}
               >
