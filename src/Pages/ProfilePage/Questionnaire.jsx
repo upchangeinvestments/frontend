@@ -154,14 +154,16 @@ const Questionnaire = () => {
           {loadQuiz()}
         </div>
       </div>
-      <div className="vsm:mt-[300px] vsm:right-[15px] md:mt-[300px] md:right-[15px]  lg:mt-4 absolute lg:bottom-8 lg:right-8">
-        <button
-          onClick={QuizHandler}
-          className="bg-[#6e30a7] hover:bg-purple-600 font-['Playfair-Display'] text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded"
-        >
-          Save Changes
-        </button>
-      </div>
+      {currentQuiz >= 2 && (
+        <div className="vsm:mt-[300px] vsm:right-[15px] md:mt-[300px] md:right-[15px]  lg:mt-4 absolute lg:bottom-8 lg:right-8">
+          <button
+            onClick={QuizHandler}
+            className="bg-[#6e30a7] hover:bg-purple-600 font-['Playfair-Display'] text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded"
+          >
+            Save Changes
+          </button>
+        </div>
+      )}
     </div>
   );
 };
