@@ -64,12 +64,14 @@ const Questions = () => {
                 id={option}
                 className="answer text-center"
                 onClick={() => {
-                  setSelectedAnswer([...selectedAnswer, option]);
-                  setCurrentQuiz(currentQuiz + 1);
+                  const newSelectedAnswer = [...selectedAnswer];
+                  newSelectedAnswer[currentQuiz] = option;
+                  setSelectedAnswer(newSelectedAnswer);
+                  setCurrentQuiz(currentQuiz + 1)
                 }}
               />
               <label
-                className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
+                className={`text-center font-['Playfair-Display'] border-[#9747FF]  ${selectedAnswer[currentQuiz] === option ? 'border-[3px]' : 'border-[1px]'}`}
                 htmlFor={option}
                 id={option + "_text"}
               >

@@ -13,15 +13,9 @@ function FilterSection() {
     "Office",
     "Land & Infrastructure",
   ];
-  
+
 
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
-  // const CompanyType = [
-  //   "TerraForte Realty",
-  //   "Dreamland Living",
-  //   "Purple Sky Homes",
-  //   "Fly Heights",
-  // ];
   const InvestmentRange = [
     "$100-$1K",
     "$1K-$10K",
@@ -48,22 +42,22 @@ function FilterSection() {
   };
 
   const getTooltipContent = (location) => {
-    
-    switch(location) {
-        case "West":
-            return "California, Oregon, Washington, Nevada, Arizona, Idaho, Montana, Wyoming, Utah, Colorado, New Mexico, Alaska,Hawa";
-        case "Central":
-            return "Texas, Illinois, Colorado, Missouri ,Iowa, Kansas, Nebraska, South Dakota , North Dakota, Minnesota";
-        case "South":
-            return "Florida, Georgia, Louisiana, Mississippi, Alabama,South Carolina, North Carolina , Tennessee, Arkansas, Kentucky, Virginia ,West Virginia, Oklahoma";
-        case "Midwest":
-            return "Ohio, Michigan, Indiana, Wisconsin";
-        case "East":
-            return "New York, Pennsylvania, Massachusetts, Maine , New Hampshire, Vermont , Rhode Island, Connecticut , New Jersey , Delaware , Maryland";
-        default:
-            return "";
+
+    switch (location) {
+      case "West":
+        return "California, Oregon, Washington, Nevada, Arizona, Idaho, Montana, Wyoming, Utah, Colorado, New Mexico, Alaska,Hawa";
+      case "Central":
+        return "Texas, Illinois, Colorado, Missouri ,Iowa, Kansas, Nebraska, South Dakota , North Dakota, Minnesota";
+      case "South":
+        return "Florida, Georgia, Louisiana, Mississippi, Alabama,South Carolina, North Carolina , Tennessee, Arkansas, Kentucky, Virginia ,West Virginia, Oklahoma";
+      case "Midwest":
+        return "Ohio, Michigan, Indiana, Wisconsin";
+      case "East":
+        return "New York, Pennsylvania, Massachusetts, Maine , New Hampshire, Vermont , Rhode Island, Connecticut , New Jersey , Delaware , Maryland";
+      default:
+        return "";
     }
-};
+  };
 
   return (
     <div
@@ -90,10 +84,10 @@ function FilterSection() {
         inputType="radio"
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
-       <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
+        <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
-          <p className="mt-2">0</p> 
-           <input
+          <p className="mt-2">0</p>
+          <input
             type="range"
             name="priceIRR"
             min={0}
@@ -103,28 +97,28 @@ function FilterSection() {
             step="5"
             className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
             style={{
-             background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,
-             }}/>
-           <p className="mt-2">{price == 0 ? 50 : price }</p>
-         </div>
-       </div>
+              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,
+            }} />
+          <p className="mt-2">{price == 0 ? 50 : price}</p>
+        </div>
+      </div>
 
       <FilterSubSection
         list={HoldPeriod}
         title="Hold Period"
         inputType="checkbox"
       />
-        <div>
-            <FilterSubSection
-                list={LocationType.map(location => (
-                    <Tooltip key={location} title={getTooltipContent(location)}>
-                        <div>{location}</div>
-                    </Tooltip>
-                ))}
-                title="Locations"
-                inputType="checkbox"
-            />
-        </div>
+      <div>
+        <FilterSubSection
+          list={LocationType.map(location => (
+            <Tooltip key={location} title={getTooltipContent(location)}>
+              <div>{location}</div>
+            </Tooltip>
+          ))}
+          title="Locations"
+          inputType="checkbox"
+        />
+      </div>
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
         <div className="font-['Asap'] w-[80%]">

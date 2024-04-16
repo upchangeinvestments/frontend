@@ -11,16 +11,6 @@ const dataObject = [
         options: ["West", "Central", "South", "Midwest", "East"],
         inputType: "checkbox",
     },
-    // {
-    //     title: "Companies",
-    //     options: [
-    //         "TerraForte Realty",
-    //         "Dreamland Living",
-    //         "Purple Sky Homes",
-    //         "Fly Heights",
-    //     ],
-    //     inputType: "checkbox",
-    // },
     {
         title: "Investment Range",
         options: [

@@ -1,5 +1,23 @@
 import React, { useState } from 'react';
 import { Drawer } from "@material-tailwind/react";
+import Tooltip from '@mui/material/Tooltip';
+
+const getTooltipContent = (location) => {
+    switch (location) {
+        case "West":
+            return "California, Oregon, Washington, Nevada, Arizona, Idaho, Montana, Wyoming, Utah, Colorado, New Mexico, Alaska,Hawa";
+        case "Central":
+            return "Texas, Illinois, Colorado, Missouri ,Iowa, Kansas, Nebraska, South Dakota , North Dakota, Minnesota";
+        case "South":
+            return "Florida, Georgia, Louisiana, Mississippi, Alabama,South Carolina, North Carolina , Tennessee, Arkansas, Kentucky, Virginia ,West Virginia, Oklahoma";
+        case "Midwest":
+            return "Ohio, Michigan, Indiana, Wisconsin";
+        case "East":
+            return "New York, Pennsylvania, Massachusetts, Maine , New Hampshire, Vermont , Rhode Island, Connecticut , New Jersey , Delaware , Maryland";
+        default:
+            return "";
+    }
+};
 
 function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
     const [price, setPrice] = useState(0);
@@ -40,7 +58,9 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
                                 value={propertyType}
                                 className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
                             />
-                            <div className="text-base">{propertyType}</div>
+                            <Tooltip key={propertyType} title={getTooltipContent(propertyType)}>
+                                <div className="text-base">{propertyType}</div>
+                            </Tooltip>
                         </label>
                     ))
                 }
@@ -53,13 +73,13 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
                 {Index === 5 &&
                     <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
                         <div className="flex items-center">
-                          <p className='text-[#6e30a7]'>0</p> 
-                           <div className="flex-grow mx-4 FilterSection">
-                            <input type="range" name="priceIRR" min={0} max={50} value={price} onChange={updateIrrValue} step="5" className="w-full appearance-none bg-gray-200 h-2 rounded-full outline-none focus:outline-none"
-                              style={{background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,}}/>
-                           </div>
-                         <p className='text-[#6e30a7]'>{price}</p>
-                       </div>
+                            <p className='text-[#6e30a7]'>0</p>
+                            <div className="flex-grow mx-4 FilterSection">
+                                <input type="range" name="priceIRR" min={0} max={50} value={price} onChange={updateIrrValue} step="5" className="w-full appearance-none bg-gray-200 h-2 rounded-full outline-none focus:outline-none"
+                                    style={{ background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`, }} />
+                            </div>
+                            <p className='text-[#6e30a7]'>{price}</p>
+                        </div>
                     </div>
                 }
             </div >
