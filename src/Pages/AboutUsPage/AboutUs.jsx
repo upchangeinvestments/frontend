@@ -110,7 +110,7 @@ function AboutUs() {
               </p>
             </CardHeader>
             <CardBody>
-              <p className="lg:my-6 vsm:h-60 vsm:py-4 md:h-[320px]  lg:py-4   lg:h-60 text-base">
+              <p className="lg:my-6 vsm:h-60 vsm:py-4 md:h-[320px]  lg:py-4   lg:h-60 text-center">
                 We envision a dynamic platform for seamless exploration and
                 comparison of diverse opportunities, empowering investors with
                 robust analytics.
@@ -129,7 +129,7 @@ function AboutUs() {
               </p>
             </CardHeader>
             <CardBody>
-              <p className="lg:my-6 vsm:h-60 vsm:py-4 md:h-[320px]  lg:py-4 lg:h-60 text-base">
+              <p className="lg:my-6 vsm:h-60 vsm:py-4 md:h-[320px]  lg:py-4 lg:h-60 text-center">
                 To empower investors with the tools and information needed to
                 make informed real estate investment decisions, while
                 facilitating collaboration and growth within the real estate
@@ -149,7 +149,7 @@ function AboutUs() {
               </p>
             </CardHeader>
             <CardBody>
-              <p className="lg:my-6 vsm:h-60 vsm:py-4 md:h-[320px] lg:py-4  lg:h-60  text-base">
+              <p className="lg:my-6 vsm:h-60 vsm:py-4 md:h-[320px] lg:py-4  lg:h-60  text-center">
                 We are committed to empowering individuals by simplifying real
                 estate investing with transparency, fostering trust through
                 clear information, and propelling innovation to redefine the

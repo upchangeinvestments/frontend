@@ -26,7 +26,7 @@ function Unique() {
     "$100K-$500K",
   ];
   const LI4 = ["2Yrs-4Yrs", "4Yrs-6Yrs", "6Yrs-8Yrs", "8Yrs-10Yrs", "10Yrs+"];
-  const LI5 = ["0%-2%", "2%-5%", "5%-7%", "7%-10%", "10%+"];
+  const LI5 = ["2%-5%", "5%-7%", "7%-9%", "9%-10%", "10%+"];
   // const LI6 = ["RealtyMogul", "Cadre", "Fundrise", "Yieldstreet", "DiversyFund"]
 
   return (
