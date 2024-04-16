@@ -61,9 +61,9 @@ function Categories() {
           index === 8 ? (
             <div
               key={index}
-              className="flex flex-col items-center justify-center "
+              className="flex flex-col items-center "
             >
-              <div className="vsm:w-[100%] xl:w-[90%] flex items-center justify-center relative ">
+              <div className="vsm:w-[90%] xl:w-[90%] flex items-center justify-center relative ">
                 <img
                   src={element.image}
                   alt=""
@@ -81,7 +81,7 @@ function Categories() {
               key={index}
               className="flex flex-col items-center justify-center"
             >
-              <div className="vsm:w-[100%] msm:w-[80%] sm:w-[70%] md:w-[100%] xl:w-[70%] flex items-center justify-center">
+              <div className="vsm:max-w-[90%] msm:max-w-[80%] sm:max-w-[70%] md:max-w-[80%] lg:max-w-[80%] xl:max-w-[70%] flex items-center justify-center">
                 <img
                   src={element.image}
                   alt=""
