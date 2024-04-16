@@ -68,7 +68,7 @@ function ContactForm() {
                     <IoMdMail size="20px" />
                   </div>
                   <p className="vsm:text-[14px] msm:text-[16px] lg:ml-8">
-                    LynkInfniteInvestments@gmail.com
+                  advisor@lynkinfiniteinvestments.com
                   </p>
                 </div>
               </div>

@@ -5,7 +5,7 @@ import { useAuth } from "../utils/AuthContext";
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
-import { IoMdSettings, IoMdHelpCircle } from "react-icons/io";
+import { IoMdSettings, IoMdHelpCircle,IoIosHome } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import {
@@ -283,13 +283,24 @@ const NavBar = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
+                <Link
+                    to="/"
+                    className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
+                  >
+                  {/* Heroicon name: outline/chart-bar */}
+                  <IoIosHome className="h-6 w-6 text-[#6e30a7]" />
+                    <span className="ml-3 text-base font-medium text-gray-900">
+                      Home
+                    </span>
+                  </Link>  
+                  
                   <Link
                     to="/about"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/chart-bar */}
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-[#6e30a7]"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -313,7 +324,7 @@ const NavBar = () => {
                   >
                     {/* Heroicon name: outline/cursor-click */}
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-[#6e30a7]"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -337,7 +348,7 @@ const NavBar = () => {
                   >
                     {/* Heroicon name: outline/shield-check */}
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-[#6e30a7]"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -361,7 +372,7 @@ const NavBar = () => {
                   >
                     {/* Heroicon name: outline/view-grid */}
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-[#6e30a7]"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -384,7 +395,7 @@ const NavBar = () => {
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     <svg
-                      className="flex-shrink-0 h-6 w-6 text-indigo-600"
+                      className="flex-shrink-0 h-6 w-6 text-[#6e30a7]"
                       xmlns="http://www.w3.org/2000/svg"
                       fill="none"
                       viewBox="0 0 24 24"
@@ -420,7 +431,7 @@ const NavBar = () => {
                     <Link
                       to="/signin"
                       state={{ isLogin: true }}
-                      className="ml-2 text-[#9747FF] hover:text-purple-600"
+                      className="ml-2 text-[#6e30a7] hover:text-purple-600"
                     >
                       LOGIN
                     </Link>

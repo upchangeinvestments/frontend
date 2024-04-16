@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import FilterSubSection from "./FilterSubSection";
+import Tooltip from '@mui/material/Tooltip';
 
 function FilterSection() {
   const CategoryType = [
@@ -12,6 +13,8 @@ function FilterSection() {
     "Office",
     "Land & Infrastructure",
   ];
+  
+
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   // const CompanyType = [
   //   "TerraForte Realty",
@@ -44,6 +47,24 @@ function FilterSection() {
     setPrice(value);
   };
 
+  const getTooltipContent = (location) => {
+    
+    switch(location) {
+        case "West":
+            return "California, Oregon, Washington, Nevada, Arizona, Idaho, Montana, Wyoming, Utah, Colorado, New Mexico, Alaska,Hawa";
+        case "Central":
+            return "Texas, Illinois, Colorado, Missouri ,Iowa, Kansas, Nebraska, South Dakota , North Dakota, Minnesota";
+        case "South":
+            return "Florida, Georgia, Louisiana, Mississippi, Alabama,South Carolina, North Carolina , Tennessee, Arkansas, Kentucky, Virginia ,West Virginia, Oklahoma";
+        case "Midwest":
+            return "Ohio, Michigan, Indiana, Wisconsin";
+        case "East":
+            return "New York, Pennsylvania, Massachusetts, Maine , New Hampshire, Vermont , Rhode Island, Connecticut , New Jersey , Delaware , Maryland";
+        default:
+            return "";
+    }
+};
+
   return (
     <div
       className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg lg:w-[22%] xl:w-[18%] p-2 pr-6"
@@ -71,7 +92,7 @@ function FilterSection() {
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
        <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
-          <p>0</p> 
+          <p className="mt-2">0</p> 
            <input
             type="range"
             name="priceIRR"
@@ -84,7 +105,7 @@ function FilterSection() {
             style={{
              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,
              }}/>
-           <p>{price}</p>
+           <p className="mt-2">{price == 0 ? 50 : price }</p>
          </div>
        </div>
 
@@ -93,11 +114,17 @@ function FilterSection() {
         title="Hold Period"
         inputType="checkbox"
       />
-      <FilterSubSection
-        list={LocationType}
-        title="Locations"
-        inputType="checkbox"
-      />
+        <div>
+            <FilterSubSection
+                list={LocationType.map(location => (
+                    <Tooltip key={location} title={getTooltipContent(location)}>
+                        <div>{location}</div>
+                    </Tooltip>
+                ))}
+                title="Locations"
+                inputType="checkbox"
+            />
+        </div>
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
         <div className="font-['Asap'] w-[80%]">

@@ -41,7 +41,7 @@ const Footer = () => {
                 </div>
               </div>
               <span className="text-[#878787] md:ml-[20px] text-[14px]">
-                LynkInfiniteInvestments@gmail.com
+                advisor@lynkinfiniteinvestments.com
               </span>
             </div>
           </div>
