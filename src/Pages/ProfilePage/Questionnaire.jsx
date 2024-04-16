@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../../styles/LandingPage/Questions.css";
 import SuccessToast from "../../utils/successToast";
-
-// import { select } from '@material-tailwind/react';
+import axios from "axios";
+import { useAuth } from "../../utils/AuthContext";
 
 const quizData = [
   {
@@ -31,12 +31,21 @@ const quizData = [
 const Questionnaire = () => {
   const [currentQuiz, setCurrentQuiz] = useState(0);
   const [selectedAnswer, setSelectedAnswer] = useState([]);
+  const { user, backendUrl } = useAuth();
 
-  const QuizHandler = (event) => {
-    event.preventDefault();
-    const responses = selectedAnswer;
-    // console.log(responses);
-    SuccessToast("Questionnaire updated");
+  const QuizHandler = async () => {
+    const responses = selectedAnswer.map((option) => ({
+      question: quizData[selectedAnswer.indexOf(option)].question,
+      selectedOption: option,
+      selectedText: quizData[selectedAnswer.indexOf(option)][option],
+    }));
+    const res = await axios.post(`${backendUrl}/updatequiz`, { responses, user });
+    if (res.status === 200) {
+      setCurrentQuiz(0);
+      SuccessToast("Questionnaire updated.");
+    } else {
+      Error("Something went wrong, please try again later.");
+    }
   };
 
   const loadQuiz = () => {
@@ -49,90 +58,31 @@ const Questionnaire = () => {
           {currentQuizData.question}
         </p>
         <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[65%]">
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="a"
-              className="answer text-center"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "a"]);
-                if (currentQuiz < quizLength - 1) {
-                  setCurrentQuiz(currentQuiz + 1);
-                }
-              }}
-            />
-            <label
-              className="text-center border-[1px] border-[#6e30a7]"
-              htmlFor="a"
-              id="a_text"
-            >
-              {currentQuizData.a}
-            </label>
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="b"
-              className="answer"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "b"]);
-                if (currentQuiz < quizLength - 1) {
-                  setCurrentQuiz(currentQuiz + 1);
-                }
-              }}
-            />
-            <label
-              className="text-center border-[1px] border-[#6e30a7]"
-              htmlFor="b"
-              id="b_text"
-            >
-              {currentQuizData.b}
-            </label>
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="c"
-              className="answer border-[1px]"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "c"]);
-                if (currentQuiz < quizLength - 1) {
-                  setCurrentQuiz(currentQuiz + 1);
-                }
-              }}
-            />
-            <label
-              className="text-center border-[1px] border-[#6e30a7]"
-              htmlFor="c"
-              id="c_text"
-            >
-              {currentQuizData.c}
-            </label>
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="d"
-              className="answer"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "d"]);
-                if (currentQuiz < quizLength - 1) {
-                  setCurrentQuiz(currentQuiz + 1);
-                }
-              }}
-            />
-            <label
-              className="text-center  border-[1px] border-[#6e30a7]"
-              htmlFor="d"
-              id="d_text"
-            >
-              {currentQuizData.d}
-            </label>
-          </li>
+          {['a', 'b', 'c', 'd'].map((option) => (
+            <li key={option}>
+              <input
+                type="radio"
+                name="answer"
+                id={option}
+                className="answer text-center"
+                onClick={() => {
+                  const newSelectedAnswer = [...selectedAnswer];
+                  newSelectedAnswer[currentQuiz] = option;
+                  setSelectedAnswer(newSelectedAnswer);
+                  if (currentQuiz < quizLength - 1) {
+                    setCurrentQuiz(currentQuiz + 1)
+                  }
+                }}
+              />
+              <label
+                className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
+                htmlFor={option}
+                id={option + "_text"}
+              >
+                {currentQuizData[option]}
+              </label>
+            </li>
+          ))}
           <div
             className={currentQuiz > 0 ? "flex justify-center" : "hidden"}
             onClick={() => {

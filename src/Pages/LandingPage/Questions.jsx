@@ -3,8 +3,6 @@ import "../../styles/LandingPage/Questions.css";
 import video from "../../assets/introVideo.mp4";
 import { useNavigate } from "react-router-dom";
 
-// import { select } from '@material-tailwind/react';
-
 const quizData = [
   {
     question: "Q. What is your Investment Goal?",
@@ -35,11 +33,16 @@ const Questions = () => {
   const [name, setName] = useState("");
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const navigate = useNavigate();
-  // console.log(selectedAnswer);
 
   const QuizHandler = (event) => {
     event.preventDefault();
-    const responses = selectedAnswer;
+
+    const responses = selectedAnswer.map((option) => ({
+      question: quizData[selectedAnswer.indexOf(option)].question,
+      selectedOption: option,
+      selectedText: quizData[selectedAnswer.indexOf(option)][option],
+    }));
+
     const userData = { email, name, responses };
     navigate("/signin", { state: { isLogin: false, userData: userData } });
   };
@@ -53,82 +56,27 @@ const Questions = () => {
           {currentQuizData.question}
         </p>
         <ul className="vsm:w-[90%] md:w-[65%]">
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="a"
-              className="answer text-center"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "a"]);
-                setCurrentQuiz(currentQuiz + 1);
-              }}
-            />
-            <label
-              className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
-              htmlFor="a"
-              id="a_text"
-            >
-              {currentQuizData.a}
-            </label>
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="b"
-              className="answer"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "b"]);
-                setCurrentQuiz(currentQuiz + 1);
-              }}
-            />
-            <label
-              className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
-              htmlFor="b"
-              id="b_text"
-            >
-              {currentQuizData.b}
-            </label>
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="c"
-              className="answer border-[1px]"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "c"]);
-                setCurrentQuiz(currentQuiz + 1);
-              }}
-            />
-            <label
-              className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
-              htmlFor="c"
-              id="c_text"
-            >
-              {currentQuizData.c}
-            </label>
-          </li>
-          <li>
-            <input
-              type="radio"
-              name="answer"
-              id="d"
-              className="answer"
-              onClick={() => {
-                setSelectedAnswer([...selectedAnswer, "d"]);
-                setCurrentQuiz(currentQuiz + 1);
-              }}
-            />
-            <label
-              className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
-              htmlFor="d"
-              id="d_text"
-            >
-              {currentQuizData.d}
-            </label>
-          </li>
+          {['a', 'b', 'c', 'd'].map((option) => (
+            <li key={option}>
+              <input
+                type="radio"
+                name="answer"
+                id={option}
+                className="answer text-center"
+                onClick={() => {
+                  setSelectedAnswer([...selectedAnswer, option]);
+                  setCurrentQuiz(currentQuiz + 1);
+                }}
+              />
+              <label
+                className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
+                htmlFor={option}
+                id={option + "_text"}
+              >
+                {currentQuizData[option]}
+              </label>
+            </li>
+          ))}
           <div
             className={currentQuiz > 0 ? "flex justify-center" : "hidden"}
             onClick={() => {
@@ -139,6 +87,7 @@ const Questions = () => {
             <p className="ml-4 font-['Playfair-Display']">PREVIOUS</p>
           </div>
         </ul>
+
       </div>
     );
   };

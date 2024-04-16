@@ -84,6 +84,7 @@ const SignIn = () => {
       const response = await axios.post(`${backendUrl}/auth/login`, {
         email,
         password,
+        userData
       });
       localStorage.setItem("token", response.data.token);
       const currentDate = new Date();
@@ -113,7 +114,7 @@ const SignIn = () => {
       if (!validateEmail(email)) {
         return Error("Email entered is Invalid");
       }
-      const response = await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword });
+      const response = await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword, userData });
       if (response.status === 200) {
 
         SuccessToast("Verification email has been sent to your email, please verify your account!");
@@ -232,10 +233,13 @@ const SignIn = () => {
                     </div>
                   </div>
                   <input
-                    className=""
-                    type="text"
-                    name="email"
+                    type="email"
                     placeholder="Email"
+                    name="email"
+                    value={userData !== null ? userData.email : ""}
+                    onChange={(e) =>
+                      setUserData({ ...userData, email: e.target.value })
+                    }
                     required
                   />
                   <div className="logineyeinput relative flex flex-start w-[75%]">
