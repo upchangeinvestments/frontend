@@ -3,6 +3,7 @@ import "./App.css";
 import PrivateRoute from "./utils/PrivateRoute";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
+import ForgotPassword from "./Pages/SignInPage/ForgotPassword";
 import SubscriptionPlan from "./Pages/SubscriptionPlan/SubscriptionPlan";
 import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
@@ -54,7 +55,8 @@ function App() {
           <Route path="/privacy" element={<Privacyandpolicy />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/welcome" element={<Welcome />} />
-          <Route path="/work" element= {<HowItWorksPage />}/>
+          <Route path="/work" element={<HowItWorksPage />} />
+          <Route path="/users/:id/resetPassword/:resetToken" element={<ForgotPassword />} />
         </Routes>
         <ToastContainer
           position="top-center"

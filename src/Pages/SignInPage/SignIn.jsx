@@ -123,32 +123,55 @@ const SignIn = () => {
         navigate("/welcome", { state: { isLogin: false, TempUserData: TempUserData } });
       }
     } catch (error) {
-      return Error(error.response.data.message);
+      if (error.response) {
+        return Error(error.response.data.message);
+      } else if (error.request) {
+        return Error("Something went wrong! Please try again later.");
+      } else {
+        return Error(error.message);
+      }
     }
   };
 
   const handleForgetPassword = async (event) => {
     event.preventDefault();
+    try {
+      const email = event.target.ForgotEmail.value.trim().toLowerCase();
+      const name = event.target.name.value;
 
+      if (!validateEmail(email)) {
+        return Error("Invalid Email.");
+      }
+      const response = await axios.post(`${backendUrl}/auth/forgotPassword`, { email, name });
+      console.log(response);
+      if (response.status === 200) {
+        SuccessToast(response.data.message);
+      }
+    } catch (error) {
+      if (error.response) {
+        return Error(error.response.data.message);
+      } else if (error.request) {
+        return Error("Something went wrong! Please try again later.");
+      } else {
+        // will have to console errors with production specific style so that we can track errors from the server logs that users are receiving 
+        return Error("An unexpected error occurred. Please try again later.");
+      }
+    }
   };
 
   return (
     <div className="">
-      <div
-        className={
-          isSignUp
-            ? "vsm:hidden lg:block SignIn bg1"
-            : "vsm:hidden lg:block SignIn bg2"
-        }
+      <div className={
+        isSignUp
+          ? "vsm:hidden lg:block SignIn bg1"
+          : "vsm:hidden lg:block SignIn bg2"
+      }
       >
         <NavBar className="" />
         <div className="UserController">
-          <div
-            className={
-              isSignUp ? "SignInContainer bg1" : "SignInContainer bg2 change"
-            }
-          >
+          <div className={isSignUp ? "SignInContainer bg1" : "SignInContainer bg2 change"}>
             <div className="forms-container">
+              {/* .......................start of registration form.......................  */}
               <div className="form-control font-['Playfair-Display'] signup-form">
                 <form onSubmit={handleSignUp}>
                   <h2 className="">SIGN UP</h2>
@@ -219,95 +242,105 @@ const SignIn = () => {
                   </div>
                 </form>
               </div>
+              {/* .......................end of registration form....................... */}
+
+              {/* .......................start of login form and forgot password form....................... */}
               <div className="form-control font-['Playfair-Display'] signin-form">
+                {/* .......................start of forgot password....................... */}
                 {showForgetPassword ? (
-                   <form onSubmit={handleSignUp}>
-                   <h2 className="">Forget Password</h2>
-                   <input
-                     type="text"
-                     placeholder="Name"
-                     name="Name"
-                     required
-                   />
-                   <input
-                     type="email"
-                     placeholder="Email"
-                     name="ForgotEmail"
-                     required
-                   />
-                   <button type="submit" className="font-normal">
-                     RESET PASSWORD
-                   </button>
-                   <div>
-                     <p>Back to SignIn</p>{" "}
-                     <span id="signUp" onClick={ () => setShowForgetPassword(false)  }>
-                       <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600">
-                         SIGN IN
-                       </div>
-                     </span>
-                   </div>
-                 </form>
-                ) : ( <form onSubmit={handleLogin}>
-                  <h2 className="text-2xl">SIGN IN</h2>
-                  <div className="flex items-center justify-center gap-x-4 -mt-2">
-                    <div onClick={GoogleLoginHandler}>
-                      <img
-                        className="w-[50px]"
-                        src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
-                        alt="googlelogo"
-                      />
-                    </div>
-                    <div onClick={OutLookLoginHandler}>
-                      <img
-                        className="w-[40px]"
-                        src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
-                        alt="outlook"
-                      />
-                    </div>
-                  </div>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    value={userData !== null ? userData.email : ""}
-                    onChange={(e) =>
-                      setUserData({ ...userData, email: e.target.value })
-                    }
-                    required
-                  />
-                  <div className="logineyeinput relative flex flex-start w-[75%]">
+                  <form onSubmit={handleForgetPassword}>
+                    <h2 className="">Forget Password</h2>
                     <input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Password"
-                      name="password"
+                      type="text"
+                      placeholder="Name"
+                      name="name"
                       required
                     />
-                    {showPassword ? (
-                      <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
-                    ) : (
-                      <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
-                    )}
-                  </div>
-                  <button type="submit" className="w-[65%]">
-                    LOGIN
-                  </button>
-                  <a href="#" onClick={ () => setShowForgetPassword(true)  }>
-                    <p className="">Forgot password</p>
-                  </a>
-                  <div className="mt-8">
-                    {/* <input type="checkbox" />   I agree to all statements in terms of service */}
-                    <p>Don't have an account? </p>
-                    <span id="signUp" onClick={SignInButtonClick}>
-                      <a
-                        href="#"
-                        className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600"
-                      >
-                        SIGN UP
-                      </a>
-                    </span>
-                  </div>
-                </form>) }
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      name="ForgotEmail"
+                      required
+                    />
+                    <button type="submit" className="font-normal">
+                      RESET PASSWORD
+                    </button>
+                    <div>
+                      <p>Back to SignIn</p>{" "}
+                      <span id="signUp" onClick={() => setShowForgetPassword(false)}>
+                        <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600">
+                          SIGN IN
+                        </div>
+                      </span>
+                    </div>
+                  </form>
+                ) : (
+                  // .......................start of login form .......................
+                  <form onSubmit={handleLogin}>
+                    <h2 className="text-2xl">SIGN IN</h2>
+                    <div className="flex items-center justify-center gap-x-4 -mt-2">
+                      <div onClick={GoogleLoginHandler}>
+                        <img
+                          className="w-[50px]"
+                          src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
+                          alt="googlelogo"
+                        />
+                      </div>
+                      <div onClick={OutLookLoginHandler}>
+                        <img
+                          className="w-[40px]"
+                          src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
+                          alt="outlook"
+                        />
+                      </div>
+                    </div>
+                    <input
+                      type="email"
+                      placeholder="Email"
+                      name="email"
+                      value={userData !== null ? userData.email : ""}
+                      onChange={(e) =>
+                        setUserData({ ...userData, email: e.target.value })
+                      }
+                      required
+                    />
+                    <div className="logineyeinput relative flex flex-start w-[75%]">
+                      <input
+                        type={showPassword ? "text" : "password"}
+                        placeholder="Password"
+                        name="password"
+                        required
+                      />
+                      {showPassword ? (
+                        <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                      ) : (
+                        <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                      )}
+                    </div>
+                    <button type="submit" className="w-[65%]">
+                      LOGIN
+                    </button>
+                    <a href="#" onClick={() => setShowForgetPassword(true)}>
+                      <p className="">Forgot password</p>
+                    </a>
+                    <div className="mt-8">
+                      {/* <input type="checkbox" />   I agree to all statements in terms of service */}
+                      <p>Don't have an account? </p>
+                      <span id="signUp" onClick={SignInButtonClick}>
+                        <a
+                          href="#"
+                          className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600"
+                        >
+                          SIGN UP
+                        </a>
+                      </span>
+                    </div>
+                  </form>
+                  // .......................end of login form .......................
+                )
+                }
               </div>
+              {/* .......................end of login form and forgot password form....................... */}
             </div>
             <div className="intros-container font-['Playfair-Display']">
               <div className="intro-control signin-intro">
@@ -370,7 +403,7 @@ const SignIn = () => {
           </div>
         </div>
       </div>
-      {/* Mobile screen Page */}
+      {/* .......................Mobile screen Page....................... */}
       <div className="lg:hidden font-['Playfair-Display'] SignInMobile">
         <NavBar className="" />
         <div className="FormMobile">
@@ -387,6 +420,7 @@ const SignIn = () => {
                 backgroundColor: "rgba(34, 25, 25, 0.5)",
               }}
             >
+              {/* ....................... start of registration form in mobile screens....................... */}
               <form
                 className="flex flex-col items-center justify-center"
                 onSubmit={handleSignUp}
@@ -455,6 +489,7 @@ const SignIn = () => {
                   </p>
                 </div>
               </form>
+              {/* .......................end of registration of mobile screens....................... */}
             </div>
             <ConnetWithUs />
           </div>
@@ -475,92 +510,95 @@ const SignIn = () => {
               }}
             >
               {showForgetPassword ? (
-              <form
-                className="flex flex-col items-center justify-center"
-                onSubmit={handleLogin}
-              >
-                <h2 className="text-2xl font-bold">FORGET PASSWORD</h2>
-                <input
-                  className=""
-                  type="text"
-                  placeholder="Name"
-                  name="name"
-                  required
-                />
-                <input
-                  className=""
-                  type="email"
-                  placeholder="ForgetEmail"
-                  name="email"
-                  required
-                />
-                <button type="submit" className="font-normal">
-                     RESET PASSWORD
-                   </button>
-                   <div>
-                     <p>Back to SignIn</p>{" "}
-                     <span id="signUp" onClick={ () => setShowForgetPassword(false)  }>
-                       <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600">
-                         SIGN IN
-                       </div>
-                     </span>
-                   </div>
-              </form>) : (<form
-                className="flex flex-col items-center justify-center"
-                onSubmit={handleLogin}
-              >
-                <h2 className="text-2xl font-bold">SIGN IN</h2>
-                <div className="flex items-center justify-center gap-x-4">
-                  <div onClick={GoogleLoginHandler}>
-                    <img
-                      className="w-[50px]"
-                      src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
-                      alt="googlelogo"
-                    />
-                  </div>
-                  <div onClick={OutLookLoginHandler}>
-                    <img
-                      className="w-[40px]"
-                      src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
-                      alt="outlook"
-                    />
-                  </div>
-                </div>
-                <input
-                  className=""
-                  type="text"
-                  placeholder="Email"
-                  name="email"
-                  required
-                />
-                <div className="relative logineyeinput flex flex-start w-[75%]">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    name="password"
-                    className="w-full"
+                // ....................... start of forgot form .......................
+                <form
+                  className="flex flex-col items-center justify-center"
+                  onSubmit={handleForgetPassword}
+                >
+                  <h2 className="text-2xl font-bold">FORGET PASSWORD</h2>
+                  <input className=""
+                    type="text"
+                    placeholder="Name"
+                    name="name"
                     required
                   />
-                  {showPassword ? (
-                    <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
-                  ) : (
-                    <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
-                  )}
-                </div>
-                <button type="submit">LOGIN</button>
-                <a href="#" onClick={ () => setShowForgetPassword(true)  }>
+                  <input
+                    className=""
+                    type="email"
+                    placeholder="Email"
+                    name="ForgotEmail"
+                    required
+                  />
+                  <button type="submit" className="font-normal">
+                    RESET PASSWORD
+                  </button>
+                  <div>
+                    <p>Back to SignIn</p>{" "}
+                    <span id="signUp" onClick={() => setShowForgetPassword(false)}>
+                      <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600">
+                        SIGN IN
+                      </div>
+                    </span>
+                  </div>
+                </form>
+              ) : (
+                // .......................start of login password .......................
+                <form
+                  className="flex flex-col items-center justify-center"
+                  onSubmit={handleLogin}
+                >
+                  <h2 className="text-2xl font-bold">SIGN IN</h2>
+                  <div className="flex items-center justify-center gap-x-4">
+                    <div onClick={GoogleLoginHandler}>
+                      <img
+                        className="w-[50px]"
+                        src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
+                        alt="googlelogo"
+                      />
+                    </div>
+                    <div onClick={OutLookLoginHandler}>
+                      <img
+                        className="w-[40px]"
+                        src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
+                        alt="outlook"
+                      />
+                    </div>
+                  </div>
+                  <input
+                    className=""
+                    type="text"
+                    placeholder="Email"
+                    name="email"
+                    required
+                  />
+                  <div className="relative logineyeinput flex flex-start w-[75%]">
+                    <input
+                      type={showPassword ? "text" : "password"}
+                      placeholder="Password"
+                      name="password"
+                      className="w-full"
+                      required
+                    />
+                    {showPassword ? (
+                      <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                    ) : (
+                      <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
+                    )}
+                  </div>
+                  <button type="submit">LOGIN</button>
+                  <a href="#" onClick={() => setShowForgetPassword(true)}>
                     <p className="">Forgot password</p>
                   </a>
-                <div className="mt-8">
-                  {/* <input type="checkbox" />   I agree to all statements in terms of service */}
-                  <p>
-                    Don't have an account?{" "}
-                    <span id="signUp" onClick={SignInButtonClick}>
-                      SIGN UP
-                    </span>
-                  </p>
-                </div>
-              </form>) }
+                  <div className="mt-8">
+                    {/* <input type="checkbox" />   I agree to all statements in terms of service */}
+                    <p>
+                      Don't have an account?{" "}
+                      <span id="signUp" onClick={SignInButtonClick}>
+                        SIGN UP
+                      </span>
+                    </p>
+                  </div>
+                </form>)}
 
             </div>
             <ConnetWithUs />
