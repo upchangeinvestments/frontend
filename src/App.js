@@ -56,7 +56,7 @@ function App() {
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/work" element={<HowItWorksPage />} />
-          <Route path="/users/:id/resetPassword/:resetToken" element={<ForgotPassword />} />
+          <Route path="/resetPassword/:resetToken" element={<ForgotPassword />} />
         </Routes>
         <ToastContainer
           position="top-center"
