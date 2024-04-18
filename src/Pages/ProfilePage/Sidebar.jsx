@@ -349,6 +349,17 @@ const PrivacyPolicy = () => {
   );
 };
 
+const ChangePassword = () => {
+  return (
+    <div className="flex flex-col items-center justify-center gap-4 mt-[50px]">
+       <input type="text" placeholder="Current Password" name="CurrentPassword" required />
+       <input type="text" placeholder="New Password" name="NewPassword" required />
+       <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
+       <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>
+    </div>
+  )
+}
+
 const tabs = [
   { title: "PROFILE SECTION", content: <ProfileContent />, linkId: "" },
   {
@@ -360,6 +371,11 @@ const tabs = [
     title: "PRIVACY POLICY",
     content: <PrivacyPolicy />,
     linkId: "privacy-policy",
+  },
+  {
+    title: "CHANGE PASSWORD",
+    content: <ChangePassword/>,
+    linkId:"",
   },
   { title: "COMMUNICATION", content:<Communication/>, linkId: "" },
   { title: "LOGOUT", content: <LogoutComponent />, linkId: "" },
