@@ -24,9 +24,9 @@ const profileMenuItems = [
     link: "/profile",
   },
   {
-    label: "Edit Profile",
-    icon: IoMdSettings,
-    link: "#",
+    label: "Investment",
+    icon: IoIosHome,
+    link: "/category",
   },
   {
     label: "Contact",

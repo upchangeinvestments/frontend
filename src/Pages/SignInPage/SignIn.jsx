@@ -34,6 +34,7 @@ const SignIn = () => {
   const isLogin = location.state?.isLogin || false;
 
   const [isSignUp, setIsSignUp] = useState(isLogin);
+  const [showForgetPassword, setShowForgetPassword] = useState(false);
   const [userData, setUserData] = useState(location.state?.userData || null);
   const navigate = useNavigate();
   const { handleUpdateAuth, backendUrl } = useAuth();
@@ -126,6 +127,11 @@ const SignIn = () => {
     }
   };
 
+  const handleForgetPassword = async (event) => {
+    event.preventDefault();
+
+  };
+
   return (
     <div className="">
       <div
@@ -214,7 +220,34 @@ const SignIn = () => {
                 </form>
               </div>
               <div className="form-control font-['Playfair-Display'] signin-form">
-                <form onSubmit={handleLogin}>
+                {showForgetPassword ? (
+                   <form onSubmit={handleSignUp}>
+                   <h2 className="">Forget Password</h2>
+                   <input
+                     type="text"
+                     placeholder="Name"
+                     name="Name"
+                     required
+                   />
+                   <input
+                     type="email"
+                     placeholder="Email"
+                     name="ForgotEmail"
+                     required
+                   />
+                   <button type="submit" className="font-normal">
+                     RESET PASSWORD
+                   </button>
+                   <div>
+                     <p>Back to SignIn</p>{" "}
+                     <span id="signUp" onClick={ () => setShowForgetPassword(false)  }>
+                       <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600">
+                         SIGN IN
+                       </div>
+                     </span>
+                   </div>
+                 </form>
+                ) : ( <form onSubmit={handleLogin}>
                   <h2 className="text-2xl">SIGN IN</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <div onClick={GoogleLoginHandler}>
@@ -258,7 +291,7 @@ const SignIn = () => {
                   <button type="submit" className="w-[65%]">
                     LOGIN
                   </button>
-                  <a href="#">
+                  <a href="#" onClick={ () => setShowForgetPassword(true)  }>
                     <p className="">Forgot password</p>
                   </a>
                   <div className="mt-8">
@@ -273,7 +306,7 @@ const SignIn = () => {
                       </a>
                     </span>
                   </div>
-                </form>
+                </form>) }
               </div>
             </div>
             <div className="intros-container font-['Playfair-Display']">
@@ -441,7 +474,38 @@ const SignIn = () => {
                 backgroundColor: "rgba(34, 25, 25, 0.5)",
               }}
             >
+              {showForgetPassword ? (
               <form
+                className="flex flex-col items-center justify-center"
+                onSubmit={handleLogin}
+              >
+                <h2 className="text-2xl font-bold">FORGET PASSWORD</h2>
+                <input
+                  className=""
+                  type="text"
+                  placeholder="Name"
+                  name="name"
+                  required
+                />
+                <input
+                  className=""
+                  type="email"
+                  placeholder="ForgetEmail"
+                  name="email"
+                  required
+                />
+                <button type="submit" className="font-normal">
+                     RESET PASSWORD
+                   </button>
+                   <div>
+                     <p>Back to SignIn</p>{" "}
+                     <span id="signUp" onClick={ () => setShowForgetPassword(false)  }>
+                       <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600">
+                         SIGN IN
+                       </div>
+                     </span>
+                   </div>
+              </form>) : (<form
                 className="flex flex-col items-center justify-center"
                 onSubmit={handleLogin}
               >
@@ -484,9 +548,9 @@ const SignIn = () => {
                   )}
                 </div>
                 <button type="submit">LOGIN</button>
-                <a href="#">
-                  <p className="">Forgot password</p>
-                </a>
+                <a href="#" onClick={ () => setShowForgetPassword(true)  }>
+                    <p className="">Forgot password</p>
+                  </a>
                 <div className="mt-8">
                   {/* <input type="checkbox" />   I agree to all statements in terms of service */}
                   <p>
@@ -496,7 +560,8 @@ const SignIn = () => {
                     </span>
                   </p>
                 </div>
-              </form>
+              </form>) }
+
             </div>
             <ConnetWithUs />
           </div>

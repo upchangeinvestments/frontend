@@ -53,7 +53,7 @@ const Questionnaire = () => {
     const quizLength = quizData.length;
 
     return (
-      <div className="quiz-container px-4 py-2 flex flex-col items-center  justify-center vsm:w-full lg:text-xl">
+      <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
         <p className="text-left px-4 md:w-[100%] font-['Playfair-Display'] flex justify-center">
           {currentQuizData.question}
         </p>
@@ -75,7 +75,7 @@ const Questionnaire = () => {
                 }}
               />
               <label
-                className="text-center border-[1px] font-['Playfair-Display'] border-[#9747FF]"
+                className="text-center border-[1px] font-['Playfair-Display'] border-[#6e30a7]"
                 htmlFor={option}
                 id={option + "_text"}
               >
@@ -104,16 +104,11 @@ const Questionnaire = () => {
           {loadQuiz()}
         </div>
       </div>
-      {currentQuiz >= 2 && (
-        <div className="vsm:mt-[300px] vsm:right-[15px] md:mt-[300px] md:right-[15px]  lg:mt-4 absolute lg:bottom-8 lg:right-8">
-          <button
-            onClick={QuizHandler}
-            className="bg-[#6e30a7] hover:bg-purple-600 font-['Playfair-Display'] text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded"
-          >
-            Save Changes
-          </button>
-        </div>
-      )}
+      <div className="vsm:mt-[300px] vsm:right-[15px] md:mt-[300px] md:right-[15px]  lg:mt-4 absolute lg:bottom-8 lg:right-8">
+      <button onClick={QuizHandler} className={`bg-${currentQuiz < 2 ? "gray" : "[#6e30a7]"} font-['Playfair-Display'] text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded`}disabled={currentQuiz < 2}>
+        Save Changes
+      </button>
+      </div>
     </div>
   );
 };
