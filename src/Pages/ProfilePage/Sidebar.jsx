@@ -355,7 +355,7 @@ const ChangePassword = () => {
        <input type="text" placeholder="Current Password" name="CurrentPassword" required />
        <input type="text" placeholder="New Password" name="NewPassword" required />
        <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
-       <button type="submit" className="bg-[#6e30a7] text-[#fff] py-2 px-4 rounded-md">RESET PASSWORD</button>
+       <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>
     </div>
   )
 }
