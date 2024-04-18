@@ -1,8 +1,11 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../utils/AuthContext";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import NavBar from "../../commonComponents/NavBar";
 import "../../styles/SignIn/SignIn.css";
+import axios from "axios";
 
 const ConnectWithUs = () => {
   return (
@@ -24,6 +27,29 @@ const ConnectWithUs = () => {
 };
 
 const ForgotPassword = () => {
+  let { id, token } = useParams();
+  const navigate = useNavigate();
+  const { handleUpdateAuth, backendUrl } = useAuth();
+
+  const resetPasswordHandler = async () => {
+    try {
+      const response = await axios.post(`${backendUrl}/auth/resetPassword`, {});
+      console.log(response);
+      // if (response.status === 200) {
+      //   localStorage.setItem("token", response.data.token);
+      //   const currentDate = new Date();
+      //   const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
+      //   localStorage.setItem("tokenExpiration", tokenExpiration);
+
+      //   handleUpdateAuth(true);
+
+      //   // navigate('/category');
+      // }
+    } catch (err) {
+      return Error("Link Not Verified, Link Expired, or Invalid");
+    }
+  }
+
   return (
     <div className="">
       <div className="vsm:hidden lg:block SignIn bg1">
@@ -32,8 +58,8 @@ const ForgotPassword = () => {
           <div className="SignInContainer bg1">
             <div className="forms-container">
               <div className="form-control font-['Playfair-Display'] signin-form">
-                <form>
-                  <h2>FORGOT PASSWORD</h2>
+                <form onSubmit={resetPasswordHandler}>
+                  <h2>RESET PASSWORD</h2>
                   <input type="text" placeholder="Current Password" name="CurrentPassword" required />
                   <input type="text" placeholder="New Password" name="NewPassword" required />
                   <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
@@ -118,11 +144,11 @@ const ForgotPassword = () => {
             >
               {/* ....................... start of registration form in mobile screens....................... */}
               <form className="flex flex-col items-center justify-center">
-              <h2>FORGOT PASSWORD</h2>
-                  <input type="text" placeholder="Current Password" name="CurrentPassword" required />
-                  <input type="text" placeholder="New Password" name="NewPassword" required />
-                  <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
-                  <button type="submit" className="">RESET PASSWORD</button>
+                <h2>FORGOT PASSWORD</h2>
+                <input type="text" placeholder="Current Password" name="CurrentPassword" required />
+                <input type="text" placeholder="New Password" name="NewPassword" required />
+                <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
+                <button type="submit" className="">RESET PASSWORD</button>
               </form>
               {/* .......................end of registration of mobile screens....................... */}
             </div>

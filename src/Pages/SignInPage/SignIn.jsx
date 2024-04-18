@@ -143,7 +143,6 @@ const SignIn = () => {
         return Error("Invalid Email.");
       }
       const response = await axios.post(`${backendUrl}/auth/forgotPassword`, { email, name });
-      console.log(response);
       if (response.status === 200) {
         SuccessToast(response.data.message);
       }
