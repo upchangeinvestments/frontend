@@ -1,8 +1,10 @@
 import React from "react";
 import PostCard from "../../commonComponents/PostCard";
-import Carousel from "react-multi-carousel";
-import "react-multi-carousel/lib/styles.css";
+// import Carousel from "react-multi-carousel";
+// import "react-multi-carousel/lib/styles.css";
 import RMData from "../../assets/RMData.json";
+import Carousel from "react-grid-carousel";
+import { LeftArrow, RightArrow } from "../../commonComponents/CarouselButton";
 
 const responsive = {
   desktop: {
@@ -33,8 +35,24 @@ function Explore() {
       <div className="mx-auto text-3xl mt-[40px] font-semibold mb-[60px] font-['Playfair-Display']">
         EXPLORE PROJECTS
       </div>
-      <div className="vsm:w-[100%] md:w-[100%]">
-        <Carousel
+      <div className="vsm:w-[100%] md:w-[100%] mb-20">
+         <Carousel
+            cols={3}
+            rows={1}
+            gap={10}
+            arrowLeft={<LeftArrow dir="right" />}
+            arrowRight={<RightArrow dir="right" />}
+            loop
+          >
+             {RMData.map((element, index) => (
+              <Carousel.Item key={index}>  
+            <div className="" key={index}>
+              <PostCard data={element} />
+            </div>
+              </Carousel.Item>
+            ))}
+          </Carousel>
+        {/* <Carousel
           swipeable={true}
           draggable={true}
           showDots={true}
@@ -57,7 +75,7 @@ function Explore() {
               <PostCard data={element} />
             </div>
           ))}
-        </Carousel>
+        </Carousel> */}
       </div>
     </div>
   );

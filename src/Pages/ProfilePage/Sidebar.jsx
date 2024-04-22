@@ -379,6 +379,13 @@ const ChangePassword = () => {
   }
 
   return (
+<<<<<<< HEAD
+    <div className="flex flex-col items-center justify-center gap-4 mt-[50px]">
+       <input type="text" placeholder="Current Password" name="CurrentPassword" className="px-4 py-3  bg-white/20 rounded-lg" required />
+       <input type="text" placeholder="New Password" name="NewPassword" className="px-4 py-3 bg-white/20  rounded-lg" required />
+       <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="px-4 bg-white/20  py-3 rounded-lg" required />
+       <button type="submit" className="bg-[#6e30a7] text-[#fff] py-2 px-4 rounded-md">RESET PASSWORD</button>
+=======
     <div className="mt-[50px]">
       <form className="flex flex-col items-center justify-center gap-4 " onSubmit={updatePasswordHandler}>
         <input type="text" placeholder="Current Password" name="CurrentPassword" required />
@@ -386,6 +393,7 @@ const ChangePassword = () => {
         <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
         <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>
       </form>
+>>>>>>> da0a4a5c8b137194df36add5db2a5182a37792f9
     </div>
   )
 }
