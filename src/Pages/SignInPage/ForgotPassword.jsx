@@ -1,8 +1,13 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { Link } from "react-router-dom";
+import { useParams, useNavigate } from 'react-router-dom';
+import { useAuth } from "../../utils/AuthContext";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import NavBar from "../../commonComponents/NavBar";
 import "../../styles/SignIn/SignIn.css";
+import axios from "axios";
+import Error from "../../utils/Error";
+import SuccessToast from "../../utils/successToast";
 
 const ConnectWithUs = () => {
   return (
@@ -24,6 +29,38 @@ const ConnectWithUs = () => {
 };
 
 const ForgotPassword = () => {
+  let { resetToken } = useParams();
+  const navigate = useNavigate();
+  const { handleUpdateAuth, backendUrl } = useAuth();
+
+  const resetPasswordHandler = async (event) => {
+    try {
+      event.preventDefault();
+      const password = event.target.NewPassword.value;
+      const passwordConfirm = event.target.ConfirmPassword.value;
+      const response = await axios.post(`${backendUrl}/auth/resetPassword`, { password, passwordConfirm, resetToken });
+      if (response.status === 200) {
+        localStorage.setItem("token", response.data.token);
+        const currentDate = new Date();
+        const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
+        localStorage.setItem("tokenExpiration", tokenExpiration);
+
+        handleUpdateAuth(true);
+        SuccessToast(response.data.message);
+        navigate('/category');
+      }
+    } catch (error) {
+      if (error.response) {
+        return Error(error.response.data.message);
+      } else if (error.request) {
+        return Error("Something went wrong! Please try again later.");
+      } else {
+        // will have to console errors with production specific style so that we can track errors from the server logs that users are receiving 
+        return Error("An unexpected error occurred. Please try again later.");
+      }
+    }
+  }
+
   return (
     <div className="">
       <div className="vsm:hidden lg:block SignIn bg1">
@@ -32,9 +69,8 @@ const ForgotPassword = () => {
           <div className="SignInContainer bg1">
             <div className="forms-container">
               <div className="form-control font-['Playfair-Display'] signin-form">
-                <form>
-                  <h2>FORGOT PASSWORD</h2>
-                  <input type="text" placeholder="Current Password" name="CurrentPassword" required />
+                <form onSubmit={resetPasswordHandler}>
+                  <h2>RESET PASSWORD</h2>
                   <input type="text" placeholder="New Password" name="NewPassword" required />
                   <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
                   <button type="submit" className="">RESET PASSWORD</button>
@@ -118,11 +154,11 @@ const ForgotPassword = () => {
             >
               {/* ....................... start of registration form in mobile screens....................... */}
               <form className="flex flex-col items-center justify-center">
-              <h2>FORGOT PASSWORD</h2>
-                  <input type="text" placeholder="Current Password" name="CurrentPassword" required />
-                  <input type="text" placeholder="New Password" name="NewPassword" required />
-                  <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
-                  <button type="submit" className="">RESET PASSWORD</button>
+                <h2>FORGOT PASSWORD</h2>
+                <input type="text" placeholder="Current Password" name="CurrentPassword" required />
+                <input type="text" placeholder="New Password" name="NewPassword" required />
+                <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
+                <button type="submit" className="">RESET PASSWORD</button>
               </form>
               {/* .......................end of registration of mobile screens....................... */}
             </div>

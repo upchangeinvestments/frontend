@@ -5,9 +5,11 @@ import ProfileContent from "./ProfileContent";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../../utils/AuthContext";
 import successToast from "../../utils/successToast";
+import Error from "../../utils/Error";
+import axios from "axios";
 
 const LogoutComponent = () => {
-  const { logout } = useAuth();
+  const { backendUrl, logout } = useAuth();
 
   const HandleLogout = () => {
     logout();
@@ -16,8 +18,8 @@ const LogoutComponent = () => {
     <div className="flex flex-col items-center gap-4 mt-[30px] rounded-lg">
       <div className="text-xl text-[#6e30a7]">Thanks for visiting us!</div>
       <div onClick={HandleLogout} className="text-xl bg-[#6e30a7] text-white px-4 py-2 rounded-md flex flex-row items-center">
-    Logout <FaSignOutAlt className="ml-2"/>
-  </div>
+        Logout <FaSignOutAlt className="ml-2" />
+      </div>
     </div>
   )
 };
@@ -175,9 +177,9 @@ const TermsOfService = () => {
       offered on our website.
       <br />
       <br />
-       Subcribe:
-       <br/>
-       By signing up for our newsletter, you agree to receive regular updates about our latest news, projects, and promotions. By default, you will be subscribed to all our newsletters and projects. If you wish to opt-out, you can unsubscribe at any time by clicking the 'unsubscribe' link in any of our emails. Please note that unsubscribing will only stop you from receiving future emails, and it will not remove your data from our system. We respect your privacy and will not share your information with third parties.
+      Subcribe:
+      <br />
+      By signing up for our newsletter, you agree to receive regular updates about our latest news, projects, and promotions. By default, you will be subscribed to all our newsletters and projects. If you wish to opt-out, you can unsubscribe at any time by clicking the 'unsubscribe' link in any of our emails. Please note that unsubscribing will only stop you from receiving future emails, and it will not remove your data from our system. We respect your privacy and will not share your information with third parties.
       <br />
       <br />
       License:
@@ -350,12 +352,48 @@ const PrivacyPolicy = () => {
 };
 
 const ChangePassword = () => {
+  const { backendUrl, user } = useAuth();
+  const updatePasswordHandler = async (event) => {
+    try {
+      event.preventDefault();
+      const currentPassword = event.target.CurrentPassword.value;
+      const newPassword = event.target.NewPassword.value;
+      const passwordConfirm = event.target.ConfirmPassword.value;
+      if (newPassword.length < 8) {
+        return Error("Password must be at least 8 characters long");
+      }
+      const response = await axios.post(`${backendUrl}/auth/updatePassword`, { currentPassword, newPassword, passwordConfirm, "userId": user._id });
+      if (response.status === 200) {
+        successToast(response.data.message);
+      }
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        return Error(error.response.data.message);
+      } else if (error.request) {
+        return Error("Something went wrong! Please try again later.");
+      } else {
+        // will have to console errors with production specific style so that we can track errors from the server logs that users are receiving 
+        return Error("An unexpected error occurred. Please try again later.");
+      }
+    }
+  }
+
   return (
+<<<<<<< HEAD
     <div className="flex flex-col items-center justify-center gap-4 mt-[50px]">
        <input type="text" placeholder="Current Password" name="CurrentPassword" className="px-4 py-3  bg-white/20 rounded-lg" required />
        <input type="text" placeholder="New Password" name="NewPassword" className="px-4 py-3 bg-white/20  rounded-lg" required />
        <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="px-4 bg-white/20  py-3 rounded-lg" required />
        <button type="submit" className="bg-[#6e30a7] text-[#fff] py-2 px-4 rounded-md">RESET PASSWORD</button>
+=======
+    <div className="mt-[50px]">
+      <form className="flex flex-col items-center justify-center gap-4 " onSubmit={updatePasswordHandler}>
+        <input type="text" placeholder="Current Password" name="CurrentPassword" required />
+        <input type="text" placeholder="New Password" name="NewPassword" required />
+        <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
+        <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>
+      </form>
+>>>>>>> da0a4a5c8b137194df36add5db2a5182a37792f9
     </div>
   )
 }
@@ -374,10 +412,10 @@ const tabs = [
   },
   {
     title: "CHANGE PASSWORD",
-    content: <ChangePassword/>,
-    linkId:"",
+    content: <ChangePassword />,
+    linkId: "",
   },
-  { title: "COMMUNICATION", content:<Communication/>, linkId: "" },
+  { title: "COMMUNICATION", content: <Communication />, linkId: "" },
   { title: "LOGOUT", content: <LogoutComponent />, linkId: "" },
 ];
 
