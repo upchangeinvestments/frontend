@@ -27,7 +27,7 @@ function CategoryPage() {
   };
 
   const receiveDataFromFilter = (data) => {
-    console.log("in parent component: ", data);
+    // console.log("in parent component: ", data);
     setFilterData(data);
   };
 
@@ -44,7 +44,7 @@ function CategoryPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-[55px]  lg:-mt-[400px] lg:mr-[110px] xl:-mt-[430px] xl:mr-[30px] ">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-[55px]  lg:-mt-[350px] lg:mr-[110px] xl:-mt-[430px] xl:mr-[50px] ">
             Explore Categories
           </p>
         </div>

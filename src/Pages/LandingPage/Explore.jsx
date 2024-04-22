@@ -36,46 +36,24 @@ function Explore() {
         EXPLORE PROJECTS
       </div>
       <div className="vsm:w-[100%] md:w-[100%] mb-20">
-         <Carousel
-            cols={3}
-            rows={1}
-            gap={10}
-            arrowLeft={<LeftArrow dir="right" />}
-            arrowRight={<RightArrow dir="right" />}
-            loop
-          >
-             {RMData.map((element, index) => (
-              <Carousel.Item key={index}>  
-            <div className="" key={index}>
-              <PostCard data={element} />
-            </div>
-              </Carousel.Item>
-            ))}
-          </Carousel>
-        {/* <Carousel
-          swipeable={true}
-          draggable={true}
+        <Carousel
+          cols={3}
+          rows={1}
+          gap={10}
+          arrowLeft={<LeftArrow dir="right" />}
+          arrowRight={<RightArrow dir="right" />}
+          loop={true}
           showDots={true}
-          responsive={responsive}
-          ssr={true} // means to render carousel on server-side.
-          infinite={true}
-          autoPlay={true}
-          autoPlaySpeed={2000}
-          keyBoardControl={true}
-          customTransition="all .5"
-          transitionDuration={500}
-          containerClass="carousel-container"
-          removeArrowOnDeviceType={["tablet", "mobile"]}
-          // deviceType={this.props.deviceType}
-          dotListClass="custom-dot-list-style"
-          itemClass="carousel-item-padding-100-px"
+          autoplay={3000}
         >
           {RMData.map((element, index) => (
-            <div className="" key={index}>
-              <PostCard data={element} />
-            </div>
+            <Carousel.Item key={index}>
+              <div className="" key={index}>
+                <PostCard data={element} />
+              </div>
+            </Carousel.Item>
           ))}
-        </Carousel> */}
+        </Carousel>
       </div>
     </div>
   );

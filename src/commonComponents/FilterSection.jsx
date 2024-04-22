@@ -35,12 +35,12 @@ function FilterSection({ sendDataToParent }) {
       );
     });
     sendDataToParent(filtered);
-    console.log("filtered data: ", filtered);
+    // console.log("filtered data: ", filtered);
   };
 
   const updateFilters = (filterType, value, inputType) => {
-    console.log('updateFilters called: ', filterType, value);
-    console.log(inputType);
+    // console.log('updateFilters called: ', filterType, value);
+    // console.log(inputType);
     if (inputType === "checkbox") {
       setFilters(prevFilters => ({
         ...prevFilters,
