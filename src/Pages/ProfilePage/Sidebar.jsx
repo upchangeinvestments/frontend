@@ -352,9 +352,9 @@ const PrivacyPolicy = () => {
 const ChangePassword = () => {
   return (
     <div className="flex flex-col items-center justify-center gap-4 mt-[50px]">
-       <input type="text" placeholder="Current Password" name="CurrentPassword" required />
-       <input type="text" placeholder="New Password" name="NewPassword" required />
-       <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
+       <input type="text" placeholder="Current Password" name="CurrentPassword" className="px-4 py-3  bg-white/20 rounded-lg" required />
+       <input type="text" placeholder="New Password" name="NewPassword" className="px-4 py-3 bg-white/20  rounded-lg" required />
+       <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="px-4 bg-white/20  py-3 rounded-lg" required />
        <button type="submit" className="bg-[#6e30a7] text-[#fff] py-2 px-4 rounded-md">RESET PASSWORD</button>
     </div>
   )

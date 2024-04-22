@@ -95,7 +95,7 @@ function Post({ data, type, blur }) {
             <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-2 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm">Min Investment</div>
-                <div className="font-bold text-base ">$ 10K</div>
+                <div className="font-bold text-base ">$ 500K</div>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <p className="text-gray-600 text-sm">Hold period</p>

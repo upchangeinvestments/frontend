@@ -11,7 +11,7 @@ const RealEstateCard = (props) => {
   };
 
   return (
-    <div className="flex flex-col  items-center justify-center relative mb-20">
+    <div className="flex flex-col  items-center justify-center relative mb-[10px]">
       <div className="absolute vsm:top-[150px] vsm:items-center  bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10">
         Upcoming Project
       </div>
