@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 
-function FilterSubSection({ list, title, inputType }) {
+function FilterSubSection({ list, title, inputType, updateFilters, filterType }) {
   const [showAll, setShowAll] = useState(true);
 
   const visibleItems = showAll ? list : list.slice(0, 3);
@@ -26,6 +26,7 @@ function FilterSubSection({ list, title, inputType }) {
                 type={inputType}
                 value={propertyType}
                 className="w-4 h-4 text-[#6e30a7]"
+                onChange={e => updateFilters(filterType, e.target.value, inputType)}
               />
               <div className="text-sm">{propertyType}</div>
             </label>

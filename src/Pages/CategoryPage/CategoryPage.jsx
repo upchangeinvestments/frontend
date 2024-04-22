@@ -12,7 +12,10 @@ import "../../App.css";
 function CategoryPage() {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({});
+  const [filterData, setFilterData] = useState({});
   const [Id, setId] = useState(0);
+
+  useEffect(() => { }, [data]);
 
   const receiveDataObject = (dataObject) => {
     setData(dataObject);
@@ -23,7 +26,10 @@ function CategoryPage() {
     setId(index);
   };
 
-  useEffect(() => { }, [data]);
+  const receiveDataFromFilter = (data) => {
+    console.log("in parent component: ", data);
+    setFilterData(data);
+  };
 
   return (
     <div className="mobile-filter-drawer">
@@ -44,13 +50,13 @@ function CategoryPage() {
         </div>
       </div>
       <div className="flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
-        <FilterSection />
+        <FilterSection sendDataToParent={receiveDataFromFilter} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
           <MobileFilter
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
           />
-          <Categories />
+          <Categories data={filterData} />
         </div>
       </div>
       <div className="">

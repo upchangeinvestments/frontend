@@ -1,11 +1,8 @@
-import React,{useState} from "react";
+import React, { useState } from "react";
 import "../../styles/LandingPage/Post.css";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
 import { FaRegStar, FaStar } from "react-icons/fa6";
-
-
-
 
 function Post({ data, type, blur }) {
   const [isStarFilled, setIsStarFilled] = useState(false);

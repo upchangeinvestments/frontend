@@ -1,44 +1,67 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import FilterSubSection from "./FilterSubSection";
 import Tooltip from '@mui/material/Tooltip';
+import CategoryData from "../assets/FilterData.json"
 
-function FilterSection() {
-  const CategoryType = [
-    "Residential",
-    "Hotels",
-    "Retail",
-    "Warehouse & Storage",
-    "Medical Facilites",
-    "School",
-    "Office",
-    "Land & Infrastructure",
-  ];
-
-
+function FilterSection({ sendDataToParent }) {
+  const CategoryType = ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Land & Infrastructure"];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
-  const InvestmentRange = [
-    "$100-$1K",
-    "$1K-$10K",
-    "$10K-$50K",
-    "$50K-$100K",
-    "$100K-$500K",
-    "$500K-$1M",
-    "$1M+",
-  ];
-  const HoldPeriod = [
-    "2YRS-4YRS",
-    "4YRS-6YRS",
-    "6YRS-8YRS",
-    "8YRS-9YRS",
-    "9YRS-10YRS",
-    "10YRS+",
-  ];
+  const InvestmentRange = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K", "$500K-$1M", "$1M+"];
+  const HoldPeriod = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
 
-  const [showAllCompanies, setShowAllCompanies] = useState(false);
+  // const [showAllCompanies, setShowAllCompanies] = useState(false);
   const [price, setPrice] = useState(0);
+
+  const [filters, setFilters] = useState({
+    category: [],
+    investmentRange: [],
+    targetedIRR: 0,
+    holdPeriod: [],
+    locations: [],
+    zipCode: ""
+  });
+
+  const applyFilters = () => {
+    let filtered = CategoryData.filter(item => {
+      // console.log("in filtered function: ", item);
+      // console.log("filters: ", filters);
+      return (
+        (filters.category.length === 0 || filters.category.includes(item.category)) &&
+        (filters.investmentRange.length === 0 || filters.investmentRange.includes(item.Investment)) && // investment range kaam nhi kr rha hai
+        (filters.targetedIRR === 0 || parseInt(item.IRR) >= filters.targetedIRR) &&
+        (filters.holdPeriod.length === 0 || filters.holdPeriod.includes(item.Hold_period)) &&   // hold period kaam nhi kr rha
+        (filters.locations.length === 0 || filters.locations.includes(item.location)) && // regions kaam nhi kr rha hai
+        (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
+      );
+    });
+    sendDataToParent(filtered);
+    console.log("filtered data: ", filtered);
+  };
+
+  const updateFilters = (filterType, value, inputType) => {
+    console.log('updateFilters called: ', filterType, value);
+    console.log(inputType);
+    if (inputType === "checkbox") {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        [filterType]: [...prevFilters[filterType], value]
+      }));
+    } else {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        [filterType]: value
+      }));
+    }
+  };
+
+  useEffect(() => {
+    applyFilters();
+  }, [filters]);
+
   const updateIrrValue = (event) => {
     let value = event.target.value;
     setPrice(value);
+    updateFilters("targetedIRR", value, "range");
   };
 
   const getTooltipContent = (location) => {
@@ -77,11 +100,15 @@ function FilterSection() {
         list={CategoryType}
         title="Categories"
         inputType="checkbox"
+        updateFilters={updateFilters}
+        filterType="category"
       />
       <FilterSubSection
         list={InvestmentRange}
         title="Investment Range"
         inputType="radio"
+        updateFilters={updateFilters}
+        filterType="investmentRange"
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
@@ -107,6 +134,8 @@ function FilterSection() {
         list={HoldPeriod}
         title="Hold Period"
         inputType="checkbox"
+        updateFilters={updateFilters}
+        filterType="holdPeriod"
       />
       <div>
         <FilterSubSection
@@ -117,6 +146,8 @@ function FilterSection() {
           ))}
           title="Locations"
           inputType="checkbox"
+          updateFilters={updateFilters}
+          filterType="locations"
         />
       </div>
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
@@ -125,6 +156,7 @@ function FilterSection() {
           <input
             type="text"
             name=""
+            onChange={e => updateFilters("zipCode", e.target.value, "text")}
             className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#6e30a7]"
           />
         </div>
