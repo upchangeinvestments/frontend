@@ -67,6 +67,7 @@ function FilterSection({ sendDataToParent }) {
     setPrice(value);
     updateFilters("targetedIRR", value, "range");
   };
+  
 
   const getTooltipContent = (location) => {
     switch (location) {
@@ -106,6 +107,7 @@ function FilterSection({ sendDataToParent }) {
         updateFilters={updateFilters}
         filterType="category"
       />
+      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
       <FilterSubSection
         list={InvestmentRange}
         title="Investment Range"
@@ -113,6 +115,8 @@ function FilterSection({ sendDataToParent }) {
         updateFilters={updateFilters}
         filterType="investmentRange"
       />
+      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
+
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
@@ -132,7 +136,7 @@ function FilterSection({ sendDataToParent }) {
           <p className="mt-2">{price == 0 ? 50 : price}</p>
         </div>
       </div>
-
+      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
       <FilterSubSection
         list={HoldPeriod}
         title="Hold Period"
@@ -140,6 +144,8 @@ function FilterSection({ sendDataToParent }) {
         updateFilters={updateFilters}
         filterType="holdPeriod"
       />
+      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
+
       <div>
         <FilterSubSection
           list={LocationType}
@@ -149,6 +155,8 @@ function FilterSection({ sendDataToParent }) {
           filterType="locations"
           getTooltipContent={getTooltipContent}
         />
+      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
+
       </div>
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
@@ -160,6 +168,8 @@ function FilterSection({ sendDataToParent }) {
             className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#6e30a7]"
           />
         </div>
+      <button className="bg-[#6e30a7] px-2 text-[#fff] mt-4 rounded-lg">clear filter</button>
+
       </div>
       {/* <FilterSubSection
         list={CompanyType}
