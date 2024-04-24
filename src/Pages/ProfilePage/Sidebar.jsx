@@ -381,9 +381,9 @@ const ChangePassword = () => {
   return (
     <div className="mt-[50px]">
       <form className="flex flex-col items-center justify-center gap-4 " onSubmit={updatePasswordHandler}>
-        <input type="text" placeholder="Current Password" name="CurrentPassword" required />
-        <input type="text" placeholder="New Password" name="NewPassword" required />
-        <input type="text" placeholder="Confirm Password" name="ConfirmPassword" required />
+        <input type="text" placeholder="Current Password" name="CurrentPassword" className="px-4 py-2 rounded-lg bg-white/20" required />
+        <input type="text" placeholder="New Password" name="NewPassword" className="px-4 py-2 rounded-lg bg-white/20"  required />
+        <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="px-4 py-2 rounded-lg bg-white/20" required />
         <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>
       </form>
     </div>
