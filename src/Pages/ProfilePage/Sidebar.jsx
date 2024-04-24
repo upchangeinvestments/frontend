@@ -379,13 +379,24 @@ const ChangePassword = () => {
   }
 
   return (
-    <div className="mt-[50px]">
-      <form className="flex flex-col items-center justify-center gap-4 " onSubmit={updatePasswordHandler}>
-        <input type="text" placeholder="Current Password" name="CurrentPassword" className="px-4 py-2 rounded-lg bg-white/20" required />
-        <input type="text" placeholder="New Password" name="NewPassword" className="px-4 py-2 rounded-lg bg-white/20"  required />
-        <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="px-4 py-2 rounded-lg bg-white/20" required />
-        <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>
+    <div className="flex flex-col gap-4 mt-[50px]">
+      <form className="" onSubmit={updatePasswordHandler}>
+      <div className="mb-4 mt-10">
+      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Current Password</label>
+      <input type="text" placeholder="Current Password" name="CurrentPassword"  className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl " required />         
+      </div>
+      <div className="mb-4 mt-10">
+      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">New Password</label>
+      <input type="text" placeholder="New Password" name="NewPassword"  className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl "  required />
+      </div>
+      <div className="mb-4 mt-10">
+      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Confirm Password</label>
+      <input type="text" placeholder="Confirm Password" name="ConfirmPassword"  className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl " required />
+      </div>
       </form>
+      <div className="flex flex-col items-center">
+        <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>
+      </div>
     </div>
   )
 }

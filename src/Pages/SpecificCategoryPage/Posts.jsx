@@ -31,7 +31,7 @@ function Post({ data, type, blur }) {
         <div className="grid grid-cols-2 ">
           {" "}
           {/* for xl screens only*/}
-          <div className="">
+          <div className="xl:max-w-[88%] xl:max-h-[100px]">
             <div className="">
               <img src={data.image} alt="Property" />
             </div>
