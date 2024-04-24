@@ -1,14 +1,12 @@
 import React, { useState, useEffect } from "react";
 import FilterSubSection from "./FilterSubSection";
-import Tooltip from '@mui/material/Tooltip';
 import CategoryData from "../assets/FilterData.json"
 
 function FilterSection({ sendDataToParent }) {
   const CategoryType = ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Land & Infrastructure"];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
-  const InvestmentRange = ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K", "$500K-$1M", "$1M+"];
+  const InvestmentRange = ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"];
   const HoldPeriod = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
-
   // const [showAllCompanies, setShowAllCompanies] = useState(false);
   const [price, setPrice] = useState(0);
 
@@ -23,19 +21,18 @@ function FilterSection({ sendDataToParent }) {
 
   const applyFilters = () => {
     let filtered = CategoryData.filter(item => {
-      // console.log("in filtered function: ", item);
       // console.log("filters: ", filters);
       return (
         (filters.category.length === 0 || filters.category.includes(item.category)) &&
-        (filters.investmentRange.length === 0 || filters.investmentRange.includes(item.Investment)) && // investment range kaam nhi kr rha hai
+        (filters.investmentRange.length === 0 || filters.investmentRange.includes(item.Investment)) &&
         (filters.targetedIRR === 0 || parseInt(item.IRR) >= filters.targetedIRR) &&
-        (filters.holdPeriod.length === 0 || filters.holdPeriod.includes(item.Hold_period)) &&   // hold period kaam nhi kr rha
-        (filters.locations.length === 0 || filters.locations.includes(item.location)) && // regions kaam nhi kr rha hai
+        (filters.holdPeriod.length === 0 || filters.holdPeriod.includes(item.Hold_period)) &&
+        (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.location))) &&
         (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
       );
     });
     sendDataToParent(filtered);
-    // console.log("filtered data: ", filtered);
+    console.log("filtered data: ", filtered);
   };
 
   const updateFilters = (filterType, value, inputType) => {
@@ -65,7 +62,6 @@ function FilterSection({ sendDataToParent }) {
   };
 
   const getTooltipContent = (location) => {
-
     switch (location) {
       case "West":
         return "California, Oregon, Washington, Nevada, Arizona, Idaho, Montana, Wyoming, Utah, Colorado, New Mexico, Alaska,Hawa";
@@ -139,15 +135,12 @@ function FilterSection({ sendDataToParent }) {
       />
       <div>
         <FilterSubSection
-          list={LocationType.map(location => (
-            <Tooltip key={location} title={getTooltipContent(location)}>
-              <div>{location}</div>
-            </Tooltip>
-          ))}
+          list={LocationType}
           title="Locations"
           inputType="checkbox"
           updateFilters={updateFilters}
           filterType="locations"
+          getTooltipContent={getTooltipContent}
         />
       </div>
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">

@@ -27,7 +27,7 @@ function CategoryPage() {
   };
 
   const receiveDataFromFilter = (data) => {
-    // console.log("in parent component: ", data);
+    console.log("in parent component: ", data);
     setFilterData(data);
   };
 

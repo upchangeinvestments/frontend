@@ -1,13 +1,10 @@
 import React, { useState } from "react";
+import Tooltip from '@mui/material/Tooltip';
 
-function FilterSubSection({ list, title, inputType, updateFilters, filterType }) {
+function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent }) {
   const [showAll, setShowAll] = useState(true);
 
   const visibleItems = showAll ? list : list.slice(0, 3);
-
-  const toggleShowAll = () => {
-    setShowAll(!showAll);
-  };
 
   return (
     <div>
@@ -16,24 +13,39 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType })
           {title}
         </div>
         <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
-          {visibleItems.map((propertyType, index) => (
-            <label
-              key={index}
-              className="flex flex-row gap-4 w-full items-center"
-            >
-              <input
-                name={inputType === "radio" ? "radioType" : propertyType}
-                type={inputType}
-                value={propertyType}
-                className="w-4 h-4 text-[#6e30a7]"
-                onChange={e => updateFilters(filterType, e.target.value, inputType)}
-              />
-              <div className="text-sm">{propertyType}</div>
-            </label>
-          ))}
+          {filterType === "locations" ? (   // this code is only to show ToolTip
+            visibleItems.map((propertyType, index) => (
+              <Tooltip title={getTooltipContent(propertyType)} arrow >
+                <label key={index} className="flex flex-row gap-4 w-full items-center uppercase">
+                  <input
+                    name={inputType === "radio" ? "radioType" : propertyType}
+                    type={inputType}
+                    value={propertyType}
+                    className="w-4 h-4 text-[#6e30a7]"
+                    onChange={e => updateFilters(filterType, e.target.value, inputType)}
+                  />
+                  <div className="text-sm">{propertyType}</div>
+                </label>
+              </Tooltip>
+            ))
+          ) : (
+            visibleItems.map((propertyType, index) => (
+              <label key={index} className="flex flex-row gap-4 w-full items-center uppercase">
+                <input
+                  name={inputType === "radio" ? "radioType" : propertyType}
+                  type={inputType}
+                  value={propertyType}
+                  className="w-4 h-4 text-[#6e30a7]"
+                  onChange={e => updateFilters(filterType, e.target.value, inputType)}
+                />
+                <div className="text-sm">{propertyType}</div>
+              </label>
+            ))
+          )}
+
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
