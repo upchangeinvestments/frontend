@@ -11,12 +11,12 @@ const Tabs = ({ tabs }) => {
       <div className="aboutMain  font-['Playfair-Display'] text-white">
         <NavBar />
         <div className="h-[85vh] flex items-center justify-center">
-          <p className="uppercase text-white font-medium vsm:text-4xl vsm:-mt-[20px] md:text-5xl md:-mt-[10px] xl:text-6xl lg:-mt-[350px] lg:-mr-[300px] xl:-mt-[430px] xl:-mr-[585px]">
-            Profile{" "}
+          <p className="uppercase text-white font-medium vsm:text-4xl vsm:-mt-[20px] md:text-5xl md:-mt-[10px] xl:text-6xl lg:-mt-[350px] lg:-mr-[450px] xl:-mt-[430px] xl:-mr-[585px]">
+            Profile
           </p>
         </div>
         <div className="">
-          <div className="flex vsm:mb-[130px] md:gap-[90px] lg:mb-[240px]  p-2 lg:gap-[90px] absolute bottom-0 w-full vsm:gap-4 items-center justify-center ">
+          <div className="flex vsm:mb-[130px] md:gap-[90px] lg:mb-[190px] xl:mb-[240px] p-2 lg:gap-[90px] absolute bottom-0 w-full vsm:gap-4 items-center justify-center ">
             {tabs.map((tab, index) => (
               <button
                 key={index}

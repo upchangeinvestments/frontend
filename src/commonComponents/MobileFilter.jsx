@@ -13,27 +13,12 @@ const dataObject = [
     },
     {
         title: "Investment Range",
-        options: [
-            "$100-$1K",
-            "$1K-$10K",
-            "$10K-$50K",
-            "$50K-$100K",
-            "$100K-$500K",
-            "$500K-$1M",
-            "$1M+",
-        ],
+        options: ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K", "$500K-$1M", "$1M+"],
         inputType: "radio",
     },
     {
         title: "Hold Period",
-        options: [
-            "2YRS-4YRS",
-            "4YRS-6YRS",
-            "6YRS-8YRS",
-            "8YRS-9YRS",
-            "9YRS-10YRS",
-            "10YRS+",
-        ],
+        options: ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"],
         inputType: "checkbox",
     },
     {

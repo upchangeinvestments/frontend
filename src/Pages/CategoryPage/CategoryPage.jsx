@@ -12,7 +12,10 @@ import "../../App.css";
 function CategoryPage() {
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({});
+  const [filterData, setFilterData] = useState({});
   const [Id, setId] = useState(0);
+
+  useEffect(() => { }, [data]);
 
   const receiveDataObject = (dataObject) => {
     setData(dataObject);
@@ -23,7 +26,10 @@ function CategoryPage() {
     setId(index);
   };
 
-  useEffect(() => { }, [data]);
+  const receiveDataFromFilter = (data) => {
+    // console.log("in parent component: ", data);
+    setFilterData(data);
+  };
 
   return (
     <div className="mobile-filter-drawer">
@@ -38,19 +44,19 @@ function CategoryPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-[55px]  lg:-mt-[400px] lg:mr-[110px] xl:-mt-[430px] xl:mr-[30px] ">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-[55px]  lg:-mt-[350px] lg:mr-[110px] xl:-mt-[430px] xl:mr-[50px] ">
             Explore Categories
           </p>
         </div>
       </div>
       <div className="flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
-        <FilterSection />
+        <FilterSection sendDataToParent={receiveDataFromFilter} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
           <MobileFilter
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
           />
-          <Categories />
+          <Categories data={filterData} />
         </div>
       </div>
       <div className="">
