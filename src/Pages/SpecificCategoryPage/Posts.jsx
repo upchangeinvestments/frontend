@@ -31,9 +31,9 @@ function Post({ data, type, blur }) {
         <div className="grid grid-cols-2 ">
           {" "}
           {/* for xl screens only*/}
-          <div className="xl:max-w-[88%] xl:max-h-[100px]">
-            <div className="">
-              <img src={data.image} alt="Property" />
+          <div>
+            <div>
+              <img className="xl:max-h-[130px] w-[100%]" src={data.image} alt="Property" />
             </div>
             <div className="">
               <div className="flex items-center">
@@ -133,14 +133,16 @@ function Post({ data, type, blur }) {
             alt="Property"
           />
         </div>
-        <div
-          className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"
-            }  xl:rounded-none xl:rounded-r-lg`}
-        >
+        <div className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"}  xl:rounded-none xl:rounded-r-lg`}>
           <h3 className="vsm:text-base md:text-xl flex justify-center">
             {data.title}
           </h3>
-          <p className="text-gray-600 mb-2">{data.location}</p>
+          <p className="text-gray-600 mb-2 flex items-center gap-1">
+            <span>
+              <IoLocationSharp />
+            </span>
+            {data.location}
+          </p>
           <p className="text-gray-700 text-xs	text-justify">
             {data.description.length > 75
               ? `${data.description.substring(0, 100)}... see more`

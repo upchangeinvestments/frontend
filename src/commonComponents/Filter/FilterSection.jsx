@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
 import FilterSubSection from "./FilterSubSection";
-import CategoryData from "../assets/FilterData.json"
+import CategoryData from "../../assets/FilterData.json"
 
 function FilterSection({ sendDataToParent }) {
   const CategoryType = ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Land & Infrastructure"];
@@ -9,6 +9,7 @@ function FilterSection({ sendDataToParent }) {
   const HoldPeriod = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
   // const [showAllCompanies, setShowAllCompanies] = useState(false);
   const [price, setPrice] = useState(0);
+  const [zipCode, setZipCode] = useState("");
 
   const [filters, setFilters] = useState({
     category: [],
@@ -32,12 +33,9 @@ function FilterSection({ sendDataToParent }) {
       );
     });
     sendDataToParent(filtered);
-    console.log("filtered data: ", filtered);
   };
 
   const updateFilters = (filterType, value, inputType, checked) => {
-    // console.log('updateFilters called: ', filterType, value);
-    // console.log(inputType);
     if (inputType === "checkbox") {
       if (checked) {
         setFilters(prevFilters => ({
@@ -58,16 +56,39 @@ function FilterSection({ sendDataToParent }) {
     }
   };
 
+  const clearFilter = (filterType) => {
+    if (filterType === "targetedIRR") {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        [filterType]: 0,
+      }));
+      setPrice(0);
+    } else if (filterType === 'zipCode') {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        [filterType]: ""
+      }));
+    } else {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        [filterType]: []
+      }));
+    }
+  };
+
   useEffect(() => {
     applyFilters();
   }, [filters]);
 
   const updateIrrValue = (event) => {
-    let value = event.target.value;
-    setPrice(value);
-    updateFilters("targetedIRR", value, "range");
+    setPrice(event.target.value);
+    updateFilters("targetedIRR", event.target.value, "range");
   };
-  
+
+  const updateZipCodeValue = (event) => {
+    setZipCode(event.target.value);
+    updateFilters("zipCode", event.target.value, "text")
+  };
 
   const getTooltipContent = (location) => {
     switch (location) {
@@ -106,17 +127,16 @@ function FilterSection({ sendDataToParent }) {
         inputType="checkbox"
         updateFilters={updateFilters}
         filterType="category"
+        clearFilter={clearFilter}
       />
-      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
       <FilterSubSection
         list={InvestmentRange}
         title="Investment Range"
         inputType="radio"
         updateFilters={updateFilters}
         filterType="investmentRange"
+        clearFilter={clearFilter}
       />
-      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
-
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
         <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
         <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
@@ -136,15 +156,15 @@ function FilterSection({ sendDataToParent }) {
           <p className="mt-2">{price == 0 ? 50 : price}</p>
         </div>
       </div>
-      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
+      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg" onClick={() => clearFilter("targetedIRR")}>Clear filter</button>
       <FilterSubSection
         list={HoldPeriod}
         title="Hold Period"
         inputType="checkbox"
         updateFilters={updateFilters}
         filterType="holdPeriod"
+        clearFilter={clearFilter}
       />
-      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
 
       <div>
         <FilterSubSection
@@ -154,8 +174,8 @@ function FilterSection({ sendDataToParent }) {
           updateFilters={updateFilters}
           filterType="locations"
           getTooltipContent={getTooltipContent}
+          clearFilter={clearFilter}
         />
-      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg">clear filter</button>
 
       </div>
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2">
@@ -163,21 +183,13 @@ function FilterSection({ sendDataToParent }) {
         <div className="font-['Asap'] w-[80%]">
           <input
             type="text"
-            name=""
-            onChange={e => updateFilters("zipCode", e.target.value, "text")}
+            value={zipCode}
+            onChange={updateZipCodeValue}
             className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#6e30a7]"
           />
         </div>
-      <button className="bg-[#6e30a7] px-2 text-[#fff] mt-4 rounded-lg">clear filter</button>
-
       </div>
-      {/* <FilterSubSection
-        list={CompanyType}
-        title="Companies"
-        inputType="checkbox"
-        showAll={showAllCompanies}
-        setShowAll={setShowAllCompanies}
-      /> */}
+      <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg" onClick={() => clearFilter("zipCode")}>Clear filter</button>
     </div>
   );
 }

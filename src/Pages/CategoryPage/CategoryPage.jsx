@@ -2,11 +2,11 @@ import React, { useState, useEffect } from "react";
 import "../../styles/CategoryPage/categoryPage.css";
 import NavBar from "../../commonComponents/NavBar";
 // import SearchBox from '../../commonComponents/SearchBox';
-import FilterSection from "../../commonComponents/FilterSection";
+import FilterSection from "../../commonComponents/Filter/FilterSection";
 import Categories from "./Categories";
 import Footer from "../../commonComponents/Footer";
-import MobileFilterDrawer from "../../commonComponents/MobileFilterDrawer";
-import MobileFilter from "../../commonComponents/MobileFilter";
+import MobileFilterDrawer from "../../commonComponents/Filter/MobileFilterDrawer";
+import MobileFilter from "../../commonComponents/Filter/MobileFilter";
 import "../../App.css";
 
 function CategoryPage() {
@@ -27,7 +27,7 @@ function CategoryPage() {
   };
 
   const receiveDataFromFilter = (data) => {
-    console.log("in parent component: ", data);
+    // console.log("in parent component: ", data);
     setFilterData(data);
   };
 
