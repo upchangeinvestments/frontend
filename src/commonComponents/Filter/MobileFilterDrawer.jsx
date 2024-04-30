@@ -26,6 +26,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
         let value = event.target.value;
         setPrice(value);
     };
+
     const { title, options, inputType } = data || {};
     return (
         <Drawer open={open} className="p-4 fixed left-0 top-0 z-50 bg-white/20 backdrop-blur-xl text-xl " >
@@ -45,7 +46,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
                     />
                 </svg>
             </div>
-            <div className="flex items-center justify-start font-['Playfair-Display']">
+            <div className="flex items-center justify-start font-['Playfair-Display'] mb-4">
                 <div className="text-xl text-[#6e30a7]">{title}</div>
             </div>
             <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
@@ -66,7 +67,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index }) {
                 }
                 {Index === 4 && <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
                     <div className="font-['Asap'] w-[80%]">
-                        <input type="text" name="" className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#6e30a7]" />
+                        <input type="text" className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none border-1 border-[#6e30a7]" />
                     </div>
                 </div>}
 

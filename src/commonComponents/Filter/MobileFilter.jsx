@@ -1,4 +1,4 @@
-import React from 'react'
+import React, { useState, useEffect } from 'react'
 
 const dataObject = [
     {
@@ -29,7 +29,8 @@ const dataObject = [
     },
 ];
 
-function MobileFilter({ openDrawer, passDataObject }) {
+function MobileFilter({ openDrawer, passDataObject, sendDataToParent }) {
+
     return (
         <div className="relative vsm:block md:hidden my-4 font-['Playfair-Display'] bg-white/20 backdrop-blur-sm py-4">
             <div className="flex overflow-x-scroll gap-x-3 pr-4 pl-4">

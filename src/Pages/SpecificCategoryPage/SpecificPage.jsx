@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/Filter/MobileFilterDrawer";
@@ -9,6 +9,7 @@ import "../../styles/CategoryPage/categoryPage.css";
 import FilterSection from "../../commonComponents/Filter/FilterSection";
 import PropertyData from "../../assets/RMData.json";
 import Post from "./Posts";
+import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
 
 function SpecificPage() {
@@ -17,6 +18,9 @@ function SpecificPage() {
   const [data, setData] = useState({});
   const [Id, setId] = useState(0);
   const [filterData, setFilterData] = useState({});
+  const [totalPaginationPages, setTotalPaginationPages] = useState(1);
+  const [pageNo, setPageNo] = useState(1);
+  var postsPerPage = 10;
 
   const receiveDataObject = (dataObject) => {
     setData(dataObject);
@@ -28,9 +32,18 @@ function SpecificPage() {
   };
 
   const receiveDataFromFilter = (data) => {
-    // console.log("in parent component: ", data);
     setFilterData(data);
+    console.log("filterData: ", data);
   };
+
+  const PaginationHandler = (currentPage) => {
+    setPageNo(currentPage);
+  }
+  useEffect(() => {
+    const totalItems = filterData.length;
+    const totalPages = Math.ceil(totalItems / postsPerPage);
+    setTotalPaginationPages(totalPages);
+  }, [filterData]);
 
   return (
     <div className="categoryMain vsm:h-[60vh] md:h-[62vh] lg:h-[85vh] xl:h-[100vh] mobile-filter-drawer">
@@ -71,17 +84,21 @@ function SpecificPage() {
           <MobileFilter
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
+            sendDataToParent={receiveDataFromFilter}
           />
           <div className="lg:mx-8">
             <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
-              {PropertyData.map((data, index) => (
+              {(filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-center justify-center" key={index}>
-                  {/* <Post data={{ ...data, index: index }} type={type} blur={index === 0 ? "noBlur" : "blur"} /> */}
-                  <Post data={{ ...data, index: index }} type={type} blur={index === 0 ? "noBlur" : "noBlur"} />
+                  {process.env.REACT_APP_NODE_ENV === "dev" ?
+                    <Post data={{ ...data, index: index }} blur={index === 0 ? "noBlur" : "noBlur"} /> :      // (post) data in not blurred in local dev
+                    <Post data={{ ...data, index: index }} blur={index === 0 ? "noBlur" : "blur"} />
+                  }
                 </div>
               ))}
             </div>
           </div>
+          <PaginationComponent totalPages={totalPaginationPages} updateCurrentPage={PaginationHandler} />
         </div>
       </div>
       <Footer />

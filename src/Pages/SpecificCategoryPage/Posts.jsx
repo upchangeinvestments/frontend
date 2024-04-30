@@ -4,7 +4,7 @@ import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 
-function Post({ data, type, blur }) {
+function Post({ data, blur }) {
   const [isStarFilled, setIsStarFilled] = useState(false);
 
   const toggleStar = () => {
@@ -92,15 +92,15 @@ function Post({ data, type, blur }) {
             <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-2 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm">Min Investment</div>
-                <div className="font-bold text-base ">$ 500K</div>
+                <div className="font-bold text-base ">{data.Investment}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <p className="text-gray-600 text-sm">Hold period</p>
-                <p className="font-bold text-base">24 months</p>
+                <p className="font-bold text-base">{data.Hold_period}</p>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm">Category type</div>
-                <div className="font-bold text-base capitalize">{`${type}`}</div>
+                <div className="font-bold text-base capitalize">{`${data.category}`}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <p className="text-gray-600 text-sm">Target IRR</p>
@@ -151,15 +151,15 @@ function Post({ data, type, blur }) {
           <div className="mt-2 grid grid-cols-2 gap-y-2 gap-x-2">
             <div className="w-auto mx-auto">
               <div className="text-gray-600  text-sm">Min Investment</div>
-              <div className="font-bold vsm:text-base sm:text-lg ">$ 10K</div>
+              <div className="font-bold vsm:text-base sm:text-lg ">{data.Investment}</div>
             </div>
             <div className="w-auto mx-auto">
               <p className="text-gray-600  text-sm">Hold period</p>
-              <p className="font-bold vsm:text-base sm:text-lg">24 months</p>
+              <p className="font-bold vsm:text-base sm:text-lg">{data.Hold_period}</p>
             </div>
             <div className="w-auto mx-auto">
               <div className="text-gray-600  text-sm">Category type</div>
-              <div className="font-bold vsm:text-base sm:text-lg capitalize">{`${type}`}</div>
+              <div className="font-bold vsm:text-base sm:text-lg capitalize">{`${data.category}`}</div>
             </div>
             <div className="w-auto mx-auto">
               <p className="text-gray-600  text-sm">Target IRR</p>
