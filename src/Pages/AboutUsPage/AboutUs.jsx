@@ -10,29 +10,29 @@ function AboutUs() {
   return (
     <div className="overflow-x-hidden bg-gradient-to-r from-purple-300 to-pink-200 vsm:-mt-[150px] md:-mt-[180px] lg:mb-0 lg:-mt-[240px] xl:-mt-[300px]">
       <div className="vsm:flex vsm:items-center justify-center vsm:flex-col md:flex  md:flex-row md:mt-2 xl:mt-8 relative">
-        <div class="vsm:h-[700px] vsm:w-[280px]  vsm:mt-[30px] msm:w-[300px]   sm:w-[350px] md:w-[180px] md:h-[980px]  md:ml-[25px] md:mt-[50px] lg:ml-[60px] lg:mt-[50px] lg:w-[280px] lg:h-[1000px] xl:ml-[60px] xl:mt-[50px] xl:w-[280px] xl:h-[840px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 backdrop-blur-xl bottom-0 flex flex-col  items-center rounded-lg font-['Playfair-Display'] rounded-t-full">
+        <div className="vsm:h-[700px] vsm:w-[280px]  vsm:mt-[30px] msm:w-[300px]   sm:w-[350px] md:w-[180px] md:h-[980px]  md:ml-[25px] md:mt-[50px] lg:ml-[60px] lg:mt-[50px] lg:w-[280px] lg:h-[1000px] xl:ml-[60px] xl:mt-[50px] xl:w-[280px] xl:h-[840px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 backdrop-blur-xl bottom-0 flex flex-col  items-center rounded-lg font-['Playfair-Display'] rounded-t-full">
           <div
             className="vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] md:w-[120px] md:h-[120px] md:mt-[30px] lg:w-[200px] lg:h-[200px] lg:mt-[30px] border-2 border-yellow-500 rounded-full bg-center bg-cover"
             style={{ backgroundImage: `url(${Lipika_mam})` }}
           ></div>
-          <div class="text-center">
-            <h2 class="vsm:mt-[30px] vsm:text-[20px] vsm:mb-[30px] md:mt-[70px] md:text-[20px] md:mb-[50px] lg:text-[22px] text-white font-semibold lg:mt-[60px] lg:mb-[50px] uppercase">
+          <div className="text-center">
+            <h2 className="vsm:mt-[30px] vsm:text-[20px] vsm:mb-[30px] md:mt-[70px] md:text-[20px] md:mb-[50px] lg:text-[22px] text-white font-semibold lg:mt-[60px] lg:mb-[50px] uppercase">
               Company at a glance
             </h2>
-            <div class="flex flex-col items-center">
+            <div className="flex flex-col items-center">
               <div>
-                <p class="vsm:text-[19px] md:text-[18px] lg:text-[20px] text-white font-medium md:mb-[20px] lg:mb-[15px]">
+                <p className="vsm:text-[19px] md:text-[18px] lg:text-[20px] text-white font-medium md:mb-[20px] lg:mb-[15px]">
                   FOUNDER
                 </p>
-                <p class="vsm:text-[20px] vsm:mb-[10px] md:text-[19px] md:mb-[21px] lg:text-[21px] font-medium lg:mb-[15px]">
+                <p className="vsm:text-[20px] vsm:mb-[10px] md:text-[19px] md:mb-[21px] lg:text-[21px] font-medium lg:mb-[15px]">
                   LIPIKA SHARMA
                 </p>
               </div>
-              <div class="mb-4">
-                <p class="vsm:text-[19px] md:text-[18px] lg:text-[20px] text-white font-medium md:mb-[20px] lg:mb-[15px]">
+              <div className="mb-4">
+                <p className="vsm:text-[19px] md:text-[18px] lg:text-[20px] text-white font-medium md:mb-[20px] lg:mb-[15px]">
                   FOUNDED
                 </p>
-                <p class="vsm:text-[20px] md:text-[19px] md:mb-[50px] lg:text-[21px] font-medium lg:mb-[50px] xl:mb-[30px]">
+                <p className="vsm:text-[20px] md:text-[19px] md:mb-[50px] lg:text-[21px] font-medium lg:mb-[50px] xl:mb-[30px]">
                   2024
                 </p>
               </div>
@@ -41,7 +41,7 @@ function AboutUs() {
                   className="rounded-xl w-[95%]"
                   src={video}
                   autoPlay
-                  playsInline 
+                  playsInline
                   controls
                   loop
                   muted

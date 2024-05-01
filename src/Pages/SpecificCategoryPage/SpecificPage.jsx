@@ -7,7 +7,7 @@ import NavBar from "../../commonComponents/NavBar";
 import "../../styles/CategoryPage/categoryPage.css";
 // import SearchBox from "../../commonComponents/SearchBox";
 import FilterSection from "../../commonComponents/Filter/FilterSection";
-import PropertyData from "../../assets/RMData.json";
+// import PropertyData from "../../assets/RMData.json";
 import Post from "./Posts";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
@@ -20,7 +20,7 @@ function SpecificPage() {
   const [filterData, setFilterData] = useState({});
   const [totalPaginationPages, setTotalPaginationPages] = useState(1);
   const [pageNo, setPageNo] = useState(1);
-  var postsPerPage = 10;
+  var postsPerPage = 12;
 
   const receiveDataObject = (dataObject) => {
     setData(dataObject);
@@ -31,9 +31,8 @@ function SpecificPage() {
     setId(index);
   };
 
-  const receiveDataFromFilter = (data) => {
+  const receiveFilteredData = (data) => {
     setFilterData(data);
-    console.log("filterData: ", data);
   };
 
   const PaginationHandler = (currentPage) => {
@@ -52,6 +51,7 @@ function SpecificPage() {
         closeDrawer={openDrawer}
         data={data}
         Index={Id}
+        sendFilteredData={receiveFilteredData}
         className="bg-transparent"
       />
       {/* filter section for mobile view random */}
@@ -79,12 +79,11 @@ function SpecificPage() {
         </div> */}
       </div>
       <div className="flex vsm:-mt-[30px] md:mt-[10px] lg:mt-[50px] xl:mt-[10px] mb-16">
-        <FilterSection sendDataToParent={receiveDataFromFilter} />
+        <FilterSection sendFilteredData={receiveFilteredData} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
           <MobileFilter
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
-            sendDataToParent={receiveDataFromFilter}
           />
           <div className="lg:mx-8">
             <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">

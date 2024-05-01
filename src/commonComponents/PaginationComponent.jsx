@@ -6,7 +6,7 @@ import Stack from '@mui/material/Stack';
 const PaginationComponent = ({ totalPages = 1, updateCurrentPage }) => {
     const [currentPage, setCurrentPage] = useState(1);
 
-    console.log("totalPages: " + totalPages);
+    // console.log("totalPages: " + totalPages);
 
     const handleChange = (event, newPage) => {
         // console.log("event: ", event);

@@ -14,6 +14,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
     } else {
       setCheckedValues((prevValues) => ({ ...prevValues, [value]: false }));
     }
+    // console.log("filter type: ", filterType);
     updateFilters(filterType, value, inputType, checked);
   };
 

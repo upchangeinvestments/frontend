@@ -1,9 +1,9 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState, useEffect } from 'react';
 
 const dataObject = [
     {
         title: "Categories",
-        options: ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Land & Infrastructure"],
+        options: ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure"],
         inputType: "checkbox",
     },
     {
@@ -13,7 +13,7 @@ const dataObject = [
     },
     {
         title: "Investment Range",
-        options: ["$100-$1K", "$1K-$10K", "$10K-$50K", "$50K-$100K", "$100K-$500K", "$500K-$1M", "$1M+"],
+        options: ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"],
         inputType: "radio",
     },
     {
@@ -29,8 +29,7 @@ const dataObject = [
     },
 ];
 
-function MobileFilter({ openDrawer, passDataObject, sendDataToParent }) {
-
+function MobileFilter({ openDrawer, passDataObject }) {
     return (
         <div className="relative vsm:block md:hidden my-4 font-['Playfair-Display'] bg-white/20 backdrop-blur-sm py-4">
             <div className="flex overflow-x-scroll gap-x-3 pr-4 pl-4">
