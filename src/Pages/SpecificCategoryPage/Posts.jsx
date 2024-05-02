@@ -3,15 +3,42 @@ import "../../styles/LandingPage/Post.css";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
 import { FaRegStar, FaStar } from "react-icons/fa6";
+import { useAuth } from "../../utils/AuthContext";
+import axios from "axios";
+import Error from "../../utils/Error";
 
 function Post({ data, blur }) {
   const [isStarFilled, setIsStarFilled] = useState(false);
+  const { user, backendUrl } = useAuth();
 
-  const toggleStar = () => {
+  const toggleStar = async () => {
     setIsStarFilled(!isStarFilled);
+    try {
+      const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
+    } catch (error) {
+      if (error.response) {
+        return Error(error.response.data.message);
+      } else if (error.request) {
+        return Error("Something went wrong! Please try again later.");
+      } else {
+        return Error(error.message);
+      }
+    }
   };
+  // User.findById(userId)
+  // .populate("likedPosts")
+  // .then((user) => {
+  //   console.log("User's liked posts:");
+  //   user.likedPosts.forEach((post) => {
+  //     console.log(post);
+  //   });
+  // })
+  // .catch((err) => {
+  //   console.error(err);
+  // });
 
   const isEven = data.index % 2 === 0;
+
   return (
     <div className="font-['Playfair-Display']">
       <div className={`relative hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4 ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}>

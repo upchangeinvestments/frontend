@@ -26,8 +26,7 @@ function CategoryPage() {
     setId(index);
   };
 
-  const receiveDataFromFilter = (data) => {
-    // console.log("in parent component: ", data);
+  const receiveFilteredData = (data) => {
     setFilterData(data);
   };
 
@@ -39,6 +38,7 @@ function CategoryPage() {
           closeDrawer={openDrawer}
           data={data}
           Index={Id}
+          sendFilteredData={receiveFilteredData}
           className="bg-transparent"
         />
         {/* filter section for mobile view */}
@@ -50,7 +50,7 @@ function CategoryPage() {
         </div>
       </div>
       <div className="flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
-        <FilterSection sendDataToParent={receiveDataFromFilter} />
+        <FilterSection sendFilteredData={receiveFilteredData} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
           <MobileFilter
             openDrawer={openDrawer}

@@ -90,8 +90,8 @@ function SpecificPage() {
               {(filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-center justify-center" key={index}>
                   {process.env.REACT_APP_NODE_ENV === "dev" ?
-                    <Post data={{ ...data, index: index }} blur={index === 0 ? "noBlur" : "noBlur"} /> :      // (post) data in not blurred in local dev
-                    <Post data={{ ...data, index: index }} blur={index === 0 ? "noBlur" : "blur"} />
+                    <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "noBlur"} /> :      // (post) data in not blurred in local dev
+                    <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "blur"} />
                   }
                 </div>
               ))}
