@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import "../../styles/LandingPage/Post.css";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
@@ -8,13 +8,15 @@ import axios from "axios";
 import Error from "../../utils/Error";
 
 function Post({ data, blur }) {
+  const [likedPosts, setLikedPosts] = useState([]);
   const [isStarFilled, setIsStarFilled] = useState(false);
+  console.log(isStarFilled, " with index: ", data.index);
   const { user, backendUrl } = useAuth();
 
   const toggleStar = async () => {
     setIsStarFilled(!isStarFilled);
     try {
-      const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
+      await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
     } catch (error) {
       if (error.response) {
         return Error(error.response.data.message);
@@ -25,17 +27,21 @@ function Post({ data, blur }) {
       }
     }
   };
-  // User.findById(userId)
-  // .populate("likedPosts")
-  // .then((user) => {
-  //   console.log("User's liked posts:");
-  //   user.likedPosts.forEach((post) => {
-  //     console.log(post);
-  //   });
-  // })
-  // .catch((err) => {
-  //   console.error(err);
-  // });
+
+  const FetchLikedPosts = async () => {
+    try {
+      const starredPosts = await axios.get(`${backendUrl}/profile/${user._id}/fetchPosts`);
+      const starredPostIndices = starredPosts.data.fetchedPosts.map((likedPost) => likedPost.postId);
+      setLikedPosts(starredPostIndices);
+      setIsStarFilled(starredPostIndices.includes(data.index))
+    } catch (error) {
+      // console.log("error: ", error);
+    }
+  }
+
+  useEffect(() => {
+    FetchLikedPosts();
+  }, [])
 
   const isEven = data.index % 2 === 0;
 
@@ -46,7 +52,7 @@ function Post({ data, blur }) {
           Sample Project
         </div>
         <div onClick={toggleStar}>
-          {isStarFilled ? (
+          {likedPosts.includes(data.index) ? (
             <FaStar className="absolute right-0 mr-6 text-yellow-500 text-2xl" />
           ) : (
             <FaRegStar className="absolute right-0  mr-6 text-yellow-500 text-2xl" />
