@@ -19,7 +19,6 @@ function StarredPosts({ data, updatePosts }) {
             // console.log("response:", updatedPosts);
             updatePosts(response.data.updatedPosts)
         } catch (error) {
-            console.log("error: " + error);
         }
     };
 

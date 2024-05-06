@@ -1,7 +1,8 @@
 import React, { useState, useEffect } from 'react';
 import { Drawer } from "@material-tailwind/react";
 import Tooltip from '@mui/material/Tooltip';
-import InvestmentData from "../../assets/FilterData.json";
+// import InvestmentData from "../../assets/FilterData.json";
+import PropertyData from "../../assets/RMData.json";
 
 const getTooltipContent = (location) => {
     switch (location) {
@@ -20,14 +21,18 @@ const getTooltipContent = (location) => {
     }
 };
 
-function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData }) {
+function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, type }) {
     const [price, setPrice] = useState(0);
     const [zipCode, setZipCode] = useState("");
     const { title, options, inputType } = data || {};
     const [selectedOptions, setSelectedOptions] = useState({});
-
+    var filterType;
+    if (title === 'Categories') filterType = "category";
+    else if (title === "Location") filterType = "locations";
+    else if (title === "Investment Range") filterType = "investmentRange";
+    else if (title === "Hold Period") filterType = "holdPeriod";
     const [filters, setFilters] = useState({
-        category: [],
+        category: [type],
         investmentRange: [],
         targetedIRR: 0,
         holdPeriod: [],
@@ -36,7 +41,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData }
     });
 
     const applyFilters = () => {
-        let filtered = InvestmentData.filter(item => {
+        let filtered = PropertyData.filter(item => {
             // console.log("filters: ", filters);
             return (
                 (filters.category.length === 0 || filters.category.includes(item.category)) &&
@@ -69,6 +74,10 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData }
                 [filterType]: value
             }));
         }
+    };
+
+    const handleClearFilter = (filterType) => {
+        clearFilter(filterType);
     };
 
     const clearFilter = (filterType) => {
@@ -126,16 +135,11 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData }
                 return newOptions;
             });
         }
-        var filterType;
-        if (title === 'Categories') filterType = "category";
-        else if (title === "Location") filterType = "locations";
-        else if (title === "Investment Range") filterType = "investmentRange";
-        else if (title === "Hold Period") filterType = "holdPeriod";
         updateFilters(filterType, optionValue, inputType, checked);
     };
 
     return (
-        <Drawer open={open} className="p-4 fixed left-0 top-0 z-50 bg-white/20 backdrop-blur-xl text-xl " >
+        <Drawer open={open} className="p-4 fixed left-0 top-0 z-50 bg-white/20 backdrop-blur-xl text-xl" >
             <div variant="text" className="w-full flex justify-end" color="blue-gray" onClick={() => closeDrawer()}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
@@ -153,7 +157,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData }
                 </svg>
             </div>
             <div className="flex items-center justify-start font-['Playfair-Display'] mb-4">
-                <div className="text-xl text-[#6e30a7]">{title}</div>
+                <div className="text-xl text-[#6e30a7] font-bold">{title}</div>
             </div>
             <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
                 {options &&
@@ -163,10 +167,11 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData }
                                 name={inputType === "radio" ? "radioType" : propertyType}
                                 type={inputType}
                                 value={propertyType}
-                                checked={inputType === "checkbox" ? selectedOptions[Index] && selectedOptions[Index].includes(propertyType) : selectedOptions[Index] === propertyType}
+                                checked={(inputType === "checkbox" ? selectedOptions[Index] && selectedOptions[Index].includes(propertyType) : selectedOptions[Index] === propertyType) || (propertyType === type && title === "Categories")}
                                 // checked={selectedOptions[Index] === propertyType}
                                 onChange={(e) => handleOptionChange(Index, propertyType, inputType, e.target.checked)}
                                 className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
+                                disabled={propertyType === type && title === "Categories"}
                             />
                             <Tooltip key={propertyType} title={getTooltipContent(propertyType)}>
                                 <div className="text-base">{propertyType}</div>
@@ -191,6 +196,9 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData }
                     </div>
                 </div>}
             </div >
+            <div className="mt-4">
+                <button className="bg-[#6e30a7] text-sm text-[#fff] rounded-lg py-1 px-4" onClick={() => handleClearFilter(filterType)}>Clear {title} Filter</button>
+            </div>
         </Drawer >
     )
 }

@@ -7,7 +7,6 @@ import NavBar from "../../commonComponents/NavBar";
 import "../../styles/CategoryPage/categoryPage.css";
 // import SearchBox from "../../commonComponents/SearchBox";
 import FilterSection from "../../commonComponents/Filter/FilterSection";
-// import PropertyData from "../../assets/RMData.json";
 import { useAuth } from "../../utils/AuthContext";
 import Post from "./Posts";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
@@ -66,6 +65,7 @@ function SpecificPage() {
         Index={Id}
         sendFilteredData={receiveFilteredData}
         className="bg-transparent"
+        type={type}
       />
       {/* filter section for mobile view random */}
       <NavBar />
@@ -92,7 +92,7 @@ function SpecificPage() {
         </div> */}
       </div>
       <div className="flex vsm:-mt-[30px] md:mt-[10px] lg:mt-[50px] xl:mt-[10px] mb-16">
-        <FilterSection sendFilteredData={receiveFilteredData} />
+        <FilterSection sendFilteredData={receiveFilteredData} type={type} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
           <MobileFilter
             openDrawer={openDrawer}
@@ -110,7 +110,13 @@ function SpecificPage() {
               ))}
             </div>
           </div>
-          <PaginationComponent totalPages={totalPaginationPages} updateCurrentPage={PaginationHandler} />
+          {(filterData.length > 0) && <PaginationComponent totalPages={totalPaginationPages} updateCurrentPage={PaginationHandler} />}
+          {(filterData.length === 0) && (
+            <div className="mx-auto">
+              <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-data-found-9887654-8019228.png" alt="" />
+              <p className="font-bold text-4xl text-center tracking-wider font-['Playfair-Display']">No Data Found!</p>
+            </div>
+          )}
         </div>
       </div>
       <Footer />

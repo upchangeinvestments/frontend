@@ -11,41 +11,9 @@ import warehouse from "../../assets/categories/warehouse.jpg";
 import BlurBuilding from "../../assets/Building_blur-xl.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-// import storage from "../../assets/categories/storage.jpg";
-
-const Images = [
-  resident,
-  retail,
-  hotel,
-  warehouse,
-  hospital,
-  school,
-  office,
-  infrastructure,
-  BlurBuilding,
-];
-const Texts = [
-  "Residential",
-  "Retail",
-  "Hotels",
-  "Warehouse & Storage",
-  "Medical Facilites",
-  "School",
-  "Office",
-  "Infrastructure",
-  "View All",
-];
-const type = [
-  "residential",
-  "retail",
-  "hotel",
-  "warehouse",
-  "medical",
-  "school",
-  "office",
-  "infrastructure",
-  "all",
-];
+const Images = [resident, retail, hotel, warehouse, hospital, school, office, infrastructure, BlurBuilding];
+const Texts = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure", "View All"];
+const type = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure", "All"];
 
 const categoryData = Images.map((image, index) => ({
   image: image,
@@ -53,11 +21,13 @@ const categoryData = Images.map((image, index) => ({
   type: type[index],
 }));
 
-function Categories() {
+function Categories({ data }) {
+  const filteredCategoryData = data.length > 0 ? categoryData.filter((element) => data[0].category === element.type) : categoryData;
+
   return (
     <div className="mx-8 z-[1]">
       <div className="grid  vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  gap-x-6  gap-y-12">
-        {categoryData.map((element, index) =>
+        {filteredCategoryData.map((element, index) =>
           index === 8 ? (
             <div
               key={index}

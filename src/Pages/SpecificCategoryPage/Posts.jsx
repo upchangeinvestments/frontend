@@ -27,8 +27,6 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
       }
     }
   };
-  console.log('index:', data.index);
-  console.log("starred: ", starredPostIndices);
 
   useEffect(() => {
     setLikedPosts(starredPostIndices);
@@ -51,7 +49,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
           )}
         </div>
         <h3 className="vsm:text-base md:text-xl font-['Playfair-Display'] font-bold flex justify-center px-2 pb-1">
-          {data.index}{data.title}
+          {data.title}
         </h3>
         <div className="grid grid-cols-2 ">
           {" "}
