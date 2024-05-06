@@ -7,41 +7,33 @@ import { useAuth } from "../../utils/AuthContext";
 import axios from "axios";
 import Error from "../../utils/Error";
 
-function Post({ data, blur }) {
+function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
   const [likedPosts, setLikedPosts] = useState([]);
   const [isStarFilled, setIsStarFilled] = useState(false);
-  console.log(isStarFilled, " with index: ", data.index);
   const { user, backendUrl } = useAuth();
 
   const toggleStar = async () => {
     setIsStarFilled(!isStarFilled);
     try {
       await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
+      FetchLikedPosts();
     } catch (error) {
       if (error.response) {
-        return Error(error.response.data.message);
+        Error(error.response.data.message);
       } else if (error.request) {
-        return Error("Something went wrong! Please try again later.");
+        Error("Something went wrong! Please try again later.");
       } else {
-        return Error(error.message);
+        Error(error.message);
       }
     }
   };
-
-  const FetchLikedPosts = async () => {
-    try {
-      const starredPosts = await axios.get(`${backendUrl}/profile/${user._id}/fetchPosts`);
-      const starredPostIndices = starredPosts.data.fetchedPosts.map((likedPost) => likedPost.postId);
-      setLikedPosts(starredPostIndices);
-      setIsStarFilled(starredPostIndices.includes(data.index))
-    } catch (error) {
-      // console.log("error: ", error);
-    }
-  }
+  console.log('index:', data.index);
+  console.log("starred: ", starredPostIndices);
 
   useEffect(() => {
-    FetchLikedPosts();
-  }, [])
+    setLikedPosts(starredPostIndices);
+    setIsStarFilled(starredPostIndices.includes(data.index))
+  }, [starredPostIndices])
 
   const isEven = data.index % 2 === 0;
 
@@ -52,14 +44,14 @@ function Post({ data, blur }) {
           Sample Project
         </div>
         <div onClick={toggleStar}>
-          {likedPosts.includes(data.index) ? (
-            <FaStar className="absolute right-0 mr-6 text-yellow-500 text-2xl" />
+          {(likedPosts.includes(data.index) || isStarFilled) ? (
+            <FaStar className="absolute right-0 mr-6  text-yellow-500 text-2xl" />
           ) : (
             <FaRegStar className="absolute right-0  mr-6 text-yellow-500 text-2xl" />
           )}
         </div>
         <h3 className="vsm:text-base md:text-xl font-['Playfair-Display'] font-bold flex justify-center px-2 pb-1">
-          {data.title}
+          {data.index}{data.title}
         </h3>
         <div className="grid grid-cols-2 ">
           {" "}

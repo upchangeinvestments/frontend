@@ -8,9 +8,11 @@ import "../../styles/CategoryPage/categoryPage.css";
 // import SearchBox from "../../commonComponents/SearchBox";
 import FilterSection from "../../commonComponents/Filter/FilterSection";
 // import PropertyData from "../../assets/RMData.json";
+import { useAuth } from "../../utils/AuthContext";
 import Post from "./Posts";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
+import axios from "axios";
 
 function SpecificPage() {
   const { type } = useParams();
@@ -20,6 +22,8 @@ function SpecificPage() {
   const [filterData, setFilterData] = useState({});
   const [totalPaginationPages, setTotalPaginationPages] = useState(1);
   const [pageNo, setPageNo] = useState(1);
+  const [starredPosts, setStarredPosts] = useState([]);
+  const { user, backendUrl } = useAuth();
   var postsPerPage = 12;
 
   const receiveDataObject = (dataObject) => {
@@ -37,12 +41,21 @@ function SpecificPage() {
 
   const PaginationHandler = (currentPage) => {
     setPageNo(currentPage);
+    FetchLikedPosts();
+  }
+  const FetchLikedPosts = async () => {
+    try {
+      const starredPosts = await axios.get(`${backendUrl}/profile/${user._id}/fetchPosts`);
+      const starredPostIndices = starredPosts.data.fetchedPosts.map((likedPost) => likedPost.postId);
+      setStarredPosts(starredPostIndices);
+    } catch (error) { }
   }
   useEffect(() => {
+    FetchLikedPosts();
     const totalItems = filterData.length;
     const totalPages = Math.ceil(totalItems / postsPerPage);
     setTotalPaginationPages(totalPages);
-  }, [filterData]);
+  }, [filterData, user]);
 
   return (
     <div className="categoryMain vsm:h-[60vh] md:h-[62vh] lg:h-[85vh] xl:h-[100vh] mobile-filter-drawer">
@@ -90,8 +103,8 @@ function SpecificPage() {
               {(filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-center justify-center" key={index}>
                   {process.env.REACT_APP_NODE_ENV === "dev" ?
-                    <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "noBlur"} /> :      // (post) data in not blurred in local dev
-                    <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "blur"} />
+                    <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "noBlur"} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} /> :      // (post) data in not blurred in local dev
+                    <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "blur"} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} />
                   }
                 </div>
               ))}
