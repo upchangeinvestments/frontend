@@ -75,7 +75,7 @@ function SpecificPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[350px] xl:-mt-[430px] vsm:hidden lg:block lg:text-4xl font-medium mx-auto ml-[60%]">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[350px] xl:-mt-[430px] hidden lg:block lg:text-4xl font-medium mx-auto ml-[60%]">
             {type.split(" ").length === 1 ? (
               <div className="">
                 <div className="">Explore {`${type}`}</div>

@@ -24,7 +24,7 @@ const Profile = () => {
 
   return (
     <div className="grid font-['Playfair-Display'] grid-cols-12">
-      <div className="md:hidden" onClick={sidebarHandler}>
+      <div className="md:hidden relative" onClick={sidebarHandler}>
         <svg
           className="h-6 w-6 vsm:mt-[15px] vsm:ml-[8px]"
           xmlns="http://www.w3.org/2000/svg"

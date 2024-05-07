@@ -11,7 +11,7 @@ const Tabs = ({ tabs }) => {
       <div className="aboutMain  font-['Playfair-Display'] text-white">
         <NavBar />
         <div className="h-[85vh] flex items-center justify-center">
-          <p className="uppercase text-white font-medium vsm:text-4xl vsm:-mt-[20px] md:text-5xl md:-mt-[10px] xl:text-6xl lg:-mt-[350px] lg:-mr-[450px] xl:-mt-[430px] xl:-mr-[585px]">
+          <p className="uppercase font-['Playfair-Display'] lg:text-5xl xl:text-6xl text-white vsm:text-4xl md:text-5xl lg:-mt-[350px] xl:-mt-[430px] mx-auto lg:ml-[60%]">
             Profile
           </p>
         </div>
@@ -32,7 +32,7 @@ const Tabs = ({ tabs }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col bg-gradient-to-r lg:-mt-[210px] xl:-mt-[250px] from-purple-300 to-pink-200 w-full">
+      <div className="flex flex-col bg-gradient-to-r -mt-[130px] lg:-mt-[210px] xl:-mt-[250px] from-purple-300 to-pink-200 w-full z-[9999]">
         <div>
           {tabs.map((tab, index) => (
             <div
