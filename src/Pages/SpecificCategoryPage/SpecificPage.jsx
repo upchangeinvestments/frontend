@@ -12,7 +12,7 @@ import Post from "./Posts";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
 // import SkeletonCard from "../../commonComponents/SkeletonCard";
-import PropagateLoader from "react-spinners/PropagateLoader";
+// import PropagateLoader from "react-spinners/PropagateLoader";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 
@@ -61,50 +61,39 @@ function SpecificPage() {
   }, [filterData, user]);
 
   return (
-    <div className="categoryMain vsm:h-[60vh] md:h-[62vh] lg:h-[85vh] xl:h-[100vh] mobile-filter-drawer">
-      <MobileFilterDrawer
-        open={open}
-        closeDrawer={openDrawer}
-        data={data}
-        Index={Id}
-        sendFilteredData={receiveFilteredData}
-        className="bg-transparent"
-        type={type}
-      />
-      {/* filter section for mobile view random */}
-      <NavBar />
-      <div className="w-full">
-        <div className="uppercase text-white font-['Playfair-Display'] font-bold vsm:text-4xl flex flex-col items-center justify-center md: lg:ml-[550px] lg:mt-[-60px] xl:ml-[750px] h-[50vh] gap-8">
-          <div className="">
-            <div
-              className="vsm:hidden lg:block  lg:text-4xl font-medium xl:text-5xl"
-              style={{ wordSpacing: "" }}
-            >
-              {type.split(" ").length === 1 ? (
-                <div className="">
-                  <div className="">Explore {`${type}`}</div>
-                  <div className="">Properties</div>
-                </div>
-              ) : (
-                <div className="">
-                  <div className="">Explore {type.split(" ")[0]} </div>
-                  <div className="">{type.split(" ").slice(1).join(" ")} Properties</div>
-                </div>
-              )}
-            </div>
-            <div
-              className="vsm:text-2xl vsm:mt-[60px] sm:text-3xl md:text-4xl vsm:ml-[15px] msm:ml-[35px] sm:ml-[50px] md:ml-[10px] md:block lg:hidden flex flex-col items-center justify-center"
-              style={{ wordSpacing: "0.25em" }}
-            >
-              <div className="">{`Explore ${type} Properties`}</div>
-            </div>
-          </div>
+    <div className="mobile-filter-drawer">
+      <div className="categoryMain">
+        <MobileFilterDrawer
+          open={open}
+          closeDrawer={openDrawer}
+          data={data}
+          Index={Id}
+          sendFilteredData={receiveFilteredData}
+          className="bg-transparent"
+          type={type}
+        />
+        {/* filter section for mobile view */}
+        <NavBar />
+        <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[350px] xl:-mt-[430px] vsm:hidden lg:block lg:text-4xl font-medium mx-auto ml-[60%]">
+            {type.split(" ").length === 1 ? (
+              <div className="">
+                <div className="">Explore {`${type}`}</div>
+                <div className="">Properties</div>
+              </div>
+            ) : (
+              <div className="">
+                <div className="">Explore {type.split(" ")[0]} </div>
+                <div className="">{type.split(" ").slice(1).join(" ")} Properties</div>
+              </div>
+            )}
+          </p>
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:hidden font-medium">
+            {`Explore ${type} Properties`}
+          </p>
         </div>
-        {/* <div className="w-full mt-[-100px] mb-[100px] bg-black">
-          <SearchBox />
-        </div> */}
       </div>
-      <div className="flex vsm:-mt-[30px] md:mt-[10px] lg:mt-[50px] xl:mt-[10px] mb-16">
+      <div className="flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} type={type} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
           {loading === false && (<MobileFilter
@@ -124,29 +113,11 @@ function SpecificPage() {
             </div>
           </div>
           {loading === true && <div className="flex items-center justify-center h-[70%] w-[100%] sticky bottom-12">
-            {/* <PropagateLoader
-              color="#9747ff"
-              loading={loading}
-              size={15}
-            /> */}
             <RingLoader
               color="#9747ff"
               loading={loading}
               size={170}
             />
-            {/* <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-4 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
-              {(() => {
-                const skeletonCards = [];
-                for (let i = 0; i < 12; i++) {
-                  skeletonCards.push(
-                    <div className="flex items-center justify-center" key={i}>
-                      <SkeletonCard />
-                    </div>
-                  );
-                }
-                return skeletonCards;
-              })()}
-            </div> */}
           </div>}
           {loading === false && (filterData.length > 0) && <PaginationComponent totalPages={totalPaginationPages} updateCurrentPage={PaginationHandler} />}
           {(filterData.length === 0) && (
@@ -157,7 +128,9 @@ function SpecificPage() {
           )}
         </div>
       </div>
-      <Footer />
+      <div className="">
+        <Footer />
+      </div>
     </div>
   );
 }

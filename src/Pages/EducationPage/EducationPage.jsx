@@ -302,7 +302,7 @@ function EducationPage() {
       <div className="categoryMain">
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] lg:text-5xl xl:text-6xl text-white vsm:text-4xl md:text-5xl lg:-mt-[350px] lg:mr-[220px] xl:-mt-[430px] xl:mr-[250px] ">
+          <p className="uppercase font-['Playfair-Display'] lg:text-5xl xl:text-6xl text-white vsm:text-4xl md:text-5xl lg:-mt-[350px] xl:-mt-[430px] mx-auto ml-[60%]">
             RESOURCES
           </p>
         </div>

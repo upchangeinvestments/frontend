@@ -10,7 +10,7 @@ function Termsandconditions() {
       <div className="contactMain text-white">
         <NavBar />
         <div className="h-[85vh] flex items-center justify-center">
-          <p className="uppercase text-white  vsm:text-2xl font-['Playfair-Display'] md:text-4xl lg:text-4xl lg:-mt-[285px] lg:-mr-[460px] xl:text-4xl xl:-mt-[415px] xl:-mr-[685px]">
+          <p className="uppercase font-['Playfair-Display'] lg:text-4xl xl:text-5xl text-white vsm:text-4xl md:text-5xl lg:-mt-[350px] xl:-mt-[430px] mx-auto ml-[60%]">
             Terms and Conditions
           </p>
         </div>
