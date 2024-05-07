@@ -565,10 +565,14 @@ const SignIn = () => {
                   </div>
                   <input
                     className=""
-                    type="text"
+                    type="email"
                     placeholder="Email"
                     name="email"
                     required
+                    value={userData !== null ? userData.email : ""}
+                    onChange={(e) =>
+                      setUserData({ ...userData, email: e.target.value })
+                    }
                   />
                   <div className="relative logineyeinput flex flex-start w-[75%]">
                     <input
