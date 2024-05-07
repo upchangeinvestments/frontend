@@ -80,8 +80,17 @@ function SpecificPage() {
               className="vsm:hidden lg:block  lg:text-4xl font-medium xl:text-5xl"
               style={{ wordSpacing: "" }}
             >
-              <div className="">Explore {`${type}`}</div>
-              <div className="">Properties</div>
+              {type.split(" ").length === 1 ? (
+                <div className="">
+                  <div className="">Explore {`${type}`}</div>
+                  <div className="">Properties</div>
+                </div>
+              ) : (
+                <div className="">
+                  <div className="">Explore {type.split(" ")[0]} </div>
+                  <div className="">{type.split(" ").slice(1).join(" ")} Properties</div>
+                </div>
+              )}
             </div>
             <div
               className="vsm:text-2xl vsm:mt-[60px] sm:text-3xl md:text-4xl vsm:ml-[15px] msm:ml-[35px] sm:ml-[50px] md:ml-[10px] md:block lg:hidden flex flex-col items-center justify-center"
@@ -98,10 +107,10 @@ function SpecificPage() {
       <div className="flex vsm:-mt-[30px] md:mt-[10px] lg:mt-[50px] xl:mt-[10px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} type={type} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
-          <MobileFilter
+          {loading === false && (<MobileFilter
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
-          />
+          />)}
           <div className="lg:mx-8">
             <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
               {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
@@ -123,7 +132,7 @@ function SpecificPage() {
             <RingLoader
               color="#9747ff"
               loading={loading}
-              size={200}
+              size={170}
             />
             {/* <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-4 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
               {(() => {

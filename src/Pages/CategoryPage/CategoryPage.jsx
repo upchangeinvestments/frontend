@@ -55,10 +55,10 @@ function CategoryPage() {
       <div className="flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%]">
-          <MobileFilter
+          {loading === false && (<MobileFilter
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
-          />
+          />)}
           {loading === false && <Categories data={filterData} />}
           {loading === true && <div className="flex items-center justify-center h-[70%] w-[100%] sticky bottom-12">
             {/* <PropagateLoader
@@ -69,7 +69,7 @@ function CategoryPage() {
             <RingLoader
               color="#9747ff"
               loading={loading}
-              size={200}
+              size={170}
             />
           </div>}
         </div>

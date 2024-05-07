@@ -123,7 +123,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm">Category type</div>
-                <div className="font-bold text-base capitalize">{`${data.category}`}</div>
+                <div className="font-bold text-base capitalize">{data.category.split(" ").length > 1 ? `${data.category.split(" ").slice(0, 1)} ...` : `${data.category}`}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <p className="text-gray-600 text-sm">Target IRR</p>
@@ -157,7 +157,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
           />
         </div>
         <div className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"}  xl:rounded-none xl:rounded-r-lg`}>
-          <h3 className="vsm:text-base md:text-xl flex justify-center">
+          <h3 className="vsm:text-lg md:text-xl flex justify-center font-bold">
             {data.title}
           </h3>
           <p className="text-gray-600 mb-2 flex items-center gap-1">
