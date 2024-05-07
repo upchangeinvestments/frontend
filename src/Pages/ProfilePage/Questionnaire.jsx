@@ -107,7 +107,7 @@ const Questionnaire = () => {
   };
 
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center py-2 shadow-lg hover:shadow-xl container mx-auto m-4 relative">
+    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center py-2 shadow-lg hover:shadow-xl container mx-auto m-4 relative lg:mt-[3em]">
       <div className="flex vsm:flex-col lg:flex-row w-full mx-16 lg:items-center lg:justify-center">
         <div className="vsm:w-full vsm:px-6  lg:w-6/12 flex items-center justify-center m-4 mb-8 mx-auto">
           {loadQuiz()}

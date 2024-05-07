@@ -32,7 +32,7 @@ const Tabs = ({ tabs }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col bg-gradient-to-r lg:-mt-[150px] from-purple-300 to-pink-200 w-full">
+      <div className="flex flex-col bg-gradient-to-r lg:-mt-[210px] xl:-mt-[250px] from-purple-300 to-pink-200 w-full">
         <div>
           {tabs.map((tab, index) => (
             <div

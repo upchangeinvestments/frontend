@@ -4,7 +4,7 @@ import FilterSubSection from "./FilterSubSection";
 import PropertyData from "../../assets/RMData.json";
 import Tooltip from '@mui/material/Tooltip';
 
-function FilterSection({ sendFilteredData, type }) {
+function FilterSection({ sendFilteredData, type, setLoader }) {
   const CategoryType = ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure"];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const InvestmentRange = ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"];
@@ -23,6 +23,7 @@ function FilterSection({ sendFilteredData, type }) {
   });
 
   const applyFilters = () => {
+    setLoader(true);
     let filtered = PropertyData.filter(item => {
       return (
         (filters.category.length === 0 || filters.category.includes(item.category)) &&
@@ -34,6 +35,9 @@ function FilterSection({ sendFilteredData, type }) {
       );
     });
     sendFilteredData(filtered);
+    setTimeout(() => {
+      setLoader(false);
+    }, [800])
   };
 
   const updateFilters = (filterType, value, inputType, checked) => {
@@ -68,6 +72,12 @@ function FilterSection({ sendFilteredData, type }) {
       setFilters(prevFilters => ({
         ...prevFilters,
         [filterType]: ""
+      }));
+      setZipCode('');
+    } else if (filterType === 'category') {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        [filterType]: [type]
       }));
     } else {
       setFilters(prevFilters => ({
@@ -129,6 +139,7 @@ function FilterSection({ sendFilteredData, type }) {
         updateFilters={updateFilters}
         filterType="category"
         clearFilter={clearFilter}
+        applyFilters={applyFilters}
       />
       <FilterSubSection
         list={InvestmentRange}
@@ -137,6 +148,7 @@ function FilterSection({ sendFilteredData, type }) {
         updateFilters={updateFilters}
         filterType="investmentRange"
         clearFilter={clearFilter}
+        applyFilters={applyFilters}
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
         <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
@@ -168,6 +180,7 @@ function FilterSection({ sendFilteredData, type }) {
         updateFilters={updateFilters}
         filterType="holdPeriod"
         clearFilter={clearFilter}
+        applyFilters={applyFilters}
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
         <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
@@ -192,11 +205,13 @@ function FilterSection({ sendFilteredData, type }) {
           filterType="locations"
           getTooltipContent={getTooltipContent}
           clearFilter={clearFilter}
+          applyFilters={applyFilters}
         />
 
       </div>
-
-      {/* <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg" onClick={() => clearFilter("zipCode")}>Clear filter</button> */}
+      <div className="flex items-center justify-center mb-4">
+        <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={applyFilters}>Apply Search</button>
+      </div>
     </div>
   );
 }

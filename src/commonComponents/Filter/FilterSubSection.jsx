@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Tooltip from '@mui/material/Tooltip';
 import { useParams } from "react-router-dom";
 
-function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent, clearFilter }) {
+function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent, clearFilter, applyFilters }) {
   // const [showAll, setShowAll] = useState(true);
   const { type } = useParams();
   // const visibleItems = showAll ? list : list.slice(0, 3);
@@ -10,7 +10,6 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
 
   const handleInputChange = ({ target: { value, checked } }) => {
     setCheckedValues((prevValues) => ({ ...prevValues, [value]: checked }));
-    // console.log("filter type: ", filterType);
     updateFilters(filterType, value, inputType, checked);
   };
 

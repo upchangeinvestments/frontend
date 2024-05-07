@@ -11,6 +11,9 @@ import { useAuth } from "../../utils/AuthContext";
 import Post from "./Posts";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
+// import SkeletonCard from "../../commonComponents/SkeletonCard";
+import PropagateLoader from "react-spinners/PropagateLoader";
+import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 
 function SpecificPage() {
@@ -23,6 +26,7 @@ function SpecificPage() {
   const [pageNo, setPageNo] = useState(1);
   const [starredPosts, setStarredPosts] = useState([]);
   const { user, backendUrl } = useAuth();
+  const [loading, setLoading] = useState(false);
   var postsPerPage = 12;
 
   const receiveDataObject = (dataObject) => {
@@ -92,7 +96,7 @@ function SpecificPage() {
         </div> */}
       </div>
       <div className="flex vsm:-mt-[30px] md:mt-[10px] lg:mt-[50px] xl:mt-[10px] mb-16">
-        <FilterSection sendFilteredData={receiveFilteredData} type={type} />
+        <FilterSection sendFilteredData={receiveFilteredData} type={type} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
           <MobileFilter
             openDrawer={openDrawer}
@@ -100,7 +104,7 @@ function SpecificPage() {
           />
           <div className="lg:mx-8">
             <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
-              {(filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
+              {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-center justify-center" key={index}>
                   {process.env.REACT_APP_NODE_ENV === "dev" ?
                     <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "noBlur"} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} /> :      // (post) data in not blurred in local dev
@@ -110,11 +114,36 @@ function SpecificPage() {
               ))}
             </div>
           </div>
-          {(filterData.length > 0) && <PaginationComponent totalPages={totalPaginationPages} updateCurrentPage={PaginationHandler} />}
+          {loading === true && <div className="flex items-center justify-center h-[70%] w-[100%] sticky bottom-12">
+            {/* <PropagateLoader
+              color="#9747ff"
+              loading={loading}
+              size={15}
+            /> */}
+            <RingLoader
+              color="#9747ff"
+              loading={loading}
+              size={200}
+            />
+            {/* <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-4 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
+              {(() => {
+                const skeletonCards = [];
+                for (let i = 0; i < 12; i++) {
+                  skeletonCards.push(
+                    <div className="flex items-center justify-center" key={i}>
+                      <SkeletonCard />
+                    </div>
+                  );
+                }
+                return skeletonCards;
+              })()}
+            </div> */}
+          </div>}
+          {loading === false && (filterData.length > 0) && <PaginationComponent totalPages={totalPaginationPages} updateCurrentPage={PaginationHandler} />}
           {(filterData.length === 0) && (
             <div className="mx-auto">
-              <img src="https://cdni.iconscout.com/illustration/premium/thumb/no-data-found-9887654-8019228.png" alt="" />
-              <p className="font-bold text-4xl text-center tracking-wider font-['Playfair-Display']">No Data Found!</p>
+              <img className="w-[450px]" src="https://i.postimg.cc/4y0f7QqX/pngtree-404-not-found-or-page-error-flat-line-concept-png-image-2468879-removebg-preview.png" alt="" />
+              <p className="font-bold text-4xl text-center tracking-wider font-['Playfair-Display'] -mt-[100px]">No Data Found!</p>
             </div>
           )}
         </div>

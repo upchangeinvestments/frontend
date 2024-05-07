@@ -22,19 +22,6 @@ const Profile = () => {
     setSidebarOpen(!sidebarOpen);
   };
 
-  // let date = new Date(user.createdAt);
-  // let monthNames = ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"];
-  // let day = date.getUTCDate().toString().padStart(2, "0");
-  // let month = monthNames[date.getUTCMonth()];
-  // let year = date.getUTCFullYear().toString();
-  // const dateOfJoined = `${day} ${month} ${year}`;
-
-  // date = new Date(user.dob);
-  // day = date.getUTCDate().toString().padStart(2, "0");
-  // month = monthNames[date.getUTCMonth()];
-  // year = date.getUTCFullYear().toString();
-  // const DOB = `${day} ${month} ${year}`;
-
   return (
     <div className="grid font-['Playfair-Display'] grid-cols-12">
       <div className="md:hidden" onClick={sidebarHandler}>

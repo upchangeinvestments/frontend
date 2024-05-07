@@ -67,9 +67,6 @@ function Categories({ data }) {
           )
         )}
       </div>
-      {/* <div className="mt-4 flex items-center justify-center CustomizeFontH p-4 ">
-                <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600 w-44">See More </button>
-            </div> */}
     </div>
   );
 }
