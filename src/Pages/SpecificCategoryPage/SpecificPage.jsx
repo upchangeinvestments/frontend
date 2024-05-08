@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { useParams } from "react-router-dom";
 import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/Filter/MobileFilterDrawer";
@@ -6,6 +6,7 @@ import MobileFilter from "../../commonComponents/Filter/MobileFilter";
 import NavBar from "../../commonComponents/NavBar";
 import "../../styles/CategoryPage/categoryPage.css";
 // import SearchBox from "../../commonComponents/SearchBox";
+import { GrClose } from "react-icons/gr";
 import Tooltip from '@mui/material/Tooltip';
 import FilterSection from "../../commonComponents/Filter/FilterSection";
 import { useAuth } from "../../utils/AuthContext";
@@ -23,12 +24,17 @@ function SpecificPage() {
   const [data, setData] = useState({});
   const [Id, setId] = useState(0);
   const [filterData, setFilterData] = useState({});
+  const [unsortedData, setUnsorted] = useState({});
   const [totalPaginationPages, setTotalPaginationPages] = useState(1);
   const [pageNo, setPageNo] = useState(1);
   const [starredPosts, setStarredPosts] = useState([]);
   const { user, backendUrl } = useAuth();
   const [loading, setLoading] = useState(false);
   const [viewSortFilter, setViewSortFilter] = useState(false);
+  const sortFilterRef = useRef(null);
+  const [investmentRange, setInvestmentRange] = useState("");
+  const [fundTimeLine, setFundTimeLine] = useState("");
+  const [IRR, setIRR] = useState("");
   var postsPerPage = 12;
 
   const receiveDataObject = (dataObject) => {
@@ -42,17 +48,44 @@ function SpecificPage() {
 
   const receiveFilteredData = (data) => {
     setFilterData(data);
+    setUnsorted(data);
   };
 
   const PaginationHandler = (currentPage) => {
     setPageNo(currentPage);
     FetchLikedPosts();
   }
+
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    if (name === 'investmentRange') {
+      setInvestmentRange(value);
+    } else if (name === 'fundTimeLine') {
+      setFundTimeLine(value);
+    } else if (name === 'IRR') {
+      setIRR(value);
+    }
+  };
+
+  const clearSortFilter = () => {
+    setInvestmentRange("");
+    setFundTimeLine("");
+    setIRR("");
+    setFilterData(unsortedData);
+    setViewSortFilter(false);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, [200]);
+  }
+
   const SortFilterHandler = (e) => {
     e.preventDefault();
-    const investmentRange = e.target.elements.investmentRange.value;
-    const fundTimeLine = e.target.elements.fundTimeLine.value;
-    const IRR = e.target.elements.IRR.value;
+    const form = e.target.closest('form');
+    const formData = new FormData(form);
+    setInvestmentRange(formData.get("investmentRange"));
+    setFundTimeLine(formData.get("fundTimeLine"));
+    setIRR(formData.get("IRR"));
 
     var sortData = [...filterData];
     if (investmentRange) {
@@ -79,6 +112,11 @@ function SpecificPage() {
       }
     }
     setFilterData(sortData);
+    setViewSortFilter(false);
+    setLoading(true);
+    setTimeout(() => {
+      setLoading(false);
+    }, [200]);
   }
 
   const FetchLikedPosts = async () => {
@@ -93,6 +131,16 @@ function SpecificPage() {
     const totalItems = filterData.length;
     const totalPages = Math.ceil(totalItems / postsPerPage);
     setTotalPaginationPages(totalPages);
+
+    const handleClick = (event) => {
+      if (sortFilterRef.current && !sortFilterRef.current.contains(event.target)) {
+        setViewSortFilter(prev => !prev);
+      }
+    };
+    document.addEventListener("mousedown", handleClick);
+    return () => {
+      document.removeEventListener("mousedown", handleClick);
+    };
   }, [filterData, user]);
 
   return (
@@ -164,19 +212,19 @@ function SpecificPage() {
         </div>
         <div className="absolute right-8 -top-12 flex flex-col items-end ">
           <GrSort size={24} onClick={() => setViewSortFilter(prev => !prev)} />
-          {viewSortFilter && (<div className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[500px] rounded-lg mt-2">
+          {viewSortFilter && (<div ref={sortFilterRef} className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[500px] rounded-lg mt-2">
             <form onSubmit={SortFilterHandler}>
-              <h1 className="text-center font-bold text-2xl p-4">Filter Investment Type</h1>
+              <h1 className="text-center font-bold text-2xl p-4">Sort Investment Type</h1>
               <div className="w-full bg-[#9059d9]">
                 <p className="text-left p-2 pl-8 text-lg font-bold text-white">Investment Range</p>
               </div>
               <div className="p2 pl-8 flex flex-col">
                 <label className="mt-2">
-                  <input className="mr-2" type="radio" name="investmentRange" value="High" />
+                  <input className="mr-2" type="radio" name="investmentRange" value="High" checked={investmentRange === "High"} onChange={handleInputChange} />
                   High to low investment range
                 </label>
                 <label className="my-2">
-                  <input className="mr-2" type="radio" name="investmentRange" value="low" />
+                  <input className="mr-2" type="radio" name="investmentRange" value="low" checked={investmentRange === "low"} onChange={handleInputChange} />
                   Low to high investment range
                 </label>
               </div>
@@ -185,11 +233,11 @@ function SpecificPage() {
               </div>
               <div className="p2 pl-8 flex flex-col">
                 <label className="mt-2">
-                  <input className="mr-2" type="radio" name="fundTimeLine" value="started" />
+                  <input className="mr-2" type="radio" name="fundTimeLine" value="started" checked={fundTimeLine === "started"} onChange={handleInputChange} />
                   Funding started recently
                 </label>
                 <label className="my-2">
-                  <input type="radio" className="mr-2" name="fundTimeLine" value="closing" />
+                  <input type="radio" className="mr-2" name="fundTimeLine" value="closing" checked={fundTimeLine === "closing"} onChange={handleInputChange} />
                   Funding closing soon
                 </label>
               </div>
@@ -198,11 +246,11 @@ function SpecificPage() {
               </div>
               <div className="p2 pl-8 flex flex-col">
                 <label className="mt-2">
-                  <input className="mr-2" type="radio" name="IRR" value="High" />
+                  <input className="mr-2" type="radio" name="IRR" value="High" checked={IRR === "High"} onChange={handleInputChange} />
                   High to low IRR
                 </label>
                 <label className="my-2">
-                  <input className="mr-2" type="radio" name="IRR" value="low" />
+                  <input className="mr-2" type="radio" name="IRR" value="low" checked={IRR === "low"} onChange={handleInputChange} />
                   Low to high IRR
                 </label>
               </div>
@@ -211,7 +259,10 @@ function SpecificPage() {
                   APPLY
                 </button>
               </div>
-              <Tooltip title="Clear All filter" className="absolute top-6 right-6">
+              <div className="absolute top-4 right-4" onClick={() => setViewSortFilter(false)}>
+                <GrClose size={24} />
+              </div>
+              <Tooltip title="Clear All filter" className="absolute bottom-6 right-6" onClick={() => clearSortFilter()}>
                 <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
               </Tooltip>
             </form>
