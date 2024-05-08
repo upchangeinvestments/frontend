@@ -65,9 +65,9 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
                     <progress
                       className="progress progress1"
                       max="100"
-                      value="57"
+                      value={data.funded}
                     ></progress>
-                    <p className="text-xs text-nowrap ml-2">57% Funded</p>
+                    <p className="text-xs text-nowrap ml-2">{data.funded}% Funded</p>
                   </div>
                 </div>
               </div>
@@ -127,7 +127,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
               <div className="flex items-center justify-center flex-col">
                 <p className="text-gray-600 text-sm">Target IRR</p>
-                <p className="font-bold text-base">{data.IRR}</p>
+                <p className="font-bold text-base">{data.IRR}%</p>
               </div>
             </div>
             <div className="flex items-center justify-center mt-8">
@@ -186,7 +186,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
             </div>
             <div className="w-auto mx-auto">
               <p className="text-gray-600  text-sm">Target IRR</p>
-              <p className="font-bold vsm:text-base sm:text-lg">{data.IRR}</p>
+              <p className="font-bold vsm:text-base sm:text-lg">{data.IRR}%</p>
             </div>
           </div>
           <div className="w-full flex items-center">

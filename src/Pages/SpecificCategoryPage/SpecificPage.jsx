@@ -6,15 +6,16 @@ import MobileFilter from "../../commonComponents/Filter/MobileFilter";
 import NavBar from "../../commonComponents/NavBar";
 import "../../styles/CategoryPage/categoryPage.css";
 // import SearchBox from "../../commonComponents/SearchBox";
+import Tooltip from '@mui/material/Tooltip';
 import FilterSection from "../../commonComponents/Filter/FilterSection";
 import { useAuth } from "../../utils/AuthContext";
 import Post from "./Posts";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
-// import SkeletonCard from "../../commonComponents/SkeletonCard";
-// import PropagateLoader from "react-spinners/PropagateLoader";
+import { GrSort } from "react-icons/gr";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
+// import { IoGameController } from "react-icons/io5";
 
 function SpecificPage() {
   const { type } = useParams();
@@ -27,6 +28,7 @@ function SpecificPage() {
   const [starredPosts, setStarredPosts] = useState([]);
   const { user, backendUrl } = useAuth();
   const [loading, setLoading] = useState(false);
+  const [viewSortFilter, setViewSortFilter] = useState(false);
   var postsPerPage = 12;
 
   const receiveDataObject = (dataObject) => {
@@ -46,6 +48,39 @@ function SpecificPage() {
     setPageNo(currentPage);
     FetchLikedPosts();
   }
+  const SortFilterHandler = (e) => {
+    e.preventDefault();
+    const investmentRange = e.target.elements.investmentRange.value;
+    const fundTimeLine = e.target.elements.fundTimeLine.value;
+    const IRR = e.target.elements.IRR.value;
+
+    var sortData = [...filterData];
+    if (investmentRange) {
+      if (investmentRange === 'High') {
+        sortData.sort((a, b) => b.minInvestment - a.minInvestment);
+      } else {
+        sortData.sort((a, b) => a.minInvestment - b.minInvestment);
+      }
+    }
+
+    if (fundTimeLine) {
+      if (fundTimeLine === 'started') {
+        sortData = sortData.filter(item => item.funded <= 20)
+      } else {
+        sortData = sortData.filter(item => item.funded >= 80)
+      }
+    }
+
+    if (IRR) {
+      if (IRR === 'High') {
+        sortData.sort((a, b) => b.IRR - a.IRR);
+      } else {
+        sortData.sort((a, b) => a.IRR - b.IRR);
+      }
+    }
+    setFilterData(sortData);
+  }
+
   const FetchLikedPosts = async () => {
     try {
       const starredPosts = await axios.get(`${backendUrl}/profile/${user._id}/fetchPosts`);
@@ -93,7 +128,7 @@ function SpecificPage() {
           </p>
         </div>
       </div>
-      <div className="flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
+      <div className="relative flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} type={type} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
           {loading === false && (<MobileFilter
@@ -126,6 +161,61 @@ function SpecificPage() {
               <p className="font-bold text-4xl text-center tracking-wider font-['Playfair-Display'] -mt-[100px]">No Data Found!</p>
             </div>
           )}
+        </div>
+        <div className="absolute right-8 -top-12 flex flex-col items-end ">
+          <GrSort size={24} onClick={() => setViewSortFilter(prev => !prev)} />
+          {viewSortFilter && (<div className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[500px] rounded-lg mt-2">
+            <form onSubmit={SortFilterHandler}>
+              <h1 className="text-center font-bold text-2xl p-4">Filter Investment Type</h1>
+              <div className="w-full bg-[#9059d9]">
+                <p className="text-left p-2 pl-8 text-lg font-bold text-white">Investment Range</p>
+              </div>
+              <div className="p2 pl-8 flex flex-col">
+                <label className="mt-2">
+                  <input className="mr-2" type="radio" name="investmentRange" value="High" />
+                  High to low investment range
+                </label>
+                <label className="my-2">
+                  <input className="mr-2" type="radio" name="investmentRange" value="low" />
+                  Low to high investment range
+                </label>
+              </div>
+              <div className="w-full bg-[#9059d9] ">
+                <p className="text-left p-2 pl-8 text-lg font-bold text-white">Fund Timeline</p>
+              </div>
+              <div className="p2 pl-8 flex flex-col">
+                <label className="mt-2">
+                  <input className="mr-2" type="radio" name="fundTimeLine" value="started" />
+                  Funding started recently
+                </label>
+                <label className="my-2">
+                  <input type="radio" className="mr-2" name="fundTimeLine" value="closing" />
+                  Funding closing soon
+                </label>
+              </div>
+              <div className="w-full bg-[#9059d9] ">
+                <p className="text-left p-2 pl-8 text-lg font-bold text-white">Internal Rate of Return</p>
+              </div>
+              <div className="p2 pl-8 flex flex-col">
+                <label className="mt-2">
+                  <input className="mr-2" type="radio" name="IRR" value="High" />
+                  High to low IRR
+                </label>
+                <label className="my-2">
+                  <input className="mr-2" type="radio" name="IRR" value="low" />
+                  Low to high IRR
+                </label>
+              </div>
+              <div className="flex items-center justify-center">
+                <button className="rounded-xl bg-[#9059d9] py-2 px-6 mb-4 text-white font-bold text-base">
+                  APPLY
+                </button>
+              </div>
+              <Tooltip title="Clear All filter" className="absolute top-6 right-6">
+                <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
+              </Tooltip>
+            </form>
+          </div>)}
         </div>
       </div>
       <div className="">
