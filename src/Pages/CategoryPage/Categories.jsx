@@ -6,14 +6,14 @@ import infrastructure from "../../assets/categories/infrastructure.jpg";
 import office from "../../assets/categories/office1.jpeg";
 import resident from "../../assets/categories/residential.jpeg";
 import retail from "../../assets/categories/retail.jpg";
-import school from "../../assets/categories/school.jpg";
 import warehouse from "../../assets/categories/warehouse.jpg";
 import BlurBuilding from "../../assets/Building_blur-xl.jpg";
+import parks from "../../assets/parks.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
-const Images = [resident, retail, hotel, warehouse, hospital, school, office, infrastructure, BlurBuilding];
-const Texts = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure", "View All"];
-const type = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure", "All"];
+const Images = [resident, retail, hotel, warehouse, hospital, parks, office, infrastructure, BlurBuilding];
+const Texts = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Homes Parks", "Office", "Land & Infrastructure", "View All"];
+const type = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Homes Parks", "Office", "Land & Infrastructure", "All"];
 
 const categoryData = Images.map((image, index) => ({
   image: image,

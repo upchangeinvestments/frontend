@@ -31,6 +31,8 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
     else if (title === "Location") filterType = "locations";
     else if (title === "Investment Range") filterType = "investmentRange";
     else if (title === "Hold Period") filterType = "holdPeriod";
+    else if (title === "Zip Code") filterType = "zipCode";
+    else if (title === "IRR") filterType = "targetedIRR";
     const [filters, setFilters] = useState({
         category: [type],
         investmentRange: [],
@@ -76,12 +78,28 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
         }
     };
 
-    const handleClearFilter = (filterType) => {
+    const handleClearFilter = (filterType, Index) => {
         clearFilter(filterType);
+        if (Index === 0) {
+            setSelectedOptions(current => ({
+                ...current,
+                [Index]: [type]
+            }))
+        } else if (Index !== 4 && Index !== 5) {
+            setSelectedOptions(current => ({
+                ...current,
+                [Index]: []
+            }))
+        }
     };
 
     const clearFilter = (filterType) => {
-        if (filterType === "targetedIRR") {
+        if (filterType === 'category') {
+            setFilters(prevFilters => ({
+                ...prevFilters,
+                [filterType]: [type],
+            }));
+        } else if (filterType === "targetedIRR") {
             setFilters(prevFilters => ({
                 ...prevFilters,
                 [filterType]: 0,
@@ -92,6 +110,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
                 ...prevFilters,
                 [filterType]: ""
             }));
+            setZipCode("");
         } else {
             setFilters(prevFilters => ({
                 ...prevFilters,
@@ -156,7 +175,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
                     />
                 </svg>
             </div>
-            <div className="flex items-center justify-start font-['Playfair-Display'] mb-4">
+            <div className="flex items-center justify-center font-['Playfair-Display'] mb-4">
                 <div className="text-xl text-[#6e30a7] font-bold">{title}</div>
             </div>
             <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
@@ -196,8 +215,11 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
                     </div>
                 </div>}
             </div >
-            <div className="mt-4">
-                <button className="bg-[#6e30a7] text-sm text-[#fff] rounded-lg py-1 px-4" onClick={() => handleClearFilter(filterType)}>Clear {title} Filter</button>
+            <div className="mt-4 flex items-center justify-center">
+                <button className="bg-[#6e30a7] text-sm text-[#fff] rounded-lg py-2 px-4" onClick={() => closeDrawer()}>Apply Filter</button>
+            </div>
+            <div className="mt-4 flex items-center justify-center">
+                <button className="bg-[#6e30a7] text-sm text-[#fff] rounded-lg py-2 px-4" onClick={() => handleClearFilter(filterType, Index)}>Clear {title} Filter</button>
             </div>
         </Drawer >
     )

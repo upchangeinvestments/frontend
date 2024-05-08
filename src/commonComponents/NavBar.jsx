@@ -5,7 +5,7 @@ import { useAuth } from "../utils/AuthContext";
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
-import { IoMdSettings, IoMdHelpCircle,IoIosHome } from "react-icons/io";
+import { IoMdSettings, IoMdHelpCircle, IoIosHome } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import {
@@ -133,10 +133,9 @@ const NavBar = () => {
             <div className="flex vsm:w-[100%] vsm:justify-between md:w-auto md:flex-none md:justify-start ">
               <div className="">
                 <Link to="/">
-                  <span className="sr-only">Workflow</span>
                   <div className="flex flex-row items-center lg:gap-2 ">
                     <img
-                      className="w-auto vsm:h-12"
+                      className="w-auto vsm:h-12 lg:h-16"
                       src={open ? "" : logo}
                       alt=""
                     />
@@ -283,17 +282,17 @@ const NavBar = () => {
               </div>
               <div className="mt-6">
                 <nav className="grid gap-y-8">
-                <Link
+                  <Link
                     to="/"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
-                  {/* Heroicon name: outline/chart-bar */}
-                  <IoIosHome className="h-6 w-6 text-[#6e30a7]" />
+                    {/* Heroicon name: outline/chart-bar */}
+                    <IoIosHome className="h-6 w-6 text-[#6e30a7]" />
                     <span className="ml-3 text-base font-medium text-gray-900">
                       Home
                     </span>
-                  </Link>  
-                  
+                  </Link>
+
                   <Link
                     to="/about"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
