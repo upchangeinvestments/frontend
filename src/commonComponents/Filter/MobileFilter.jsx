@@ -3,7 +3,7 @@ import React from 'react';
 const dataObject = [
     {
         title: "Categories",
-        options: ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure"],
+        options: ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure"],
         inputType: "checkbox",
     },
     {

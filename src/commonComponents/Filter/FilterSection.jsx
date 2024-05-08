@@ -5,7 +5,7 @@ import PropertyData from "../../assets/RMData.json";
 import Tooltip from '@mui/material/Tooltip';
 
 function FilterSection({ sendFilteredData, type, setLoader }) {
-  const CategoryType = ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilities", "School", "Office", "Land & Infrastructure"];
+  const CategoryType = ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure"];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const InvestmentRange = ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"];
   const HoldPeriod = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
@@ -128,9 +128,7 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
       }}
     >
       <div className="flex items-center justify-center text-2xl font-bold font-['Playfair-Display'] text-[#6e30a7]  mt-2">
-        <p>
-          <u>Filter Projects</u>
-        </p>
+        <p className="uppercase">Filter Projects</p>
       </div>
       <FilterSubSection
         list={CategoryType}

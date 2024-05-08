@@ -1,6 +1,6 @@
 [
   {
-    "title": "Sample Project",
+    "title": "Pine Villa",
     "image": "https://i.postimg.cc/L8JxgLw0/frames-for-your-heart-m-R1-CIDdu-GLc-unsplash.jpg",
     "description": "Discover your dream home in our picturesque real estate venue, where luxury meets tranquility.",
     "category": "Residential",
@@ -99,7 +99,7 @@
     "Investment": "$100-$1k",
     "minInvestment": 100,
     "Hold_period": "2YRS-4YRS",
-    "category": "School",
+    "category": "Mobile Home Parks",
     "zip_code": "90001",
     "funded": 75.3
   },
@@ -230,7 +230,7 @@
     "Investment": "$100-$1k",
     "minInvestment": 100,
     "Hold_period": "2YRS-4YRS",
-    "category": "School",
+    "category": "Mobile Home Parks",
     "zip_code": "96162",
     "funded": 90
   }

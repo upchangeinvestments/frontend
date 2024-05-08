@@ -16,6 +16,7 @@ import "../../App.css";
 import { GrSort } from "react-icons/gr";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
+import filterSVG from "../../assets/filter.svg";
 // import { IoGameController } from "react-icons/io5";
 
 function SpecificPage() {
@@ -208,10 +209,10 @@ function SpecificPage() {
           )}
         </div>
         <div className="absolute right-8 -top-12 flex flex-col items-end ">
-          <GrSort size={24} onClick={() => setViewSortFilter(prev => !prev)} />
+          <img src={filterSVG} className="w-[2rem] h-[2rem] -mt-2" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />
           {viewSortFilter && (<div ref={sortFilterRef} className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[500px] rounded-lg mt-2">
             <form onSubmit={SortFilterHandler}>
-              <h1 className="text-center font-bold text-2xl p-4">Sort Investment Type</h1>
+              <h1 className="text-center font-bold text-2xl p-4 uppercase">Sort Investment Type</h1>
               <div className="w-full bg-[#9059d9]">
                 <p className="text-left p-2 pl-8 text-lg font-bold text-white">Investment Range</p>
               </div>

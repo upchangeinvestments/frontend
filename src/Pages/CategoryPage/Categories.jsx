@@ -12,8 +12,8 @@ import parks from "../../assets/parks.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 
 const Images = [resident, retail, hotel, warehouse, hospital, parks, office, infrastructure, BlurBuilding];
-const Texts = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Homes Parks", "Office", "Land & Infrastructure", "View All"];
-const type = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Homes Parks", "Office", "Land & Infrastructure", "All"];
+const Texts = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure", "View All"];
+const type = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure", "All"];
 
 const categoryData = Images.map((image, index) => ({
   image: image,
