@@ -158,7 +158,7 @@ function SpecificPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end vsm:mx-8 lg:mx-0">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[350px] xl:-mt-[430px] hidden lg:block lg:text-4xl font-medium mx-auto ml-[60%]">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] hidden lg:block lg:text-4xl font-medium mx-auto ml-[60%]">
             {type.split(" ").length === 1 ? (
               <div className="">
                 <div className="">Explore {`${type}`}</div>
@@ -207,9 +207,10 @@ function SpecificPage() {
             </div>
           )}
         </div>
-        <div className="absolute right-8 -top-12 flex flex-col items-end">
+        <div className="absolute right-4 lg:right-8 -top-6 lg:-top-12 flex flex-col items-end">
           <div className="rounded-full w-10 h-10 -mt-2 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black">
-            <img src={filterSVG} className="w-[1.5rem] h-[1.5rem] text-white" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />
+            {!viewSortFilter && <img src={filterSVG} className="w-[1.5rem] h-[1.5rem] text-white" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />}
+            {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} />}
           </div>
           {viewSortFilter && (
             <div ref={sortFilterRef} className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
@@ -258,9 +259,6 @@ function SpecificPage() {
                   <button className="rounded-xl bg-[#9059d9] py-2 px-6 mb-4 text-white font-bold text-base">
                     APPLY
                   </button>
-                </div>
-                <div className="absolute top-4 right-4" onClick={() => setViewSortFilter(false)}>
-                  <GrClose size={24} />
                 </div>
                 <Tooltip title="Clear All filter" className="absolute bottom-6 right-6" onClick={() => clearSortFilter()}>
                   <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
