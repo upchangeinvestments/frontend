@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import Tooltip from '@mui/material/Tooltip';
 import { useParams } from "react-router-dom";
 
-function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent, clearFilter, applyFilters }) {
+function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent, clearFilter }) {
   // const [showAll, setShowAll] = useState(true);
   const { type } = useParams();
   // const visibleItems = showAll ? list : list.slice(0, 3);

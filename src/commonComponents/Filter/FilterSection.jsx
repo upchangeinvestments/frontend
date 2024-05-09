@@ -14,7 +14,7 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
   const [zipCode, setZipCode] = useState("");
 
   const [filters, setFilters] = useState({
-    category: [type],
+    category: type === 'All' ? [] : [type],
     investmentRange: [],
     targetedIRR: 0,
     holdPeriod: [],
@@ -27,9 +27,15 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
     let filtered = PropertyData.filter(item => {
       return (
         (filters.category.length === 0 || filters.category.includes(item.category)) &&
-        (filters.investmentRange.length === 0 || filters.investmentRange.includes(item.Investment)) &&
+        (filters.investmentRange.length === 0 ||
+          item.minInvestment >= parseInt(filters.investmentRange.split('-')[0].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) &&
+          (filters.investmentRange.split('-')[1] ? item.minInvestment <= parseInt(filters.investmentRange.split('-')[1].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) : true)
+        ) &&
         (filters.targetedIRR === 0 || parseInt(item.IRR) >= filters.targetedIRR) &&
-        (filters.holdPeriod.length === 0 || filters.holdPeriod.includes(item.Hold_period)) &&
+        (filters.holdPeriod.length === 0 || filters.holdPeriod.some(period => {
+          const [min, max] = period.split('-').map(x => parseInt(x.replace('YRS', '')));
+          return item.Hold_period >= min && item.Hold_period <= max;
+        })) &&
         (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.location))) &&
         (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
       );
@@ -77,7 +83,7 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
     } else if (filterType === 'category') {
       setFilters(prevFilters => ({
         ...prevFilters,
-        [filterType]: [type]
+        [filterType]: type === 'All' ? [] : [type]
       }));
     } else {
       setFilters(prevFilters => ({
@@ -127,8 +133,8 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="flex items-center justify-center text-2xl font-bold font-['Playfair-Display'] text-[#6e30a7]  mt-2">
-        <p className="uppercase">Filter Projects</p>
+      <div className="flex items-center justify-center text-xl font-bold font-['Playfair-Display'] text-[#6e30a7]  mt-2">
+        <p className="uppercase underline">Filter Projects</p>
       </div>
       <FilterSubSection
         list={CategoryType}
@@ -137,7 +143,6 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         updateFilters={updateFilters}
         filterType="category"
         clearFilter={clearFilter}
-        applyFilters={applyFilters}
       />
       <FilterSubSection
         list={InvestmentRange}
@@ -146,7 +151,6 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         updateFilters={updateFilters}
         filterType="investmentRange"
         clearFilter={clearFilter}
-        applyFilters={applyFilters}
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
         <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
@@ -178,7 +182,6 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         updateFilters={updateFilters}
         filterType="holdPeriod"
         clearFilter={clearFilter}
-        applyFilters={applyFilters}
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
         <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
@@ -203,7 +206,6 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
           filterType="locations"
           getTooltipContent={getTooltipContent}
           clearFilter={clearFilter}
-          applyFilters={applyFilters}
         />
 
       </div>

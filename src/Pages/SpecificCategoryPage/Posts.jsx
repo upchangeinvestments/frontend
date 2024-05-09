@@ -115,11 +115,11 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
             <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-2 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm">Min Investment</div>
-                <div className="font-bold text-base uppercase">{data.Investment.split("-")[0]}</div>
+                <div className="font-bold text-base uppercase">{data.Investment}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <p className="text-gray-600 text-sm">Hold period</p>
-                <p className="font-bold text-base">{data.Hold_period}</p>
+                <p className="font-bold text-base">{data.Hold_period} YEARS</p>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm">Category type</div>
@@ -131,8 +131,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
             </div>
             <div className="flex items-center justify-center mt-8">
-              <Button Text="Know More" link="/post" />
-              {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
+              <Button Text="Know More" link={`/post/${data.projectId}`} />
             </div>
           </div>
         </div>
@@ -174,7 +173,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
           <div className="mt-2 grid grid-cols-2 gap-y-2 gap-x-2">
             <div className="w-auto mx-auto">
               <div className="text-gray-600  text-sm">Min Investment</div>
-              <div className="font-bold vsm:text-base sm:text-lg uppercase">{data.Investment.split("-")[0]}</div>
+              <div className="font-bold vsm:text-base sm:text-lg uppercase">{data.Investment}</div>
             </div>
             <div className="w-auto mx-auto">
               <p className="text-gray-600  text-sm">Hold period</p>

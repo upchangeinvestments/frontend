@@ -29,7 +29,8 @@ function Categories({ data }) {
       <div className="grid  vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  gap-x-6  gap-y-12">
         {filteredCategoryData.map((element, index) =>
           index === 8 ? (
-            <div
+            <Link
+              to={element.type}
               key={index}
               className="flex flex-col items-center "
             >
@@ -44,7 +45,7 @@ function Categories({ data }) {
                   <MdKeyboardArrowRight size="25px" />
                 </div>
               </div>
-            </div>
+            </Link>
           ) : (
             <Link
               to={element.type}

@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "../../commonComponents/NavBar";
-import { Link } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 // import SearchBox from '../../commonComponents/SearchBox';
 import "../../styles/CategoryPage/categoryPage.css";
@@ -14,6 +14,7 @@ import MaterialUIAccordion from "./Accordion";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
 import PhotoSection from "./PhotosSection";
+import InvestmentData from "../../assets/RMData.json"
 
 const Progressbar = ({ val }) => {
   // const width = `${Math.min(Math.max(0, val), 100)}%`;
@@ -42,7 +43,7 @@ const OverViewContent = () => {
         AHFII has a fully identified pipeline of six assets
       </p>
       <p>
-        The Fund’s primary focus is on development within the Southern United
+        The Fund’s primary focus is on development within the United
         States, a region that is increasing in population up to 70% faster than
         the national average with consistently sub-4% unemployment rates. The
         strategic focus is on growing, undersupplied housing markets that have
@@ -61,12 +62,12 @@ const ListedCompany = () => {
     <div className="flex flex-col">
       <h2 className="font-['Playfair-Display'] text-lg">Fly Heights</h2>
       <p>
-      Founded in 2023, Fly Heights Enterprises emerges as a dynamic force in the realm of urban development, spearheading transformative projects that redefine city skylines and enhance community living. With a commitment to innovation and sustainability, Fly Heights Enterprises embraces the challenge of shaping tomorrow's cities today.
-      At Fly Heights Enterprises, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. From iconic residential towers to state-of-the-art commercial complexes, we craft spaces that inspire and elevate the human experience. Our portfolio showcases a diverse range of projects, each bearing the hallmark of meticulous design and unparalleled quality.
-      With a legacy spanning over a decade, Fly Heights Enterprises has become synonymous with forward-thinking urban development. Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life, ensuring that every project exceeds expectations.
+        Founded in 2023, Fly Heights Enterprises emerges as a dynamic force in the realm of urban development, spearheading transformative projects that redefine city skylines and enhance community living. With a commitment to innovation and sustainability, Fly Heights Enterprises embraces the challenge of shaping tomorrow's cities today.
+        At Fly Heights Enterprises, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. From iconic residential towers to state-of-the-art commercial complexes, we craft spaces that inspire and elevate the human experience. Our portfolio showcases a diverse range of projects, each bearing the hallmark of meticulous design and unparalleled quality.
+        With a legacy spanning over a decade, Fly Heights Enterprises has become synonymous with forward-thinking urban development. Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life, ensuring that every project exceeds expectations.
       </p>
       <p>
-      Beyond construction, Fly Heights Enterprises is committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
+        Beyond construction, Fly Heights Enterprises is committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
       </p>
       <div className="flex flex-col my-2 items-center justify-center">
         <p className="font-['Playfair-Display'] mb-2">
@@ -78,35 +79,38 @@ const ListedCompany = () => {
     </div>
   );
 };
-const tabs = [
-  {
-    title: "Overview",
-    content: <OverViewContent />,
-    link: "/post/#Section"
-  },
-  {
-    title: "Listed Company",
-    content: <ListedCompany />,
-    link: "/post/#Section"
-  },
-  {
-    title: "Business Plan",
-    link: "/post/#business",
-  },
-  {
-    title: "Financials",
-    link: "/post/#financial",
-  },
-  {
-    title: "Documents",
-    link: "/post/#documents",
-  },
 
-];
 
 function PostPage() {
+  const { postId } = useParams();
   const [activeTab, setActiveTab] = useState(0);
-  const val = "71";
+  const data = InvestmentData[postId];
+
+  const tabs = [
+    {
+      title: "Overview",
+      content: <OverViewContent />,
+      link: `/post/${postId}/#Section`
+    },
+    {
+      title: "Listed Company",
+      content: <ListedCompany />,
+      link: `/post/${postId}/#Section`
+    },
+    {
+      title: "Business Plan",
+      link: `/post/${postId}/#business`,
+    },
+    {
+      title: "Financials",
+      link: `/post/${postId}/#financial`,
+    },
+    {
+      title: "Documents",
+      link: `/post/${postId}/#documents`,
+    },
+  ];
+
   return (
     <div className="bg-gradient-to-r from-purple-300 to-pink-200 ">
       <div className="flex flex-col items-center justify-center">
@@ -119,12 +123,12 @@ function PostPage() {
           <div className="flex flex-col items-center justify-center w-full py-4">
             <div className="flex vsm:flex-col md:flex-row font-['Playfair-Display'] items-center justify-center text-2xl">
               <span className="md:border-r md:border-gray-600 font-semibold pr-2">
-                Sample Project
+                {data.title}
               </span>
-              <span className="pl-2 font-medium">Residential Property</span>
+              <span className="pl-2 font-medium">{data.category} Property</span>
             </div>
             <span className="flex font-['Playfair-Display'] items-center">
-              <PiMapPinLineBold /> Dallas, TX
+              <PiMapPinLineBold /> {data.location}
             </span>
           </div>
           <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
@@ -144,8 +148,8 @@ function PostPage() {
             </div>
             <div className="flex vsm:flex-col md:flex-row w-full bg-white/20 backdrop-blur-xl shadow-md shadow-black-400 rounded-lg">
               <img
-                className="vsm:w-[100%] md:w-[55%] lg:w-[60%] object-cover"
-                src="https://i.postimg.cc/pLFgbVK7/photo-1570129477492-45c003edd2be.jpg"
+                className="vsm:w-[100%] md:w-[55%] lg:w-[60%] max-h-[430px] object-cover"
+                src={data.image}
                 alt="property"
               />
               <div className="flex flex-col  md:w-[45%] lg:w-[40%] items-center justify-center vsm:pb-4 md:pb-2 ">
@@ -154,33 +158,33 @@ function PostPage() {
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
                       <MdOutlineAutoGraph size="25px" />
                     </div>
-                    <p className="mt-1">10.00%</p>
+                    <p className="mt-1">{data.IRR}</p>
                     <p className="whitespace-nowrap ">Targeted IRR</p>
                   </div>
                   <div className="flex flex-col items-center justify-center pb-2">
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
                       <GoLock size="25px" />
                     </div>
-                    <p className="mt-1">2 YRS</p>
+                    <p className="mt-1">{data.Hold_period} YEARS</p>
                     <p className="whitespace-nowrap ">Hold period</p>
                   </div>
                   <div className="flex flex-col items-center justify-center pb-2">
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
                       <AiOutlineDollar size="25px" />
                     </div>
-                    <p className="mt-1">$10K</p>
+                    <p className="mt-1">{data.Investment}</p>
                     <p className="whitespace-nowrap ">Min Investments</p>
                   </div>
                   <div className="flex flex-col items-center justify-center pb-2">
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
                       <IoLocationOutline size="25px" />
                     </div>
-                    <p className="mt-1">Dallas, TX</p>
+                    <p className="mt-1">{data.location}</p>
                     <p className="whitespace-nowrap ">Location</p>
                   </div>
                 </div>
                 <div className="w-[85%] md:w-[80%]">
-                  <Progressbar val={val} />
+                  <Progressbar val={data.funded} />
                 </div>
                 <div className="my-4">
                   <Button
@@ -227,11 +231,7 @@ function PostPage() {
             </h2>
             <div className="px-4 font-['Playfair-Display'] ">
               <p className="mb-1">
-                This is a rare opportunity to purchase 1,71,402 sf in a LEED
-                Platinum building – Prestige Tech Platina on Outer Ring Road in
-                Bangalore tenanted to a US-based company on a 9-year lease
-                (7-year lock-in), at a price of ₹10,600 per sf implying a 10%
-                yield and a 17.5% IRR.
+                {data.description}
               </p>
               <p>
                 Prestige Tech Platina is a LEED Platinum building on the main
@@ -249,9 +249,9 @@ function PostPage() {
             </h2>
             <div className="px-4 font-['Playfair-Display'] ">
               <p className="mb-1">
-                The Fund’s primary focus is on development within the Southern
-                United States, a region that is increasing in population up to
-                70% faster than the national average with consistently sub-4%
+                The Fund’s primary focus is on development within the United
+                States, a region that is increasing in population up to 70%
+                faster than the national average with consistently sub-4%
                 unemployment rates.
               </p>
               <p>

@@ -34,7 +34,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
     else if (title === "Zip Code") filterType = "zipCode";
     else if (title === "IRR") filterType = "targetedIRR";
     const [filters, setFilters] = useState({
-        category: [type],
+        category: type === 'All' ? [] : [type],
         investmentRange: [],
         targetedIRR: 0,
         holdPeriod: [],
@@ -83,7 +83,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
         if (Index === 0) {
             setSelectedOptions(current => ({
                 ...current,
-                [Index]: [type]
+                [Index]: type === 'All' ? [] : [type]
             }))
         } else if (Index !== 4 && Index !== 5) {
             setSelectedOptions(current => ({
@@ -97,7 +97,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
         if (filterType === 'category') {
             setFilters(prevFilters => ({
                 ...prevFilters,
-                [filterType]: [type],
+                [filterType]: type === 'All' ? [] : [type],
             }));
         } else if (filterType === "targetedIRR") {
             setFilters(prevFilters => ({

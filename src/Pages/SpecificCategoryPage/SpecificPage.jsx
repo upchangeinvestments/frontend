@@ -13,7 +13,6 @@ import { useAuth } from "../../utils/AuthContext";
 import Post from "./Posts";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
-import { GrSort } from "react-icons/gr";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 import filterSVG from "../../assets/filter.svg";
@@ -208,63 +207,67 @@ function SpecificPage() {
             </div>
           )}
         </div>
-        <div className="absolute right-8 -top-12 flex flex-col items-end ">
-          <img src={filterSVG} className="w-[2rem] h-[2rem] -mt-2" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />
-          {viewSortFilter && (<div ref={sortFilterRef} className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[500px] rounded-lg mt-2">
-            <form onSubmit={SortFilterHandler}>
-              <h1 className="text-center font-bold text-2xl p-4 uppercase">Sort Investment Type</h1>
-              <div className="w-full bg-[#9059d9]">
-                <p className="text-left p-2 pl-8 text-lg font-bold text-white">Investment Range</p>
-              </div>
-              <div className="p2 pl-8 flex flex-col">
-                <label className="mt-2">
-                  <input className="mr-2" type="radio" name="investmentRange" value="High" checked={investmentRange === "High"} onChange={handleInputChange} />
-                  High to low investment range
-                </label>
-                <label className="my-2">
-                  <input className="mr-2" type="radio" name="investmentRange" value="low" checked={investmentRange === "low"} onChange={handleInputChange} />
-                  Low to high investment range
-                </label>
-              </div>
-              <div className="w-full bg-[#9059d9] ">
-                <p className="text-left p-2 pl-8 text-lg font-bold text-white">Fund Timeline</p>
-              </div>
-              <div className="p2 pl-8 flex flex-col">
-                <label className="mt-2">
-                  <input className="mr-2" type="radio" name="fundTimeLine" value="started" checked={fundTimeLine === "started"} onChange={handleInputChange} />
-                  Funding started recently
-                </label>
-                <label className="my-2">
-                  <input type="radio" className="mr-2" name="fundTimeLine" value="closing" checked={fundTimeLine === "closing"} onChange={handleInputChange} />
-                  Funding closing soon
-                </label>
-              </div>
-              <div className="w-full bg-[#9059d9] ">
-                <p className="text-left p-2 pl-8 text-lg font-bold text-white">Internal Rate of Return</p>
-              </div>
-              <div className="p2 pl-8 flex flex-col">
-                <label className="mt-2">
-                  <input className="mr-2" type="radio" name="IRR" value="High" checked={IRR === "High"} onChange={handleInputChange} />
-                  High to low IRR
-                </label>
-                <label className="my-2">
-                  <input className="mr-2" type="radio" name="IRR" value="low" checked={IRR === "low"} onChange={handleInputChange} />
-                  Low to high IRR
-                </label>
-              </div>
-              <div className="flex items-center justify-center">
-                <button className="rounded-xl bg-[#9059d9] py-2 px-6 mb-4 text-white font-bold text-base">
-                  APPLY
-                </button>
-              </div>
-              <div className="absolute top-4 right-4" onClick={() => setViewSortFilter(false)}>
-                <GrClose size={24} />
-              </div>
-              <Tooltip title="Clear All filter" className="absolute bottom-6 right-6" onClick={() => clearSortFilter()}>
-                <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
-              </Tooltip>
-            </form>
-          </div>)}
+        <div className="absolute right-8 -top-12 flex flex-col items-end">
+          <div className="rounded-full w-10 h-10 -mt-2 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black">
+            <img src={filterSVG} className="w-[1.5rem] h-[1.5rem] text-white" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />
+          </div>
+          {viewSortFilter && (
+            <div ref={sortFilterRef} className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+              <form onSubmit={SortFilterHandler}>
+                <h1 className="text-center font-bold text-xl p-4 uppercase underline">Sort Investment Type</h1>
+                <div className="w-full bg-[#9059d9]">
+                  <p className="text-left p-2 pl-4 lg:pl-8 text-base lg:text-lg font-bold text-white">Investment Range</p>
+                </div>
+                <div className="p2 pl-4 lg:pl-8 flex flex-col">
+                  <label className="mt-2">
+                    <input className="mr-2" type="radio" name="investmentRange" value="High" checked={investmentRange === "High"} onChange={handleInputChange} />
+                    High to low investment range
+                  </label>
+                  <label className="my-2">
+                    <input className="mr-2" type="radio" name="investmentRange" value="low" checked={investmentRange === "low"} onChange={handleInputChange} />
+                    Low to high investment range
+                  </label>
+                </div>
+                <div className="w-full bg-[#9059d9] ">
+                  <p className="text-left p-2 pl-4 lg:pl-8 text-lg font-bold text-white">Fund Timeline</p>
+                </div>
+                <div className="p2 pl-4 lg:pl-8 flex flex-col">
+                  <label className="mt-2">
+                    <input className="mr-2" type="radio" name="fundTimeLine" value="started" checked={fundTimeLine === "started"} onChange={handleInputChange} />
+                    Funding started recently
+                  </label>
+                  <label className="my-2">
+                    <input type="radio" className="mr-2" name="fundTimeLine" value="closing" checked={fundTimeLine === "closing"} onChange={handleInputChange} />
+                    Funding closing soon
+                  </label>
+                </div>
+                <div className="w-full bg-[#9059d9] ">
+                  <p className="text-left p-2 pl-4 lg:pl-8 text-lg font-bold text-white">Internal Rate of Return</p>
+                </div>
+                <div className="p2 pl-4 lg:pl-8 flex flex-col">
+                  <label className="mt-2">
+                    <input className="mr-2" type="radio" name="IRR" value="High" checked={IRR === "High"} onChange={handleInputChange} />
+                    High to low IRR
+                  </label>
+                  <label className="my-2">
+                    <input className="mr-2" type="radio" name="IRR" value="low" checked={IRR === "low"} onChange={handleInputChange} />
+                    Low to high IRR
+                  </label>
+                </div>
+                <div className="flex items-center justify-center">
+                  <button className="rounded-xl bg-[#9059d9] py-2 px-6 mb-4 text-white font-bold text-base">
+                    APPLY
+                  </button>
+                </div>
+                <div className="absolute top-4 right-4" onClick={() => setViewSortFilter(false)}>
+                  <GrClose size={24} />
+                </div>
+                <Tooltip title="Clear All filter" className="absolute bottom-6 right-6" onClick={() => clearSortFilter()}>
+                  <svg className="w-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
+                </Tooltip>
+              </form>
+            </div>
+          )}
         </div>
       </div>
       <div className="">
