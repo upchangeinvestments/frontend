@@ -11,11 +11,11 @@ function Unique() {
     "ROI Percent",
   ];
   const LI1 = [
-    "Commerical",
+    "Residential",
     "Rental",
-    "Single-House",
-    "Multi-House",
-    "Housing",
+    "Retail",
+    "Medical Facilities",
+    "Office",
   ];
   const LI2 = ["West", "Central", "South", "Midwest", "East"];
   const LI3 = [
@@ -26,7 +26,7 @@ function Unique() {
     "$100K-$500K",
   ];
   const LI4 = ["2Yrs-4Yrs", "4Yrs-6Yrs", "6Yrs-8Yrs", "8Yrs-10Yrs", "10Yrs+"];
-  const LI5 = ["2%-5%", "5%-7%", "7%-9%", "9%-10%", "10%+"];
+  const LI5 = ["5%-10%", "10%-15%", "15%-20%", "20%-25%", "25%+"];
   // const LI6 = ["RealtyMogul", "Cadre", "Fundrise", "Yieldstreet", "DiversyFund"]
 
   return (
@@ -36,8 +36,8 @@ function Unique() {
           WHAT MAKES US <span className="text-[#6e30a7]">DIFFERENT</span>?
         </h2>
       </div>
-      <div className="px-4 vsm:grid vsm:gap-4 md:mx-24 lg:gap-[150px] lg:mx-20 xl:mx-24 lg:mt-[10px] lg:flex">
-        <div className="relative vsm:h-[410px] lg:h-[390px] lg:ml-[20px] xl:ml-[200px] xl:h-[400px] xl:mx-auto">
+      <div className="px-4 vsm:grid vsm:gap-4 md:mx-24 lg:gap-[170px] xl:gap-[150px] lg:mx-20 xl:mx-40 lg:mt-[10px] lg:flex lg:items-center lg:justify-end xl:justify-center">
+        <div className="relative vsm:h-[410px] md:h-[420px] lg:h-[390px] lg:ml-[20px] xl:ml-[130px] xl:h-[400px] xl:mx-auto content-between">
           <div className="nowrap text-nowrap flex items-center justify-center text-2xl font-['Playfair-Display']  text-white">
             NAVIGATE YOUR WEALTH
           </div>
@@ -67,7 +67,7 @@ function Unique() {
             </ReactCardCarousel>
           </div>
         </div>
-        <div className="flex flex-col items-center justify-center  vsm:bg-white/20 vsm:backdrop-blur-3xl lg:backdrop-blur-none lg:bg-transparent vsm:px-4 vsm:py-8 vsm:rounded-lg mb-12  xl:ml-[40px]">
+        <div className="flex flex-col items-center justify-center vsm:bg-white/20 vsm:backdrop-blur-3xl lg:backdrop-blur-none lg:bg-transparent vsm:px-4 vsm:py-8 vsm:rounded-lg mb-12  xl:ml-[40px]">
           <h2 className="text-2xl font-['Playfair-Display']">WHO ARE WE?</h2>
           <p className="text-center font-['Playfair-Display'] font-medium lg:w-[400px]  mt-2">
             <span className="flex items-start  justify-center">

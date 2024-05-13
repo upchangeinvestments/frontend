@@ -3,12 +3,14 @@ import Faq from "./FAQ";
 import bgImage from "../../assets/login_BG.jpeg";
 import { FaTelegramPlane } from "react-icons/fa";
 import { useAuth } from "../../utils/AuthContext"
+import { FaAngleDown } from "react-icons/fa";
+
 
 const Formoptions = [
-    ['--Select option--', "Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Infrastructure", 'Other'],
-    ['--Select option--', '$ 50,000 - $ 1 Million', '$ 1 Million - $3 Million', '$ 3 Million - $5 Million', '$ 5 Million - $10 Million', '$ 10 Million - $15 Million', 'Other'],
-    ['--Select option--', 'Short-Term (3 Months)', 'Medium-Term (6 Months)', 'Long-Term (12 Months)', 'Custom Duration'],
-    ['--Select option--', 'Premium Placement', 'Enhanced Analytics', 'Marketing Support', 'Customized Reports', 'Custom Services'],
+    ['Select Option', "Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Infrastructure", 'Other'],
+    ['Select Option', '$ 50,000 - $ 1 Million', '$ 1 Million - $3 Million', '$ 3 Million - $5 Million', '$ 5 Million - $10 Million', '$ 10 Million - $15 Million', 'Other'],
+    ['Select Option', 'Short-Term (3 Months)', 'Medium-Term (6 Months)', 'Long-Term (12 Months)', 'Custom Duration'],
+    ['Select Option', 'Premium Placement', 'Enhanced Analytics', 'Marketing Support', 'Customized Reports', 'Custom Services'],
 ]
 
 function SubscriptionForm() {
@@ -144,13 +146,18 @@ function SubscriptionForm() {
                         >
                             Please select the type of real estate project you're looking to list on LynkInfinite Investments
                         </label>
-                        <select value={input1Value} onChange={(e) => handleInputChange(e, setInput1Value)} name="input1" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                            {Formoptions[0].map((option) => (
-                                <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
-                        </select>
+                        <div className="relative flex items-center justify-end">
+                            <div className="absolute right-4">
+                                <FaAngleDown color="white" size={24} />
+                            </div>
+                            <select value={input1Value} onChange={(e) => handleInputChange(e, setInput1Value)} name="input1" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                                {Formoptions[0].map((option) => (
+                                    <option className="bg-white/20 backdrop-blur-2xl text-black p-4" key={option} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                     <div className="mb-4">
                         <label
@@ -159,13 +166,18 @@ function SubscriptionForm() {
                         >
                             What is the estimated value of your project that you are seeking funding for?
                         </label>
-                        <select value={input2Value} onChange={(e) => handleInputChange(e, setInput2Value)} name="input2" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                            {Formoptions[1].map((option) => (
-                                <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
-                        </select>
+                        <div className="relative flex items-center justify-end">
+                            <div className="absolute right-4">
+                                <FaAngleDown color="white" size={24} />
+                            </div>
+                            <select value={input2Value} onChange={(e) => handleInputChange(e, setInput2Value)} name="input2" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                                {Formoptions[1].map((option) => (
+                                    <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                     <div className="mb-4">
                         <label
@@ -174,13 +186,18 @@ function SubscriptionForm() {
                         >
                             What duration would you prefer for your project to be listed on our platform?
                         </label>
-                        <select value={input3Value} onChange={(e) => handleInputChange(e, setInput3Value)} name="input3" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                            {Formoptions[2].map((option) => (
-                                <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
-                        </select>
+                        <div className="relative flex items-center justify-end">
+                            <div className="absolute right-4">
+                                <FaAngleDown color="white" size={24} />
+                            </div>
+                            <select value={input3Value} onChange={(e) => handleInputChange(e, setInput3Value)} name="input3" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                                {Formoptions[2].map((option) => (
+                                    <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                     <div className="mb-4">
                         <label
@@ -189,13 +206,18 @@ function SubscriptionForm() {
                         >
                             Are you interested in any additional services or features for your listing?
                         </label>
-                        <select value={input4Value} onChange={(e) => handleInputChange(e, setInput4Value)} name="input4" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                            {Formoptions[3].map((option) => (
-                                <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
-                                    {option}
-                                </option>
-                            ))}
-                        </select>
+                        <div className="relative flex items-center justify-end">
+                            <div className="absolute right-4">
+                                <FaAngleDown color="white" size={24} />
+                            </div>
+                            <select value={input4Value} onChange={(e) => handleInputChange(e, setInput4Value)} name="input4" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                                {Formoptions[3].map((option) => (
+                                    <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
                     </div>
                     <div className="flex items-center justify-center">
                         <button

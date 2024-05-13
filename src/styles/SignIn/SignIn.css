@@ -75,7 +75,10 @@
 }
 
 .signup-form form input {
-  width: 120%;
+  width: 85%;
+}
+.signup-form .eye-input input{
+  width: 100%;
 }
 
 .form-control span {
@@ -222,7 +225,7 @@
   margin-top: 5px;
   margin-bottom: 5px;
   cursor: pointer;
-  width: 100%;
+  width: 65%;
   background-color: #6e30a7;
   color: white;
   font-weight: 600;

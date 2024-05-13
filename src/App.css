@@ -166,6 +166,8 @@ body {
   background-color: rgb(235, 120, 120) !important;
 }
 
+/* -------------------- customizing the checkbox and radio inputs -------------------- */
+
 input[type="checkbox"] {
   accent-color: #b381e2 !important;
   border-radius: 2px;
@@ -188,3 +190,14 @@ input[type="radio"] {
 input[type="radio"]:checked {
   accent-color: #b381e2 !important;
 }
+/* -------------------- end of customizing the checkbox and radio inputs -------------------- */
+
+/* -------------------- removing border radius from IOS -------------------- */
+input[type="text"],
+input[type="email"],
+input[type="password"] {
+  -webkit-appearance: none;
+  appearance: none;
+  border-radius: 0;
+}
+/* -------------------- end of removing border radius from IOS -------------------- */

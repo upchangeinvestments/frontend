@@ -41,7 +41,7 @@ const Footer = () => {
                 </div>
               </div>
               <span className="text-[#878787] md:ml-[20px] text-[14px]">
-                advisor@lynkinfiniteinvestments.com
+                Advisor@lynkinfiniteinvestments.com
               </span>
             </div>
           </div>
@@ -61,7 +61,7 @@ const Footer = () => {
                   </p>
                 </div>
               </div>
-             
+
             </div>
             <div className="w-full md:col-span-2 lg:col-span-1 lg:ml-8">
               <div className="footer-widget mx-auto">
@@ -139,7 +139,7 @@ const Footer = () => {
                   </form>
                 </div>
               </div> */}
-               <div className="footer-social-icon flex items-center justify-center my-4 lg:ml-12 xl:ml-16 vsm:hidden lg:block">
+              <div className="footer-social-icon flex items-center justify-center my-4 lg:ml-12 xl:ml-16 vsm:hidden lg:block">
                 <div className="mr-6">
                   <span className="mb-4 lg:text-2xl">Follow us</span>
                 </div>
@@ -156,27 +156,27 @@ const Footer = () => {
                 </div>
               </div>
               <div className="footer-social-icon font-['Playfair-Display'] flex items-center mt-4  md:hidden ">
-               <div className="mr-16">
-                <span className="vsm:text-2xl">Follow us</span>
-               </div>
-               <div className="lg:mx-0 flex">
-                <a href="">
-                 <FaFacebookF size="28px" />
-                </a>
-                <a href="">
-                <FaInstagram size="30px" />
-                </a>
-                <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
-                 <FaLinkedinIn size="30px" />
-                </Link>
-               </div>
+                <div className="mr-16">
+                  <span className="vsm:text-2xl">Follow us</span>
+                </div>
+                <div className="lg:mx-0 flex">
+                  <a href="">
+                    <FaFacebookF size="28px" />
+                  </a>
+                  <a href="">
+                    <FaInstagram size="30px" />
+                  </a>
+                  <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
+                    <FaLinkedinIn size="30px" />
+                  </Link>
+                </div>
               </div>
 
             </div>
           </div>
         </div>
       </div>
-      
+
     </footer >
   );
 };

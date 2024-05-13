@@ -200,7 +200,7 @@ const SignIn = () => {
                     }
                     required
                   />
-                  <div className="relative flex flex-start w-[120%]">
+                  <div className="relative flex flex-start w-[85%] eye-input">
                     <input
                       type={showPassword ? "text" : "password"}
                       placeholder="Password"
@@ -350,7 +350,7 @@ const SignIn = () => {
                         WELCOME BACK! <br /> <span className="text-xl">TO</span>{" "}
                         <br />
                       </font>{" "}
-                      <span className="">LYNKINFINTE INVESTMENTS</span>
+                      <span className="">LynkInfinite Investments</span>
                     </h2>
                   </div>
 
@@ -377,7 +377,7 @@ const SignIn = () => {
                   <div className="font-['Playfair-Display']">
                     <h2 className="md:text-xl lg:text-2xl">
                       <font color="#0c0b0b ">SignUp to </font> <br />{" "}
-                      <span className="">Explore INVESTMENTS</span>
+                      <span className="">Explore Investments</span>
                     </h2>
                   </div>
                   <div className="socials">
@@ -410,7 +410,7 @@ const SignIn = () => {
             <div className="mt-8">
               <h2 className="text-2xl font-bold ">
                 <font color="#0c0b0b">WELCOME TO</font> <br />
-                <p className="UPCIN">LYNKINFINTE INVESTMENTS</p>
+                <p className="UPCIN">LynkInfinite Investments</p>
               </h2>
             </div>
             <div
@@ -499,7 +499,7 @@ const SignIn = () => {
                   WELCOME BACK! <br /> <span className="text-xl">TO</span>{" "}
                   <br />
                 </font>{" "}
-                <span className="UPCIN">LYNKINFINTE INVESTMENTS</span>
+                <span className="UPCIN">LynkInfinite Investments</span>
               </h2>
             </div>
             <div

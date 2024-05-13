@@ -42,7 +42,7 @@ function LandingPage() {
           </div>
         </div>
       </div>
-      <div className="absolute inset-x-0  bottom-6">
+      <div className="absolute inset-x-0 vsm:bottom-6 md:bottom-10">
         <Tagline />
       </div>
     </div>

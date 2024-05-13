@@ -48,7 +48,7 @@ function CategoryPage() {
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
           <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] mx-auto lg:ml-[60%]">
-            Explore Categories
+            Explore Investments
           </p>
         </div>
       </div>
