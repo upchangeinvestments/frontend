@@ -124,7 +124,9 @@ function SpecificPage() {
       const starredPosts = await axios.get(`${backendUrl}/profile/${user._id}/fetchPosts`);
       const starredPostIndices = starredPosts.data.fetchedPosts.map((likedPost) => likedPost.postId);
       setStarredPosts(starredPostIndices);
-    } catch (error) { }
+    } catch (error) {
+      console.log("error in the specific page: ", error);
+    }
   }
   useEffect(() => {
     FetchLikedPosts();
@@ -158,22 +160,22 @@ function SpecificPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end vsm:mx-8 lg:mx-0">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] hidden lg:block lg:text-4xl font-medium mx-auto ml-[60%]">
+          <div className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] hidden lg:block lg:text-4xl font-medium mx-auto ml-[60%]">
             {type.split(" ").length === 1 ? (
               <div className="">
-                <div className="">Explore {`${type}`}</div>
-                <div className="">Properties</div>
+                <p className="">Explore {`${type}`}</p>
+                <p className="">Properties</p>
               </div>
             ) : (
               <div className="">
-                <div className="">Explore {type.split(" ")[0]} </div>
-                <div className="">{type.split(" ").slice(1).join(" ")} Properties</div>
+                <p className="">Explore {type.split(" ")[0]} </p>
+                <p className="">{type.split(" ").slice(1).join(" ")} Properties</p>
               </div>
             )}
-          </p>
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:hidden font-medium">
+          </div>
+          <div className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:hidden font-medium flex items-center justify-center text-center">
             {`Explore ${type} Properties`}
-          </p>
+          </div>
         </div>
       </div>
       <div className="relative flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
@@ -215,7 +217,7 @@ function SpecificPage() {
           {viewSortFilter && (
             <div ref={sortFilterRef} className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
               <form onSubmit={SortFilterHandler}>
-                <h1 className="text-center font-bold text-xl p-4 uppercase underline">Sort Investment Type</h1>
+                <h1 className="text-center font-bold text-xl p-4 uppercase underline text-[#6e30a7]">Sort Investment Type</h1>
                 <div className="w-full bg-[#9059d9]">
                   <p className="text-left p-2 pl-4 lg:pl-8 text-base lg:text-lg font-bold text-white">Investment Range</p>
                 </div>

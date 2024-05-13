@@ -17,7 +17,7 @@ function LandingPage() {
       <div className="absolute vsm:ml-[227px] vsm:top-[138px]  md:right-[-200px] md:top-32 lg:right-[-200px] lg:top-28 xl:-right-[1vw] xl:top-32 2xl:top-72 2xl:right-60"
         data-aos="zoom-in-up"
       >
-        <div className="vsm:ml-[85px] md:ml-0 font-bold vsm:text-2xl xl:text-4xl 2xl:text-5xl drop-shadow-lg font-['Playfair-Display'] ">
+        <div className="vsm:ml-[90px] md:ml-0 font-bold vsm:text-2xl xl:text-4xl 2xl:text-5xl drop-shadow-lg font-['Playfair-Display'] ">
           <div className="mb-2">
             Centralized Platform For
           </div>

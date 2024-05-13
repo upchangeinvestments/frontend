@@ -165,3 +165,26 @@ body {
 .ToastErrorBg{
   background-color: rgb(235, 120, 120) !important;
 }
+
+input[type="checkbox"] {
+  accent-color: #b381e2 !important;
+  border-radius: 2px;
+  height: 15px;
+  width: 15px;
+}
+
+input[type="checkbox"]:checked {
+  accent-color: #b381e2 !important;
+}
+
+/* Customize radio button */
+input[type="radio"] {
+  accent-color: Mauve !important; 
+  border-radius: 50%;
+  height: 16px;
+  width: 16px;
+}
+
+input[type="radio"]:checked {
+  accent-color: #b381e2 !important;
+}

@@ -5,7 +5,7 @@ import { useAuth } from "../utils/AuthContext";
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
 import logo from "../assets/logo.png";
-import { IoMdSettings, IoMdHelpCircle, IoIosHome } from "react-icons/io";
+import { IoMdHelpCircle, IoIosHome } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
 import {

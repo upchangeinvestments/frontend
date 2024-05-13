@@ -15,7 +15,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
   const toggleStar = async () => {
     setIsStarFilled(!isStarFilled);
     try {
-      await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
+      const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
       FetchLikedPosts();
     } catch (error) {
       if (error.response) {
@@ -229,8 +229,8 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-center">
-            <Button Text="Know More" link="/post" />
+          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-3':'mt-0'}`}>
+            <Button Text="Know More" link={`/post/${data.projectId}`} />
             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
           </div>
         </div>

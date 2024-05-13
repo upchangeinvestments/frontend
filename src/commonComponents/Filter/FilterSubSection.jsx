@@ -47,7 +47,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
                   name={inputType === "radio" ? "radioType" : propertyType}
                   type={inputType}
                   value={propertyType}
-                  className="w-4 h-4 text-[#6e30a7]"
+                  className="w-4 h-4 text-[#6e30a7] customizedInput"
                   onChange={handleInputChange}
                   checked={(checkedValues[propertyType] === true) || (propertyType === type && filterType === "category")}
                   disabled={propertyType === type && filterType === "category"}

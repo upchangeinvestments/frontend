@@ -175,8 +175,8 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
                     />
                 </svg>
             </div>
-            <div className="flex items-center justify-center font-['Playfair-Display'] mb-4">
-                <div className="text-xl text-[#6e30a7] font-bold">{title}</div>
+            <div className="flex items-center justify-center font-['Playfair-Display'] mb-4 uppercase">
+                <div className="text-xl text-[#6e30a7] font-bold ">{title}</div>
             </div>
             <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
                 {options &&

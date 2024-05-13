@@ -5,7 +5,7 @@ function Tagline() {
   // const words = ["INVESTMENTS", "COMPANIES", "INVESTMENTS", "COMPANIES"];
 
   return (
-    <div>
+    <div style={{ marginTop: navigator.userAgent.indexOf('iPhone') > -1 ? "-120px" : 0 }}>   {/*for iPhone, margintop is given.*/}
       <div className="lg:flex vsm:flex-col vsm:hidden lg:text-[26px] md:flex-row v md:w-full  md:gap-2 items-center justify-center xl:text-3xl text-nowrap font-['Playfair-Display']">
         <div className="">
           Explore your next Investment:  <span className="text-white"> Infinite opportunities</span>
@@ -29,7 +29,7 @@ function Tagline() {
           </div>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 
