@@ -149,13 +149,12 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
         </div>
         <div className="flex">
           <img
-            className={`vsm:w-[300px] md:w-[300px] lg:w-auto lg:h-[360px] vsm:rounded-t-lg lg:rounded-none ${isEven ? "lg:rounded-r-lg" : "lg:rounded-l-lg"
+            className={`vsm:w-[300px] vsm:h-[200px] md:h-[360px] md:w-[300px] lg:w-auto vsm:rounded-t-lg lg:rounded-none ${isEven ? "lg:rounded-r-lg" : "lg:rounded-l-lg"
               } xl:rounded-none xl:rounded-l-lg`}
             src={data.image}
-            alt="Property"
-          />
+            alt="Property" />
         </div>
-        <div className={`bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"}  xl:rounded-none xl:rounded-r-lg`}>
+        <div className={`relative bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"}  xl:rounded-none xl:rounded-r-lg`}>
           <h3 className="vsm:text-lg md:text-xl flex justify-center font-bold">
             {data.title}
           </h3>
@@ -203,33 +202,33 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
           <div className="mt-2">
             <div className="flex overflow-x-scroll gap-x-2 ButtonSection">
               <div className="border-slate-400 border rounded-lg ">
-                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">
+                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	whitespace-nowrap">
                   Documents
                 </button>
               </div>
               <div className="border-slate-400 border rounded-lg ">
-                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">
+                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	 whitespace-nowrap">
                   IRA eligibilty
                 </button>
               </div>
               <div className="border-slate-400 border rounded-lg ">
-                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">
+                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	 whitespace-nowrap">
                   Listed Company
                 </button>
               </div>
               <div className="border-slate-400 border rounded-lg ">
-                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">
+                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	 whitespace-nowrap">
                   Terms
                 </button>
               </div>
               <div className="border-slate-400 border rounded-lg ">
-                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">
+                <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	 whitespace-nowrap">
                   Management Fees
                 </button>
               </div>
             </div>
           </div>
-          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-3':'mt-0'}`}>
+          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-3' : 'mt-0'}`}>
             <Button Text="Know More" link={`/post/${data.projectId}`} />
             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
           </div>

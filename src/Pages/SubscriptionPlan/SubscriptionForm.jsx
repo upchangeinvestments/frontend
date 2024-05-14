@@ -1,37 +1,84 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import Faq from "./FAQ";
 import bgImage from "../../assets/login_BG.jpeg";
 import { FaTelegramPlane } from "react-icons/fa";
-import { useAuth } from "../../utils/AuthContext"
-import { FaAngleDown } from "react-icons/fa";
+import { useAuth } from "../../utils/AuthContext";
+import { Select, Option } from "@material-tailwind/react";
+import SuccessToast from "../../utils/successToast";
+import Error from "../../utils/Error";
+import axios from "axios";
 
 
 const Formoptions = [
-    ['Select Option', "Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Infrastructure", 'Other'],
-    ['Select Option', '$ 50,000 - $ 1 Million', '$ 1 Million - $3 Million', '$ 3 Million - $5 Million', '$ 5 Million - $10 Million', '$ 10 Million - $15 Million', 'Other'],
-    ['Select Option', 'Short-Term (3 Months)', 'Medium-Term (6 Months)', 'Long-Term (12 Months)', 'Custom Duration'],
-    ['Select Option', 'Premium Placement', 'Enhanced Analytics', 'Marketing Support', 'Customized Reports', 'Custom Services'],
+    ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Infrastructure", 'Other'],
+    ['$ 50,000 - $ 1 Million', '$ 1 Million - $3 Million', '$ 3 Million - $5 Million', '$ 5 Million - $10 Million', '$ 10 Million - $15 Million', 'Other'],
+    ['Short-Term (3 Months)', 'Medium-Term (6 Months)', 'Long-Term (12 Months)', 'Custom Duration'],
+    ['Premium Placement', 'Enhanced Analytics', 'Marketing Support', 'Customized Reports', 'Custom Services'],
 ]
 
 function SubscriptionForm() {
-    const { isAuth, user } = useAuth();
+    const { isAuth, user, backendUrl } = useAuth();
     const [formData, setFormData] = useState({ input1: '', input2: '', input3: '', input4: '' });
-    const [input1Value, setInput1Value] = useState('');
-    const [input2Value, setInput2Value] = useState('');
-    const [input3Value, setInput3Value] = useState('');
-    const [input4Value, setInput4Value] = useState('');
+    const [input1Value, setInput1Value] = useState('Select Option');
+    const [input2Value, setInput2Value] = useState('Select Option');
+    const [input3Value, setInput3Value] = useState('Select Option');
+    const [input4Value, setInput4Value] = useState('Select Option');
+    const [userDetails, setUserDetails] = useState({ userName: '', companyName: '', userEmail: '', phoneNumber: '' });
 
-    const handleInputChange = (e, setFormValue) => {
-        setFormValue(e.target.value);
-        setFormData({ ...formData, [e.target.name]: e.target.value });
+    useEffect(() => {
+        setUserDetails((prevUserDetails) => ({
+            ...prevUserDetails,
+            userName: isAuth ? user.name : '',
+            userEmail: isAuth ? user.email : ''
+        }));
+    }, [isAuth, user]);
+
+    const handleuserDetailChange = (e, name) => {
+        const { value } = e.target;
+        setUserDetails((prevUserDetails) => ({
+            ...prevUserDetails,
+            [name]: value
+        }));
+    };
+
+    const handleInputChange = (value, setFormValue, name) => {
+        setFormValue(value);
+        setFormData({ ...formData, [name]: value });
     };
 
     const handleSubmit = async (event) => {
         event.preventDefault();
-        // const name = event.target.name.value;
-        // const email = event.target.email.value;
-
-
+        // console.log("formData: ", formData);
+        const newFormData = { ...userDetails, ...formData };
+        try {
+            const res = await axios.post(`${backendUrl}/subscription/inquiry`, { data: newFormData });
+            if (res.status === 200) {
+                SuccessToast("Details saved. We'll get back to you within 24 hrs to 48 hrs!");
+                setInput1Value('Select Option');
+                setInput2Value('Select Option');
+                setInput3Value('Select Option');
+                setInput4Value('Select Option');
+                setUserDetails({
+                    userName: isAuth ? user.name : '',
+                    companyName: '',
+                    userEmail: isAuth ? user.email : '',
+                    phoneNumber: ''
+                });
+            }
+        } catch (error) {
+            var message;
+            if (error.response) {
+                const code = error.response.data.message.substring(0, 6);
+                if (code === 'E11000') {
+                    message = "You have already filled this inquiry form before. We'll get back to you within 24-48 hours!";
+                } else {
+                    message = "An error occurred. Please try filling out this form again a little later!"
+                }
+            } else {
+                message = "An error occurred. Please try filling out this form again a little later!";
+            }
+            Error(message);
+        }
     };
 
     return (
@@ -68,6 +115,8 @@ function SubscriptionForm() {
                                     name="name"
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
+                                    value={userDetails.userName}
+                                    onChange={(e) => handleuserDetailChange(e, 'userName')}
                                 />
                             )}
                         </div>
@@ -83,6 +132,8 @@ function SubscriptionForm() {
                                 name="companyName"
                                 className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                 required
+                                value={userDetails.companyName}
+                                onChange={(e) => handleuserDetailChange(e, 'companyName')}
                             />
                         </div>
                     </div>
@@ -109,6 +160,8 @@ function SubscriptionForm() {
                                     name="email"
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
+                                    value={userDetails.userEmail}
+                                    onChange={(e) => handleuserDetailChange(e, 'userEmail')}
                                 />
                             )}
                         </div>
@@ -134,6 +187,8 @@ function SubscriptionForm() {
                                     name="phone"
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
+                                    value={userDetails.phoneNumber}
+                                    onChange={(e) => handleuserDetailChange(e, 'phoneNumber')}
                                 />
                             )}
                         </div>
@@ -146,18 +201,13 @@ function SubscriptionForm() {
                         >
                             Please select the type of real estate project you're looking to list on LynkInfinite Investments
                         </label>
-                        <div className="relative flex items-center justify-end">
-                            <div className="absolute right-4">
-                                <FaAngleDown color="white" size={24} />
-                            </div>
-                            <select value={input1Value} onChange={(e) => handleInputChange(e, setInput1Value)} name="input1" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                                {Formoptions[0].map((option) => (
-                                    <option className="bg-white/20 backdrop-blur-2xl text-black p-4" key={option} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                        <Select name="input1" variant="outlined" label={input1Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border border-white rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                            {Formoptions[0].map((option) => (
+                                <Option className="bg-white/20 backdrop-blur-2xl text-black" key={option} onClick={() => handleInputChange(option, setInput1Value, "input1")} value={option}>
+                                    {option}
+                                </Option>
+                            ))}
+                        </Select>
                     </div>
                     <div className="mb-4">
                         <label
@@ -166,18 +216,13 @@ function SubscriptionForm() {
                         >
                             What is the estimated value of your project that you are seeking funding for?
                         </label>
-                        <div className="relative flex items-center justify-end">
-                            <div className="absolute right-4">
-                                <FaAngleDown color="white" size={24} />
-                            </div>
-                            <select value={input2Value} onChange={(e) => handleInputChange(e, setInput2Value)} name="input2" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                                {Formoptions[1].map((option) => (
-                                    <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                        <Select name="input2" variant="outlined" label={input2Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                            {Formoptions[1].map((option) => (
+                                <Option className="bg-white/20 backdrop-blur-2xl text-black" key={option} onClick={() => handleInputChange(option, setInput2Value, "input2")} value={option}>
+                                    {option}
+                                </Option>
+                            ))}
+                        </Select>
                     </div>
                     <div className="mb-4">
                         <label
@@ -186,18 +231,13 @@ function SubscriptionForm() {
                         >
                             What duration would you prefer for your project to be listed on our platform?
                         </label>
-                        <div className="relative flex items-center justify-end">
-                            <div className="absolute right-4">
-                                <FaAngleDown color="white" size={24} />
-                            </div>
-                            <select value={input3Value} onChange={(e) => handleInputChange(e, setInput3Value)} name="input3" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                                {Formoptions[2].map((option) => (
-                                    <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                        <Select name="input3" variant="outlined" label={input3Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                            {Formoptions[2].map((option) => (
+                                <Option className="bg-white/20 backdrop-blur-2xl text-black" key={option} onClick={() => handleInputChange(option, setInput3Value, "input3")} value={option}>
+                                    {option}
+                                </Option>
+                            ))}
+                        </Select>
                     </div>
                     <div className="mb-4">
                         <label
@@ -206,18 +246,13 @@ function SubscriptionForm() {
                         >
                             Are you interested in any additional services or features for your listing?
                         </label>
-                        <div className="relative flex items-center justify-end">
-                            <div className="absolute right-4">
-                                <FaAngleDown color="white" size={24} />
-                            </div>
-                            <select value={input4Value} onChange={(e) => handleInputChange(e, setInput4Value)} name="input4" required className='shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                                {Formoptions[3].map((option) => (
-                                    <option className="bg-white/20 backdrop-blur-2xl text-black" key={option} value={option}>
-                                        {option}
-                                    </option>
-                                ))}
-                            </select>
-                        </div>
+                        <Select name="input4" variant="outlined" label={input4Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
+                            {Formoptions[3].map((option) => (
+                                <Option className="bg-white/20 backdrop-blur-2xl text-black" key={option} onClick={() => handleInputChange(option, setInput4Value, "input4")} value={option}>
+                                    {option}
+                                </Option>
+                            ))}
+                        </Select>
                     </div>
                     <div className="flex items-center justify-center">
                         <button
@@ -230,11 +265,11 @@ function SubscriptionForm() {
                         </button>
                     </div>
                 </form>
-            </div>
+            </div >
             <div className="rounded-lg max-w-7xl vsm:mx-4 md:mx-auto mt-[30px] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] bg-white/20  md:py-8 md:px-10  backdrop-blur-xl">
                 <Faq className="w-full" />
             </div>
-        </div>
+        </div >
     )
 }
 

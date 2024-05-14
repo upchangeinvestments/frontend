@@ -156,13 +156,15 @@ function DialogDefault({ isOpen, setOpen }) {
                                         renderSeparator={<span>-</span>}
                                     />
                                 </div>
-                                <div className="flex items-center justify-center">
+                                <div className="flex items-center justify-center relative">
                                     <button className="mt-6 bg-top vsm:px-4 vsm:py-1  lg:py-1 rounded-md md:text-base lg:text-base  xl:text-lg text-black font-bold  bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
                                         Verify & Join Waitlist
                                     </button>
-                                    <Tooltip title="Check spam if email not recieved">
-                                        <Button ><CiCircleQuestion className="text-3xl text-[#fff] mt-6" /></Button>
-                                    </Tooltip>
+                                    <div className="absolute right-8">
+                                        <Tooltip title="Check spam if email is not recieved!" >
+                                            <Button ><CiCircleQuestion className="text-3xl text-[#fff] mt-6" /></Button>
+                                        </Tooltip>
+                                    </div>
                                 </div>
                             </form>
                             <p onClick={resendCodeHandler} className="hover:underline">Resend Confirmation Code</p>
