@@ -125,7 +125,7 @@ function SpecificPage() {
       const starredPostIndices = starredPosts.data.fetchedPosts.map((likedPost) => likedPost.postId);
       setStarredPosts(starredPostIndices);
     } catch (error) {
-      console.log("error in the specific page: ", error);
+      // console.log("error in the specific page: ", error);
     }
   }
   useEffect(() => {
@@ -203,7 +203,7 @@ function SpecificPage() {
           </div>}
           {loading === false && (filterData.length > 0) && <PaginationComponent totalPages={totalPaginationPages} updateCurrentPage={PaginationHandler} />}
           {(filterData.length === 0) && (
-            <div className="mx-auto z-[999] vsm:-mt-[50px] lg:mt-0">
+            <div className="mx-auto z-[10] vsm:-mt-[50px] lg:mt-0">
               <img className="w-[450px]" src="https://i.postimg.cc/4y0f7QqX/pngtree-404-not-found-or-page-error-flat-line-concept-png-image-2468879-removebg-preview.png" alt="" />
               <p className="font-bold text-4xl text-center tracking-wider font-['Playfair-Display'] -mt-[100px]">No Data Found!</p>
             </div>
@@ -215,7 +215,7 @@ function SpecificPage() {
             {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} />}
           </div>
           {viewSortFilter && (
-            <div ref={sortFilterRef} className="font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+            <div ref={sortFilterRef} className=" z-[20] font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
               <form onSubmit={SortFilterHandler}>
                 <h1 className="text-center font-bold text-xl p-4 uppercase underline text-[#6e30a7]">Sort Investment Type</h1>
                 <div className="w-full bg-[#9059d9]">

@@ -8,7 +8,6 @@ import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/Filter/MobileFilterDrawer";
 import MobileFilter from "../../commonComponents/Filter/MobileFilter";
 import "../../App.css";
-import PropagateLoader from "react-spinners/PropagateLoader";
 import RingLoader from "react-spinners/RingLoader";
 
 function CategoryPage() {
@@ -47,7 +46,7 @@ function CategoryPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] mx-auto lg:ml-[60%]">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] mx-auto lg:ml-[60%] text-center">
             Explore Investments
           </p>
         </div>

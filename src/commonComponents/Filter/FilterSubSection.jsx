@@ -9,7 +9,11 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
   const [checkedValues, setCheckedValues] = useState({});
 
   const handleInputChange = ({ target: { value, checked } }) => {
-    setCheckedValues((prevValues) => ({ ...prevValues, [value]: checked }));
+    if (inputType === 'radio') {
+      setCheckedValues(value)
+    } else {
+      setCheckedValues((prevValues) => ({ ...prevValues, [value]: checked }));
+    }
     updateFilters(filterType, value, inputType, checked);
   };
 
@@ -29,7 +33,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
               <Tooltip title={getTooltipContent(propertyType)} arrow key={index}>
                 <label className="flex flex-row gap-4 w-full items-center uppercase">
                   <input
-                    name={inputType === "radio" ? "radioType" : propertyType}
+                    name={propertyType}
                     type={inputType}
                     value={propertyType}
                     checked={checkedValues[propertyType] === true}
@@ -49,7 +53,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
                   value={propertyType}
                   className="w-4 h-4 text-[#6e30a7] customizedInput"
                   onChange={handleInputChange}
-                  checked={(checkedValues[propertyType] === true) || (propertyType === type && filterType === "category")}
+                  checked={inputType === "radio" ? (checkedValues === propertyType) : (checkedValues[propertyType] === true) || (propertyType === type && filterType === "category")}
                   disabled={propertyType === type && filterType === "category"}
                 />
                 <div className="text-sm">{propertyType}</div>

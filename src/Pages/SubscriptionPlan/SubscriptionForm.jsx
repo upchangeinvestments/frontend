@@ -10,8 +10,8 @@ import axios from "axios";
 
 
 const Formoptions = [
-    ["Residential", "Hotels", "Retail", "Warehouse & Storage", "Medical Facilites", "School", "Office", "Infrastructure", 'Other'],
-    ['$ 50,000 - $ 1 Million', '$ 1 Million - $3 Million', '$ 3 Million - $5 Million', '$ 5 Million - $10 Million', '$ 10 Million - $15 Million', 'Other'],
+    ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilites", "Mobile Home Parks", "Office", "Land & Infrastructure"],
+    ['$1 Million - $3 Million', '$3 Million - $5 Million', '$5 Million - $10 Million', '$10 Million - $15 Million', 'Other'],
     ['Short-Term (3 Months)', 'Medium-Term (6 Months)', 'Long-Term (12 Months)', 'Custom Duration'],
     ['Premium Placement', 'Enhanced Analytics', 'Marketing Support', 'Customized Reports', 'Custom Services'],
 ]
@@ -24,6 +24,8 @@ function SubscriptionForm() {
     const [input3Value, setInput3Value] = useState('Select Option');
     const [input4Value, setInput4Value] = useState('Select Option');
     const [userDetails, setUserDetails] = useState({ userName: '', companyName: '', userEmail: '', phoneNumber: '' });
+    const [textField, setTextField] = useState(false);
+    const [OtherTextValue, setOtherTextValue] = useState('');
 
     useEffect(() => {
         setUserDetails((prevUserDetails) => ({
@@ -42,6 +44,12 @@ function SubscriptionForm() {
     };
 
     const handleInputChange = (value, setFormValue, name) => {
+        if (value === 'Other' && name === 'input2') {
+            setTextField(true);
+        } else if (name === 'input2') {
+            setTextField(false);
+            setOtherTextValue('');
+        }
         setFormValue(value);
         setFormData({ ...formData, [name]: value });
     };
@@ -49,7 +57,12 @@ function SubscriptionForm() {
     const handleSubmit = async (event) => {
         event.preventDefault();
         // console.log("formData: ", formData);
-        const newFormData = { ...userDetails, ...formData };
+
+        var newFormData;
+        newFormData = { ...userDetails, ...formData };
+        if (OtherTextValue.length > 0) {
+            newFormData = { ...newFormData, customEstimatedValue: OtherTextValue };
+        }
         try {
             const res = await axios.post(`${backendUrl}/subscription/inquiry`, { data: newFormData });
             if (res.status === 200) {
@@ -83,7 +96,7 @@ function SubscriptionForm() {
 
     return (
         <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 rounded-lg max-w-7xl px-6 py-12 md:py-8 vsm:-mt-[250px] md:-mt-[240px]" >
-            <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-4 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg flex flex-col items-center justify-center">
+            <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-1 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg flex flex-col items-center justify-center">
                 <p className="vsm:text-xl vsm:mb-[10px] msm:text-2xl md:text-2xl text-white font-bold ">
                     Listing Inquiry Form
                 </p>
@@ -106,14 +119,14 @@ function SubscriptionForm() {
                                     name="name"
                                     value={user.name}
                                     readOnly
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    className="customizedTextInput shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
                                 />
                             ) : (
                                 <input
                                     type="text"
                                     name="name"
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    className="customizedTextInput shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
                                     value={userDetails.userName}
                                     onChange={(e) => handleuserDetailChange(e, 'userName')}
@@ -130,7 +143,7 @@ function SubscriptionForm() {
                             <input
                                 type="text"
                                 name="companyName"
-                                className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                className="customizedTextInput shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                 required
                                 value={userDetails.companyName}
                                 onChange={(e) => handleuserDetailChange(e, 'companyName')}
@@ -151,14 +164,14 @@ function SubscriptionForm() {
                                     name="email"
                                     value={user.email}
                                     readOnly
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    className="customizedTextInput shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
                                 />
                             ) : (
                                 <input
                                     type="email"
                                     name="email"
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    className="customizedTextInput shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
                                     value={userDetails.userEmail}
                                     onChange={(e) => handleuserDetailChange(e, 'userEmail')}
@@ -178,14 +191,14 @@ function SubscriptionForm() {
                                     name="phone"
                                     value={user.phone}
                                     readOnly
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    className="customizedTextInput shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
                                 />
                             ) : (
                                 <input
                                     type="number"
                                     name="phone"
-                                    className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
+                                    className="customizedTextInput shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent"
                                     required
                                     value={userDetails.phoneNumber}
                                     onChange={(e) => handleuserDetailChange(e, 'phoneNumber')}
@@ -210,10 +223,7 @@ function SubscriptionForm() {
                         </Select>
                     </div>
                     <div className="mb-4">
-                        <label
-                            htmlFor="input2"
-                            className="block text-white text-base"
-                        >
+                        <label htmlFor="input2" className="block text-white text-base">
                             What is the estimated value of your project that you are seeking funding for?
                         </label>
                         <Select name="input2" variant="outlined" label={input2Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
@@ -223,6 +233,11 @@ function SubscriptionForm() {
                                 </Option>
                             ))}
                         </Select>
+                        {textField && (
+                            <div className="mt-4">
+                                <input value={OtherTextValue} required onChange={(e) => setOtherTextValue(e.target.value)} type="text" className='customizedTextInput flex items-center shadow appearance-none border rounded-md w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent' />
+                            </div>
+                        )}
                     </div>
                     <div className="mb-4">
                         <label

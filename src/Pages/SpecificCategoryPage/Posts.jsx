@@ -28,6 +28,14 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
     }
   };
 
+  function formatMinInvestment(minInvestment) {
+    if (minInvestment >= 1000000) {
+      return false;
+    } else {
+      return `$${minInvestment.toLocaleString()}`;
+    }
+  }
+
   useEffect(() => {
     setLikedPosts(starredPostIndices);
     setIsStarFilled(starredPostIndices.includes(data.index))
@@ -115,7 +123,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
             <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-2 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm">Min Investment</div>
-                <div className="font-bold text-base uppercase">{data.Investment}</div>
+                <div className="font-bold text-base uppercase">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <p className="text-gray-600 text-sm">Hold period</p>
@@ -172,15 +180,15 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
           <div className="mt-2 grid grid-cols-2 gap-y-2 gap-x-2">
             <div className="w-auto mx-auto">
               <div className="text-gray-600  text-sm">Min Investment</div>
-              <div className="font-bold vsm:text-base sm:text-lg uppercase">{data.Investment}</div>
+              <div className="font-bold vsm:text-base sm:text-lg uppercase">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
             </div>
             <div className="w-auto mx-auto">
               <p className="text-gray-600  text-sm">Hold period</p>
-              <p className="font-bold vsm:text-base sm:text-lg">{data.Hold_period}</p>
+              <p className="font-bold vsm:text-base sm:text-lg">{data.Hold_period} YEARS</p>
             </div>
             <div className="w-auto mx-auto">
               <div className="text-gray-600  text-sm">Category type</div>
-              <div className="font-bold vsm:text-base sm:text-lg capitalize">{`${data.category}`}</div>
+              <div className="font-bold vsm:text-base sm:text-lg capitalize">{data.category.split(" ").length > 1 ? `${data.category.split(" ").slice(0, 1)} ...` : `${data.category}`}</div>
             </div>
             <div className="w-auto mx-auto">
               <p className="text-gray-600  text-sm">Target IRR</p>
@@ -199,7 +207,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
             </div>
           </div>
-          <div className="mt-2">
+          <div className={`mt-2 ${navigator.userAgent.indexOf('iPad') > -1 ? 'mb-2' : 'mb-0'}`}>
             <div className="flex overflow-x-scroll gap-x-2 ButtonSection">
               <div className="border-slate-400 border rounded-lg ">
                 <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	whitespace-nowrap">
@@ -228,7 +236,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
             </div>
           </div>
-          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-3' : 'mt-0'}`}>
+          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-3' : navigator.userAgent.indexOf('iPad') > -1 ? 'mt-4' : 'mt-0'}`}>
             <Button Text="Know More" link={`/post/${data.projectId}`} />
             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
           </div>

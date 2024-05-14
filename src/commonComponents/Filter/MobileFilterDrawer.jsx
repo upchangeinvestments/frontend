@@ -26,6 +26,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
     const [zipCode, setZipCode] = useState("");
     const { title, options, inputType } = data || {};
     const [selectedOptions, setSelectedOptions] = useState({});
+
     var filterType;
     if (title === 'Categories') filterType = "category";
     else if (title === "Location") filterType = "locations";
@@ -33,6 +34,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
     else if (title === "Hold Period") filterType = "holdPeriod";
     else if (title === "Zip Code") filterType = "zipCode";
     else if (title === "IRR") filterType = "targetedIRR";
+
     const [filters, setFilters] = useState({
         category: type === 'All' ? [] : [type],
         investmentRange: [],
@@ -47,9 +49,15 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
             // console.log("filters: ", filters);
             return (
                 (filters.category.length === 0 || filters.category.includes(item.category)) &&
-                (filters.investmentRange.length === 0 || filters.investmentRange.includes(item.Investment)) &&
+                (filters.investmentRange.length === 0 ||
+                    item.minInvestment >= parseInt(filters.investmentRange.split('-')[0].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) &&
+                    (filters.investmentRange.split('-')[1] ? item.minInvestment <= parseInt(filters.investmentRange.split('-')[1].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) : true)
+                ) &&
                 (filters.targetedIRR === 0 || parseInt(item.IRR) >= filters.targetedIRR) &&
-                (filters.holdPeriod.length === 0 || filters.holdPeriod.includes(item.Hold_period)) &&
+                (filters.holdPeriod.length === 0 || filters.holdPeriod.some(period => {
+                    const [min, max] = period.split('-').map(x => parseInt(x.replace('YRS', '')));
+                    return item.Hold_period >= min && item.Hold_period <= max;
+                })) &&
                 (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.location))) &&
                 (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
             );

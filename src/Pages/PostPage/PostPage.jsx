@@ -33,6 +33,15 @@ const Progressbar = ({ val }) => {
     </div>
   );
 };
+
+function formatMinInvestment(minInvestment) {
+  if (minInvestment >= 1000000) {
+    return false;
+  } else {
+    return `$${minInvestment.toLocaleString()}`;
+  }
+}
+
 const OverViewContent = () => {
   return (
     <div className="">
@@ -172,7 +181,7 @@ function PostPage() {
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
                       <AiOutlineDollar size="25px" />
                     </div>
-                    <p className="mt-1">{data.Investment}</p>
+                    <p className="mt-1">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
                     <p className="whitespace-nowrap ">Min Investments</p>
                   </div>
                   <div className="flex flex-col items-center justify-center pb-2">

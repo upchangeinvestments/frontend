@@ -200,4 +200,8 @@ input[type="password"] {
   appearance: none;
   border-radius: 0;
 }
+
+.customizedTextInput {
+  border-radius: 4px !important;
+}
 /* -------------------- end of removing border radius from IOS -------------------- */
