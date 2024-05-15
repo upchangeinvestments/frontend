@@ -26,6 +26,7 @@ function SubscriptionForm() {
     const [userDetails, setUserDetails] = useState({ userName: '', companyName: '', userEmail: '', phoneNumber: '' });
     const [textField, setTextField] = useState(false);
     const [OtherTextValue, setOtherTextValue] = useState('');
+    const [formSubmitted, setFormSubmitted] = useState(true);
 
     useEffect(() => {
         setUserDetails((prevUserDetails) => ({
@@ -66,6 +67,7 @@ function SubscriptionForm() {
         try {
             const res = await axios.post(`${backendUrl}/subscription/inquiry`, { data: newFormData });
             if (res.status === 200) {
+                setFormSubmitted(true);
                 SuccessToast("Details saved. We'll get back to you within 24 hrs to 48 hrs!");
                 setInput1Value('Select Option');
                 setInput2Value('Select Option');
@@ -101,7 +103,7 @@ function SubscriptionForm() {
                     Listing Inquiry Form
                 </p>
                 <p className='text-xl '><span className='font-semibold'>We are Thrilled to Partner with You</span>: Please fill out our Listing Inquiry Form Below and we will get back to you within 24-48 hours! <br />(Select all that apply)</p>
-                <form
+                {!formSubmitted && <form
                     onSubmit={handleSubmit}
                     className=" rounded vsm:p-4 md:px-8 md:pt-6 w-full"
                 >
@@ -279,7 +281,13 @@ function SubscriptionForm() {
                             <p className="ml-4">Submit Form</p>
                         </button>
                     </div>
-                </form>
+                </form>}
+                {formSubmitted && (
+                    <div className="flex flex-col items-center justify-center font-bold text-xl">
+                        <p>We have saved your details.</p>
+                        <p>We'll get back to you within 24 hrs to 48 hrs!</p>
+                    </div>
+                )}
             </div >
             <div className="rounded-lg max-w-7xl vsm:mx-4 md:mx-auto mt-[30px] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] bg-white/20  md:py-8 md:px-10  backdrop-blur-xl">
                 <Faq className="w-full" />

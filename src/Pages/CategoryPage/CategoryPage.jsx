@@ -32,6 +32,7 @@ function CategoryPage() {
     setFilterData(data);
   };
 
+
   return (
     <div className="mobile-filter-drawer">
       <div className="categoryMain">

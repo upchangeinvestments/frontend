@@ -2,6 +2,10 @@ import React, { useState } from "react";
 import "../../styles/LandingPage/Questions.css";
 import video from "../../assets/introVideo.mp4";
 import { useNavigate } from "react-router-dom";
+import axios from "axios";
+import { useAuth } from "../../utils/AuthContext";
+import SuccessToast from "../../utils/successToast";
+import Error from "../../utils/Error";
 
 const quizData = [
   {
@@ -33,8 +37,9 @@ const Questions = () => {
   const [name, setName] = useState("");
   const [selectedAnswer, setSelectedAnswer] = useState([]);
   const navigate = useNavigate();
+  const { backendUrl, isAuth, user } = useAuth();
 
-  const QuizHandler = (event) => {
+  const QuizHandler = async (event) => {
     event.preventDefault();
 
     const responses = selectedAnswer.map((option) => ({
@@ -42,9 +47,23 @@ const Questions = () => {
       selectedOption: option,
       selectedText: quizData[selectedAnswer.indexOf(option)][option],
     }));
+    if (isAuth) {
+      const res = await axios.post(`${backendUrl}/updatequiz`, { responses, user });
+      if (res.status === 200) {
+        SuccessToast("Questionnaire updated.");
+      } else {
+        Error("Something went wrong, please try again later.");
+      }
+    } else {
+      const userData = { email, name, responses };
+      const res = await axios.post(`${backendUrl}/landingPage/quiz`, { userData });
+      if (res.status === 200) {
+        navigate("/signin", { state: { isLogin: false, userData: userData } });
+      } else {
+        Error("Questionnaire responses not saved, try again later!")
+      }
 
-    const userData = { email, name, responses };
-    navigate("/signin", { state: { isLogin: false, userData: userData } });
+    }
   };
 
   const loadQuiz = () => {

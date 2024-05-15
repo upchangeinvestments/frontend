@@ -22,12 +22,15 @@ const categoryData = Images.map((image, index) => ({
 }));
 
 function Categories({ data }) {
-  const filteredCategoryData = data.length > 0 ? categoryData.filter((element) => data[0].category === element.type) : categoryData;
+
+  const allCategoriesData = data.length > 0 ? [...new Set(data.map((item) => item.category))].map((category) => {
+    return categoryData.find((element) => element.type === category);
+  }) : categoryData;
 
   return (
     <div className="mx-8 z-[1]">
       <div className="grid  vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 2xl:grid-cols-4  gap-x-6  gap-y-12">
-        {filteredCategoryData.map((element, index) =>
+        {allCategoriesData.map((element, index) =>
           index === 8 ? (
             <Link
               to={element.type}
