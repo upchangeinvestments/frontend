@@ -42,28 +42,55 @@ const Questions = () => {
   const QuizHandler = async (event) => {
     event.preventDefault();
 
-    const responses = selectedAnswer.map((option) => ({
-      question: quizData[selectedAnswer.indexOf(option)].question,
-      selectedOption: option,
-      selectedText: quizData[selectedAnswer.indexOf(option)][option],
-    }));
-    if (isAuth) {
-      const res = await axios.post(`${backendUrl}/updatequiz`, { responses, user });
-      if (res.status === 200) {
-        SuccessToast("Questionnaire updated.");
-      } else {
-        Error("Something went wrong, please try again later.");
-      }
-    } else {
-      const userData = { email, name, responses };
-      const res = await axios.post(`${backendUrl}/landingPage/quiz`, { userData });
-      if (res.status === 200) {
-        navigate("/signin", { state: { isLogin: false, userData: userData } });
-      } else {
-        Error("Questionnaire responses not saved, try again later!")
-      }
+    try {
+      const responses = selectedAnswer.map((option) => ({
+        question: quizData[selectedAnswer.indexOf(option)].question,
+        selectedOption: option,
+        selectedText: quizData[selectedAnswer.indexOf(option)][option],
+      }));
 
+
+      if (isAuth) {
+        const res = await axios.post(`${backendUrl}/updatequiz`, { responses, user });
+        if (res.status === 200) {
+          SuccessToast("Responses saved successfully!");
+        }
+      } else {
+
+        const userData = { email, name, responses };
+        const existUser = await axios.get(`${backendUrl}/auth/getUserByEmail?email=${email}`);
+
+        if (existUser.data.message === true) {
+          const res = await axios.post(`${backendUrl}/updatequiz`, { responses, user: { email, name } });
+          if (res.status === 200) {
+            SuccessToast("Responses saved successfully!");
+            navigate("/signin", { state: { isLogin: true, userData: userData } });
+          }
+        } else {
+          const res = await axios.post(`${backendUrl}/landingPage/quiz`, { userData });
+          if (res.status === 200)
+            SuccessToast("Responses saved successfully!");
+          navigate("/signin", { state: { isLogin: false, userData: userData } });
+        }
+      }
     }
+    catch (error) {
+      console.log("error: ", error)
+      var message;
+      if (error.response) {
+        const code = error.response.data.message.substring(0, 6);
+        if (code === 'E11000') {
+          message = "Welcome back! Please Sign up to get your results.";
+        } else {
+          message = "Responses not saved, an error occurred. Please try later!"
+        }
+      } else {
+        message = "Responses not saved, an error occurred. Please try later!"
+      }
+      Error(message);
+    }
+
+
   };
 
   const loadQuiz = () => {
