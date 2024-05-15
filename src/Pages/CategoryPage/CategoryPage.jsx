@@ -16,6 +16,7 @@ function CategoryPage() {
   const [filterData, setFilterData] = useState({});
   const [Id, setId] = useState(0);
   const [loading, setLoading] = useState(false);
+  const [filters, setFilters] = useState({});
 
   useEffect(() => { }, [data]);
 
@@ -28,10 +29,10 @@ function CategoryPage() {
     setId(index);
   };
 
-  const receiveFilteredData = (data) => {
+  const receiveFilteredData = (data, filter) => {
     setFilterData(data);
+    setFilters(filter);
   };
-
 
   return (
     <div className="mobile-filter-drawer">
@@ -59,7 +60,7 @@ function CategoryPage() {
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
           />)}
-          {loading === false && <Categories data={filterData} />}
+          {loading === false && <Categories data={filterData} filter={filters}/>}
           {loading === true && <div className="flex items-center justify-center h-[70%] w-[100%] sticky bottom-12">
             {/* <PropagateLoader
               color="#9747ff"

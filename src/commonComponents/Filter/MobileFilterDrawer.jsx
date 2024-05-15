@@ -62,7 +62,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
                 (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
             );
         });
-        sendFilteredData(filtered);
+        sendFilteredData(filtered, filters);
     };
 
     const updateFilters = (filterType, value, inputType, checked) => {

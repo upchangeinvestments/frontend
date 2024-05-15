@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Link } from "react-router-dom";
 import hospital from "../../assets/categories/hospital.jpg";
 import hotel from "../../assets/categories/hotels.jpeg";
@@ -10,10 +10,18 @@ import warehouse from "../../assets/categories/warehouse.jpg";
 import BlurBuilding from "../../assets/Building_blur-xl.jpg";
 import parks from "../../assets/parks.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
+import SuccessToast from "../../utils/successToast";
 
 const Images = [resident, retail, hotel, warehouse, hospital, parks, office, infrastructure, BlurBuilding];
 const Texts = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure", "View All"];
 const type = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure", "All"];
+
+const defaultFilters = {
+  investmentRange: [],
+  holdPeriod: [],
+  locations: [],
+  zipCode: ""
+};
 
 const categoryData = Images.map((image, index) => ({
   image: image,
@@ -21,11 +29,36 @@ const categoryData = Images.map((image, index) => ({
   type: type[index],
 }));
 
-function Categories({ data }) {
+function Categories({ data, filter }) {
+
+  const [isFilterChanged, setIsFilterChanged] = useState(false);
 
   const allCategoriesData = data.length > 0 ? [...new Set(data.map((item) => item.category))].map((category) => {
     return categoryData.find((element) => element.type === category);
   }) : categoryData;
+
+  const haveFiltersChanged = () => {
+    const filterKeys = Object.keys(defaultFilters);
+    for (let i = 0; i < filterKeys.length; i++) {
+      const key = filterKeys[i];
+      if (filter[key] && filter[key].length > 0) {
+        return true;
+      }
+    }
+    return false;
+  };
+
+  useEffect(() => {
+    if (haveFiltersChanged()) {
+      setIsFilterChanged(true);
+    } else if (isFilterChanged === true) {
+      setIsFilterChanged(false);
+    }
+
+    if (isFilterChanged && data.length === 0) {
+      SuccessToast("To filter more data, Please Sign in!");
+    }
+  }, [filter, data, isFilterChanged]);
 
   return (
     <div className="mx-8 z-[1]">

@@ -16,7 +16,7 @@ function Welcome() {
   const { backendUrl } = useAuth();
   const userData = location.state?.TempUserData || null;
   const changeMailHandler = () => {
-    navigate("/signin", { state: { isLogin: false, userData: userData } });
+    navigate("/signin?isLogin=false", { state: { userData: userData } });
   }
   const resendEmailHandler = async () => {
     const response = await axios.post(`${backendUrl}/auth/resendEmailVerification`, { email: userData.email, password: userData.password, confirmPassword: userData.confirmPassword });

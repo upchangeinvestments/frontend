@@ -7,7 +7,7 @@ export default function PrivateRoute({ children }) {
     // console.log(isAuth)
 
     if (!isAuth) {
-        return <Navigate to="/signin" />
+        return <Navigate to="/signin?isLogin=true" />
     }
 
     return children;

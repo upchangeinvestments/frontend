@@ -40,7 +40,8 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
       );
     });
-    sendFilteredData(filtered);
+    sendFilteredData(filtered, filters);
+
     setTimeout(() => {
       setLoader(false);
     }, [800])

@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import NavBar from "../../commonComponents/NavBar";
@@ -31,14 +31,22 @@ const ConnetWithUs = () => {
 
 const SignIn = () => {
   const location = useLocation();
-  const isLogin = location.state?.isLogin || false;
 
-  const [isSignUp, setIsSignUp] = useState(isLogin);
+  const queryParams = new URLSearchParams(location.search);
+  const isLogin = queryParams.get('isLogin');
+
+  const [isSignUp, setIsSignUp] = useState(isLogin === 'true' ? true : false);
   const [showForgetPassword, setShowForgetPassword] = useState(false);
   const [userData, setUserData] = useState(location.state?.userData || null);
   const navigate = useNavigate();
   const { handleUpdateAuth, backendUrl } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
+
+  useEffect(() => {
+    const queryParams = new URLSearchParams(location.search);
+    const isLogin = queryParams.get('isLogin');
+    setIsSignUp(isLogin === 'true' ? true : false);
+  }, [location]);
 
   const togglePasswordVisibility = () => {
     setShowPassword(!showPassword);

@@ -64,18 +64,18 @@ const Questions = () => {
           const res = await axios.post(`${backendUrl}/updatequiz`, { responses, user: { email, name } });
           if (res.status === 200) {
             SuccessToast("Responses saved successfully!");
-            navigate("/signin", { state: { isLogin: true, userData: userData } });
+            navigate("/signin?isLogin=true", { state: { userData: userData } });
           }
         } else {
           const res = await axios.post(`${backendUrl}/landingPage/quiz`, { userData });
           if (res.status === 200)
             SuccessToast("Responses saved successfully!");
-          navigate("/signin", { state: { isLogin: false, userData: userData } });
+          navigate("/signin?isLogin=false", { state: { userData: userData } });
         }
       }
     }
     catch (error) {
-      console.log("error: ", error)
+      // console.log("error: ", error)
       var message;
       if (error.response) {
         const code = error.response.data.message.substring(0, 6);
@@ -89,8 +89,6 @@ const Questions = () => {
       }
       Error(message);
     }
-
-
   };
 
   const loadQuiz = () => {
