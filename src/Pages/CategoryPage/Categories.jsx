@@ -1,5 +1,5 @@
 import React, { useState, useEffect } from "react";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import hospital from "../../assets/categories/hospital.jpg";
 import hotel from "../../assets/categories/hotels.jpeg";
 import infrastructure from "../../assets/categories/infrastructure.jpg";
@@ -11,6 +11,7 @@ import BlurBuilding from "../../assets/Building_blur-xl.jpg";
 import parks from "../../assets/parks.jpg";
 import { MdKeyboardArrowRight } from "react-icons/md";
 import SuccessToast from "../../utils/successToast";
+import { useAuth } from "../../utils/AuthContext"
 
 const Images = [resident, retail, hotel, warehouse, hospital, parks, office, infrastructure, BlurBuilding];
 const Texts = ["Residential", "Retail", "Hotel", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure", "View All"];
@@ -30,7 +31,8 @@ const categoryData = Images.map((image, index) => ({
 }));
 
 function Categories({ data, filter }) {
-
+  const navigate = useNavigate();
+  const { isAuth } = useAuth();
   const [isFilterChanged, setIsFilterChanged] = useState(false);
 
   const allCategoriesData = data.length > 0 ? [...new Set(data.map((item) => item.category))].map((category) => {
@@ -56,9 +58,18 @@ function Categories({ data, filter }) {
     }
 
     if (isFilterChanged && data.length === 0) {
-      SuccessToast("To filter more data, Please Sign in!");
+      if (isAuth) {
+        if (filter["category"] && filter["category"].length > 0) {
+          const category = filter["category"][1];
+          navigate(`/category/${category}`);
+        } else {
+          SuccessToast("Please select a category to filter better.");
+        }
+      } else {
+        SuccessToast("To filter more data, Please Sign in!");
+      }
     }
-  }, [filter, data, isFilterChanged]);
+  }, [filter, data, isFilterChanged, isAuth]);
 
   return (
     <div className="mx-8 z-[1]">

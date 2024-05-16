@@ -31,7 +31,7 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
           item.minInvestment >= parseInt(filters.investmentRange.split('-')[0].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) &&
           (filters.investmentRange.split('-')[1] ? item.minInvestment <= parseInt(filters.investmentRange.split('-')[1].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) : true)
         ) &&
-        (filters.targetedIRR === 0 || parseInt(item.IRR) >= filters.targetedIRR) &&
+        (filters.targetedIRR == 0 || parseFloat(item.IRR) <= filters.targetedIRR) &&
         (filters.holdPeriod.length === 0 || filters.holdPeriod.some(period => {
           const [min, max] = period.split('-').map(x => parseInt(x.replace('YRS', '')));
           return item.Hold_period >= min && item.Hold_period <= max;

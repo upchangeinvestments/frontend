@@ -48,7 +48,7 @@ function CategoryPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] mx-auto lg:ml-[60%] text-center">
+          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] mx-auto lg:ml-[58%] text-center">
             Explore Investments
           </p>
         </div>
@@ -60,7 +60,7 @@ function CategoryPage() {
             openDrawer={openDrawer}
             passDataObject={receiveDataObject}
           />)}
-          {loading === false && <Categories data={filterData} filter={filters}/>}
+          {loading === false && <Categories data={filterData} filter={filters} />}
           {loading === true && <div className="flex items-center justify-center h-[70%] w-[100%] sticky bottom-12">
             {/* <PropagateLoader
               color="#9747ff"

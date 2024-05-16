@@ -6,68 +6,82 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 
-const ListedCompany = () => {
+const ListedCompany = ({ websiteLink, postId }) => {
+
   return (
-    <div className="flex flex-col">
-      <h2 className="font-['Playfair-Display'] text-lg">Fly Heights</h2>
-      <p>
-      Founded in 2023, Fly Heights Enterprises emerges as a dynamic force in the realm of urban development, spearheading transformative projects that redefine city skylines and enhance community living. With a commitment to innovation and sustainability, Fly Heights Enterprises embraces the challenge of shaping tomorrow's cities today.
-      At Fly Heights Enterprises, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. From iconic residential towers to state-of-the-art commercial complexes, we craft spaces that inspire and elevate the human experience. Our portfolio showcases a diverse range of projects, each bearing the hallmark of meticulous design and unparalleled quality.
-      With a legacy spanning over a decade, Fly Heights Enterprises has become synonymous with forward-thinking urban development. Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life, ensuring that every project exceeds expectations.
-      </p>
-      <p className="mt-2">
-      Beyond construction, Fly Heights Enterprises is committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
-      </p>
-      <div className="flex flex-col my-2 items-center justify-center">
-        <p className="font-['Playfair-Display'] mb-2">
-          TO KNOW MORE ABOUT THE FIRM AND INVEST IN THE PROJECT PLEASE GO TO THE
-          LINK BELOW.
-        </p>
-        <Button link="#" Text="Visit the website" />
-      </div>
+    <div >
+      {postId === "0" ? (
+        <div className="flex flex-col">
+          <h2 className="font-['Playfair-Display'] text-lg">Studio 2694</h2>
+          <p>
+            Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
+            At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
+          </p>
+          <p className="mt-2">
+            Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
+          </p>
+          <div className="flex flex-col my-2 items-center justify-center">
+            <p className="font-['Playfair-Display'] my-2">
+              TO KNOW MORE ABOUT THE FIRM AND INVEST IN THE PROJECT PLEASE GO TO THE
+              LINK BELOW.
+            </p>
+            <Button link={websiteLink} Text="Visit the website" target="_blank" />
+          </div>
+        </div >
+      ) : (
+        <div className="flex flex-col">
+          <h2 className="font-['Playfair-Display'] text-lg">Fly Heights</h2 >
+          <p>
+            Founded in 2022, studio 2694 emerges as a dynamic force in the realm of urban development, spearheading transformative projects that redefine city skylines and enhance community living. With a commitment to innovation and sustainability, Fly Heights Enterprises embraces the challenge of shaping tomorrow's cities today.
+            At Fly Heights Enterprises, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. From iconic residential towers to state-of-the-art commercial complexes, we craft spaces that inspire and elevate the human experience. Our portfolio showcases a diverse range of projects, each bearing the hallmark of meticulous design and unparalleled quality.
+            With a legacy spanning over a decade, Fly Heights Enterprises has become synonymous with forward-thinking urban development. Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life, ensuring that every project exceeds expectations.
+          </p>
+          <p className="mt-2">
+            Beyond construction, Fly Heights Enterprises is committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
+          </p>
+          <div className="flex flex-col my-2 items-center justify-center">
+            <p className="font-['Playfair-Display'] my-2">
+              TO KNOW MORE ABOUT THE FIRM AND INVEST IN THE PROJECT PLEASE GO TO THE
+              LINK BELOW.
+            </p>
+            <Button link={websiteLink} Text="Visit the website" target="_blank" />
+          </div>
+        </div >
+      )}
     </div>
   );
 };
-const DropDownData = [
-  // {
-  //     title: "Overview",
-  //     content: "View the project overview",
-  //     desc: "View the project overview",
 
-  // },
-  {
-    title: "Documents",
-    content: "View the project documentations",
-    desc: "View the project documentations",
-    id: "documents",
 
-  },
-  {
-    title: "Business Plan",
-    content: "View the business plan",
-    desc: "View the business plan",
-    id: "business",
-  },
-  // {
-  //     title: "Property",
-  //     content: "Explore property details, comparable, locations and photos.",
-  //     desc: "Explore property details, comparable, locations and photos.",
-  // },
-  {
-    title: "Financials",
-    content: "Reveiw debt assumptions, closing dates, caps and more",
-    desc: "Reveiw debt assumptions, closing dates, caps and more",
-    id: "financial",
-  },
-  {
-    title: "Listed company",
-    content: "Review the listed company in detail.",
-    desc: <ListedCompany />,
-  },
-];
-
-function MaterialUIAccordion() {
+function MaterialUIAccordion({ websiteLink, postId }) {
   const [open, setOpen] = React.useState(3);
+
+  const DropDownData = [
+    {
+      title: "Documents",
+      content: "View the project documentations",
+      desc: "View the project documentations",
+      id: "documents",
+
+    },
+    {
+      title: "Business Plan",
+      content: "View the business plan",
+      desc: "View the business plan",
+      id: "business",
+    },
+    {
+      title: "Financials",
+      content: "Reveiw debt assumptions, closing dates, caps and more",
+      desc: "Reveiw debt assumptions, closing dates, caps and more",
+      id: "financial",
+    },
+    {
+      title: "Listed company",
+      content: "Review the listed company in detail.",
+      desc: <ListedCompany websiteLink={websiteLink} postId={postId} />,
+    },
+  ];
 
   const handleOpen = (value) => setOpen(open === value ? 0 : value);
 
