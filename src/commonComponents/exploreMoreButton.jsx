@@ -3,7 +3,7 @@ import { Link } from "react-router-dom";
 
 function ExploreMoreButton(props) {
   return (
-    <Link to="/signin?isLogin=false" className="bg-[#ccaaf8]  px-4 py-2 rounded-full">
+    <Link to={props.Link} className="bg-[#ccaaf8]  px-4 py-2 rounded-full">
       <button className="text-black flex items-center justify-center gap-4">
         <div className="text-lg font-['Playfair-Display']  font-semibold">
           {props.Text}

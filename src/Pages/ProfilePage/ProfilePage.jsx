@@ -4,12 +4,14 @@ import Tabs from "./ProfileTab";
 import Profile from "./Profile";
 import Activity from "./Activity";
 import Questionnaire from "./Questionnaire";
+import AccreditedInvestor from "./AccreditedInvestor";
 import UserDataModal from "../../commonComponents/getUserDataModal";
 
 const ProfilePage = () => {
   const tabs = [
     { title: "Profile", content: <Profile /> },
     { title: "Saved Projects", content: <Activity /> },
+    { title: "Accredited Investor", content: <AccreditedInvestor /> },
     { title: "Questionnaire", content: <Questionnaire /> },
   ];
 

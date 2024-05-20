@@ -26,7 +26,7 @@ function SubscriptionForm() {
     const [userDetails, setUserDetails] = useState({ userName: '', companyName: '', userEmail: '', phoneNumber: '' });
     const [textField, setTextField] = useState(false);
     const [OtherTextValue, setOtherTextValue] = useState('');
-    const [formSubmitted, setFormSubmitted] = useState(true);
+    const [formSubmitted, setFormSubmitted] = useState(false);
 
     useEffect(() => {
         setUserDetails((prevUserDetails) => ({
@@ -79,6 +79,11 @@ function SubscriptionForm() {
                     userEmail: isAuth ? user.email : '',
                     phoneNumber: ''
                 });
+
+                setTimeout(() => {
+                    setFormSubmitted(false);
+                }, [600000])   // means 10 minutes
+
             }
         } catch (error) {
             var message;

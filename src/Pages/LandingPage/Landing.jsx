@@ -4,9 +4,11 @@ import Tagline from "./Tagline";
 import Aos from "aos";
 import "aos/dist/aos.css";
 import "../../styles/LandingPage/LandingPage.css";
+import { useAuth } from "../../utils/AuthContext"
 
 function LandingPage() {
   const words = ["Investments", "Opportunites", "Investments", "Opportunites"];
+  const { isAuth } = useAuth();
 
   useEffect(() => {
     Aos.init();
@@ -38,7 +40,7 @@ function LandingPage() {
             </div>
           </div>
           <div className="flex ml-[45px] lg:ml-[0px]">
-            <ExploreMoreButton className="" Text="Explore More" />
+            <ExploreMoreButton Link={isAuth ? "/category" : "/signin?isLogin=false"} className="" Text="Explore More" />
           </div>
         </div>
       </div>

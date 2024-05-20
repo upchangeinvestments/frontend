@@ -36,6 +36,14 @@ const MainData = [
 
 const KeywordData = [
   {
+    title: "Internal Rate of Return (IRR)",
+    content: "The Internal Rate of Return (IRR) is a metric used to evaluate the potential profitability of an investment. It represents the annualized rate of return at which the net present value (NPV) of all cash flows from the investment equals zero. In simpler terms, it's the discount rate that makes the sum of the present value of future cash flows equal to the initial investment.",
+  },
+  {
+    title: "Accredited Investor",
+    content: "Accredited investors are deemed to have sufficient financial sophistication and resources to understand and bear the risks associated with certain types of investments, including private placements and offerings of securities.",
+  },
+  {
     title: "Capitalization Rate (Cap Rate)",
     content: `In real estate investment, the capitalization rate, often abbreviated as "cap rate", is a metric used to estimate the potential return on an investment property. It's calculated by dividing the property's net operating income (NOI) by its current market value or purchase price.`,
   },
@@ -50,10 +58,6 @@ const KeywordData = [
   {
     title: "Due Diligence",
     content: "Due Diligence refers to the process of conducting thorough research, investigation, and analysis of a property before finalizing the purchase or investment transaction. It is a critical step that helps investors assess the property's financial, legal, and physical aspects to make informed investment decisions and mitigate risks.",
-  },
-  {
-    title: "Accredited Investor",
-    content: "Accredited investors are deemed to have sufficient financial sophistication and resources to understand and bear the risks associated with certain types of investments, including private placements and offerings of securities.",
   },
 ]
 
