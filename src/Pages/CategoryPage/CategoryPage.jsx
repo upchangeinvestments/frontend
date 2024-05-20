@@ -9,6 +9,7 @@ import MobileFilterDrawer from "../../commonComponents/Filter/MobileFilterDrawer
 import MobileFilter from "../../commonComponents/Filter/MobileFilter";
 import "../../App.css";
 import RingLoader from "react-spinners/RingLoader";
+import { Helmet } from 'react-helmet-async';
 
 function CategoryPage() {
   const [open, setOpen] = useState(false);
@@ -36,6 +37,11 @@ function CategoryPage() {
 
   return (
     <div className="mobile-filter-drawer">
+      <Helmet>
+        <title>LynkInfinite Investments</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/category" />
+      </Helmet>
       <div className="categoryMain">
         <MobileFilterDrawer
           open={open}

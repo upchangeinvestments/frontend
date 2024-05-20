@@ -3,10 +3,16 @@ import NavBar from "../../commonComponents/NavBar";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/CategoryPage/categoryPage.css";
 import Privacy from "./Privacy";
+import { Helmet } from 'react-helmet-async';
 
 function Privacyandpolicy() {
   return (
     <div className="">
+      <Helmet>
+        <title>Privacy Policy</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/privacy" />
+      </Helmet>
       <div className="contactMain text-white">
         <NavBar />
         <div className="h-[85vh] flex items-center justify-center">

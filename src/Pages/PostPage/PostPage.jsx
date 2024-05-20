@@ -15,6 +15,7 @@ import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
 import PhotoSection from "./PhotosSection";
 import InvestmentData from "../../assets/RMData.json"
+import { Helmet } from 'react-helmet-async';
 
 const Progressbar = ({ val }) => {
   // const width = `${Math.min(Math.max(0, val), 100)}%`;
@@ -140,6 +141,11 @@ function PostPage() {
 
   return (
     <div className="bg-gradient-to-r from-purple-300 to-pink-200 ">
+      <Helmet>
+        <title>Project</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/post/:postId" />
+      </Helmet>
       <div className="flex flex-col items-center justify-center">
         <div className="w-[100%]">
           <div className="PostPage h-[65vh]">

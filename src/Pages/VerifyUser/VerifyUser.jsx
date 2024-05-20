@@ -4,6 +4,7 @@ import axios from "axios"
 import Error from "../../utils/Error";
 import VerifiedGIF from "../../assets/verified.webp"
 import { useAuth } from "../../utils/AuthContext";
+import { Helmet } from 'react-helmet-async';
 
 function VerifyUser() {
     let { id, token } = useParams();
@@ -38,6 +39,11 @@ function VerifyUser() {
 
     return (
         <div className=" h-[100vh] aboutMain flex items-center justify-center " >
+            <Helmet>
+                <title>Verified @ LynkInfinite Investments</title>
+                <meta name="description" content="Real Estate listed projects website" />
+                <link rel="canonical" href="/premium" />
+            </Helmet>
             {isVerified === true ? (
                 <div className="bg-white/20 backdrop-blur-xl p-8 rounded-lg flex flex-col items-center text-white">
                     <img src={VerifiedGIF} className="w-80" alt="Verify" />

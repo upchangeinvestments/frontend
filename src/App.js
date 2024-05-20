@@ -11,6 +11,7 @@ import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
 import Contact from "./Pages/ContactPage/ContactPage";
 import VerifyUser from "./Pages/VerifyUser/VerifyUser";
 import EducationPage from "./Pages/EducationPage/EducationPage";
+import Articles from "./Pages/EducationPage/Articles";
 import HowInvestmentWorks from "./Pages/LandingPage/Platform";
 import PostPage from "./Pages/PostPage/PostPage";
 import SpecificPage from "./Pages/SpecificCategoryPage/SpecificPage";
@@ -20,7 +21,6 @@ import AuthProvider from "./utils/AuthContext";
 import Termsandconditions from "./Pages/SpecificCategoryPage/Termsandconditions";
 import Privacyandpolicy from "./Pages/SpecificCategoryPage/Privacyandpolicy";
 import Welcome from "./Pages/SignInPage/Welcome";
-// import HowItWorks from "./Pages/LandingPage/HowItWorks";
 import HowItWorksPage from "./Pages/SpecificCategoryPage/HowItWorksPage";
 
 function App() {
@@ -52,6 +52,7 @@ function App() {
             </PrivateRoute>
           } />
           <Route path="/terms" element={<Termsandconditions />} />
+          <Route path="/article/:articleId" element={<Articles />} />
           <Route path="/privacy" element={<Privacyandpolicy />} />
           <Route path="/category" element={
             <PrivateRoute>

@@ -3,6 +3,16 @@ import LoginButton from "./LoginButton";
 import "../styles/LandingPage/Post.css";
 import { FaRegStar, FaStar } from "react-icons/fa6";
 
+
+
+function formatMinInvestment(minInvestment) {
+  if (minInvestment >= 1000000) {
+    return false;
+  } else {
+    return `$${minInvestment.toLocaleString()}`;
+  }
+}
+
 const RealEstateCard = (props) => {
   const [firstStarActive, setFirstStarActive] = useState(true);
 
@@ -54,7 +64,12 @@ const RealEstateCard = (props) => {
         </div>
         <div className="flex-nowrap">
           <p>
-            Targeted IRR: <span className="font-bold">{props.data.IRR}</span>
+            Targeted IRR: <span className="font-bold">{props.data.IRR}%</span>
+          </p>
+        </div>
+        <div className="flex-nowrap">
+          <p>
+            Min Investment: <span className="font-bold">{formatMinInvestment(props.data.minInvestment) ? formatMinInvestment(props.data.minInvestment) : props.data.Investment}</span>
           </p>
         </div>
         <div className="progress-section">

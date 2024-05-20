@@ -16,6 +16,7 @@ import "../../App.css";
 import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 import filterSVG from "../../assets/filter.svg";
+import { Helmet } from 'react-helmet-async';
 // import { IoGameController } from "react-icons/io5";
 
 function SpecificPage() {
@@ -147,6 +148,11 @@ function SpecificPage() {
 
   return (
     <div className="mobile-filter-drawer">
+      <Helmet>
+        <title>{type} Properties</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/category/:type" />
+      </Helmet>
       <div className="categoryMain">
         <MobileFilterDrawer
           open={open}

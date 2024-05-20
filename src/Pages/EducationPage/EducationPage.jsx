@@ -10,6 +10,7 @@ import NavBar from "../../commonComponents/NavBar";
 import ArticleData from "../../assets/ArticlesEduPage.json";
 import Card from "./Card";
 import ReadMoreDrawer from "./ReadMoreDrawer";
+import { Helmet } from 'react-helmet-async';
 
 const MainData = [
   {
@@ -303,6 +304,11 @@ function ResouceContent() {
 function EducationPage() {
   return (
     <div className="">
+      <Helmet>
+        <title>Resources</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/resources" />
+      </Helmet>
       <div className="categoryMain">
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">

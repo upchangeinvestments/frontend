@@ -1,9 +1,16 @@
 import React from 'react'
 import NavBar from '../../commonComponents/NavBar'
+import { Helmet } from 'react-helmet-async';
 import Footer from '../../commonComponents/Footer'
+
 function HowItWorksPage() {
   return (
     <div className="">
+      <Helmet>
+        <title>Concept @ LynkInfinite Investments</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/work" />
+      </Helmet>
       <div className="premiumMain">
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">

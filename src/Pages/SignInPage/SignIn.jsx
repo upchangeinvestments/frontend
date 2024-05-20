@@ -9,6 +9,7 @@ import SuccessToast from "../../utils/successToast";
 import { useAuth } from "../../utils/AuthContext";
 import { IoEyeOffOutline } from "react-icons/io5";
 import { IoEyeOutline } from "react-icons/io5";
+import { Helmet } from 'react-helmet-async';
 
 const ConnetWithUs = () => {
   return (
@@ -168,6 +169,11 @@ const SignIn = () => {
 
   return (
     <div className="">
+      <Helmet>
+        <title>Login page</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/signin" />
+      </Helmet>
       <div className={
         isSignUp
           ? "vsm:hidden lg:block SignIn bg1"

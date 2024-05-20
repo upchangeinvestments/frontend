@@ -6,6 +6,7 @@ import Activity from "./Activity";
 import Questionnaire from "./Questionnaire";
 import AccreditedInvestor from "./AccreditedInvestor";
 import UserDataModal from "../../commonComponents/getUserDataModal";
+import { Helmet } from 'react-helmet-async';
 
 const ProfilePage = () => {
   const tabs = [
@@ -17,6 +18,11 @@ const ProfilePage = () => {
 
   return (
     <div className="bg-gradient-to-r from-purple-300 to-pink-200">
+      <Helmet>
+        <title>Profile page</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/profile" />
+      </Helmet>
       <div className="mb-[50px]">
         <Tabs tabs={tabs} />
       </div>

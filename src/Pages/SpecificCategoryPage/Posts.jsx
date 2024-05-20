@@ -195,15 +195,17 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               <p className="font-bold vsm:text-base sm:text-lg">{data.IRR}%</p>
             </div>
           </div>
-          <div className="w-full flex items-center">
-            <div className="progress-section">
-              <div className="task-progress flex items-center justify-center">
-                <progress
-                  className="progress progress1"
-                  max="100"
-                  value="57"
-                ></progress>
-                <p className="text-xs text-nowrap ml-2">57% Funded</p>
+          <div className="flex items-center justify-center">
+            <div className="w-[80%] flex items-center">
+              <div className={`progress-section ${navigator.userAgent.indexOf('iPad') > -1 ? 'py-[2px]' : 'py-[5px]'}`}>
+                <div className="task-progress flex items-center justify-center">
+                  <progress
+                    className="progress progress1"
+                    max="100"
+                    value="57"
+                  ></progress>
+                  <p className="text-xs text-nowrap ml-2">57% Funded</p>
+                </div>
               </div>
             </div>
           </div>
@@ -236,7 +238,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
             </div>
           </div>
-          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-3' : navigator.userAgent.indexOf('iPad') > -1 ? 'mt-4' : 'mt-0'}`}>
+          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-3' : navigator.userAgent.indexOf('iPad') > -1 ? 'iPadMargin' : 'mt-0'}`}>
             <Button Text="Know More" link={`/post/${data.projectId}`} />
             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
           </div>

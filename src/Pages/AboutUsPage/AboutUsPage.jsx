@@ -3,10 +3,16 @@ import AboutUs from "./AboutUs";
 import Footer from "../../commonComponents/Footer";
 import Navbar from "../../commonComponents/NavBar";
 import "../../styles/CategoryPage/categoryPage.css";
+import { Helmet } from 'react-helmet-async';
 
 function AboutUsPage() {
   return (
     <div className="">
+      <Helmet>
+        <title>About LynkInfinite Investments</title>
+        <meta name="description" content="Real Estate listed projects website" />
+        <link rel="canonical" href="/about" />
+      </Helmet>
       <div className="hidden lg:block">
         <div className="categoryMain">
           <Navbar />
