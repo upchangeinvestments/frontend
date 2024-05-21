@@ -55,7 +55,7 @@ const Communication = () => {
   const handleSubmit = (event) => {
     event.preventDefault();
 
-    successToast('You have subscribed successfully!');
+    successToast('You have unsubscribed successfully!');
     setUnsubscribed(true);
 
   };
@@ -98,7 +98,7 @@ const Communication = () => {
         <div className="flex flex-col items-center justify-center ">
           <h1 className="text-xl font-bold">You're Unsubscribed</h1>
           <p>We're sorry to loose you, but we totally understand.</p>
-          <p>No worries! You can resubscribe us instanlty by clicking on the button below</p>
+          <p>No worries! You can resubscribe us instantly by clicking on the button below</p>
           <div className="flex items-center justify-center my-4">
             <button className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded" type="submit">Subscribe Us</button>
           </div>
