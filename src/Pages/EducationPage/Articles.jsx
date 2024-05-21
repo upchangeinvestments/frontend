@@ -6,14 +6,15 @@ import Footer from "../../commonComponents/Footer";
 import NavBar from "../../commonComponents/NavBar";
 
 function Articles() {
-    const { articleId } = useParams();
+    const { articleHeading } = useParams();
+    const article = ArticleData.find(article => article.title === articleHeading);
 
     return (
         <div className="">
             <Helmet>
                 <title>Articles</title>
                 <meta name="description" content="Real Estate listed projects website" />
-                <link rel="canonical" href="/article/:articleId" />
+                <link rel="canonical" href="/article/:articleHeading" />
             </Helmet>
             <div className="categoryMain">
                 <NavBar />
@@ -24,7 +25,7 @@ function Articles() {
                 </div>
             </div>
             <div className="flex items-center justify-center mb-16">
-                <div className="max-w-6xl bg-white/20 shadow-2xl shadow-purle-500/50 font-['Playfair-Display'] rounded-lg backdrop-blur-xl relative px-8 py-10 vsm:w-[90%] -mt-56 md:-mt-60 lg:-mt-52 xl:-mt-64 " dangerouslySetInnerHTML={{ __html: ArticleData[articleId].content }} />
+                <div className="max-w-6xl bg-white/20 shadow-2xl shadow-purle-500/50 font-['Playfair-Display'] rounded-lg backdrop-blur-xl relative px-8 py-10 vsm:w-[90%] -mt-56 md:-mt-60 lg:-mt-52 xl:-mt-64 " dangerouslySetInnerHTML={{ __html: article.content }} />
             </div>
             <div className="">
                 <Footer />

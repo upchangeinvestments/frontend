@@ -25,18 +25,85 @@ const LogoutComponent = () => {
 };
 
 const Communication = () => {
+  const [formVisibility, setFormVisibility] = useState(false);
+  const [unsubscribed, setUnsubscribed] = useState(false);
+
   const handleSubscribe = () => {
+    setFormVisibility(true);
+  };
+  const [formData, setFormData] = useState({
+    unsubscribeReason: "",
+    otherReason: "",
+  });
+
+  const handleRadioChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleTextChange = (event) => {
+    const { name, value } = event.target;
+    setFormData((prevFormData) => ({
+      ...prevFormData,
+      [name]: value,
+    }));
+  };
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+
     successToast('You have subscribed successfully!');
+    setUnsubscribed(true);
+
   };
   return (
-    <div className="flex flex-col items-center mt-[20px] space-y-4">
-      <div className="text-xl font-semibold">Stay Connected with Us</div>
-      <div className="text-[#6e30a7] text-lg text-center">
-        Subscribe to our newsletter to get the latest updates and offers.
-      </div>
-      <button onClick={handleSubscribe} className="bg-[#6e30a7]  text-white font-semibold py-2 px-4 rounded">
-        Subscribe
-      </button>
+    <div className="flex flex-col items-center mt-[20px] space-y-4 mb-8 font-['Playfair-Display']">
+      <img className="w-20" src="https://i.postimg.cc/C5cw8FP2/email-computer-icons-clip-art-png-favpng-4-TBZ4-Znz4p7x0-GH9kv8wx-Ln-G2-removebg-preview.png" alt="Email Image" />
+      {!unsubscribed && !formVisibility && <div className="text-xl font-semibold">Do you want to unsubscribe from our messages ?</div>}
+      {!unsubscribed && !formVisibility && <button onClick={handleSubscribe} className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded">Unsubscribe</button>}
+      {formVisibility && !unsubscribed && (
+        <div>
+          <form onSubmit={handleSubmit}>
+            <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="No Longer Want Emails" onChange={handleRadioChange} />
+              <div className="">I no longer want to receive these emails</div>
+            </label>
+            <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="Inappropriate Emails" onChange={handleRadioChange} />
+              <div className="">The emails are inappropriate</div>
+            </label>
+            <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="No Longer Providing Value" onChange={handleRadioChange} />
+              <div className="">Emails are no longer providing valuable information</div>
+            </label>
+            <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="Not Using Platform" onChange={handleRadioChange} />
+              <div className="">I don't use this platform</div>
+            </label>
+            <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="other" onChange={handleRadioChange} />
+              <div className="">Other</div>
+            </label>
+            <input type="text" name="otherReason" value={formData.otherReason} onChange={handleTextChange} className="border-2 border-gray-300 rounded-xl p-2 ml-4 text-lg w-full" disabled={formData.unsubscribeReason !== "other"} />
+            <div className="flex items-center justify-center my-4">
+              <button className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded" type="submit">Unsubscribe</button>
+            </div>
+          </form>
+        </div>
+      )}
+      {unsubscribed && (
+        <div className="flex flex-col items-center justify-center ">
+          <h1 className="text-xl font-bold">You're Unsubscribed</h1>
+          <p>We're sorry to loose you, but we totally understand.</p>
+          <p>No worries! You can resubscribe us instanlty by clicking on the button below</p>
+          <div className="flex items-center justify-center my-4">
+            <button className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded" type="submit">Subscribe Us</button>
+          </div>
+        </div>
+      )}
     </div>
   );
 };
@@ -379,20 +446,27 @@ const ChangePassword = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4 mt-[50px]">
+    <div className="flex flex-col gap-4 mt-[50px] mx-4">
+      <style>
+        {`
+          input::placeholder {
+            color: #6e30a7;
+          }
+        `}
+      </style>
       <form className="" onSubmit={updatePasswordHandler}>
-      <div className="mb-4 mt-10">
-      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Current Password</label>
-      <input type="text" placeholder="Current Password" name="CurrentPassword"  className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl " required />         
-      </div>
-      <div className="mb-4 mt-10">
-      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">New Password</label>
-      <input type="text" placeholder="New Password" name="NewPassword"  className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl "  required />
-      </div>
-      <div className="mb-4 mt-10">
-      <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Confirm Password</label>
-      <input type="text" placeholder="Confirm Password" name="ConfirmPassword"  className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl " required />
-      </div>
+        <div className="mb-4 mt-10">
+          <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Current Password</label>
+          <input type="text" placeholder="Current Password" name="CurrentPassword" className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl text-[#6e30a7]" required />
+        </div>
+        <div className="mb-4 mt-10">
+          <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">New Password</label>
+          <input type="text" placeholder="New Password" name="NewPassword" className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl text-[#6e30a7]" required />
+        </div>
+        <div className="mb-4 mt-10">
+          <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Confirm Password</label>
+          <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl text-[#6e30a7]" required />
+        </div>
       </form>
       <div className="flex flex-col items-center">
         <button type="submit" className="bg-[#6e30a7] text-[#ffff] py-2 px-4 rounded-md">RESET PASSWORD</button>

@@ -43,68 +43,33 @@ function formatMinInvestment(minInvestment) {
   }
 }
 
-const OverViewContent = ({ postId }) => {
+const OverViewContent = () => {
   return (
-    <div>
-      {postId === "0" ? (
-        <div className="">
-          <p>
-            Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
-            At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
-          </p>
-          <p className="mt-2">
-            Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
-          </p>
-        </div >
-      ) : (
-        <div className="">
-          <p>
-            Ardent Housing Fund II (AHF II) is a private real estate fund focused on generating above-average risk-adjusted returns through developing and operating rental housing in growing, undersupplied housing markets. AHFII has a fully identified pipeline of six assets.
-          </p >
-          <p>
-            The Fund’s primary focus is on development within the United States, a region that is increasing in population up to 70% faster than the national average with consistently sub-4% unemployment rates. The strategic focus is on growing, undersupplied housing markets that have been capital-constrained even though their underlying population and job growth statistics are often similar to many primary markets. The General Partner has capitalized on this unsatisfied demand by pursuing projects in these markets and engaging experienced development partners through Ardent’s established relationships.
-          </p>
-        </div >
-      )}
+    <div className="">
+      <h1 className="text-lg font-bold">Studio 2694</h1>
+      <p>
+        Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
+        At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
+      </p>
+      <p className="mt-2">
+        Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
+      </p>
     </div >
   );
 };
 
-const ListedCompany = ({ postId }) => {
+const ListedCompany = () => {
   return (
-    <>
-      {postId === "0" ? (
-        <div className="flex flex-col">
-          <h2 className="font-['Playfair-Display'] text-lg">Studio 2694</h2>
-          <p>
-            Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
-            At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
-          </p>
-          <p className="mt-2">
-            Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
-          </p>
-        </div >
-      ) : (
-        <div className="flex flex-col">
-          <h2 className="font-['Playfair-Display'] text-lg">Fly Heights</h2 >
-          <p>
-            Founded in 2023, Fly Heights Enterprises emerges as a dynamic force in the realm of urban development, spearheading transformative projects that redefine city skylines and enhance community living. With a commitment to innovation and sustainability, Fly Heights Enterprises embraces the challenge of shaping tomorrow's cities today.
-            At Fly Heights Enterprises, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. From iconic residential towers to state-of-the-art commercial complexes, we craft spaces that inspire and elevate the human experience. Our portfolio showcases a diverse range of projects, each bearing the hallmark of meticulous design and unparalleled quality.
-            With a legacy spanning over a decade, Fly Heights Enterprises has become synonymous with forward-thinking urban development. Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life, ensuring that every project exceeds expectations.
-          </p>
-          <p>
-            Beyond construction, Fly Heights Enterprises is committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
-          </p>
-          <div className="flex flex-col my-2 items-center justify-center">
-            <p className="font-['Playfair-Display'] mb-2">
-              TO KNOW MORE ABOUT THE FIRM AND INVEST IN THE PROJECT PLEASE GO TO THE
-              LINK BELOW.
-            </p>
-            <Button link="#" Text="Visit the website" />
-          </div>
-        </div >
-      )}
-    </>
+    <div className="flex flex-col">
+      <h2 className="font-['Playfair-Display'] text-lg">Studio 2694</h2>
+      <p>
+        Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
+        At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
+      </p>
+      <p className="mt-2">
+        Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
+      </p>
+    </div >
   );
 };
 
@@ -117,12 +82,12 @@ function PostPage() {
   const tabs = [
     {
       title: "Overview",
-      content: <OverViewContent postId={postId} />,
+      content: <OverViewContent />,
       link: `/post/${postId}/#Section`
     },
     {
       title: "Listed Company",
-      content: <ListedCompany postId={postId} />,
+      content: <ListedCompany />,
       link: `/post/${postId}/#Section`
     },
     {
@@ -303,33 +268,20 @@ function PostPage() {
               Location
             </h2>
             <div className="flex items-start justify-center h-full">
-              {postId === "0" ? (
-                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d115047.03890828935!2d-118.44431942566905!3d34.123575671979026!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1715844862952!5m2!1sen!2sin"
-                  width="800"
-                  height="300"
-                  className="h-[90%] w-[90%]"
-                  allowfullscreen=""
-                  loading="lazy"
-                  title="Google Maps - Los Angeles, CA, USA"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-              ) : (
-                <iframe
-                  src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d214587.67344082994!2d-96.89670148459179!3d32.82055613767164!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c19f77b45974b%3A0xb9ec9ba4f647678f!2sDallas%2C%20TX%2C%20USA!5e0!3m2!1sen!2sin!4v1710268840150!5m2!1sen!2sin"
-                  className="h-[90%] w-[90%]"
-                  width="800"
-                  height="300"
-                  allowfullscreen=""
-                  loading="lazy"
-                  title="Google Maps - Dallas, TX, USA"
-                  referrerpolicy="no-referrer-when-downgrade"
-                ></iframe>
-              )}
+              <iframe src={data.iFrameSource}
+                width="800"
+                height="300"
+                className="h-[90%] w-[90%]"
+                allowfullscreen=""
+                loading="lazy"
+                title="Google Maps"
+                referrerpolicy="no-referrer-when-downgrade"
+              ></iframe>
             </div>
           </div>
         </div>
         <div className="mb-8 vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/20 backdrop-blur-xl rounded-lg  shadow-md shadow-black-400  p-4">
-          <MaterialUIAccordion websiteLink={data.sourceLink ? data.sourceLink : "#"} postId={postId} />
+          <MaterialUIAccordion websiteLink={data.sourceLink} />
         </div>
       </div>
       <Footer />

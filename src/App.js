@@ -52,7 +52,7 @@ function App() {
             </PrivateRoute>
           } />
           <Route path="/terms" element={<Termsandconditions />} />
-          <Route path="/article/:articleId" element={<Articles />} />
+          <Route path="/article/:articleHeading" element={<Articles />} />
           <Route path="/privacy" element={<Privacyandpolicy />} />
           <Route path="/category" element={<CategoryPage />} />
           <Route path="/welcome" element={<Welcome />} />

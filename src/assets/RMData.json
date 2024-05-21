@@ -13,8 +13,8 @@
     "zip_code": "90001",
     "funded": 45, 
     "projectId": 0,
-    "sourceLink": "https://www.studio2694.com/"
-
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88941.44846058438!2d-118.32043592148761!3d34.061661928925574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1716319582615!5m2!1sen!2sin"
   },
   {
     "title": "The Highlands",
@@ -29,7 +29,9 @@
     "category": "Residential",
     "zip_code": "80019",
     "funded": 33, 
-    "projectId": 1
+    "projectId": 1,
+    "sourceLink": "https://www.studio2694.com/", 
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196496.28425960688!2d-104.85164777337938!3d39.68898273240256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c588622ba2b9b%3A0x8441e0688ba2e678!2sAurora%2C%20CO%2C%20USA!5e0!3m2!1sen!2sin!4v1716319828068!5m2!1sen!2sin"
   },
   {
     "title": "Eternal Escapes",
@@ -44,7 +46,9 @@
     "category": "Hotel",
     "zip_code": "32256", 
     "funded": 5, 
-    "projectId": 2
+    "projectId": 2,
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440730.0332628417!2d-82.0127831733476!3d30.34516920302634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b716f1ceafeb%3A0xc4cd7d3896fcc7e2!2sJacksonville%2C%20FL%2C%20USA!5e0!3m2!1sen!2sin!4v1716319905645!5m2!1sen!2sin"
   },
   {
     "title": "Retail Store",
@@ -59,8 +63,10 @@
     "Hold_period": 8,
     "zip_code": "46071",
     "funded": 15, 
-    "projectId": 3
-  },
+    "projectId": 3,
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12202.057537722176!2d-86.6222057077348!3d40.13082439990112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88133844ad6dbb51%3A0x5f077ad8b3f3b5fd!2sThorntown%2C%20IN%2046071%2C%20USA!5e0!3m2!1sen!2sin!4v1716319999260!5m2!1sen!2sin" 
+   },
   {
     "title": "Fulfillment Fortress",
     "image": "https://plus.unsplash.com/premium_photo-1682129563804-5d5565e4e173?q=80&w=1932&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -74,8 +80,10 @@
     "Hold_period": 10,
     "funded": 57,
     "zip_code": "10001", 
-    "projectId": 4
-  },
+    "projectId": 4,
+    "sourceLink": "https://www.studio2694.com/", 
+  "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0361954975!2d-74.3093467163554!3d40.697539941663834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1716320087643!5m2!1sen!2sin" 
+ },
   {
     "title": "Healing Horizons",
     "image": "https://images.unsplash.com/photo-1626315869436-d6781ba69d6e?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -89,7 +97,9 @@
     "Hold_period": 4,
     "zip_code": "90001",
     "funded": 13, 
-    "projectId": 5
+    "projectId": 5,
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88941.44846058438!2d-118.32043592148761!3d34.061661928925574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1716319582615!5m2!1sen!2sin",
+    "sourceLink": "https://www.studio2694.com/"  
   },
   {
     "title": "HealthHaven Hospitals",
@@ -104,7 +114,9 @@
     "Hold_period": 15,
     "zip_code": "10001",
     "funded": 80, 
-    "projectId": 6
+    "projectId": 6,
+    "sourceLink": "https://www.studio2694.com/"  ,
+  "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0361954975!2d-74.3093467163554!3d40.697539941663834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1716320087643!5m2!1sen!2sin"
   },
   {
     "title": "Gardens at Preston Park",
@@ -119,7 +131,9 @@
     "category": "Mobile Home Parks",
     "zip_code": "90001",
     "funded": 75.3, 
-    "projectId": 7
+    "projectId": 7,
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88941.44846058438!2d-118.32043592148761!3d34.061661928925574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1716319582615!5m2!1sen!2sin",
+    "sourceLink": "https://www.studio2694.com/"  
   },
   {
     "title": "Cade's Bluff",
@@ -134,8 +148,9 @@
     "Hold_period": 5,
     "zip_code": "80019",
     "funded": 7.9, 
-    "projectId": 8
-
+    "projectId": 8,
+    "sourceLink": "https://www.studio2694.com/", 
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196496.28425960688!2d-104.85164777337938!3d39.68898273240256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c588622ba2b9b%3A0x8441e0688ba2e678!2sAurora%2C%20CO%2C%20USA!5e0!3m2!1sen!2sin!4v1716319828068!5m2!1sen!2sin"
   },
   {
     "title": "Simmons Trace",
@@ -150,8 +165,10 @@
     "Hold_period": 8,
     "zip_code": "46071",
     "funded": 50, 
-    "projectId": 9
-  },
+    "projectId": 9,
+    "sourceLink": "https://www.studio2694.com/" , 
+  "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12202.057537722176!2d-86.6222057077348!3d40.13082439990112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88133844ad6dbb51%3A0x5f077ad8b3f3b5fd!2sThorntown%2C%20IN%2046071%2C%20USA!5e0!3m2!1sen!2sin!4v1716319999260!5m2!1sen!2sin"
+ },
   {
     "title": "Dreamscape Suites",
     "image": "https://images.unsplash.com/photo-1607320895054-c5c543e9a069?q=80&w=2070&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
@@ -165,7 +182,9 @@
     "Hold_period": 9,
     "zip_code": "10001",
     "funded": 30, 
-    "projectId": 10
+    "projectId": 10,
+    "sourceLink": "https://www.studio2694.com/", 
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0361954975!2d-74.3093467163554!3d40.697539941663834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1716320087643!5m2!1sen!2sin"
   },
   {
     "title": "Collaborate Hub",
@@ -180,7 +199,9 @@
     "Hold_period": 3,
     "zip_code": "90001",
     "funded": 10, 
-    "projectId": 11
+    "projectId": 11,
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88941.44846058438!2d-118.32043592148761!3d34.061661928925574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1716319582615!5m2!1sen!2sin"
   },
   {
     "title": "Blue Jay Commons",
@@ -195,7 +216,9 @@
     "Hold_period": 9,
     "zip_code": "46071",
     "funded": 70, 
-    "projectId": 12
+    "projectId": 12,
+    "sourceLink": "https://www.studio2694.com/", 
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12202.057537722176!2d-86.6222057077348!3d40.13082439990112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88133844ad6dbb51%3A0x5f077ad8b3f3b5fd!2sThorntown%2C%20IN%2046071%2C%20USA!5e0!3m2!1sen!2sin!4v1716319999260!5m2!1sen!2sin"
   },
   {
     "title": "Integral Union Station III",
@@ -210,7 +233,9 @@
     "minInvestment": 100000,
     "category": "Retail",
     "funded": 55, 
-    "projectId": 13
+    "projectId": 13,
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0361954975!2d-74.3093467163554!3d40.697539941663834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1716320087643!5m2!1sen!2sin"
   },
   {
     "title": "Revive Hospital",
@@ -225,7 +250,9 @@
     "Hold_period": 12,
     "zip_code": "90001",
     "funded": 53, 
-    "projectId": 14
+    "projectId": 14,
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88941.44846058438!2d-118.32043592148761!3d34.061661928925574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1716319582615!5m2!1sen!2sin"
   },
   {
     "title": "Montera at Sherrills Ford",
@@ -240,7 +267,9 @@
     "category": "Residential",
     "zip_code": "10001",
     "funded": 63, 
-    "projectId": 15
+    "projectId": 15,
+    "sourceLink": "https://www.studio2694.com/", 
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d387191.0361954975!2d-74.3093467163554!3d40.697539941663834!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89c24fa5d33f083b%3A0xc80b8f06e177fe62!2sNew%20York%2C%20NY%2C%20USA!5e0!3m2!1sen!2sin!4v1716320087643!5m2!1sen!2sin"
   },
   {
     "title": "Legacy Hills",
@@ -255,7 +284,9 @@
     "Hold_period": 4,
     "zip_code": "93011",
     "funded": 95, 
-    "projectId": 16
+    "projectId": 16,
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d211138.60673599906!2d-119.32942794335196!3d34.22197838558112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80e836108f4494bb%3A0x6e59410f8a656ce7!2sCamarillo%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1716320191477!5m2!1sen!2sin"
   },
   {
     "title": "Gardens at Preston Park",
@@ -270,6 +301,8 @@
     "category": "Mobile Home Parks",
     "zip_code": "96162",
     "funded": 90, 
-    "projectId": 17
+    "projectId": 17,
+    "sourceLink": "https://www.studio2694.com/",
+    "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d98726.17982074752!2d-120.27183781425214!3d39.35186309422801!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x809bdfec3c4e8dd7%3A0x6d172f88c134fcc9!2sTruckee%2C%20CA%2096161%2C%20USA!5e0!3m2!1sen!2sin!4v1716319701301!5m2!1sen!2sin"
   }
 ]

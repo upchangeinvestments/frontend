@@ -194,7 +194,7 @@ function SpecificPage() {
           <div className="lg:mx-8">
             <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
               {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
-                <div className="flex items-center justify-center" key={index}>
+                <div className="flex items-stretch justify-center" key={index}>
                   <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "noBlur"} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} />
                 </div>
               ))}

@@ -45,7 +45,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
 
   return (
     <div className="font-['Playfair-Display']">
-      <div className={`relative hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4 ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}>
+      <div className={`relative hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4 ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'} h-[100%]`}>
         <div className="absolute top-0 -left-4 bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10">
           Sample Project
         </div>
@@ -122,20 +122,20 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
             </p>
             <div className="p-2 grid grid-cols-2 gap-y-2 gap-x-2 vsm:text-xs sm:text-base md:text-base mx-auto mt-2">
               <div className="flex items-center justify-center flex-col">
-                <div className="text-gray-600 text-sm">Min Investment</div>
-                <div className="font-bold text-base uppercase">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
+                <div className="text-gray-600 text-sm text-center">Min Investment</div>
+                <div className="font-bold text-base uppercase text-center">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
-                <p className="text-gray-600 text-sm">Hold period</p>
-                <p className="font-bold text-base">{data.Hold_period} YEARS</p>
+                <p className="text-gray-600 text-sm text-center">Hold period</p>
+                <p className="font-bold text-base text-center">{data.Hold_period} YEARS</p>
               </div>
               <div className="flex items-center justify-center flex-col">
-                <div className="text-gray-600 text-sm">Category type</div>
-                <div className="font-bold text-base capitalize">{data.category.split(" ").length > 1 ? `${data.category.split(" ").slice(0, 1)} ...` : `${data.category}`}</div>
+                <div className="text-gray-600 text-sm text-center">Category type</div>
+                <div className="font-bold text-base text-center capitalize">{data.category}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
-                <p className="text-gray-600 text-sm">Target IRR</p>
-                <p className="font-bold text-base">{data.IRR}%</p>
+                <p className="text-gray-600 text-sm text-center">Target IRR</p>
+                <p className="font-bold text-base text-center">{data.IRR}%</p>
               </div>
             </div>
             <div className="flex items-center justify-center mt-8">
@@ -152,7 +152,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
         className={`relative shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
           } xl:flex-row items-center justify-center ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}
       >
-        <div className="absolute top-0 -left-4 bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10">
+        <div className={`absolute top-2 ${isEven ? '-right-4' : '-left-4'} bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10`}>
           Sample Project
         </div>
         <div className="flex">
@@ -179,24 +179,24 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
           </p>
           <div className="mt-2 grid grid-cols-2 gap-y-2 gap-x-2">
             <div className="w-auto mx-auto">
-              <div className="text-gray-600  text-sm">Min Investment</div>
-              <div className="font-bold vsm:text-base sm:text-lg uppercase">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
+              <div className="text-gray-600 text-sm text-center">Min Investment</div>
+              <div className="font-bold vsm:text-base sm:text-lg uppercase text-center">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
             </div>
             <div className="w-auto mx-auto">
-              <p className="text-gray-600  text-sm">Hold period</p>
-              <p className="font-bold vsm:text-base sm:text-lg">{data.Hold_period} YEARS</p>
+              <p className="text-gray-600 text-sm text-center">Hold period</p>
+              <p className="font-bold vsm:text-base sm:text-lg text-center">{data.Hold_period} YEARS</p>
             </div>
             <div className="w-auto mx-auto">
-              <div className="text-gray-600  text-sm">Category type</div>
-              <div className="font-bold vsm:text-base sm:text-lg capitalize">{data.category.split(" ").length > 1 ? `${data.category.split(" ").slice(0, 1)} ...` : `${data.category}`}</div>
+              <div className="text-gray-600 text-sm text-center">Category type</div>
+              <div className="font-bold vsm:text-base sm:text-lg capitalize text-center">{data.category}</div>
             </div>
             <div className="w-auto mx-auto">
-              <p className="text-gray-600  text-sm">Target IRR</p>
-              <p className="font-bold vsm:text-base sm:text-lg">{data.IRR}%</p>
+              <p className="text-gray-600 text-sm text-center">Target IRR</p>
+              <p className="font-bold vsm:text-base sm:text-lg text-center">{data.IRR}%</p>
             </div>
           </div>
           <div className="flex items-center justify-center">
-            <div className="w-[80%] flex items-center">
+            <div className="w-[100%] lg:w-[80%] flex items-center">
               <div className={`progress-section ${navigator.userAgent.indexOf('iPad') > -1 ? 'py-[2px]' : 'py-[5px]'}`}>
                 <div className="task-progress flex items-center justify-center">
                   <progress
