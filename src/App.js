@@ -54,11 +54,7 @@ function App() {
           <Route path="/terms" element={<Termsandconditions />} />
           <Route path="/article/:articleId" element={<Articles />} />
           <Route path="/privacy" element={<Privacyandpolicy />} />
-          <Route path="/category" element={
-            <PrivateRoute>
-              <CategoryPage />
-            </PrivateRoute>
-          } />
+          <Route path="/category" element={<CategoryPage />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/work" element={<HowItWorksPage />} />
           <Route path="/resetPassword/:resetToken" element={<ForgotPassword />} />

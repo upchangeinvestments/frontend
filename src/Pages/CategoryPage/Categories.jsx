@@ -61,7 +61,11 @@ function Categories({ data, filter }) {
       if (isAuth) {
         if (filter["category"] && filter["category"].length > 0) {
           const category = filter["category"][1];
-          navigate(`/category/${category}`);
+          if (category !== undefined) {
+            navigate(`/category/${category}`);
+          } else {
+            SuccessToast("Please select a category to filter better.");
+          }
         } else {
           SuccessToast("Please select a category to filter better.");
         }
