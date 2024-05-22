@@ -138,34 +138,36 @@ only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 414px
 @media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: portrait),
 only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
   .iPadHeight{
-    height: 460px;
+    height: 430px;
   }
   .iPadAlignment{
-    margin-left: 30px;
+    margin-left: 5rem;
+    margin-right: 5rem;
   }
   .iPadHeadingBreaking{
     white-space: nowrap;
     text-wrap: nowrap;
   }
-  .iPadPadding{
-    padding-bottom: 10px;
+  .iPadViewHeight{
+    height: 85vh;
   }
 }
 
 @media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px) and (max-device-width: 768px),
 only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px) and (max-device-width: 768px) {
   .iPadHeight{
-    height: 460px;
+    height: 430px;
   }
   .iPadAlignment{
-    margin-left: 30px;
+    margin-left: 5rem;
+    margin-right: 5rem;
   }
   .iPadHeadingBreaking{
     white-space: nowrap;
     text-wrap: nowrap;
   }
-  .iPadPadding{
-    padding-bottom: 10px;
+  .iPadViewHeight{
+    height: 85vh;
   }
 }
 /* -----------------------------end of this css is to fix all the issue/bugs in the iPad----------------------------- */

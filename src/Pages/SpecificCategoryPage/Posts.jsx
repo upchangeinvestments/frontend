@@ -149,8 +149,8 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
       </div>
       {/* for vsm to lg screens */}
       <div
-        className={`relative iPadPadding shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
-          } xl:flex-row items-center justify-center ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}
+        className={`relative shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+          } xl:flex-row items-center justify-center ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'} h-[100%] iPadPostSize`}
       >
         <div className={`absolute top-2 ${isEven ? '-right-4' : '-left-4'} bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10`}>
           Sample Project

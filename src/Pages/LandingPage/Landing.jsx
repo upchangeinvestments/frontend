@@ -15,7 +15,7 @@ function LandingPage() {
   }, []);
 
   return (
-    <div className="relative vsm:h-[85vh] md:h-[95vh] lg:h-[90vh] w-full flex flex-col justify-center items-center Playfair-Display">
+    <div className="relative vsm:h-[85vh] md:h-[95vh] lg:h-[90vh] w-full flex flex-col justify-center items-center Playfair-Display iPadViewHeight">
       <div className="relative flex items-center justify-center lg:ml-[50%] lg:-mt-[270px]" data-aos="zoom-in-up">
         <div className="font-bold vsm:text-2xl md:text-3xl xl:text-4xl 2xl:text-5xl drop-shadow-lg font-['Playfair-Display'] ">
           <div className="mb-2">

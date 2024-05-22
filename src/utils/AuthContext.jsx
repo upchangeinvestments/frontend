@@ -22,6 +22,7 @@ const AuthProvider = ({ children }) => {
   const tokenExpiration = localStorage.getItem("tokenExpiration");
 
   const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
+  const [loadingUser, setLoadingUser] = useState(true);
   const [user, setUser] = useState({});
   const navigate = useNavigate();
   const contextValue = {
@@ -32,6 +33,7 @@ const AuthProvider = ({ children }) => {
     logout,
     baseUrl,
     backendUrl,
+    loadingUser
   };
 
   function handleUpdateAuth(value) {
@@ -71,6 +73,7 @@ const AuthProvider = ({ children }) => {
       const response = await axios.get(url, { withCredentials: true });
       setUser(response.data.user);
       setIsAuth(true);
+      setLoadingUser(false);
     } catch (err) {
       setIsAuth(false);
       // navigate("/");
