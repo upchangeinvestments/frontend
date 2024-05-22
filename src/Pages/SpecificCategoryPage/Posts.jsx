@@ -244,7 +244,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
             </div>
           </div>
-          <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-2' : isIPad() ? 'ipad-margin-top' : ''} `}>
+          <div className={`flex items-center justify-center ipad-margin-top ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-2' : isIPad() ? 'ipad-margin-top' : ''} `}>
             <Button Text="Know More" link={`/post/${data.projectId}`} />
             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
           </div>

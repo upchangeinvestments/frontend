@@ -32,8 +32,10 @@ function Unique() {
   const isIPad = () => {
     const userAgent = navigator.userAgent;
     const iPad9thGenRegex = /(iPad9,\sCPU\sOS\s15_\d like\sMac\sOS\sX)/;
-    return iPad9thGenRegex.test(userAgent);
+    return userAgent.includes("iPad");
   };
+
+  const ans = isIPad();
 
   return (
     <div className="mx-auto p-4">
@@ -84,7 +86,7 @@ function Unique() {
             aggregator platform facilitates seamless comparison, enabling
             investors to meticulously evaluate options. Tailor your strategy
             with precision, selecting from a range of investment parameters
-            including location, firm credibility, ROI expectations and more.
+            including location, firm credibility, ROI expectations and {ans} more.
           </p>
         </div>
       </div>
