@@ -63,9 +63,6 @@ function Unique() {
               <div>
                 <FilterCard heading={`Filter by ${Headings[4]}`} items={LI5} />
               </div>
-              {/* <div>
-                                <FilterCard heading={`Filter by ${Headings[5]}`} items={LI6} />
-                            </div> */}
             </ReactCardCarousel>
           </div>
         </div>

@@ -36,12 +36,6 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
     }
   }
 
-  const isIPad = () => {
-    const userAgent = navigator.userAgent;
-    const iPad9thGenRegex = /(iPad9,\sCPU\sOS\s15_\d like\sMac\sOS\sX)/;
-    return iPad9thGenRegex.test(userAgent);
-  };
-
   useEffect(() => {
     setLikedPosts(starredPostIndices);
     setIsStarFilled(starredPostIndices.includes(data.index))
@@ -155,7 +149,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
       </div>
       {/* for vsm to lg screens */}
       <div
-        className={`relative shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+        className={`relative iPadPadding shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
           } xl:flex-row items-center justify-center ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'}`}
       >
         <div className={`absolute top-2 ${isEven ? '-right-4' : '-left-4'} bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10`}>
@@ -244,7 +238,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               </div>
             </div>
           </div>
-          <div className={`flex items-center justify-center ipad-margin-top ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-2' : isIPad() ? 'ipad-margin-top' : ''} `}>
+          <div className={`flex items-center justify-center ipad-margin-top ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-2' : ''} `}>
             <Button Text="Know More" link={`/post/${data.projectId}`} />
             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
           </div>

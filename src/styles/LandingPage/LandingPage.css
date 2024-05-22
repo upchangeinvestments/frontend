@@ -141,11 +141,14 @@ only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (or
     height: 460px;
   }
   .iPadAlignment{
-    margin-left: 50px;
+    margin-left: 30px;
   }
   .iPadHeadingBreaking{
     white-space: nowrap;
     text-wrap: nowrap;
+  }
+  .iPadPadding{
+    padding-bottom: 10px;
   }
 }
 
@@ -155,11 +158,14 @@ only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px
     height: 460px;
   }
   .iPadAlignment{
-    margin-left: 50px;
+    margin-left: 30px;
   }
   .iPadHeadingBreaking{
     white-space: nowrap;
     text-wrap: nowrap;
+  }
+  .iPadPadding{
+    padding-bottom: 10px;
   }
 }
 /* -----------------------------end of this css is to fix all the issue/bugs in the iPad----------------------------- */
