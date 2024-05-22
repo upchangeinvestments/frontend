@@ -38,8 +38,8 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
 
   const isIPad = () => {
     const userAgent = navigator.userAgent;
-    const iPadRegex = /(iPad).*OS\s([\d_]+)/;
-    return iPadRegex.test(userAgent);
+    const iPad9thGenRegex = /(iPad9,\sCPU\sOS\s15_\d like\sMac\sOS\sX)/;
+    return iPad9thGenRegex.test(userAgent);
   };
 
   useEffect(() => {
@@ -245,7 +245,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
             </div>
           </div>
           <div className={`flex items-center justify-center ${navigator.userAgent.indexOf('iPhone') > -1 ? 'mt-2' : isIPad() ? 'ipad-margin-top' : ''} `}>
-            <Button Text={`Know More`} link={`/post/${data.projectId}`} />
+            <Button Text="Know More" link={`/post/${data.projectId}`} />
             {/* <button className="bg-[#9747FF] text-white px-4 py-2 rounded-md hover:bg-purple-600">Know More </button> */}
           </div>
         </div>

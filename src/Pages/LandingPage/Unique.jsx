@@ -29,6 +29,12 @@ function Unique() {
   const LI5 = ["5%-10%", "10%-15%", "15%-20%", "20%-25%", "25%+"];
   // const LI6 = ["RealtyMogul", "Cadre", "Fundrise", "Yieldstreet", "DiversyFund"]
 
+  const isIPad = () => {
+    const userAgent = navigator.userAgent;
+    const iPad9thGenRegex = /(iPad9,\sCPU\sOS\s15_\d like\sMac\sOS\sX)/;
+    return iPad9thGenRegex.test(userAgent);
+  };
+
   return (
     <div className="mx-auto p-4">
       <div className="p-4">
@@ -36,9 +42,9 @@ function Unique() {
           WHAT MAKES US <span className="text-[#6e30a7]">DIFFERENT</span>?
         </h2>
       </div>
-      <div className="px-4 vsm:grid vsm:gap-4 md:mx-24 lg:gap-[170px] xl:gap-[150px] lg:mx-20 xl:mx-40 lg:mt-[10px] lg:flex lg:items-center lg:justify-end xl:justify-center">
-        <div className={`relative ${navigator.userAgent.indexOf('iPad') > -1 ? 'h-[410px]' : ''} vsm:h-[410px] md:h-[420px] lg:h-[390px] lg:ml-[20px] xl:ml-[130px] xl:h-[400px] xl:mx-auto content-between`}>
-          <div className="nowrap text-nowrap flex items-center justify-center text-2xl font-['Playfair-Display']  text-white">
+      <div className={`px-4 vsm:grid vsm:gap-4 md:mx-24 lg:gap-[170px] xl:gap-[150px] lg:mx-20 xl:mx-40 lg:mt-[10px] lg:flex lg:items-center lg:justify-end xl:justify-center ${isIPad() ? "ml-[100px]" : ""}`}>
+        <div className={`relative ${isIPad() ? 'h-[460px]' : ''} vsm:h-[410px] md:h-[420px] lg:h-[390px] lg:ml-[20px] xl:ml-[130px] xl:h-[400px] xl:mx-auto content-between`}>
+          <div className={`whitespace-nowrap text-nowrap flex items-center justify-center text-2xl font-['Playfair-Display']  text-white ${isIPad() ? 'whitespace-nowrap text-nowrap' : ''}`}>
             NAVIGATE YOUR WEALTH
           </div>
           <div className="">
