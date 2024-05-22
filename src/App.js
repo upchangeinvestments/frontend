@@ -37,9 +37,9 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/:id/verify/:token" element={<VerifyUser />} />
           <Route path="/category/:type" exact element={
-            <PrivateRoute>
-              <SpecificPage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <SpecificPage />
+            // </PrivateRoute>
           } />
           <Route path="/post/:postId" exact element={
             <PrivateRoute>

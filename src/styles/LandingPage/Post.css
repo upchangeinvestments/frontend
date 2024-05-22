@@ -57,6 +57,6 @@ progress[value]::-webkit-progress-value {
   border-radius: 5px;
 }
 
-.iPadMargin{
-  margin-top: 12px !important;
+.ipad-margin-top {
+  margin-top: 2rem; /* Adjust the value as needed */
 }
