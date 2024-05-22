@@ -163,7 +163,7 @@ only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (or
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: -30px !important;
+    column-gap: 0px !important;
   }
   .iPadWdth{
     width: 70%;
@@ -197,7 +197,7 @@ only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px
     flex-direction: column;
     align-items: center;
     justify-content: center;
-    gap: -30px !important;
+    column-gap: -30px !important;
   }
   .iPadWdth{
     width: 70%;
