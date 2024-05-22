@@ -44,7 +44,7 @@ function Unique() {
           WHAT MAKES US <span className="text-[#6e30a7]">DIFFERENT</span>?
         </h2>
       </div>
-      <div className={`px-4 vsm:grid vsm:gap-4 md:mx-24 lg:gap-[170px] xl:gap-[150px] lg:mx-20 xl:mx-40 lg:mt-[10px] lg:flex lg:items-center lg:justify-end xl:justify-center ${isIPad() ? "ml-[100px]" : ""}`}>
+      <div className={`px-4 vsm:grid vsm:gap-4 md:mx-24 lg:gap-[170px] xl:gap-[150px] lg:mx-20 xl:mx-40 lg:mt-[10px] lg:flex lg:items-center lg:justify-end xl:justify-center ${isIPad() ? "ml-[50px]" : ""}`}>
         <div className={`relative ${isIPad() ? 'h-[460px]' : ''} vsm:h-[410px] md:h-[420px] lg:h-[390px] lg:ml-[20px] xl:ml-[130px] xl:h-[400px] xl:mx-auto content-between`}>
           <div className={`whitespace-nowrap text-nowrap flex items-center justify-center text-2xl font-['Playfair-Display']  text-white ${isIPad() ? 'whitespace-nowrap text-nowrap' : ''}`}>
             NAVIGATE YOUR WEALTH
