@@ -135,10 +135,11 @@ only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 414px
 /* -----------------------------end of this css is only to fixed the scroller text overflow with a particaular device width size----------------------------- */
 
 /* -----------------------------this css is to fix all the issue/bugs in the iPad -----------------------------*/
-@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: portrait),
-only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-device-width: 1024px) and (max-device-width: 1124px) and (orientation: portrait),
+only screen and (min-device-width: 1024px) and (max-device-width: 1124px) and (orientation: landscape) {
   .iPadHeight{
     height: 430px;
+    margin-left: 80px;
   }
   .iPadAlignment{
     margin-left: 5rem;
@@ -150,24 +151,57 @@ only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (or
   }
   .iPadViewHeight{
     height: 85vh;
+  }
+  .iPadWdth{
+    width: 100%;
+  }
+}
+@media only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation: portrait),
+only screen and (min-device-width: 768px) and (max-device-width: 1023px) and (orientation: landscape) {
+  .iPadAlignment{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: -30px !important;
+  }
+  .iPadWdth{
+    width: 70%;
+  }
+}
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 1024px) and (max-device-width: 1124px),
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 1024px) and (max-device-width: 1124px) {
+  .iPadHeight{
+    height: 430px;
+  }
+  .iPadAlignment{
+    margin-left: 5rem;
+    margin-right: 0rem;
+  }
+  .iPadHeadingBreaking{
+    white-space: nowrap;
+    text-wrap: nowrap;
+  }
+  .iPadViewHeight{
+    height: 85vh;
+  }
+  .iPadWdth{
+    width: 100%;
   }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px) and (max-device-width: 768px),
-only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px) and (max-device-width: 768px) {
-  .iPadHeight{
-    height: 430px;
-  }
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px) and (max-device-width: 1023px),
+only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px) and (max-device-width: 1023px) {
   .iPadAlignment{
-    margin-left: 5rem;
-    margin-right: 5rem;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: -30px !important;
   }
-  .iPadHeadingBreaking{
-    white-space: nowrap;
-    text-wrap: nowrap;
-  }
-  .iPadViewHeight{
-    height: 85vh;
+  .iPadWdth{
+    width: 70%;
   }
 }
+
 /* -----------------------------end of this css is to fix all the issue/bugs in the iPad----------------------------- */

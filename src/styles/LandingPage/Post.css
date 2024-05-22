@@ -57,8 +57,8 @@ progress[value]::-webkit-progress-value {
   border-radius: 5px;
 }
 
-@media only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: portrait),
-only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (orientation: landscape) {
+@media only screen and (min-device-width: 768px) and (max-device-width: 1124px) and (orientation: portrait),
+only screen and (min-device-width: 768px) and (max-device-width: 1124px) and (orientation: landscape) {
   .ipad-margin-top {
     margin-top: 8px !important; 
   }
@@ -67,8 +67,8 @@ only screen and (min-device-width: 320px) and (max-device-width: 1024px) and (or
   }
 }
 
-@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px) and (max-device-width: 768px),
-       only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 320px) and (max-device-width: 768px) {
+@media only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px) and (max-device-width: 1124px),
+       only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px) and (max-device-width: 1124px) {
         .ipad-margin-top {
           margin-top: 8px !important; 
         }

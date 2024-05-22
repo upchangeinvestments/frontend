@@ -66,7 +66,7 @@ function Unique() {
             </ReactCardCarousel>
           </div>
         </div>
-        <div className={`flex flex-col items-center justify-center vsm:bg-white/20 vsm:backdrop-blur-3xl lg:backdrop-blur-none lg:bg-transparent vsm:px-4 vsm:py-8 vsm:rounded-lg mb-12 xl:ml-[40px] ${navigator.userAgent.indexOf('iPad') > -1 ? '-mr-[20px]' : 'mr-0'}`}>
+        <div className={`flex flex-col items-center justify-center vsm:bg-white/20 vsm:backdrop-blur-3xl lg:backdrop-blur-none lg:bg-transparent vsm:px-4 vsm:py-8 vsm:rounded-lg mb-12 xl:ml-[40px] iPadWdth ${navigator.userAgent.indexOf('iPad') > -1 ? '-mr-[20px]' : ''}`}>
           <h2 className="text-2xl font-['Playfair-Display']">WHO ARE WE?</h2>
           <p className="text-center font-['Playfair-Display'] font-medium lg:w-[400px]  mt-2">
             <span className="flex items-start  justify-center">
