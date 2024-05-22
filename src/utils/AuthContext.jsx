@@ -57,6 +57,7 @@ const AuthProvider = ({ children }) => {
       if (response.status === 200 && response.data.status === "success") {
         setIsAuth(true);
         setUser(response.data.user);
+        setLoadingUser(false);
       }
     } catch (error) {
       localStorage.removeItem("token");
