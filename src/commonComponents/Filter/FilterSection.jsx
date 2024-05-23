@@ -31,8 +31,6 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
     locations: []
   });
 
-  console.log('filter: ', filters);
-  console.log("CHECKED VALUESl: :", checkedValues);
 
   const applyFilters = () => {
     setLoader(true);

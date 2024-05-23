@@ -25,14 +25,16 @@ const dataObject = [
         title: "Zip Code",
     },
     {
-        title: "IRR",
+        title: "Targeted IRR",
     },
 ];
 
+
 function MobileFilter({ openDrawer, passDataObject }) {
+
     return (
-        <div className="relative vsm:block md:hidden my-4 font-['Playfair-Display'] bg-white/20 backdrop-blur-sm py-4">
-            <div className="flex overflow-x-scroll gap-x-3 pr-4 pl-4">
+        <div className="relative vsm:block md:hidden my-4 font-['Playfair-Display']">
+            <div className="flex overflow-x-scroll gap-x-3 pr-4 pl-4 bg-white/20 backdrop-blur-sm py-4">
                 {dataObject.map((element, index) => (
                     <button
                         onClick={() => {
@@ -46,7 +48,7 @@ function MobileFilter({ openDrawer, passDataObject }) {
                     </button>
                 ))}
             </div>
-        </div>
+        </div >
     )
 }
 

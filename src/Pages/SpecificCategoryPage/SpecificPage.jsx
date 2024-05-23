@@ -33,6 +33,7 @@ function SpecificPage() {
   const [loading, setLoading] = useState(false);
   const [viewSortFilter, setViewSortFilter] = useState(false);
   const sortFilterRef = useRef(null);
+  const clearAllFilterRef = useRef();
   const [investmentRange, setInvestmentRange] = useState("");
   const [fundTimeLine, setFundTimeLine] = useState("");
   const [IRR, setIRR] = useState("");
@@ -56,6 +57,12 @@ function SpecificPage() {
     setPageNo(currentPage);
     FetchLikedPosts();
   }
+
+  const ClearAllFilterHandler = () => {
+    if (clearAllFilterRef.current) {
+      clearAllFilterRef.current.clearAllFilters();
+    }
+  };
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -129,6 +136,7 @@ function SpecificPage() {
       // console.log("error in the specific page: ", error);
     }
   }
+
   useEffect(() => {
     FetchLikedPosts();
     const totalItems = filterData.length;
@@ -162,6 +170,7 @@ function SpecificPage() {
           sendFilteredData={receiveFilteredData}
           className="bg-transparent"
           type={type}
+          ref={clearAllFilterRef}
         />
         {/* filter section for mobile view */}
         <NavBar />
@@ -187,10 +196,21 @@ function SpecificPage() {
       <div className="relative flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} type={type} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
-          {loading === false && (<MobileFilter
-            openDrawer={openDrawer}
-            passDataObject={receiveDataObject}
-          />)}
+          {loading === false && (
+            <div className="">
+              < MobileFilter
+                openDrawer={openDrawer}
+                passDataObject={receiveDataObject}
+              />
+              <Tooltip title="Clear All filters" onClick={ClearAllFilterHandler}>
+                <div className="flex items-center justify-end mr-4 mt-3 ">
+                  <div className="bg-white/20 backdrop-blur-sm rounded-full p-2 flex items-center justify-center ">
+                    <svg className="w-6 h-6" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
+                  </div>
+                </div>
+              </Tooltip>
+            </ div>
+          )}
           <div className="lg:mx-8">
             <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
               {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (

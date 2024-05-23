@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { Drawer } from "@material-tailwind/react";
 import Tooltip from '@mui/material/Tooltip';
 // import InvestmentData from "../../assets/FilterData.json";
@@ -21,7 +21,7 @@ const getTooltipContent = (location) => {
     }
 };
 
-function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, type }) {
+const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFilteredData, type }, ref) => {
     const [price, setPrice] = useState(0);
     const [zipCode, setZipCode] = useState("");
     const { title, options, inputType } = data || {};
@@ -33,7 +33,7 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
     else if (title === "Investment Range") filterType = "investmentRange";
     else if (title === "Hold Period") filterType = "holdPeriod";
     else if (title === "Zip Code") filterType = "zipCode";
-    else if (title === "IRR") filterType = "targetedIRR";
+    else if (title === "Targeted IRR") filterType = "targetedIRR";
 
     const [filters, setFilters] = useState({
         category: type === 'All' ? [] : [type],
@@ -43,6 +43,21 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
         locations: [],
         zipCode: ""
     });
+    const [checkedValues, setCheckedValues] = useState({
+        category: type === 'All' ? [] : [type],
+        investmentRange: "",
+        holdPeriod: [],
+        locations: []
+    });
+
+    const isChecked = (value) => {
+        if (inputType === 'checkbox') {
+            return checkedValues[filterType]?.includes(value);
+        } else if (inputType === 'radio') {
+            return checkedValues[filterType] === value;
+        }
+        return false;
+    };
 
     const applyFilters = () => {
         let filtered = PropertyData.filter(item => {
@@ -71,12 +86,29 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
                     ...prevFilters,
                     [filterType]: [...prevFilters[filterType], value]
                 }));
+                setCheckedValues(prevValues => ({
+                    ...prevValues,
+                    [filterType]: [...prevValues[filterType], value]
+                }));
             } else {
                 setFilters(prevFilters => ({
                     ...prevFilters,
                     [filterType]: prevFilters[filterType].filter(item => item !== value)
                 }));
+                setCheckedValues(prevValues => ({
+                    ...prevValues,
+                    [filterType]: prevValues[filterType].filter(item => item !== value)
+                }));
             }
+        } else if (inputType === "radio") {
+            setFilters(prevFilters => ({
+                ...prevFilters,
+                [filterType]: value
+            }));
+            setCheckedValues(prevValues => ({
+                ...prevValues,
+                [filterType]: value
+            }));
         } else {
             setFilters(prevFilters => ({
                 ...prevFilters,
@@ -106,6 +138,10 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
                 ...prevFilters,
                 [filterType]: type === 'All' ? [] : [type],
             }));
+            setCheckedValues(prevValues => ({
+                ...prevValues,
+                [filterType]: type === 'All' ? [] : [type]
+            }));
         } else if (filterType === "targetedIRR") {
             setFilters(prevFilters => ({
                 ...prevFilters,
@@ -121,6 +157,10 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
         } else {
             setFilters(prevFilters => ({
                 ...prevFilters,
+                [filterType]: []
+            }));
+            setCheckedValues(prevValues => ({
+                ...prevValues,
                 [filterType]: []
             }));
         }
@@ -164,6 +204,29 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
         updateFilters(filterType, optionValue, inputType, checked);
     };
 
+    const clearAllFilters = () => {
+        setFilters({
+            category: type === 'All' ? [] : [type],
+            investmentRange: [],
+            targetedIRR: 0,
+            holdPeriod: [],
+            locations: [],
+            zipCode: ""
+        });
+        setCheckedValues({
+            category: type === 'All' ? [] : [type],
+            investmentRange: "",
+            holdPeriod: [],
+            locations: []
+        });
+        setPrice(0);
+        setZipCode('');
+    };
+
+    useImperativeHandle(ref, () => ({
+        clearAllFilters
+    }));
+
     return (
         <Drawer open={open} className="p-4 fixed left-0 top-0 z-50 bg-white/20 backdrop-blur-xl text-xl" >
             <div variant="text" className="w-full flex justify-end" color="blue-gray" onClick={() => closeDrawer()}>
@@ -187,20 +250,19 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
             </div>
             <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
                 {options &&
-                    options.map((propertyType, index) => (
+                    options.map((item, index) => (
                         <label key={index} className="flex flex-row gap-4 w-full items-center uppercase">
                             <input
-                                name={inputType === "radio" ? "radioType" : propertyType}
+                                name={inputType === "radio" ? "radioType" : item}
                                 type={inputType}
-                                value={propertyType}
-                                checked={(inputType === "checkbox" ? selectedOptions[Index] && selectedOptions[Index].includes(propertyType) : selectedOptions[Index] === propertyType) || (propertyType === type && title === "Categories")}
-                                // checked={selectedOptions[Index] === propertyType}
-                                onChange={(e) => handleOptionChange(Index, propertyType, inputType, e.target.checked)}
+                                value={item}
+                                checked={isChecked(item)}
+                                onChange={(e) => handleOptionChange(Index, item, inputType, e.target.checked)}
                                 className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
-                                disabled={propertyType === type && title === "Categories"}
+                                disabled={item === type && title === "Categories"}
                             />
-                            <Tooltip key={propertyType} title={getTooltipContent(propertyType)}>
-                                <div className="text-base">{propertyType}</div>
+                            <Tooltip key={item} title={getTooltipContent(item)}>
+                                <div className="text-base">{item}</div>
                             </Tooltip>
                         </label>
                     ))
@@ -230,6 +292,6 @@ function MobileFilterDrawer({ open, closeDrawer, data, Index, sendFilteredData, 
             </div>
         </Drawer >
     )
-}
+})
 
 export default MobileFilterDrawer;
