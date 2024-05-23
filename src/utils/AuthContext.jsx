@@ -79,6 +79,7 @@ const AuthProvider = ({ children }) => {
       setIsAuth(false);
       // navigate("/");
       setUser({});
+      setLoadingUser(false);
     }
   };
 

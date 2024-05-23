@@ -24,6 +24,16 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
     zipCode: ""
   });
 
+  const [checkedValues, setCheckedValues] = useState({
+    category: type === 'All' ? [] : [type],
+    investmentRange: "",
+    holdPeriod: [],
+    locations: []
+  });
+
+  console.log('filter: ', filters);
+  console.log("CHECKED VALUESl: :", checkedValues);
+
   const applyFilters = () => {
     setLoader(true);
     let filtered = PropertyData.filter(item => {
@@ -56,12 +66,29 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
           ...prevFilters,
           [filterType]: [...prevFilters[filterType], value]
         }));
+        setCheckedValues(prevValues => ({
+          ...prevValues,
+          [filterType]: [...prevValues[filterType], value]
+        }));
       } else {
         setFilters(prevFilters => ({
           ...prevFilters,
           [filterType]: prevFilters[filterType].filter(item => item !== value)
         }));
+        setCheckedValues(prevValues => ({
+          ...prevValues,
+          [filterType]: prevValues[filterType].filter(item => item !== value)
+        }));
       }
+    } else if (inputType === "radio") {
+      setFilters(prevFilters => ({
+        ...prevFilters,
+        [filterType]: value
+      }));
+      setCheckedValues(prevValues => ({
+        ...prevValues,
+        [filterType]: value
+      }));
     } else {
       setFilters(prevFilters => ({
         ...prevFilters,
@@ -88,12 +115,39 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         ...prevFilters,
         [filterType]: type === 'All' ? [] : [type]
       }));
+      setCheckedValues(prevValues => ({
+        ...prevValues,
+        [filterType]: type === 'All' ? [] : [type]
+      }));
     } else {
       setFilters(prevFilters => ({
         ...prevFilters,
         [filterType]: []
       }));
+      setCheckedValues(prevValues => ({
+        ...prevValues,
+        [filterType]: []
+      }));
     }
+  };
+
+  const clearAllFilters = () => {
+    setFilters({
+      category: type === 'All' ? [] : [type],
+      investmentRange: [],
+      targetedIRR: 0,
+      holdPeriod: [],
+      locations: [],
+      zipCode: ""
+    });
+    setCheckedValues({
+      category: type === 'All' ? [] : [type],
+      investmentRange: "",
+      holdPeriod: [],
+      locations: []
+    });
+    setPrice(0);
+    setZipCode('');
   };
 
   useEffect(() => {
@@ -146,6 +200,7 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         updateFilters={updateFilters}
         filterType="category"
         clearFilter={clearFilter}
+        checkedValues={checkedValues.category}
       />
       <FilterSubSection
         list={InvestmentRange}
@@ -154,6 +209,7 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         updateFilters={updateFilters}
         filterType="investmentRange"
         clearFilter={clearFilter}
+        checkedValues={checkedValues.investmentRange}
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
         <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
@@ -185,6 +241,7 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         updateFilters={updateFilters}
         filterType="holdPeriod"
         clearFilter={clearFilter}
+        checkedValues={checkedValues.holdPeriod}
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
         <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
@@ -210,11 +267,15 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
           filterType="locations"
           getTooltipContent={getTooltipContent}
           clearFilter={clearFilter}
+          checkedValues={checkedValues.locations}
         />
 
       </div>
       <div className="flex items-center justify-center mb-4">
         <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={applyFilters}>Apply Search</button>
+      </div>
+      <div className="flex items-center justify-center mb-4">
+        <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={clearAllFilters}>Clear All Filters</button>
       </div>
     </div>
   );

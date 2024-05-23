@@ -1,24 +1,25 @@
-import React, { useState } from "react";
+import React from "react";
 import Tooltip from '@mui/material/Tooltip';
 import { useParams } from "react-router-dom";
 
-function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent, clearFilter }) {
-  // const [showAll, setShowAll] = useState(true);
+function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent, clearFilter, checkedValues }) {
   const { type } = useParams();
-  // const visibleItems = showAll ? list : list.slice(0, 3);
-  const [checkedValues, setCheckedValues] = useState({});
 
   const handleInputChange = ({ target: { value, checked } }) => {
-    if (inputType === 'radio') {
-      setCheckedValues(value)
-    } else {
-      setCheckedValues((prevValues) => ({ ...prevValues, [value]: checked }));
-    }
     updateFilters(filterType, value, inputType, checked);
   };
 
+  const isChecked = (value) => {
+    if (inputType === 'checkbox') {
+      return checkedValues.includes(value);
+    } else if (inputType === 'radio') {
+      return checkedValues === value;
+    }
+    return false;
+  };
+
   const handleClearFilter = (filterType) => {
-    setCheckedValues({});
+    // setCheckedValues({});
     clearFilter(filterType);
   };
   return (
@@ -29,34 +30,34 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
         </div>
         <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
           {filterType === "locations" ? (   // this section is only to show ToolTip
-            list.map((propertyType, index) => (
-              <Tooltip title={getTooltipContent(propertyType)} arrow key={index}>
+            list.map((item, index) => (
+              <Tooltip title={getTooltipContent(item)} arrow key={index}>
                 <label className="flex flex-row gap-4 w-full items-center uppercase">
                   <input
-                    name={propertyType}
+                    name={item}
                     type={inputType}
-                    value={propertyType}
-                    checked={checkedValues[propertyType] === true}
+                    value={item}
+                    checked={isChecked(item)}
                     className="w-4 h-4 text-[#6e30a7]"
                     onChange={handleInputChange}
                   />
-                  <div className="text-sm">{propertyType}</div>
+                  <div className="text-sm">{item}</div>
                 </label>
               </Tooltip>
             ))
           ) : (
-            list.map((propertyType, index) => (
+            list.map((item, index) => (
               <label key={index} className="flex flex-row gap-4 w-full items-center uppercase">
                 <input
-                  name={inputType === "radio" ? "radioType" : propertyType}
+                  name={inputType === "radio" ? "radioType" : item}
                   type={inputType}
-                  value={propertyType}
+                  value={item}
                   className="w-4 h-4 text-[#6e30a7] customizedInput"
                   onChange={handleInputChange}
-                  checked={inputType === "radio" ? (checkedValues === propertyType) : (checkedValues[propertyType] === true) || (propertyType === type && filterType === "category")}
-                  disabled={propertyType === type && filterType === "category"}
+                  checked={isChecked(item)}
+                  disabled={item === type && filterType === "category"}
                 />
-                <div className="text-sm">{propertyType}</div>
+                <div className="text-sm">{item}</div>
               </label>
             ))
           )}
