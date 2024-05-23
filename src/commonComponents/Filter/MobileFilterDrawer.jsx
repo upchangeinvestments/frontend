@@ -228,7 +228,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
     }));
 
     return (
-        <Drawer open={open} className="p-4 fixed left-0 top-0 z-50 bg-white/20 backdrop-blur-xl text-xl" >
+        <Drawer open={open} className="p-4 fixed left-0 top-0 z-50 bg-white/20 backdrop-blur-xl text-xl md:hidden" >
             <div variant="text" className="w-full flex justify-end" color="blue-gray" onClick={() => closeDrawer()}>
                 <svg
                     xmlns="http://www.w3.org/2000/svg"
