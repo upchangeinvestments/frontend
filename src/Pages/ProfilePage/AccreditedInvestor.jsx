@@ -69,8 +69,8 @@ function AccreditedInvestor() {
 
     const FormHandler = (e) => {
         e.preventDefault();
-
     }
+
     return (
         <div className="my-12 relative flex flex-col items-center justify-center font-[' Playfair-Display'] text-lg" >
             <div

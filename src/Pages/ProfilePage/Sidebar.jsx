@@ -9,7 +9,7 @@ import Error from "../../utils/Error";
 import axios from "axios";
 
 const LogoutComponent = () => {
-  const { backendUrl, logout } = useAuth();
+  const { logout } = useAuth();
 
   const HandleLogout = () => {
     logout();
@@ -25,8 +25,9 @@ const LogoutComponent = () => {
 };
 
 const Communication = () => {
+  const { backendUrl, user } = useAuth();
   const [formVisibility, setFormVisibility] = useState(false);
-  const [unsubscribed, setUnsubscribed] = useState(false);
+  const [unsubscribed, setUnsubscribed] = useState(!user.subscribed.status);
 
   const handleSubscribe = () => {
     setFormVisibility(true);
@@ -52,56 +53,104 @@ const Communication = () => {
     }));
   };
 
-  const handleSubmit = (event) => {
+  const subscribeUserHandler = async (event) => {
     event.preventDefault();
+    try {
+      const response = await axios.post(`${backendUrl}/user/subscribe`, { user: user._id });
 
-    successToast('You have unsubscribed successfully!');
-    setUnsubscribed(true);
+      if (response.status === 200) {
+        successToast('You have subscribed successfully!');
+        setUnsubscribed(false);
+        setFormVisibility(false);
+      }
 
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        return Error(error.response.data.message);
+      } else if (error.request) {
+        return Error("Something went wrong! Please try again later.");
+      } else {
+        // will have to console errors with production specific style so that we can track errors from the server logs that users are receiving 
+        return Error("An unexpected error occurred. Please try again later.");
+      }
+    }
+  }
+
+  const handleSubmit = async (event) => {
+    event.preventDefault();
+    try {
+      const unsubscribeReason = formData.unsubscribeReason;
+      const otherReason = formData.otherReason;
+      var data = unsubscribeReason === 'other' ? otherReason : unsubscribeReason;
+
+      const response = await axios.post(`${backendUrl}/user/unsubscribe`, { data: data, user: user._id });
+
+      if (response.status === 200) {
+        successToast('You have unsubscribed successfully!');
+        setUnsubscribed(true);
+      }
+
+    } catch (error) {
+      if (error.response && error.response.data.message) {
+        return Error(error.response.data.message);
+      } else if (error.request) {
+        return Error("Something went wrong! Please try again later.");
+      } else {
+        // will have to console errors with production specific style so that we can track errors from the server logs that users are receiving 
+        return Error("An unexpected error occurred. Please try again later.");
+      }
+    }
   };
+
   return (
     <div className="flex flex-col items-center mt-[20px] space-y-4 mb-8 font-['Playfair-Display']">
       <img className="w-20" src="https://i.postimg.cc/C5cw8FP2/email-computer-icons-clip-art-png-favpng-4-TBZ4-Znz4p7x0-GH9kv8wx-Ln-G2-removebg-preview.png" alt="Email Image" />
+      {!unsubscribed && !formVisibility && <div className="text-LG">You are subscribed to our messages.</div>}
       {!unsubscribed && !formVisibility && <div className="text-xl font-semibold">Do you want to unsubscribe from our messages ?</div>}
+
       {!unsubscribed && !formVisibility && <button onClick={handleSubscribe} className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded">Unsubscribe</button>}
+
       {formVisibility && !unsubscribed && (
         <div>
           <form onSubmit={handleSubmit}>
             <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
-              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="No Longer Want Emails" onChange={handleRadioChange} />
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" required name="unsubscribeReason" value="No Longer Want Emails" onChange={handleRadioChange} />
               <div className="">I no longer want to receive these emails</div>
             </label>
             <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
-              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="Inappropriate Emails" onChange={handleRadioChange} />
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" required name="unsubscribeReason" value="Inappropriate Emails" onChange={handleRadioChange} />
               <div className="">The emails are inappropriate</div>
             </label>
             <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
-              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="No Longer Providing Value" onChange={handleRadioChange} />
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" required name="unsubscribeReason" value="No Longer Providing Value" onChange={handleRadioChange} />
               <div className="">Emails are no longer providing valuable information</div>
             </label>
             <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
-              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="Not Using Platform" onChange={handleRadioChange} />
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" required name="unsubscribeReason" value="Not Using Platform" onChange={handleRadioChange} />
               <div className="">I don't use this platform</div>
             </label>
             <label className="flex flex-row gap-4 w-full items-center uppercase my-2">
-              <input className="w-4 h-4 text-[#6e30a7]" type="radio" name="unsubscribeReason" value="other" onChange={handleRadioChange} />
+              <input className="w-4 h-4 text-[#6e30a7]" type="radio" required name="unsubscribeReason" value="other" onChange={handleRadioChange} />
               <div className="">Other</div>
             </label>
-            <input type="text" name="otherReason" value={formData.otherReason} onChange={handleTextChange} className="border-2 border-gray-300 rounded-xl p-2 ml-4 text-lg w-full" disabled={formData.unsubscribeReason !== "other"} />
+            <input type="text" name="otherReason" value={formData.otherReason} required onChange={handleTextChange} className="border-2 border-gray-300 rounded-xl p-2 ml-4 text-lg w-full" disabled={formData.unsubscribeReason !== "other"} />
             <div className="flex items-center justify-center my-4">
               <button className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded" type="submit">Unsubscribe</button>
             </div>
           </form>
         </div>
       )}
+
       {unsubscribed && (
         <div className="flex flex-col items-center justify-center ">
           <h1 className="text-xl font-bold">You're Unsubscribed</h1>
           <p>We're sorry to loose you, but we totally understand.</p>
           <p>No worries! You can resubscribe us instantly by clicking on the button below.</p>
-          <div className="flex items-center justify-center my-4">
-            <button className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded" type="submit">Subscribe Us</button>
-          </div>
+          <form onSubmit={subscribeUserHandler}>
+            <div className="flex items-center justify-center my-4">
+              <button className="bg-[#6e30a7] text-white font-semibold py-2 px-4 rounded" type="submit">Subscribe Us</button>
+            </div>
+          </form>
         </div>
       )}
     </div>
