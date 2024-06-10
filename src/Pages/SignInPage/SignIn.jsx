@@ -45,6 +45,7 @@ const SignIn = () => {
 
   useEffect(() => {
     const queryParams = new URLSearchParams(location.search);
+
     const isLogin = queryParams.get('isLogin');
     setIsSignUp(isLogin === 'true' ? true : false);
   }, [location]);
@@ -60,7 +61,8 @@ const SignIn = () => {
   const GoogleLoginHandler = async (event) => {
     event.preventDefault();
     try {
-      window.open(`${backendUrl}/auth/google`, "_self");
+      const res = window.open(`${backendUrl}/auth/google`, "_self");
+      console.log("resp  = ", res);
     } catch (error) {
       Error("Something went wrong, Please try again later.");
     }
@@ -262,7 +264,7 @@ const SignIn = () => {
                 {/* .......................start of forgot password....................... */}
                 {showForgetPassword ? (
                   <form onSubmit={handleForgetPassword}>
-                    <h2 className="">Forget Password</h2>
+                    <h2 className="">Forgot Password</h2>
                     <input
                       type="text"
                       placeholder="Name"
@@ -333,19 +335,18 @@ const SignIn = () => {
                     <button type="submit" className="w-[65%]">
                       LOGIN
                     </button>
-                    <a href="#" onClick={() => setShowForgetPassword(true)}>
+                    <div className="cursor-pointer" onClick={() => setShowForgetPassword(true)}>
                       <p className="">Forgot password</p>
-                    </a>
+                    </div>
                     <div className="mt-8">
                       {/* <input type="checkbox" />   I agree to all statements in terms of service */}
                       <p>Don't have an account? </p>
                       <span id="signUp" onClick={SignInButtonClick}>
-                        <a
-                          href="#"
+                        <div
                           className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600"
                         >
                           SIGN UP
-                        </a>
+                        </div>
                       </span>
                     </div>
                   </form>
@@ -528,7 +529,7 @@ const SignIn = () => {
                   className="flex flex-col items-center justify-center"
                   onSubmit={handleForgetPassword}
                 >
-                  <h2 className="text-2xl font-bold">FORGET PASSWORD</h2>
+                  <h2 className="text-2xl font-bold">FORGOT PASSWORD</h2>
                   <input className=""
                     type="text"
                     placeholder="Name"
@@ -603,9 +604,9 @@ const SignIn = () => {
                     )}
                   </div>
                   <button type="submit">LOGIN</button>
-                  <a href="#" onClick={() => setShowForgetPassword(true)}>
+                  <div className="cursor-pointer" onClick={() => setShowForgetPassword(true)}>
                     <p className="">Forgot password</p>
-                  </a>
+                  </div>
                   <div className="mt-8">
                     {/* <input type="checkbox" />   I agree to all statements in terms of service */}
                     <p>

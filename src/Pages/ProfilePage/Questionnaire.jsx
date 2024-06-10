@@ -43,6 +43,7 @@ const Questionnaire = () => {
       selectedOption: option,
       selectedText: quizData[index][option],
     }));
+
     const res = await axios.post(`${backendUrl}/updatequiz`, { responses, user });
     if (res.status === 200) {
       setCurrentQuiz(0);
