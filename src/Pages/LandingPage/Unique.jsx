@@ -8,7 +8,7 @@ function Unique() {
     "Category Type",
     "Location",
     "Investment Range",
-    "Investment Hold Period",
+    "Firms",
     "ROI Percent",
   ];
   const LI1 = [
@@ -26,7 +26,7 @@ function Unique() {
     "$50K-$100K",
     "$100K-$500K",
   ];
-  const LI4 = ["2Yrs-4Yrs", "4Yrs-6Yrs", "6Yrs-8Yrs", "8Yrs-10Yrs", "10Yrs+"];
+  const LI4 = ["Cash Flow Portal", "RCP Investments", "Greystar", "Hines", "Prologis"];
   const LI5 = ["5%-10%", "10%-15%", "15%-20%", "20%-25%", "25%+"];
   // const LI6 = ["RealtyMogul", "Cadre", "Fundrise", "Yieldstreet", "DiversyFund"]
 
@@ -72,12 +72,11 @@ function Unique() {
             <span className="flex items-start  justify-center">
               Welcome to the world of Lynkinfinite Investments:{" "}
             </span>
-            We ​​provide a comprehensive suite of real estate investment
-            opportunities sourced from reputable firms under one roof. Our
-            aggregator platform facilitates seamless comparison, enabling
-            investors to meticulously evaluate options. Tailor your strategy
+            We ​​provide a comprehensive suite of reputable real estate investment
+            firms under one roof. Our aggregator platform facilitates seamless comparison,
+            enabling investors to meticulously evaluate options. Tailor your strategy
             with precision, selecting from a range of investment parameters
-            including location, firm credibility, ROI expectations and more.
+            including location, firm credibility and more.
           </p>
         </div>
       </div>

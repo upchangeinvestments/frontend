@@ -96,7 +96,7 @@ body {
 }
 .scroller > span {
   position: relative;
-  animation: verticalSlider 6s infinite;
+  animation: verticalSlider 8s infinite;
   /* font-weight: bold; */
   background-color: transparent;
 }
@@ -104,17 +104,23 @@ body {
   0% {
     top: 0;
   }
-  25% {
+  16.7% {
     top: -1.2em;
   }
-  50% {
+  33.4% {
     top: -2.4em;
   }
-  75% {
+  50.1% {
     top: -3.6em;
   }
-  100% {
+  66.8% {
     top: -4.8em;
+  }
+  83.5% {
+    top: -6em;
+  }
+  100% {
+    top: -7.2em;
   }
 }
 

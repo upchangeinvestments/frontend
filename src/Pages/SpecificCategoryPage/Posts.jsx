@@ -67,19 +67,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               <img className="xl:max-h-[130px] w-[100%]" src={data.image} alt="Property" />
             </div>
             <div className="">
-              <div className="flex items-center">
-                <div className="progress-section">
-                  <div className="task-progress flex items-center justify-center">
-                    <progress
-                      className="progress progress1"
-                      max="100"
-                      value={data.funded}
-                    ></progress>
-                    <p className="text-xs text-nowrap ml-2">{data.funded}% Funded</p>
-                  </div>
-                </div>
-              </div>
-              <div className="flex flex-wrap gap-y-3 gap-x-2 text-base">
+              <div className="flex flex-wrap gap-y-3 gap-x-2 text-base mt-4">
                 <div className="border-slate-400 border rounded-lg ">
                   <button className="text-gray-700 px-2.5 py-1 rounded-md text-nowrap	">
                     Documents
@@ -126,19 +114,19 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
                 <div className="font-bold text-base uppercase text-center">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
-                <p className="text-gray-600 text-sm text-center">Hold period</p>
-                <p className="font-bold text-base text-center">{data.Hold_period} YEARS</p>
+                <p className="text-gray-600 text-sm text-center">Class Type</p>
+                <p className="font-bold text-base text-center"> CLass {data.Hold_period} </p>
               </div>
               <div className="flex items-center justify-center flex-col">
                 <div className="text-gray-600 text-sm text-center">Category type</div>
                 <div className="font-bold text-base text-center capitalize">{data.category}</div>
               </div>
               <div className="flex items-center justify-center flex-col">
-                <p className="text-gray-600 text-sm text-center">Target IRR</p>
+                <p className="text-gray-600 text-sm text-center">LynkInfinite Rating</p>
                 <p className="font-bold text-base text-center">{data.IRR}%</p>
               </div>
             </div>
-            <div className="flex items-center justify-center mt-8">
+            <div className="flex items-center justify-center mt-2">
               <Button Text="Know More" link={`/post/${data.projectId}`} />
             </div>
           </div>
@@ -148,21 +136,20 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
                 </div> */}
       </div>
       {/* for vsm to lg screens */}
-      <div
-        className={`relative shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
-          } xl:flex-row items-center justify-center ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'} h-[100%] iPadPostSize`}
+      <div className={`relative shadow-md shadow-black-300 xl:hidden vsm:flex vsm:flex-col vsm:my-4 lg:my-0 md:flex ${isEven ? "lg:flex-row-reverse" : "lg:flex-row"
+        } xl:flex-row items-center justify-center ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'} h-[100%] iPadPostSize`}
       >
         <div className={`absolute top-2 ${isEven ? '-right-4' : '-left-4'} bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10`}>
           Sample Project
         </div>
         <div className="flex">
           <img
-            className={`vsm:w-[300px] vsm:h-[200px] md:h-[360px] md:w-[300px] lg:w-auto vsm:rounded-t-lg lg:rounded-none ${isEven ? "lg:rounded-r-lg" : "lg:rounded-l-lg"
+            className={`vsm:w-[300px] vsm:h-[200px] md:h-[330px] md:w-[300px] lg:w-auto vsm:rounded-t-lg lg:rounded-none ${isEven ? "lg:rounded-r-lg" : "lg:rounded-l-lg"
               } xl:rounded-none xl:rounded-l-lg`}
             src={data.image}
             alt="Property" />
         </div>
-        <div className={`relative bg-white vsm:w-[300px] md:w-[300px] lg:h-[360px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"}  xl:rounded-none xl:rounded-r-lg`}>
+        <div className={`relative bg-white vsm:w-[300px] md:w-[300px] lg:h-[330px] vsm:p-6 md:p-4 lg:w-1/2 vsm:rounded-b-lg lg:rounded-none ${isEven ? "lg:rounded-l-lg" : "lg:rounded-r-lg"}  xl:rounded-none xl:rounded-r-lg`}>
           <h3 className="vsm:text-lg md:text-xl flex justify-center font-bold">
             {data.title}
           </h3>
@@ -183,30 +170,16 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
               <div className="font-bold vsm:text-base sm:text-lg uppercase text-center">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</div>
             </div>
             <div className="w-auto mx-auto">
-              <p className="text-gray-600 text-sm text-center">Hold period</p>
-              <p className="font-bold vsm:text-base sm:text-lg text-center">{data.Hold_period} YEARS</p>
+              <p className="text-gray-600 text-sm text-center">Class Type</p>
+              <p className="font-bold vsm:text-base sm:text-lg text-center">Class {data.classType}</p>
             </div>
             <div className="w-auto mx-auto">
               <div className="text-gray-600 text-sm text-center">Category type</div>
               <div className="font-bold vsm:text-base sm:text-lg capitalize text-center">{data.category}</div>
             </div>
             <div className="w-auto mx-auto">
-              <p className="text-gray-600 text-sm text-center">Target IRR</p>
-              <p className="font-bold vsm:text-base sm:text-lg text-center">{data.IRR}%</p>
-            </div>
-          </div>
-          <div className="flex items-center justify-center">
-            <div className="w-[100%] lg:w-[80%] flex items-center">
-              <div className={`progress-section ${navigator.userAgent.indexOf('iPad') > -1 ? 'py-[2px]' : 'py-[5px]'}`}>
-                <div className="task-progress flex items-center justify-center">
-                  <progress
-                    className="progress progress1"
-                    max="100"
-                    value="57"
-                  ></progress>
-                  <p className="text-xs text-nowrap ml-2">57% Funded</p>
-                </div>
-              </div>
+              <p className="text-gray-600 text-sm text-center">LynkInfinite Rating</p>
+              <p className="font-bold vsm:text-base sm:text-lg text-center">{data.CompanyRating}</p>
             </div>
           </div>
           <div className={`mt-2 ${navigator.userAgent.indexOf('iPad') > -1 ? 'mb-2' : 'mb-0'}`}>

@@ -62,9 +62,9 @@ function CategoryPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] mx-auto lg:ml-[58%] text-center">
-            Explore Investments
-          </p>
+          <div className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] mx-auto lg:ml-[53%] text-center">
+            Explore Real Estate Investments Firms
+          </div>
         </div>
       </div>
       <div className="relative flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">

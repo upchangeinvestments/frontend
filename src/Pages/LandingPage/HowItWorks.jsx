@@ -24,26 +24,10 @@ const HowItWorks = () => {
         <div className="flex flex-col font-['Playfair-Display'] items-center justify-center">
           <div className="w-[80%]">
             <p className="text-justify justify-self-center ">
-              LynkInfinite Investments makes it easy for investors to access the
-              real estate investment opportunities through a simple integrated
-              platform.
+              LynkInfinite Investments makes it easy for investors to access real estate investment firms through a simple integrated platform.
             </p>
           </div>
           <div className="w-[80%] mt-2 mb-6 flex items-center justify-center ">
-            {/* <Carousel showArrows={true} swipeable={true} showThumbs={false} infiniteLoop={true} autoPlay={true} interval="5000">
-              <div>
-                <img src={carousel1} />
-                {/* <p className="legend">Legend 1</p> */}
-            {/* </div>
-              <div>
-                <img src={carousel2} />
-                {/* <p className="legend">Legend 2</p> */}
-            {/* </div>
-              <div> 
-                <img src={carousel3} />
-                {/* <p className="legend">Legend 3</p> */}
-            {/* </div> 
-            </Carousel> */}
             <img className="w-56" src={img2} alt="" />
           </div>
           <div className="w-[80%]">
@@ -51,9 +35,8 @@ const HowItWorks = () => {
               Here you can tailor your investment strategy to align with your
               specific preferences, allowing for flexibility in choosing an
               investment range, preferred location, and selecting reputable
-              investment firms. Customize your Return on Investment (ROI)
-              expectations and other parameters to suit your individual
-              requirements.
+              investment firms. Customize your investment expectations and
+              other parameters to suit your individual requirements.
             </p>
           </div>
         </div>
@@ -76,14 +59,14 @@ const HowItWorks = () => {
             <div className="text-2xl font-bold ">Explore</div>
             {/* <div className="text-lg	text-justify text-wrap	">You can browse through the available Alternative <span className="text-[#9747FF] font-bold"> Investment Opportunities </span> and set up a detailed call with <span className="text-[#9747FF] font-bold">firms</span> to further understand the product.</div> */}
             <div className="text-lg	text-justify text-wrap	">
-              You can browse through the available{" "}
+              Browse through the available{" "}
               <span className="text-[#6e30a7] font-bold">
                 {" "}
-                Investment Opportunities{" "}
+                Investment Firms{" "}
               </span>{" "}
-              that we offer and set up a detailed call with selected{" "}
+              and schedule a detailed call with your selected{" "}
               <span className="text-[#6e30a7] font-bold">firms</span> to further
-              understand the product.
+              understand their offerings.
             </div>
           </div>
         </div>

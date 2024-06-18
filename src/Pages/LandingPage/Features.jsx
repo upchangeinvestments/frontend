@@ -24,7 +24,7 @@ function Features() {
         <span className="text-[#6e30a7] font-medium	">
           {""} diverse markets{" "}
         </span>,
-        `across the country`,
+        `across the country.`,
       ],
     },
     {
@@ -34,7 +34,7 @@ function Features() {
         </span>,
         <span className="text-[#6e30a7] font-['Playfair-Display']">
           {" "}
-          Investments
+          Firms
         </span>,
       ],
       // image: "https://i.postimg.cc/QF08qTJX/right-aud.png",
@@ -45,7 +45,7 @@ function Features() {
           filtering{" "}
         </span>,
         `your type of `,
-        <span className="text-[#6e30a7] font-medium	">projects and ROI</span>,
+        <span className="text-[#6e30a7] font-medium	">your trusted firms.</span>,
       ],
     },
     {
@@ -70,7 +70,7 @@ function Features() {
           {" "}
           Hotels, Retail, Land, warehouse
         </span>,
-        `, etc`,
+        `, etc.`,
       ],
     },
     {
@@ -98,7 +98,7 @@ function Features() {
         `through our`,
         <span className="text-[#6e30a7] font-['Playfair-Display'] font-medium	">
           {" "}
-          centralized platform{" "}
+          centralized platform.{" "}
         </span>,
       ],
     },

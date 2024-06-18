@@ -37,19 +37,19 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/:id/verify/:token" element={<VerifyUser />} />
           <Route path="/category/:type" exact element={
-            <PrivateRoute>
-              <SpecificPage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <SpecificPage />
+            // </PrivateRoute>
           } />
           <Route path="/post/:postId" exact element={
-            <PrivateRoute>
-              <PostPage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <PostPage />
+            // </PrivateRoute>
           } />
           <Route path="/profile" element={
-            <PrivateRoute>
-              <ProfilePage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <ProfilePage />
+            // </PrivateRoute>
           } />
           <Route path="/terms" element={<Termsandconditions />} />
           <Route path="/article/:articleHeading" element={<Articles />} />
@@ -74,7 +74,7 @@ function App() {
           transition={Bounce}
         />
       </AuthProvider>
-    </BrowserRouter>
+    </BrowserRouter >
     // figure out the css for the zoom-in and zoom-out and implemet as well.
   );
 }

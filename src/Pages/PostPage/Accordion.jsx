@@ -6,32 +6,10 @@ import {
   AccordionBody,
 } from "@material-tailwind/react";
 
-const ListedCompany = ({ websiteLink }) => {
-
-  return (
-    <div className="flex flex-col">
-      <h2 className="font-['Playfair-Display'] text-lg">Studio 2694</h2>
-      <p>
-        Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
-        At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
-      </p>
-      <p className="mt-2">
-        Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
-      </p>
-      <div className="flex flex-col my-2 items-center justify-center">
-        <p className="font-['Playfair-Display'] my-2">
-          TO KNOW MORE ABOUT THE FIRM AND INVEST IN THE PROJECT PLEASE GO TO THE
-          LINK BELOW.
-        </p>
-        <Button link={websiteLink} Text="Visit the website" target="_blank" />
-      </div>
-    </div >
-  );
-};
 
 
 function MaterialUIAccordion({ websiteLink }) {
-  const [open, setOpen] = React.useState(3);
+  const [open, setOpen] = React.useState(1);
 
   const DropDownData = [
     {
@@ -42,21 +20,16 @@ function MaterialUIAccordion({ websiteLink }) {
 
     },
     {
-      title: "Business Plan",
-      content: "View the business plan",
-      desc: "View the business plan",
-      id: "business",
+      title: "Contact Details",
+      content: "View the Contact details",
+      desc: "View the Contact details",
+      id: "contact",
     },
     {
-      title: "Financials",
-      content: "Reveiw debt assumptions, closing dates, caps and more",
-      desc: "Reveiw debt assumptions, closing dates, caps and more",
-      id: "financial",
-    },
-    {
-      title: "Listed company",
-      content: "Review the listed company in detail.",
-      desc: <ListedCompany websiteLink={websiteLink} />,
+      title: "Additional Information",
+      content: "View the Additional information",
+      desc: "View the Additional information",
+      id: "information",
     },
   ];
 

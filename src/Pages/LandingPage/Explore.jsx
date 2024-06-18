@@ -33,7 +33,7 @@ function Explore() {
   return (
     <div className="flex flex-col items-center justify-center">
       <div className="mx-auto text-3xl mt-[40px] font-semibold mb-[60px] font-['Playfair-Display']">
-        EXPLORE PROJECTS
+        EXPLORE & COMPARE FIRMS
       </div>
       <div className="vsm:w-[100%] md:w-[100%] mb-20">
         <Carousel

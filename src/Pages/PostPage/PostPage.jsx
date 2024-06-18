@@ -8,32 +8,20 @@ import { PiMapPinLineBold } from "react-icons/pi";
 import { MdOutlineAutoGraph } from "react-icons/md";
 import { GoLock } from "react-icons/go";
 import { IoLocationOutline } from "react-icons/io5";
+import Tooltip from '@mui/material/Tooltip';
 import { AiOutlineDollar } from "react-icons/ai";
 import Button from "../../commonComponents/LoginButton";
 import MaterialUIAccordion from "./Accordion";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
 import PhotoSection from "./PhotosSection";
-import InvestmentData from "../../assets/RMData.json"
+import InvestmentData from "../../assets/firmsData.json"
 import { Helmet } from 'react-helmet-async';
+import { FaStar } from "react-icons/fa";
+import { CiStar } from "react-icons/ci";
+import { FaRegCircleQuestion } from "react-icons/fa6";
 
-const Progressbar = ({ val }) => {
-  // const width = `${Math.min(Math.max(0, val), 100)}%`;
-  return (
-    <div className="progress-section">
-      <div className="task-progress flex items-center justify-center">
-        <progress
-          className="progress progress1"
-          max="100"
-          value={val}
-        ></progress>
-        <p className="text-xs text-nowrap ml-2 whitespace-nowrap">
-          {val}% Funded
-        </p>
-      </div>
-    </div>
-  );
-};
+
 
 function formatMinInvestment(minInvestment) {
   if (minInvestment >= 1000000) {
@@ -43,32 +31,11 @@ function formatMinInvestment(minInvestment) {
   }
 }
 
-const OverViewContent = () => {
+const OverViewContent = ({ data }) => {
   return (
     <div className="">
-      <h1 className="text-lg font-bold">Studio 2694</h1>
-      <p>
-        Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
-        At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
-      </p>
-      <p className="mt-2">
-        Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
-      </p>
-    </div >
-  );
-};
-
-const ListedCompany = () => {
-  return (
-    <div className="flex flex-col">
-      <h2 className="font-['Playfair-Display'] text-lg">Studio 2694</h2>
-      <p>
-        Founded in 2022, Studio 2694 is a dynamic force in urban designing and development, creating transformative projects that redefine city skylines and enhance community living. Our commitment to innovation and sustainability ensures that our projects surpass expectations and inspire our clients.
-        At Studio 2694, our ethos is rooted in a deep-seated dedication to excellence and community enrichment. Our portfolio includes a diverse range of projects, from iconic residential towers to state-of-the-art commercial complexes. Each project bears the hallmark of meticulous design and unparalleled quality.
-      </p>
-      <p className="mt-2">
-        Our team of visionary architects, engineers, and planners collaborate seamlessly to bring visionary concepts to life. Our services include architectural design, interior design, 3D rendering, and project management. We are committed to fostering sustainable growth and prosperity. Through strategic partnerships and community engagement initiatives, we strive to create lasting value for our stakeholders while championing environmental stewardship and social responsibility.
-      </p>
+      <h1 className="text-lg font-bold">{data.CompanyName}</h1>
+      <p style={{ whiteSpace: 'pre-line' }}>{data.Overview}</p>
     </div >
   );
 };
@@ -82,25 +49,20 @@ function PostPage() {
   const tabs = [
     {
       title: "Overview",
-      content: <OverViewContent />,
+      content: <OverViewContent data={data} />,
       link: `/post/${postId}/#Section`
-    },
-    {
-      title: "Listed Company",
-      content: <ListedCompany />,
-      link: `/post/${postId}/#Section`
-    },
-    {
-      title: "Business Plan",
-      link: `/post/${postId}/#business`,
-    },
-    {
-      title: "Financials",
-      link: `/post/${postId}/#financial`,
     },
     {
       title: "Documents",
       link: `/post/${postId}/#documents`,
+    },
+    {
+      title: "Contact Details",
+      link: `/post/${postId}/#contact`,
+    },
+    {
+      title: "Additional Information",
+      link: `/post/${postId}/#information`,
     },
   ];
 
@@ -123,10 +85,10 @@ function PostPage() {
               <span className="md:border-r md:border-gray-600 font-semibold pr-2">
                 {data.title}
               </span>
-              <span className="pl-2 font-medium">{data.category} Property</span>
+              <span className="pl-2 font-medium">{data.CompanyName}</span>
             </div>
             <span className="flex font-['Playfair-Display'] items-center">
-              <PiMapPinLineBold /> {data.location}
+              <PiMapPinLineBold /> {data.city}, {data.location}
             </span>
           </div>
           <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
@@ -146,25 +108,30 @@ function PostPage() {
             </div>
             <div className="flex vsm:flex-col md:flex-row w-full bg-white/20 backdrop-blur-xl shadow-md shadow-black-400 rounded-lg">
               <img
-                className="vsm:w-[100%] md:w-[55%] lg:w-[60%] max-h-[430px] object-cover"
-                src={data.image}
-                alt="property"
+                className="vsm:w-[80%] md:w-[20%] md:h-[20%] lg:w-[30%] lg:h-[30%] m-auto"
+                src={data.FirmLogo}
+                alt="Company logo"
               />
               <div className="flex flex-col  md:w-[45%] lg:w-[40%] items-center justify-center vsm:pb-4 md:pb-2 ">
-                <div className="grid grid-cols-2 mt-4 mb-2 vsm:gap-x-4 md:gap-x-6 md:px-2 lg:px-0">
+                <div className="grid grid-cols-2 mt-6 mb-2 vsm:gap-x-4 md:gap-x-6 md:px-2 lg:px-0 lg:gap-x-12">
                   <div className="flex flex-col items-center justify-center pb-2">
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
-                      <MdOutlineAutoGraph size="25px" />
+                      <CiStar size="25px" />
                     </div>
-                    <p className="mt-1">{data.IRR}%</p>
-                    <p className="whitespace-nowrap ">Targeted IRR</p>
+                    <div className="flex items-center justify-center gap-2">
+                      <FaStar size="15px" />
+                      <p className=""> <span className="text-xl">{data.CompanyRating} </span>/ 5</p>
+                    </div>
+                    <Tooltip title="LynkInfinite's ratings are determined by our team. The scoring formulas take into account multiple metrics for each financial product and service." >
+                      <p className="whitespace-nowrap flex items-center justify-center gap-1 ">LynkInfinite Rating <span><FaRegCircleQuestion size="15px" /></span></p>
+                    </Tooltip>
                   </div>
                   <div className="flex flex-col items-center justify-center pb-2">
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
                       <GoLock size="25px" />
                     </div>
-                    <p className="mt-1">{data.Hold_period} YEARS</p>
-                    <p className="whitespace-nowrap ">Hold period</p>
+                    <p className="mt-1">Class {data.classType}</p>
+                    <p className="whitespace-nowrap ">Class Type</p>
                   </div>
                   <div className="flex flex-col items-center justify-center pb-2">
                     <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
@@ -181,12 +148,9 @@ function PostPage() {
                     <p className="whitespace-nowrap ">Location</p>
                   </div>
                 </div>
-                <div className="w-[85%] md:w-[80%]">
-                  <Progressbar val={data.funded} />
-                </div>
-                <div className="my-4">
+                <div className="my-2">
                   <Button
-                    link={data.sourceLink ? data.sourceLink : "#"}
+                    link={data.CompanyLink}
                     target="_blank"
                     Text="INVEST"
                     classname="vsm:px-8 vsm:py-2"
@@ -222,55 +186,26 @@ function PostPage() {
         </div>
         <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl vsm:flex vsm:flex-col  lg:grid lg:grid-cols-12 gap-4 ">
           <div className="lg:col-span-8 ">
-            <PhotoSection />
+            <PhotoSection data={data} />
           </div>
           <div className="w-[100%] vsm:mt-4 lg:mt-0 lg:col-span-4 p-4 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 ">
             <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
               Investment Highlights
             </h2>
             <div className="px-4 font-['Playfair-Display'] ">
-              <p>
-                The strategic focus is on growing, undersupplied housing markets
-                that have been capital-constrained even though their underlying
-                population and job growth statistics are often similar to many
-                primary markets. The General Partner has capitalized on this
-                unsatisfied demand by pursuing projects in these markets and
-                engaging experienced development partners through established relationships.
-              </p>
+              <p style={{ whiteSpace: 'pre-line' }}>{data.InvestHighlights}</p>
             </div>
           </div>
         </div>
-        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl vsm:flex vsm:flex-col-reverse lg:grid lg:grid-cols-12 gap-4 my-6">
-          <div className="lg:col-span-4  bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 p-4">
-            <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
-              Location Highlights
-            </h2>
-            <div className="px-4 font-['Playfair-Display'] ">
-              <p className="mb-1">
-                {data.description}
-              </p>
-              <p className="mb-1">
-                The Fund’s primary focus is on development within the United
-                States, a region that is increasing in population up to 70%
-                faster than the national average with consistently sub-4%
-                unemployment rates.
-              </p>
-              <p>
-                Prestige Tech Platina is a LEED Platinum building on the main
-                Outer Ring Road and is part of the larger Prestige Tech Park
-                campus with MNC tenants like JP Morgan Chase, Adobe, Schneider
-                Electric and Juniper Networks.
-              </p>
-            </div>
-          </div>
-          <div className="lg:col-span-8 px-4 pt-2 pb-4 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 ">
+        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl vsm:flex vsm:flex-col-reverse my-6 ">
+          <div className="pt-4 pb-2 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400">
             <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
               Location
             </h2>
-            <div className="flex items-start justify-center h-full">
-              <iframe src={data.iFrameSource}
+            <div className="flex items-start justify-center h-full md:h-[500px]">
+              <iframe src={data.locationMap}
                 width="800"
-                height="300"
+                height="800"
                 className="h-[90%] w-[90%]"
                 allowfullscreen=""
                 loading="lazy"
@@ -281,7 +216,7 @@ function PostPage() {
           </div>
         </div>
         <div className="mb-8 vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/20 backdrop-blur-xl rounded-lg  shadow-md shadow-black-400  p-4">
-          <MaterialUIAccordion websiteLink={data.sourceLink} />
+          <MaterialUIAccordion websiteLink={data.CompanyLink} />
         </div>
       </div>
       <Footer />

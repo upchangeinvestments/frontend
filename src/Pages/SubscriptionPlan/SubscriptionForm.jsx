@@ -11,18 +11,16 @@ import axios from "axios";
 
 const Formoptions = [
     ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilites", "Mobile Home Parks", "Office", "Land & Infrastructure"],
-    ['$1 Million - $3 Million', '$3 Million - $5 Million', '$5 Million - $10 Million', '$10 Million - $15 Million', 'Other'],
-    ['Short-Term (3 Months)', 'Medium-Term (6 Months)', 'Long-Term (12 Months)', 'Custom Duration'],
+    ['One-time (One-month trial)', 'Six-month listing', 'One-year listing', 'Two-year listing', 'Custom Duration'],
     ['Premium Placement', 'Enhanced Analytics', 'Marketing Support', 'Customized Reports', 'Custom Services'],
 ]
 
 function SubscriptionForm() {
     const { isAuth, user, backendUrl } = useAuth();
-    const [formData, setFormData] = useState({ input1: '', input2: '', input3: '', input4: '' });
+    const [formData, setFormData] = useState({ input1: '', input2: '', input3: '' });
     const [input1Value, setInput1Value] = useState('Select Option');
     const [input2Value, setInput2Value] = useState('Select Option');
     const [input3Value, setInput3Value] = useState('Select Option');
-    const [input4Value, setInput4Value] = useState('Select Option');
     const [userDetails, setUserDetails] = useState({ userName: '', companyName: '', userEmail: '', phoneNumber: '' });
     const [textField, setTextField] = useState(false);
     const [OtherTextValue, setOtherTextValue] = useState('');
@@ -45,7 +43,7 @@ function SubscriptionForm() {
     };
 
     const handleInputChange = (value, setFormValue, name) => {
-        if (value === 'Other' && name === 'input2') {
+        if (value === 'Custom Duration' && name === 'input2') {
             setTextField(true);
         } else if (name === 'input2') {
             setTextField(false);
@@ -61,8 +59,8 @@ function SubscriptionForm() {
 
         var newFormData;
         newFormData = { ...userDetails, ...formData };
-        if (OtherTextValue.length > 0) {
-            newFormData = { ...newFormData, customEstimatedValue: OtherTextValue };
+        if (OtherTextValue.length > 0 && input2Value === 'Custom Duration') {
+            newFormData = { ...newFormData, customDurationValue: OtherTextValue };
         }
         try {
             const res = await axios.post(`${backendUrl}/subscription/inquiry`, { data: newFormData });
@@ -72,7 +70,6 @@ function SubscriptionForm() {
                 setInput1Value('Select Option');
                 setInput2Value('Select Option');
                 setInput3Value('Select Option');
-                setInput4Value('Select Option');
                 setUserDetails({
                     userName: isAuth ? user.name : '',
                     companyName: '',
@@ -231,7 +228,7 @@ function SubscriptionForm() {
                     </div>
                     <div className="mb-4">
                         <label htmlFor="input2" className="block text-white text-base">
-                            What is the estimated value of your project that you are seeking funding for?
+                            What duration would you prefer for your project to be listed on our platform?
                         </label>
                         <Select name="input2" variant="outlined" label={input2Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
                             {Formoptions[1].map((option) => (
@@ -251,26 +248,11 @@ function SubscriptionForm() {
                             htmlFor="input3"
                             className="block text-white text-base"
                         >
-                            What duration would you prefer for your project to be listed on our platform?
+                            Are you interested in any additional services or features for your listing?
                         </label>
                         <Select name="input3" variant="outlined" label={input3Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
                             {Formoptions[2].map((option) => (
                                 <Option className="bg-white/20 backdrop-blur-2xl text-black" key={option} onClick={() => handleInputChange(option, setInput3Value, "input3")} value={option}>
-                                    {option}
-                                </Option>
-                            ))}
-                        </Select>
-                    </div>
-                    <div className="mb-4">
-                        <label
-                            htmlFor="input4"
-                            className="block text-white text-base"
-                        >
-                            Are you interested in any additional services or features for your listing?
-                        </label>
-                        <Select name="input4" variant="outlined" label={input4Value === "Select Option" ? "Select Option" : ""} required className='flex items-center shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent'>
-                            {Formoptions[3].map((option) => (
-                                <Option className="bg-white/20 backdrop-blur-2xl text-black" key={option} onClick={() => handleInputChange(option, setInput4Value, "input4")} value={option}>
                                     {option}
                                 </Option>
                             ))}

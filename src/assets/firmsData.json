@@ -1,0 +1,79 @@
+[
+    {
+        "CompanyLink": "https://www.rcpinvestments.com/",
+        "Overview": "Realty Capital Partners (RCP) has earned a national reputation as a leading private real estate investment firm with assets valued at $3 billion and a 30-year history of creating superior risk-adjusted returns for its clients. Headquartered in Dallas, Texas, RCP manages a portfolio of real estate investments across the nation. \n\n RCP provides its clients with opportunities to both diversify their investment portfolios and improve performance through alternative real estate investments. Working with best-in-class partners who share RCP's core values, the firm provides access to a variety of property types in high-growth markets. As niche specialists in the middle-market sector, RCP uses its extensive knowledge and long-standing relationships in the real estate community to identify investment opportunities. The firm then performs exhaustive due diligence to mitigate risk and maximize the potential of each investment.",
+        "Images": [
+            "https://www.rcpinvestments.com/wp-content/uploads/2023/01/Two-Oak-Lawn_Render_1-scaled-1.jpg", 
+            "https://www.rcpinvestments.com/wp-content/uploads/2020/08/lofts_glenwood.jpg",
+            "https://www.rcpinvestments.com/wp-content/uploads/2023/01/Condo.png"
+        ], 
+        "FirmLogo": "https://www.rcpinvestments.com/wp-content/uploads/2019/11/LOGO.jpg", 
+        "CompanyName": "Realty Capital Partners (RCP) Investments",
+        "Investment": "$10k",
+        "minInvestment": 10000,
+        "location": "Texas", 
+        "city":"Dallas", 
+        "CompanyRating": "4.5", 
+        "classType": "A", 
+        "locationMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3351.2805274740276!2d-96.80956200000001!3d32.86429640000001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9f55a110a77b%3A0xc423b9f141521dcf!2sRealty%20Capital%20Partners%2C%20LLC!5e0!3m2!1sen!2sin!4v1718305109318!5m2!1sen!2sin",
+        "InvestHighlights": "Realty Capital Partners (RCP) is a partner across the entire property investment life cycle, from acquisition to ongoing project management and disposition. RCP has a proven track record of creating value for its clients. \n\n Over the past 15 years, RCP has generated a 22% internal rate of return and a 1.8x multiple investor return."
+    },
+    {
+        "CompanyLink": "https://eckardenterprises.com/",
+        "Overview": "Eckard Enterprises, LLC (Eckard) is a family-owned and operated alternative investment and asset management firm, specializing in the U.S. oil and gas industry. Eckard's managed assets include water rights, oil and gas mineral rights, exploration and production, steel fabrication, natural gas and crude oil pipelines, residential and commercial real estate, and other commodity investment opportunities. It all began with one man’s commitment to a brighter energy-focused future. \n\n Since 1985, Troy W. Eckard has dedicated his entire career to the U.S. energy industry and managing alternative investment portfolios, giving him a wealth of knowledge and expertise for private investors who seek to develop successful, diversified portfolios. The Eckard team is tirelessly committed to identifying, acquiring, developing, and maturing the right tangible assets exclusively for their valued partners.",
+        "Images": [
+            "https://eckardenterprises.com/wp-content/uploads/2022/06/derrick_01-copy.jpg", 
+            "https://eckardenterprises.com/wp-content/uploads/2022/06/ND-Dinner-1024x768.jpeg",
+            "https://eckardenterprises.com/wp-content/uploads/2022/06/Field_Trip_2021_stop1_43.jpg"
+        ],
+        "FirmLogo": "https://eckardenterprises.com/wp-content/uploads/elementor/thumbs/ee-logo-web-2-pp245slug90r3wyaie7zo7kicf74mjcnbiq7hnrojk.jpg", 
+        "CompanyName": "Eckard Enterprises",
+        "Investment": "$10k",
+        "minInvestment": 10000,
+        "location": "Texas", 
+        "city":"Allen", 
+        "CompanyRating": "4.5", 
+        "classType": "A", 
+        "locationMap": "https://www.google.com/maps/embed?pb=!1m14!1m8!1m3!1d1671.2926718208919!2d-96.681459!3d33.093692!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864c1f23f713bf2b%3A0x8047a3d2cda8bb38!2sEckard%20Enterprises!5e0!3m2!1sen!2sus!4v1718307629908!5m2!1sen!2sus",
+        "InvestHighlights": "Eckard Enterprises ensures full transparency into their investments. Along with regular, detailed reports, Eckard provides their clients access to their custom, industry-first app. The app, Eckard Insight, allows clients to see their investment breakdowns as macro or granular as desired. This enables clients to fully assess how their investment is doing at every level. \n\n While specializing in the energy sector, Eckard also has expertise in tangible assets across multiple industries, including real estate and other commodity markets. This allows Eckard to offer boundless earning opportunities to their investing partners for both an abundance of cash flow and long-term investment strategies."
+    },
+    {
+        "CompanyLink": "https://7einvestments.com/",
+        "Overview": "7e Investments is a Virginia-based leading mortgage note investment firm that operates a Regulation A+ Investment Fund designed to provide consistent monthly income for both accredited and non-accredited investors. \n\n 7e Investments' fund purchases and owns a diversified portfolio of first position mortgage notes which are secured by single family residential homes. 7e Investments purchases mortgage notes at a significant discount, allowing the firm to produce above market returns for their investors.",
+        "Images": [
+            "https://7einvestments.com/wp-content/uploads/2022/07/Layer-2-1.png", 
+            "https://eckardenterprises.com/wp-content/uploads/2022/06/ND-Dinner-1024x768.jpeg",
+            "https://eckardenterprises.com/wp-content/uploads/2022/06/Field_Trip_2021_stop1_43.jpg"
+        ],
+        "FirmLogo": "https://7einvestments.com/wp-content/uploads/2023/11/logo.jpg", 
+        "CompanyName": "7e Investments",
+        "Investment": "$10k",
+        "minInvestment": 10000,
+        "location": "Virginia", 
+        "city":"Annandale", 
+        "CompanyRating": "4.5", 
+        "classType": "A", 
+        "locationMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d39431.29193538349!2d-77.2527653861644!3d38.83509267443476!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x89b64cc4875d59b7%3A0x7a70100bf050c091!2sAnnandale%2C%20VA%2022003%2C%20USA!5e1!3m2!1sen!2sin!4v1718309275899!5m2!1sen!2sin",
+        "InvestHighlights": "Eckard Enterprises ensures full transparency into their investments. Along with regular, detailed reports, Eckard provides their clients access to their custom, industry-first app. The app, Eckard Insight, allows clients to see their investment breakdowns as macro or granular as desired. This enables clients to fully assess how their investment is doing at every level. \n\n While specializing in the energy sector, Eckard also has expertise in tangible assets across multiple industries, including real estate and other commodity markets. This allows Eckard to offer boundless earning opportunities to their investing partners for both an abundance of cash flow and long-term investment strategies."
+    },
+    {
+        "CompanyLink": "https://magcp.com/",
+        "Overview": "MAG Capital Partners (MAGCP) is a private investment firm specializing in industrial real estate and small to mid-cap operating companies. Established in 2015 by Dax T.S. Mitchell and Andrew Gi, the firm leverages over five decades of combined experience in commercial real estate investment and development. MAGCP focuses on delivering stabilized returns with low risk through investments in income-producing properties and operating companies, maintaining consistent performance across various market conditions.\n\n The firm is dedicated to investing in American businesses and fostering community growth, combining an entrepreneurial spirit with institutional experience. MAGCP's strong financial capabilities, long-term perspective, and commitment to innovation enable the firm to seize opportunities and consistently deliver value to its investment partners. By embracing its core values and executing exceptional strategies, MAGCP has built a proven track record of success.",
+        "Images": [
+            "https://rejournals.com/wp-content/uploads/Cleveland-property.jpg", 
+            "https://media.bizj.us/view/img/12534130/hughes-tank-company*900xx4000-2250-0-0.jpg", 
+            "https://rejournals.com/wp-content/uploads/KBK_2537-East-Highway-96_-Rush-Center_Kansas.jpg", 
+            "https://rejournals.com/wp-content/uploads/1511-West-Lusher-Avenue_Elkhart-IN.jpg"
+        ],
+        "FirmLogo": "https://i.postimg.cc/pLwsQ6V8/images-removebg-preview.png", 
+        "CompanyName": "MAG Capital Partners",
+        "Investment": "$10k",
+        "minInvestment": 10000,
+        "location": "Dallas", 
+        "city":"Texas", 
+        "CompanyRating": "4.5", 
+        "classType": "A", 
+        "locationMap": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d3353.5596922245722!2d-96.81843132551224!3d32.803932282612095!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x864e9eb530bdcc25%3A0x8c536ac86a49384c!2sOld%20Parkland!5e0!3m2!1sen!2sin!4v1718717052657!5m2!1sen!2sin",
+        "InvestHighlights": "MAG Capital Partners (MAGCP) specializes in income-producing commercial real estate with a focus on the industrial sector. Their successful funds include Industrial Fund I, launched in June 2022 and fully deployed by December 2022, and Industrial Fund II, launched in February 2023, which continues to generate immediate cash flow. Industrial Fund III, debuting in summer 2024, will build on this success. MAGCP also offers Industrial Fund II REIT for streamlined tax filing management. Strategic partnerships include ventures with The Related Companies and Crystal Asset Management to acquire industrial and multi-family assets."
+    }
+]

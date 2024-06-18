@@ -7,7 +7,7 @@ import "../../styles/LandingPage/LandingPage.css";
 import { useAuth } from "../../utils/AuthContext"
 
 function LandingPage() {
-  const words = ["Investments", "Opportunites", "Investments", "Opportunites", "Investments"];
+  const words = ["Investments", "Opportunites", "Firms", "Investments", "Opportunites", "Firms", "Investments"];
   const { isAuth } = useAuth();
 
   useEffect(() => {
@@ -36,6 +36,10 @@ function LandingPage() {
                 {words[3]}
                 <br />
                 {words[4]}
+                <br />
+                {words[5]}
+                <br />
+                {words[6]}
               </span>
             </div>
           </div>

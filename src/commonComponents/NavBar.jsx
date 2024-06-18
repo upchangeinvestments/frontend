@@ -186,7 +186,7 @@ const NavBar = () => {
                 to="/category"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"
               >
-                Investments
+                RE Firms
               </Link>
               <NavHashLink
                 to="/#HowItWorks"
@@ -337,7 +337,7 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      Investments
+                      RE Firms
                     </span>
                   </Link>
                   <NavHashLink

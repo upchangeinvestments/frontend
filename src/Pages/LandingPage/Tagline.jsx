@@ -8,7 +8,7 @@ function Tagline() {
     <div style={{ marginTop: navigator.userAgent.indexOf('iPhone') > -1 ? "-120px" : 0 }}>   {/*for iPhone, margintop is given.*/}
       <div className="lg:flex vsm:flex-col vsm:hidden lg:text-[26px] md:flex-row v md:w-full  md:gap-2 items-center justify-center xl:text-3xl text-nowrap font-['Playfair-Display']">
         <div className="">
-          Explore your next Investment:  <span className="text-white"> Infinite opportunities</span>
+          Explore your next Investment Firms:  <span className="text-white"> Infinite opportunities</span>
         </div>
         <div className="flex flex-row items-center justify-start">
           <div className="">
@@ -18,7 +18,7 @@ function Tagline() {
       </div>
       <div className="vsm:flex vsm:flex-col lg:hidden items-center justify-center vsm:text-2xl md:text-3xl">
         <div className="">
-          Explore your next Investment:
+          Explore your next Investment Firms:
         </div>
         <div>
           <span className="text-white"> Infinite opportunities </span>under
@@ -34,3 +34,5 @@ function Tagline() {
 }
 
 export default Tagline;
+
+
