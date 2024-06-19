@@ -4,7 +4,7 @@ import { Link } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
 // import logo from "../assets/logo.svg"
 import bgImage from "../assets/login_BG.jpeg";
-import logo from "../assets/logo.png";
+import logo from "../assets/blackLogo.png";
 import { IoMdHelpCircle, IoIosHome } from "react-icons/io";
 import { RiArrowDropDownLine } from "react-icons/ri";
 import { FaSignOutAlt, FaUserCircle } from "react-icons/fa";
@@ -186,15 +186,14 @@ const NavBar = () => {
                 to="/category"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"
               >
-                RE Firms
+                REI Firms
               </Link>
-              <NavHashLink
-                to="/#HowItWorks"
-                smooth
+              <Link
+                to="/"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"
               >
-                How it works
-              </NavHashLink>
+                ROI Calculator
+              </Link>
               <Link
                 to="/resources"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"
@@ -337,11 +336,11 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      RE Firms
+                      REI Firms
                     </span>
                   </Link>
-                  <NavHashLink
-                    to="/#HowItWorks"
+                  <Link
+                    to="/"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/shield-check */}
@@ -361,9 +360,9 @@ const NavBar = () => {
                       />
                     </svg>
                     <span className="ml-3 text-base font-medium text-gray-900">
-                      How it works
+                      ROI Calculator
                     </span>
-                  </NavHashLink>
+                  </Link>
                   <Link
                     to="/resources"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"

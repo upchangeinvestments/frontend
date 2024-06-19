@@ -13,6 +13,7 @@ import { TiTick } from "react-icons/ti";
 import Button from '@mui/material/Button';
 import Tooltip from '@mui/material/Tooltip';
 import { CiCircleQuestion } from "react-icons/ci";
+
 function DialogDefault({ isOpen, setOpen }) {
     const [otp, setOtp] = useState('');
     const [email, setEmail] = useState("");

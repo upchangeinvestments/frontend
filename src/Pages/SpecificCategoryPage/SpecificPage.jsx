@@ -17,7 +17,6 @@ import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 import filterSVG from "../../assets/filter.svg";
 import { Helmet } from 'react-helmet-async';
-// import { IoGameController } from "react-icons/io5";
 
 function SpecificPage() {
   const { type } = useParams();

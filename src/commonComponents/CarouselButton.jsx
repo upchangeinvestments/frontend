@@ -1,12 +1,12 @@
 export const LeftArrow = (props) => {
     return (
-        <div className={`absolute -bottom-12 ${props.dir === "left" ? "left-0" : "right-12"} z-10`}>
+        <div className={`absolute -bottom-12 ${props.dir === "left" ? "left-0" : "right-12"} z-10 `}>
             <button className=''
                 style={{
                     top: "50%",
                     transform: "translateY(-50%)",
                     padding: "10px 10px",
-                    backgroundColor: "rgba(104, 104, 104, 0.703)",
+                    backgroundColor: "rgb(168 85 247)",
                     color: "white",
                     border: "none",
                     borderRadius: "50%",
@@ -26,7 +26,7 @@ export const RightArrow = (props) => {
                     top: "50%",
                     transform: "translateY(-50%)",
                     padding: "10px 10px",
-                    backgroundColor: "rgba(104, 104, 104, 0.703)",
+                    backgroundColor: "rgb(168 85 247)",
                     color: "white",
                     border: "none",
                     borderRadius: "50%",

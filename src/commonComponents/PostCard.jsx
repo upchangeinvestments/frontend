@@ -21,11 +21,8 @@ const RealEstateCard = (props) => {
   };
 
   return (
-    <div className="flex flex-col items-center justify-center relative mb-[10px]">
-      <div className="absolute vsm:top-[150px] vsm:items-center  bg-gradient-to-r justify-center from-[#6e30a7] to-purple-300 text-white px-2 py-1 text-lg font-medium rounded-md z-10">
-        Upcoming Project
-      </div>
-      <div className="w-72 bg-bottom blur-[3px] relative">
+    <div className="flex flex-col items-center justify-center relative mb-[10px] ">
+      <div className="w-72 bg-bottom relative">
         {firstStarActive ? (
           <FaRegStar
             onClick={toggleStars}
@@ -38,14 +35,14 @@ const RealEstateCard = (props) => {
           />
         )}
         <img
-          className="rounded-t-lg object-cover w-full h-32"
+          className="rounded-t-lg object-cover w-full h-48 border-x-2 border-purple-600 border-t-2 "
           src={props.data.image}
           alt=""
         />
       </div>
-      <div className="bg-white shadow-md blur-[3px] rounded-b-lg p-4 px-6 w-72 mt-0">
-        <div className="flex items-center  justify-center">
-          <div className="text-base font-bold font-['Playfair-Display']">
+      <div className="bg-white shadow-md rounded-b-lg p-4 px-6 w-72 mt-0 border-x-2 border-b-2 border-purple-600">
+        <div className="flex items-center justify-center">
+          <div className="text-lg font-bold font-['Playfair-Display'] text-center">
             {props.data.title}
           </div>
         </div>
@@ -59,8 +56,10 @@ const RealEstateCard = (props) => {
           </svg>
           <p>{props.data.location}</p>
         </div>
-        <div className="text-gray-600 my-2 text-sm text-justify">
-          {props.data.description}
+        <div className="text-gray-600 my-2 text-sm text-justify h-[140px] overflow-y-hidden">
+          <p className="">
+            {props.data.description}
+          </p>
         </div>
         <div className="flex-nowrap">
           <p>
@@ -71,16 +70,6 @@ const RealEstateCard = (props) => {
           <p>
             Min Investment: <span className="font-bold">{formatMinInvestment(props.data.minInvestment) ? formatMinInvestment(props.data.minInvestment) : props.data.Investment}</span>
           </p>
-        </div>
-        <div className="progress-section">
-          <div className="task-progress flex items-center justify-center">
-            <progress
-              className="progress progress1"
-              max="100"
-              value="57"
-            ></progress>
-            <p className="text-xs text-nowrap ml-2">57% Funded</p>
-          </div>
         </div>
         <div className="flex justify-center items-center mt-4">
           <LoginButton Text="Know more" link="#" className="text-base" />

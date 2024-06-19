@@ -5,7 +5,7 @@ import PropertyData from "../../assets/RMData.json";
 function FeaturedProject() {
   const carouselRef = createRef();
   return (
-    <div className="grid grid-row gap-8 md:w-[100%] md:h-[700px] vsm:mt-[150px] md:-mt-[120px] lg:-mt-[230px] xl:-mt-[210px] vsm:mb-[250px] md:mb-[270px] lg:mb-[130px] 2xl:mb-[190px]">
+    <div className="grid grid-row gap-8 md:w-[100%] md:h-[700px] vsm:mt-[150px] md:-mt-[120px] lg:-mt-[270px] xl:-mt-[270px] vsm:mb-[250px] md:mb-[270px] lg:mb-[130px] 2xl:mb-[190px]">
       <div className="flex items-center justify-center text-3xl  md:mb-[50px] lg:-mb-[190px] xl:-mb-[170px] 2xl:-mb-[120px]">
         {/* OUR FEATURED PROJECTS */}
       </div>

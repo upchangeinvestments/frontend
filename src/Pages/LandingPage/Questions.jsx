@@ -145,12 +145,8 @@ const Questions = () => {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div
-        className="my-4 lg:mb-8 vsm:text-2xl md:text-3xl font-['Playfair-Display']"
-        style={{ color: "#6e30a7" }}
-      >
-        {/* headline */}
-        LET US KNOW YOU BETTER
+      <div className="my-4 lg:mb-8 vsm:text-2xl md:text-3xl YesevaFont uppercase">
+        LET US <span className="text-purple-600">KNOW YOU</span> BETTER
       </div>
       <div className="flex vsm:flex-col lg:flex-row w-full mx-16 lg:items-center lg:justify-center">
         <div className="vsm:w-full vsm:px-6 vsm:mb-6 lg:w-6/12 flex items-center vsm:justify-center lg:justify-end px-4 xl:w-[40%]">

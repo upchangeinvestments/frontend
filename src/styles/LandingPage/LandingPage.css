@@ -1,14 +1,21 @@
 body {
-  background-image: linear-gradient(to right, #dcb7fc, #fbcfe8);
+  /* background-image: linear-gradient(to right, #dcb7fc, #fbcfe8); */
 }
 
 .main {
-  position: relative;
+  /* position: relative; */
   overflow-x: hidden;
-  background-image: url("../../assets/building_effect.png");
+  /* background-image: url("../../assets/building_effect.png"); */
   background-position: center;
   background-repeat: no-repeat;
   background-size: cover;
+}
+
+.mainBgVideo{
+  height: 100%;
+  width: 100%;
+  z-index: -1;
+  margin-top: -300px;
 }
 
 .SlideX {

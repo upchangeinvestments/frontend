@@ -32,8 +32,8 @@ const responsive = {
 function Explore() {
   return (
     <div className="flex flex-col items-center justify-center">
-      <div className="mx-auto text-3xl mt-[40px] font-semibold mb-[60px] font-['Playfair-Display']">
-        EXPLORE & COMPARE FIRMS
+      <div className="mx-auto text-3xl mt-[40px] font-semibold mb-[60px] YesevaFont">
+        <span className="text-purple-600">EXPLORE & COMPARE</span> COMPANIES
       </div>
       <div className="vsm:w-[100%] md:w-[100%] mb-20">
         <Carousel
@@ -43,7 +43,7 @@ function Explore() {
           arrowLeft={<LeftArrow dir="right" />}
           arrowRight={<RightArrow dir="right" />}
           loop={true}
-          showDots={true}
+          // showDots={true}
           autoplay={3000}
         >
           {RMData.map((element, index) => (

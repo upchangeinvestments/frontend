@@ -7,8 +7,8 @@ const HowInvestmentWorks = () => {
   return (
     <div id="HowItWorks" className="md:mx-12 lg:mx-12 xl:mx-24 ">
       <div className="vsm:bg-white/20 vsm:backdrop-blur-3xl md:backdrop-blur-none md:bg-transparent vsm:py-4 vsm:mx-6 rounded-lg">
-        <h1 className="flex justify-center font-semibold font-['Playfair-Display'] w-full mt-8 mb-6 mx-auto vsm:text-2xl md:text-3xl">
-          HOW PLATFORM WORKS
+        <h1 className="flex justify-center font-semibold YesevaFont w-full mt-2 vsm:text-2xl md:text-3xl">
+          HOW <span className="text-purple-600">&nbsp;PLATFORM&nbsp;</span> WORKS
         </h1>
         <div className="vsm:w-[80%] md:w-[100%] mx-auto">
           <div className="md:flex items-center justify-between">
@@ -20,10 +20,10 @@ const HowInvestmentWorks = () => {
             </div>
             <div className="vsm:mt-[30px] vsm:w-[100%] md:w-[40%]">
               <p className="flex flex-col items-center justify-center vsm:text-lg text-center">
-                <span className="vsm:text-2xl font-medium">What is an Aggregator System?{" "}</span><br></br>
-                Lynkinfinite Investments utilizes an aggregator system to consolidate real estate investment firms into a single, centralized platform.
+                <span className="vsm:text-2xl font-bold ">What is an <span className="text-purple-600">Aggregator System</span> ?{" "}</span><br></br>
+                Lynkinfinite Investments utilizes an aggregator system to consolidate real estate investment companies into a single, centralized platform.
                 This system streamlines the process for users, allowing them to easily explore, compare, and analyze various reputable companies, enabling
-                them to select the best tailored investment opportunities all in one convenient platform.
+                them to select the best tailored investment companies all in one convenient platform.
               </p>
             </div>
           </div>
