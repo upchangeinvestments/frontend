@@ -17,7 +17,7 @@ const ProfilePage = () => {
   ];
 
   return (
-    <div className="bg-gradient-to-r from-purple-300 to-pink-200">
+    <div className="">
       <Helmet>
         <title>Profile page</title>
         <meta name="description" content="Real Estate listed projects website" />

@@ -1,53 +1,54 @@
 import React, { useState, useEffect } from "react";
 import FilterSubSection from "./FilterSubSection";
 // import InvestmentData from "../../assets/FilterData.json";
-import PropertyData from "../../assets/RMData.json";
+import companyData from "../../assets/companyData.json";
 import Tooltip from '@mui/material/Tooltip';
 import { MdOutlineInfo } from "react-icons/md";
 
 
-function FilterSection({ sendFilteredData, type, setLoader }) {
-  const CategoryType = ["Residential", "Hotel", "Retail", "Warehouse & Storage", "Medical Facilities", "Mobile Home Parks", "Office", "Land & Infrastructure"];
+function FilterSection({ sendFilteredData, setLoader }) {
+  const ClassType = ["Class A", "Class B", "Class C"];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const InvestmentRange = ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"];
-  const HoldPeriod = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
+  const CompanyAge = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
   // const [showAllCompanies, setShowAllCompanies] = useState(false);
-  const [price, setPrice] = useState(0);
-  const [zipCode, setZipCode] = useState("");
+  const RiskLevel = ['High', 'Medium', 'Low']
+  const [mngFee, setMngFee] = useState(0);
 
   const [filters, setFilters] = useState({
-    category: type === 'All' ? [] : [type],
+    classType: [],
     investmentRange: [],
-    targetedIRR: 0,
-    holdPeriod: [],
+    managementFee: 0,
+    companyAge: [],
+    riskLevel: [],
     locations: [],
-    zipCode: ""
   });
 
   const [checkedValues, setCheckedValues] = useState({
-    category: type === 'All' ? [] : [type],
+    classType: [],
     investmentRange: "",
-    holdPeriod: [],
+    companyAge: [],
+    riskLevel: [],
     locations: []
   });
 
 
   const applyFilters = () => {
     setLoader(true);
-    let filtered = PropertyData.filter(item => {
+    let filtered = companyData.filter(item => {
       return (
-        (filters.category.length === 0 || filters.category.includes(item.category)) &&
+        (filters.classType.length === 0 || filters.classType.includes(item.classType)) &&
+        (filters.riskLevel.length === 0 || filters.riskLevel.includes(item.riskLevel)) &&
         (filters.investmentRange.length === 0 ||
           item.minInvestment >= parseInt(filters.investmentRange.split('-')[0].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) &&
           (filters.investmentRange.split('-')[1] ? item.minInvestment <= parseInt(filters.investmentRange.split('-')[1].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) : true)
         ) &&
-        (filters.targetedIRR == 0 || parseFloat(item.IRR) <= filters.targetedIRR) &&
-        (filters.holdPeriod.length === 0 || filters.holdPeriod.some(period => {
+        (filters.managementFee == 0 || parseFloat(item.feeStructure) <= filters.managementFee) &&
+        (filters.companyAge.length === 0 || filters.companyAge.some(period => {
           const [min, max] = period.split('-').map(x => parseInt(x.replace('YRS', '')));
-          return item.Hold_period >= min && item.Hold_period <= max;
+          return item.age >= min && item.age <= max;
         })) &&
-        (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.location))) &&
-        (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
+        (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.location)))
       );
     });
     sendFilteredData(filtered, filters);
@@ -96,27 +97,12 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
   };
 
   const clearFilter = (filterType) => {
-    if (filterType === "targetedIRR") {
+    if (filterType === "managementFee") {
       setFilters(prevFilters => ({
         ...prevFilters,
         [filterType]: 0,
       }));
-      setPrice(0);
-    } else if (filterType === 'zipCode') {
-      setFilters(prevFilters => ({
-        ...prevFilters,
-        [filterType]: ""
-      }));
-      setZipCode('');
-    } else if (filterType === 'category') {
-      setFilters(prevFilters => ({
-        ...prevFilters,
-        [filterType]: type === 'All' ? [] : [type]
-      }));
-      setCheckedValues(prevValues => ({
-        ...prevValues,
-        [filterType]: type === 'All' ? [] : [type]
-      }));
+      setMngFee(0);
     } else {
       setFilters(prevFilters => ({
         ...prevFilters,
@@ -131,35 +117,30 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
 
   const clearAllFilters = () => {
     setFilters({
-      category: type === 'All' ? [] : [type],
+      classType: [],
       investmentRange: [],
-      targetedIRR: 0,
-      holdPeriod: [],
+      managementFee: 0,
+      companyAge: [],
       locations: [],
-      zipCode: ""
+      riskLevel: [],
     });
     setCheckedValues({
-      category: type === 'All' ? [] : [type],
+      classType: [],
       investmentRange: "",
-      holdPeriod: [],
-      locations: []
+      companyAge: [],
+      locations: [],
+      riskLevel: [],
     });
-    setPrice(0);
-    setZipCode('');
+    setMngFee(0);
   };
 
   useEffect(() => {
     applyFilters();
   }, [filters]);
 
-  const updateIrrValue = (event) => {
-    setPrice(event.target.value);
-    updateFilters("targetedIRR", event.target.value, "range");
-  };
-
-  const updateZipCodeValue = (event) => {
-    setZipCode(event.target.value);
-    updateFilters("zipCode", event.target.value, "text")
+  const updateMngFeeValue = (event) => {
+    setMngFee(event.target.value);
+    updateFilters("managementFee", event.target.value, "range");
   };
 
   const getTooltipContent = (location) => {
@@ -188,17 +169,17 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="flex items-center justify-center text-xl font-bold font-['Playfair-Display'] text-[#6e30a7]  mt-2">
-        <p className="uppercase underline">Filter Projects</p>
+      <div className="flex items-center justify-center text-xl font-bold YesevaFont text-[#6e30a7]  mt-2">
+        <p className="uppercase underline">Filter Companies</p>
       </div>
       <FilterSubSection
-        list={CategoryType}
-        title="Categories"
+        list={ClassType}
+        title="Class Type"
         inputType="checkbox"
         updateFilters={updateFilters}
-        filterType="category"
+        filterType="classType"
         clearFilter={clearFilter}
-        checkedValues={checkedValues.category}
+        checkedValues={checkedValues.classType}
       />
       <FilterSubSection
         list={InvestmentRange}
@@ -210,51 +191,48 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
         checkedValues={checkedValues.investmentRange}
       />
       <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
-        <div className="text-xl font-bold text-[#6e30a7]">Targeted IRR </div>
+        <div className="text-xl font-bold text-[#6e30a7]">Management Fee </div>
         <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
           <p className="mt-2">0</p>
           <input
             type="range"
-            name="priceIRR"
+            name="managementFee"
             min={0}
-            max={50}
-            value={price}
-            onChange={updateIrrValue}
-            step="5"
+            max={3}
+            value={mngFee}
+            onChange={updateMngFeeValue}
+            step="0.2"
             className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
             style={{
-              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`,
+              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(mngFee / 3) * 100}%, #CBD5E0 ${(mngFee / 3) * 100}%, #CBD5E0 100%)`,
             }} />
-          <p className="mt-2">{price == 0 ? 50 : price}</p>
+          <p className="mt-2">{mngFee == 0 ? 3 : mngFee}%</p>
         </div>
-        <Tooltip title="Clear filter" className="absolute top-2 right-2" onClick={() => clearFilter("targetedIRR")}>
+        <Tooltip title="Clear filter" className="absolute top-2 right-2" onClick={() => clearFilter("managementFee")}>
           <svg className="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
         </Tooltip>
       </div>
-      {/* <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg" onClick={() => clearFilter("targetedIRR")}>Clear filter</button> */}
+      {/* <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg" onClick={() => clearFilter("managementFee")}>Clear filter</button> */}
       <FilterSubSection
-        list={HoldPeriod}
-        title="Hold Period"
+        list={CompanyAge}
+        title="Company Age"
         inputType="checkbox"
         updateFilters={updateFilters}
-        filterType="holdPeriod"
+        filterType="companyAge"
         clearFilter={clearFilter}
-        checkedValues={checkedValues.holdPeriod}
+        checkedValues={checkedValues.companyAge}
       />
-      <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
-        <div className="text-xl font-bold text-[#6e30a7]">Zip Code </div>
-        <div className="font-['Asap'] w-[80%]">
-          <input
-            type="text"
-            value={zipCode}
-            onChange={updateZipCodeValue}
-            className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none	border-1 border-[#6e30a7]"
-          />
-          <p className="text-sm text-gray-600 flex items-center gap-2 "><span><MdOutlineInfo /></span> Zip code within 100 miles</p>
-        </div>
-        <Tooltip title="Clear filter" className="absolute top-2 right-2" onClick={() => clearFilter("zipCode")}>
-          <svg className="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
-        </Tooltip>
+      <div>
+        <FilterSubSection
+          list={RiskLevel}
+          title="Risk Level"
+          inputType="checkbox"
+          updateFilters={updateFilters}
+          filterType="riskLevel"
+          getTooltipContent={getTooltipContent}
+          clearFilter={clearFilter}
+          checkedValues={checkedValues.riskLevel}
+        />
       </div>
       <div>
         <FilterSubSection
@@ -267,7 +245,6 @@ function FilterSection({ sendFilteredData, type, setLoader }) {
           clearFilter={clearFilter}
           checkedValues={checkedValues.locations}
         />
-
       </div>
       <div className="flex items-center justify-center mb-4">
         <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={applyFilters}>Apply Search</button>

@@ -15,7 +15,7 @@ function ContactPage() {
       <div className="categoryMain">
         <Navbar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] text-white vsm:text-4xl md:text-5xl xl:text-6xl lg:-mt-[27%] mx-auto lg:ml-[60%]">
+          <p className="uppercase font-['Playfair-Display'] text-purple-600 vsm:text-4xl md:text-5xl xl:text-6xl lg:-mt-[27%] mx-auto lg:ml-[60%]">
             CONTACT US
           </p>
         </div>

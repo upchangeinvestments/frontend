@@ -1,9 +1,7 @@
 import React from "react";
 import Tooltip from '@mui/material/Tooltip';
-import { useParams } from "react-router-dom";
 
 function FilterSubSection({ list, title, inputType, updateFilters, filterType, getTooltipContent, clearFilter, checkedValues }) {
-  const { type } = useParams();
 
   const handleInputChange = ({ target: { value, checked } }) => {
     updateFilters(filterType, value, inputType, checked);
@@ -55,7 +53,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
                   className="w-4 h-4 text-[#6e30a7] customizedInput"
                   onChange={handleInputChange}
                   checked={isChecked(item)}
-                  disabled={item === type && filterType === "category"}
+                // disabled={item === type && filterType === "category"}
                 />
                 <div className="text-sm">{item}</div>
               </label>

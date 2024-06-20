@@ -35,7 +35,7 @@ const RealEstateCard = (props) => {
           />
         )}
         <img
-          className="rounded-t-lg object-cover w-full h-48 border-x-2 border-purple-600 border-t-2 "
+          className="rounded-t-lg object-fill w-full h-40 border-x-2 border-purple-600 border-t-2 "
           src={props.data.image}
           alt=""
         />
@@ -56,7 +56,7 @@ const RealEstateCard = (props) => {
           </svg>
           <p>{props.data.location}</p>
         </div>
-        <div className="text-gray-600 my-2 text-sm text-justify h-[140px] overflow-y-hidden">
+        <div className="text-gray-600 my-2 text-sm text-justify h-[100px] overflow-y-hidden">
           <p className="">
             {props.data.description}
           </p>

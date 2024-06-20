@@ -21,7 +21,7 @@ const getTooltipContent = (location) => {
     }
 };
 
-const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFilteredData, type }, ref) => {
+const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFilteredData }, ref) => {
     const [price, setPrice] = useState(0);
     const [zipCode, setZipCode] = useState("");
     const { title, options, inputType } = data || {};
@@ -36,7 +36,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
     else if (title === "Targeted IRR") filterType = "targetedIRR";
 
     const [filters, setFilters] = useState({
-        category: type === 'All' ? [] : [type],
+        category: [],
         investmentRange: [],
         targetedIRR: 0,
         holdPeriod: [],
@@ -44,7 +44,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
         zipCode: ""
     });
     const [checkedValues, setCheckedValues] = useState({
-        category: type === 'All' ? [] : [type],
+        category: [],
         investmentRange: "",
         holdPeriod: [],
         locations: []
@@ -122,7 +122,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
         if (Index === 0) {
             setSelectedOptions(current => ({
                 ...current,
-                [Index]: type === 'All' ? [] : [type]
+                [Index]: []
             }))
         } else if (Index !== 4 && Index !== 5) {
             setSelectedOptions(current => ({
@@ -133,16 +133,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
     };
 
     const clearFilter = (filterType) => {
-        if (filterType === 'category') {
-            setFilters(prevFilters => ({
-                ...prevFilters,
-                [filterType]: type === 'All' ? [] : [type],
-            }));
-            setCheckedValues(prevValues => ({
-                ...prevValues,
-                [filterType]: type === 'All' ? [] : [type]
-            }));
-        } else if (filterType === "targetedIRR") {
+        if (filterType === "targetedIRR") {
             setFilters(prevFilters => ({
                 ...prevFilters,
                 [filterType]: 0,
@@ -206,7 +197,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
 
     const clearAllFilters = () => {
         setFilters({
-            category: type === 'All' ? [] : [type],
+            category: [],
             investmentRange: [],
             targetedIRR: 0,
             holdPeriod: [],
@@ -214,7 +205,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
             zipCode: ""
         });
         setCheckedValues({
-            category: type === 'All' ? [] : [type],
+            category: [],
             investmentRange: "",
             holdPeriod: [],
             locations: []
@@ -259,7 +250,7 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
                                 checked={isChecked(item)}
                                 onChange={(e) => handleOptionChange(Index, item, inputType, e.target.checked)}
                                 className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
-                                disabled={item === type && title === "Categories"}
+                            // disabled={item === type && title === "Categories"}
                             />
                             <Tooltip key={item} title={getTooltipContent(item)}>
                                 <div className="text-base">{item}</div>

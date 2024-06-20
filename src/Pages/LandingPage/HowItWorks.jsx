@@ -10,12 +10,9 @@ const HowItWorks = () => {
   return (
     <div className="grid vsm:grid-cols-1 md:grid-cols-2 vsm:mx-6 lg:mx-12 vsm:gap-8 lg:gap-20 vsm:mb-12">
       {/* data-aos="zoom-out-up" */}
-      <div
-        className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center shadow-lg hover:shadow-xl pb-8"
+      <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center shadow-lg hover:shadow-xl pb-8 text-white"
         style={{
-          backgroundImage:
-            "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
-          backgroundBlendMode: "overlay",
+          backgroundImage: "linear-gradient(to right, #150D2B, #2A235A)"
         }}
       >
         <div className="my-4 text-2xl YesevaFont uppercase font-bold">

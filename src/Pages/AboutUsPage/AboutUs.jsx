@@ -2,13 +2,13 @@ import React from "react";
 import Lipika_mam from "../../assets/founder2.jpg";
 import { ImQuotesLeft } from "react-icons/im";
 import BlurBuilding from "../../assets/Building_blur-md.jpg";
-import logo from "../../assets/logo2.png";
+import logo from "../../assets/blackLogo.png";
 import video from "../../assets/introVideo.mp4";
 import { Card, CardHeader, CardBody } from "@material-tailwind/react";
 
 function AboutUs() {
   return (
-    <div className="overflow-x-hidden bg-gradient-to-r from-purple-300 to-pink-200 vsm:-mt-[150px] md:-mt-[180px] lg:mb-0 lg:-mt-[240px] xl:-mt-[300px]">
+    <div className="overflow-x-hidden vsm:-mt-[150px] md:-mt-[180px] lg:mb-0 lg:-mt-[240px] xl:-mt-[300px]">
       <div className="vsm:flex vsm:items-center justify-center vsm:flex-col md:flex  md:flex-row md:mt-2 xl:mt-8 relative">
         <div className="vsm:h-[700px] vsm:w-[280px]  vsm:mt-[30px] msm:w-[300px]   sm:w-[350px] md:w-[180px] md:h-[980px]  md:ml-[25px] md:mt-[50px] lg:ml-[60px] lg:mt-[50px] lg:w-[280px] lg:h-[1000px] xl:ml-[60px] xl:mt-[50px] xl:w-[280px] xl:h-[840px]  bg-gradient-to-r from-[#6e30a7] to-purple-300 backdrop-blur-xl bottom-0 flex flex-col  items-center rounded-lg font-['Playfair-Display'] rounded-t-full">
           <div

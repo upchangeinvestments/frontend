@@ -183,13 +183,13 @@ const NavBar = () => {
                 About
               </Link>
               <Link
-                to="/category"
+                to="/rei-firms"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"
               >
                 REI Firms
               </Link>
               <Link
-                to="/"
+                to="/roi-calculator"
                 className="font-medium text-black hover:text-gray-900 md:text-nowrap"
               >
                 ROI Calculator
@@ -316,7 +316,7 @@ const NavBar = () => {
                     </span>
                   </Link>
                   <Link
-                    to="/category"
+                    to="/rei-firms"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/cursor-click */}
@@ -340,7 +340,7 @@ const NavBar = () => {
                     </span>
                   </Link>
                   <Link
-                    to="/"
+                    to="/roi-calculator"
                     className="-m-3 p-3 flex items-center rounded-md hover:bg-gray-50"
                   >
                     {/* Heroicon name: outline/shield-check */}

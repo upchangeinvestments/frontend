@@ -1,5 +1,4 @@
 import React, { useState, useEffect, useRef } from "react";
-import { useParams } from "react-router-dom";
 import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/Filter/MobileFilterDrawer";
 import MobileFilter from "../../commonComponents/Filter/MobileFilter";
@@ -19,7 +18,7 @@ import filterSVG from "../../assets/filter.svg";
 import { Helmet } from 'react-helmet-async';
 
 function SpecificPage() {
-  const { type } = useParams();
+  const type = "Firms"
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({});
   const [Id, setId] = useState(0);
@@ -156,9 +155,9 @@ function SpecificPage() {
   return (
     <div className="mobile-filter-drawer">
       <Helmet>
-        <title>{type} Properties</title>
+        <title> Properties</title>
         <meta name="description" content="Real Estate listed projects website" />
-        <link rel="canonical" href="/category/:type" />
+        <link rel="canonical" href="/rei-firms" />
       </Helmet>
       <div className="categoryMain">
         <MobileFilterDrawer
@@ -174,7 +173,7 @@ function SpecificPage() {
         {/* filter section for mobile view */}
         <NavBar />
         <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end vsm:mx-8 lg:mx-0">
-          <div className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] hidden lg:block lg:text-4xl font-medium mx-auto ml-[58%]">
+          <div className="uppercase font-['Playfair-Display'] text-purple-600 vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] hidden lg:block lg:text-4xl font-medium mx-auto ml-[58%]">
             {type.split(" ").length === 1 ? (
               <div className="">
                 <p className="">Explore {`${type}`}</p>
@@ -187,13 +186,13 @@ function SpecificPage() {
               </div>
             )}
           </div>
-          <div className="uppercase font-['Playfair-Display'] text-white vsm:text-2xl md:text-4xl lg:hidden font-medium flex items-center justify-center text-center">
+          <div className="uppercase font-['Playfair-Display'] text-purple-600 vsm:text-2xl md:text-4xl lg:hidden font-medium flex items-center justify-center text-center">
             {`Explore ${type} Properties`}
           </div>
         </div>
       </div>
       <div className="relative flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
-        <FilterSection sendFilteredData={receiveFilteredData} type={type} setLoader={setLoading} />
+        <FilterSection sendFilteredData={receiveFilteredData} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
           {loading === false && (
             < MobileFilter

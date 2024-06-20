@@ -22,6 +22,7 @@ import Termsandconditions from "./Pages/SpecificCategoryPage/Termsandconditions"
 import Privacyandpolicy from "./Pages/SpecificCategoryPage/Privacyandpolicy";
 import Welcome from "./Pages/SignInPage/Welcome";
 import HowItWorksPage from "./Pages/SpecificCategoryPage/HowItWorksPage";
+import RoiCalculator from "./Pages/RoiCalculatorPage/CalculatorPage"
 
 function App() {
   return (
@@ -36,7 +37,7 @@ function App() {
           <Route path="/resources" element={<EducationPage />} />
           <Route path="/contact" element={<Contact />} />
           <Route path="/:id/verify/:token" element={<VerifyUser />} />
-          <Route path="/category/:type" exact element={
+          <Route path="/rei-firms" exact element={
             // <PrivateRoute>
             <SpecificPage />
             // </PrivateRoute>
@@ -52,6 +53,7 @@ function App() {
             // </PrivateRoute>
           } />
           <Route path="/terms" element={<Termsandconditions />} />
+          <Route path="/roi-calculator" element={<RoiCalculator />} />
           <Route path="/article/:articleHeading" element={<Articles />} />
           <Route path="/privacy" element={<Privacyandpolicy />} />
           <Route path="/category" element={<CategoryPage />} />

@@ -47,7 +47,7 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
 
   return (
     <div className="font-['Playfair-Display']">
-      <div className={`relative hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4 ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'} h-[100%]`}>
+      <div className={`relative hidden xl:block xl:mx-6 rounded-lg bg-white shadow-md shadow-black-300 p-4 ${blur === 'blur' ? 'blur-[4px]' : 'blur-none'} h-[100%] border-2 border-purple-600`}>
         <div onClick={toggleStar}>
           {(likedPosts.includes(data.index) || isStarFilled) ? (
             <FaStar className="absolute right-0 mr-6  text-yellow-500 text-2xl" />
@@ -55,8 +55,8 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
             <FaRegStar className="absolute right-0  mr-6 text-yellow-500 text-2xl" />
           )}
         </div>
-        <h3 className="vsm:text-base md:text-xl font-['Playfair-Display'] font-bold flex justify-center px-2 pb-1">
-          {data.title}
+        <h3 className="vsm:text-base md:text-xl YesevaFont font-bold flex justify-center px-2 pb-1">
+          {data.companyName}
         </h3>
         <div className="grid grid-cols-2 h-[150px]">
           {" "}
@@ -92,23 +92,23 @@ function Post({ data, blur, starredPostIndices, FetchLikedPosts }) {
           </div>
           <div className="flex items-center justify-center flex-col">
             <p className="text-gray-600 text-sm text-center">Class Type</p>
-            <p className="font-bold text-base text-center"> Class {data.classtype} </p>
+            <p className="font-bold text-base text-center"> {data.classType} </p>
           </div>
           <div className="flex items-center justify-center flex-col">
             <div className="text-gray-600 text-sm text-center">Category type</div>
-            <div className="font-bold text-base text-center capitalize">{data.category}</div>
+            <div className="font-bold text-base text-center capitalize">{data.investmentTypes}</div>
           </div>
           <div className="flex items-center justify-center flex-col">
             <p className="text-gray-600 text-sm text-center">Return Range</p>
-            <p className="font-bold text-base text-center">{data.IRR}%</p>
+            <p className="font-bold text-base text-center">{data.historicalReturnRates}</p>
           </div>
           <div className="flex items-center justify-center flex-col">
             <p className="text-gray-600 text-sm text-center">Company Age</p>
-            <p className="font-bold text-base text-center">{data.IRR} Years</p>
+            <p className="font-bold text-base text-center">{data.age} Years</p>
           </div>
           <div className="flex items-center justify-center flex-col">
             <p className="text-gray-600 text-sm text-center">Past distribution</p>
-            <p className="font-bold text-base text-center">{data.IRR} Millions</p>
+            <p className="font-bold text-base text-center">{data.aum}</p>
           </div>
         </div>
         <div className="flex items-center justify-center mt-2">

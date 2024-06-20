@@ -13,7 +13,7 @@
     "zip_code": "90001",
     "funded": 45, 
     "projectId": 0,
-    "classtype": "A",
+    "classType": "Class A",
     "sourceLink": "https://www.studio2694.com/",
     "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d88941.44846058438!2d-118.32043592148761!3d34.061661928925574!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x80c2c75ddc27da13%3A0xe22fdf6f254608f4!2sLos%20Angeles%2C%20CA%2C%20USA!5e0!3m2!1sen!2sin!4v1716319582615!5m2!1sen!2sin"
   },
@@ -31,7 +31,7 @@
     "zip_code": "80019",
     "funded": 33, 
     "projectId": 1,
-    "classtype": "C",
+    "classType": "Class C",
     "sourceLink": "https://www.studio2694.com/", 
     "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d196496.28425960688!2d-104.85164777337938!3d39.68898273240256!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x876c588622ba2b9b%3A0x8441e0688ba2e678!2sAurora%2C%20CO%2C%20USA!5e0!3m2!1sen!2sin!4v1716319828068!5m2!1sen!2sin"
   },
@@ -49,7 +49,7 @@
     "zip_code": "32256", 
     "funded": 5, 
     "projectId": 2,
-    "classtype": "A",
+    "classType": "Class A",
     "sourceLink": "https://www.studio2694.com/",
     "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d440730.0332628417!2d-82.0127831733476!3d30.34516920302634!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88e5b716f1ceafeb%3A0xc4cd7d3896fcc7e2!2sJacksonville%2C%20FL%2C%20USA!5e0!3m2!1sen!2sin!4v1716319905645!5m2!1sen!2sin"
   },
@@ -67,7 +67,7 @@
     "zip_code": "46071",
     "funded": 15, 
     "projectId": 3,
-    "classtype": "B",
+    "classType": "Class B",
     "sourceLink": "https://www.studio2694.com/",
     "iFrameSource": "https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d12202.057537722176!2d-86.6222057077348!3d40.13082439990112!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x88133844ad6dbb51%3A0x5f077ad8b3f3b5fd!2sThorntown%2C%20IN%2046071%2C%20USA!5e0!3m2!1sen!2sin!4v1716319999260!5m2!1sen!2sin" 
    }
