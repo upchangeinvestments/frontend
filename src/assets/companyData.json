@@ -1,4 +1,112 @@
 [
+    {
+      "companyName": "MetroCore Investments",
+      "yearFounded": 2006,
+      "location": "Chicago",
+      "minInvestment": 35000,
+      "investmentTypes": "Commercial",
+      "classType": "Class B",
+      "investmentStrategy": "Debt",
+      "aum": "$130M",
+      "historicalReturnRates": "10-12",
+      "feeStructure": "2",
+      "investmentHorizon": "7+ years",
+      "redemptionPolicy": "Annual",
+      "riskLevel": "High",
+      "averageAnnualReturns": 0.11,
+      "yield": 0.065,
+      "dividendFrequency": "Quarterly",
+      "description": "MetroCore Investments, founded in 2006, targets downtown revitalization projects. They invest in neglected urban properties and transform them into trendy residential and commercial spaces. Their investments in cities like Chicago and San Francisco have proven highly profitable, driven by the increasing demand for downtown living and working spaces.",
+      "image": "https://i.postimg.cc/tCh39mQ9/logo11.jpg",
+      "age": 18,
+      "projectId": 6,
+      "yearly_returns": [
+        { "year": 2010, "value": 18.66 },
+        { "year": 2011, "value": 11.59 },
+        { "year": 2012, "value": 10.47 },
+        { "year": 2013, "value": 10.95 },
+        { "year": 2014, "value": 13.98 },
+        { "year": 2015, "value": 15.81 },
+        { "year": 2016, "value": 12.01 },
+        { "year": 2017, "value": 10.98 },
+        { "year": 2018, "value": 19.31 },
+        { "year": 2019, "value": 13.31 },
+        { "year": 2020, "value": 18.95 },
+        { "year": 2021, "value": 12.75 }
+      ]
+    },
+    {
+      "companyName": "CoastalEdge Properties",
+      "yearFounded": 2015,
+      "location": "New York",
+      "minInvestment": 50000,
+      "investmentTypes": "Commercial",
+      "classType": "Class A",
+      "investmentStrategy": "Equity",
+      "aum": "$210M",
+      "historicalReturnRates": "9-11",
+      "feeStructure": "2",
+      "investmentHorizon": "5-7 years",
+      "redemptionPolicy": "Semi-Annual",
+      "riskLevel": "Medium",
+      "averageAnnualReturns": 0.105,
+      "yield": 0.06,
+      "dividendFrequency": "Quarterly",
+      "description": "CoastalEdge Properties, established in 2015, specializes in beachfront and waterfront real estate. By acquiring prime coastal properties and developing luxury resorts and residential complexes, they cater to the high-end market. CoastalEdge's focus on desirable vacation destinations like the Hamptons and Malibu has resulted in significant capital appreciation.",
+      "image": "https://i.postimg.cc/CxSj5HSk/logo12.jpg",
+      "age": 9,
+      "projectId": 7,
+      "yearly_returns": [
+        { "year": 2010, "value": 13.17 },
+        { "year": 2011, "value": 10.38 },
+        { "year": 2012, "value": 18.39 },
+        { "year": 2013, "value": 15.61 },
+        { "year": 2014, "value": 15.9 },
+        { "year": 2015, "value": 17.39 },
+        { "year": 2016, "value": 17.95 },
+        { "year": 2017, "value": 13.05 },
+        { "year": 2018, "value": 13.07 },
+        { "year": 2019, "value": 14.53 },
+        { "year": 2020, "value": 14.83 },
+        { "year": 2021, "value": 17.03 }
+      ]
+    },
+    {
+      "companyName": "Inland Growth Partners",
+      "yearFounded": 2008,
+      "location": "Houston",
+      "minInvestment": 20000,
+      "investmentTypes": "Residential",
+      "classType": "Class C",
+      "investmentStrategy": "Debt",
+      "aum": "$150M",
+      "historicalReturnRates": "8-10",
+      "feeStructure": "1.5",
+      "investmentHorizon": "3-5 years",
+      "redemptionPolicy": "Annual",
+      "riskLevel": "Medium",
+      "averageAnnualReturns": 0.095,
+      "yield": 0.055,
+      "dividendFrequency": "Quarterly",
+      "description": "Inland Growth Partners, founded in 2007, concentrates on real estate opportunities in inland areas with high growth potential. They focus on commercial and residential properties in emerging markets such as Austin and Nashville. Their strategic approach has consistently delivered robust capital gains through property appreciation and market expansion.",
+      "image": "https://i.postimg.cc/BvwDmrDB/logo13.jpg",
+      "age": 16,
+      "projectId": 8,
+      "yearly_returns": [
+      { "year": 2010, "value": 10.38 },
+      { "year": 2011, "value": 11.48 },
+      { "year": 2012, "value": 9.08 },
+      { "year": 2013, "value": 18.66 },
+      { "year": 2014, "value": 14.74 },
+      { "year": 2015, "value": 14.63 },
+      { "year": 2016, "value": 10.94 },
+      { "year": 2017, "value": 18.22 },
+      { "year": 2018, "value": 11.66 },
+      { "year": 2019, "value": 15.15 },
+      { "year": 2020, "value": 18.47 },
+      { "year": 2021, "value": 10.26 }
+    ]
+    },
       {
         "companyName": "PrimeProperty Ventures",
         "yearFounded": 2005,
@@ -18,7 +126,22 @@
         "dividendFrequency": "Quarterly",
         "description": "PrimeProperty Ventures, founded in 2005, specializes in luxury residential properties in major metropolitan areas. They have a keen eye for identifying underutilized spaces and transforming them into high-end, desirable locations. Their investments focus on capital gain through strategic property renovations and market timing. With a portfolio boasting properties in New York, Los Angeles, and Miami, PrimeProperty Ventures has consistently delivered strong returns to their investors.",
         "image": "https://i.postimg.cc/tTGG4dB1/logo1.jpg",
-        "age": 19
+        "age": 19,
+        "projectId": 0,
+        "yearly_returns": [
+      { "year": 2010, "value": 10.19 },
+      { "year": 2011, "value": 13.72 },
+      { "year": 2012, "value": 19.07 },
+      { "year": 2013, "value": 12.61 },
+      { "year": 2014, "value": 12.72 },
+      { "year": 2015, "value": 15.43 },
+      { "year": 2016, "value": 11.9 },
+      { "year": 2017, "value": 9.94 },
+      { "year": 2018, "value": 14.53 },
+      { "year": 2019, "value": 16.41 },
+      { "year": 2020, "value": 18.67 },
+      { "year": 2021, "value": 10.59 }
+    ]
       },
       {
         "companyName": "UrbanRevitalize Partners",
@@ -39,7 +162,22 @@
         "dividendFrequency": "Annually",
         "description": "UrbanRevitalize Partners, established in 2010, aims to rejuvenate urban neighborhoods. By investing in dilapidated properties and converting them into vibrant, livable spaces, they not only generate significant capital gains but also contribute to community development. Their projects are primarily concentrated in Detroit and Philadelphia, where they have turned around several neglected areas into bustling hubs.",
         "image": "https://i.postimg.cc/ydh4gJGL/logo2.jpg",
-        "age": 14
+        "age": 14,
+        "projectId": 1,
+        "yearly_returns": [
+      { "year": 2010, "value": 9.39 },
+      { "year": 2011, "value": 14.62 },
+      { "year": 2012, "value": 9.77 },
+      { "year": 2013, "value": 15.53 },
+      { "year": 2014, "value": 17.05 },
+      { "year": 2015, "value": 17.12 },
+      { "year": 2016, "value": 19.17 },
+      { "year": 2017, "value": 15.98 },
+      { "year": 2018, "value": 15.48 },
+      { "year": 2019, "value": 9.41 },
+      { "year": 2020, "value": 16.03 },
+      { "year": 2021, "value": 12.34 }
+    ]
       },
       {
         "companyName": "Greenfield Capital Group",
@@ -60,7 +198,22 @@
         "dividendFrequency": "Semi-Annually",
         "description": "Greenfield Capital Group, founded in 2012, focuses on sustainable real estate investments. They prioritize eco-friendly building practices and invest in properties that offer long-term value appreciation through green initiatives. With a growing portfolio of LEED-certified buildings across the U.S., Greenfield Capital Group is committed to both profitability and environmental stewardship.",
         "image": "https://i.postimg.cc/bNwcrw9R/logo3.jpg",
-        "age": 12
+        "age": 12,
+        "projectId": 2,
+        "yearly_returns": [
+      { "year": 2010, "value": 18.29 },
+      { "year": 2011, "value": 13.27 },
+      { "year": 2012, "value": 10.95 },
+      { "year": 2013, "value": 11.92 },
+      { "year": 2014, "value": 10.68 },
+      { "year": 2015, "value": 12.31 },
+      { "year": 2016, "value": 13.14 },
+      { "year": 2017, "value": 17.58 },
+      { "year": 2018, "value": 10.84 },
+      { "year": 2019, "value": 14.48 },
+      { "year": 2020, "value": 15.72 },
+      { "year": 2021, "value": 18.72 }
+    ]
       },
       {
         "companyName": "Skyline Holdings",
@@ -81,7 +234,22 @@
         "dividendFrequency": "Monthly",
         "description": "Skyline Holdings has been a key player in the real estate market since its inception in 2008. Specializing in commercial real estate, Skyline Holdings invests in office spaces, shopping centers, and industrial properties. Their strategy involves acquiring undervalued assets and enhancing their appeal through modern upgrades, thereby generating significant capital gains.",
         "image": "https://i.postimg.cc/XNKqqMJ1/logo5.jpg",
-        "age": 16
+        "age": 16,
+        "projectId": 3,
+        "yearly_returns": [
+          { "year": 2010, "value": 12.39 },
+          { "year": 2011, "value": 19.79 },
+          { "year": 2012, "value": 13.23 },
+          { "year": 2013, "value": 12.31 },
+          { "year": 2014, "value": 14.39 },
+          { "year": 2015, "value": 15.27 },
+          { "year": 2016, "value": 13.55 },
+          { "year": 2017, "value": 9.3 },
+          { "year": 2018, "value": 13.77 },
+          { "year": 2019, "value": 10.04 },
+          { "year": 2020, "value": 12.17 },
+          { "year": 2021, "value": 13.08 }
+        ]
       },
       {
         "companyName": "Heritage Realty Investments",
@@ -102,7 +270,22 @@
         "dividendFrequency": "Quarterly",
         "description": "Heritage Realty Investments, established in 2014, focuses on historical property restoration. They acquire and restore landmark buildings, converting them into luxury residences or commercial spaces. This niche market allows Heritage Realty to capitalize on the increasing demand for unique, heritage-rich properties in cities like Boston and Charleston.",
         "age": 10,
-        "image": "https://i.postimg.cc/prkwCwR8/logo4.jpg"
+        "projectId": 4,
+        "image": "https://i.postimg.cc/prkwCwR8/logo4.jpg",
+        "yearly_returns": [
+          { "year": 2010, "value": 12.23 },
+          { "year": 2011, "value": 9.05 },
+          { "year": 2012, "value": 15.89 },
+          { "year": 2013, "value": 9.64 },
+          { "year": 2014, "value": 15.12 },
+          { "year": 2015, "value": 9.91 },
+          { "year": 2016, "value": 11.18 },
+          { "year": 2017, "value": 16.16 },
+          { "year": 2018, "value": 12.03 },
+          { "year": 2019, "value": 12.6 },
+          { "year": 2020, "value": 18.98 },
+          { "year": 2021, "value": 15.3 }
+        ]
       },
       {
         "companyName": "SummitPeak Real Estate",
@@ -123,70 +306,22 @@
         "dividendFrequency": "Annually",
         "description": "SummitPeak Real Estate, launched in 2009, is known for its strategic acquisitions in rapidly growing suburban markets. They specialize in residential developments and mixed-use properties, focusing on areas with high population growth and development potential. Their projects in the suburbs of Atlanta and Dallas have yielded substantial capital gains for investors.",
         "image": "https://i.postimg.cc/BbFxLmjc/logo10.jpg",
-        "age": 15
-      },
-      {
-        "companyName": "MetroCore Investments",
-        "yearFounded": 2006,
-        "location": "Chicago",
-        "minInvestment": 35000,
-        "investmentTypes": "Commercial",
-        "classType": "Class B",
-        "investmentStrategy": "Debt",
-        "aum": "$130M",
-        "historicalReturnRates": "10-12",
-        "feeStructure": "2",
-        "investmentHorizon": "7+ years",
-        "redemptionPolicy": "Annual",
-        "riskLevel": "High",
-        "averageAnnualReturns": 0.11,
-        "yield": 0.065,
-        "dividendFrequency": "Quarterly",
-        "description": "MetroCore Investments, founded in 2006, targets downtown revitalization projects. They invest in neglected urban properties and transform them into trendy residential and commercial spaces. Their investments in cities like Chicago and San Francisco have proven highly profitable, driven by the increasing demand for downtown living and working spaces.",
-        "image": "https://i.postimg.cc/tCh39mQ9/logo11.jpg",
-        "age": 18
-      },
-      {
-        "companyName": "CoastalEdge Properties",
-        "yearFounded": 2015,
-        "location": "New York",
-        "minInvestment": 50000,
-        "investmentTypes": "Commercial",
-        "classType": "Class A",
-        "investmentStrategy": "Equity",
-        "aum": "$210M",
-        "historicalReturnRates": "9-11",
-        "feeStructure": "2",
-        "investmentHorizon": "5-7 years",
-        "redemptionPolicy": "Semi-Annual",
-        "riskLevel": "Medium",
-        "averageAnnualReturns": 0.105,
-        "yield": 0.06,
-        "dividendFrequency": "Quarterly",
-        "description": "CoastalEdge Properties, established in 2015, specializes in beachfront and waterfront real estate. By acquiring prime coastal properties and developing luxury resorts and residential complexes, they cater to the high-end market. CoastalEdge's focus on desirable vacation destinations like the Hamptons and Malibu has resulted in significant capital appreciation.",
-        "image": "https://i.postimg.cc/CxSj5HSk/logo12.jpg",
-        "age": 9
-      },
-      {
-        "companyName": "Inland Growth Partners",
-        "yearFounded": 2008,
-        "location": "Houston",
-        "minInvestment": 20000,
-        "investmentTypes": "Residential",
-        "classType": "Class C",
-        "investmentStrategy": "Debt",
-        "aum": "$150M",
-        "historicalReturnRates": "8-10",
-        "feeStructure": "1.5",
-        "investmentHorizon": "3-5 years",
-        "redemptionPolicy": "Annual",
-        "riskLevel": "Medium",
-        "averageAnnualReturns": 0.095,
-        "yield": 0.055,
-        "dividendFrequency": "Quarterly",
-        "description": "Inland Growth Partners, founded in 2007, concentrates on real estate opportunities in inland areas with high growth potential. They focus on commercial and residential properties in emerging markets such as Austin and Nashville. Their strategic approach has consistently delivered robust capital gains through property appreciation and market expansion.",
-        "image": "https://i.postimg.cc/BvwDmrDB/logo13.jpg",
-        "age": 16
+        "age": 15,
+        "projectId": 5,
+        "yearly_returns": [
+      { "year": 2010, "value": 19.93 },
+      { "year": 2011, "value": 17.59 },
+      { "year": 2012, "value": 15.65 },
+      { "year": 2013, "value": 15.66 },
+      { "year": 2014, "value": 16.2 },
+      { "year": 2015, "value": 9.15 },
+      { "year": 2016, "value": 16.54 },
+      { "year": 2017, "value": 13.75 },
+      { "year": 2018, "value": 18.86 },
+      { "year": 2019, "value": 13.33 },
+      { "year": 2020, "value": 9.13 },
+      { "year": 2021, "value": 17.55 }
+    ]
       },
       {
         "companyName": "BlueWave Capital",
@@ -207,7 +342,22 @@
         "dividendFrequency": "Quarterly",
         "description": "BlueWave Capital, launched in 2013, combines real estate with technology. They invest in smart buildings and tech-enabled properties that offer enhanced living and working experiences. With a portfolio that includes smart homes and tech hubs in Silicon Valley and Seattle, BlueWave Capital leverages technology to drive capital gains.",
         "image": "https://i.postimg.cc/PqqYzXLq/logo14.jpg",
-        "age": 8
+        "age": 8,
+        "projectId": 9,
+        "yearly_returns": [
+      { "year": 2010, "value": 19.29 },
+      { "year": 2011, "value": 13.96 },
+      { "year": 2012, "value": 19.12 },
+      { "year": 2013, "value": 12.89 },
+      { "year": 2014, "value": 11.43 },
+      { "year": 2015, "value": 14.03 },
+      { "year": 2016, "value": 13.96 },
+      { "year": 2017, "value": 11.74 },
+      { "year": 2018, "value": 11.88 },
+      { "year": 2019, "value": 15.5 },
+      { "year": 2020, "value": 11.2 },
+      { "year": 2021, "value": 9.34 }
+    ]
       },
       {
         "companyName": "Legacy Urban Properties",
@@ -228,7 +378,22 @@
         "dividendFrequency": "Quarterly",
         "description": "Legacy Urban Properties, established in 2009, focuses on transforming industrial spaces into modern residential lofts and commercial units. Their projects breathe new life into old warehouses and factories, particularly in cities like Brooklyn and Pittsburgh. This innovative approach has resulted in significant capital appreciation for their investors.",
         "image": "https://i.postimg.cc/rwj5r0wb/logo15.jpg",
-        "age": 15
+        "age": 15,
+        "projectId": 10,
+        "yearly_returns": [
+      { "year": 2010, "value": 17.29 },
+      { "year": 2011, "value": 11.8 },
+      { "year": 2012, "value": 15.22 },
+      { "year": 2013, "value": 12.95 },
+      { "year": 2014, "value": 12.38 },
+      { "year": 2015, "value": 17.53 },
+      { "year": 2016, "value": 15.02 },
+      { "year": 2017, "value": 14.31 },
+      { "year": 2018, "value": 11.63 },
+      { "year": 2019, "value": 15.37 },
+      { "year": 2020, "value": 9.97 },
+      { "year": 2021, "value": 11.64 }
+    ]
       },
       {
         "companyName": "Sunset Capital Ventures",
@@ -249,7 +414,22 @@
         "dividendFrequency": "Quarterly",
         "description": "Sunset Capital Ventures, founded in 2011, specializes in resort and hospitality investments. They acquire and develop high-end resorts and hotels in prime vacation destinations. By focusing on luxury and exclusivity, Sunset Capital Ventures has consistently achieved impressive capital gains, with properties in places like Aspen and Key West.",
         "image": "https://i.postimg.cc/k46SzTv3/logo16.jpg",
-        "age": 14
+        "age": 14,
+        "projectId": 11,
+        "yearly_returns": [
+      { "year": 2010, "value": 13.77 },
+      { "year": 2011, "value": 9.62 },
+      { "year": 2012, "value": 18.8 },
+      { "year": 2013, "value": 9.33 },
+      { "year": 2014, "value": 12.52 },
+      { "year": 2015, "value": 10.64 },
+      { "year": 2016, "value": 13.04 },
+      { "year": 2017, "value": 11.73 },
+      { "year": 2018, "value": 14.11 },
+      { "year": 2019, "value": 13.44 },
+      { "year": 2020, "value": 18.38 },
+      { "year": 2021, "value": 10.42 }
+    ]
       },
       {
         "companyName": "Brickstone Investments",
@@ -270,7 +450,22 @@
         "description": "Brickstone Investments, established in 2004, targets mid-sized cities with high rental demand. They focus on multi-family residential units and student housing, ensuring steady income and long-term capital growth. Their investments in college towns and growing urban centers have proven to be highly lucrative.",
         "image": "https://i.postimg.cc/ydMRH0LJ/logo17.jpg",
         "age": 13,
-        "dividendFrequency": "Quarterly"
+        "projectId": 12,
+        "dividendFrequency": "Quarterly",
+        "yearly_returns": [
+          { "year": 2010, "value": 13.7 },
+          { "year": 2011, "value": 15.9 },
+          { "year": 2012, "value": 12.64 },
+          { "year": 2013, "value": 12.71 },
+          { "year": 2014, "value": 16.66 },
+          { "year": 2015, "value": 13.11 },
+          { "year": 2016, "value": 13.71 },
+          { "year": 2017, "value": 14.91 },
+          { "year": 2018, "value": 15.62 },
+          { "year": 2019, "value": 18.41 },
+          { "year": 2020, "value": 11.11 },
+          { "year": 2021, "value": 15.32 }
+        ]
       },
       {
         "companyName": "VistaRise Real Estate",
@@ -291,7 +486,22 @@
         "description": "VistaRise Real Estate, launched in 2016, specializes in high-rise residential and commercial properties. They focus on skyline-defining buildings in major cities like Houston and Denver. By investing in premium locations and top-tier architecture, VistaRise Real Estate generates substantial capital gains for their stakeholders.",
         "image": "https://i.postimg.cc/x8LzTqZ6/logo18.jpg",
         "age": 12,
-        "dividendFrequency": "Quarterly"
+        "projectId": 13,
+        "dividendFrequency": "Quarterly",
+        "yearly_returns": [
+          { "year": 2010, "value": 13.29 },
+          { "year": 2011, "value": 12.52 },
+          { "year": 2012, "value": 18.52 },
+          { "year": 2013, "value": 18.96 },
+          { "year": 2014, "value": 10.43 },
+          { "year": 2015, "value": 12.96 },
+          { "year": 2016, "value": 9.35 },
+          { "year": 2017, "value": 16.36 },
+          { "year": 2018, "value": 10.62 },
+          { "year": 2019, "value": 13.16 },
+          { "year": 2020, "value": 14.86 },
+          { "year": 2021, "value": 14.41 }
+        ]
       },
       {
         "companyName": "HorizonEdge Holdings",
@@ -312,7 +522,22 @@
         "description": "HorizonEdge Holdings, founded in 2008, focuses on suburban office parks and mixed-use developments. They target areas with strong economic growth and low vacancy rates, ensuring high occupancy and rental income. Their strategic investments in regions like the Research Triangle in North Carolina have yielded impressive capital gains.",
         "image": "https://i.postimg.cc/B6kTnrnn/logo7.jpg",
         "age": 11,
-        "dividendFrequency": "Quarterly"
+        "projectId": 14,
+        "dividendFrequency": "Quarterly",
+        "yearly_returns": [
+          { "year": 2010, "value": 9.78 },
+          { "year": 2011, "value": 15.03 },
+          { "year": 2012, "value": 12.03 },
+          { "year": 2013, "value": 17.96 },
+          { "year": 2014, "value": 14.98 },
+          { "year": 2015, "value": 10.27 },
+          { "year": 2016, "value": 13.8 },
+          { "year": 2017, "value": 15.78 },
+          { "year": 2018, "value": 15.95 },
+          { "year": 2019, "value": 13.24 },
+          { "year": 2020, "value": 16.89 },
+          { "year": 2021, "value": 11.39 }
+        ]
       },
       {
         "companyName": "Renewal Real Estate Group",
@@ -333,7 +558,22 @@
         "description": "Renewal Real Estate Group, established in 2010, is dedicated to environmentally sustainable developments. They invest in properties that adhere to strict green building standards and promote renewable energy. With projects in eco-conscious cities like Portland and San Diego, Renewal Real Estate Group balances profitability with environmental responsibility.",
         "image": "https://i.postimg.cc/Vs09VkKr/logo8.jpg",
         "age": 10,
-        "dividendFrequency": "Quarterly"
+        "projectId": 15,
+        "dividendFrequency": "Quarterly",
+        "yearly_returns": [
+          { "year": 2010, "value": 16.82 },
+          { "year": 2011, "value": 12.6 },
+          { "year": 2012, "value": 16.47 },
+          { "year": 2013, "value": 9.22 },
+          { "year": 2014, "value": 16.35 },
+          { "year": 2015, "value": 16.4 },
+          { "year": 2016, "value": 9.97 },
+          { "year": 2017, "value": 15.64 },
+          { "year": 2018, "value": 13.06 },
+          { "year": 2019, "value": 18.71 },
+          { "year": 2020, "value": 10.58 },
+          { "year": 2021, "value": 10.36 }
+        ]
       },
       {
         "companyName": "CrestPoint Properties",
@@ -354,7 +594,22 @@
         "description": "CrestPoint Properties, founded in 2014, specializes in luxury retirement communities. They develop high-end senior living facilities that offer comfort and premium amenities. Their focus on affluent markets with aging populations, such as Scottsdale and Naples, has resulted in significant capital appreciation.",
         "image": "https://i.postimg.cc/bNX0cf56/logo9.jpg",
         "age": 9,
-        "dividendFrequency": "Quarterly"
+        "projectId": 16,
+        "dividendFrequency": "Quarterly",
+        "yearly_returns": [
+          { "year": 2010, "value": 15.19 },
+          { "year": 2011, "value": 13.88 },
+          { "year": 2012, "value": 15.16 },
+          { "year": 2013, "value": 16.65 },
+          { "year": 2014, "value": 10.15 },
+          { "year": 2015, "value": 12.29 },
+          { "year": 2016, "value": 12.73 },
+          { "year": 2017, "value": 12.61 },
+          { "year": 2018, "value": 18.07 },
+          { "year": 2019, "value": 9.83 },
+          { "year": 2020, "value": 18.45 },
+          { "year": 2021, "value": 18.9 }
+        ]
       },
       {
         "companyName": "GoldenGate Capital",
@@ -375,7 +630,22 @@
         "description": "GoldenGate Capital, established in 2002, invests in trophy properties in iconic locations. From skyscrapers in Manhattan to waterfront estates in Miami, their portfolio consists of highly sought-after real estate. This strategy of focusing on prime assets has consistently delivered high returns and capital gains for their investors.",
         "image": "https://i.postimg.cc/VkhLpmGv/logo6.jpg",
         "age": 16,
-        "dividendFrequency": "Quarterly"
+        "projectId": 17,
+        "dividendFrequency": "Quarterly",
+        "yearly_returns": [
+          { "year": 2010, "value": 13.77 },
+          { "year": 2011, "value": 9.62 },
+          { "year": 2012, "value": 18.8 },
+          { "year": 2013, "value": 9.33 },
+          { "year": 2014, "value": 12.52 },
+          { "year": 2015, "value": 10.64 },
+          { "year": 2016, "value": 13.04 },
+          { "year": 2017, "value": 11.73 },
+          { "year": 2018, "value": 14.11 },
+          { "year": 2019, "value": 13.44 },
+          { "year": 2020, "value": 18.38 },
+          { "year": 2021, "value": 10.42 }
+        ]
       }
     ]
   

@@ -27,6 +27,12 @@
   font-family: "LinikSans";
   src: url("./assets/LinikSans-SemiBold.ttf");
 }
+
+@font-face {
+  font-family: "Cerebri";
+  src: url("./assets/CerebriSansPro-Regular.ttf");
+}
+
 .FontLinikSans {
   font-family: "LinikSans", sans-serif;
 }
@@ -56,6 +62,10 @@ body {
 .ButtonFont {
   font-family: "ArchiveLight", "Asap", "sans-serif";
 }
+.CerebriFont{
+  font-family: "Cerebri" , sans-serif;
+}
+
 .YesevaFont{
   font-family: "Yeseva One", serif;
   font-weight: 400;
@@ -100,7 +110,8 @@ body {
 /* ...............Styling of filter input range ............... */
 
 /* For Chrome, Safari, and Opera */
-.FilterSection input[type="range"]::-webkit-slider-thumb {
+.FilterSection input[type="range"]::-webkit-slider-thumb,
+.Calculator input[type="range"]::-webkit-slider-thumb {
   background-color: #9747ff !important; /* Change thumb color */
   cursor: pointer;
   -webkit-appearance: none;
@@ -110,7 +121,8 @@ body {
 }
 
 /* For Firefox */
-.FilterSection input[type="range"]::-moz-range-thumb {
+.FilterSection input[type="range"]::-moz-range-thumb,
+.Calculator input[type="range"]::-moz-range-thumb {
   background-color: #9747ff; /* Change thumb color */
   cursor: pointer;
   appearance: none;

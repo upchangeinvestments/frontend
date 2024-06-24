@@ -161,96 +161,95 @@ function FilterSection({ sendFilteredData, setLoader }) {
   };
 
   return (
-    <div
-      className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-lg lg:w-[22%] xl:w-[18%] p-2 pr-6"
+    <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-b-lg lg:w-[22%] xl:w-[18%] p-2 pr-6 -mt-4"
       style={{
-        backgroundImage:
-          "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
-        backgroundBlendMode: "overlay",
-      }}
-    >
-      <div className="flex items-center justify-center text-xl font-bold YesevaFont text-[#6e30a7]  mt-2">
-        <p className="uppercase underline">Filter Companies</p>
-      </div>
-      <FilterSubSection
-        list={ClassType}
-        title="Class Type"
-        inputType="checkbox"
-        updateFilters={updateFilters}
-        filterType="classType"
-        clearFilter={clearFilter}
-        checkedValues={checkedValues.classType}
-      />
-      <FilterSubSection
-        list={InvestmentRange}
-        title="Investment Range"
-        inputType="radio"
-        updateFilters={updateFilters}
-        filterType="investmentRange"
-        clearFilter={clearFilter}
-        checkedValues={checkedValues.investmentRange}
-      />
-      <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
-        <div className="text-xl font-bold text-[#6e30a7]">Management Fee </div>
-        <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
-          <p className="mt-2">0</p>
-          <input
-            type="range"
-            name="managementFee"
-            min={0}
-            max={3}
-            value={mngFee}
-            onChange={updateMngFeeValue}
-            step="0.2"
-            className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
-            style={{
-              background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(mngFee / 3) * 100}%, #CBD5E0 ${(mngFee / 3) * 100}%, #CBD5E0 100%)`,
-            }} />
-          <p className="mt-2">{mngFee == 0 ? 3 : mngFee}%</p>
+        backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
+        backgroundBlendMode: "overlay"
+      }}>
+      <div className="border-[1px] border-t-0 border-l-0 border-gray-400 rounded-b-lg px-4">
+        <div className="flex items-center justify-center text-xl font-bold YesevaFont text-[#6e30a7] ">
+          <p className="uppercase underline">Filter Companies</p>
         </div>
-        <Tooltip title="Clear filter" className="absolute top-2 right-2" onClick={() => clearFilter("managementFee")}>
-          <svg className="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
-        </Tooltip>
-      </div>
-      {/* <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg" onClick={() => clearFilter("managementFee")}>Clear filter</button> */}
-      <FilterSubSection
-        list={CompanyAge}
-        title="Company Age"
-        inputType="checkbox"
-        updateFilters={updateFilters}
-        filterType="companyAge"
-        clearFilter={clearFilter}
-        checkedValues={checkedValues.companyAge}
-      />
-      <div>
         <FilterSubSection
-          list={RiskLevel}
-          title="Risk Level"
+          list={ClassType}
+          title="Class Type"
           inputType="checkbox"
           updateFilters={updateFilters}
-          filterType="riskLevel"
-          getTooltipContent={getTooltipContent}
+          filterType="classType"
           clearFilter={clearFilter}
-          checkedValues={checkedValues.riskLevel}
+          checkedValues={checkedValues.classType}
         />
-      </div>
-      <div>
         <FilterSubSection
-          list={LocationType}
-          title="Locations"
+          list={InvestmentRange}
+          title="Investment Range"
+          inputType="radio"
+          updateFilters={updateFilters}
+          filterType="investmentRange"
+          clearFilter={clearFilter}
+          checkedValues={checkedValues.investmentRange}
+        />
+        <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
+          <div className="text-xl font-bold text-[#6e30a7]">Management Fee </div>
+          <div className="w-[75%] flex items-center justify-between gap-x-4 FilterSection">
+            <p className="mt-2">0</p>
+            <input
+              type="range"
+              name="managementFee"
+              min={0}
+              max={3}
+              value={mngFee}
+              onChange={updateMngFeeValue}
+              step="0.2"
+              className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
+              style={{
+                background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(mngFee / 3) * 100}%, #CBD5E0 ${(mngFee / 3) * 100}%, #CBD5E0 100%)`,
+              }} />
+            <p className="mt-2">{mngFee == 0 ? 3 : mngFee}%</p>
+          </div>
+          <Tooltip title="Clear filter" className="absolute top-2 right-2" onClick={() => clearFilter("managementFee")}>
+            <svg className="w-4" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="#6e30a7" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
+          </Tooltip>
+        </div>
+        {/* <button className="bg-[#6e30a7] px-2 text-[#fff] rounded-lg" onClick={() => clearFilter("managementFee")}>Clear filter</button> */}
+        <FilterSubSection
+          list={CompanyAge}
+          title="Company Age"
           inputType="checkbox"
           updateFilters={updateFilters}
-          filterType="locations"
-          getTooltipContent={getTooltipContent}
+          filterType="companyAge"
           clearFilter={clearFilter}
-          checkedValues={checkedValues.locations}
+          checkedValues={checkedValues.companyAge}
         />
-      </div>
-      <div className="flex items-center justify-center mb-4">
-        <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={applyFilters}>Apply Search</button>
-      </div>
-      <div className="flex items-center justify-center mb-4">
-        <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={clearAllFilters}>Clear All Filters</button>
+        <div>
+          <FilterSubSection
+            list={RiskLevel}
+            title="Risk Level"
+            inputType="checkbox"
+            updateFilters={updateFilters}
+            filterType="riskLevel"
+            getTooltipContent={getTooltipContent}
+            clearFilter={clearFilter}
+            checkedValues={checkedValues.riskLevel}
+          />
+        </div>
+        <div>
+          <FilterSubSection
+            list={LocationType}
+            title="Locations"
+            inputType="checkbox"
+            updateFilters={updateFilters}
+            filterType="locations"
+            getTooltipContent={getTooltipContent}
+            clearFilter={clearFilter}
+            checkedValues={checkedValues.locations}
+          />
+        </div>
+        <div className="flex items-center justify-center mb-4">
+          <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={applyFilters}>Apply Search</button>
+        </div>
+        <div className="flex items-center justify-center mb-4">
+          <button className="bg-[#6e30a7] px-4 py-2 text-[#fff] rounded-lg" onClick={clearAllFilters}>Clear All Filters</button>
+        </div>
       </div>
     </div>
   );

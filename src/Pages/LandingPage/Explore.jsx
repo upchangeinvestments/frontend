@@ -1,10 +1,8 @@
 import React from "react";
-import PostCard from "../../commonComponents/PostCard";
-// import Carousel from "react-multi-carousel";
-// import "react-multi-carousel/lib/styles.css";
-import RMData from "../../assets/RMData.json";
+import PostCard from "./PostCard";
 import Carousel from "react-grid-carousel";
 import { LeftArrow, RightArrow } from "../../commonComponents/CarouselButton";
+import companyData from "../../assets/companyData";
 
 const responsive = {
   desktop: {
@@ -31,8 +29,8 @@ const responsive = {
 
 function Explore() {
   return (
-    <div className="flex flex-col items-center justify-center">
-      <div className="mx-auto text-3xl mt-[40px] font-semibold mb-[60px] YesevaFont">
+    <div className="flex flex-col items-center justify-center lg:-mt-10">
+      <div className="mx-auto text-3xl mt-[40px] font-semibold mb-[30px] YesevaFont">
         <span className="text-purple-600">EXPLORE & COMPARE</span> COMPANIES
       </div>
       <div className="vsm:w-[100%] md:w-[100%] mb-20">
@@ -46,7 +44,7 @@ function Explore() {
           // showDots={true}
           autoplay={3000}
         >
-          {RMData.map((element, index) => (
+          {companyData.map((element, index) => (
             <Carousel.Item key={index}>
               <div className="" key={index}>
                 <PostCard data={element} />

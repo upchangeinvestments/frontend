@@ -1,5 +1,4 @@
 import React from "react";
-import { NavHashLink } from "react-router-hash-link";
 import { Link } from "react-router-dom";
 import { useAuth } from "../utils/AuthContext";
 // import logo from "../assets/logo.svg"

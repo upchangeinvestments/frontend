@@ -2,6 +2,7 @@ import React from "react";
 import "../../styles/LandingPage/Platform.css";
 import HowItWorks from "./HowItWorks";
 import Explore from "./Explore";
+import HowItWorksImage from "../../assets/HowItWorks.png"
 
 const HowInvestmentWorks = () => {
   return (
@@ -12,11 +13,9 @@ const HowInvestmentWorks = () => {
         </h1>
         <div className="vsm:w-[80%] md:w-[100%] mx-auto">
           <div className="md:flex items-center justify-between">
-            {/* <img src="https://i.postimg.cc/kGzKLnSc/image1.png" alt="" /> */}
-
-            <div className="vsm:h-full vsm:w-[100%] md:w-[400px] basis-1/2 ">
+            <div className="vsm:h-full vsm:w-[100%] md:w-[400px] basis-2/3 ">
               {/* <img className="bg-white/20 backdrop-blur-xl rounded-lg" src="https://i.postimg.cc/C14NnWHN/40151ff3-f6bf-4aa0-8162-f374736a537c-removebg-preview.png" alt="" /> */}
-              <img className="bg-white/20 backdrop-blur-xl rounded-lg" src="https://i.postimg.cc/XJjjqRMq/lynkinv-removebg1.png" alt="" />
+              <img className="bg-white/20 backdrop-blur-xl rounded-lg" src="https://i.postimg.cc/L6KDskQQ/aggregator.jpg" alt="" />
             </div>
             <div className="vsm:mt-[30px] vsm:w-[100%] md:w-[40%]">
               <p className="flex flex-col items-center justify-center vsm:text-lg text-center">

@@ -11,17 +11,27 @@ import { IoLocationOutline } from "react-icons/io5";
 import Tooltip from '@mui/material/Tooltip';
 import { AiOutlineDollar } from "react-icons/ai";
 import Button from "../../commonComponents/LoginButton";
-import MaterialUIAccordion from "./Accordion";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
-import PhotoSection from "./PhotosSection";
-import InvestmentData from "../../assets/firmsData.json"
+import InvestmentData from "../../assets/companyData.json"
 import { Helmet } from 'react-helmet-async';
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { FaRegCircleQuestion } from "react-icons/fa6";
+import Dial from "./Dial"
+import { PieChart } from '@mui/x-charts/PieChart';
+import { BarChart } from '@mui/x-charts/BarChart';
 
 
+const BarChartSetting = {
+  xAxis: [
+    {
+      label: 'Annual Return Rate (%)',
+    },
+  ],
+  width: 500,
+  height: 400,
+};
 
 function formatMinInvestment(minInvestment) {
   if (minInvestment >= 1000000) {
@@ -30,44 +40,15 @@ function formatMinInvestment(minInvestment) {
     return `$${minInvestment.toLocaleString()}`;
   }
 }
-
-const OverViewContent = ({ data }) => {
-  return (
-    <div className="">
-      <h1 className="text-lg font-bold">{data.CompanyName}</h1>
-      <p style={{ whiteSpace: 'pre-line' }}>{data.Overview}</p>
-    </div >
-  );
-};
+const valueFormatter = (value) => `${value}%`;
 
 
 function PostPage() {
   const { postId } = useParams();
-  const [activeTab, setActiveTab] = useState(0);
   const data = InvestmentData[postId];
 
-  const tabs = [
-    {
-      title: "Overview",
-      content: <OverViewContent data={data} />,
-      link: `/post/${postId}/#Section`
-    },
-    {
-      title: "Documents",
-      link: `/post/${postId}/#documents`,
-    },
-    {
-      title: "Contact Details",
-      link: `/post/${postId}/#contact`,
-    },
-    {
-      title: "Additional Information",
-      link: `/post/${postId}/#information`,
-    },
-  ];
-
   return (
-    <div className="bg-gradient-to-r from-purple-300 to-pink-200 ">
+    <div className="">
       <Helmet>
         <title>Project</title>
         <meta name="description" content="Real Estate listed projects website" />
@@ -75,152 +56,167 @@ function PostPage() {
       </Helmet>
       <div className="flex flex-col items-center justify-center">
         <div className="w-[100%]">
-          <div className="PostPage h-[65vh]">
+          <div className="PostPage">
             <NavBar />
-          </div>
-        </div>
-        <div className="vsm:w-[90%] xl:w-[70%]  2xl:max-w-7xl -mt-[55vh]">
-          <div className="flex flex-col items-center justify-center w-full py-4">
-            <div className="flex vsm:flex-col md:flex-row font-['Playfair-Display'] items-center justify-center text-2xl">
-              <span className="md:border-r md:border-gray-600 font-semibold pr-2">
-                {data.title}
-              </span>
-              <span className="pl-2 font-medium">{data.CompanyName}</span>
-            </div>
-            <span className="flex font-['Playfair-Display'] items-center">
-              <PiMapPinLineBold /> {data.city}, {data.location}
-            </span>
-          </div>
-          <div className="flex flex-col items-center font-['Playfair-Display'] justify-center w-full ">
-            <div className="flex justify-stretch gap-4 bg-[#D2BBF1] vsm:overflow-x-scroll lg:overflow-hidden w-full">
-              {tabs.map((value, index) => (
-                <NavHashLink to={value.link} smooth
-                  className={`w-full font-semibold text-lg p-4 cursor-default whitespace-nowrap ${activeTab === index
-                    ? "border-b-4 border-[#6e30a7] text-[#6e30a7] bg-purple-500/20 rounded-md "
-                    : ""
-                    }`}
-                  key={index}
-                  onClick={() => setActiveTab(index)}
-                >
-                  <p className="text-center">{value.title}</p>
-                </NavHashLink>
-              ))}
-            </div>
-            <div className="flex vsm:flex-col md:flex-row w-full bg-white/20 backdrop-blur-xl shadow-md shadow-black-400 rounded-lg">
-              <img
-                className="vsm:w-[80%] md:w-[20%] md:h-[20%] lg:w-[30%] lg:h-[30%] m-auto"
-                src={data.FirmLogo}
-                alt="Company logo"
-              />
-              <div className="flex flex-col  md:w-[45%] lg:w-[40%] items-center justify-center vsm:pb-4 md:pb-2 ">
-                <div className="grid grid-cols-2 mt-6 mb-2 vsm:gap-x-4 md:gap-x-6 md:px-2 lg:px-0 lg:gap-x-12">
-                  <div className="flex flex-col items-center justify-center pb-2">
-                    <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
-                      <CiStar size="25px" />
-                    </div>
-                    <div className="flex items-center justify-center gap-2">
-                      <FaStar size="15px" />
-                      <p className=""> <span className="text-xl">{data.CompanyRating} </span>/ 5</p>
-                    </div>
-                    <Tooltip title="LynkInfinite's ratings are determined by our team. The scoring formulas take into account multiple metrics for each financial product and service." >
-                      <p className="whitespace-nowrap flex items-center justify-center gap-1 ">LynkInfinite Rating <span><FaRegCircleQuestion size="15px" /></span></p>
-                    </Tooltip>
-                  </div>
-                  <div className="flex flex-col items-center justify-center pb-2">
-                    <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
-                      <GoLock size="25px" />
-                    </div>
-                    <p className="mt-1">Class {data.classType}</p>
-                    <p className="whitespace-nowrap ">Class Type</p>
-                  </div>
-                  <div className="flex flex-col items-center justify-center pb-2">
-                    <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
-                      <AiOutlineDollar size="25px" />
-                    </div>
-                    <p className="mt-1">{formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
-                    <p className="whitespace-nowrap ">Min Investments</p>
-                  </div>
-                  <div className="flex flex-col items-center justify-center pb-2">
-                    <div className="bg-white/20 backdrop-blur-xl rounded-full p-4">
-                      <IoLocationOutline size="25px" />
-                    </div>
-                    <p className="mt-1">{data.city}, {data.location}</p>
-                    <p className="whitespace-nowrap ">Location</p>
-                  </div>
-                </div>
-                <div className="my-2">
-                  <Button
-                    link={data.CompanyLink}
-                    target="_blank"
-                    Text="INVEST"
-                    classname="vsm:px-8 vsm:py-2"
-                  />
-                </div>
-                <div className="flex flex-col items-center justify-center hover:underline">
-                  <Link to="/contact" target="_blank">
-                    Questions?
-                  </Link>
-                </div>
-                <div className="flex flex-col items-center justify-center">
-                  <p className="text-gray-600 text-xs px-4">
-                    *Please carefully review all sections before investing your
-                    money
-                  </p>
+            <div className="YesevaFont flex items-center justify-center relative">
+              <div className="flex justify-center items-start h-[90%] relative">
+                <div className="relative uppercase flex flex-col">
+                  <p className="text-[4.5rem]"> Company <span className="text-purple-600">Analysis</span></p>
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div id="Section" className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/40 font-['Playfair-Display']  backdrop-blur-xl rounded-lg my-6 shadow-md shadow-black-400 p-6">
-          {tabs.map((tab, index) => (
-            <div
-              key={index}
-              className={`mb-4 ${activeTab === index ? "block" : "hidden"}`}
-            >
-              <h2 className="text-xl text-[#6e30a7] font-bold text-left">
-                {tab.title}
-              </h2>
-              {tab.content ? tab.content : null}
+        <div className="vsm:w-[90%] lg:w-[60%] 2xl:max-w-6xl my-4 text-white">
+          <div className="flex items-center justify-center flex-col text-black ">
+            <p className="YesevaFont text-center text-4xl mb-2">{data.companyName}</p>
+            <div className="flex items-center justify-start w-[120%]">
+              <p className="YesevaFont text-xl mb-2 text-left">Overview</p>
             </div>
-          ))}
-        </div>
-        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl vsm:flex vsm:flex-col  lg:grid lg:grid-cols-12 gap-4 ">
-          <div className="lg:col-span-8 ">
-            <PhotoSection data={data} />
+            <p className="CormorantFont font-bold text-xl lg:w-[120%] text-justify">{data.description}</p>
           </div>
-          <div className="w-[100%] vsm:mt-4 lg:mt-0 lg:col-span-4 p-4 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 ">
-            <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
-              Investment Highlights
-            </h2>
-            <div className="px-4 font-['Playfair-Display'] ">
-              <p style={{ whiteSpace: 'pre-line' }}>{data.InvestHighlights}</p>
-            </div>
-          </div>
-        </div>
-        <div className="vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl vsm:flex vsm:flex-col-reverse my-6 ">
-          <div className="pt-4 pb-2 bg-white/40 backdrop-blur-xl rounded-lg shadow-md shadow-black-400">
-            <h2 className="font-['Playfair-Display'] font-bold text-[#6e30a7] mb-2 text-xl">
-              Location
-            </h2>
-            <div className="flex items-start justify-center h-full md:h-[500px]">
-              <iframe src={data.locationMap}
-                width="800"
-                height="800"
-                className="h-[90%] w-[90%]"
-                allowfullscreen=""
-                loading="lazy"
-                title="Google Maps"
-                referrerpolicy="no-referrer-when-downgrade"
-              ></iframe>
+          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-2 py-6 ">
+            <p className="YesevaFont text-3xl text-center my-2 uppercase">{data.companyName} strategy allocation</p>
+            <div className="flex items-center justify-center">
+              <div className="flex items-center justify-center ">
+                <PieChart
+                  series={[
+                    {
+                      data: [
+                        { id: 0, value: 75, label: 'Equity Focused' },
+                        { id: 1, value: 25, label: 'Other Strategies' },
+                      ],
+                      highlightScope: { faded: 'global', highlighted: 'item' },
+                      faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                      innerRadius: 30,
+                      outerRadius: 100,
+                      paddingAngle: 2,
+                      cornerRadius: 5,
+                      startAngle: -180,
+                      endAngle: 180,
+                      cx: 200,
+                      cy: 120,
+                    }
+                  ]}
+                  width="400px"
+                  height="250px"
+                />
+              </div>
+              <div className="flex items-center justify-center flex-col">
+                <p className="text-[#A26CF6] text-5xl">{data.aum}</p>
+                <p className="text-xl CormorantFont">Assets Under Mangement</p>
+              </div>
             </div>
           </div>
+          <div className="grid grid-cols-2 gap-x-6 my-6 ">
+            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center ">
+              <p className="uppercase">Risk type</p>
+              <div className="">
+                {/* <Dial /> */}
+              </div>
+            </div>
+            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex items-center justify-center flex-col py-6 text-center">
+              <div className="my-6 ">
+                <p className="uppercase">Minimum Investment</p>
+                <p className="text-[#A26CF6]">USD {formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
+              </div>
+              <div className="">
+                <p className="">Acceptance</p>
+                <p className="text-[#A26CF6]">Accredited only</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg p-6">
+            <p className="YesevaFont text-3xl text-center my-2 uppercase">Historical return rates</p>
+            <div className="flex items-center justify-center">
+              <div className="text-white">
+                <BarChart
+                  dataset={data.yearly_returns}
+                  yAxis={[{ scaleType: 'band', dataKey: 'year' }]}
+                  series={[{ dataKey: 'value', label: 'Annual Return Rate', valueFormatter, color: '#A26CF6' }]}
+                  layout="horizontal"
+                  className="text-white"
+                  {...BarChartSetting}
+                />
+              </div>
+              <div className="text-7xl text-[#A26CF6] font-bold">{data.historicalReturnRates}%</div>
+            </div>
+          </div>
+          <div className="grid grid-cols-2 gap-x-6 my-6 ">
+            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center py-6">
+              <p className="YesevaFont text-xl text-center uppercase">Management Fees</p>
+
+              <div className="grid grid-cols-2 gap-x-10 text-center my-6 ">
+                <div className="">
+                  <p className="text-[#A26CF6]">1%-2%</p>
+                  <p className="">Asset Management</p>
+                </div>
+                <div className=" ">
+                  <p className="text-[#A26CF6]">1%-2%</p>
+                  <p className="">Asset Management</p>
+                </div>
+              </div>
+
+              <div className="w-full mx-auto text-center ">
+                <p className="text-[#A26CF6] ">15%</p>
+                <p className=" ">Performance/Incentive</p>
+              </div>
+
+            </div>
+            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex items-center justify-between flex-col py-6 text-center">
+              <div className="">
+                <p className="YesevaFont text-xl text-center uppercase">Company Age</p>
+                <p className="text-[#A26CF6]">{data.age} years</p>
+              </div>
+              <div className="">
+                <p className="uppercase">Founded</p>
+                <p className="text-[#A26CF6]">{data.yearFounded}</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 rounded-lg">
+            <p className="YesevaFont text-xl text-center uppercase">Headquarter location</p>
+            <div className="flex items-center justify-center">
+              <div className="">
+                <img src="https://i.postimg.cc/fR9Q4fFz/demographic.jpg" className="w-[400px] mr-[20px]" alt="Location" />
+              </div>
+              <div className="text-center">
+                <p className="YesevaFont text-xl text-center uppercase">Location</p>
+                <p className="text-[#A26CF6] text-3xl uppercase">{data.location}</p>
+              </div>
+            </div>
+          </div>
+          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6">
+            <p className="YesevaFont text-3xl text-center my-2 uppercase">contact Management</p>
+            <div className="flex items-center justify-center gap-x-40 py-6">
+              <div className="flex items-center justify-center py-6 ">
+                <div className=" ">
+                  <img className="w-[100px] h-[100px] rounded-full object-cover" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="person" />
+                </div>
+                <div className="flex flex-col text-left ml-4">
+                  <p>Name:</p>
+                  <p>Title:</p>
+                  <p>Phone:</p>
+                  <p>Email:</p>
+                </div>
+              </div>
+              <div className="flex items-center justify-center">
+                <div className=" ">
+                  <img className="w-[100px] h-[100px] rounded-full object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2Zlc3Npb25hbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D" alt="person" />
+                </div>
+                <div className="flex flex-col text-left ml-4">
+                  <p>Name:</p>
+                  <p>Title:</p>
+                  <p>Phone:</p>
+                  <p>Email:</p>
+                </div>
+              </div>
+            </div>
+          </div>
         </div>
-        <div className="mb-8 vsm:w-[90%] xl:w-[70%] 2xl:max-w-7xl bg-white/20 backdrop-blur-xl rounded-lg  shadow-md shadow-black-400  p-4">
-          <MaterialUIAccordion websiteLink={data.CompanyLink} />
-        </div>
-      </div>
+      </div >
       <Footer />
-    </div>
+    </div >
   );
 }
 

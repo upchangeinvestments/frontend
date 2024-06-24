@@ -15,7 +15,7 @@ const PaginationComponent = ({ totalPages = 1, updateCurrentPage }) => {
     };
 
     return (
-        <div className="flex items-center justify-center mt-8">
+        <div className="flex items-center justify-center mt-24">
             <Stack spacing={2}>
                 <Pagination count={totalPages} color="secondary" size="large" shape="rounded" page={currentPage} onChange={handleChange} />
             </Stack>

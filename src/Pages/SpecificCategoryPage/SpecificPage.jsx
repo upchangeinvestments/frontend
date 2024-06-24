@@ -9,7 +9,7 @@ import { GrClose } from "react-icons/gr";
 import Tooltip from '@mui/material/Tooltip';
 import FilterSection from "../../commonComponents/Filter/FilterSection";
 import { useAuth } from "../../utils/AuthContext";
-import Post from "./Posts";
+import Post from "./Post";
 import PaginationComponent from "../../commonComponents/PaginationComponent";
 import "../../App.css";
 import RingLoader from "react-spinners/RingLoader";
@@ -18,7 +18,6 @@ import filterSVG from "../../assets/filter.svg";
 import { Helmet } from 'react-helmet-async';
 
 function SpecificPage() {
-  const type = "Firms"
   const [open, setOpen] = useState(false);
   const [data, setData] = useState({});
   const [Id, setId] = useState(0);
@@ -167,27 +166,16 @@ function SpecificPage() {
           Index={Id}
           sendFilteredData={receiveFilteredData}
           className="bg-transparent"
-          type={type}
           ref={clearAllFilterRef}
         />
         {/* filter section for mobile view */}
         <NavBar />
-        <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end vsm:mx-8 lg:mx-0">
-          <div className="uppercase font-['Playfair-Display'] text-purple-600 vsm:text-2xl md:text-4xl lg:text-[40px] xl:text-5xl lg:-mt-[27%] hidden lg:block lg:text-4xl font-medium mx-auto ml-[58%]">
-            {type.split(" ").length === 1 ? (
-              <div className="">
-                <p className="">Explore {`${type}`}</p>
-                <p className="">Properties</p>
-              </div>
-            ) : (
-              <div className="">
-                <p className="">Explore {type.split(" ")[0]} </p>
-                <p className="">{type.split(" ").slice(1).join(" ")} Properties</p>
-              </div>
-            )}
-          </div>
-          <div className="uppercase font-['Playfair-Display'] text-purple-600 vsm:text-2xl md:text-4xl lg:hidden font-medium flex items-center justify-center text-center">
-            {`Explore ${type} Properties`}
+        <div className="h-[70vh] YesevaFont flex items-center justify-center relative">
+          <div className="flex justify-center items-start h-[90%] relative">
+            <div className="relative uppercase flex flex-col">
+              <p className="text-[4.5rem]"> Explore <span className="text-purple-600">Companies</span></p>
+              <p className="uppercase w-full flex items-center justify-center CerebriFont text-lg -mt-6">Choose trusted partners to guide you through REal estate investment journey</p>
+            </div>
           </div>
         </div>
       </div>
@@ -201,10 +189,10 @@ function SpecificPage() {
             />
           )}
           <div className="lg:mx-8">
-            <div className="grid vsm:grid-cols-1 lg:grid-cols-1 xl:grid-cols-2 2xl:grid-cols-3 gap-x-6 md:gap-y-2 lg:gap-y-10 xl:gap-y-12">
+            <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 md:gap-y-2 lg:gap-y-16 xl:gap-y-20">
               {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-stretch justify-center" key={index}>
-                  <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} blur={index === 0 ? "noBlur" : "noBlur"} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} />
+                  <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} />
                 </div>
               ))}
             </div>
@@ -299,7 +287,7 @@ function SpecificPage() {
       <div className="">
         <Footer />
       </div>
-    </div>
+    </div >
   );
 }
 
