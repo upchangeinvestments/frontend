@@ -15,56 +15,51 @@ function formatMinInvestment(minInvestment) {
 }
 
 const ListedCompany = ({ company }) => {
-    console.log("data; ", company)
     const { isAuth } = useAuth();
 
     return (
-        <div className='rounded-xl w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] my-2  grid grid-cols-8 text-white p-4'>
+        <div className='rounded-xl w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] my-2  grid grid-cols-6 text-white p-4'>
             <div className='col-span-2 text-left'>{company.companyName}</div>
-            <div className='col-span-5 text-center'>{formatMinInvestment(company.minInvestment) ? formatMinInvestment(company.minInvestment) : company.Investment}</div>
-            <div className='col-span-1 text-right'><Button Text={isAuth ? "Know More" : "Login"} link={isAuth ? "/rei-firms" : "/signin?isLogin=false"} target="_blank" /></div>
+            <div className='col-span-3 text-center'>{formatMinInvestment(company.minInvestment) ? formatMinInvestment(company.minInvestment) : company.Investment}</div>
+            <div className='col-span-1 text-right'><Button Text="Know More" link={isAuth ? "/rei-firms" : "/signin?isLogin=false"} target="_blank" /></div>
         </div>
     );
 }
 
 const ROICalculator = () => {
     const [investment, setInvestment] = useState(0);
-    const [returnedAmount, setReturnedAmount] = useState(0);
+    const [roiPercentage, setRoiPercentage] = useState(9);
     const [duration, setDuration] = useState(1);
     const [showData, setShowData] = useState([]);
     const [roi, setRoi] = useState(0);
-    const [annualizedROI, setAnnualizedROI] = useState(0);
 
-    function calculateAnnualizedROI(invested, duration) {
-        if (invested === 0 || duration <= 0) return 0;
-
-        const annualizedROI = Math.pow(1 + roi, 1 / duration) - 1;
-        setAnnualizedROI(annualizedROI * 100)
-    }
+    const { isAuth } = useAuth();
 
     useEffect(() => {
         if (investment > 0) {
-            const newRoi = (((returnedAmount - investment) / investment) * 100).toFixed(2);
-            setRoi(newRoi);
+            const roiDecimal = roiPercentage / 100;
+            const roi = investment * roiDecimal * duration;
+            setRoi(roi);
+
             const filteredData = companyData.filter((data) => {
-                const minReturnRate = parseFloat(data.historicalReturnRates.split('-')[0]);
-                return newRoi >= minReturnRate;
+                return investment >= data.minInvestment;
             });
-            const sortedData = filteredData.sort((a, b) => a.minInvestment - b.minInvestment);
+            const sortedData = filteredData.sort((a, b) => b.minInvestment - a.minInvestment);
             const topFiveData = sortedData.slice(0, 5);
-            console.log("data: ", topFiveData)
-            calculateAnnualizedROI(investment, duration);
+
+            // Calculate return amount based on ROI
+
             setShowData(topFiveData);
         } else {
             setRoi(0);
             setShowData([]);
         }
-    }, [investment, returnedAmount, duration]);
+    }, [investment, roiPercentage, duration]);
 
-    const handleNumberChange = (value, setFunction) => {
+    const handleNumberChange = (value, setFunction, maxValue) => {
         // Remove any non-numeric characters from the input value
         const numericValue = Number(value.replace(/[^0-9]/g, ''));
-        if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= 1000000) {
+        if (!isNaN(numericValue) && numericValue >= 0 && numericValue <= maxValue) {
             setFunction(numericValue);
         }
     };
@@ -104,7 +99,7 @@ const ROICalculator = () => {
                                         <input
                                             type="text"
                                             value={investment.toLocaleString()}
-                                            onChange={(e) => handleNumberChange(e.target.value, setInvestment)}
+                                            onChange={(e) => handleNumberChange(e.target.value, setInvestment, 100000)}
                                             className="p-2 pl-8 pr-2 w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white"
                                             style={{ borderRadius: '8px' }}
                                         />
@@ -125,13 +120,13 @@ const ROICalculator = () => {
                             </div>
                             <div className="mb-6">
                                 <div className="text-left flex flex-col">
-                                    Returned Amount
-                                    <div className="relative  text-2xl">
-                                        <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
+                                    Return On Investment (ROI)
+                                    <div className="text-2xl">
                                         <input
-                                            type="text"
-                                            value={returnedAmount.toLocaleString()}
-                                            onChange={(e) => handleNumberChange(e.target.value, setReturnedAmount)}
+                                            type="number"
+                                            step="0.1"
+                                            value={roiPercentage}
+                                            onChange={(e) => setRoiPercentage(parseFloat(e.target.value) || 0)}
                                             className="p-2 pl-8 pr-2 w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white"
                                             style={{ borderRadius: '8px' }}
                                         />
@@ -139,15 +134,15 @@ const ROICalculator = () => {
                                 </div>
                                 <input
                                     type="range"
-                                    name="returnedAmount"
-                                    min={0}
-                                    max={1000000}
-                                    value={returnedAmount}
-                                    onChange={(e) => setReturnedAmount(Number(e.target.value))}
-                                    step="100"
+                                    name="Return On Investment"
+                                    min={9}
+                                    max={100}
+                                    value={roiPercentage}
+                                    onChange={(e) => setRoiPercentage(parseFloat(e.target.value))}
+                                    step="0.1"
                                     className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
                                     style={{
-                                        background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(returnedAmount / 1000000) * 100}%, #CBD5E0 ${(returnedAmount / 1000000) * 100}%, #CBD5E0 100%)`,
+                                        background: `linear-gradient(to right, #6e30a7 ${(roiPercentage - 9) / (100 - 9) * 100}%, #6e30a7 ${(roiPercentage - 9) / (100 - 9) * 100}%, #CBD5E0 ${(roiPercentage - 9) / (100 - 9) * 100}%, #CBD5E0 100%)`,
                                     }} />
                             </div>
                             <div className="mb-6">
@@ -157,7 +152,7 @@ const ROICalculator = () => {
                                         <input
                                             type="text"
                                             value={duration.toLocaleString()}
-                                            onChange={(e) => handleNumberChange(e.target.value, setDuration)}
+                                            onChange={(e) => handleNumberChange(e.target.value, setDuration, 50)}
                                             className="p-2 pl-8 pr-2 w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white"
                                             style={{ borderRadius: '8px' }}
                                         />
@@ -178,46 +173,38 @@ const ROICalculator = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-1'>
-                        <p className='text-left'>Level of Risk:</p>
-                        <div className='grid grid-cols-3 bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-xl my-2 text-white p-2 text-center'>
-                            <p className='col-span-1'>Low </p>
-                            <p className='col-span-1'>Medium</p>
-                            <p className='col-span-1'>High</p>
-                        </div>
+                    <div className='col-span-1 h-[90%]'>
                         <div className='my-2 bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white flex flex-col items-center justify-center h-full text-center'>
-                            <div className=' my-2'>
+                            <div className='my-2'>
                                 <p className='uppercase'>Investment Amount</p>
+                                <p> USD {investment} </p>
                             </div>
                             <div className='my-2'>
                                 <p className='uppercase'>return on investment (roi)</p>
-                                <p>{roi}</p>
+                                <p> USD {roi.toFixed(2)}</p>
                             </div>
-                            <div className='my-2'>
-                                <p className='uppercase'>annualized ROI</p>
-                                <p>{annualizedROI.toFixed(2)}</p>
-                            </div>
-                            <Button Text="Know More" link="" target="_blank" />
+                            <Button Text="Explore Opportunities" link={isAuth ? "/rei-firms" : "/signin?isLogin=false"} target="_blank" />
                         </div>
                     </div>
                 </div>
-                <div className='flex items-center justify-center flex-col w-full'>
-                    <p className='text-left'>Leading Companies to Enhance Your Investment Goals</p>
-                    <div className=''>
-                        {showData.map((data, id) => (
-                            <div key={id}>
-                                <ListedCompany company={data} />
-                            </div>
-                        ))}
+                {showData.length > 0 && (
+                    <div className='flex items-center justify-center flex-col my-4'>
+                        <p className='text-left'>Leading Companies to Enhance Your Investment Goals</p>
+                        <div className=''>
+                            {showData.map((data, id) => (
+                                <div key={id}>
+                                    <ListedCompany company={data} />
+                                </div>
+                            ))}
+                        </div>
                     </div>
-                </div>
+                )}
             </div>
 
             {/* <div className="max-w-xl mx-auto my-10 p-6 border border-gray-300 rounded-lg bg-white shadow-lg text-center">
                 <h1 className="text-2xl font-semibold mb-6">ROI Calculator</h1>
                 <div className="mt-4">
                     <h2 className="text-xl font-bold">ROI: {roi}%</h2>
-                    <h2 className="text-xl font-bold">Annualized ROI: {annualizedROI.toFixed(2)}%</h2>
                 </div>
             </div> */}
             <Footer />

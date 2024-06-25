@@ -18,10 +18,8 @@ import { Helmet } from 'react-helmet-async';
 import { FaStar } from "react-icons/fa";
 import { CiStar } from "react-icons/ci";
 import { FaRegCircleQuestion } from "react-icons/fa6";
-import Dial from "./Dial"
 import { PieChart } from '@mui/x-charts/PieChart';
 import { BarChart } from '@mui/x-charts/BarChart';
-
 
 const BarChartSetting = {
   xAxis: [
@@ -30,7 +28,7 @@ const BarChartSetting = {
     },
   ],
   width: 500,
-  height: 400,
+  height: 250,
 };
 
 function formatMinInvestment(minInvestment) {
@@ -128,18 +126,44 @@ function PostPage() {
           </div>
           <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg p-6">
             <p className="YesevaFont text-3xl text-center my-2 uppercase">Historical return rates</p>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center -mt-8 ">
               <div className="text-white">
                 <BarChart
                   dataset={data.yearly_returns}
                   yAxis={[{ scaleType: 'band', dataKey: 'year' }]}
-                  series={[{ dataKey: 'value', label: 'Annual Return Rate', valueFormatter, color: '#A26CF6' }]}
+                  series={[{ dataKey: 'value', label: 'Annual Return Rate', valueFormatter, color: '#A26CF6', height: "200px" }]}
+                  sx={{
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
+                      fill: "white"
+                    },
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
+                      fill: "white"
+                    },
+                    "& .MuiChartsLegend-root": {
+                      hidden: "true",
+                      display: "none",
+                    },
+                    "& .MuiChartsAxis-label ": {
+                      stroke: "white",
+                    },
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
+                      stroke: "white",
+                    },
+                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tick": {
+                      stroke: "white",
+                    },
+                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
+                      stroke: "white",
+                    },
+                    "& .MuiChartsAxis-left .MuiChartsAxis-tick": {
+                      stroke: "white",
+                    }
+                  }}
                   layout="horizontal"
-                  className="text-white"
                   {...BarChartSetting}
                 />
               </div>
-              <div className="text-7xl text-[#A26CF6] font-bold">{data.historicalReturnRates}%</div>
+              <div className="text-4xl text-[#A26CF6] font-bold whitespace-nowrap overflow-hidden text-ellipsis flex-shrink -mt-4">{data.historicalReturnRates}%</div>
             </div>
           </div>
           <div className="grid grid-cols-2 gap-x-6 my-6 ">

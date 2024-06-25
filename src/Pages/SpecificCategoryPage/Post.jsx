@@ -79,7 +79,7 @@ function Post({ data, starredPostIndices, FetchLikedPosts }) {
                             <span className="block text-xs text-gray-600">Class Type</span>
                         </div>
                         <div className="w-1/2 p-2 text-center">
-                            <span className="block text-lg font-bold text-purple-700">{data.age}</span>
+                            <span className="block text-lg font-bold text-purple-700">{data.age} years</span>
                             <span className="block text-xs text-gray-600">Company Age</span>
                         </div>
                         <div className="w-1/2 p-2 text-center">

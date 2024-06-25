@@ -167,8 +167,8 @@ function FilterSection({ sendFilteredData, setLoader }) {
         backgroundBlendMode: "overlay"
       }}>
       <div className="border-[1px] border-t-0 border-l-0 border-gray-400 rounded-b-lg px-4">
-        <div className="flex items-center justify-center text-xl font-bold YesevaFont text-[#6e30a7] ">
-          <p className="uppercase underline">Filter Companies</p>
+        <div className="flex items-center justify-center text-lg font-bold YesevaFont text-[#6e30a7] ">
+          <p className="uppercase underline whitespace-nowrap flex-shrink">Filter Companies</p>
         </div>
         <FilterSubSection
           list={ClassType}

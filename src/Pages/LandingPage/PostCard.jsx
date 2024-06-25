@@ -16,12 +16,12 @@ function PostCard({ data }) {
     }
     return (
         <div className="flex items-center justify-center">
-            <div className="relative bg-white rounded-lg w-[90%] flex items-center justify-center">
-                <div className="xl:w-[21rem] border border-gray-300 rounded-lg shadow-lg font-sans">
-                    <div className="px-4 pt-6 text-center flex items-center justify-center flex-col">
-                        <img src={data.image} alt="Company Logo" className="w-full h-36 xl:h-48 mb-4 rounded-lg" />
-                        <h2 className="text-lg font-bold mb-2">Social Media Campaign</h2>
-                        <div className="overflow-y-hidden h-[60px] xl:h-[80px]">
+            <div className="relative bg-white rounded-lg w-[70%] flex items-center justify-center">
+                <div className="xl:w-[21rem] rounded-lg shadow-lg font-sans border-2 border-purple-600">
+                    <div className="px-4 pt-2 text-center flex items-center justify-center flex-col">
+                        <img src={data.image} alt="Company Logo" className="w-full h-32 rounded-lg" />
+                        <h2 className="text-lg font-bold ">Social Media Campaign</h2>
+                        <div className="overflow-y-hidden h-[40px]">
                             <p className="text-sm text-gray-600 text-justify">{data.description}</p>
                         </div>
                     </div>
@@ -43,7 +43,7 @@ function PostCard({ data }) {
                             <span className="block text-xs text-gray-600">Class Type</span>
                         </div>
                         <div className="w-1/2 p-2 text-center">
-                            <span className="block text-lg font-bold text-purple-700">{data.age}</span>
+                            <span className="block text-lg font-bold text-purple-700">{data.age} years</span>
                             <span className="block text-xs text-gray-600">Company Age</span>
                         </div>
                         <div className="w-1/2 p-2 text-center">
