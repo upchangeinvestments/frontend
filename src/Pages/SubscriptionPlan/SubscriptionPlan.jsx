@@ -13,18 +13,19 @@ function SubscriptionPlan() {
                 <meta name="description" content="Real Estate listed projects website" />
                 <link rel="canonical" href="/premium" />
             </Helmet>
-            <div className="premiumMain">
+            <div className="">
                 <Navbar />
-                <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-                    <p className="uppercase font-['Playfair-Display'] lg:text-5xl xl:text-6xl text-purple-600 vsm:text-4xl md:text-5xl lg:-mt-[27%] mx-auto lg:ml-[60%]">
-                        Subscription
-                    </p>
+                <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
+                    <div className="flex flex-col justify-start items-center h-[90%] relative">
+                        <p className="text-[4.5rem] text-purple-600 uppercase"> Subscription </p>
+                        <p className="text-black uppercase CerebriFont text-3xl text-center font-bold">Listing Inquiry Form</p>
+                    </div>
+                </div>
+                <div className="flex flex-col items-center justify-center">
+                    <SubscriptionForm />
                 </div>
             </div>
-            <SubscriptionForm />
-            <div className="">
-                <Footer />
-            </div>
+            <Footer />
         </div>
     )
 }

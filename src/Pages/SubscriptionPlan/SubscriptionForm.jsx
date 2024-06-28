@@ -100,10 +100,7 @@ function SubscriptionForm() {
 
     return (
         <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 rounded-lg max-w-7xl px-6 py-12 md:py-8 vsm:-mt-[250px] md:-mt-[240px]" >
-            <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-1 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg flex flex-col items-center justify-center">
-                <p className="vsm:text-xl vsm:mb-[10px] msm:text-2xl md:text-2xl text-white font-bold ">
-                    Listing Inquiry Form
-                </p>
+            <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-1 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 bg-gradient-to-r from-[#9b5bd4] to-purple-300 rounded-lg flex flex-col items-center justify-center">
                 <p className='text-xl '><span className='font-semibold'>We are Thrilled to Partner with You</span>: Please fill out our Listing Inquiry Form Below and we will get back to you within 24-48 hours! <br />(Select all that apply)</p>
                 {!formSubmitted && <form
                     onSubmit={handleSubmit}

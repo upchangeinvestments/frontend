@@ -18,7 +18,7 @@ function LandingPage() {
   return (
     <div className={`relative vsm:h-[85vh] md:h-[95vh] ${navigator.userAgent.indexOf('iPad') > -1 ? 'lg:h-[85vh]' : 'lg:h-[90vh]'} w-full flex flex-col justify-center items-center Playfair-Display `}>
       <div className="mainBgVideo">
-        <video className='' autoPlay loop muted playsInline>
+        <video className='' autoPlay muted playsInline>
           <source src={BackgroundVideo} type='video/mp4' />
         </video>
       </div>
