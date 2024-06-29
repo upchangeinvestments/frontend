@@ -55,7 +55,9 @@ function Post({ data, starredPostIndices, FetchLikedPosts }) {
             <div className="relative bg-white rounded-lg w-[90%] flex items-center justify-center">
                 <div className="xl:w-[21rem] border border-gray-300 rounded-lg shadow-lg font-sans">
                     <div className="px-4 pt-6 text-center flex items-center justify-center flex-col">
-                        <img src={data.image} alt="Company Logo" className="w-full h-36 xl:h-48 mb-4 rounded-lg" />
+                        <div className="w-full h-36 xl:h-48 flex items-center justify-center" >
+                            <img src={data.image} alt="Company Logo" className={data.projectId === 0 ? 'w-full h-28 xl:h-40 mb-4 rounded-lg' : 'w-full h-36 xl:h-48 mb-4 rounded-lg'} />
+                        </div>
                         <h2 className="text-lg font-bold mb-2">{data.companyName}</h2>
                         <div className="overflow-y-hidden h-[60px] xl:h-[80px]">
                             <p className="text-sm text-gray-600 text-justify">{data.description}</p>

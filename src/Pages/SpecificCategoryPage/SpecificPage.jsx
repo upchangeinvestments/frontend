@@ -16,6 +16,10 @@ import RingLoader from "react-spinners/RingLoader";
 import axios from "axios";
 import filterSVG from "../../assets/filter.svg";
 import { Helmet } from 'react-helmet-async';
+import { RxCross2 } from "react-icons/rx";
+import { IoCloseCircle } from "react-icons/io5";
+import Button from "../../commonComponents/LoginButton";
+
 
 function SpecificPage() {
   const [open, setOpen] = useState(false);
@@ -281,6 +285,42 @@ function SpecificPage() {
                 </form>
               </div>
             )}
+          </div>
+        </div>
+        <div className="fixed bottom-0 w-full bg-white z-[99] py-3">
+          <div className="relative flex items-center justify-evenly">
+            <div className="flex items-center justify-center gap-x-4 ">
+              <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 px-3 ">
+                <IoCloseCircle size={24} color="rgb(31 41 55)" className="absolute -right-2 -top-2" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-RxzBiTBUAzdXCpJz6AXHYJDeERvNQ3nWQ&s" className="rounded-xl w-24 h-8" alt="company" />
+                <div className="flex flex-col items-start justify-center">
+                  <p className="">Reality Capital Partners</p>
+                  <p>$ 50,000</p>
+                </div>
+              </div>
+              <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 px-3 ">
+                <IoCloseCircle size={24} color="rgb(31 41 55)" className="absolute -right-2 -top-2" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-RxzBiTBUAzdXCpJz6AXHYJDeERvNQ3nWQ&s" className="rounded-xl w-24 h-8" alt="company" />
+                <div className="flex flex-col items-start justify-center">
+                  <p className="">Reality Capital Partners</p>
+                  <p>$ 50,000</p>
+                </div>
+              </div>
+              <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 px-3 ">
+                <IoCloseCircle size={24} color="rgb(31 41 55)" className="absolute -right-2 -top-2" />
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-RxzBiTBUAzdXCpJz6AXHYJDeERvNQ3nWQ&s" className="rounded-xl w-24 h-8" alt="company" />
+                <div className="flex flex-col items-start justify-center">
+                  <p className="">Reality Capital Partners</p>
+                  <p>$ 50,000</p>
+                </div>
+              </div>
+            </div>
+            <div className="">
+              <div className="absolute right-4 bottom-0">
+                <Button Text="Compare" link={``} classname="border-[1px] border-gray-400" />
+              </div>
+              <RxCross2 size={24} className="absolute right-8 top-4" />
+            </div>
           </div>
         </div>
       </div>

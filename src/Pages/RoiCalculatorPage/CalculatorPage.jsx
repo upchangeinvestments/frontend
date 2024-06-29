@@ -55,13 +55,14 @@ const ROICalculator = () => {
             // Calculate return amount based on ROI
 
             setShowData(topFiveData);
+
+            setShowArrow(true);
+            setTimeout(() => setShowArrow(false), 8000);
         } else {
             setRoi(0);
             setShowData([]);
         }
 
-        setShowArrow(true);
-        setTimeout(() => setShowArrow(false), 8000);
     }, [investment, roiPercentage, duration]);
 
     const handleNumberChange = (value, setFunction, maxValue) => {
@@ -212,7 +213,7 @@ const ROICalculator = () => {
                     </div>
                 </div>
                 {showArrow && (
-                    <div className='sticky bottom-4 rounded-full p-2 z-[99] animate-bounce w-full mx-auto'>
+                    <div className='sticky bottom-0 rounded-full p-2 z-[99] animate-bounce w-full mx-auto'>
                         <div className=' ml-20'><p className='whitespace-nowrap text-center'>Scroll down</p> <FaAngleDown size={20} className='w-full mx-auto' /></div>
                     </div>
                 )}

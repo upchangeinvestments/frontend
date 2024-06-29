@@ -94,7 +94,7 @@ function PostPage() {
               </div>
             </div>
           </div>
-          <div className="flex items-center justify-between bg-gradient-to-r from-[#6e30a7] to-purple-300 px-20 py-4 w-full">
+          <div className="flex items-center justify-between bg-gradient-to-r from-[#9b5bd4] to-purple-300 px-20 py-4 w-full">
             {bannerItems.map((data, index) => (
               <NavHashLink to={data.linkToSection} smooth key={index} className="">
                 {data.section}

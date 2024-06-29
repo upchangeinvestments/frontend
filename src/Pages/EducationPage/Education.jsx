@@ -179,9 +179,9 @@ function ServiceCard({ data, handleDrawer, passDataObject }) {
   return (
     <div onClick={handleOpen} className="">
       <EduModal isOpen={modalOpen} handleOpen={handleOpen} modalContent={data.modalContent} />
-      <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 border border-1 border-[#6e30a7] flex flex-col ">
+      <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 h-[160px] border border-1 border-[#6e30a7] flex flex-col ">
         <h3 className="text-xl font-medium mb-2">{data.title}</h3>
-        <p className="line-clamp-3">{data.description}</p>
+        <p className="line-clamp-3 px-4 text-left h-full">{data.description}</p>
         <button
           onClick={handleOpen}
           className="hidden md:block bg-[#6e30a7] text-white  py-1 px-3 rounded mt-2 bottom-4"

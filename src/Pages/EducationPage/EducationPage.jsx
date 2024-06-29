@@ -14,24 +14,20 @@ import { Helmet } from 'react-helmet-async';
 
 const MainData = [
   {
-    ImageSrc: "https://i.postimg.cc/y60sd0pQ/article-removebg-preview.png",
-    Type: "Article",
-    linkToSection: "/resources/#articles",
-  },
-  {
-    ImageSrc: "https://i.postimg.cc/4x2TMPnd/education-removebg-preview.png",
     Type: "Education",
     linkToSection: "/resources/#education",
   },
   {
-    ImageSrc: "https://i.postimg.cc/0yCm0fSL/news.jpg",
-    Type: "Why REI",
-    linkToSection: "/resources/#REI",
-  },
-  {
-    ImageSrc: "https://i.postimg.cc/d3p1B7Qk/keywords.jpg",
     Type: "Keywords",
     linkToSection: "/resources/#keywords",
+  },
+  {
+    Type: "Articles",
+    linkToSection: "/resources/#articles",
+  },
+  {
+    Type: "Why REI",
+    linkToSection: "/resources/#REI",
   },
 ];
 
@@ -159,51 +155,38 @@ function ResouceContent() {
   const shortDescription = description.substring(0, 150) + "... see more";
 
   return (
-    <div className="max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8 -mt-[200px] lg:-mt-[240px] xl:-mt-[300px] relative">
+    <div className="w-[90%] max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8 -mt-[200px] lg:-mt-[270px] xl:-mt-[300px] relative">
       <div className="mobile-filter-drawer absolute bottom-0">
         <ReadMoreDrawer open={openDrawer}
           closeDrawer={handleDrawer}
           data={data} />
       </div>
-
-      <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
-        <div className="flex flex-col pt-1 bg-white/30 backdrop-blur-xl shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] rounded-lg">
-          <div className="flex items-center justify-center bg-[url('https://i.pinimg.com/564x/11/91/c2/1191c215e4e5d4f9deb3bfbe544313c2.jpg')] vsm:w-[220px] msm:w-[300px] sm:w-[340px] vsm:h-[150px] md:w-[300px] md:h-[200px] lg:w-[400px] xl:w-[500px]  mx-auto mt-4 rounded-lg"></div>
-          <div className="p-4">
-            <p className="text-xs uppercase font-['Playfair-Display'] mb-2">
-              Time to invest
-            </p>
-            <p className="font-semibold hover:underline font-['Playfair-Display'] mb-2">
-              7% rise in investors in residential properties in second half of
-              2023
-            </p>
-            <p className="text-sm">{shortDescription}</p>
-          </div>
-        </div>
-        <div className="grid grid-cols-2 grid-rows-2 gap-4">
-          {MainData.map((data, index) => (
-            <NavHashLink to={data.linkToSection} smooth
-              key={index}
-              className="py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]"
-            >
-              <div className="vsm:w-[110px]   msm:w-[120px] sm:w-[140px] vsm:h-[70px] md:w-[145px] lg:w-[200px] lg:h-[80px]  xl:w-[220px]  xl:h-[100px] flex justify-center items-center border-2 border-[#6e30a7]">
-                <p className="flex items-center justify-center uppercase font-['Playfair-Display'] vsm:text-lg md:text-xl lg:text-3xl  text-[#6e30a7]  md:mt-0">
-                  {data.Type}
-                </p>
-              </div>
-            </NavHashLink>
-          ))}
-        </div>
+      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6">
+        {MainData.map((data, index) => (
+          <NavHashLink to={data.linkToSection} smooth
+            key={index}
+            className={`py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`} style={{
+              background: index === 0 || index === 2
+                ? 'linear-gradient(135deg, #13072E, #3F2182)'
+                : 'linear-gradient(135deg, #C770DC, #6853D2)',
+            }}>
+            <div className="vsm:w-[110px]   msm:w-[120px] sm:w-[140px] vsm:h-[70px] md:w-[145px] lg:w-[200px] lg:h-[80px]  xl:w-[220px]  xl:h-[100px] flex justify-center items-center">
+              <p className="flex items-center justify-center uppercase font-['Playfair-Display'] vsm:text-lg md:text-xl lg:text-3xl  text-white font-bold  md:mt-0">
+                {data.Type}
+              </p>
+            </div>
+          </NavHashLink>
+        ))}
       </div>
-      <div className="pt-6" id="education">
-        <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+      <div className="pt-2 my-[30px]" id="education">
+        <h1 className="text-4xl pb-2 flex justify-center YesevaFont">
           EDUCATION
         </h1>
         <Education handleDrawer={handleDrawer}
           passDataObject={receiveDataObject} />
       </div>
-      <div className="pt-6" id="articles">
-        <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+      <div className="pt-2 my-[30px]" id="articles">
+        <h1 className="text-4xl pb-2 flex justify-center YesevaFont">
           ARTICLES
         </h1>
         <div className="">
@@ -248,8 +231,8 @@ function ResouceContent() {
           </Carousel>
         </div>
       </div>
-      <div className="pt-6" id="keywords">
-        <h1 className="text-4xl my-[20px] text-white pb-6 flex justify-center font-['Playfair-Display']">
+      <div className="pt-2 my-[30px]" id="keywords">
+        <h1 className="text-4xl pb-2 flex justify-center YesevaFont">
           KEYWORDS
         </h1>
         <div className="">
@@ -263,7 +246,7 @@ function ResouceContent() {
           >
             {KeywordData.map((keywords, index) => (
               <Carousel.Item key={index}>
-                <div className="bg-white/20 backdrop-blur-xl font-['Playfair-Display'] shadow-md rounded-md w-full p-6 mb-4 vsm:h-[400px] md:h-[300px] lg:h-[200px]">
+                <div className="bg-white/20 backdrop-blur-xl font-['Playfair-Display'] shadow-md rounded-md w-full p-6 mb-4 vsm:h-[400px] md:h-[300px] lg:h-[230px]">
                   <h2 className="text-lg font-semibold text-gray-800 text-center ">
                     {keywords.title}
                   </h2>
@@ -278,8 +261,8 @@ function ResouceContent() {
           </Carousel>
         </div>
       </div>
-      <div className="py-8" id="REI">
-        <h1 className="text-4xl my-[20px] text-white text-center pb-6 flex justify-center font-['Playfair-Display']">
+      <div className="pt-2 pb-8 my-[30px]" id="REI">
+        <h1 className="text-4xl text-center pb-2 flex justify-center YesevaFont">
           Why Real Estate Investments
         </h1>
         <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
@@ -311,16 +294,16 @@ function EducationPage() {
       </Helmet>
       <div className="categoryMain">
         <NavBar />
-        <div className="h-[85vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-          <p className="uppercase font-['Playfair-Display'] lg:text-5xl xl:text-6xl text-purple-600 vsm:text-4xl md:text-5xl lg:-mt-[27%] mx-auto lg:ml-[60%]">
-            RESOURCES
-          </p>
+        <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
+          <div className="flex flex-col justify-start items-center h-[90%] relative">
+            <p className="text-[4.5rem] text-purple-600 uppercase"> Resources </p>
+          </div>
+        </div>
+        <div className="flex flex-col items-center justify-center">
+          < ResouceContent />
         </div>
       </div>
-      < ResouceContent />
-      <div className="">
-        <Footer />
-      </div>
+      <Footer />
     </div>
   );
 }

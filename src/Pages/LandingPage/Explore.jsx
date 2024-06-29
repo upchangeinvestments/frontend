@@ -41,8 +41,8 @@ function Explore() {
           arrowLeft={<LeftArrow dir="right" />}
           arrowRight={<RightArrow dir="right" />}
           loop={true}
-          // showDots={true}
-          autoplay={3000}
+        // showDots={true}
+        // autoplay={3000}
         >
           {companyData.map((element, index) => (
             <Carousel.Item key={index}>
