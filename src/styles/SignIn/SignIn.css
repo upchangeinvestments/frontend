@@ -8,12 +8,6 @@
   background-repeat: no-repeat;
   background-position: center;
 }
-.bg1 {
-  background-image: url("../../assets/Building.jpg");
-}
-.bg2 {
-  background-image: url("../../assets/Building2.jpg");
-}
 
 .UserController {
   display: flex;
@@ -112,7 +106,7 @@
   margin: 0 5px;
   color: #f6f6f8;
   position: relative;
-  bottom: -130%;
+  bottom: -120%;
   /* align-items: flex-end; */
 }
 
@@ -120,7 +114,7 @@
   margin: 0 5px;
   color: #f6f6f8;
   position: relative;
-  bottom: -180%;
+  bottom: -160%;
   align-items: flex-end;
 }
 
@@ -345,13 +339,6 @@
   }
 }
 
-.SignInMobile {
-  background-image: url("../../assets/Building.jpg");
-  /* height: 100vh; */
-  background-size: cover;
-  background-repeat: no-repeat;
-  background-position: center;
-}
 .FormMobile {
   color: white;
 }
@@ -378,9 +365,7 @@
   color: white;
   font-weight: 600;
 }
-.UPCIN {
-  color: #ffff;
-}
+
 .logineyeinput input {
   width: 100% !important;
 }

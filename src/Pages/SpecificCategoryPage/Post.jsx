@@ -9,15 +9,22 @@ import Error from "../../utils/Error";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 
 
-function Post({ data, starredPostIndices, FetchLikedPosts }) {
+function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selectedPosts }) {
     const [likedPosts, setLikedPosts] = useState([]);
     const [isStarFilled, setIsStarFilled] = useState(false);
     const { user, backendUrl } = useAuth();
+    const [isSelected, setIsSelected] = useState(false);
+
+    const handleCheckboxChange = () => {
+        const newIsSelected = !isSelected;
+        setIsSelected(newIsSelected);
+        onPostSelect(data, newIsSelected);
+    };
 
     const toggleStar = async () => {
         setIsStarFilled(!isStarFilled);
         try {
-            const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
+            const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.projectId}/${!isStarFilled}`);
             FetchLikedPosts();
         } catch (error) {
             if (error.response) {
@@ -40,15 +47,20 @@ function Post({ data, starredPostIndices, FetchLikedPosts }) {
 
     useEffect(() => {
         setLikedPosts(starredPostIndices);
-        setIsStarFilled(starredPostIndices.includes(data.index))
-    }, [starredPostIndices]);
+        setIsStarFilled(starredPostIndices.includes(data.projectId));
+
+        if (!selectedPosts.some(post => post.projectId === data.projectId)) {
+            setIsSelected(false);
+        }
+
+    }, [starredPostIndices, selectedPosts, data.projectId]);
 
 
     return (
         <div className="z-10 relative flex items-center justify-center">
             <div className="absolute bg-[#6e30a7] h-[300px] inset-x-0 -bottom-12 rounded-xl -z-[1]">
                 <div className="absolute bottom-2 left-6 flex items-center justify-center gap-x-2 CompareInput">
-                    <input type="checkbox" name="compare" className="rounded-md" />
+                    <input type="checkbox" name="compare" className="rounded-md" checked={isSelected} onChange={handleCheckboxChange} disabled={!isSelected && selectedPosts.length >= 3} />
                     <label htmlFor="compare" className="text-white text-lg ">Compare</label>
                 </div>
             </div>

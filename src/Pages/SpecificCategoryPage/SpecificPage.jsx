@@ -19,7 +19,7 @@ import { Helmet } from 'react-helmet-async';
 import { RxCross2 } from "react-icons/rx";
 import { IoCloseCircle } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
-
+import Message from "../../utils/successToast";
 
 function SpecificPage() {
   const [open, setOpen] = useState(false);
@@ -38,6 +38,9 @@ function SpecificPage() {
   const [investmentRange, setInvestmentRange] = useState("");
   const [fundTimeLine, setFundTimeLine] = useState("");
   const [IRR, setIRR] = useState("");
+  const [selectedPosts, setSelectedPosts] = useState([]);
+  const [removePost, setRemovePost] = useState(false);
+
   var postsPerPage = 12;
 
   const receiveDataObject = (dataObject) => {
@@ -63,6 +66,21 @@ function SpecificPage() {
     if (clearAllFilterRef.current) {
       clearAllFilterRef.current.clearAllFilters();
     }
+  };
+
+  const handlePostSelect = (postData, isSelected) => {
+    setSelectedPosts(prevSelectedPosts => {
+      if (isSelected) {
+        if (prevSelectedPosts.length < 3) {
+          return [...prevSelectedPosts, postData];
+        } else {
+          Message('You can only compare up to 3 posts.');
+          return prevSelectedPosts;
+        }
+      } else {
+        return prevSelectedPosts.filter(post => post.projectId !== postData.projectId);
+      }
+    });
   };
 
   const handleInputChange = (e) => {
@@ -138,6 +156,20 @@ function SpecificPage() {
     }
   }
 
+  const generateCompareUrl = () => {
+    const indices = selectedPosts.map(post => `id=${post.projectId}`).join('&');
+    return `/compare?${indices}`;
+  };
+
+
+  const RemoveComparePostHandler = (postId) => {
+    if (postId === "ALL") {
+      setSelectedPosts([]);
+    } else {
+      setSelectedPosts(prevSelectedPosts => prevSelectedPosts.filter(post => post.projectId !== postId));
+    }
+  };
+
   useEffect(() => {
     FetchLikedPosts();
     const totalItems = filterData.length;
@@ -196,7 +228,7 @@ function SpecificPage() {
             <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 md:gap-y-2 lg:gap-y-16 xl:gap-y-20">
               {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-stretch justify-center" key={index}>
-                  <Post data={{ ...data, index: (index + ((pageNo - 1) * 12)) }} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} />
+                  <Post data={data} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} onPostSelect={handlePostSelect} selectedPosts={selectedPosts} />
                 </div>
               ))}
             </div>
@@ -287,42 +319,30 @@ function SpecificPage() {
             )}
           </div>
         </div>
-        <div className="fixed bottom-0 w-full bg-white z-[99] py-3">
+
+        {/* Comparison section */}
+        {selectedPosts.length > 0 && (<div className="fixed bottom-0 w-full bg-white z-[99] py-3">
           <div className="relative flex items-center justify-evenly">
             <div className="flex items-center justify-center gap-x-4 ">
-              <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 px-3 ">
-                <IoCloseCircle size={24} color="rgb(31 41 55)" className="absolute -right-2 -top-2" />
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-RxzBiTBUAzdXCpJz6AXHYJDeERvNQ3nWQ&s" className="rounded-xl w-24 h-8" alt="company" />
-                <div className="flex flex-col items-start justify-center">
-                  <p className="">Reality Capital Partners</p>
-                  <p>$ 50,000</p>
+              {selectedPosts.map((postData, index) => (
+                <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 pr-3 " key={index}>
+                  <IoCloseCircle size={20} color="rgb(115 115 115)" className="absolute -right-2 -top-2" onClick={() => RemoveComparePostHandler(postData.projectId)} />
+                  <img src={postData.image} className="rounded-xl w-24 h-16" alt="company" />
+                  <div className="flex flex-col items-start justify-center">
+                    <p className="">{postData.companyName}</p>
+                    <p>$ {postData.minInvestment.toLocaleString()}</p>
+                  </div>
                 </div>
-              </div>
-              <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 px-3 ">
-                <IoCloseCircle size={24} color="rgb(31 41 55)" className="absolute -right-2 -top-2" />
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-RxzBiTBUAzdXCpJz6AXHYJDeERvNQ3nWQ&s" className="rounded-xl w-24 h-8" alt="company" />
-                <div className="flex flex-col items-start justify-center">
-                  <p className="">Reality Capital Partners</p>
-                  <p>$ 50,000</p>
-                </div>
-              </div>
-              <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 px-3 ">
-                <IoCloseCircle size={24} color="rgb(31 41 55)" className="absolute -right-2 -top-2" />
-                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-RxzBiTBUAzdXCpJz6AXHYJDeERvNQ3nWQ&s" className="rounded-xl w-24 h-8" alt="company" />
-                <div className="flex flex-col items-start justify-center">
-                  <p className="">Reality Capital Partners</p>
-                  <p>$ 50,000</p>
-                </div>
-              </div>
+              ))}
             </div>
-            <div className="">
-              <div className="absolute right-4 bottom-0">
-                <Button Text="Compare" link={``} classname="border-[1px] border-gray-400" />
+            <div className="flex items-center justify-center">
+              <div className="absolute right-4">
+                <Button Text="Compare" link={generateCompareUrl()} target="_blank" classname="border-[1px] border-gray-400" disable={selectedPosts.length === 1 ? true : false} />
               </div>
-              <RxCross2 size={24} className="absolute right-8 top-4" />
+              <RxCross2 size={24} className="absolute left-4 top-0" onClick={() => RemoveComparePostHandler("ALL")} />
             </div>
           </div>
-        </div>
+        </div>)}
       </div>
       <div className="">
         <Footer />

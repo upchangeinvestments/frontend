@@ -45,7 +45,7 @@ function Features() {
           filtering{" "}
         </span>,
         `your type of `,
-        <span className="text-purple-600 font-medium	">your trusted companies.</span>,
+        <span className="text-purple-600 font-medium	">trusted companies.</span>,
       ],
     },
     {
@@ -76,30 +76,26 @@ function Features() {
     {
       title: [
         <span className="font-['Playfair-Display'] font-bold uppercase">
-          REPUTABLE
+          Analyze
         </span>,
         <span className="text-purple-600 font-['Playfair-Display']">
           {" "}
-          Companies
+          History
         </span>,
       ],
       // image: "https://i.postimg.cc/hf8PfwJQ/globe.png",
       description: [
-        `Access `,
+        `Review the`,
         <span className="text-purple-600 font-['Playfair-Display'] font-medium	">
           {" "}
-          investment projects{" "}
+          company's background
         </span>,
-        `  from various`,
+        ` and make informed`,
         <span className="text-purple-600 font-['Playfair-Display'] font-medium	">
           {" "}
-          reputable companies{" "}
+          investment{" "}
         </span>,
-        `through our`,
-        <span className="text-purple-600 font-['Playfair-Display'] font-medium	">
-          {" "}
-          centralized platform.{" "}
-        </span>,
+        `decisions.`,
       ],
     },
     // https://postimg.cc/gallery/C5XC4Ys -> gallery for images -> postimg.cc

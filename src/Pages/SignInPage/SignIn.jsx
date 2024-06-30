@@ -13,17 +13,17 @@ import { Helmet } from 'react-helmet-async';
 
 const ConnetWithUs = () => {
   return (
-    <div className="mt-6 pb-6">
-      <p className="flex items-center justify-center">Connect with us</p>
+    <div className="pb-6 ">
+      <p className="flex items-center justify-center text-black">Connect with us</p>
       <div className="flex items-end justify-center gap-x-4 mt-2">
         <Link to="/">
-          <FaFacebookF size="25px" />
+          <FaFacebookF size="25px" color="black" />
         </Link>
         <Link to="/">
-          <FaInstagram size="25px" />
+          <FaInstagram size="25px" color="black" />
         </Link>
         <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
-          <FaLinkedinIn size="30px" />
+          <FaLinkedinIn size="30px" color="black" />
         </Link>
       </div>
     </div>
@@ -178,13 +178,13 @@ const SignIn = () => {
       </Helmet>
       <div className={
         isSignUp
-          ? "vsm:hidden lg:block SignIn bg1"
-          : "vsm:hidden lg:block SignIn bg2"
+          ? "vsm:hidden lg:block SignIn"
+          : "vsm:hidden lg:block SignIn"
       }
       >
         <NavBar className="" />
         <div className="UserController">
-          <div className={isSignUp ? "SignInContainer bg1" : "SignInContainer bg2 change"}>
+          <div className={isSignUp ? "SignInContainer" : "SignInContainer change"}>
             <div className="forms-container">
               {/* .......................start of registration form.......................  */}
               <div className="form-control font-['Playfair-Display'] signup-form">
@@ -360,7 +360,7 @@ const SignIn = () => {
               <div className="intro-control signin-intro">
                 <div className="intro-control__inner">
                   <div className="">
-                    <h2 className="md:text-xl lg:text-2xl">
+                    <h2 className="md:text-xl lg:text-2xl font-bold">
                       <font color="#0c0b0b">
                         WELCOME BACK! <br /> <span className="text-xl">TO</span>{" "}
                         <br />
@@ -370,17 +370,17 @@ const SignIn = () => {
                   </div>
 
                   <div className="socials1 font-['Playfair-Display']">
-                    <p>Connect with us</p>
+                    <p className="text-black text-lg font-bold ">Connect with us</p>
                     <div className="">
                       <div className="flex items-end justify-center gap-x-4 mt-2">
                         <Link to="/">
-                          <FaFacebookF size="23px" />
+                          <FaFacebookF size="23px" color="black" />
                         </Link>
                         <Link to="/">
-                          <FaInstagram size="25px" />
+                          <FaInstagram size="25px" color="black" />
                         </Link>
                         <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
-                          <FaLinkedinIn size="25px" />
+                          <FaLinkedinIn size="25px" color="black" />
                         </Link>
                       </div>
                     </div>
@@ -390,23 +390,23 @@ const SignIn = () => {
               <div className="intro-control signup-intro">
                 <div className="intro-control__inner">
                   <div className="font-['Playfair-Display']">
-                    <h2 className="md:text-xl lg:text-2xl">
-                      <font color="#0c0b0b ">SignUp to </font> <br />{" "}
+                    <h2 className="font-bold text-2xl uppercase">
+                      <font color="#0c0b0b">SignUp to </font> <br />{" "}
                       <span className="">Explore Investments</span>
                     </h2>
                   </div>
                   <div className="socials">
-                    <p className="vsm:text-xs lg:text-base">Connect with us</p>
+                    <p className="text-lg font-bold text-black">Connect with us</p>
                     <div className="social">
                       <div className="flex items-end justify-center gap-x-4 mt-2">
                         <Link to="/">
-                          <FaFacebookF size="23px" />
+                          <FaFacebookF size="23px" color="black" />
                         </Link>
                         <Link to="/">
-                          <FaInstagram size="25px" />
+                          <FaInstagram size="25px" color="black" />
                         </Link>
                         <Link to="https://www.linkedin.com/company/lynkinfiniteinvestments/" target="_blank">
-                          <FaLinkedinIn size="25px" />
+                          <FaLinkedinIn size="25px" color="black" />
                         </Link>
                       </div>
                     </div>
@@ -417,15 +417,17 @@ const SignIn = () => {
           </div>
         </div>
       </div>
+
+
       {/* .......................Mobile screen Page....................... */}
-      <div className="lg:hidden font-['Playfair-Display'] SignInMobile">
+      <div className="lg:hidden font-['Playfair-Display']">
         <NavBar className="" />
         <div className="FormMobile">
           <div className={isSignUp ? "SignUP" : "hidden"}>
             <div className="mt-8">
               <h2 className="text-2xl font-bold ">
                 <font color="#0c0b0b">WELCOME TO</font> <br />
-                <p className="UPCIN">LynkInfinite Investments</p>
+                <p className="text-purple-600">LynkInfinite Investments</p>
               </h2>
             </div>
             <div
@@ -514,7 +516,7 @@ const SignIn = () => {
                   WELCOME BACK! <br /> <span className="text-xl">TO</span>{" "}
                   <br />
                 </font>{" "}
-                <span className="UPCIN">LynkInfinite Investments</span>
+                <span className="text-purple-600">LynkInfinite Investments</span>
               </h2>
             </div>
             <div

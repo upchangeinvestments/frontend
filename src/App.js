@@ -15,6 +15,7 @@ import Articles from "./Pages/EducationPage/Articles";
 import HowInvestmentWorks from "./Pages/LandingPage/Platform";
 import PostPage from "./Pages/PostPage/PostPage";
 import SpecificPage from "./Pages/SpecificCategoryPage/SpecificPage";
+import ComparePage from "./Pages/SpecificCategoryPage/Compare";
 import { ToastContainer, Bounce } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 import AuthProvider from "./utils/AuthContext";
@@ -40,6 +41,11 @@ function App() {
           <Route path="/rei-firms" exact element={
             // <PrivateRoute>
             <SpecificPage />
+            // </PrivateRoute>
+          } />
+          <Route path="/compare" exact element={
+            // <PrivateRoute>
+            <ComparePage />
             // </PrivateRoute>
           } />
           <Route path="/post/:postId" exact element={
