@@ -210,7 +210,7 @@ function SpecificPage() {
           <div className="flex justify-center items-start h-[90%] relative">
             <div className="relative uppercase flex flex-col">
               <p className="text-[4.5rem]"> Explore <span className="text-purple-600">Companies</span></p>
-              <p className="uppercase w-full flex items-center justify-center CerebriFont text-lg -mt-6">Choose trusted partners to guide you through REal estate investment journey</p>
+              <p className="uppercase w-full flex items-center justify-center CerebriFont text-lg -mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
             </div>
           </div>
         </div>
@@ -258,7 +258,9 @@ function SpecificPage() {
               </div>
             </Tooltip>
           </div>
-          <div className="">
+
+          {/* start of sort filter  */}
+          <div className="z-[99]">
             <div className="rounded-full w-10 h-10 -mt-2 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black">
               {!viewSortFilter && <img src={filterSVG} className="w-[1.5rem] h-[1.5rem] text-white" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />}
               {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} />}

@@ -17,9 +17,9 @@ import { useAuth } from "../../utils/AuthContext";
 const ProfilePage = () => {
   const { user, backendUrl, setUser } = useAuth();
   const tabs = [
-    { title: "Profile", content: <Profile /> },
-    { title: "Saved Projects", content: <Activity /> },
-    { title: "Accredited Investor", content: <AccreditedInvestor /> },
+    { title: "My Profile", content: <Profile /> },
+    { title: "Saved Companies", content: <Activity /> },
+    { title: "Investor Status", content: <AccreditedInvestor /> },
     { title: "Questionnaire", content: <Questionnaire /> },
   ];
   const [sidebarOpen, setSidebarOpen] = useState(false);
@@ -76,12 +76,12 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="grid col-span-3">
-            <div className="YesevaFont flex items-start justify-center relative flex-col">
+            <div className="flex items-start justify-center relative flex-col">
               <div className="flex flex-col justify-start items-center h-[90%] relative">
-                <p className="text-[4.5rem] text-purple-600 uppercase "> Profile </p>
+                <p className="YesevaFont text-[4.5rem] text-purple-600 uppercase "> Profile </p>
               </div>
-              <div className="w-[90%] sm:p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] bg-gradient-to-r from-purple-300 to-pink-200 rounded-lg shadow-md relative">
-                <div className="flex items-center">
+              <div className="w-[90%] sm:p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-md relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
+                <div className="flex items-center p-2 font-['Poppins']">
                   <div className="">
                     {user.image ? (
                       <div>
@@ -95,22 +95,24 @@ const ProfilePage = () => {
                       <FaUserCircle
                         variant="circular"
                         size="100px"
+                        color="white"
                         alt="user"
                         className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px] rounded-full"
                       />
                     )}
                   </div>
-                  <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8 mt-6 grid grid-rows-2 gap-y-4">
-                    <h2 className="vsm:text-3xl md:text-4xl xl:text-5xl text-purple-800  font-bold">
-                      Welcome!
-                    </h2>
-                    <p className="vsm:text-lg md:text-2xl font-semibold ml-2">{user.name}</p>
+                  <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
+                    <p className="text-2xl text-white font-semibold">{user.name}</p>
+                    <p className="text-white w-[50%]">Unlock the power of passive investing: Answer a few question to become a Accredited Investor </p>
                   </div>
                 </div>
-                <div className="mt-4">
-                  <p className="text-[#6e30a7] vsm:text-[13px] vsm:pt-[15px] msm:text-[15px] md:text-[16px] lg:text-[17px] xl:text-[18px]">
-                    Embark on Your Investment Journey: Let's Discover Your Preferences Together!
-                  </p>
+                <div className="mt-4 flex items-center justify-start gap-x-4 ml-4">
+                  <div className={user.AccreditedInvestor ? "border-2 rounded-xl border-white text-white font-semibold p-2 px-4" : "px-4 p-2 rounded-xl bg-white text-purple-600 font-semibold"}>
+                    <p className="uppercase">Non-accredited</p>
+                  </div>
+                  <div className={user.AccreditedInvestor ? "p-2 rounded-xl bg-white text-purple-600 font-semibold px-4" : "px-4 border-2 rounded-xl border-white text-white font-semibold p-2"}>
+                    <p className="uppercase">accredited</p>
+                  </div>
                 </div>
               </div>
             </div>

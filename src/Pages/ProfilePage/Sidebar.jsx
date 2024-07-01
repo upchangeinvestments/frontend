@@ -1,10 +1,19 @@
 import React, { useState } from "react";
-import { MdKeyboardArrowRight } from "react-icons/md";
+import { IoIosArrowDroprightCircle } from "react-icons/io";
 import ProfileContent from "./ProfileContent";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../../utils/AuthContext";
 import successToast from "../../utils/successToast";
+import { IoPersonCircleSharp } from "react-icons/io5";
+import { FaQuestionCircle } from "react-icons/fa";
+import { MdPrivacyTip } from "react-icons/md";
+import { RiLockPasswordFill } from "react-icons/ri";
+import { MdUnsubscribe } from "react-icons/md";
+import { FaHeart } from "react-icons/fa";
+import { MdOutlineRule } from "react-icons/md";
 import Error from "../../utils/Error";
+import { IoLogOutSharp } from "react-icons/io5";
+import { PiCompassFill } from "react-icons/pi";
 import axios from "axios";
 
 const LogoutComponent = () => {
@@ -524,24 +533,15 @@ const ChangePassword = () => {
 }
 
 const tabs = [
-  { title: "PROFILE SECTION", content: <ProfileContent />, linkId: "" },
-  {
-    title: "TERMS OF SERVICE",
-    content: <TermsOfService />,
-    linkId: "terms",
-  },
-  {
-    title: "PRIVACY POLICY",
-    content: <PrivacyPolicy />,
-    linkId: "privacy-policy",
-  },
-  {
-    title: "CHANGE PASSWORD",
-    content: <ChangePassword />,
-    linkId: "",
-  },
-  { title: "COMMUNICATION", content: <Communication />, linkId: "" },
-  { title: "LOGOUT", content: <LogoutComponent />, linkId: "" },
+  { title: "My Profile", content: <ProfileContent />, linkId: "", icon: <IoPersonCircleSharp /> },
+  { title: "Investor Status", content: <ProfileContent />, linkId: "", icon: <PiCompassFill /> },
+  { title: "Questionnaire", content: <ProfileContent />, linkId: "", icon: <FaQuestionCircle /> },
+  { title: "Saved Companies", content: <ProfileContent />, linkId: "", icon: <FaHeart /> },
+  { title: "PRIVACY POLICY", content: <PrivacyPolicy />, linkId: "privacy-policy", icon: <MdPrivacyTip /> },
+  { title: "TERMS AND CONDITION", content: <TermsOfService />, linkId: "terms", icon: <MdOutlineRule /> },
+  { title: "CHANGE PASSWORD", content: <ChangePassword />, linkId: "", icon: <RiLockPasswordFill /> },
+  { title: "COMMUNICATION", content: <Communication />, linkId: "", icon: <MdUnsubscribe /> },
+  { title: "LOGOUT", content: <LogoutComponent />, linkId: "", icon: <IoLogOutSharp /> },
 ];
 
 const Sidebar = ({ sendDataToProfile }) => {
@@ -555,20 +555,22 @@ const Sidebar = ({ sendDataToProfile }) => {
   return (
     <div className="flex justify-start items-start overscroll-y-contain">
       <div className="vsm:w-full h-full md:w-[200px] lg:w-[280px] xl:w-[60%] flex flex-col items-start backdrop-blur-lg md:rounded-lg lg:rounded-lg shadow-md p-4 ">
-        <ul className="flex flex-col space-y-2 w-full">
+        <ul className="flex flex-col space-y-2 w-full font-['Poppins']">
           {tabs.map((tab, index) => (
-            <li key={index}
-              className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] hover:text-purple-600 ${isActive === index ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white rounded-lg  w-full" : ""}`}
+            <li key={index} className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] ${isActive === index ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white rounded-lg  w-full" : "hover:text-purple-600"}`}
               onClick={() => handleContent(index)}>
               <div className="flex items-center justify-between">
-                <p> {tab.title}</p>
-                <MdKeyboardArrowRight />
+                <span className="flex items-center justify-center gap-x-2">
+                  {tab.icon}
+                  <p className=""> {tab.title}</p>
+                </span>
+                <IoIosArrowDroprightCircle color={isActive === index ? "white" : "rgb(147 51 234)"} />
               </div>
             </li>
           ))}
         </ul>
       </div>
-    </div>
+    </div >
   );
 };
 

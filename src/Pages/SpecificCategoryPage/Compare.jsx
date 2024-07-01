@@ -28,14 +28,15 @@ function Compare() {
                 <NavBar />
                 <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
                     <div className="flex flex-col justify-start items-center h-[90%] relative">
-                        <p className="text-[4.5rem] text-purple-600 uppercase"> Company Analysis </p>
+                        <p className="text-[4.5rem] uppercase"> Compare <span className="text-purple-600">Companies</span></p>
+                        <p className="uppercase w-full flex items-center justify-center CerebriFont text-lg -mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
                     </div>
                 </div>
                 <div className="overflow-x-auto w-full py-8 -mt-[200px] lg:-mt-[270px] xl:-mt-[300px] mb-10">
                     <table className="min-w-full divide-y divide-gray-200 bg-white">
                         <thead>
                             <tr>
-                                <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500"></th>
+                                <th className="px-6 py-3 bg-gray-100 text-center text-sm font-medium text-gray-500"></th>
                                 {compareIds.map((item, index) => (
                                     <th key={index} className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
                                         <img src={data[item].image} alt={data[item].companyName} className="mx-auto w-44 h-28" />
@@ -59,7 +60,7 @@ function Compare() {
                                     {compareIds.map((item, colIndex) => (
                                         <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
                                             {row.key !== 'buttons' && (
-                                                <div className={row.key === 'minInvestment' ? "text-purple-600 text-2xl font-bold" : ""}>{row.key === "minInvestment" ? `$ ${data[item][row.key].toLocaleString()}` : `${data[item][row.key]}`}{row.key === 'feeStructure' ? "%" : ""}</div>
+                                                <div className={row.key === 'minInvestment' ? "text-purple-600 text-2xl font-bold" : row.key === "investorEligibility" ? "w-[80%] mx-auto" : ""}>{row.key === "minInvestment" ? `$ ${data[item][row.key].toLocaleString()}` : `${data[item][row.key]}`}{row.key === 'feeStructure' ? "%" : ""}</div>
                                             )}
                                             {row.key == 'buttons' && (
                                                 <Button Text="Know More" link={``} classname="Font2" />

@@ -46,7 +46,7 @@ const Profile = () => {
     }, [user]);
 
     return (
-        <div className="">
+        <div className="w-full">
             <form className="mx-auto w-[90%]" onSubmit={updateProfile}>
                 <div className="mb-4 mt-10">
                     <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">

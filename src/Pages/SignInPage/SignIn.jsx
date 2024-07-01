@@ -191,7 +191,7 @@ const SignIn = () => {
               {/* .......................start of registration form.......................  */}
               <div className="form-control font-['Playfair-Display'] signup-form">
                 <form onSubmit={handleSignUp}>
-                  <h2 className="">SIGN UP</h2>
+                  <h2 className="text-2xl font-bold">SIGN UP</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <div onClick={GoogleLoginHandler}>
                       <img
@@ -218,7 +218,7 @@ const SignIn = () => {
                     }
                     required
                   />
-                  <div className="relative flex flex-start w-[85%] eye-input">
+                  <div className="relative flex flex-start w-full eye-input">
                     <input
                       type={showPassword ? "text" : "password"}
                       placeholder="Password"
@@ -295,7 +295,7 @@ const SignIn = () => {
                 ) : (
                   // .......................start of login form .......................
                   <form onSubmit={handleLogin}>
-                    <h2 className="text-2xl">SIGN IN</h2>
+                    <h2 className="text-2xl font-bold">SIGN IN</h2>
                     <div className="flex items-center justify-center gap-x-4 -mt-2">
                       <div onClick={GoogleLoginHandler}>
                         <img

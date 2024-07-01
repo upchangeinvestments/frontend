@@ -6,14 +6,14 @@ const Tabs = ({ tabs }) => {
 
   return (
     <div className="w-full">
-      <div className="aboutMain font-['Playfair-Display']">
+      <div className="aboutMain font-['Poppins']">
         <div className="mt-4">
-          <div className="flex vsm:mb-[130px] md:gap-[90px] lg:gap-[90px] lg:mb-[190px] xl:mb-[240px] p-2 w-full vsm:gap-4 items-center justify-center ">
+          <div className="flex vsm:mb-[130px] md:gap-[90px] lg:gap-[90px] lg:mb-[190px] xl:mb-[240px] p-2 w-[90%] vsm:gap-4 items-center justify-center ">
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`py-2 vsm:px-2 lg:px-4 text-xl text-purple-600  focus:outline-none ${activeTab === index
-                  ? "border-b-2 border-[#6e30a7] text-[#6e30a7]" : ""}`}
+                className={`text-purple-600 whitespace-nowrap  focus:outline-none ${activeTab === index
+                  ? "bg-[#8C52FF] text-white font-semibold rounded-xl py-2 px-6" : ""}`}
                 onClick={() => setActiveTab(index)}>
                 {tab.title}
               </button>
