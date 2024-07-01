@@ -1,6 +1,5 @@
 import React, { useState } from "react";
 import { MdKeyboardArrowRight } from "react-icons/md";
-import logo from "../../assets/logo2.png";
 import ProfileContent from "./ProfileContent";
 import { FaSignOutAlt } from "react-icons/fa";
 import { useAuth } from "../../utils/AuthContext";
@@ -554,19 +553,13 @@ const Sidebar = ({ sendDataToProfile }) => {
   };
 
   return (
-    <div className="flex vsm:justify-start lg:justify-end items-center">
-      <div className="vsm:w-full h-[100vh] md:w-[200px] md:mt-[50px] md:ml-[20px] lg:w-[280px] lg:mt-[50px] lg:ml-[40px] xl:w-[60%] xl:mr-[70px] flex flex-col items-center bg-gradient-to-r from-[#6e30a7] to-purple-300  backdrop-blur-lg md:rounded-lg lg:rounded-lg shadow-md p-4 ">
+    <div className="flex justify-start items-start overscroll-y-contain">
+      <div className="vsm:w-full h-full md:w-[200px] lg:w-[280px] xl:w-[60%] flex flex-col items-start backdrop-blur-lg md:rounded-lg lg:rounded-lg shadow-md p-4 ">
         <ul className="flex flex-col space-y-2 w-full">
-          <div className="vsm:w-[180px] vsm:ml-[30px] vsm:mb-[50px] sm:w-[200px] sm:ml-[30px] sm:mb-[50px] md:w-[150px] md:ml-[5px] md:mb-[40px] lg:mx-[20px] lg:mt-[20px] lg:mb-[80px] lg:w-[200px] xl:w-[230px]">
-            <img src={logo} alt="" />
-          </div>
           {tabs.map((tab, index) => (
-            <li
-              key={index}
-              className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px]  xl:p-[17px]  ${isActive === index ? " md:bg-white  rounded-lg  w-full" : ""
-                }`}
-              onClick={() => handleContent(index)}
-            >
+            <li key={index}
+              className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] md:text-[15px] lg:text-[17px] xl:text-[18px] xl:p-[17px] hover:text-purple-600 ${isActive === index ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white rounded-lg  w-full" : ""}`}
+              onClick={() => handleContent(index)}>
               <div className="flex items-center justify-between">
                 <p> {tab.title}</p>
                 <MdKeyboardArrowRight />

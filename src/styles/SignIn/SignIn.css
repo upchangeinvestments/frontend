@@ -106,7 +106,7 @@
   margin: 0 5px;
   color: #f6f6f8;
   position: relative;
-  bottom: -120%;
+  bottom: -220%;
   /* align-items: flex-end; */
 }
 
@@ -114,12 +114,16 @@
   margin: 0 5px;
   color: #f6f6f8;
   position: relative;
-  bottom: -160%;
+  bottom: -220%;
   align-items: flex-end;
 }
 
 .socials .h4 {
   align-items: flex-end;
+}
+.UserController input::placeholder{
+  color: white;
+  opacity: 0.7;
 }
 
 .form-control.signup-form {
@@ -130,7 +134,7 @@
   opacity: 0;
   z-index: 1;
   left: 200%;
-  background-color: rgba(34, 25, 25, 0.5);
+  background:#9b5bd4;
   border-radius: 5px;
   color: #f5f0f0;
   overflow-y: hidden;
@@ -140,7 +144,7 @@
   opacity: 1;
   z-index: 2;
   left: 0%;
-  background-color: rgba(34, 25, 25, 0.5);
+  background: #9b5bd4;
   border-radius: 5px;
   color: #f5f0f0;
   overflow-y: hidden;
@@ -167,10 +171,6 @@
   height: 60%;
 }
 
-.intro-control .intro-control__inner h2 {
-  margin: 10px 30px;
-  color: #6e30a7;
-}
 .intro-control .intro-control__inner {
   width: 100%;
   /* margin: 0px 30px; */
@@ -211,21 +211,15 @@
 .signin-form button,
 .signup-form button {
   border: none;
-  /* background-color: rgba(248, 245, 245, 0.5); */
   border-radius: 5px;
-  /* color: #0a0a0a; */
-  cursor: pointer;
-  padding: 7px 20px;
   margin-top: 5px;
   margin-bottom: 5px;
   cursor: pointer;
   width: 65%;
-  background-color: #6e30a7;
-  color: white;
   font-weight: 600;
 }
 .signin-form button {
-  width: 43%;
+  width: 60%;
 }
 
 .change .signin-form {

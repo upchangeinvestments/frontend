@@ -54,9 +54,9 @@ function App() {
             // </PrivateRoute>
           } />
           <Route path="/profile" element={
-            // <PrivateRoute>
-            <ProfilePage />
-            // </PrivateRoute>
+            <PrivateRoute>
+              <ProfilePage />
+            </PrivateRoute>
           } />
           <Route path="/terms" element={<Termsandconditions />} />
           <Route path="/roi-calculator" element={<RoiCalculator />} />

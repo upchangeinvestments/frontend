@@ -321,13 +321,13 @@ function SpecificPage() {
         </div>
 
         {/* Comparison section */}
-        {selectedPosts.length > 0 && (<div className="fixed bottom-0 w-full bg-white z-[99] py-3">
+        {selectedPosts.length > 0 && (<div className="fixed bottom-0 w-full bg-white z-[99] py-3 border-t-[1px] border-gray-300">
           <div className="relative flex items-center justify-evenly">
             <div className="flex items-center justify-center gap-x-4 ">
               {selectedPosts.map((postData, index) => (
                 <div className="rounded-xl relative flex items-center justify-center gap-x-2 border-[1px] border-gray-400 pr-3 " key={index}>
                   <IoCloseCircle size={20} color="rgb(115 115 115)" className="absolute -right-2 -top-2" onClick={() => RemoveComparePostHandler(postData.projectId)} />
-                  <img src={postData.image} className="rounded-xl w-24 h-16" alt="company" />
+                  <img src={postData.image} className="rounded-xl w-20 h-12 m-2" alt="company" />
                   <div className="flex flex-col items-start justify-center">
                     <p className="">{postData.companyName}</p>
                     <p>$ {postData.minInvestment.toLocaleString()}</p>

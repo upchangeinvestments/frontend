@@ -42,11 +42,11 @@ function ContactForm() {
       <div className="block lg:max-w-7xl mx-auto r vsm:py-[20px]  lg:px-6 lg:py-12  md:py-8 md:px-10 -mt-[120px] ">
         <div className=" text-black grid relative vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
           <div className="md:col-span-2 lg:col-span-1 flex items-center justify-end">
-            <div className="flex flex-col  vsm:mx-4 vsm:mt-8x vsm:w-[100%] sm:ml-0 md:w-[100%] md:mr-[15px]  lg:ml-12 lg:w-[90%] lg:mr-[20px] pb-[40px] vsm:bg-gradient-to-r vsm:from-purple-200 vsm:to-purple-300 lg:bg-none lg:shadow-2xl rounded-lg">
+            <div className="flex flex-col  vsm:mx-4 vsm:mt-8x vsm:w-[100%] sm:ml-0 md:w-[100%] md:mr-[15px]  lg:ml-12 lg:w-[90%] lg:mr-[20px] pb-[40px] bg-gradient-to-r from-purple-200 to-purple-300 lg:bg-none lg:shadow-2xl rounded-lg">
               <div className="basis-1/3 pt-[20px] relative">
                 <div className="flex flex-col vsm:mt-16 sm:mt-20 lg:mt-28 items-center justify-end h-[60px]">
                   <div className="lg:w-64 vsm:w-44 sm:w-48  md:w-52">
-                    <img src={logo} alt="" />
+                    <img src={logo} alt="Logo" />
                   </div>
                   <div className="flex flex-col items-center justify-center">
                     <div className="right-0 top-0 mt-2 p-2">

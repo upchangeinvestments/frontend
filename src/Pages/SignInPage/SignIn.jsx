@@ -2,9 +2,11 @@ import React, { useState, useEffect } from "react";
 import { useNavigate, useLocation, Link } from "react-router-dom";
 import { FaLinkedinIn, FaFacebookF, FaInstagram } from "react-icons/fa";
 import NavBar from "../../commonComponents/NavBar";
+import bgImage from "../../assets/login_BG.jpeg";
 import "../../styles/SignIn/SignIn.css";
 import axios from "axios";
 import Error from "../../utils/Error";
+import logo from "../../assets/blackLogo.png";
 import SuccessToast from "../../utils/successToast";
 import { useAuth } from "../../utils/AuthContext";
 import { IoEyeOffOutline } from "react-icons/io5";
@@ -104,7 +106,7 @@ const SignIn = () => {
       localStorage.setItem("tokenExpiration", tokenExpiration);
 
       handleUpdateAuth(true);
-      navigate("/category");
+      navigate("/rei-firms");
       SuccessToast("Welcome to LynkInfinite Investment!");
 
     } catch (error) {
@@ -184,7 +186,7 @@ const SignIn = () => {
       >
         <NavBar className="" />
         <div className="UserController">
-          <div className={isSignUp ? "SignInContainer" : "SignInContainer change"}>
+          <div className={isSignUp ? "SignInContainer shadow-2xl -mt-8" : "SignInContainer change shadow-2xl -mt-8"}>
             <div className="forms-container">
               {/* .......................start of registration form.......................  */}
               <div className="form-control font-['Playfair-Display'] signup-form">
@@ -244,13 +246,14 @@ const SignIn = () => {
                       </p>
                     </label>
                   </div>
-                  <button type="submit" className="">
+                  <button type="submit" className="bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgImage})` }} >
                     SIGN UP
                   </button>
                   <div>
                     <p>Have an account?</p>{" "}
                     <span id="signUp" onClick={SignInButtonClick}>
-                      <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600">
+                      <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-bold bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover"
+                        style={{ backgroundImage: `url(${bgImage})` }} >
                         SIGN IN
                       </div>
                     </span>
@@ -332,7 +335,7 @@ const SignIn = () => {
                         <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
                       )}
                     </div>
-                    <button type="submit" className="w-[65%]">
+                    <button type="submit" className="bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover" style={{ backgroundImage: `url(${bgImage})` }} >
                       LOGIN
                     </button>
                     <div className="cursor-pointer" onClick={() => setShowForgetPassword(true)}>
@@ -342,9 +345,8 @@ const SignIn = () => {
                       {/* <input type="checkbox" />   I agree to all statements in terms of service */}
                       <p>Don't have an account? </p>
                       <span id="signUp" onClick={SignInButtonClick}>
-                        <div
-                          className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm text-base font-medium text-white bg-[#6e30a7] hover:bg-purple-600"
-                        >
+                        <div className="w-full flex items-center justify-center mt-4 px-4 py-2 border border-transparent rounded-md shadow-sm bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover"
+                          style={{ backgroundImage: `url(${bgImage})` }} >
                           SIGN UP
                         </div>
                       </span>
@@ -357,20 +359,13 @@ const SignIn = () => {
               {/* .......................end of login form and forgot password form....................... */}
             </div>
             <div className="intros-container font-['Playfair-Display']">
-              <div className="intro-control signin-intro">
+              <div className="intro-control signin-intro ">
                 <div className="intro-control__inner">
-                  <div className="">
-                    <h2 className="md:text-xl lg:text-2xl font-bold">
-                      <font color="#0c0b0b">
-                        WELCOME BACK! <br /> <span className="text-xl">TO</span>{" "}
-                        <br />
-                      </font>{" "}
-                      <span className="">LynkInfinite Investments</span>
-                    </h2>
+                  <div className="lg:w-64 vsm:w-44 sm:w-48 md:w-52 mx-auto -mt-10">
+                    <img src={logo} alt="logo" />
                   </div>
-
                   <div className="socials1 font-['Playfair-Display']">
-                    <p className="text-black text-lg font-bold ">Connect with us</p>
+                    <p className="text-black text-lg">Connect with us</p>
                     <div className="">
                       <div className="flex items-end justify-center gap-x-4 mt-2">
                         <Link to="/">
@@ -389,14 +384,11 @@ const SignIn = () => {
               </div>
               <div className="intro-control signup-intro">
                 <div className="intro-control__inner">
-                  <div className="font-['Playfair-Display']">
-                    <h2 className="font-bold text-2xl uppercase">
-                      <font color="#0c0b0b">SignUp to </font> <br />{" "}
-                      <span className="">Explore Investments</span>
-                    </h2>
+                  <div className="lg:w-64 vsm:w-44 sm:w-48 md:w-52 mx-auto -mt-10">
+                    <img src={logo} alt="logo" />
                   </div>
                   <div className="socials">
-                    <p className="text-lg font-bold text-black">Connect with us</p>
+                    <p className="text-lg text-black">Connect with us</p>
                     <div className="social">
                       <div className="flex items-end justify-center gap-x-4 mt-2">
                         <Link to="/">
