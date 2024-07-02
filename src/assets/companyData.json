@@ -1,6 +1,6 @@
 [
   {
-    "companyName": "Realty Capital Partners",
+    "companyName": "TPM Growth Capital",
     "yearFounded": 2001,
     "location": "Dallas",
     "minInvestment": 50000,
@@ -17,8 +17,8 @@
     "averageAnnualReturns": 0.105,
     "yield": 0.06,
     "dividendFrequency": "Quarterly",
-    "description": "Realty Capital Partners (RCP) has earned a national reputation as a leading private real estate investment firm with assets valued at $3 billion and a 30-year history of creating superior risk-adjusted returns for its clients. Headquartered in Dallas, Texas, RCP manages a portfolio of real estate investments across the nation. \n\n RCP provides its clients with opportunities to both diversify their investment portfolios and improve performance through alternative real estate investments. Working with best-in-class partners who share RCP's core values, the firm provides access to a variety of property types in high-growth markets. As niche specialists in the middle-market sector, RCP uses its extensive knowledge and long-standing relationships in the real estate community to identify investment opportunities. The firm then performs exhaustive due diligence to mitigate risk and maximize the potential of each investment.",
-    "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcSp-RxzBiTBUAzdXCpJz6AXHYJDeERvNQ3nWQ&s",
+    "description": "TPM Growth Capital has earned a national reputation as a leading private real estate investment firm with assets valued at $3 billion and a 30-year history of creating superior risk-adjusted returns for its clients. Headquartered in Dallas, Texas, TPM Growth Capital manages a portfolio of real estate investments across the nation. \n\n TPM Growth Capital provides its clients with opportunities to both diversify their investment portfolios and improve performance through alternative real estate investments. Working with best-in-class partners who share TPM's core values, the firm provides access to a variety of property types in high-growth markets. As niche specialists in the middle-market sector, they uses its extensive knowledge and long-standing relationships in the real estate community to identify investment opportunities. The firm then performs exhaustive due diligence to mitigate risk and maximize the potential of each investment.",
+    "image": "https://i.postimg.cc/m2mQxbq9/tcp.jpg",
     "age": 23,
     "projectId": 0,
     "yearly_returns": [
@@ -60,7 +60,7 @@
       ]
     },
     {
-      "companyName": "MGM Investments",
+      "companyName": "M2M Capital Partners",
       "yearFounded": 2008,
       "location": "Houston",
       "minInvestment": 1000,
@@ -77,8 +77,8 @@
       "averageAnnualReturns": 0.095,
       "yield": 0.055,
       "dividendFrequency": "Quarterly",
-      "description": "MGM Investments is a private investment firm specializing in industrial real estate and small to mid-cap operating companies. Established in 2008 by Dax T.S. Mitchell and Andrew Gi, the firm leverages over five decades of combined experience in commercial real estate investment and development. MGM focuses on delivering stabilized returns with low risk through investments in income-producing properties and operating companies, maintaining consistent performance across various market conditions.\n\n The firm is dedicated to investing in American businesses and fostering community growth, combining an entrepreneurial spirit with institutional experience. MGM's strong financial capabilities, long-term perspective, and commitment to innovation enable the firm to seize opportunities and consistently deliver value to its investment partners. By embracing its core values and executing exceptional strategies, MGM has built a proven track record of success.",
-      "image": "https://www.mgmcapital.com/images/logo.jpg",
+      "description": "M2M Capital Partners is a private investment firm specializing in industrial real estate and small to mid-cap operating companies. Established in 2008 by S.P. Mitchell, the firm leverages over five decades of combined experience in commercial real estate investment and development. M2M Capital Partners focuses on delivering stabilized returns with low risk through investments in income-producing properties and operating companies, maintaining consistent performance across various market conditions.\n\n The firm is dedicated to investing in American businesses and fostering community growth, combining an entrepreneurial spirit with institutional experience. M2M's strong financial capabilities, long-term perspective, and commitment to innovation enable the firm to seize opportunities and consistently deliver value to its investment partners. By embracing its core values and executing exceptional strategies, M2M has built a proven track record of success.",
+      "image": "https://i.postimg.cc/TYdrHykG/m2m.jpg",
       "age": 16,
       "projectId": 2,
       "yearly_returns": [

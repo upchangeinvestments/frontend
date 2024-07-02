@@ -39,24 +39,24 @@ function App() {
           <Route path="/contact" element={<Contact />} />
           <Route path="/:id/verify/:token" element={<VerifyUser />} />
           <Route path="/rei-firms" exact element={
-            <PrivateRoute>
-              <SpecificPage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <SpecificPage />
+            // </PrivateRoute>
           } />
           <Route path="/compare" exact element={
-            <PrivateRoute>
-              <ComparePage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <ComparePage />
+            // </PrivateRoute>
           } />
           <Route path="/post/:postId" exact element={
-            <PrivateRoute>
-              <PostPage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <PostPage />
+            // </PrivateRoute>
           } />
           <Route path="/profile" element={
-            <PrivateRoute>
-              <ProfilePage />
-            </PrivateRoute>
+            // <PrivateRoute>
+            <ProfilePage />
+            // </PrivateRoute>
           } />
           <Route path="/terms" element={<Termsandconditions />} />
           <Route path="/roi-calculator" element={<RoiCalculator />} />
