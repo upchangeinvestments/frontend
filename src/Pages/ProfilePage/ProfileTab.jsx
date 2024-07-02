@@ -13,7 +13,7 @@ const Tabs = ({ tabs }) => {
               <button
                 key={index}
                 className={`text-purple-600 whitespace-nowrap  focus:outline-none ${activeTab === index
-                  ? "bg-[#8C52FF] text-white font-semibold rounded-xl py-2 px-6" : ""}`}
+                  ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white font-semibold rounded-xl py-2 px-6" : ""}`}
                 onClick={() => setActiveTab(index)}>
                 {tab.title}
               </button>
@@ -22,7 +22,7 @@ const Tabs = ({ tabs }) => {
         </div>
       </div>
       <div className="flex flex-col -mt-[130px] lg:-mt-[210px] xl:-mt-[250px] w-full z-[9999]">
-        <div>
+        <div className="">
           {tabs.map((tab, index) => (
             <div
               key={index}

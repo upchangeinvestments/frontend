@@ -47,7 +47,7 @@ const ProfilePage = () => {
       <div className="categoryMain">
         <NavBar />
         <div className="grid grid-cols-4">
-          <div className="grid col-span-1 mt-0 overscroll-y-none">
+          <div className="grid col-span-1 mt-[10%] overscroll-y-none">
             <Sidebar sendDataToProfile={handleIncomingData} />
             <div className="md:hidden relative" onClick={sidebarHandler}>
               <svg
@@ -80,7 +80,7 @@ const ProfilePage = () => {
               <div className="flex flex-col justify-start items-center h-[90%] relative">
                 <p className="YesevaFont text-[4.5rem] text-purple-600 uppercase "> Profile </p>
               </div>
-              <div className="w-[90%] sm:p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-md relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
+              <div className="w-[90%] sm:p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
                 <div className="flex items-center p-2 font-['Poppins']">
                   <div className="">
                     {user.image ? (
@@ -107,10 +107,10 @@ const ProfilePage = () => {
                   </div>
                 </div>
                 <div className="mt-4 flex items-center justify-start gap-x-4 ml-4">
-                  <div className={user.AccreditedInvestor ? "border-2 rounded-xl border-white text-white font-semibold p-2 px-4" : "px-4 p-2 rounded-xl bg-white text-purple-600 font-semibold"}>
+                  <div className={user.AccreditedInvestor ? "border-2 rounded-xl border-white text-white font-semibold p-2 px-4" : "p-2 px-4 rounded-xl bg-white text-purple-600 font-semibold"}>
                     <p className="uppercase">Non-accredited</p>
                   </div>
-                  <div className={user.AccreditedInvestor ? "p-2 rounded-xl bg-white text-purple-600 font-semibold px-4" : "px-4 border-2 rounded-xl border-white text-white font-semibold p-2"}>
+                  <div className={user.AccreditedInvestor ? "p-2 rounded-xl bg-white text-purple-600 font-semibold px-4" : "p-2 px-4 border-2 rounded-xl border-white text-white font-semibold"}>
                     <p className="uppercase">accredited</p>
                   </div>
                 </div>
