@@ -14,6 +14,10 @@ import { MdOutlineRule } from "react-icons/md";
 import Error from "../../utils/Error";
 import { IoLogOutSharp } from "react-icons/io5";
 import { PiCompassFill } from "react-icons/pi";
+import Profile from "./Profile";
+import Activity from "./Activity";
+import Questionnaire from "./Questionnaire";
+import AccreditedInvestor from "./AccreditedInvestor";
 import axios from "axios";
 
 const LogoutComponent = () => {
@@ -533,10 +537,10 @@ const ChangePassword = () => {
 }
 
 const tabs = [
-  { title: "My Profile", content: <ProfileContent />, linkId: "", icon: <IoPersonCircleSharp /> },
-  { title: "Investor Status", content: <ProfileContent />, linkId: "", icon: <PiCompassFill /> },
-  { title: "Questionnaire", content: <ProfileContent />, linkId: "", icon: <FaQuestionCircle /> },
-  { title: "Saved Companies", content: <ProfileContent />, linkId: "", icon: <FaHeart /> },
+  { title: "My Profile", content: <Profile />, linkId: "", icon: <IoPersonCircleSharp />, activeIndex: 0 },
+  { title: "Investor Status", content: <AccreditedInvestor />, linkId: "", icon: <PiCompassFill />, activeIndex: 2 },
+  { title: "Questionnaire", content: <Questionnaire />, linkId: "", icon: <FaQuestionCircle />, activeIndex: 3 },
+  { title: "Saved Companies", content: <Activity />, linkId: "", icon: <FaHeart />, activeIndex: 1 },
   { title: "PRIVACY POLICY", content: <PrivacyPolicy />, linkId: "privacy-policy", icon: <MdPrivacyTip /> },
   { title: "TERMS AND CONDITION", content: <TermsOfService />, linkId: "terms", icon: <MdOutlineRule /> },
   { title: "CHANGE PASSWORD", content: <ChangePassword />, linkId: "", icon: <RiLockPasswordFill /> },
@@ -548,7 +552,7 @@ const Sidebar = ({ sendDataToProfile }) => {
   const [isActive, setIsActive] = useState(0);
 
   const handleContent = (i) => {
-    sendDataToProfile(tabs[i].content, tabs[i].title, tabs[i].linkId);
+    sendDataToProfile(tabs[i].content, tabs[i].title, tabs[i].linkId, tabs[i].activeIndex);
     setIsActive(i);
   };
 

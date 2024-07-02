@@ -47,7 +47,7 @@ const ForgotPassword = () => {
 
         handleUpdateAuth(true);
         SuccessToast(response.data.message);
-        navigate('/category');
+        navigate('/rei-firms');
       }
     } catch (error) {
       if (error.response) {

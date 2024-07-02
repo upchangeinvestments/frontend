@@ -5,7 +5,6 @@ import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
 import ForgotPassword from "./Pages/SignInPage/ForgotPassword";
 import SubscriptionPlan from "./Pages/SubscriptionPlan/SubscriptionPlan";
-import CategoryPage from "./Pages/CategoryPage/CategoryPage";
 import ProfilePage from "./Pages/ProfilePage/ProfilePage";
 import AboutUs from "./Pages/AboutUsPage/AboutUsPage";
 import Contact from "./Pages/ContactPage/ContactPage";
@@ -62,7 +61,6 @@ function App() {
           <Route path="/roi-calculator" element={<RoiCalculator />} />
           <Route path="/article/:articleHeading" element={<Articles />} />
           <Route path="/privacy" element={<Privacyandpolicy />} />
-          <Route path="/category" element={<CategoryPage />} />
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/work" element={<HowItWorksPage />} />
           <Route path="/resetPassword/:resetToken" element={<ForgotPassword />} />

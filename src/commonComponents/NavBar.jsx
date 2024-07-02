@@ -25,7 +25,7 @@ const profileMenuItems = [
   {
     label: "Investment",
     icon: IoIosHome,
-    link: "/category",
+    link: "/rei-firms",
   },
   {
     label: "Contact",

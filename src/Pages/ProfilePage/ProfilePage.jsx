@@ -16,20 +16,24 @@ import { useAuth } from "../../utils/AuthContext";
 
 const ProfilePage = () => {
   const { user, backendUrl, setUser } = useAuth();
+
   const tabs = [
-    { title: "My Profile", content: <Profile /> },
-    { title: "Saved Companies", content: <Activity /> },
-    { title: "Investor Status", content: <AccreditedInvestor /> },
-    { title: "Questionnaire", content: <Questionnaire /> },
+    { title: "My Profile", content: <Profile />, activeIndex: 0 },
+    { title: "Saved Companies", content: <Activity />, activeIndex: 1 },
+    { title: "Investor Status", content: <AccreditedInvestor />, activeIndex: 2 },
+    { title: "Questionnaire", content: <Questionnaire />, activeIndex: 3 },
+
   ];
   const [sidebarOpen, setSidebarOpen] = useState(false);
+
   const [tabContent, setTabContent] = useState({
-    data: <ProfileContent />,
-    title: "PROFILE SECTION",
+    content: <Profile />,
+    title: "My Profile",
     linkId: "",
+    activeIndex: 0
   });
-  const handleIncomingData = (data, title, linkId) => {
-    setTabContent({ data, title, linkId });
+  const handleIncomingData = (content, title, linkId, activeIndex) => {
+    setTabContent({ content, title, linkId, activeIndex });
   };
 
   const sidebarHandler = () => {
@@ -116,8 +120,17 @@ const ProfilePage = () => {
                 </div>
               </div>
             </div>
-            <div className="flex flex-col items-center justify-center">
-              <Tabs tabs={tabs} />
+            <div className="w-full">
+              {["My Profile", "Investor Status", "Questionnaire", "Saved Companies"].includes(tabContent.title) ? (
+                <Tabs tabs={tabs} activeIndex={tabContent.activeIndex} />
+              ) : (
+                <div className="mt-8 w-[90%] flex items-center justify-start flex-col">
+                  <p className="text-2xl font-bold text-center YesevaFont mb-2">{tabContent.title}</p>
+                  <div className="flex items-start justify-start">
+                    {tabContent.content}
+                  </div>
+                </div>
+              )}
             </div>
           </div>
         </div>

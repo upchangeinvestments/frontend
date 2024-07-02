@@ -1,8 +1,8 @@
 import React, { useState } from "react";
 import "../../styles/CategoryPage/categoryPage.css";
 
-const Tabs = ({ tabs }) => {
-  const [activeTab, setActiveTab] = useState(0);
+const Tabs = ({ tabs, activeIndex }) => {
+  const [activeTab, setActiveTab] = useState(activeIndex);
 
   return (
     <div className="w-full">
