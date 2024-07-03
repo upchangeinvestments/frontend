@@ -1,34 +1,66 @@
 [
-  {
-    "companyName": "TPM Growth Capital",
-    "yearFounded": 2001,
-    "location": "Dallas",
-    "minInvestment": 50000,
-    "investmentTypes": "Commercial",
-    "classType": "Class A",
-    "investmentStrategy": "Equity",
-    "investorEligibility": "ACCREDITED INVESTORS",
-    "aum": "$210M",
-    "historicalReturnRates": "18-19",
-    "feeStructure": "2",
-    "investmentHorizon": "5-7 years",
-    "redemptionPolicy": "Semi-Annual",
-    "riskLevel": "Medium",
-    "averageAnnualReturns": 0.105,
-    "yield": 0.06,
-    "dividendFrequency": "Quarterly",
-    "description": "TPM Growth Capital has earned a national reputation as a leading private real estate investment firm with assets valued at $3 billion and a 30-year history of creating superior risk-adjusted returns for its clients. Headquartered in Dallas, Texas, TPM Growth Capital manages a portfolio of real estate investments across the nation. \n\n TPM Growth Capital provides its clients with opportunities to both diversify their investment portfolios and improve performance through alternative real estate investments. Working with best-in-class partners who share TPM's core values, the firm provides access to a variety of property types in high-growth markets. As niche specialists in the middle-market sector, they uses its extensive knowledge and long-standing relationships in the real estate community to identify investment opportunities. The firm then performs exhaustive due diligence to mitigate risk and maximize the potential of each investment.",
-    "image": "https://i.postimg.cc/m2mQxbq9/tcp.jpg",
-    "age": 23,
-    "projectId": 0,
-    "yearly_returns": [
-      { "year": 2019, "value": 14.53 },
-      { "year": 2020, "value": 14.83 },
-      { "year": 2021, "value": 17.03 },
-      { "year": 2022, "value": 18.39 },
-      { "year": 2023, "value": 10.38 }
-    ]
-  },
+    {
+      "companyName": "TPM Growth Capital",
+      "yearFounded": 2001,
+      "location": "Dallas",
+      "minInvestment": 50000,
+      "investmentTypes": "Commercial",
+      "classType": "Class A",
+      "investmentStrategy": "Equity",
+      "investorEligibility": "ACCREDITED INVESTORS",
+      "aum": "$210M",
+      "historicalReturnRates": "18-19",
+      "feeStructure": "2",
+      "investmentHorizon": "5-7 years",
+      "redemptionPolicy": "Semi-Annual",
+      "riskLevel": "Medium",
+      "averageAnnualReturns": 0.105,
+      "yield": 0.06,
+      "dividendFrequency": "Quarterly",
+      "description": "TPM Growth Capital has earned a national reputation as a leading private real estate investment firm with assets valued at $3 billion and a 30-year history of creating superior risk-adjusted returns for its clients. Headquartered in Dallas, Texas, TPM Growth Capital manages a portfolio of real estate investments across the nation. \n\n TPM Growth Capital provides its clients with opportunities to both diversify their investment portfolios and improve performance through alternative real estate investments. Working with best-in-class partners who share TPM's core values, the firm provides access to a variety of property types in high-growth markets. As niche specialists in the middle-market sector, they uses its extensive knowledge and long-standing relationships in the real estate community to identify investment opportunities. The firm then performs exhaustive due diligence to mitigate risk and maximize the potential of each investment.",
+      "image": "https://i.postimg.cc/m2mQxbq9/tcp.jpg",
+      "age": 23,
+      "projectId": 0,
+      "yearly_returns": [
+        { "year": 2019, "value": 14.53 },
+        { "year": 2020, "value": 14.83 },
+        { "year": 2021, "value": 17.03 },
+        { "year": 2022, "value": 18.39 },
+        { "year": 2023, "value": 10.38 }
+      ],
+      "historicalProjects": [
+        {
+          "projectName": "The Grand Tower",
+          "year": 2021,
+          "yearEnd": 2023,
+          "investmentType": "Office",
+          "image": "https://images.unsplash.com/photo-1545256633-9d719bec17c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+          "returnRate": 12.5,
+          "cashOnCash": 9, 
+          "classType":"Class B"
+        },
+        {
+          "projectName": "Commerce Plaza",
+          "year": 2019,
+          "yearEnd": 2020,
+          "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "returnRate": 14.7,
+          "cashOnCash": 10, 
+          "classType":"Class A"
+        },
+        {
+          "projectName": "Sunset Hotel",
+          "year": 2022,
+          "yearEnd": 2023,
+          "investmentType": "Hospitality",
+          "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+          "returnRate": 16.2,
+          "cashOnCash": 11, 
+          "classType":"Class A"
+        }
+      ]
+    },
     {
       "companyName": "MetroCore Investments",
       "yearFounded": 2006,
@@ -57,6 +89,35 @@
         { "year": 2021, "value": 12.75 },
         { "year": 2022, "value": 10.47 },
         { "year": 2023, "value": 11.59 }
+      ],
+      "historicalProjects": [
+        {
+          "projectName": "Parkside Apartments",
+          "year": 2018,
+          "yearEnd": 2020,
+          "investmentType": "Multifamily",
+          "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "returnRate": 13.2,
+          "cashOnCash": 8
+        },
+        {
+          "projectName": "Greenfield Mall",
+          "year": 2018,
+          "yearEnd": 2019,
+          "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "returnRate": 15.4,
+          "cashOnCash": 10
+        },
+        {
+          "projectName": "Lakeside Hotel",
+          "year": 2021,
+          "yearEnd": 2023,
+          "investmentType": "Hospitality",
+          "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+          "returnRate": 16.8,
+          "cashOnCash": 12
+        }
       ]
     },
     {
@@ -87,7 +148,36 @@
         { "year": 2021, "value": 10.26 },
         { "year": 2022, "value": 9.08 },
         { "year": 2023, "value": 11.48 }
-    ]
+    ],
+    "historicalProjects": [
+        {
+          "projectName": "Downtown Office",
+          "year": 2016,
+          "yearEnd": 2018,
+          "investmentType": "Office",
+          "image": "https://images.unsplash.com/photo-1545256633-9d719bec17c6?q=80&w=1974&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D", 
+          "returnRate": 14.1,
+          "cashOnCash": 9
+        },
+        {
+          "projectName": "Sunrise Condos",
+          "year": 2019,
+          "yearEnd": 2020,
+          "investmentType": "Multifamily",
+          "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+          "returnRate": 12.9,
+          "cashOnCash": 11
+        },
+        {
+          "projectName": "Metro Hotel",
+          "year": 2018,
+          "yearEnd": 2019,
+          "investmentType": "Hospitality",
+          "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+          "returnRate": 15.7,
+          "cashOnCash": 10
+        }
+      ]
     },
       {
         "companyName": "PrimeProperty Ventures",
@@ -117,7 +207,37 @@
           { "year": 2021, "value": 10.59 },
           { "year": 2022, "value": 19.07 },
           { "year": 2023, "value": 13.72 }
-    ]
+    ],
+    "historicalProjects": [
+          {
+            "projectName": "Riverside Plaza",
+            "year": 2018,
+            "yearEnd": 2019,
+            "investmentType": "Commercial",
+            "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.5,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Highland Apartments",
+            "year": 2018,
+            "yearEnd": 2020,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.3,
+            "cashOnCash": 12
+          },
+          {
+            "projectName": "City Center Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.1,
+            "cashOnCash": 9
+          }
+        ]
+
       },
       {
         "companyName": "UrbanRevitalize Partners",
@@ -147,7 +267,37 @@
           { "year": 2021, "value": 12.34 },
           { "year": 2022, "value": 9.77 },
           { "year": 2023, "value": 14.62 }
-    ]
+    ],
+      "historicalProjects": [
+          {
+            "projectName": "Oceanview Condos",
+            "year": 2022,
+            "yearEnd": 2023,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.8,
+            "cashOnCash": 11
+          },
+          {
+            "projectName": "Tech Park",
+            "year": 2021,
+            "yearEnd": 2022,
+            "investmentType": "Commercial",
+            "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 15.0,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Bayfront Hotel",
+            "year": 2018,
+            "yearEnd": 2020,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.4,
+            "cashOnCash": 10
+          }
+        ]
+
       },
       {
         "companyName": "Greenfield Capital Group",
@@ -177,7 +327,37 @@
           { "year": 2021, "value": 18.72 },
           { "year": 2022, "value": 10.95 },
           { "year": 2023, "value": 13.27 }
-    ]
+    ],
+    "historicalProjects": [
+          {
+            "projectName": "Mountain Retreat",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.7,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Commerce Center",
+            "year": 2018,
+            "yearEnd": 2020,
+            "investmentType": "Commercial",
+            "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.9,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Luxury Suites",
+            "year": 2019,
+            "yearEnd": 2029,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.3,
+            "cashOnCash": 11
+          }
+        ]
+
       },
       {
         "companyName": "Skyline Holdings",
@@ -207,6 +387,35 @@
           { "year": 2021, "value": 13.08 },
           { "year": 2022, "value": 13.23 },
           { "year": 2023, "value": 19.79 }
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "City Apartments",
+            "year": 2018,
+            "yearEnd": 2019,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.1,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Business Park",
+            "year": 2017,
+            "yearEnd": 2018,
+            "investmentType": "Commercial",
+            "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.6,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Resort Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.0,
+            "cashOnCash": 12
+          }
         ]
       },
       {
@@ -237,7 +446,37 @@
           { "year": 2021, "value": 15.3 },
           { "year": 2022, "value": 15.89 },
           { "year": 2023, "value": 9.05 }
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "Lakeside Residences",
+            "year": 2017,
+            "yearEnd": 2017,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.5,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Retail Hub",
+            "year": 2018,
+            "yearEnd": 2019,
+            "investmentType": "Commercial",
+            "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 15.3,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Boutique Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.7,
+            "cashOnCash": 11
+          }
         ]
+
       },
       {
         "companyName": "SummitPeak Real Estate",
@@ -267,7 +506,37 @@
           { "year": 2021, "value": 17.55 },
           { "year": 2022, "value": 15.65 },
           { "year": 2023, "value": 17.59 }
-    ]
+    ],
+    "historicalProjects": [
+          {
+            "projectName": "Beachfront Apartments",
+            "year": 2016,
+            "yearEnd": 2018,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.6,
+            "cashOnCash": 12
+          },
+          {
+            "projectName": "Corporate Towers",
+            "year": 2018,
+            "yearEnd": 2020,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.8,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Skyline Hotel",
+            "year": 2018,
+            "yearEnd": 2020,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.5,
+            "cashOnCash": 10
+          }
+        ]
+
       },
       {
         "companyName": "BlueWave Capital",
@@ -297,7 +566,37 @@
           { "year": 2021, "value": 9.34 },
           { "year": 2022, "value": 19.12 },
           { "year": 2023, "value": 13.96 }
-    ]
+    ],
+    "historicalProjects": [
+          {
+            "projectName": "Urban Lofts",
+            "year": 2017,
+            "yearEnd": 2021,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.4,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Shopping Center",
+            "year": 2018,
+            "yearEnd": 2019,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 15.1,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Grand Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.9,
+            "cashOnCash": 11
+          }
+        ]
+
       },
       {
         "companyName": "Legacy Urban Properties",
@@ -327,7 +626,37 @@
           { "year": 2021, "value": 11.64 },
           { "year": 2022, "value": 15.22 },
           { "year": 2023, "value": 11.8 }
-    ]
+    ],
+    "historicalProjects": [
+          {
+            "projectName": "Harbor Apartments",
+            "year": 2016,
+            "yearEnd": 2018,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.0,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Industrial Park",
+            "year": 2020,
+            "yearEnd": 2021,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.4,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Mountain Hotel",
+            "year": 2018,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 15.9,
+            "cashOnCash": 12
+          }
+        ]
+
       },
       {
         "companyName": "Sunset Capital Ventures",
@@ -357,7 +686,36 @@
           { "year": 2021, "value": 10.42 },
           { "year": 2022, "value": 18.8 },
           { "year": 2023, "value": 9.62 }
-    ]
+    ],
+    "historicalProjects": [
+          {
+            "projectName": "Parkview Residences",
+            "year": 2021,
+            "yearEnd": 2023,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.9,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Office Complex",
+            "year": 2018,
+            "yearEnd": 2020,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 15.2,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Downtown Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.6,
+            "cashOnCash": 11
+          }
+        ]
       },
       {
         "companyName": "Brickstone Investments",
@@ -387,7 +745,37 @@
           { "year": 2021, "value": 15.32 },
           { "year": 2022, "value": 12.64 },
           { "year": 2023, "value": 15.9 }
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "Luxury Apartments",
+            "year": 2019,
+            "yearEnd": 2020,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.3,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Tech Offices",
+            "year": 2020,
+            "yearEnd": 2021,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.7,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Seaside Hotel",
+            "year": 2021,
+            "yearEnd": 2022,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.1,
+            "cashOnCash": 12
+          }
         ]
+
       },
       {
         "companyName": "VistaRise Real Estate",
@@ -417,6 +805,35 @@
           { "year": 2021, "value": 14.41 },
           { "year": 2022, "value": 18.52 },
           { "year": 2023, "value": 12.52 }
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "Urban Condos",
+            "year": 2021,
+            "yearEnd": 2023,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.7,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Retail Plaza",
+            "year": 2022,
+            "yearEnd": 2024,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.9,
+            "cashOnCash": 11
+          },
+          {
+            "projectName": "Metro Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.4,
+            "cashOnCash": 10
+          }
         ]
       },
       {
@@ -447,6 +864,35 @@
           { "year": 2021, "value": 11.39 },
           { "year": 2022, "value": 12.03 },
           { "year": 2023, "value": 15.03 }
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "Lakeview Apartments",
+            "year": 2020,
+            "yearEnd": 2021,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.2,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Business Center",
+            "year": 2018,
+            "yearEnd": 2019,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.5,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "City Hotel",
+            "year": 2020,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.3,
+            "cashOnCash": 12
+          }
         ]
       },
       {
@@ -477,7 +923,37 @@
           { "year": 2021, "value": 10.36 },
           { "year": 2022, "value": 16.47 },
           { "year": 2023, "value": 12.6 }
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "Sunset Residences",
+            "year": 2021,
+            "yearEnd": 2023,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.5,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Corporate Plaza",
+            "year": 2021,
+            "yearEnd": 2022,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 15.1,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Luxury Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.8,
+            "cashOnCash": 11
+          }
         ]
+
       },
       {
         "companyName": "CrestPoint Properties",
@@ -507,7 +983,37 @@
           { "year": 2021, "value": 12.9 },
           { "year": 2022, "value": 13.16 },
           { "year": 2023, "value": 13.88}
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "Seaview Condos",
+            "year": 2018,
+            "yearEnd": 2021,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.6,
+            "cashOnCash": 11
+          },
+          {
+            "projectName": "Industrial Complex",
+            "year": 2020,
+            "yearEnd": 2021,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 14.4,
+            "cashOnCash": 8
+          },
+          {
+            "projectName": "Resort Hotel",
+            "year": 2019,
+            "yearEnd": 2021,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.0,
+            "cashOnCash": 12
+          }
         ]
+
       },
       {
         "companyName": "GoldenGate Capital",
@@ -537,6 +1043,35 @@
           { "year": 2021, "value": 10.42 },
           { "year": 2022, "value": 14.8 },
           { "year": 2023, "value": 9.62 }
+        ],
+        "historicalProjects": [
+          {
+            "projectName": "Urban Apartments",
+            "year": 2020,
+            "yearEnd": 2021,
+            "investmentType": "Multifamily",
+            "image": "https://images.unsplash.com/photo-1664833196894-c1f92e933873?q=80&w=1965&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 13.1,
+            "cashOnCash": 10
+          },
+          {
+            "projectName": "Commerce Park",
+            "year": 2018,
+            "yearEnd": 2021,
+            "investmentType": "Commercial",
+          "image": "https://images.unsplash.com/photo-1554435493-93422e8220c8?q=80&w=1936&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D",
+            "returnRate": 15.3,
+            "cashOnCash": 9
+          },
+          {
+            "projectName": "Boutique Hotel",
+            "year": 2019,
+            "yearEnd": 2022,
+            "investmentType": "Hospitality",
+            "image":"https://images.unsplash.com/photo-1545175707-9eec1209f720?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8aG90ZWwlMjBidWlsZGluZ3xlbnwwfHwwfHx8MA%3D%3D",
+            "returnRate": 16.7,
+            "cashOnCash": 11
+          }
         ]
       }
     ]

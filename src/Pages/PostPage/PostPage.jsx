@@ -1,4 +1,4 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import NavBar from "../../commonComponents/NavBar";
 import { Link, useParams } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
@@ -11,6 +11,7 @@ import { IoLocationOutline } from "react-icons/io5";
 import Tooltip from '@mui/material/Tooltip';
 import { AiOutlineDollar } from "react-icons/ai";
 import Button from "../../commonComponents/LoginButton";
+import MaterialUIAccordion from "./Accordion";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
 import InvestmentData from "../../assets/companyData.json"
@@ -22,7 +23,7 @@ import { PieChart } from '@mui/x-charts/PieChart';
 import { RiShareBoxFill } from "react-icons/ri";
 import { BarChart } from '@mui/x-charts/BarChart';
 import bgImage from "../../assets/login_BG.jpeg";
-import { useAuth } from "../../utils/AuthContext";
+import { FaCircleArrowUp } from "react-icons/fa6";
 import "../../App.css"
 
 const BarChartSetting = {
@@ -42,6 +43,7 @@ function formatMinInvestment(minInvestment) {
     return `$${minInvestment.toLocaleString()}`;
   }
 }
+
 const valueFormatter = (value) => `${value}%`;
 
 
@@ -50,8 +52,7 @@ function PostPage() {
   const { postId } = useParams();
   const data = InvestmentData[postId];
   const bannerRef = useRef(null);
-
-  const { isAuth } = useAuth();
+  const [bannerContent, setBannerContent] = useState(false);
 
   const bannerItems = [
     {
@@ -67,8 +68,8 @@ function PostPage() {
       linkToSection: `/post/${postId}/#returnRates`,
     },
     {
-      section: "Location",
-      linkToSection: `/post/${postId}/#location`,
+      section: "Project History",
+      linkToSection: `/post/${postId}/#historicalProjects`,
     },
     {
       section: "Management",
@@ -81,9 +82,11 @@ function PostPage() {
       if (bannerRef.current) {
         if (window.scrollY > bannerPosition) {
           bannerRef.current.classList.add('fixed-Bannertop');
+          setBannerContent(true);
           console.log("window scrollY", window.scrollY)
         } else if (bannerPosition >= window.scrollY) {
           bannerRef.current.classList.remove('fixed-Bannertop');
+          setBannerContent(false);
         }
       }
     };
@@ -108,25 +111,37 @@ function PostPage() {
         <div className="w-[100%]">
           <div className="PostPage">
             <NavBar />
-            <div className="YesevaFont flex items-center justify-center relative">
+            <div className="YesevaFont flex items-center justify-center relative overflow-x-hidden">
               <div className="flex justify-center items-start h-[90%] relative">
                 <div className="relative flex flex-col">
-                  <p className="text-[4.5rem] uppercase"> Company <span className="text-purple-600">Analysis</span></p>
-                  <p className="YesevaFont text-center text-4xl mb-2">{data.companyName}</p>
+                  <p className="text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
+                  <div ref={bannerRef} className="">
+                    <div className={`flex items-center bg-white justify-between mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
+                      <p className={`YesevaFont text-4xl flex items-center justify-center text-left ${bannerContent ? '' : ''}`}>{data.companyName}</p>
+                      <div className={`${bannerContent ? 'flex items-center justify-center' : ''}`}>
+                        <Link to="https://www.studio2694.com/" target="_blank">
+                          <button style={{ backgroundImage: `url(${bgImage})` }}
+                            className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
+                            <RiShareBoxFill />Share
+                          </button>
+                        </Link>
+                      </div>
+                    </div>
+                    <div className="flex items-center justify-center relative bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-12 py-4 w-[100vw]">
+                      <div className="flex items-center justify-start gap-x-6">
+                        {bannerItems.map((data, index) => (
+                          <NavHashLink to={data.linkToSection} smooth key={index} className="border-[1px] border-white rounded-full p-2 px-4 ">
+                            {data.section}
+                          </NavHashLink>
+                        ))}
+                      </div>
+                      <div className="text-black absolute right-8" onClick={scrollToTop}>
+                        <FaCircleArrowUp />
+                      </div>
+                    </div>
+                  </div>
                 </div>
               </div>
-            </div>
-          </div>
-          <div ref={bannerRef} className="flex items-center justify-between  bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-12 py-4 w-full">
-            <div className="flex items-center justify-start gap-x-8">
-              {bannerItems.map((data, index) => (
-                <NavHashLink to={data.linkToSection} smooth key={index} className="border-[1px] border-white rounded-full p-2 px-6 ">
-                  {data.section}
-                </NavHashLink>
-              ))}
-            </div>
-            <div className="text-black rounded-full p-2 px-6 border-[1px] border-black" onClick={scrollToTop}>
-              Back to top
             </div>
           </div>
         </div>
@@ -184,14 +199,14 @@ function PostPage() {
             </div>
           </div>
           <div className="mb-4 text-black">
-            <p className="text-xl font-bold CerebriFont my-2">Investment Strategy</p>
+            <p className="text-xl YesevaFont my-2">Investment Strategy</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Type: </span> Equity Focused</li>
               <li className=""> <span className="font-bold ">Insight: </span> {data.companyName} primarily follows an equity investment strategy, benefiting from property appreciation and rental income. While equity investments can offer higher returns, they also come with higher risks compared to debt investments.</li>
             </ul>
           </div>
           <div className="mb-4 text-black">
-            <p className="text-xl font-bold CerebriFont my-2">Assets Under Management (AUM)</p>
+            <p className="text-xl YesevaFont my-2">Assets Under Management (AUM)</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Total: </span> {data.aum}</li>
               <li className=""> <span className="font-bold ">Insight: </span> With {data.aum} in AUM, {data.companyName} is a mid-sized firm. This level of AUM indicates stability and sufficient resources to manage investments effectively and generate returns for investors. </li>
@@ -212,7 +227,7 @@ function PostPage() {
             <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex items-center justify-start flex-col text-center" >
               <div className="">
                 <p className="YesevaFont text-2xl text-center my-1 uppercase py-4">Minimum Investment</p>
-                <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">USD {formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
+                <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">USD  {formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
               </div>
               <div className="text-2xl CerebriFont mt-8">
                 <p className="YesevaFont text-3xl text-center uppercase">Acceptance</p>
@@ -221,16 +236,16 @@ function PostPage() {
             </div>
           </div>
           <div className="mb-4 text-black">
-            <p className="text-xl font-bold CerebriFont my-2">Risk Level</p>
+            <p className="text-xl YesevaFont my-2">Risk Level</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Level: </span> {data.riskLevel}</li>
               <li className=""> <span className="font-bold ">Insight: </span> {data.companyName} balances its investment strategy to offer reasonable returns while managing risk. This {data.riskLevel} risk level is suitable for investors seeking a balance between growth and safety.</li>
             </ul>
           </div>
           <div className="mb-4 text-black">
-            <p className="text-xl font-bold CerebriFont my-2">Minimum Investment</p>
+            <p className="text-xl YesevaFont my-2">Minimum Investment</p>
             <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Amount: </span> USD {data.minInvestment}</li>
+              <li className=""> <span className="font-bold ">Amount: </span> USD {formatMinInvestment(data.minInvestment)}</li>
               <li className=""> <span className="font-bold ">Insight: </span> This minimum investment level makes Evsion Capital Investments accessible to both high-net-worth individuals and smaller institutional investors. It provides a moderate entry point, allowing broader participation.</li>
             </ul>
           </div>
@@ -278,7 +293,7 @@ function PostPage() {
             </div>
           </div>
           <div className="mb-4 text-black my-4">
-            <p className="text-xl font-bold CerebriFont my-2 ">Historical Return Rates</p>
+            <p className="text-xl YesevaFont my-2 ">Historical Return Rates</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Return Rate: </span> {data.historicalReturnRates}%</li>
               <li className=""> <span className="font-bold ">Insight: </span> This indicates solid past performance, suggesting potential for consistent future returns. A historical return rate of {data.historicalReturnRates}% is attractive and implies effective portfolio management that consistently delivers positive results.</li>
@@ -317,7 +332,7 @@ function PostPage() {
             </div>
           </div>
           <div className="mb-4 text-black">
-            <p className="text-xl font-bold CerebriFont my-2">Management Fees Analysis </p>
+            <p className="text-xl YesevaFont my-2">Management Fees Analysis </p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Industry Range: </span> {data.averageAnnualReturns}% of AUM or committed capital</li>
               <li className=""> <span className="font-bold ">Assets Under Management: </span> {data.aum}</li>
@@ -325,7 +340,7 @@ function PostPage() {
             </ul>
           </div>
           <div className="mb-4 text-black">
-            <p className="text-xl font-bold CerebriFont my-2">Fee Structure</p>
+            <p className="text-xl YesevaFont my-2">Fee Structure</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Management Fee: </span> {data.feeStructure}%</li>
               <li className=""> <span className="font-bold ">Insight: </span> A {data.feeStructure}% management fee is competitive within the industry. This fee covers operational costs while aiming to maximize net returns for investors. Although not the lowest, it is justified by the firm's performance and services provided.</li>
@@ -344,11 +359,30 @@ function PostPage() {
             </div>
           </div>
           <div className="mb-4 text-black">
-            <p className="text-xl font-bold CerebriFont my-2">Geographic Focus</p>
+            <p className="text-xl YesevaFont my-2">Location</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Region: </span> {data.location}</li>
               <li className=""> <span className="font-bold ">Insight: </span> The firm leverages local market expertise and relationships within the {data.location} region. This geographic focus provides advantages in local market knowledge but also means that investors' exposure is concentrated in a single region, potentially impacting diversification.</li>
             </ul>
+          </div>
+          <div className="flex flex-col items-center justify-center text-black my-4 ">
+            <div className="mb-4 text-black">
+              <p className="text-xl YesevaFont my-2">Redemption Policy</p>
+              <ul className="list-disc list-inside space-y-2">
+                <li className=""> <span className="font-bold ">Frequency: </span> {data.redemptionPolicy}</li>
+                <li className=""> <span className="font-bold ">Insight: </span> The annual redemption policy allows investors to withdraw funds once a year, offering some liquidity but favoring long-term investment. This policy is suitable for investors with a long-term investment horizon.</li>
+              </ul>
+            </div>
+
+            <div className="mb-4 text-black">
+              <p className="text-xl YesevaFont my-2">Summary</p>
+              <p>
+                {data.companyName} presents a compelling investment opportunity with its solid historical return rates,
+                {data.riskLevel} risk level, and competitive fee structure. The firm's equity-focused strategy and manageable minimum
+                investment make it accessible to a range of investors. While the {data.redemptionPolicy} redemption policy offers limited liquidity,
+                the firm’s substantial AUM and regional expertise in {data.location0} add to its credibility and stability.
+              </p>
+            </div>
           </div>
           <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4" id="management">
             <p className="YesevaFont text-2xl text-center my-1 uppercase">contact Management</p>
@@ -381,32 +415,14 @@ function PostPage() {
               </div>
             </div>
           </div>
-          <div className="flex flex-col items-center justify-center text-black my-4 ">
-            <p className="font-bold text-2xl YesevaFont uppercase">Additional Analytics</p>
-
-            <div className="mb-4 text-black">
-              <p className="text-xl font-bold CerebriFont my-2">Redemption Policy</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li className=""> <span className="font-bold ">Frequency: </span> {data.redemptionPolicy}</li>
-                <li className=""> <span className="font-bold ">Insight: </span> The annual redemption policy allows investors to withdraw funds once a year, offering some liquidity but favoring long-term investment. This policy is suitable for investors with a long-term investment horizon.</li>
-              </ul>
-            </div>
-
-            <div className="mb-4 text-black">
-              <p className="text-xl font-bold CerebriFont my-2">Summary</p>
-              <p>
-                {data.companyName} presents a compelling investment opportunity with its solid historical return rates,
-                {data.riskLevel} risk level, and competitive fee structure. The firm's equity-focused strategy and manageable minimum
-                investment make it accessible to a range of investors. While the {data.redemptionPolicy} redemption policy offers limited liquidity,
-                the firm’s substantial AUM and regional expertise in {data.location0} add to its credibility and stability.
-              </p>
-            </div>
-
+          <div id="historicalProjects" className="my-8 w-full flex items-center justify-center flex-col bg-white/20 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 p-4 pt-0">
+            <p className="YesevaFont text-2xl text-center my-1 uppercase text-black">Project History</p>
+            <MaterialUIAccordion data={data.historicalProjects} />
           </div>
-          <div className="flex items-center justify-center">
+          <div className="flex items-center justify-center YesevaFont">
             <Link to="https://www.studio2694.com/" target="_blank">
               <button style={{ backgroundImage: `url(${bgImage})` }}
-                className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-3 rounded-full md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
+                className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
                 <RiShareBoxFill />{data.companyName}
               </button>
             </Link>
@@ -422,3 +438,12 @@ function PostPage() {
 }
 
 export default PostPage;
+
+// sort company type in sort filter heading
+// cross to right position
+// fund timeline delete
+// blur the ladning page
+// Credentials share
+// pin insteeda of star in post
+// bold the heading in analysis
+// clip the vido
