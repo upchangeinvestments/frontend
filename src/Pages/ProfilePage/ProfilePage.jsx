@@ -51,7 +51,7 @@ const ProfilePage = () => {
       <div className="categoryMain">
         <NavBar />
         <div className="grid grid-cols-4">
-          <div className="grid col-span-1 mt-[10%] overscroll-y-none">
+          <div className="grid col-span-1 mt-[10%]">
             <Sidebar sendDataToProfile={handleIncomingData} />
             <div className="md:hidden relative" onClick={sidebarHandler}>
               <svg

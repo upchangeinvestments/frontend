@@ -73,13 +73,10 @@ function AccreditedInvestor() {
 
     return (
         <div className="my-12 relative flex flex-col items-center justify-center font-[' Playfair-Display'] text-lg" >
-            <div
-                className={`mx-auto max-w-2xl font-['Playfair-Display']  lg:max-w-7xl lg:px-8 rounded-lg my-6 w-full`}
-            >
+            <div className={`mx-auto lg:px-8 rounded-lg my-6 w-full`}>
                 <h2 className="text-2xl font-bold tracking-tight text-black">
                     Become an Accredited Investor
                 </h2>
-
                 <div className="mt-6 space-y-6 break-words	">
                     {CollapseItem.map((element, index) => (
                         <CollapeItem

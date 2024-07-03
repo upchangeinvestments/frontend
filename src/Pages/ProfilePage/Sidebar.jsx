@@ -541,11 +541,11 @@ const tabs = [
   { title: "Investor Status", content: <AccreditedInvestor />, linkId: "", icon: <PiCompassFill />, activeIndex: 2 },
   { title: "Questionnaire", content: <Questionnaire />, linkId: "", icon: <FaQuestionCircle />, activeIndex: 3 },
   { title: "Saved Companies", content: <Activity />, linkId: "", icon: <FaHeart />, activeIndex: 1 },
-  { title: "PRIVACY POLICY", content: <PrivacyPolicy />, linkId: "privacy-policy", icon: <MdPrivacyTip /> },
-  { title: "TERMS AND CONDITION", content: <TermsOfService />, linkId: "terms", icon: <MdOutlineRule /> },
-  { title: "CHANGE PASSWORD", content: <ChangePassword />, linkId: "", icon: <RiLockPasswordFill /> },
-  { title: "COMMUNICATION", content: <Communication />, linkId: "", icon: <MdUnsubscribe /> },
-  { title: "LOGOUT", content: <LogoutComponent />, linkId: "", icon: <IoLogOutSharp /> },
+  { title: "Privacy Policy", content: <PrivacyPolicy />, linkId: "privacy-policy", icon: <MdPrivacyTip /> },
+  { title: "Terms & Condition", content: <TermsOfService />, linkId: "terms", icon: <MdOutlineRule /> },
+  { title: "Change Password", content: <ChangePassword />, linkId: "", icon: <RiLockPasswordFill /> },
+  { title: "Communication", content: <Communication />, linkId: "", icon: <MdUnsubscribe /> },
+  { title: "Logout", content: <LogoutComponent />, linkId: "", icon: <IoLogOutSharp /> },
 ];
 
 const Sidebar = ({ sendDataToProfile }) => {
@@ -557,18 +557,18 @@ const Sidebar = ({ sendDataToProfile }) => {
   };
 
   return (
-    <div className="flex justify-start items-start overscroll-y-contain">
-      <div className="vsm:w-full h-full md:w-[200px] lg:w-[280px] xl:w-[60%] flex flex-col items-start backdrop-blur-lg md:rounded-lg lg:rounded-lg shadow-md p-4 ">
+    <div className="hidden md:flex justify-start items-start shadow-md vsm:w-full h-full md:w-[90%] lg:w-[90%] xl:w-[90%] p-4 pl-1">
+      <div className="flex flex-col items-start backdrop-blur-lg md:rounded-lg lg:rounded-lg w-full">
         <ul className="flex flex-col space-y-2 w-full font-['Poppins']">
           {tabs.map((tab, index) => (
-            <li key={index} className={`vsm:p-[10px] sm:p-[10px] md:p-[10px] lg:p-[15px] ${isActive === index ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white rounded-lg  w-full" : "hover:text-purple-600"}`}
+            <li key={index} className={`vsm:p-2 sm:p-2 md:p-2 lg:p-4 ${isActive === index ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white rounded-lg  w-full" : "hover:text-purple-600"}`}
               onClick={() => handleContent(index)}>
-              <div className="flex items-center justify-between">
+              <div className="flex items-center justify-start relative">
                 <span className="flex items-center justify-center gap-x-2">
                   {tab.icon}
                   <p className=""> {tab.title}</p>
                 </span>
-                <IoIosArrowDroprightCircle color={isActive === index ? "white" : "rgb(147 51 234)"} />
+                <IoIosArrowDroprightCircle size="1.2rem" className="absolute right-0" color={isActive === index ? "white" : "rgb(147 51 234)"} />
               </div>
             </li>
           ))}

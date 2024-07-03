@@ -31,7 +31,7 @@ function Activity() {
   return (
     <div className="">
       {starredData && (starredData.length === 0) && (
-        <div className='flex items-center  justify-center '>
+        <div className='flex items-center flex-col justify-center '>
           <img className="rounded-3xl mt-12 z-[9999]" src="https://i.pinimg.com/564x/42/ef/d7/42efd7e3b3b68f6d1227108a70c65002.jpg" alt="" />
           <p className=''>Nothing here to see, like posts to see here!</p>
         </div>

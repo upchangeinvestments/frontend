@@ -1,8 +1,12 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import "../../styles/CategoryPage/categoryPage.css";
 
 const Tabs = ({ tabs, activeIndex }) => {
+
   const [activeTab, setActiveTab] = useState(activeIndex);
+  useEffect(() => {
+    setActiveTab(activeIndex)
+  }, [activeIndex])
 
   return (
     <div className="w-full">

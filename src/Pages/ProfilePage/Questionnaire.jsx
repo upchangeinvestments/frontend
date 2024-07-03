@@ -77,7 +77,7 @@ const Questionnaire = () => {
         <p className="text-left px-4 md:w-[100%] font-['Playfair-Display'] flex justify-center">
           {currentQuizData.question}
         </p>
-        <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[65%]">
+        <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[50%]">
           {['a', 'b', 'c', 'd'].map((option) => (
             <li key={option}>
               <input
@@ -108,9 +108,9 @@ const Questionnaire = () => {
   };
 
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center items-center py-2 shadow-lg hover:shadow-xl container mx-auto m-4 relative lg:mt-[3em]">
-      <div className="flex vsm:flex-col lg:flex-row w-full mx-16 lg:items-center lg:justify-center">
-        <div className="vsm:w-full vsm:px-6  lg:w-6/12 flex items-center justify-center m-4 mb-8 mx-auto">
+    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-start items-center py-2 shadow-lg hover:shadow-xl container my-4 relative w-[90%]">
+      <div className="flex vsm:flex-col lg:flex-row w-full lg:items-center lg:justify-center">
+        <div className="w-full vsm:px-6 flex items-center justify-center m-4 mb-8 mx-auto">
           {loadQuiz()}
         </div>
       </div>
