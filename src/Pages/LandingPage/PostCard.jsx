@@ -5,7 +5,7 @@ import { useAuth } from "../../utils/AuthContext";
 
 
 function PostCard({ data }) {
-    const { user, backendUrl } = useAuth();
+    const { isAuth } = useAuth();
 
     function formatMinInvestment(minInvestment) {
         if (minInvestment >= 1000000) {
@@ -18,7 +18,7 @@ function PostCard({ data }) {
         <div className="flex items-center justify-center">
             <div className="relative bg-white rounded-lg w-[70%] flex items-center justify-center">
                 <div className="xl:w-[21rem] rounded-lg shadow-lg font-sans border-2 border-purple-600">
-                    <div className="px-4 pt-2 text-center flex items-center justify-center flex-col">
+                    <div className={`px-4 pt-2 text-center flex items-center justify-center flex-col ${isAuth ? '' : 'blur-[10px]'}`}>
                         <img src={data.image} alt="Company Logo" className="w-full h-32 rounded-lg" />
                         <h2 className="text-lg font-bold whitespace-nowrap text-ellipsis ">{data.companyName}</h2>
                         <div className="overflow-y-hidden h-[40px]">

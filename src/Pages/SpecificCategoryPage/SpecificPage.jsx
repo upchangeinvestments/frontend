@@ -36,7 +36,6 @@ function SpecificPage() {
   const sortFilterRef = useRef(null);
   const clearAllFilterRef = useRef();
   const [investmentRange, setInvestmentRange] = useState("");
-  const [fundTimeLine, setFundTimeLine] = useState("");
   const [IRR, setIRR] = useState("");
   const [selectedPosts, setSelectedPosts] = useState([]);
   const [removePost, setRemovePost] = useState(false);
@@ -87,8 +86,6 @@ function SpecificPage() {
     const { name, value } = e.target;
     if (name === 'investmentRange') {
       setInvestmentRange(value);
-    } else if (name === 'fundTimeLine') {
-      setFundTimeLine(value);
     } else if (name === 'IRR') {
       setIRR(value);
     }
@@ -96,7 +93,6 @@ function SpecificPage() {
 
   const clearSortFilter = () => {
     setInvestmentRange("");
-    setFundTimeLine("");
     setIRR("");
     setFilterData(unsortedData);
     setViewSortFilter(false);
@@ -111,7 +107,6 @@ function SpecificPage() {
     const form = e.target.closest('form');
     const formData = new FormData(form);
     setInvestmentRange(formData.get("investmentRange"));
-    setFundTimeLine(formData.get("fundTimeLine"));
     setIRR(formData.get("IRR"));
 
     var sortData = [...filterData];
@@ -123,19 +118,11 @@ function SpecificPage() {
       }
     }
 
-    if (fundTimeLine) {
-      if (fundTimeLine === 'started') {
-        sortData = sortData.filter(item => item.funded <= 20)
-      } else {
-        sortData = sortData.filter(item => item.funded >= 80)
-      }
-    }
-
     if (IRR) {
       if (IRR === 'High') {
-        sortData.sort((a, b) => b.IRR - a.IRR);
+        sortData.sort((a, b) => b.historicalReturnRates.split("-")[0] - a.historicalReturnRates.split("-")[0]);
       } else {
-        sortData.sort((a, b) => a.IRR - b.IRR);
+        sortData.sort((a, b) => a.historicalReturnRates.split("-")[0] - b.historicalReturnRates.split("-")[0]);
       }
     }
     setFilterData(sortData);
@@ -219,7 +206,7 @@ function SpecificPage() {
         <FilterSection sendFilteredData={receiveFilteredData} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
           {loading === false && (
-            < MobileFilter
+            <MobileFilter
               openDrawer={openDrawer}
               passDataObject={receiveDataObject}
             />
@@ -260,15 +247,15 @@ function SpecificPage() {
           </div>
 
           {/* start of sort filter  */}
-          <div className="z-[99]">
-            <div className="rounded-full w-10 h-10 -mt-2 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black">
+          <div className="z-[99] relative">
+            <div className={`rounded-full w-10 h-10 -mt-2 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black absolute right-0 ${viewSortFilter ? '-mt-8' : ''}`}>
               {!viewSortFilter && <img src={filterSVG} className="w-[1.5rem] h-[1.5rem] text-white" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />}
-              {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} />}
+              {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} className="" />}
             </div>
             {viewSortFilter && (
               <div ref={sortFilterRef} className=" z-[20] font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
                 <form onSubmit={SortFilterHandler}>
-                  <h1 className="text-center font-bold text-xl p-4 uppercase underline text-[#6e30a7]">Sort Investment Type</h1>
+                  <h1 className="text-center font-bold text-xl p-4 uppercase underline text-[#6e30a7]">Sort Company Type</h1>
                   <div className="w-full bg-[#9059d9]">
                     <p className="text-left p-2 pl-4 lg:pl-8 text-base lg:text-lg font-bold text-white">Investment Range</p>
                   </div>
@@ -283,29 +270,16 @@ function SpecificPage() {
                     </label>
                   </div>
                   <div className="w-full bg-[#9059d9] ">
-                    <p className="text-left p-2 pl-4 lg:pl-8 text-lg font-bold text-white">Fund Timeline</p>
-                  </div>
-                  <div className="p2 pl-4 lg:pl-8 flex flex-col">
-                    <label className="mt-2">
-                      <input className="mr-2" type="radio" name="fundTimeLine" value="started" checked={fundTimeLine === "started"} onChange={handleInputChange} />
-                      Funding started recently
-                    </label>
-                    <label className="my-2">
-                      <input type="radio" className="mr-2" name="fundTimeLine" value="closing" checked={fundTimeLine === "closing"} onChange={handleInputChange} />
-                      Funding closing soon
-                    </label>
-                  </div>
-                  <div className="w-full bg-[#9059d9] ">
-                    <p className="text-left p-2 pl-4 lg:pl-8 text-lg font-bold text-white">Internal Rate of Return</p>
+                    <p className="text-left p-2 pl-4 lg:pl-8 text-lg font-bold text-white">Return Range</p>
                   </div>
                   <div className="p2 pl-4 lg:pl-8 flex flex-col">
                     <label className="mt-2">
                       <input className="mr-2" type="radio" name="IRR" value="High" checked={IRR === "High"} onChange={handleInputChange} />
-                      High to low IRR
+                      High to low return range
                     </label>
                     <label className="my-2">
                       <input className="mr-2" type="radio" name="IRR" value="low" checked={IRR === "low"} onChange={handleInputChange} />
-                      Low to high IRR
+                      Low to high return range
                     </label>
                   </div>
                   <div className="flex items-center justify-center">

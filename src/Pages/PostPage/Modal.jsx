@@ -13,7 +13,7 @@ const Modal = ({ content, onClose }) => {
                         <img className="rounded-xl h-32" src={content.image} alt="project" />
                     </div>
                     <div className="flex items-start justify-start gap-y-2 flex-col">
-                        <p className="text-3xl font-bold hover:underline hover:cursor-pointer">{content.projectName}</p>
+                        <p className="text-3xl font-bold ">{content.projectName}</p>
                         <p>Year Started: <span className="font-bold">{content.year}</span></p>
                         <p>Year Closed: <span className="font-bold">{content.yearEnd}</span></p>
                         <p>Asset Type: <span className="font-bold">{content.investmentType}</span></p>

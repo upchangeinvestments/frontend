@@ -438,12 +438,3 @@ function PostPage() {
 }
 
 export default PostPage;
-
-// sort company type in sort filter heading
-// cross to right position
-// fund timeline delete
-// blur the ladning page
-// Credentials share
-// pin insteeda of star in post
-// bold the heading in analysis
-// clip the vido
