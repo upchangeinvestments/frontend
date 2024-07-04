@@ -17,6 +17,7 @@
     "digit-roll-react": "^1.1.0",
     "express": "^4.18.3",
     "jquery": "^3.7.1",
+    "jwt-decode": "^4.0.0",
     "mui-tel-input": "^5.1.2",
     "react": "^18.2.0",
     "react-card-carousel": "^1.1.3",
