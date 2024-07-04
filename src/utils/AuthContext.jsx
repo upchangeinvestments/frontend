@@ -1,6 +1,7 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
 import axios from "axios";
+import { jwtDecode } from "jwt-decode";
 
 const AuthContext = React.createContext();
 
@@ -22,9 +23,11 @@ const AuthProvider = ({ children }) => {
   const tokenExpiration = localStorage.getItem("tokenExpiration");
 
   const [isAuth, setIsAuth] = useState(!!localStorage.getItem("token"));
+  const [isGuest, setGuest] = useState(false);
   const [loadingUser, setLoadingUser] = useState(true);
   const [user, setUser] = useState({});
   const navigate = useNavigate();
+
   const contextValue = {
     isAuth,
     handleUpdateAuth,
@@ -33,9 +36,14 @@ const AuthProvider = ({ children }) => {
     logout,
     baseUrl,
     backendUrl,
-    loadingUser
+    loadingUser,
+    isGuest,
+    handleGuest
   };
 
+  function handleGuest(value) {
+    return setGuest(value);
+  }
   function handleUpdateAuth(value) {
     return setIsAuth(value);
   }
@@ -88,8 +96,15 @@ const AuthProvider = ({ children }) => {
       if (tokenExpiration && new Date() > tokenExpiration) {
         localStorage.removeItem("token");
         localStorage.removeItem("tokenExpiration");
-      } else {
-        handleVerify(token);
+      } else if (token) {
+        const payload = jwtDecode(token);
+        if (payload.guest) {
+          setGuest(true);
+          setIsAuth(true);
+          setLoadingUser(false);
+        } else {
+          handleVerify(token);
+        }
       }
     } else {
       getUser();

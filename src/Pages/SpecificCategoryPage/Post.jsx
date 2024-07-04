@@ -2,12 +2,12 @@ import React, { useState, useEffect } from "react";
 import "../../styles/LandingPage/Post.css";
 import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
-import { FaRegStar, FaStar } from "react-icons/fa6";
+import { BsPinAngleFill, BsPinAngle } from "react-icons/bs";
 import { useAuth } from "../../utils/AuthContext";
 import axios from "axios";
 import Error from "../../utils/Error";
+import SuccessMessage from "../../utils/successToast";
 import { MdOutlineKeyboardArrowRight } from "react-icons/md";
-
 
 function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selectedPosts }) {
     const [likedPosts, setLikedPosts] = useState([]);
@@ -26,6 +26,10 @@ function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selecte
         try {
             const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.projectId}/${!isStarFilled}`);
             FetchLikedPosts();
+            console.log(response);
+            if (response.data && response.data.message) {
+                SuccessMessage(response.data.message);
+            }
         } catch (error) {
             if (error.response) {
                 Error(error.response.data.message);
@@ -62,6 +66,10 @@ function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selecte
                 <div className="absolute bottom-2 left-6 flex items-center justify-center gap-x-2 CompareInput">
                     <input type="checkbox" name="compare" className="rounded-md" checked={isSelected} onChange={handleCheckboxChange} disabled={!isSelected && selectedPosts.length >= 3} />
                     <label htmlFor="compare" className="text-white text-lg ">Compare</label>
+                </div>
+                <div className="absolute bottom-4 right-4" onClick={toggleStar}>
+                    {isStarFilled && <BsPinAngleFill color="white" size="17px" />}
+                    {!isStarFilled && <BsPinAngle color="white" size="17px" />}
                 </div>
             </div>
             <div className="relative bg-white rounded-lg w-[90%] flex items-center justify-center">

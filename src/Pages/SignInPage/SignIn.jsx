@@ -42,7 +42,7 @@ const SignIn = () => {
   const [showForgetPassword, setShowForgetPassword] = useState(false);
   const [userData, setUserData] = useState(location.state?.userData || null);
   const navigate = useNavigate();
-  const { handleUpdateAuth, backendUrl } = useAuth();
+  const { handleUpdateAuth, backendUrl, handleGuest } = useAuth();
   const [showPassword, setShowPassword] = useState(false);
 
   useEffect(() => {
@@ -64,7 +64,6 @@ const SignIn = () => {
     event.preventDefault();
     try {
       const res = window.open(`${backendUrl}/auth/google`, "_self");
-      console.log("resp  = ", res);
     } catch (error) {
       Error("Something went wrong, Please try again later.");
     }
@@ -100,11 +99,12 @@ const SignIn = () => {
         password,
         userData
       });
+
       localStorage.setItem("token", response.data.token);
       const currentDate = new Date();
       const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
       localStorage.setItem("tokenExpiration", tokenExpiration);
-
+      handleGuest(false);
       handleUpdateAuth(true);
       navigate("/rei-firms");
       SuccessToast("Welcome to LynkInfinite Investment!");
@@ -114,6 +114,21 @@ const SignIn = () => {
         return Error(error.message);
       }
       return Error(error.response.data.message);
+    }
+  };
+
+  const handleGuestLogin = async () => {
+    try {
+      const response = await axios.post(`${backendUrl}/auth/guest`);
+      localStorage.setItem('token', response.data.token);
+      const currentDate = new Date();
+      const tokenExpiration = new Date(currentDate.getTime() + 24 * 60 * 60 * 1000); // expires in 1 day
+      localStorage.setItem('tokenExpiration', tokenExpiration);
+
+      handleUpdateAuth(true);
+      navigate('/rei-firms');
+    } catch (error) {
+      console.error('Failed to login as guest, try again afte sometime!', error);
     }
   };
 
@@ -130,7 +145,6 @@ const SignIn = () => {
       }
       const response = await axios.post(`${backendUrl}/auth/signup`, { email, password, confirmPassword, userData });
       if (response.status === 200) {
-
         SuccessToast("Verification email has been sent to your email, please verify your account!");
         const TempUserData = { email, password, confirmPassword };
         navigate("/welcome", { state: { isLogin: false, TempUserData: TempUserData } });
@@ -360,9 +374,12 @@ const SignIn = () => {
             </div>
             <div className="intros-container font-['Playfair-Display']">
               <div className="intro-control signin-intro ">
-                <div className="intro-control__inner">
-                  <div className="lg:w-64 vsm:w-44 sm:w-48 md:w-52 mx-auto -mt-10">
+                <div className="intro-control__inner flex items-center justify-around flex-col h-full">
+                  <div className="lg:w-64 vsm:w-44 sm:w-48 md:w-52 mx-auto">
                     <img src={logo} alt="logo" />
+                  </div>
+                  <div className="border-[1px] border-black rounded-xl px-12 py-2 hover:cursor-pointer" onClick={handleGuestLogin}>
+                    <p className="text-black hover:underline">Continue as a GUEST</p>
                   </div>
                   <div className="socials1 font-['Playfair-Display']">
                     <p className="text-black text-lg">Connect with us</p>
@@ -383,9 +400,12 @@ const SignIn = () => {
                 </div>
               </div>
               <div className="intro-control signup-intro">
-                <div className="intro-control__inner">
-                  <div className="lg:w-64 vsm:w-44 sm:w-48 md:w-52 mx-auto -mt-10">
+                <div className="intro-control__inner flex items-center justify-around flex-col h-full">
+                  <div className="lg:w-64 vsm:w-44 sm:w-48 md:w-52 mx-auto">
                     <img src={logo} alt="logo" />
+                  </div>
+                  <div className="border-[1px] border-black rounded-xl px-12 py-2 hover:cursor-pointer" onClick={handleGuestLogin}>
+                    <p className="text-black hover:underline">Continue as a GUEST</p>
                   </div>
                   <div className="socials">
                     <p className="text-lg text-black">Connect with us</p>

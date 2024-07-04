@@ -196,7 +196,7 @@ function SpecificPage() {
         <div className="h-[70vh] YesevaFont flex items-center justify-center relative">
           <div className="flex justify-center items-start h-[90%] relative">
             <div className="relative uppercase flex flex-col">
-              <p className="text-[4.5rem]"> Explore <span className="text-purple-600">Companies</span></p>
+              <p className="text-[4.5rem] text-shadow-xl"> Explore <span className="text-purple-600">Companies</span></p>
               <p className="uppercase w-full flex items-center justify-center CerebriFont text-lg -mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
             </div>
           </div>

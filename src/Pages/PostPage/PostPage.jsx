@@ -12,6 +12,8 @@ import Tooltip from '@mui/material/Tooltip';
 import { AiOutlineDollar } from "react-icons/ai";
 import Button from "../../commonComponents/LoginButton";
 import MaterialUIAccordion from "./Accordion";
+import successMessage from "../../utils/successToast";
+import errorMessage from "../../utils/Error";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
 import InvestmentData from "../../assets/companyData.json"
@@ -76,6 +78,16 @@ function PostPage() {
       linkToSection: `/post/${postId}/#management`,
     },
   ]
+
+  const copyToClipboard = () => {
+    const url = window.location.href;
+    navigator.clipboard.writeText(url).then(() => {
+      successMessage('URL copied to clipboard!');
+    }).catch(err => {
+      errorMessage("Failed to copy the url, try after sometime!");
+    });
+  };
+
   useEffect(() => {
     const bannerPosition = bannerRef.current.offsetTop;
     const handleScroll = () => {
@@ -111,6 +123,7 @@ function PostPage() {
         <div className="w-[100%]">
           <div className="PostPage">
             <NavBar />
+            <div className="" id="overview"></div>
             <div className="YesevaFont flex items-center justify-center relative overflow-x-hidden">
               <div className="flex justify-center items-start h-[90%] relative">
                 <div className="relative flex flex-col">
@@ -119,12 +132,10 @@ function PostPage() {
                     <div className={`flex items-center bg-white justify-between mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
                       <p className={`YesevaFont text-4xl flex items-center justify-center text-left ${bannerContent ? '' : ''}`}>{data.companyName}</p>
                       <div className={`${bannerContent ? 'flex items-center justify-center' : ''}`}>
-                        <Link to="https://www.studio2694.com/" target="_blank">
-                          <button style={{ backgroundImage: `url(${bgImage})` }}
-                            className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
-                            <RiShareBoxFill />Share
-                          </button>
-                        </Link>
+                        <button onClick={copyToClipboard} style={{ backgroundImage: `url(${bgImage})` }}
+                          className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
+                          <RiShareBoxFill />Share
+                        </button>
                       </div>
                     </div>
                     <div className="flex items-center justify-center relative bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-12 py-4 w-[100vw]">
@@ -146,7 +157,7 @@ function PostPage() {
           </div>
         </div>
         <div className="vsm:w-[90%] lg:w-[60%] 2xl:max-w-6xl my-4 text-white">
-          <div className="flex items-center justify-center flex-col text-black" id="overview">
+          <div className="flex items-center justify-center flex-col text-black">
             <div className="flex items-center justify-start w-[120%]">
               <p className="YesevaFont text-xl mb-2 text-left">Overview</p>
             </div>
@@ -206,6 +217,7 @@ function PostPage() {
             </ul>
           </div>
           <div className="mb-4 text-black">
+            <div id="riskType"></div>
             <p className="text-xl YesevaFont my-2">Assets Under Management (AUM)</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Total: </span> {data.aum}</li>
@@ -213,7 +225,7 @@ function PostPage() {
             </ul>
           </div>
           <div className="grid grid-cols-2 gap-x-6 my-6 ">
-            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center" id="riskType">
+            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center">
               <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Risk type</p>
               <div className="relative h-full w-full CerebriFont">
                 <p className="absolute left-20 bottom-4">Low</p>
@@ -243,6 +255,7 @@ function PostPage() {
             </ul>
           </div>
           <div className="mb-4 text-black">
+            <div id="returnRates"></div>
             <p className="text-xl YesevaFont my-2">Minimum Investment</p>
             <ul className="list-disc list-inside space-y-2">
               <li className=""> <span className="font-bold ">Amount: </span> USD {formatMinInvestment(data.minInvestment)}</li>
@@ -250,7 +263,7 @@ function PostPage() {
             </ul>
           </div>
 
-          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg p-4 my-6" id="returnRates">
+          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg p-4 my-6">
             <p className="YesevaFont text-2xl text-center my-1 uppercase">Historical return rates</p>
             <div className="flex items-center justify-center -mt-8 -ml-8">
               <div className="text-white">
@@ -352,9 +365,10 @@ function PostPage() {
               <div className="">
                 <img src="https://i.postimg.cc/fR9Q4fFz/demographic.jpg" className="w-[400px] -ml-[100px]" alt="Location" />
               </div>
-              <div className="text-center CerebriFont mr-[50px] -mt-[100px]">
+              <div className="text-center CerebriFont mr-[50px] my-auto">
                 <p className="text-2xl text-center uppercase YesevaFont mb-2">Location</p>
-                <p className="text-[#A26CF6] text-2xl uppercase font-bold">{data.location}</p>
+                <p className="text-[#A26CF6] text-2xl uppercase font-bold">{data.location}, {data.state} </p>
+                <p className="text-[#A26CF6] text-2xl uppercase font-bold">USA</p>
               </div>
             </div>
           </div>
@@ -376,6 +390,7 @@ function PostPage() {
 
             <div className="mb-4 text-black">
               <p className="text-xl YesevaFont my-2">Summary</p>
+              <div className="" id="management"></div>  {/* just to match the navhashlink */}
               <p>
                 {data.companyName} presents a compelling investment opportunity with its solid historical return rates,
                 {data.riskLevel} risk level, and competitive fee structure. The firm's equity-focused strategy and manageable minimum
@@ -384,8 +399,9 @@ function PostPage() {
               </p>
             </div>
           </div>
-          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4" id="management">
+          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4" >
             <p className="YesevaFont text-2xl text-center my-1 uppercase">contact Management</p>
+            <div id="historicalProjects"></div>
             <div className="flex items-center justify-center gap-x-20 py-6">
               <div className="flex flex-col items-center justify-center ">
                 <div className="flex items-center justify-center gap-x-4">
@@ -415,7 +431,7 @@ function PostPage() {
               </div>
             </div>
           </div>
-          <div id="historicalProjects" className="my-8 w-full flex items-center justify-center flex-col bg-white/20 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 p-4 pt-0">
+          <div className="my-8 w-full flex items-center justify-center flex-col bg-white/20 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 p-4 pt-0">
             <p className="YesevaFont text-2xl text-center my-1 uppercase text-black">Project History</p>
             <MaterialUIAccordion data={data.historicalProjects} />
           </div>

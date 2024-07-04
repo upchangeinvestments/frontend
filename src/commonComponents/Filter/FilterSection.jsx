@@ -11,6 +11,7 @@ function FilterSection({ sendFilteredData, setLoader }) {
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const InvestmentRange = ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"];
   const CompanyAge = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
+  const InvestorType = ['Accredited', 'Non-Accredited'];
   // const [showAllCompanies, setShowAllCompanies] = useState(false);
   const RiskLevel = ['High', 'Medium', 'Low']
   const [mngFee, setMngFee] = useState(0);
@@ -21,6 +22,7 @@ function FilterSection({ sendFilteredData, setLoader }) {
     managementFee: 0,
     companyAge: [],
     riskLevel: [],
+    investorType: [],
     locations: [],
   });
 
@@ -28,6 +30,7 @@ function FilterSection({ sendFilteredData, setLoader }) {
     classType: [],
     investmentRange: "",
     companyAge: [],
+    investorType: "",
     riskLevel: [],
     locations: []
   });
@@ -44,11 +47,12 @@ function FilterSection({ sendFilteredData, setLoader }) {
           (filters.investmentRange.split('-')[1] ? item.minInvestment <= parseInt(filters.investmentRange.split('-')[1].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) : true)
         ) &&
         (filters.managementFee == 0 || parseFloat(item.feeStructure) <= filters.managementFee) &&
+        (filters.investorType.length === 0 || item.investorEligibility.includes(filters.investorType)) &&
         (filters.companyAge.length === 0 || filters.companyAge.some(period => {
           const [min, max] = period.split('-').map(x => parseInt(x.replace('YRS', '')));
           return item.age >= min && item.age <= max;
         })) &&
-        (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.location)))
+        (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.state)))
       );
     });
     sendFilteredData(filtered, filters);
@@ -122,11 +126,13 @@ function FilterSection({ sendFilteredData, setLoader }) {
       managementFee: 0,
       companyAge: [],
       locations: [],
+      investorType: [],
       riskLevel: [],
     });
     setCheckedValues({
       classType: [],
       investmentRange: "",
+      investorType: "",
       companyAge: [],
       locations: [],
       riskLevel: [],
@@ -187,6 +193,15 @@ function FilterSection({ sendFilteredData, setLoader }) {
           filterType="investmentRange"
           clearFilter={clearFilter}
           checkedValues={checkedValues.investmentRange}
+        />
+        <FilterSubSection
+          list={InvestorType}
+          title="Investor Type"
+          inputType="radio"
+          updateFilters={updateFilters}
+          filterType="investorType"
+          clearFilter={clearFilter}
+          checkedValues={checkedValues.investorType}
         />
         <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
           <div className="text-xl font-bold text-[#6e30a7]">Management Fee </div>

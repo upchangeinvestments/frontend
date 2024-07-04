@@ -296,7 +296,7 @@ function EducationPage() {
         <NavBar />
         <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
           <div className="flex flex-col justify-start items-center h-[90%] relative">
-            <p className="text-[4.5rem] text-purple-600 uppercase"> Resources </p>
+            <p className="text-[4.5rem] text-shadow-xl text-purple-600 uppercase"> Resources </p>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">

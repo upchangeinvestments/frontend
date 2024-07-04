@@ -20,7 +20,7 @@ function AboutUsPage() {
           <div className="YesevaFont flex items-center justify-center relative">
             <div className="flex justify-center items-start relative">
               <div className="relative uppercase flex flex-col">
-                <p className="text-[4.5rem]"> <span className="text-purple-600 uppercase">About </span>us </p>
+                <p className="text-[4.5rem] text-shadow-xl"> <span className="text-purple-600 uppercase">About </span>us </p>
               </div>
             </div>
           </div>

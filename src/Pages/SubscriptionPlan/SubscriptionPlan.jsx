@@ -17,7 +17,7 @@ function SubscriptionPlan() {
                 <Navbar />
                 <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
                     <div className="flex flex-col justify-start items-center h-[90%] relative">
-                        <p className="text-[4.5rem] text-purple-600 uppercase"> Subscription </p>
+                        <p className="text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Subscription </p>
                         <p className="text-black uppercase CerebriFont text-3xl text-center font-bold">Listing Inquiry Form</p>
                     </div>
                 </div>

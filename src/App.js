@@ -1,6 +1,7 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import "./App.css";
 import PrivateRoute from "./utils/PrivateRoute";
+import PrivateProfileRoute from "./utils/PrivateProfileRoute";
 import LandingPage from "./Pages/LandingPage/LandingPage";
 import SignInPage from "./Pages/SignInPage/SignIn";
 import ForgotPassword from "./Pages/SignInPage/ForgotPassword";
@@ -53,9 +54,9 @@ function App() {
             </PrivateRoute>
           } />
           <Route path="/profile" element={
-            <PrivateRoute>
+            <PrivateProfileRoute>
               <ProfilePage />
-            </PrivateRoute>
+            </PrivateProfileRoute>
           } />
           <Route path="/terms" element={<Termsandconditions />} />
           <Route path="/roi-calculator" element={<RoiCalculator />} />
