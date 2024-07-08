@@ -27,6 +27,9 @@ import { BarChart } from '@mui/x-charts/BarChart';
 import bgImage from "../../assets/login_BG.jpeg";
 import { FaCircleArrowUp } from "react-icons/fa6";
 import "../../App.css"
+import { WhatsappShareButton, TwitterShareButton, TelegramShareButton, PinterestShareButton, LinkedinShareButton, FacebookShareButton, EmailShareButton } from "react-share";
+import { WhatsappIcon, TwitterIcon, EmailIcon, FacebookIcon, LinkedinIcon, PinterestIcon, TelegramIcon, XIcon } from "react-share";
+import { IoMdCloseCircle } from "react-icons/io";
 
 const BarChartSetting = {
   xAxis: [
@@ -48,13 +51,12 @@ function formatMinInvestment(minInvestment) {
 
 const valueFormatter = (value) => `${value}%`;
 
-
-
 function PostPage() {
   const { postId } = useParams();
   const data = InvestmentData[postId];
   const bannerRef = useRef(null);
   const [bannerContent, setBannerContent] = useState(false);
+  const [shareModal, setShareModal] = useState(false);
 
   const bannerItems = [
     {
@@ -79,9 +81,9 @@ function PostPage() {
     },
   ]
 
+  const PageUrl = window.location.href;
   const copyToClipboard = () => {
-    const url = window.location.href;
-    navigator.clipboard.writeText(url).then(() => {
+    navigator.clipboard.writeText(PageUrl).then(() => {
       successMessage('URL copied to clipboard!');
     }).catch(err => {
       errorMessage("Failed to copy the url, try after sometime!");
@@ -112,6 +114,10 @@ function PostPage() {
     window.scrollTo({ top: 0, behavior: 'smooth' });
   };
 
+  const handleModalClose = () => {
+    setShareModal(false);
+  };
+
   return (
     <div className="">
       <Helmet>
@@ -119,7 +125,56 @@ function PostPage() {
         <meta name="description" content="Real Estate listed projects website" />
         <link rel="canonical" href="/post/:postId" />
       </Helmet>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center relative">
+        {shareModal && (
+          <div className="w-full h-full flex items-center justify-center flex-col z-[100] fixed inset-0 overflow-hidden">
+            <div className="fixed inset-0 bg-black opacity-50"></div>
+            <div className="bg-white rounded-xl z-10 p-4 w-[50%] relative flex flex-col items-center justify-center">
+              <IoMdCloseCircle onClick={handleModalClose} className="absolute top-4 right-4" size="17px" />
+              <p className="text-xl text-center">Share this post</p>
+              <hr className="w-full my-2 " />
+              <div className="gap-x-8 flex my-2 items-center justify-center w-[60%] mx-auto">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                  <WhatsappShareButton url={PageUrl} >
+                    <WhatsappIcon size={40} round={true} />
+                  </WhatsappShareButton>
+                </div>
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                  <TwitterShareButton url={PageUrl}>
+                    <XIcon size={40} round={true} />
+                  </TwitterShareButton>
+                </div>
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                  <TelegramShareButton url={PageUrl}>
+                    <TelegramIcon size={40} round={true} />
+                  </TelegramShareButton>
+                </div>
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                  <PinterestShareButton media={data.image} url={PageUrl}>
+                    <PinterestIcon size={40} round={true} />
+                  </PinterestShareButton>
+                </div>
+              </div>
+              <div className="gap-x-8 flex my-2 items-center justify-center w-[60%] mx-auto">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                  <LinkedinShareButton url={PageUrl}>
+                    <LinkedinIcon size={40} round={true} />
+                  </LinkedinShareButton>
+                </div>
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                  <FacebookShareButton url={PageUrl}>
+                    <FacebookIcon size={40} round={true} />
+                  </FacebookShareButton>
+                </div>
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                  <EmailShareButton url={PageUrl}>
+                    <EmailIcon size={40} round={true} />
+                  </EmailShareButton>
+                </div>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="w-[100%]">
           <div className="PostPage">
             <NavBar />
@@ -132,7 +187,7 @@ function PostPage() {
                     <div className={`flex items-center bg-white justify-between mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
                       <p className={`YesevaFont text-4xl flex items-center justify-center text-left ${bannerContent ? '' : ''}`}>{data.companyName}</p>
                       <div className={`${bannerContent ? 'flex items-center justify-center' : ''}`}>
-                        <button onClick={copyToClipboard} style={{ backgroundImage: `url(${bgImage})` }}
+                        <button onClick={() => setShareModal(true)} style={{ backgroundImage: `url(${bgImage})` }}
                           className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
                           <RiShareBoxFill />Share
                         </button>

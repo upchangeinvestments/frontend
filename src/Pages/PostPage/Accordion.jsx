@@ -12,7 +12,11 @@ function MaterialUIAccordion({ data }) {
     const [isModalOpen, setIsModalOpen] = React.useState(false);
     const [modalContent, setModalContent] = React.useState({});
 
-    const handleOpen = (value) => setOpen(open === value ? 0 : value);
+    const handleOpen = (value) => {
+        setOpen(open === value ? 0 : value);
+        setModalContent(data[value]);
+        setIsModalOpen(true);
+    };
 
     const handleModalOpen = (content) => {
         setModalContent(content);
@@ -55,12 +59,12 @@ function MaterialUIAccordion({ data }) {
                         </div>
                     </AccordionHeader>
                     <AccordionBody className="px-4 text-black text-base rounded-b-lg -mt-[20px] pb-2">
-                        <div className="flex items-start justify-start gap-x-6">
+                        <div className="flex items-start justify-start gap-x-6" onClick={() => handleModalOpen(data)}>
                             <div className="">
                                 <img className="rounded-xl h-32" src={data.image} alt="project" />
                             </div>
                             <div className="flex items-start justify-start gap-y-2 flex-col">
-                                <p onClick={() => handleModalOpen(data)} className="text-xl font-bold hover:underline hover:cursor-pointer">{data.projectName}</p>
+                                <p className="text-xl font-bold hover:underline hover:cursor-pointer">{data.projectName}</p>
                                 <p>Year Started: <span className="font-bold">{data.year}</span></p>
                                 <p>Asset Type: <span className="font-bold">{data.investmentType}</span></p>
                                 <p>Return Rate: <span className="font-bold">{data.returnRate}</span></p>
