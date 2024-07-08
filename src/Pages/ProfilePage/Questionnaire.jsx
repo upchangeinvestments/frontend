@@ -30,11 +30,10 @@ const quizData = [
 
 const Questionnaire = () => {
   const [currentQuiz, setCurrentQuiz] = useState(0);
-  const [selectedAnswer, setSelectedAnswer] = useState(Array(quizData.length).fill(null)); // Initialize with null values for each question
-  const [buttonClicked, setButtonClicked] = useState(false); // Track if the button has been clicked
+  const [selectedAnswer, setSelectedAnswer] = useState(Array(quizData.length).fill(null));
+  const [buttonClicked, setButtonClicked] = useState(false);
   const { user, backendUrl } = useAuth();
 
-  // Check if all questions have been answered
   const allQuestionsAnswered = selectedAnswer.every(answer => answer !== null);
 
   const QuizHandler = async () => {
@@ -48,7 +47,7 @@ const Questionnaire = () => {
     if (res.status === 200) {
       setCurrentQuiz(0);
       SuccessToast("Questionnaire updated.");
-      setButtonClicked(false); // Reset button click state after successful update
+      setButtonClicked(false);
     } else {
       Error("Something went wrong, please try again later.");
     }
@@ -64,7 +63,7 @@ const Questionnaire = () => {
   };
 
   const handlePreviousClick = () => {
-    setSelectedAnswer(selectedAnswer.slice(0, -1)); // Remove the last selected answer
+    setSelectedAnswer(selectedAnswer.slice(0, -1));
     setCurrentQuiz(currentQuiz - 1);
   };
 

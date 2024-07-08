@@ -4,13 +4,6 @@ import { Link, useParams } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 // import SearchBox from '../../commonComponents/SearchBox';
 import "../../styles/CategoryPage/categoryPage.css";
-import { PiMapPinLineBold } from "react-icons/pi";
-import { MdOutlineAutoGraph } from "react-icons/md";
-import { GoLock } from "react-icons/go";
-import { IoLocationOutline } from "react-icons/io5";
-import Tooltip from '@mui/material/Tooltip';
-import { AiOutlineDollar } from "react-icons/ai";
-import Button from "../../commonComponents/LoginButton";
 import MaterialUIAccordion from "./Accordion";
 import successMessage from "../../utils/successToast";
 import errorMessage from "../../utils/Error";
@@ -18,9 +11,6 @@ import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
 import InvestmentData from "../../assets/companyData.json"
 import { Helmet } from 'react-helmet-async';
-import { FaStar } from "react-icons/fa";
-import { CiStar } from "react-icons/ci";
-import { FaRegCircleQuestion } from "react-icons/fa6";
 import { PieChart } from '@mui/x-charts/PieChart';
 import { RiShareBoxFill } from "react-icons/ri";
 import { BarChart } from '@mui/x-charts/BarChart';
@@ -28,8 +18,10 @@ import bgImage from "../../assets/login_BG.jpeg";
 import { FaCircleArrowUp } from "react-icons/fa6";
 import "../../App.css"
 import { WhatsappShareButton, TwitterShareButton, TelegramShareButton, PinterestShareButton, LinkedinShareButton, FacebookShareButton, EmailShareButton } from "react-share";
-import { WhatsappIcon, TwitterIcon, EmailIcon, FacebookIcon, LinkedinIcon, PinterestIcon, TelegramIcon, XIcon } from "react-share";
+import { WhatsappIcon, EmailIcon, FacebookIcon, LinkedinIcon, PinterestIcon, TelegramIcon, XIcon } from "react-share";
 import { IoMdCloseCircle } from "react-icons/io";
+import { useAuth } from "../../utils/AuthContext";
+import AccreditedModalComponent from "./AccreditedModal";
 
 const BarChartSetting = {
   xAxis: [
@@ -57,6 +49,9 @@ function PostPage() {
   const bannerRef = useRef(null);
   const [bannerContent, setBannerContent] = useState(false);
   const [shareModal, setShareModal] = useState(false);
+  const [AccreditedModal, setAccreditedModal] = useState(false);
+  const { isGuest, user } = useAuth();
+
 
   const bannerItems = [
     {
@@ -97,7 +92,6 @@ function PostPage() {
         if (window.scrollY > bannerPosition) {
           bannerRef.current.classList.add('fixed-Bannertop');
           setBannerContent(true);
-          console.log("window scrollY", window.scrollY)
         } else if (bannerPosition >= window.scrollY) {
           bannerRef.current.classList.remove('fixed-Bannertop');
           setBannerContent(false);
@@ -118,6 +112,13 @@ function PostPage() {
     setShareModal(false);
   };
 
+  const AccreditedModalHandler = () => {
+    setAccreditedModal(!AccreditedModal);
+  }
+  const closeAccreditedModal = (value) => {
+    setAccreditedModal(value);
+  }
+
   return (
     <div className="">
       <Helmet>
@@ -125,7 +126,8 @@ function PostPage() {
         <meta name="description" content="Real Estate listed projects website" />
         <link rel="canonical" href="/post/:postId" />
       </Helmet>
-      <div className="flex flex-col items-center justify-center relative">
+      <div className="flex flex-col items-center justify-center relative font-['Playfair-Display']">
+        <AccreditedModalComponent open={AccreditedModal} CloseAccreditedModal={closeAccreditedModal} data={data} />
         {shareModal && (
           <div className="w-full h-full flex items-center justify-center flex-col z-[100] fixed inset-0 overflow-hidden">
             <div className="fixed inset-0 bg-black opacity-50"></div>
@@ -216,7 +218,7 @@ function PostPage() {
             <div className="flex items-center justify-start w-[120%]">
               <p className="YesevaFont text-xl mb-2 text-left">Overview</p>
             </div>
-            <p className="font-['Playfair-Display'] text-xl lg:w-[120%] text-justify">{data.description}</p>
+            <p className="text-xl lg:w-[120%] text-justify">{data.description}</p>
           </div>
           <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4 ">
             <p className="YesevaFont text-2xl text-center my-1 uppercase">{data.companyName} strategy allocation</p>
@@ -490,17 +492,26 @@ function PostPage() {
             <p className="YesevaFont text-2xl text-center my-1 uppercase text-black">Project History</p>
             <MaterialUIAccordion data={data.historicalProjects} />
           </div>
-          <div className="flex items-center justify-center YesevaFont">
-            <Link to="https://www.studio2694.com/" target="_blank">
-              <button style={{ backgroundImage: `url(${bgImage})` }}
-                className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
-                <RiShareBoxFill />{data.companyName}
-              </button>
-            </Link>
-          </div>
-
-          {/* detail analysis of the company  */}
-
+          {!isGuest && (data.investorEligibility.includes('Non-Accredited') || user.AccreditedInvestor) && (
+            <div className="flex items-center justify-center YesevaFont">
+              <Link to="https://www.studio2694.com/" target="_blank">
+                <button style={{ backgroundImage: `url(${bgImage})` }}
+                  className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
+                  <RiShareBoxFill />{data.companyName}
+                </button>
+              </Link>
+            </div>
+          )}
+          {isGuest && (
+            <div className="flex items-center justify-center YesevaFont">
+              <div onClick={AccreditedModalHandler}>
+                <button style={{ backgroundImage: `url(${bgImage})` }}
+                  className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
+                  <RiShareBoxFill />{data.companyName}
+                </button>
+              </div>
+            </div>
+          )}
         </div>
       </div >
       <Footer />

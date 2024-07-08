@@ -1,8 +1,7 @@
 import React, { useState } from "react";
 import "../../styles/LandingPage/Post.css";
-import { IoLocationSharp } from "react-icons/io5";
 import Button from "../../commonComponents/LoginButton";
-import { FaRegStar, FaStar } from "react-icons/fa6";
+import { BsPinAngleFill, BsPinAngle } from "react-icons/bs";
 import { useAuth } from "../../utils/AuthContext";
 import axios from "axios";
 import Error from "../../utils/Error";
@@ -10,12 +9,11 @@ import Error from "../../utils/Error";
 function StarredPosts({ data, updatePosts }) {
     const [isStarFilled, setIsStarFilled] = useState(true);
     const { user, backendUrl } = useAuth();
-    // console.log("data inde: ", data);
 
-    const toggleStar = async () => {
-        setIsStarFilled(false);
+    const togglePin = async () => {
+        setIsStarFilled(!isStarFilled);
         try {
-            const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/false`);
+            const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.index}/${!isStarFilled}`);
             const updatedPosts = response.data.updatedPosts.map((likedPost) => likedPost.postId);
             // console.log("response:", updatedPosts);
             updatePosts(response.data.updatedPosts)
@@ -70,6 +68,10 @@ function StarredPosts({ data, updatePosts }) {
                     </div>
                     <div className="absolute flex items-center justify-center inset-x-0 bottom-3">
                         <Button Text="Know More" link={`/post/${data.projectId}`} classname="border-[1px] border-gray-400" />
+                    </div>
+                    <div className="absolute bottom-4 right-4" onClick={togglePin}>
+                        {isStarFilled && <BsPinAngleFill color="black" size="17px" />}
+                        {!isStarFilled && <BsPinAngle color="black" size="17px" />}
                     </div>
                 </div>
             </div>

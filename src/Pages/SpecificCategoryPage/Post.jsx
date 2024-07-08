@@ -21,7 +21,7 @@ function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selecte
         onPostSelect(data, newIsSelected);
     };
 
-    const toggleStar = async () => {
+    const togglePin = async () => {
         setIsStarFilled(!isStarFilled);
         try {
             const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.projectId}/${!isStarFilled}`);
@@ -67,7 +67,7 @@ function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selecte
                     <input type="checkbox" name="compare" className="rounded-md" checked={isSelected} onChange={handleCheckboxChange} disabled={!isSelected && selectedPosts.length >= 3} />
                     <label htmlFor="compare" className="text-white text-lg ">Compare</label>
                 </div>
-                <div className="absolute bottom-4 right-4" onClick={toggleStar}>
+                <div className="absolute bottom-4 right-4" onClick={togglePin}>
                     {isStarFilled && <BsPinAngleFill color="white" size="17px" />}
                     {!isStarFilled && <BsPinAngle color="white" size="17px" />}
                 </div>

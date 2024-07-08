@@ -1,6 +1,7 @@
-import React from 'react';
+import React, { useState } from 'react';
 import Button from "../../commonComponents/LoginButton";
 import Collapse from "react-collapse";
+import { useSearchParams } from 'react-router-dom';
 
 const CollapseItem = [
     {
@@ -34,6 +35,60 @@ const CollapseItem = [
     },
 ]
 
+const QuestionOptions = {
+    businessType: ["Public Charity", "Private Foundation", "S Corporation", "C Corporation", "Foreign Corporation", "Irrevocable Trust", "Revocable Trust", "Family Office", "Limited Liability Company", "Limited Partnership"],
+    license: ["General Securities Representative (Series 7)", "Private Securities Offerings Representative (Series 82)", "Investment Advisor Representative (Series 65)"],
+    role: ["Investment Advisor (SEC Registered)", "Accountant (CPA)", "Lawyer", "Enrolled Agent"],
+    income: ["less than $50k", "at least $50k, less than $107k", "at least $107k, less than $200k", "at least $200k, less than $300k", "at least $300k, less than $500k", "at least $500k, less than $1M", "at least $1M, less than $5M", "$5M or more"],
+    jointIncome: ["less than $50k", "at least $50k, less than $107k", "at least $107k, less than $200k", "at least $200k, less than $300k", "at least $300k, less than $500k", "at least $500k, less than $1M", "at least $1M, less than $5M", "$5M or more"],
+}
+
+const Questions = [
+    {
+        heading: "Information",
+        descrition: "Please provide the full legal name and type of your business.",
+        questions: [
+            {
+                question: "Business Name",
+                type: "text",
+            },
+            {
+                question: "Business Type",
+                type: "list",
+                list: QuestionOptions.businessType
+            }
+        ],
+    },
+    {
+        heading: "Individual Accreditation Certification - Professional License",
+        descrition: "Please Provide the following details",
+        questions: [
+            {
+                question: "Which SEC-approved license do you hold?",
+                type: "list",
+                list: QuestionOptions.license
+            },
+            {
+                question: "CRD Number",
+                type: "text",
+            }
+        ],
+        check: "I certify the CRD number I am providing is correct."
+    },
+    {
+        heading: "Individual Accreditation Certification",
+        questions: [
+            {
+                question: "I would like to verify my status as an accredited investor by confirming",
+                type: "list",
+                list: QuestionOptions.license
+            },
+        ],
+        check: "I certify the CRD number I am providing is correct."
+    }
+]
+
+
 const CollapeItem = ({ title, content }) => {
     const [isOpen, setIsOpen] = React.useState(false);
 
@@ -65,11 +120,78 @@ const CollapeItem = ({ title, content }) => {
     );
 };
 
-function AccreditedInvestor() {
+function QuesitonTemplate({ heading, desc, index }) {
+    return (
+        <div className="">
 
-    const FormHandler = (e) => {
-        e.preventDefault();
-    }
+        </div>
+    )
+}
+
+function AccreditedInvestor() {
+    const [accreditedForm, setAccreditedForm] = useState(false);
+    const [currentQuiz, setCurrentQuiz] = useState(0);
+    const [selectedAnswer, setSelectedAnswer] = useState();
+    const [buttonClicked, setButtonClicked] = useState(false);
+
+    // const allQuestionsAnswered = selectedAnswer.every(answer => answer !== null);
+
+
+    const FormHandler = () => setAccreditedForm(!accreditedForm);
+
+    // const handleOptionSelect = (option) => {
+    //     const newSelectedAnswer = [...selectedAnswer];
+    //     newSelectedAnswer[currentQuiz] = option;
+    //     setSelectedAnswer(newSelectedAnswer);
+    //     if (currentQuiz < quizData.length - 1) {
+    //         setCurrentQuiz(currentQuiz + 1);
+    //     }
+    // };
+
+    // const handlePreviousClick = () => {
+    //     setSelectedAnswer(selectedAnswer.slice(0, -1)); // Remove the last selected answer
+    //     setCurrentQuiz(currentQuiz - 1);
+    // };
+
+
+    // const loadQestions = () => {
+    //     // const currentQuizData = quizData[currentQuiz];
+    //     // const quizLength = quizData.length;
+
+    //     return (
+    //         <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
+    //             <p className="text-left px-4 md:w-[100%] font-['Playfair-Display'] flex justify-center">
+    //                 {/* {currentQuizData.question} */}
+    //             </p>
+    //             <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[50%]">
+    //                 {['a', 'b', 'c', 'd'].map((option) => (
+    //                     <li key={option}>
+    //                         <input
+    //                             type="radio"
+    //                             name="answer"
+    //                             id={option}
+    //                             className="answer text-center"
+    //                             onClick={() => handleOptionSelect(option)}
+    //                         />
+    //                         <label
+    //                             className="text-center border-[1px] font-['Playfair-Display'] border-[#6e30a7]"
+    //                             htmlFor={option}
+    //                             id={option + "_text"}
+    //                         >
+    //                             {currentQuizData[option]}
+    //                         </label>
+    //                     </li>
+    //                 ))}
+    //                 <div
+    //                     className={currentQuiz > 0 ? "flex justify-center" : "hidden"}
+    //                     onClick={handlePreviousClick}
+    //                 >
+    //                     <p className="ml-4">PREVIOUS</p>
+    //                 </div>
+    //             </ul>
+    //         </div>
+    //     );
+    // };
 
     return (
         <div className="my-12 relative flex flex-col items-center justify-center font-[' Playfair-Display'] text-lg" >
@@ -87,10 +209,14 @@ function AccreditedInvestor() {
                     ))}
                 </div>
             </div>
-            <Button Text="Start my journey as an Accredited Investor" />
-            <form onSubmit={FormHandler}>
-
-            </form>
+            <div className="" onClick={FormHandler}>
+                <Button Text="Start my journey as an Accredited Investor" />
+            </div>
+            {accreditedForm && (
+                <div className="">
+                    {/* {loadQestions()} */}
+                </div>
+            )}
         </div >
     )
 }
