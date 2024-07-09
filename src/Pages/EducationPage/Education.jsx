@@ -181,11 +181,8 @@ function ServiceCard({ data, handleDrawer, passDataObject }) {
       <EduModal isOpen={modalOpen} handleOpen={handleOpen} modalContent={data.modalContent} />
       <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 h-[160px] border border-1 border-[#6e30a7] flex flex-col ">
         <h3 className="text-xl font-medium mb-2">{data.title}</h3>
-        <p className="line-clamp-3 px-4 text-left h-full">{data.description}</p>
-        <button
-          onClick={handleOpen}
-          className="hidden md:block bg-[#6e30a7] text-white  py-1 px-3 rounded mt-2 bottom-4"
-        >
+        <p className="line-clamp-3 px-4 text-center md:text-left w-full h-full">{data.description}</p>
+        <button onClick={handleOpen} className="hidden md:block bg-[#6e30a7] text-white  py-1 px-3 rounded mt-2 bottom-4">
           Learn More
         </button>
         <button
@@ -209,7 +206,7 @@ const Education = ({ handleDrawer, passDataObject }) => {
         <h1 className="text-xl font-semibold font-['Playfair-Display'] text-center mb-4 text-black uppercase">
           Learn the basics
         </h1>
-        <p className="mb-6 text-justify font-['Playfair-Display'] text-black w-[90%] md:w-[70%] mx-auto ">
+        <p className="mb-6 text-justify font-['Playfair-Display'] text-black w-[100%] md:w-[70%] mx-auto ">
           Many people never start investing their money because they don’t
           understand things like qualified longevity annuity contracts – and to
           be honest, we can’t blame them. We are here to help demystify

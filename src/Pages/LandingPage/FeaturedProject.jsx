@@ -14,7 +14,7 @@ function FeaturedProject() {
           autoplay={true}
           autoplay_speed={5000}
           ref={carouselRef}
-          spread="wide" // Spread wide to adjust the position of cards
+          spread="wide"
         >
           <div className="relative card">
             <p className="absolute top-2 left-2 bg-gradient-to-r from-[#6e30a7]  to-purple-300  text-white rounded-full px-3 font-semibold text-lg">

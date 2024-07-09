@@ -145,7 +145,7 @@ const Questions = () => {
         backgroundBlendMode: "overlay",
       }}
     >
-      <div className="my-4 lg:mb-8 vsm:text-2xl md:text-3xl YesevaFont uppercase">
+      <div className="my-4 lg:mb-8 text-2xl whitespace-nowrap md:text-3xl YesevaFont uppercase">
         LET US <span className="text-purple-600">KNOW YOU</span> BETTER
       </div>
       <div className="flex vsm:flex-col lg:flex-row w-full mx-16 lg:items-center lg:justify-center">

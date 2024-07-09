@@ -38,7 +38,7 @@ function ContactForm() {
   };
 
   return (
-    <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 -mt-[200px] lg:-mt-[260px] xl:-mt-[330px]">
+    <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 -mt-[260px] xl:-mt-[330px]">
       <div className="block lg:max-w-7xl mx-auto r vsm:py-[20px]  lg:px-6 lg:py-12  md:py-8 md:px-10 -mt-[120px] ">
         <div className=" text-black grid relative vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
           <div className="md:col-span-2 lg:col-span-1 flex items-center justify-end">

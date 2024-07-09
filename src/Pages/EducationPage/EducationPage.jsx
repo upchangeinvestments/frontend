@@ -155,22 +155,19 @@ function ResouceContent() {
   const shortDescription = description.substring(0, 150) + "... see more";
 
   return (
-    <div className="w-[90%] max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8 -mt-[200px] lg:-mt-[270px] xl:-mt-[300px] relative">
+    <div className="w-[100%] md:w-[90%] max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8 -mt-[200px] lg:-mt-[270px] xl:-mt-[300px] relative">
       <div className="mobile-filter-drawer absolute bottom-0">
         <ReadMoreDrawer open={openDrawer}
           closeDrawer={handleDrawer}
           data={data} />
       </div>
-      <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-x-6">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 vsm:gap-y-6 mt-[200px] md:mt-0">
         {MainData.map((data, index) => (
-          <NavHashLink to={data.linkToSection} smooth
-            key={index}
-            className={`py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`} style={{
-              background: index === 0 || index === 2
-                ? 'linear-gradient(135deg, #13072E, #3F2182)'
-                : 'linear-gradient(135deg, #C770DC, #6853D2)',
+          <NavHashLink to={data.linkToSection} smooth key={index}
+            className={`p-4 md:py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`} style={{
+              background: index === 0 || index === 2 ? 'linear-gradient(135deg, #13072E, #3F2182)' : 'linear-gradient(135deg, #C770DC, #6853D2)',
             }}>
-            <div className="vsm:w-[110px]   msm:w-[120px] sm:w-[140px] vsm:h-[70px] md:w-[145px] lg:w-[200px] lg:h-[80px]  xl:w-[220px]  xl:h-[100px] flex justify-center items-center">
+            <div className="vsm:w-[110px] msm:w-[120px] sm:w-[140px] vsm:h-[70px] md:w-[145px] lg:w-[200px] lg:h-[80px]  xl:w-[220px]  xl:h-[100px] flex justify-center items-center">
               <p className="flex items-center justify-center uppercase font-['Playfair-Display'] vsm:text-lg md:text-xl lg:text-3xl  text-white font-bold  md:mt-0">
                 {data.Type}
               </p>
@@ -296,7 +293,7 @@ function EducationPage() {
         <NavBar />
         <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
           <div className="flex flex-col justify-start items-center h-[90%] relative">
-            <p className="text-[4.5rem] text-shadow-xl text-purple-600 uppercase"> Resources </p>
+            <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl text-purple-600 uppercase mt-2"> Resources </p>
           </div>
         </div>
         <div className="flex flex-col items-center justify-center">

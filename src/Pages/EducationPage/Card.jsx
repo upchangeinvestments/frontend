@@ -6,7 +6,7 @@ const Card = ({ data, handleDrawer, passDataObject }) => {
     const handleOpen = () => setModalOpen(!modalOpen);
 
     return (
-        <div onClick={handleOpen} className="">
+        <div className="">
             <EduModal isOpen={modalOpen} handleOpen={handleOpen} modalContent={data.modalContent} />
             <div className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg vsm:h-[250px] msm:h-[230px] lg:h-[220px] xl:h-[200px] relative border border-1 border-[#6e30a7]">
                 <h2 className="vsm:text-xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 md:hidden">

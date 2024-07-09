@@ -22,10 +22,15 @@ const ListedCompany = ({ company }) => {
     const { isAuth } = useAuth();
 
     return (
-        <div className='rounded-xl w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] my-2  grid grid-cols-6 text-white p-4'>
-            <div className='col-span-2 text-left'>{company.companyName}</div>
-            <div className='col-span-3 text-center '>{formatMinInvestment(company.minInvestment) ? formatMinInvestment(company.minInvestment) : company.Investment}</div>
-            <div className='col-span-1 text-right'><Button Text="Know More" link={isAuth ? "/rei-firms" : "/signin?isLogin=false"} target="_blank" /></div>
+        <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-xl w-full">
+            <div className=' my-2 grid grid-cols-6 text-white p-4'>
+                <div className='col-span-3 md:col-span-2 text-left'>{company.companyName}</div>
+                <div className='col-span-3 text-center '>{formatMinInvestment(company.minInvestment) ? formatMinInvestment(company.minInvestment) : company.Investment}</div>
+                <div className='col-span-1 text-right hidden md:block'><Button Text="Know More" link={isAuth ? "/rei-firms" : "/signin?isLogin=false"} target="_blank" /></div>
+            </div>
+            <div className="md:hidden flex items-center justify-center -mt-4 pb-4">
+                <Button Text="Know More" link={isAuth ? "/rei-firms" : "/signin?isLogin=false"} target="_blank" />
+            </div>
         </div>
     );
 }
@@ -92,22 +97,22 @@ const ROICalculator = () => {
                     <div className="YesevaFont flex items-center justify-center relative">
                         <div className="flex justify-center items-start relative">
                             <div className="relative uppercase flex flex-col">
-                                <p className="text-[4.5rem] text-purple-600 text-shadow-xl"> Wealth Calculator</p>
+                                <p className="text-[3rem] md:text-[4.5rem] text-center text-purple-600 text-shadow-xl"> Wealth Calculator</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl my-4 relative grid grid-cols-3">
+                <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl my-4 relative flex flex-col items-center justify-center md:grid md:grid-cols-3">
                     <div className='col-span-2'>
                         <p className='uppercase text-lg'>explore your future return on investments </p>
-                        <p className='text-[#A26CF6] w-[80%]'>Discover the potential of your real estate investments with our ROI
+                        <p className='text-[#A26CF6] w-[100%] md:w-[80%]'>Discover the potential of your real estate investments with our ROI
                             Calculator! Designed to empower investors to visualize their wealth growth
                             clearly and effortlessly. Dive in and uncover the possibilities for capital
                             gains. Start exploring now and watch your wealth thrive!
                         </p>
-                        <div className='my-4 Calculator w-[70%]'>
+                        <div className='my-4 Calculator w-[100%] md:w-[70%]'>
                             <div className="mb-6">
-                                <div className="text-left flex flex-col ">
+                                <div className="text-left flex flex-col">
                                     Investment Amount
                                     <div className="relative text-2xl">
                                         <span className="absolute inset-y-0 left-0 flex items-center pl-3 text-gray-500">$</span>
@@ -188,8 +193,8 @@ const ROICalculator = () => {
                             </div>
                         </div>
                     </div>
-                    <div className='col-span-1 h-[90%]'>
-                        <div className='my-2 bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white flex flex-col items-center justify-center h-full text-center'>
+                    <div className='col-span-1 h-[90%] vsm:w-[100%]'>
+                        <div className='my-2 bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white flex flex-col items-center justify-center h-full text-center vsm:p-4 vsm:py-6 rounded-lg'>
                             <div className="flex flex-col items-center justify-center my-4">
                                 <p className='uppercase CerebriFont text-xl flex-shrink overflow-hidden text-ellipsis'>Investment Amount</p>
                                 <div className='text-3xl flex items-center justify-center gap-x-4 roller'>
@@ -214,18 +219,18 @@ const ROICalculator = () => {
                 </div>
                 {showArrow && (
                     <div className='sticky bottom-0 rounded-full p-2 z-[99] animate-bounce w-full mx-auto'>
-                        <div className=' ml-20'><p className='whitespace-nowrap text-center'>Scroll down</p> <FaAngleDown size={20} className='w-full mx-auto' /></div>
+                        <div className=' md:ml-20'><p className='whitespace-nowrap text-center'>Scroll down</p> <FaAngleDown size={20} className='w-full mx-auto' /></div>
                     </div>
                 )}
                 {showData.length > 0 && (
                     <div className='flex items-center justify-center flex-col my-4'>
-                        <p className='text-left text-xl font-["Poppins"] font-semibold'>Leading Companies to Enhance Your Investment Goals</p>
+                        <p className='text-center text-xl font-["Poppins"] font-semibold'>Leading Companies to Enhance Your Investment Goals</p>
                         {isAuth ? (
-                            <div className=''>
+                            <div className='w-[90%] md:w-full'>
                                 <div className='rounded-xl w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] my-2  grid grid-cols-6 text-white p-4 font-extrabold text-xl'>
-                                    <div className='col-span-2 text-left'>Company</div>
+                                    <div className='col-span-3 md:col-span-2 text-left'>Company</div>
                                     <div className='col-span-3 text-center'>Minimum Investment</div>
-                                    <div className='col-span-1 text-right'></div>
+                                    <div className='col-span-1 text-right hidden md:block'></div>
                                 </div>
                                 {showData.map((data, id) => (
                                     <div key={id}>
@@ -234,13 +239,15 @@ const ROICalculator = () => {
                                 ))}
                             </div>
                         ) : (
-                            <div className='w-[70%] '>
-                                <Link to="/signin?=isLogin=false"><img className='cursor-default' src="https://i.postimg.cc/HkxBRpCb/blur-data.jpg" alt="" /></Link>
+                            <div className='w-[100%] md:w-[70%] '>
+                                <Link to="/signin?=isLogin=false">
+                                    <img className='cursor-default' src="https://i.postimg.cc/HkxBRpCb/blur-data.jpg" alt="" />
+                                </Link>
                             </div>
                         )}
                         {!isAuth && (
                             <div className='w-full flex flex-col items-center text-center justify-start gap-y-4 mb-6 vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl my-4 mx-auto'>
-                                <p className='text-xl'>Explore MORE investment opportunities by signing in on our platform </p>
+                                <p className='text-lg md:text-xl'>Explore MORE investment opportunities by signing in on our platform </p>
                                 <Button Text="Sign in" link="/signin?isLogin=false" classname="h-12 w-40 uppercase" />
                             </div>
                         )}

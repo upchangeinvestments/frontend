@@ -196,8 +196,8 @@ function SpecificPage() {
         <div className="h-[70vh] YesevaFont flex items-center justify-center relative">
           <div className="flex justify-center items-start h-[90%] relative">
             <div className="relative uppercase flex flex-col">
-              <p className="text-[4.5rem] text-shadow-xl"> Explore <span className="text-purple-600">Companies</span></p>
-              <p className="uppercase w-full flex items-center justify-center CerebriFont text-lg -mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
+              <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl text-center"> Explore <span className="text-purple-600">Companies</span></p>
+              <p className="uppercase w-full flex items-center justify-center CerebriFont text-sm md:text-lg -mt-2 md:-mt-4 text-center">Choose a trusted partners to guide you through REal estate investment journey</p>
             </div>
           </div>
         </div>
@@ -211,8 +211,8 @@ function SpecificPage() {
               passDataObject={receiveDataObject}
             />
           )}
-          <div className="lg:mx-8">
-            <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-x-12 md:gap-y-2 lg:gap-y-16 xl:gap-y-20">
+          <div className="mx-auto lg:mx-8 w-[90%] mt-8 md:mt-0">
+            <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 md:gap-x-12 md:gap-y-2 lg:gap-y-16 xl:gap-y-20">
               {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-stretch justify-center" key={index}>
                   <Post data={data} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} onPostSelect={handlePostSelect} selectedPosts={selectedPosts} />
@@ -234,9 +234,10 @@ function SpecificPage() {
               <p className="font-bold text-4xl text-center tracking-wider font-['Playfair-Display'] -mt-[100px]">No Data Found!</p>
             </div>
           )}
+
         </div>
-        <div className="absolute right-4 lg:right-8 -top-12 lg:-top-12 flex items-end">
-          <div className="md:hidden">
+        <div className="absolute right-4 lg:right-8 -top-1 lg:-top-12 flex items-end">
+          <div className="md:hidden absolute top-16 -right-4">
             <Tooltip title="Clear All filters" onClick={ClearAllFilterHandler}>
               <div className="flex items-center justify-end mr-4 mt-3 ">
                 <div className="bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 rounded-full p-2 flex items-center justify-center ">
@@ -247,7 +248,7 @@ function SpecificPage() {
           </div>
 
           {/* start of sort filter  */}
-          <div className="z-[99] relative">
+          <div className="z-[10] relative">
             <div className={`rounded-full w-10 h-10 -mt-2 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black absolute right-0 ${viewSortFilter ? '-mt-8' : ''}`}>
               {!viewSortFilter && <img src={filterSVG} className="w-[1.5rem] h-[1.5rem] text-white" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />}
               {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} className="" />}
@@ -320,6 +321,7 @@ function SpecificPage() {
           </div>
         </div>)}
       </div>
+
       <div className="">
         <Footer />
       </div>

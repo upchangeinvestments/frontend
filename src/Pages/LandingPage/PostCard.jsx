@@ -14,7 +14,7 @@ function PostCard({ data }) {
     }
     return (
         <div className="flex items-center justify-center">
-            <div className="relative bg-white rounded-lg w-[70%] flex items-center justify-center">
+            <div className="relative bg-white rounded-lg w-[90%] md:w-[70%] flex items-center justify-center">
                 <div className="xl:w-[21rem] rounded-lg shadow-lg font-sans border-2 border-purple-600">
                     <div className={`px-4 pt-2 text-center flex items-center justify-center flex-col`}>
                         <img src={data.image} alt="Company Logo" className="w-full h-32 rounded-lg" />
