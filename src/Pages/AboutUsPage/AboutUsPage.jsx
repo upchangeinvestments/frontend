@@ -27,7 +27,7 @@ function AboutUsPage() {
         </div>
         <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl my-4 relative">
           <p className="text-black uppercase CerebriFont text-2xl md:text-4xl text-center font-bold">Company at a glance</p>
-          <div className="flex items-center justify-start md:justify-center gap-x-6 h-[100px] my-6 vsm:overflow-x-scroll md:overflow-visible">
+          <div className="grid grid-cols-3 md:flex md:items-center md:justify-center gap-x-6 my-6">
             <NavHashLink to="/about/#investor" smooth>
               <div className="flex flex-col items-center hover:text-purple-600 justify-center">
                 <img src="https://i.postimg.cc/pLLVCCN6/investors.jpg" alt="Investors" className="w-12 h-12 md:w-24 md:h-24" />
@@ -47,13 +47,6 @@ function AboutUsPage() {
                 <p className="text-center uppercase whitespace-nowrap">search</p>
               </div>
             </NavHashLink>
-            <NavHashLink to="/about/#partners" smooth>
-
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center">
-                <img src="https://i.postimg.cc/qq9GB78f/partner.jpg" alt="Partner" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">General Partners</p>
-              </div>
-            </NavHashLink>
             <NavHashLink to="/about/#vision" smooth>
 
               <div className="flex flex-col items-center hover:text-purple-600 justify-center">
@@ -69,10 +62,15 @@ function AboutUsPage() {
               </div>
             </NavHashLink>
             <NavHashLink to="/about/#value" smooth>
-
               <div className="flex flex-col items-center hover:text-purple-600 justify-center -mt-1">
                 <img src="https://i.postimg.cc/hGHSSqXk/value.jpg" alt="Value" className="w-12 h-12 md:w-24 md:h-24" />
                 <p className="text-center uppercase whitespace-nowrap">value</p>
+              </div>
+            </NavHashLink>
+            <NavHashLink to="/about/#partners" className="grid col-span-3" smooth>
+              <div className="flex flex-col items-center hover:text-purple-600 justify-center ">
+                <img src="https://i.postimg.cc/qq9GB78f/partner.jpg" alt="Partner" className="w-12 h-12 md:w-24 md:h-24" />
+                <p className="text-center uppercase whitespace-nowrap">General Partners</p>
               </div>
             </NavHashLink>
           </div>
@@ -86,7 +84,7 @@ function AboutUsPage() {
             </div>
 
             <div className="md:hidden border-2 border-black w-[90%]">
-              <img src="https://i.postimg.cc/pLLVCCN6/investors.jpg" className="float-right w-24 h-24 m-4 -mb-2 mx-4" alt="Investor" />
+              <img src="https://i.postimg.cc/pLLVCCN6/investors.jpg" className="float-left w-24 h-24 m-4 -mb-2 mx-4" alt="Investor" />
               <p className="p-6 text-justify">You should aim to write formally and objectively using impersonal and precise language and delivering information in a straightforward manner without sharing personal opinions. You should also use appropriate transition words to link ideas or topics. Avoid things like slang and colloquial phrases, low modality language, contractions and first person pronouns.</p>
             </div>
           </div>
@@ -137,7 +135,7 @@ function AboutUsPage() {
             </div>
 
             <div className="md:hidden border-2 border-black w-[90%]">
-              <img src="https://i.postimg.cc/qq9GB78f/partner.jpg" className="float-right w-24 h-24 my-2 mx-4" alt="partner" />
+              <img src="https://i.postimg.cc/qq9GB78f/partner.jpg" className="float-left w-24 h-24 my-2 mx-4" alt="partner" />
               <p className="p-4 px-6 text-justify">Lynkinfinite has evolved into a marketplace and advertising platform for General Partners (GPs) nationwide. Our platform brings together real estate investors and multiple investment firms, enabling you to search for, compare, and connect with the firms that resonate most with your investment goals. It's the power of choice, and it’s right at your fingertips.</p>
             </div>
           </div>

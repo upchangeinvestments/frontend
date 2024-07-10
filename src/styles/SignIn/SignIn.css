@@ -321,17 +321,17 @@
 }
 .FormMobile button {
   border: none;
-  /* background-color: rgba(248, 245, 245, 0.5); */
   border-radius: 5px;
-  /* color: #0a0a0a; */
   cursor: pointer;
   padding: 7px;
   margin-top: 5px;
   cursor: pointer;
   width: 75%;
-  background-color: #6e30a7;
-  color: white;
   font-weight: 600;
+}
+.FormMobile input::placeholder{
+  color: white;
+  opacity: 0.7;
 }
 
 .logineyeinput input {

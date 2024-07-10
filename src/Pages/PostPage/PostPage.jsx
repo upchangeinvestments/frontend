@@ -23,16 +23,6 @@ import { IoMdCloseCircle } from "react-icons/io";
 import { useAuth } from "../../utils/AuthContext";
 import AccreditedModalComponent from "./AccreditedModal";
 
-const BarChartSetting = {
-  xAxis: [
-    {
-      label: 'Annual Return Rate (%)',
-    },
-  ],
-  width: 500,
-  height: 250,
-};
-
 function formatMinInvestment(minInvestment) {
   if (minInvestment >= 1000000) {
     return false;
@@ -51,7 +41,8 @@ function PostPage() {
   const [shareModal, setShareModal] = useState(false);
   const [AccreditedModal, setAccreditedModal] = useState(false);
   const { isGuest, user } = useAuth();
-
+  const [chartWidth, setChartWidth] = useState(500);
+  const chartRef = useRef();
 
   const bannerItems = [
     {
@@ -98,11 +89,35 @@ function PostPage() {
         }
       }
     };
+
     window.addEventListener('scroll', handleScroll);
+
+    const handleResize = () => {
+      if (window.innerWidth < 767) {
+        setChartWidth(window.innerWidth - 80);
+      } else {
+        setChartWidth(500);
+      }
+    };
+
+    handleResize();
+    window.addEventListener("resize", handleResize);
+
     return () => {
       window.removeEventListener('scroll', handleScroll);
+      window.removeEventListener("resize", handleResize);
     };
   }, []);
+
+  const BarChartSetting = {
+    xAxis: [
+      {
+        label: 'Annual Return Rate (%)',
+      },
+    ],
+    width: chartWidth,
+    height: 250,
+  };
 
   const scrollToTop = () => {
     window.scrollTo({ top: 0, behavior: 'smooth' });
@@ -126,7 +141,7 @@ function PostPage() {
         <meta name="description" content="Real Estate listed projects website" />
         <link rel="canonical" href="/post/:postId" />
       </Helmet>
-      <div className="flex flex-col items-center justify-center relative font-['Playfair-Display']">
+      <div className="flex flex-col items-center justify-center relative font-['Playfair-Display'] w-[100%]">
         <AccreditedModalComponent open={AccreditedModal} CloseAccreditedModal={closeAccreditedModal} data={data} />
         {shareModal && (
           <div className="w-full h-full flex items-center justify-center flex-col z-[100] fixed inset-0 overflow-hidden">
@@ -177,16 +192,16 @@ function PostPage() {
             </div>
           </div>
         )}
-        <div className="w-[100%]">
+        <div className="w-[100%] mx-auto">
           <div className="PostPage">
             <NavBar />
             <div className="" id="overview"></div>
-            <div className="YesevaFont flex items-center justify-center relative overflow-x-hidden">
-              <div className="flex justify-center items-start h-[90%] relative">
-                <div className="relative flex flex-col">
-                  <p className="text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
-                  <div ref={bannerRef} className="">
-                    <div className={`flex items-center bg-white justify-between mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
+            <div className="YesevaFont flex items-center justify-center relative overflow-x-hidden w-full">
+              <div className="flex justify-center items-start h-[90%] relative w-[100%]">
+                <div className="relative flex flex-col w-[100%]">
+                  <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
+                  <div ref={bannerRef} className="bg-white w-full">
+                    <div className={`flex items-center justify-between md:mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
                       <p className={`YesevaFont text-4xl flex items-center justify-center text-left ${bannerContent ? '' : ''}`}>{data.companyName}</p>
                       <div className={`${bannerContent ? 'flex items-center justify-center' : ''}`}>
                         <button onClick={() => setShareModal(true)} style={{ backgroundImage: `url(${bgImage})` }}
@@ -195,15 +210,15 @@ function PostPage() {
                         </button>
                       </div>
                     </div>
-                    <div className="flex items-center justify-center relative bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-12 py-4 w-[100vw]">
+                    <div className="flex items-center justify-center relative bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-12 py-4 md:w-[100vw]">
                       <div className="flex items-center justify-start gap-x-6">
                         {bannerItems.map((data, index) => (
-                          <NavHashLink to={data.linkToSection} smooth key={index} className="border-[1px] border-white rounded-full p-2 px-4 ">
+                          <NavHashLink to={data.linkToSection} smooth key={index} className="border-[1px] border-white whitespace-nowrap rounded-full p-2 px-4 ">
                             {data.section}
                           </NavHashLink>
                         ))}
                       </div>
-                      <div className="text-black absolute right-8" onClick={scrollToTop}>
+                      <div className="hidden md:block text-black absolute right-8" onClick={scrollToTop}>
                         <FaCircleArrowUp />
                       </div>
                     </div>
@@ -213,7 +228,7 @@ function PostPage() {
             </div>
           </div>
         </div>
-        <div className="vsm:w-[90%] lg:w-[60%] 2xl:max-w-6xl my-4 text-white">
+        <div className="vsm:w-[90%] mx-auto lg:w-[60%] 2xl:max-w-6xl my-4 text-white">
           <div className="flex items-center justify-center flex-col text-black">
             <div className="flex items-center justify-start w-[120%]">
               <p className="YesevaFont text-xl mb-2 text-left">Overview</p>
@@ -222,34 +237,63 @@ function PostPage() {
           </div>
           <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4 ">
             <p className="YesevaFont text-2xl text-center my-1 uppercase">{data.companyName} strategy allocation</p>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center flex-col md:flex-row">
               <div className="flex items-center justify-center relative">
-                <PieChart
-                  series={[
-                    {
-                      data: [
-                        { id: 0, value: 75, label: 'Equity Focused', color: "#A26CF6" },
-                        { id: 1, value: 25, label: 'Other Strategies', color: "#C59FFF" },
-                      ],
-                      highlightScope: { faded: 'global', highlighted: 'item' },
-                      faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-                      innerRadius: 50,
-                      outerRadius: 100,
-                      paddingAngle: 2,
-                      cornerRadius: 5,
-                      startAngle: 0,
-                      endAngle: 360,
-                      cx: 100,
-                      cy: 120,
-                    }
-                  ]}
-                  slotProps={{
-                    legend: { hidden: true },
-                  }}
-                  width="450px"
-                  height="250px"
-                />
-                <div className="z-10 absolute right-10 flex flex-col items-start justify-center gap-y-2">
+                <div className="hidden md:block">
+                  <PieChart
+                    series={[
+                      {
+                        data: [
+                          { id: 0, value: 75, label: 'Equity Focused', color: "#A26CF6" },
+                          { id: 1, value: 25, label: 'Other Strategies', color: "#C59FFF" },
+                        ],
+                        highlightScope: { faded: 'global', highlighted: 'item' },
+                        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                        innerRadius: 50,
+                        outerRadius: 100,
+                        paddingAngle: 2,
+                        cornerRadius: 5,
+                        startAngle: 0,
+                        endAngle: 360,
+                        cx: 100,
+                        cy: 120,
+                      }
+                    ]}
+                    slotProps={{
+                      legend: { hidden: true },
+                    }}
+                    width="450px"
+                    height="250px"
+                  />
+                </div>
+                <div className="md:hidden">  {/*for mobile screens*/}
+                  <PieChart
+                    series={[
+                      {
+                        data: [
+                          { id: 0, value: 75, label: 'Equity Focused', color: "#A26CF6" },
+                          { id: 1, value: 25, label: 'Other Strategies', color: "#C59FFF" },
+                        ],
+                        highlightScope: { faded: 'global', highlighted: 'item' },
+                        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
+                        innerRadius: 50,
+                        outerRadius: 100,
+                        paddingAngle: 2,
+                        cornerRadius: 5,
+                        startAngle: 0,
+                        endAngle: 360,
+                        cx: 200,
+                        cy: 120,
+                      }
+                    ]}
+                    slotProps={{
+                      legend: { hidden: true },
+                    }}
+                    width="450px"
+                    height="300px"
+                  />
+                </div>
+                <div className="z-10 absolute bottom-0 md:right-10 md:inset-y-0 flex flex-col items-start justify-center gap-y-2">
                   <div className="flex items-center justify-center gap-x-2">
                     <div className="w-4 h-4 border-[1px] border-white bg-[#A26CF6]"></div>
                     <p>Equity Focused (25%)</p>
@@ -260,7 +304,7 @@ function PostPage() {
                   </div>
                 </div>
               </div>
-              <div className="flex items-center justify-center flex-col ">
+              <div className="flex items-center justify-center flex-col mt-6 md:mt-0">
                 <p className="text-[#A26CF6] text-5xl mb-4 font-medium">{data.aum}</p>
                 <p className="text-xl CormorantFont CerebriFont">Assets Under Mangement</p>
               </div>
@@ -281,16 +325,20 @@ function PostPage() {
               <li className=""> <span className="font-bold ">Insight: </span> With {data.aum} in AUM, {data.companyName} is a mid-sized firm. This level of AUM indicates stability and sufficient resources to manage investments effectively and generate returns for investors. </li>
             </ul>
           </div>
-          <div className="grid grid-cols-2 gap-x-6 my-6 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 my-6 gap-y-8">
             <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center">
               <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Risk type</p>
               <div className="relative h-full w-full CerebriFont">
-                <p className="absolute left-20 bottom-4">Low</p>
-                <p className="absolute bottom-4 right-20">High</p>
-                <p className="absolute top-4 inset-x-0 left-[42%]">Medium</p>
-                <img src="https://i.postimg.cc/dt1k2mm6/highmeter.png" alt="High" />
-                {/* <img src="https://i.postimg.cc/t4nsfqcV/medium.png" alt="Medium" />
-                <img src="https://i.postimg.cc/HshJBc6g/low.png" alt="Low" /> */}
+                <p className="absolute left-16 md:left-20 bottom-4">Low</p>
+                <p className="absolute bottom-4 right-16 md:right-20">High</p>
+                <p className="absolute top-4 inset-x-0 left-[42%]">{data.riskLevel}</p>
+                {data.riskLevel === "High" ? (
+                  <img src="https://i.postimg.cc/dt1k2mm6/highmeter.png" alt="High" />
+                ) : data.riskLevel === "Medium" ? (
+                  <img src="https://i.postimg.cc/t4nsfqcV/medium.png" alt="Medium" />
+                ) : (
+                  <img src="https://i.postimg.cc/HshJBc6g/low.png" alt="Low" />
+                )}
               </div>
             </div>
             <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex items-center justify-start flex-col text-center" >
@@ -322,8 +370,8 @@ function PostPage() {
 
           <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg p-4 my-6">
             <p className="YesevaFont text-2xl text-center my-1 uppercase">Historical return rates</p>
-            <div className="flex items-center justify-center -mt-8 -ml-8">
-              <div className="text-white">
+            <div className="flex items-center justify-center -mt-8 md:-ml-8 flex-col md:flex-row gap-y-8">
+              <div className="text-white" ref={chartRef}>
                 <BarChart
                   dataset={data.yearly_returns}
                   yAxis={[{ scaleType: 'band', dataKey: 'year' }]}
@@ -359,7 +407,9 @@ function PostPage() {
                   {...BarChartSetting}
                 />
               </div>
-              <div className="text-4xl text-[#A26CF6] font-bold whitespace-nowrap overflow-hidden text-ellipsis flex-shrink -mt-4">{data.historicalReturnRates.split("-")[0]}% - {data.historicalReturnRates.split("-")[1]}%</div>
+              <div className="text-4xl text-[#A26CF6] font-bold whitespace-nowrap overflow-hidden text-ellipsis flex-shrink -mt-4">
+                {data.historicalReturnRates.split("-")[0]}% - {data.historicalReturnRates.split("-")[1]}%
+              </div>
             </div>
           </div>
           <div className="mb-4 text-black my-4">
@@ -369,7 +419,7 @@ function PostPage() {
               <li className=""> <span className="font-bold ">Insight: </span> This indicates solid past performance, suggesting potential for consistent future returns. A historical return rate of {data.historicalReturnRates}% is attractive and implies effective portfolio management that consistently delivers positive results.</li>
             </ul>
           </div>
-          <div className="grid grid-cols-2 gap-x-6 my-6 ">
+          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 my-6 gap-y-8">
             <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center">
               <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Management Fees</p>
               <div className=" text-center mb-6 CerebriFont">
@@ -418,9 +468,9 @@ function PostPage() {
           </div>
           <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-4 rounded-lg my-6" id="location">
             <p className="YesevaFont text-2xl text-center my-1 uppercase">Headquarter location</p>
-            <div className="flex items-center justify-center">
+            <div className="flex items-center justify-center flex-col md:flex-row gap-y-8">
               <div className="">
-                <img src="https://i.postimg.cc/fR9Q4fFz/demographic.jpg" className="w-[400px] -ml-[100px]" alt="Location" />
+                <img src="https://i.postimg.cc/fR9Q4fFz/demographic.jpg" className="w-[400px]" alt="Location" />
               </div>
               <div className="text-center CerebriFont mr-[50px] my-auto">
                 <p className="text-2xl text-center uppercase YesevaFont mb-2">Location</p>
@@ -459,7 +509,7 @@ function PostPage() {
           <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4" >
             <p className="YesevaFont text-2xl text-center my-1 uppercase">contact Management</p>
             <div id="historicalProjects"></div>
-            <div className="flex items-center justify-center gap-x-20 py-6">
+            <div className="flex items-center justify-center flex-col md:flex-row gap-x-20 py-6 gap-y-12">
               <div className="flex flex-col items-center justify-center ">
                 <div className="flex items-center justify-center gap-x-4">
                   <img className="w-[100px] h-[100px] rounded-full object-cover" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="person" />

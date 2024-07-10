@@ -1,8 +1,7 @@
 import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'react';
 import { Drawer } from "@material-tailwind/react";
 import Tooltip from '@mui/material/Tooltip';
-// import InvestmentData from "../../assets/FilterData.json";
-import PropertyData from "../../assets/RMData.json";
+import companyData from "../../assets/companyData.json";
 
 const getTooltipContent = (location) => {
     switch (location) {
@@ -22,31 +21,34 @@ const getTooltipContent = (location) => {
 };
 
 const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFilteredData }, ref) => {
-    const [price, setPrice] = useState(0);
-    const [zipCode, setZipCode] = useState("");
+    const [mngFee, setMngFee] = useState(0);
     const { title, options, inputType } = data || {};
     const [selectedOptions, setSelectedOptions] = useState({});
 
     var filterType;
-    if (title === 'Categories') filterType = "category";
+    if (title === 'Class Type') filterType = "classType";
     else if (title === "Location") filterType = "locations";
     else if (title === "Investment Range") filterType = "investmentRange";
-    else if (title === "Hold Period") filterType = "holdPeriod";
-    else if (title === "Zip Code") filterType = "zipCode";
-    else if (title === "Targeted IRR") filterType = "targetedIRR";
+    else if (title === "Company Age") filterType = "companyAge";
+    else if (title === "Investor Type") filterType = "investorType";
+    else if (title === "Management Fee") filterType = "managementFee";
+    else if (title === "Risk Level") filterType = "riskLevel";
 
     const [filters, setFilters] = useState({
-        category: [],
+        classType: [],
         investmentRange: [],
-        targetedIRR: 0,
-        holdPeriod: [],
+        managementFee: 0,
+        companyAge: [],
+        riskLevel: [],
+        investorType: [],
         locations: [],
-        zipCode: ""
     });
     const [checkedValues, setCheckedValues] = useState({
-        category: [],
+        classType: [],
         investmentRange: "",
-        holdPeriod: [],
+        companyAge: [],
+        investorType: "",
+        riskLevel: [],
         locations: []
     });
 
@@ -60,20 +62,21 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
     };
 
     const applyFilters = () => {
-        let filtered = PropertyData.filter(item => {
+        let filtered = companyData.filter(item => {
             return (
-                (filters.category.length === 0 || filters.category.includes(item.category)) &&
+                (filters.classType.length === 0 || filters.classType.includes(item.classType)) &&
+                (filters.riskLevel.length === 0 || filters.riskLevel.includes(item.riskLevel)) &&
                 (filters.investmentRange.length === 0 ||
                     item.minInvestment >= parseInt(filters.investmentRange.split('-')[0].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) &&
                     (filters.investmentRange.split('-')[1] ? item.minInvestment <= parseInt(filters.investmentRange.split('-')[1].replace("$", "").replace("k", "000").replace("M", "000000").replace("+", "")) : true)
                 ) &&
-                (filters.targetedIRR == 0 || parseFloat(item.IRR) <= filters.targetedIRR) &&
-                (filters.holdPeriod.length === 0 || filters.holdPeriod.some(period => {
+                (filters.managementFee == 0 || parseFloat(item.feeStructure) <= filters.managementFee) &&
+                (filters.investorType.length === 0 || item.investorEligibility.includes(filters.investorType)) &&
+                (filters.companyAge.length === 0 || filters.companyAge.some(period => {
                     const [min, max] = period.split('-').map(x => parseInt(x.replace('YRS', '')));
-                    return item.Hold_period >= min && item.Hold_period <= max;
+                    return item.age >= min && item.age <= max;
                 })) &&
-                (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.location))) &&
-                (filters.zipCode === "" || item.zip_code.includes(filters.zipCode))
+                (filters.locations.length === 0 || filters.locations.some(region => getTooltipContent(region).includes(item.state)))
             );
         });
         sendFilteredData(filtered, filters);
@@ -133,18 +136,12 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
     };
 
     const clearFilter = (filterType) => {
-        if (filterType === "targetedIRR") {
+        if (filterType === "managementFee") {
             setFilters(prevFilters => ({
                 ...prevFilters,
                 [filterType]: 0,
             }));
-            setPrice(0);
-        } else if (filterType === 'zipCode') {
-            setFilters(prevFilters => ({
-                ...prevFilters,
-                [filterType]: ""
-            }));
-            setZipCode("");
+            setMngFee(0);
         } else {
             setFilters(prevFilters => ({
                 ...prevFilters,
@@ -161,14 +158,9 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
         applyFilters();
     }, [filters]);
 
-    const updateIrrValue = (event) => {
-        setPrice(event.target.value);
-        updateFilters("targetedIRR", event.target.value, "range", false);
-    };
-
-    const updateZipCodeValue = (event) => {
-        setZipCode(event.target.value);
-        updateFilters("zipCode", event.target.value, "text", false);
+    const updateMngFeeValue = (event) => {
+        setMngFee(event.target.value);
+        updateFilters("managementFee", event.target.value, "range", false);
     };
 
     const handleOptionChange = (filterIndex, optionValue, inputType, checked) => {
@@ -197,21 +189,23 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
 
     const clearAllFilters = () => {
         setFilters({
-            category: [],
+            classType: [],
             investmentRange: [],
-            targetedIRR: 0,
-            holdPeriod: [],
+            managementFee: 0,
+            companyAge: [],
             locations: [],
-            zipCode: ""
+            investorType: [],
+            riskLevel: [],
         });
         setCheckedValues({
-            category: [],
+            classType: [],
             investmentRange: "",
-            holdPeriod: [],
-            locations: []
+            investorType: "",
+            companyAge: [],
+            locations: [],
+            riskLevel: [],
         });
-        setPrice(0);
-        setZipCode('');
+        setMngFee(0);
     };
 
     useImperativeHandle(ref, () => ({
@@ -250,7 +244,6 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
                                 checked={isChecked(item)}
                                 onChange={(e) => handleOptionChange(Index, item, inputType, e.target.checked)}
                                 className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
-                            // disabled={item === type && title === "Categories"}
                             />
                             <Tooltip key={item} title={getTooltipContent(item)}>
                                 <div className="text-base">{item}</div>
@@ -258,20 +251,17 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
                         </label>
                     ))
                 }
-                {Index === 4 && <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
-                    <div className="font-['Asap'] w-[80%]">
-                        <input type="text" value={zipCode} onChange={updateZipCodeValue} className="w-full bg-gray-100 border py-2 px-4 rounded-md outline-none border-1 border-[#6e30a7]" />
-                    </div>
-                </div>}
 
-                {Index === 5 && <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
+                {Index === 3 && <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
                     <div className="flex items-center">
                         <p className='text-[#6e30a7]'>0</p>
                         <div className="flex-grow mx-4 FilterSection">
-                            <input type="range" name="priceIRR" min={0} max={50} value={price} onChange={updateIrrValue} step="5" className="w-full appearance-none bg-gray-200 h-2 rounded-full outline-none focus:outline-none"
-                                style={{ background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(price / 50) * 100}%, #CBD5E0 ${(price / 50) * 100}%, #CBD5E0 100%)`, }} />
+                            <input type="range" name="managementFee" min={0} max={3} value={mngFee} onChange={updateMngFeeValue} step="0.2" className="w-full appearance-none bg-gray-200 h-2 rounded-full outline-none focus:outline-none"
+                                style={{
+                                    background: `linear-gradient(to right, #6e30a7 0%, #6e30a7 ${(mngFee / 3) * 100}%, #CBD5E0 ${(mngFee / 3) * 100}%, #CBD5E0 100%)`,
+                                }} />
                         </div>
-                        <p className='text-[#6e30a7]'>{price}</p>
+                        <p className='text-[#6e30a7]'>{mngFee == 0 ? 3 : mngFee}%</p>
                     </div>
                 </div>}
             </div >

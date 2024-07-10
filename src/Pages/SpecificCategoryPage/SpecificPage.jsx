@@ -36,7 +36,7 @@ function SpecificPage() {
   const sortFilterRef = useRef(null);
   const clearAllFilterRef = useRef();
   const [investmentRange, setInvestmentRange] = useState("");
-  const [IRR, setIRR] = useState("");
+  const [IRR, setIRR] = useState("");   // IRR here refers to historical return rates
   const [selectedPosts, setSelectedPosts] = useState([]);
   const [removePost, setRemovePost] = useState(false);
 

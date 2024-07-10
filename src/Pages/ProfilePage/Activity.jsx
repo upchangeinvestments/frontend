@@ -29,14 +29,14 @@ function Activity() {
   }, [user])
 
   return (
-    <div className="">
+    <div className="w-[100%] md:w-[90%]">
       {starredData && (starredData.length === 0) && (
-        <div className='flex items-center flex-col justify-center mt-20 rowdiesFont w-[90%]'>
+        <div className='flex items-center flex-col justify-center mt-20 rowdiesFont'>
           {/* <img className="rounded-3xl mt-12 z-[9999]" src="https://i.pinimg.com/564x/42/ef/d7/42efd7e3b3b68f6d1227108a70c65002.jpg" alt="" /> */}
           <p className='text-3xl text-gray-500 uppercase w-[50%] text-center'>Nothing here to see, pin posts to see here!</p>
         </div>
       )}
-      <div className="mt-12 xl:gap-y-20 w-[90%]">
+      <div className="mt-12 xl:gap-y-20">
         <div className="grid grid-cols-3 gap-x-8 gap-y-10">
           {starredData && starredData.map(index => (
             <StarredPosts key={index} data={{ ...InvestmentData[index], index: index }} updatePosts={updatePostsHandler} />

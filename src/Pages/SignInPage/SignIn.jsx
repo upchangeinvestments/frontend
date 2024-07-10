@@ -442,12 +442,7 @@ const SignIn = () => {
                 <p className="text-purple-600">LynkInfinite Investments</p>
               </h2>
             </div>
-            <div
-              className="m-8 py-6 px-2 rounded-lg "
-              style={{
-                backgroundColor: "rgba(34, 25, 25, 0.5)",
-              }}
-            >
+            <div className="m-8 py-6 px-2 rounded-lg" style={{ backgroundColor: "#9b5bd4" }}>
               {/* ....................... start of registration form in mobile screens....................... */}
               <form
                 className="flex flex-col items-center justify-center"
@@ -497,7 +492,7 @@ const SignIn = () => {
                   name="confirmPassword"
                   required
                 />
-                <div className="checkbox font-['Playfair-Display'] flex items-center justify-center gap-2 mt-4">
+                <div className="checkbox font-['Playfair-Display'] flex items-center justify-center gap-2 mt-4 w-[80%]">
                   <input type="checkbox" name="terms" required />
                   <label htmlFor="terms">
                     <p className="text-xs">
@@ -505,14 +500,15 @@ const SignIn = () => {
                     </p>
                   </label>
                 </div>
-                <button type="submit" className="my-6">
+                <button type="submit" className="bg-top whitespace-nowrap my-6 vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover"
+                  style={{ backgroundImage: `url(${bgImage})` }}>
                   SIGN UP
                 </button>
                 <div>
                   <p>
                     Have an account?{" "}
                     <span id="signUp" onClick={SignInButtonClick}>
-                      LOGIN
+                      SIGN IN
                     </span>
                   </p>
                 </div>
@@ -534,29 +530,15 @@ const SignIn = () => {
             <div
               className="m-8 py-6 px-2 rounded-lg "
               style={{
-                backgroundColor: "rgba(34, 25, 25, 0.5)",
+                backgroundColor: "#9b5bd4",
               }}
             >
               {showForgetPassword ? (
                 // ....................... start of forgot form .......................
-                <form
-                  className="flex flex-col items-center justify-center"
-                  onSubmit={handleForgetPassword}
-                >
+                <form className="flex flex-col items-center justify-center" onSubmit={handleForgetPassword} >
                   <h2 className="text-2xl font-bold">FORGOT PASSWORD</h2>
-                  <input className=""
-                    type="text"
-                    placeholder="Name"
-                    name="name"
-                    required
-                  />
-                  <input
-                    className=""
-                    type="email"
-                    placeholder="Email"
-                    name="ForgotEmail"
-                    required
-                  />
+                  <input className="" type="text" placeholder="Name" name="name" required />
+                  <input className="" type="email" placeholder="Email" name="ForgotEmail" required />
                   <button type="submit" className="font-normal">
                     RESET PASSWORD
                   </button>
@@ -578,46 +560,25 @@ const SignIn = () => {
                   <h2 className="text-2xl font-bold">SIGN IN</h2>
                   <div className="flex items-center justify-center gap-x-4">
                     <div onClick={GoogleLoginHandler}>
-                      <img
-                        className="w-[50px]"
-                        src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
-                        alt="googlelogo"
-                      />
+                      <img className="w-[50px]" src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png" alt="googlelogo" />
                     </div>
                     <div onClick={OutLookLoginHandler}>
-                      <img
-                        className="w-[40px]"
-                        src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
-                        alt="outlook"
-                      />
+                      <img className="w-[40px]" src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png" alt="outlook" />
                     </div>
                   </div>
-                  <input
-                    className=""
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    required
-                    value={userData !== null ? userData.email : ""}
-                    onChange={(e) =>
-                      setUserData({ ...userData, email: e.target.value })
-                    }
-                  />
+                  <input className="" type="email" placeholder="Email" name="email" required value={userData !== null ? userData.email : ""} onChange={(e) => setUserData({ ...userData, email: e.target.value })} />
                   <div className="relative logineyeinput flex flex-start w-[75%]">
-                    <input
-                      type={showPassword ? "text" : "password"}
-                      placeholder="Password"
-                      name="password"
-                      className="w-full"
-                      required
-                    />
+                    <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" className="w-full" required />
                     {showPassword ? (
                       <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
                     ) : (
                       <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
                     )}
                   </div>
-                  <button type="submit">LOGIN</button>
+                  <button type="submit" className="bg-top whitespace-nowrap my-6 vsm:px-4 vsm:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover"
+                    style={{ backgroundImage: `url(${bgImage})` }}>
+                    LOGIN
+                  </button>
                   <div className="cursor-pointer" onClick={() => setShowForgetPassword(true)}>
                     <p className="">Forgot password</p>
                   </div>

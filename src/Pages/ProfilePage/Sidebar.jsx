@@ -557,7 +557,7 @@ const Sidebar = ({ sendDataToProfile }) => {
   };
 
   return (
-    <div className="hidden md:flex justify-start items-start shadow-md vsm:w-full h-full md:w-[90%] lg:w-[90%] xl:w-[90%] p-4 pl-1">
+    <div className="flex justify-start items-start shadow-md vsm:w-full h-full md:w-[90%] lg:w-[90%] xl:w-[90%] p-4 pl-1">
       <div className="flex flex-col items-start backdrop-blur-lg md:rounded-lg lg:rounded-lg w-full">
         <ul className="flex flex-col space-y-2 w-full font-['Poppins']">
           {tabs.map((tab, index) => (

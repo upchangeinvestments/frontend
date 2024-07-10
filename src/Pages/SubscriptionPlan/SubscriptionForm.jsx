@@ -99,7 +99,7 @@ function SubscriptionForm() {
     };
 
     return (
-        <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 rounded-lg max-w-7xl px-6 py-12 md:py-8 vsm:-mt-[250px] md:-mt-[240px]" >
+        <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 rounded-lg max-w-7xl px-6 py-12 md:py-8 -mt-[40px] md:-mt-[240px]" >
             <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-1 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 bg-gradient-to-r from-[#9b5bd4] to-purple-300 rounded-lg flex flex-col items-center justify-center">
                 <p className='text-xl '><span className='font-semibold'>We are Thrilled to Partner with You</span>: Please fill out our Listing Inquiry Form Below and we will get back to you within 24-48 hours! <br />(Select all that apply)</p>
                 {!formSubmitted && <form
@@ -256,9 +256,8 @@ function SubscriptionForm() {
                         </Select>
                     </div>
                     <div className="flex items-center justify-center">
-                        <button
-                            style={{ backgroundImage: `url(${bgImage})` }}
-                            className="bg-center bg-cover text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center"
+                        <button style={{ backgroundImage: `url(${bgImage})` }}
+                            className="bg-center bg-cover text-black font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline flex items-center justify-center mt-4"
                             type="submit"
                         >
                             <FaTelegramPlane />
@@ -273,7 +272,7 @@ function SubscriptionForm() {
                     </div>
                 )}
             </div >
-            <div className="rounded-lg max-w-7xl vsm:mx-4 md:mx-auto mt-[30px] px-6 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] bg-white/20  md:py-8 md:px-10  backdrop-blur-xl">
+            <div className="rounded-lg max-w-7xl md:mx-auto mt-[30px] px-4 py-12 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)] bg-white/20  md:py-8 md:px-10  backdrop-blur-xl">
                 <Faq className="w-full" />
             </div>
         </div >

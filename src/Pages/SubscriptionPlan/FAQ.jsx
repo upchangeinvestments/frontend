@@ -68,14 +68,14 @@ const FAQItem = ({ title, content }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <div className="border-b border-gray-200 text-black text-lg">
+        <div className="border-b border-gray-200 text-black text-lg relative">
             <button
                 className="flex w-full items-center justify-between py-4 text-left font-medium text-gray-500 "
                 onClick={() => setIsOpen(!isOpen)}
             >
-                <span className="text-black">{title}</span>
+                <span className="text-black w-[90%] md:w-full">{title}</span>
                 <svg
-                    className={`h-5 w-5 transform ${isOpen ? "rotate-180" : "rotate-0"}`}
+                    className={`absolute -right-2 md:right-2 h-5 w-5 transform ${isOpen ? "rotate-180" : "rotate-0"}`}
                     viewBox="0 0 20 20"
                     fill="currentColor"
                 >

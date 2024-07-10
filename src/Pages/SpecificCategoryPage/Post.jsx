@@ -59,7 +59,6 @@ function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selecte
 
     }, [starredPostIndices, selectedPosts, data.projectId]);
 
-
     return (
         <div className="z-10 relative flex items-center justify-center">
             <div className="absolute bg-[#6e30a7] h-[300px] inset-x-0 -bottom-12 rounded-xl -z-[1]">

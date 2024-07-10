@@ -9,10 +9,10 @@ const Tabs = ({ tabs, activeIndex }) => {
   }, [activeIndex])
 
   return (
-    <div className="w-full">
-      <div className="aboutMain font-['Poppins']">
+    <div className="w-[100%]">
+      <div className="aboutMain font-['Poppins'] overflow-x-scroll md:overflow-x-hidden">
         <div className="mt-4">
-          <div className="flex vsm:mb-[130px] md:gap-[90px] lg:gap-[90px] lg:mb-[190px] xl:mb-[240px] p-2 w-[90%] vsm:gap-4 items-center justify-center ">
+          <div className="flex gap-8 md:gap-[90px] lg:gap-[90px] p-2 w-[90%] items-center justify-start">
             {tabs.map((tab, index) => (
               <button
                 key={index}
@@ -25,17 +25,12 @@ const Tabs = ({ tabs, activeIndex }) => {
           </div>
         </div>
       </div>
-      <div className="flex flex-col -mt-[130px] lg:-mt-[210px] xl:-mt-[250px] w-full z-[9999]">
-        <div className="">
-          {tabs.map((tab, index) => (
-            <div
-              key={index}
-              className={`mb-4 ${activeTab === index ? "block" : "hidden"}`}
-            >
-              {tab.content}
-            </div>
-          ))}
-        </div>
+      <div className="flex flex-col lg:-mt-[30px]">
+        {tabs.map((tab, index) => (
+          <div key={index} className={`mb-4 w-[100%] md:w-[90%] flex items-center justify-center md:justify-start ${activeTab === index ? "block" : "hidden"}`}>
+            {tab.content}
+          </div>
+        ))}
       </div>
     </div>
   );

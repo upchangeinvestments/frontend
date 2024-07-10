@@ -13,7 +13,8 @@ function FilterSection({ sendFilteredData, setLoader }) {
   const CompanyAge = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
   const InvestorType = ['Accredited', 'Non-Accredited'];
   // const [showAllCompanies, setShowAllCompanies] = useState(false);
-  const RiskLevel = ['High', 'Medium', 'Low']
+  const RiskLevel = ['High', 'Medium', 'Low'];
+
   const [mngFee, setMngFee] = useState(0);
 
   const [filters, setFilters] = useState({

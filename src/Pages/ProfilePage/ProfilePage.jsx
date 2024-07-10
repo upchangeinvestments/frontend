@@ -11,11 +11,10 @@ import { Helmet } from 'react-helmet-async';
 import NavBar from "../../commonComponents/NavBar";
 import Sidebar from "./Sidebar";
 import MobileSidebar from "./mobileSidebar";
-import ProfileContent from "./ProfileContent";
 import { useAuth } from "../../utils/AuthContext";
 
 const ProfilePage = () => {
-  const { user, backendUrl, setUser } = useAuth();
+  const { user } = useAuth();
 
   const tabs = [
     { title: "My Profile", content: <Profile />, activeIndex: 0 },
@@ -50,9 +49,34 @@ const ProfilePage = () => {
       </Helmet>
       <div className="categoryMain">
         <NavBar />
-        <div className="grid grid-cols-4">
-          <div className="grid col-span-1 mt-[10%]">
-            <Sidebar sendDataToProfile={handleIncomingData} />
+        <div className="grid grid-cols-1 md:grid-cols-4">
+          <div className="grid col-span-1">
+            <div className="hidden md:flex mt-[10%]">
+              <Sidebar sendDataToProfile={handleIncomingData} />
+            </div>
+          </div>
+          <div className="md:grid md:col-span-3">
+            <div className="flex items-start justify-center relative flex-col">
+              <div className="flex flex-col justify-start items-center h-[90%] relative">
+                <p className="YesevaFont text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
+              </div>
+              <div className="w-[90%] mx-auto md:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
+                <div className="flex items-center p-2 font-['Poppins']">
+                  <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
+                    <p className="text-2xl text-white font-semibold">{user.name}</p>
+                    <p className="text-white md:w-[50%]">Unlock the power of passive investing: Answer a few question to become a Accredited Investor </p>
+                  </div>
+                </div>
+                <div className="mt-4 flex items-center justify-start gap-x-4 ml-4 whitespace-nowrap flex-col md:flex-row gap-y-4">
+                  <div className={user.AccreditedInvestor ? "border-2 rounded-xl border-white text-white font-semibold p-2 px-4" : "p-2 px-4 rounded-xl bg-white text-purple-600 font-semibold"}>
+                    <p className="uppercase">Non-accredited</p>
+                  </div>
+                  <div className={user.AccreditedInvestor ? "p-2 rounded-xl bg-white text-purple-600 font-semibold px-4" : "p-2 px-4 border-2 rounded-xl border-white text-white font-semibold"}>
+                    <p className="uppercase">accredited</p>
+                  </div>
+                </div>
+              </div>
+            </div>
             <div className="md:hidden relative" onClick={sidebarHandler}>
               <svg
                 className="h-6 w-6 vsm:mt-[15px] vsm:ml-[8px]"
@@ -78,55 +102,13 @@ const ProfilePage = () => {
                 </div>
               )}
             </div>
-          </div>
-          <div className="grid col-span-3">
-            <div className="flex items-start justify-center relative flex-col">
-              <div className="flex flex-col justify-start items-center h-[90%] relative">
-                <p className="YesevaFont text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
-              </div>
-              <div className="w-[90%] sm:p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
-                <div className="flex items-center p-2 font-['Poppins']">
-                  <div className="">
-                    {user.image ? (
-                      <div>
-                        <img
-                          src={user.image}
-                          alt="user"
-                          className="border border-gray-200 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px] rounded-full"
-                        />
-                      </div>
-                    ) : (
-                      <FaUserCircle
-                        variant="circular"
-                        size="100px"
-                        color="white"
-                        alt="user"
-                        className="border border-gray-900 p-0.5 vsm:w-[60px] vsm:h-[60px] sm:w-[80px] sm:h-[80px] md:w-[100px] md:h-[100px] lg:w-[100px] lg:h-[100px] rounded-full"
-                      />
-                    )}
-                  </div>
-                  <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
-                    <p className="text-2xl text-white font-semibold">{user.name}</p>
-                    <p className="text-white w-[50%]">Unlock the power of passive investing: Answer a few question to become a Accredited Investor </p>
-                  </div>
-                </div>
-                <div className="mt-4 flex items-center justify-start gap-x-4 ml-4">
-                  <div className={user.AccreditedInvestor ? "border-2 rounded-xl border-white text-white font-semibold p-2 px-4" : "p-2 px-4 rounded-xl bg-white text-purple-600 font-semibold"}>
-                    <p className="uppercase">Non-accredited</p>
-                  </div>
-                  <div className={user.AccreditedInvestor ? "p-2 rounded-xl bg-white text-purple-600 font-semibold px-4" : "p-2 px-4 border-2 rounded-xl border-white text-white font-semibold"}>
-                    <p className="uppercase">accredited</p>
-                  </div>
-                </div>
-              </div>
-            </div>
-            <div className="w-full">
+            <div className="w-full ">
               {["My Profile", "Investor Status", "Questionnaire", "Saved Companies"].includes(tabContent.title) ? (
                 <Tabs tabs={tabs} activeIndex={tabContent.activeIndex} />
               ) : (
-                <div className="mt-8 w-[90%] flex items-center justify-start flex-col">
+                <div className="mt-8 w-[90%] mx-auto md:mx-0 flex items-center justiify-center md:justify-start flex-col">
                   <p className="text-2xl font-bold text-center YesevaFont mb-2">{tabContent.title}</p>
-                  <div className="flex items-start justify-start">
+                  <div className="flex items-center justify-center md:items-start md:justify-start">
                     {tabContent.content}
                   </div>
                 </div>

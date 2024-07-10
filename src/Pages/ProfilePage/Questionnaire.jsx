@@ -107,13 +107,13 @@ const Questionnaire = () => {
   };
 
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-start items-center py-2 shadow-lg hover:shadow-xl container my-4 relative w-[90%]">
-      <div className="flex vsm:flex-col lg:flex-row w-full lg:items-center lg:justify-center">
+    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center md:justify-start items-center py-2 shadow-lg hover:shadow-xl container my-4 md:mt-12 relative">
+      <div className="flex vsm:flex-col lg:flex-row w-full items-center justify-center mb-12 md:mb-0">
         <div className="w-full vsm:px-6 flex items-center justify-center m-4 mb-8 mx-auto">
           {loadQuiz()}
         </div>
       </div>
-      <div className="vsm:mt-[300px] vsm:right-[15px] md:mt-[300px] md:right-[15px]  lg:mt-4 absolute lg:bottom-8 lg:right-8">
+      <div className="absolute bottom-8 md:right-8">
         <button onClick={QuizHandler} className={`bg-${allQuestionsAnswered && !buttonClicked ? "[#6e30a7]" : "[#6e30a7]/10"} font-['Playfair-Display'] text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded`} disabled={!allQuestionsAnswered || buttonClicked}>
           Save Changes
         </button>
