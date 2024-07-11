@@ -196,23 +196,23 @@ function SpecificPage() {
         <div className="h-[70vh] YesevaFont flex items-center justify-center relative">
           <div className="flex justify-center items-start h-[90%] relative">
             <div className="relative uppercase flex flex-col">
-              <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl text-center"> Explore <span className="text-purple-600">Companies</span></p>
-              <p className="uppercase w-full flex items-center justify-center CerebriFont text-sm md:text-lg -mt-2 md:-mt-4 text-center">Choose a trusted partners to guide you through REal estate investment journey</p>
+              <p className="text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] text-shadow-xl text-center md:whitespace-nowrap"> Explore <span className="text-purple-600">Companies</span></p>
+              <p className="uppercase w-full flex items-center justify-center CerebriFont text-sm md:text-base lg:text-lg -mt-2 md:-mt-4 text-center">Choose a trusted partners to guide you through REal estate investment journey</p>
             </div>
           </div>
         </div>
       </div>
       <div className="relative flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} setLoader={setLoading} />
-        <div className="vsm:flex vsm:flex-col vsm:w-[100%] md:w-[80%] ">
+        <div className="vsm:flex vsm:flex-col w-[100%]  lg:w-[80%] ">
           {loading === false && (
             <MobileFilter
               openDrawer={openDrawer}
               passDataObject={receiveDataObject}
             />
           )}
-          <div className="mx-auto lg:mx-8 w-[90%] mt-8 md:mt-0">
-            <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 md:gap-x-12 md:gap-y-2 lg:gap-y-16 xl:gap-y-20">
+          <div className="mx-auto lg:mx-8 w-[90%] mt-8 lg:mt-0">
+            <div className="grid vsm:grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-20 md:gap-x-12 md:gap-y-16 xl:gap-y-20">
               {loading === false && (filterData.length > 0) && filterData.slice((pageNo - 1) * postsPerPage, pageNo * postsPerPage).map((data, index) => (
                 <div className="flex items-stretch justify-center" key={index}>
                   <Post data={data} starredPostIndices={starredPosts} FetchLikedPosts={FetchLikedPosts} onPostSelect={handlePostSelect} selectedPosts={selectedPosts} />

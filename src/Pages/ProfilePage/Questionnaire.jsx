@@ -73,7 +73,7 @@ const Questionnaire = () => {
 
     return (
       <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
-        <p className="text-left px-4 md:w-[100%] font-['Playfair-Display'] flex justify-center">
+        <p className="text-left px-4 lg:w-[100%] font-['Playfair-Display'] flex justify-center">
           {currentQuizData.question}
         </p>
         <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[50%]">
@@ -107,7 +107,7 @@ const Questionnaire = () => {
   };
 
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center md:justify-start items-center py-2 shadow-lg hover:shadow-xl container my-4 md:mt-12 relative">
+    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center md:justify-start items-center py-2 shadow-lg hover:shadow-xl container my-4 md:mt-12 relative w-[90%] lg:w-[100%]">
       <div className="flex vsm:flex-col lg:flex-row w-full items-center justify-center mb-12 md:mb-0">
         <div className="w-full vsm:px-6 flex items-center justify-center m-4 mb-8 mx-auto">
           {loadQuiz()}

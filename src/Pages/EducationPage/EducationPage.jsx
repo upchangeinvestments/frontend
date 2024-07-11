@@ -155,13 +155,13 @@ function ResouceContent() {
   const shortDescription = description.substring(0, 150) + "... see more";
 
   return (
-    <div className="w-[100%] md:w-[90%] max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8 -mt-[200px] lg:-mt-[270px] xl:-mt-[300px] relative">
+    <div className="w-[100%] md:w-[90%] max-w-7xl mx-auto px-4 vsm:px-6 lg:px-8 py-8 lg:-mt-[270px] xl:-mt-[300px] relative">
       <div className="mobile-filter-drawer absolute bottom-0">
         <ReadMoreDrawer open={openDrawer}
           closeDrawer={handleDrawer}
           data={data} />
       </div>
-      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 vsm:gap-y-6 mt-[200px] md:mt-0">
+      <div className="grid grid-cols-2 lg:grid-cols-4 gap-x-6 vsm:gap-y-6 lg:mt-0">
         {MainData.map((data, index) => (
           <NavHashLink to={data.linkToSection} smooth key={index}
             className={`p-4 md:py-8 flex flex-col items-center justify-center bg-white/20 backdrop-blur-xl rounded-lg shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]`} style={{

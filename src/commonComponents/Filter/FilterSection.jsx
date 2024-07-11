@@ -168,7 +168,7 @@ function FilterSection({ sendFilteredData, setLoader }) {
   };
 
   return (
-    <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-b-lg lg:w-[22%] xl:w-[18%] p-2 pr-6 -mt-4"
+    <div className="vsm:hidden md:block bg-white/20 backdrop-blur-sm rounded-b-lg lg:w-[22%] xl:w-[18%] lg:pr-6 mt-4 lg:-mt-4"
       style={{
         backgroundImage: "linear-gradient(rgba(255, 255, 255, 0.1), rgba(255, 255, 255, 0.1))",
         backgroundBlendMode: "overlay"

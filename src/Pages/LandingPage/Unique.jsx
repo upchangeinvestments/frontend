@@ -15,7 +15,7 @@ function Unique() {
         including location, firm credibility, fees, and performance history. At Lynk Infinite Investments, we empower you to make informed decisions and choose
         the best real estate investment firm to meet your goals.
       </p>
-      <div className="flex items-center justify-center w-[170%] md:w-[100%]">
+      <div className="flex items-center justify-center w-[170%] md:w-[130%] lg:w-[100%]">
         <video className="rounded-xl w-[90%]" src={Video} autoPlay playsInline loop muted></video>
       </div>
     </div>

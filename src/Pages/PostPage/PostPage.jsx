@@ -230,7 +230,7 @@ function PostPage() {
         </div>
         <div className="vsm:w-[90%] mx-auto lg:w-[60%] 2xl:max-w-6xl my-4 text-white">
           <div className="flex items-center justify-center flex-col text-black">
-            <div className="flex items-center justify-start w-full md:w-[120%]">
+            <div className="flex items-center justify-start w-full lg:w-[120%]">
               <p className="YesevaFont text-xl mb-2 text-left">Overview</p>
             </div>
             <p className="text-xl lg:w-[120%] text-justify">{data.description}</p>

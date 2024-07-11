@@ -161,9 +161,9 @@ function AboutUsPage() {
                 <p className="CerebriFont font-extrabold text-3xl uppercase text-left">Sharma</p>
               </div>
             </div>
-            <div className="ml-[2rem] -mt-[1rem]">
+            <div className="ml-[2rem] lg:-mt-[1rem]">
               <div className="flex flex-col items-start justify-center">
-                <p className="uppercase CerebriFont text-3xl font-extrabold  text-purple-600">Words from founder</p>
+                <p className="uppercase CerebriFont text-3xl font-extrabold  text-purple-600 whitespace-nowrap">Words from founder</p>
                 <p className="w-[90%]"> Join us in reshaping the landscape of accessible and comprehensive investment solutions.
                   Discover the power of choice and the ease of informed decision-making with Lynkinfinite Investments, your trusted partner in the journey towards financial growth and security.</p>
               </div>

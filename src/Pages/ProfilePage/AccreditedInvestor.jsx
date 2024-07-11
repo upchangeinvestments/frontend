@@ -194,7 +194,7 @@ function AccreditedInvestor() {
     // };
 
     return (
-        <div className="my-8 mb-12 relative flex flex-col items-center justify-center font-[' Playfair-Display'] text-lg w-[90%] md:w-[100%] mx-auto md:mx-0" >
+        <div className="my-8 mb-12 relative flex flex-col items-center justify-center font-[' Playfair-Display'] text-lg w-[90%] lg:w-[100%] mx-auto lg:mx-0" >
             <div className={`mx-auto lg:px-8 rounded-lg my-6 w-full`}>
                 <h2 className="text-2xl font-bold tracking-tight text-black">
                     Become an Accredited Investor

@@ -49,18 +49,18 @@ const ProfilePage = () => {
       </Helmet>
       <div className="categoryMain">
         <NavBar />
-        <div className="grid grid-cols-1 md:grid-cols-4">
+        <div className="grid grid-cols-1 lg:grid-cols-4">
           <div className="grid col-span-1">
-            <div className="hidden md:flex mt-[10%]">
+            <div className="hidden lg:flex mt-[10%]">
               <Sidebar sendDataToProfile={handleIncomingData} />
             </div>
           </div>
-          <div className="md:grid md:col-span-3">
+          <div className="lg:grid lg:col-span-3">
             <div className="flex items-start justify-center relative flex-col">
               <div className="flex flex-col justify-start items-center h-[90%] relative">
                 <p className="YesevaFont text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
               </div>
-              <div className="w-[90%] mx-auto md:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
+              <div className="w-[90%] mx-auto lg:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
                 <div className="flex items-center p-2 font-['Poppins']">
                   <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
                     <p className="text-2xl text-white font-semibold">{user.name}</p>
@@ -77,7 +77,7 @@ const ProfilePage = () => {
                 </div>
               </div>
             </div>
-            <div className="md:hidden relative" onClick={sidebarHandler}>
+            <div className="lg:hidden relative" onClick={sidebarHandler}>
               <svg
                 className="h-6 w-6 vsm:mt-[15px] vsm:ml-[8px]"
                 xmlns="http://www.w3.org/2000/svg"
@@ -102,13 +102,13 @@ const ProfilePage = () => {
                 </div>
               )}
             </div>
-            <div className="w-full ">
+            <div className="w-full">
               {["My Profile", "Investor Status", "Questionnaire", "Saved Companies"].includes(tabContent.title) ? (
                 <Tabs tabs={tabs} activeIndex={tabContent.activeIndex} />
               ) : (
-                <div className="mt-8 w-[90%] mx-auto md:mx-0 flex items-center justiify-center md:justify-start flex-col">
+                <div className="mt-8 w-[90%] mx-auto lg:mx-0 flex items-center justiify-center lg:justify-start flex-col">
                   <p className="text-2xl font-bold text-center YesevaFont mb-2">{tabContent.title}</p>
-                  <div className="flex items-center justify-center md:items-start md:justify-start">
+                  <div className="flex items-center justify-center lg:items-start lg:justify-start">
                     {tabContent.content}
                   </div>
                 </div>
