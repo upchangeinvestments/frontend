@@ -73,7 +73,9 @@ function MaterialUIAccordion({ data }) {
                     </AccordionBody>
                 </Accordion>
             ))}
-            {isModalOpen && <Modal content={modalContent} onClose={handleModalClose} />}
+            <div className="relative">
+                {isModalOpen && <Modal content={modalContent} onClose={handleModalClose} />}
+            </div>
         </div>
     );
 }

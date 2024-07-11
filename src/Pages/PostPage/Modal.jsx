@@ -4,16 +4,16 @@ import { IoMdCloseCircle } from "react-icons/io";
 
 const Modal = ({ content, onClose }) => {
     return (
-        <div className="fixed inset-0 flex items-center justify-center z-50">
+        <div className="flex items-center justify-center z-50">
             <div className="fixed inset-0 bg-black opacity-50"></div>
-            <div className="bg-white p-6 rounded-lg shadow-lg z-10 max-w-3xl w-full mx-4 relative">
+            <div className="bg-white p-6 md:rounded-lg shadow-lg z-10 max-w-3xl md:w-[90%] md:h-[90%] m-auto fixed inset-0">
                 <IoMdCloseCircle onClick={onClose} className="absolute top-4 right-4" size="17px" />
                 <div className="flex items-start justify-start gap-x-6">
                     <div className="">
                         <img className="rounded-xl h-32" src={content.image} alt="project" />
                     </div>
                     <div className="flex items-start justify-start gap-y-2 flex-col">
-                        <p className="text-3xl font-bold ">{content.projectName}</p>
+                        <p className="text-xl md:text-3xl font-bold ">{content.projectName}</p>
                         <p>Year Started: <span className="font-bold">{content.year}</span></p>
                         <p>Year Closed: <span className="font-bold">{content.yearEnd}</span></p>
                         <p>Asset Type: <span className="font-bold">{content.investmentType}</span></p>

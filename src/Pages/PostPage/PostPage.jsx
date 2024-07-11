@@ -146,48 +146,48 @@ function PostPage() {
         {shareModal && (
           <div className="w-full h-full flex items-center justify-center flex-col z-[100] fixed inset-0 overflow-hidden">
             <div className="fixed inset-0 bg-black opacity-50"></div>
-            <div className="bg-white rounded-xl z-10 p-4 w-[50%] relative flex flex-col items-center justify-center">
+            <div className="bg-white rounded-xl z-10 p-4 w-[90%] md:w-[50%] relative flex flex-col items-center justify-center">
               <IoMdCloseCircle onClick={handleModalClose} className="absolute top-4 right-4" size="17px" />
               <p className="text-xl text-center">Share this post</p>
               <hr className="w-full my-2 " />
-              <div className="gap-x-8 flex my-2 items-center justify-center w-[60%] mx-auto">
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+              <div className="gap-x-8 flex flex-wrap my-2 items-center justify-center mx-auto relative gap-y-4 ">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <WhatsappShareButton url={PageUrl} >
                     <WhatsappIcon size={40} round={true} />
                   </WhatsappShareButton>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <TwitterShareButton url={PageUrl}>
                     <XIcon size={40} round={true} />
                   </TwitterShareButton>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <TelegramShareButton url={PageUrl}>
                     <TelegramIcon size={40} round={true} />
                   </TelegramShareButton>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <PinterestShareButton media={data.image} url={PageUrl}>
                     <PinterestIcon size={40} round={true} />
                   </PinterestShareButton>
                 </div>
-              </div>
-              <div className="gap-x-8 flex my-2 items-center justify-center w-[60%] mx-auto">
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <LinkedinShareButton url={PageUrl}>
                     <LinkedinIcon size={40} round={true} />
                   </LinkedinShareButton>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <FacebookShareButton url={PageUrl}>
                     <FacebookIcon size={40} round={true} />
                   </FacebookShareButton>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-8 py-2 ">
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <EmailShareButton url={PageUrl}>
                     <EmailIcon size={40} round={true} />
                   </EmailShareButton>
                 </div>
+              </div>
+              <div className="gap-x-8 flex my-2 items-center justify-center w-[60%] mx-auto">
               </div>
             </div>
           </div>
@@ -201,8 +201,8 @@ function PostPage() {
                 <div className="relative flex flex-col w-[100%]">
                   <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
                   <div ref={bannerRef} className="bg-white w-full">
-                    <div className={`flex items-center justify-between md:mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
-                      <p className={`YesevaFont text-4xl flex items-center justify-center text-left ${bannerContent ? '' : ''}`}>{data.companyName}</p>
+                    <div className={`flex items-center justify-between mx-2 md:mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
+                      <p className={`YesevaFont text-2xl md:text-4xl flex items-center justify-center text-left ${bannerContent ? '' : ''}`}>{data.companyName}</p>
                       <div className={`${bannerContent ? 'flex items-center justify-center' : ''}`}>
                         <button onClick={() => setShareModal(true)} style={{ backgroundImage: `url(${bgImage})` }}
                           className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
@@ -210,10 +210,10 @@ function PostPage() {
                         </button>
                       </div>
                     </div>
-                    <div className="flex items-center justify-center relative bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-12 py-4 md:w-[100vw]">
-                      <div className="flex items-center justify-start gap-x-6">
+                    <div className="flex items-center justify-start relative bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-4 md:px-12 py-4 md:w-[100vw]">
+                      <div className="flex items-center justify-start gap-x-6 overflow-x-scroll md:overflow-hidden">
                         {bannerItems.map((data, index) => (
-                          <NavHashLink to={data.linkToSection} smooth key={index} className="border-[1px] border-white whitespace-nowrap rounded-full p-2 px-4 ">
+                          <NavHashLink to={data.linkToSection} smooth key={index} className="border-[1px] border-white whitespace-nowrap rounded-full p-2 px-4">
                             {data.section}
                           </NavHashLink>
                         ))}
@@ -230,7 +230,7 @@ function PostPage() {
         </div>
         <div className="vsm:w-[90%] mx-auto lg:w-[60%] 2xl:max-w-6xl my-4 text-white">
           <div className="flex items-center justify-center flex-col text-black">
-            <div className="flex items-center justify-start w-[120%]">
+            <div className="flex items-center justify-start w-full md:w-[120%]">
               <p className="YesevaFont text-xl mb-2 text-left">Overview</p>
             </div>
             <p className="text-xl lg:w-[120%] text-justify">{data.description}</p>
@@ -282,14 +282,14 @@ function PostPage() {
                         cornerRadius: 5,
                         startAngle: 0,
                         endAngle: 360,
-                        cx: 200,
+                        cx: 170,
                         cy: 120,
                       }
                     ]}
                     slotProps={{
                       legend: { hidden: true },
                     }}
-                    width="450px"
+                    width="360px"
                     height="300px"
                   />
                 </div>

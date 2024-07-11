@@ -27,12 +27,12 @@ function Compare() {
             <div className="categoryMain">
                 <NavBar />
                 <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
-                    <div className="flex flex-col justify-start items-center h-[90%] relative">
-                        <p className="text-[4.5rem] uppercase"> Compare <span className="text-purple-600">Companies</span></p>
-                        <p className="uppercase w-full flex items-center justify-center CerebriFont text-lg -mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
+                    <div className="flex flex-col md:justify-start items-center h-[90%] relative">
+                        <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center"> Compare <span className="text-purple-600">Companies</span></p>
+                        <p className="uppercase w-full flex items-center justify-center CerebriFont text-center md:text-lg -mt-2 md:-mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
                     </div>
                 </div>
-                <div className="overflow-x-auto w-full py-8 -mt-[200px] lg:-mt-[270px] xl:-mt-[300px] mb-10">
+                <div className="overflow-x-auto w-full py-8 lg:-mt-[270px] xl:-mt-[300px] mb-10">
                     <table className="min-w-full divide-y divide-gray-200 bg-white">
                         <thead>
                             <tr>

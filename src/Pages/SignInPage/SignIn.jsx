@@ -512,6 +512,9 @@ const SignIn = () => {
                     </span>
                   </p>
                 </div>
+                <div className="border-[1px] border-white rounded-xl px-6 py-2 hover:cursor-pointer my-4" onClick={handleGuestLogin}>
+                  <p className="text-white hover:underline">Continue as a GUEST</p>
+                </div>
               </form>
               {/* .......................end of registration of mobile screens....................... */}
             </div>
@@ -527,12 +530,7 @@ const SignIn = () => {
                 <span className="text-purple-600">LynkInfinite Investments</span>
               </h2>
             </div>
-            <div
-              className="m-8 py-6 px-2 rounded-lg "
-              style={{
-                backgroundColor: "#9b5bd4",
-              }}
-            >
+            <div className="m-8 py-6 px-2 rounded-lg " style={{ backgroundColor: "#9b5bd4" }}>
               {showForgetPassword ? (
                 // ....................... start of forgot form .......................
                 <form className="flex flex-col items-center justify-center" onSubmit={handleForgetPassword} >
@@ -590,6 +588,9 @@ const SignIn = () => {
                         SIGN UP
                       </span>
                     </p>
+                  </div>
+                  <div className="border-[1px] border-white rounded-xl px-6 py-2 hover:cursor-pointer my-4" onClick={handleGuestLogin}>
+                    <p className="text-white hover:underline">Continue as a GUEST</p>
                   </div>
                 </form>)}
 

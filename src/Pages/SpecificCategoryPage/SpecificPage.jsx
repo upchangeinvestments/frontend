@@ -298,7 +298,7 @@ function SpecificPage() {
         </div>
 
         {/* Comparison section */}
-        {selectedPosts.length > 0 && (<div className="fixed bottom-0 w-full bg-white z-[99] py-3 border-t-[1px] border-gray-300">
+        {selectedPosts.length > 0 && (<div className="hidden md:block fixed bottom-0 w-full bg-white z-[99] py-3 border-t-[1px] border-gray-300">
           <div className="relative flex items-center justify-evenly">
             <div className="flex items-center justify-center gap-x-4 ">
               {selectedPosts.map((postData, index) => (
@@ -320,6 +320,16 @@ function SpecificPage() {
             </div>
           </div>
         </div>)}
+        {selectedPosts.length > 0 && (
+          <div className="md:hidden fixed bottom-0 w-full bg-white z-[99] py-3 border-t-[1px] border-gray-300">
+            <div className="flex items-center justify-center py-4">
+              <div className="absolute ">
+                <Button Text={`Compare (${selectedPosts.length})`} link={generateCompareUrl()} target="_blank" classname="border-[1px] border-gray-400" disable={selectedPosts.length === 1 ? true : false} />
+              </div>
+              <RxCross2 size={24} className="absolute left-4" onClick={() => RemoveComparePostHandler("ALL")} />
+            </div>
+          </div>
+        )}
       </div>
 
       <div className="">
