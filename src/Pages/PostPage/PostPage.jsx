@@ -17,11 +17,13 @@ import { BarChart } from '@mui/x-charts/BarChart';
 import bgImage from "../../assets/login_BG.jpeg";
 import { FaCircleArrowUp } from "react-icons/fa6";
 import "../../App.css"
-import { WhatsappShareButton, TwitterShareButton, TelegramShareButton, PinterestShareButton, LinkedinShareButton, FacebookShareButton, EmailShareButton } from "react-share";
-import { WhatsappIcon, EmailIcon, FacebookIcon, LinkedinIcon, PinterestIcon, TelegramIcon, XIcon } from "react-share";
+import { WhatsappShareButton, TwitterShareButton, LinkedinShareButton, FacebookShareButton, EmailShareButton } from "react-share";
+import { MdContentCopy } from "react-icons/md";
+import { WhatsappIcon, EmailIcon, FacebookIcon, LinkedinIcon, XIcon } from "react-share";
 import { IoMdCloseCircle } from "react-icons/io";
 import { useAuth } from "../../utils/AuthContext";
 import AccreditedModalComponent from "./AccreditedModal";
+
 
 function formatMinInvestment(minInvestment) {
   if (minInvestment >= 1000000) {
@@ -68,6 +70,7 @@ function PostPage() {
   ]
 
   const PageUrl = window.location.href;
+
   const copyToClipboard = () => {
     navigator.clipboard.writeText(PageUrl).then(() => {
       successMessage('URL copied to clipboard!');
@@ -152,6 +155,9 @@ function PostPage() {
               <hr className="w-full my-2 " />
               <div className="gap-x-8 flex flex-wrap my-2 items-center justify-center mx-auto relative gap-y-4 ">
                 <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
+                  <MdContentCopy onClick={copyToClipboard} size={40} color="rgb(82 82 91)" />
+                </div>
+                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <WhatsappShareButton url={PageUrl} >
                     <WhatsappIcon size={40} round={true} />
                   </WhatsappShareButton>
@@ -160,16 +166,6 @@ function PostPage() {
                   <TwitterShareButton url={PageUrl}>
                     <XIcon size={40} round={true} />
                   </TwitterShareButton>
-                </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <TelegramShareButton url={PageUrl}>
-                    <TelegramIcon size={40} round={true} />
-                  </TelegramShareButton>
-                </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <PinterestShareButton media={data.image} url={PageUrl}>
-                    <PinterestIcon size={40} round={true} />
-                  </PinterestShareButton>
                 </div>
                 <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
                   <LinkedinShareButton url={PageUrl}>

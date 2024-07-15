@@ -262,13 +262,25 @@ input[type="password"] {
   padding: 0 -16px !important;
 }
 
-/* --------------------end of styling of digit roll in Calculator-------------------- */
-
-/* banner behaviour */
+/* --------------------banner behaviour --------------------*/
 .fixed-Bannertop {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
   z-index: 50;
+}
+
+
+
+/* --------------------start of gradient effect in profile page -------------------- */
+
+.gradient-bg {
+  background: linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%);
+}
+
+@media (max-width: 767px) {
+  .gradient-bg {
+    background: linear-gradient(135deg, #8851BC 0%, #FFFFFF 110%);
+  }
 }

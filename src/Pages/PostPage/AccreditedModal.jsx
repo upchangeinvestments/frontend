@@ -2,6 +2,9 @@ import React, { useState } from 'react';
 import { IoMdCloseCircle } from "react-icons/io";
 import { RiShareBoxFill } from "react-icons/ri";
 import bgImage from "../../assets/login_BG.jpeg";
+import { Link } from "react-router-dom";
+
+
 function AccreditedModal({ open, CloseAccreditedModal, data }) {
     const [selectedOption, setSelectedOption] = useState('');
     const [subOption, setSubOption] = useState('');
@@ -71,16 +74,19 @@ function AccreditedModal({ open, CloseAccreditedModal, data }) {
                                     Investor does not meet the definition of "accredited investor" or is not sure
                                 </label>
                                 {selectedOption === 'not_accredited' && (
-                                    <p className="text-red-500">
-                                        This company only accepts accredited investors. Please confirm your investor status.
-                                    </p>
+                                    <div className="">
+                                        <p className="text-red-500 text-sm">This company only accepts accredited investors. Please visit posts that include eligibility for non-accredited investors.</p>
+                                        <p className="text-red-500 text-sm">If you are an accredited investor, please log in to update your investor status.</p>
+                                    </div>
                                 )}
                                 {selectedOption === "accredited" && (
                                     <div className="flex items-center justify-center">
-                                        <button style={{ backgroundImage: `url(${bgImage})` }}
-                                            className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
-                                            <RiShareBoxFill />{data.companyName}
-                                        </button>
+                                        <Link to="https://www.studio2694.com/" target='_blank'>
+                                            <button style={{ backgroundImage: `url(${bgImage})` }}
+                                                className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
+                                                <RiShareBoxFill />{data.companyName}
+                                            </button>
+                                        </Link>
                                     </div>
                                 )}
                             </div>

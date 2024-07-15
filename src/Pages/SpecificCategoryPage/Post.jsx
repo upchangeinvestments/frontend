@@ -12,7 +12,7 @@ import { MdOutlineKeyboardArrowRight } from "react-icons/md";
 function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selectedPosts }) {
     const [likedPosts, setLikedPosts] = useState([]);
     const [isStarFilled, setIsStarFilled] = useState(false);
-    const { user, backendUrl } = useAuth();
+    const { isGuest, user, backendUrl } = useAuth();
     const [isSelected, setIsSelected] = useState(false);
 
     const handleCheckboxChange = () => {
@@ -22,11 +22,13 @@ function Post({ data, starredPostIndices, FetchLikedPosts, onPostSelect, selecte
     };
 
     const togglePin = async () => {
-        setIsStarFilled(!isStarFilled);
+        if (isGuest) {
+            return Error("Please sign in to save the selected company to your profile.");
+        }
         try {
+            setIsStarFilled(!isStarFilled);
             const response = await axios.post(`${backendUrl}/profile/${user._id}/likedPost/${data.projectId}/${!isStarFilled}`);
             FetchLikedPosts();
-            console.log(response);
             if (response.data && response.data.message) {
                 SuccessMessage(response.data.message);
             }

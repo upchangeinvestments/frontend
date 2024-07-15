@@ -2,6 +2,7 @@ import React, { useState, useEffect, useImperativeHandle, forwardRef } from 'rea
 import { Drawer } from "@material-tailwind/react";
 import Tooltip from '@mui/material/Tooltip';
 import companyData from "../../assets/companyData.json";
+import { FaRegQuestionCircle } from "react-icons/fa";
 
 const getTooltipContent = (location) => {
     switch (location) {
@@ -24,6 +25,14 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
     const [mngFee, setMngFee] = useState(0);
     const { title, options, inputType } = data || {};
     const [selectedOptions, setSelectedOptions] = useState({});
+    const [toolTip, setToolTip] = useState({ open: false, content: "" });
+
+    const ToolTipHandler = (item) => {
+        setToolTip(prev => ({
+            open: !prev.open,
+            content: getTooltipContent(item)
+        }));
+    };
 
     var filterType;
     if (title === 'Class Type') filterType = "classType";
@@ -236,22 +245,33 @@ const MobileFilterDrawer = forwardRef(({ open, closeDrawer, data, Index, sendFil
             <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
                 {options &&
                     options.map((item, index) => (
-                        <label key={index} className="flex flex-row gap-4 w-full items-center uppercase">
-                            <input
-                                name={inputType === "radio" ? "radioType" : item}
-                                type={inputType}
-                                value={item}
-                                checked={isChecked(item)}
-                                onChange={(e) => handleOptionChange(Index, item, inputType, e.target.checked)}
-                                className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
-                            />
-                            <Tooltip key={item} title={getTooltipContent(item)}>
-                                <div className="text-base">{item}</div>
-                            </Tooltip>
-                        </label>
+                        <div key={index} className="flex items-center justify-center">
+                            <label className="flex flex-row gap-4 w-full items-center uppercase">
+                                <input
+                                    name={inputType === "radio" ? "radioType" : item}
+                                    type={inputType}
+                                    value={item}
+                                    checked={isChecked(item)}
+                                    onChange={(e) => handleOptionChange(index, item, inputType, e.target.checked)}
+                                    className="w-4 h-4 text-purple-500 border-gray-300 rounded focus:ring-purple-500"
+                                />
+                                <Tooltip
+                                    open={toolTip.open && toolTip.content === getTooltipContent(item)}
+                                    onClose={() => setToolTip({ open: false, content: "" })}
+                                    title={toolTip.content}
+                                >
+                                    <div className="text-base">{item}</div>
+                                </Tooltip>
+                            </label>
+                            {Index === 6 && (
+                                <div className="flex items-center justify-end w-full">
+                                    <FaRegQuestionCircle size={15} onClick={() => ToolTipHandler(item)} />
+                                </div>
+                            )}
+                        </div>
+
                     ))
                 }
-
                 {Index === 3 && <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center my-4">
                     <div className="flex items-center">
                         <p className='text-[#6e30a7]'>0</p>

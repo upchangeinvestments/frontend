@@ -3,7 +3,6 @@ import Footer from "../../commonComponents/Footer";
 import Tabs from "./ProfileTab";
 import Profile from "./Profile";
 import Activity from "./Activity";
-import { FaUserCircle } from "react-icons/fa";
 import Questionnaire from "./Questionnaire";
 import AccreditedInvestor from "./AccreditedInvestor";
 import UserDataModal from "../../commonComponents/getUserDataModal";
@@ -56,11 +55,11 @@ const ProfilePage = () => {
             </div>
           </div>
           <div className="lg:grid lg:col-span-3">
-            <div className="flex items-start justify-center relative flex-col">
-              <div className="flex flex-col justify-start items-center h-[90%] relative">
-                <p className="YesevaFont text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
+            <div className="flex items-start justify-center relative flex-col w-full">
+              <div className="flex justify-center lg:justify-start items-center h-[90%] relative w-full">
+                <p className="YesevaFont text-[3.5rem] md:text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
               </div>
-              <div className="w-[90%] mx-auto lg:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative" style={{ "background": "linear-gradient(135deg, #8851BC 0%, #FFFFFF 95%, #FFFFFF 100%" }}>
+              <div className="w-[90%] mx-auto lg:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative gradient-bg">
                 <div className="flex items-center p-2 font-['Poppins']">
                   <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
                     <p className="text-2xl text-white font-semibold">{user.name}</p>

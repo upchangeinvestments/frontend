@@ -202,7 +202,7 @@ function SpecificPage() {
           </div>
         </div>
       </div>
-      <div className="relative flex vsm:-mt-[220px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
+      <div className="relative flex -mt-[250px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col w-[100%]  lg:w-[80%] ">
           {loading === false && (
@@ -236,25 +236,24 @@ function SpecificPage() {
           )}
 
         </div>
-        <div className="absolute right-4 lg:right-8 -top-1 lg:-top-12 flex items-end">
-          <div className="md:hidden absolute top-16 -right-4">
+        <div className="absolute inset-x-0 lg:-top-12 ">
+          <div className="md:hidden absolute top-20 left-4">
             <Tooltip title="Clear All filters" onClick={ClearAllFilterHandler}>
-              <div className="flex items-center justify-end mr-4 mt-3 ">
+              <div className="flex items-center justify-end ">
                 <div className="bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 rounded-full p-2 flex items-center justify-center ">
                   <svg className="w-6 h-6 pt-1" xmlns="http://www.w3.org/2000/svg" viewBox="0 0 576 512"><path fill="white" d="M3.9 22.9C10.5 8.9 24.5 0 40 0H472c15.5 0 29.5 8.9 36.1 22.9s4.6 30.5-5.2 42.5L396.4 195.6C316.2 212.1 256 283 256 368c0 27.4 6.3 53.4 17.5 76.5c-1.6-.8-3.2-1.8-4.7-2.9l-64-48c-8.1-6-12.8-15.5-12.8-25.6V288.9L9 65.3C-.7 53.4-2.8 36.8 3.9 22.9zM432 224a144 144 0 1 1 0 288 144 144 0 1 1 0-288zm59.3 107.3c6.2-6.2 6.2-16.4 0-22.6s-16.4-6.2-22.6 0L432 345.4l-36.7-36.7c-6.2-6.2-16.4-6.2-22.6 0s-6.2 16.4 0 22.6L409.4 368l-36.7 36.7c-6.2 6.2-6.2 16.4 0 22.6s16.4 6.2 22.6 0L432 390.6l36.7 36.7c6.2 6.2 16.4 6.2 22.6 0s6.2-16.4 0-22.6L454.6 368l36.7-36.7z" /></svg>
                 </div>
               </div>
             </Tooltip>
           </div>
-
           {/* start of sort filter  */}
-          <div className="z-[10] relative">
-            <div className={`rounded-full w-10 h-10 -mt-2 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black absolute right-0 ${viewSortFilter ? '-mt-8' : ''}`}>
+          <div className="z-[10] relative top-20 right-4 md:top-0 md:right-8">
+            <div className={`rounded-full w-10 h-10 flex items-center justify-center bg-gradient-to-r from-[#6e30a7] to-purple-300 opacity-70 border-black absolute right-0 ${viewSortFilter ? '' : ''}`}>
               {!viewSortFilter && <img src={filterSVG} className="w-[1.5rem] h-[1.5rem] text-white" alt="Sort Filter" onClick={() => setViewSortFilter(prev => !prev)} />}
-              {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} className="" />}
+              {viewSortFilter && <GrClose size={18} onClick={() => setViewSortFilter(false)} color="white" />}
             </div>
             {viewSortFilter && (
-              <div ref={sortFilterRef} className=" z-[20] font-['Playfair-Display'] bg-white/30 backdrop-blur-xl w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
+              <div ref={sortFilterRef} className="z-[20] font-['Playfair-Display'] bg-white/30 backdrop-blur-xl absolute right-0 top-8 w-[300px] lg:w-[500px] rounded-lg mt-2 shadow-[0_20px_25px_3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
                 <form onSubmit={SortFilterHandler}>
                   <h1 className="text-center font-bold text-xl p-4 uppercase underline text-[#6e30a7]">Sort Company Type</h1>
                   <div className="w-full bg-[#9059d9]">
