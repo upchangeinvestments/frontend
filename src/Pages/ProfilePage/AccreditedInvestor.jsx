@@ -1,7 +1,9 @@
 import React, { useState } from 'react';
 import Button from "../../commonComponents/LoginButton";
 import Collapse from "react-collapse";
-import { useSearchParams } from 'react-router-dom';
+import { useAuth } from "../../utils/AuthContext";
+import SuccessToast from "../../utils/successToast";
+import axios from "axios";
 
 const CollapseItem = [
     {
@@ -38,54 +40,122 @@ const CollapseItem = [
 const QuestionOptions = {
     businessType: ["Public Charity", "Private Foundation", "S Corporation", "C Corporation", "Foreign Corporation", "Irrevocable Trust", "Revocable Trust", "Family Office", "Limited Liability Company", "Limited Partnership"],
     license: ["General Securities Representative (Series 7)", "Private Securities Offerings Representative (Series 82)", "Investment Advisor Representative (Series 65)"],
+    status: ["Income of $200k (or $300k with spouse) in each of the past 2 year", "Net worth of $1M, individually or jointly with spouse excluding your primary residence", "Hold a professional license with FINRA that qualifies you as an accredited investor", "None of the above apply to me"],
     role: ["Investment Advisor (SEC Registered)", "Accountant (CPA)", "Lawyer", "Enrolled Agent"],
     income: ["less than $50k", "at least $50k, less than $107k", "at least $107k, less than $200k", "at least $200k, less than $300k", "at least $300k, less than $500k", "at least $500k, less than $1M", "at least $1M, less than $5M", "$5M or more"],
-    jointIncome: ["less than $50k", "at least $50k, less than $107k", "at least $107k, less than $200k", "at least $200k, less than $300k", "at least $300k, less than $500k", "at least $500k, less than $1M", "at least $1M, less than $5M", "$5M or more"],
+    incomeValidation: ["Upload copies of any tax form containing my salary for the past 2 years", "Upload a letter from my lawyer, CPA, or investment advisor verifying my income and accredited status", "Send a verification request to my lawyer, CPA, or investment advisor"],
+
 }
 
 const Questions = [
     {
+        name: "slide1",
         heading: "Information",
-        descrition: "Please provide the full legal name and type of your business.",
+        description: "Please provide the full legal name and type of your business.",
         questions: [
             {
                 question: "Business Name",
                 type: "text",
+                key: "businessName"
             },
             {
                 question: "Business Type",
                 type: "list",
-                list: QuestionOptions.businessType
+                list: QuestionOptions.businessType,
+                key: "businessType"
             }
         ],
     },
     {
+        name: "slide2",
         heading: "Individual Accreditation Certification - Professional License",
-        descrition: "Please Provide the following details",
+        description: "Please Provide the following details",
         questions: [
             {
                 question: "Which SEC-approved license do you hold?",
                 type: "list",
-                list: QuestionOptions.license
+                list: QuestionOptions.license,
+                key: "secLicense"
             },
             {
                 question: "CRD Number",
                 type: "text",
+                key: "crdNumber"
+            },
+            {
+                question: "I certify the CRD number I am providing is correct.",
+                type: "checkbox",
+                key: "certifyCRD"
             }
         ],
-        check: "I certify the CRD number I am providing is correct."
+
     },
     {
+
+        name: "slide3",
         heading: "Individual Accreditation Certification",
         questions: [
             {
                 question: "I would like to verify my status as an accredited investor by confirming",
                 type: "list",
-                list: QuestionOptions.license
+                list: QuestionOptions.status,
+                key: "accreditationStatus"
             },
         ],
-        check: "I certify the CRD number I am providing is correct."
-    }
+    },
+    {
+
+        name: "slide4",
+        heading: "Request letter from Accoutant, Lawyer or Advisor",
+        questions: [
+            {
+                question: "First Name",
+                type: "text",
+                key: "firstName",
+            },
+            {
+                question: "Last Name",
+                type: "text",
+                key: "lastName"
+            },
+            {
+                question: "Email Address",
+                type: "email",
+                key: "email"
+            },
+            {
+                question: "We'll reach out to the person you identify below to request that they verify your accreditation status. After they respond, we'll be able to process your application.",
+                type: "list",
+                list: QuestionOptions.role,
+                key: "role"
+            },
+        ],
+    },
+    {
+        name: "slide5",
+        heading: "2024 Expected Income",
+        questions: [
+            {
+                question: "Please select your expected individual income for 2024. If you're married, please also select your expected 2024 joint income",
+                type: "list",
+                list: QuestionOptions.income,
+                key: "expectedIncome"
+            },
+        ],
+    },
+    {
+        name: "slide6",
+        heading: "Individual Accreditation Certification:: Income Validation",
+        questions: [
+            {
+                question: "How would you like to verify your income level",
+                type: "list",
+                list: QuestionOptions.incomeValidation,
+                key: "incomeValidation"
+            },
+        ],
+    },
+
 ]
 
 
@@ -120,86 +190,197 @@ const CollapeItem = ({ title, content }) => {
     );
 };
 
-function QuesitonTemplate({ heading, desc, index }) {
-    return (
-        <div className="">
+function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, formHandler }) {
 
-        </div>
-    )
+    const handleOptionSelect = (e) => {
+        const { name, value, type, checked } = e.target;
+
+        if (type === "checkbox") {
+            onOptionSelect(checked ? value : null);
+        } else {
+            onOptionSelect(value);
+        }
+    };
+
+    return (
+        <form className="my-4" onSubmit={formHandler}>
+            {data.questions.map((question, index) => (
+                <div key={index} className="mb-4">
+                    {question.type === "text" && (
+                        <div className="">
+                            <p className="font-semibold mb-2">{question.question}</p>
+                            <input
+                                type="text"
+                                className="border p-2 w-full"
+                                name={question.key}
+                                required
+                            />
+                        </div>
+                    )}
+                    {question.type === "email" && (
+                        <div className="">
+                            <p className="font-semibold mb-2">{question.question}</p>
+                            <input
+                                type="email"
+                                className="border p-2 w-full"
+                                name={question.key}
+                                required
+                            />
+                        </div>
+                    )}
+                    {question.type === "list" && (
+                        <div className="">
+                            <p className="font-semibold mb-2">{question.question}</p>
+                            <select
+                                name={question.key}
+                                value={selectedAnswers[currentQuiz] || ""}
+                                onChange={handleOptionSelect}
+                                className="border p-2 w-full"
+                                required
+                            >
+                                <option value="" disabled>Select Option</option>
+                                {question.list.map((option, optionIndex) => (
+                                    <option key={optionIndex} value={option}>
+                                        {option}
+                                    </option>
+                                ))}
+                            </select>
+                        </div>
+                    )}
+                    {question.type === 'checkbox' && (
+                        <div className="flex items-center justify-start gap-x-4">
+                            <input
+                                type="checkbox"
+                                className=''
+                                value={question.question}
+                                onChange={handleOptionSelect}
+                                required
+                            />
+                            <p>{question.question}</p>
+                        </div>
+                    )}
+                </div>
+            ))}
+            <button type="submit">Submit</button>
+        </form>
+    );
 }
 
 function AccreditedInvestor() {
     const [accreditedForm, setAccreditedForm] = useState(false);
     const [currentQuiz, setCurrentQuiz] = useState(0);
-    const [selectedAnswer, setSelectedAnswer] = useState();
-    const [buttonClicked, setButtonClicked] = useState(false);
-
-    // const allQuestionsAnswered = selectedAnswer.every(answer => answer !== null);
-
+    const [selectedAnswers, setSelectedAnswers] = useState(Array(Questions.length).fill(null));
+    const [allQuestionsAnswered, setAllQuestionsAnswered] = useState(false);
+    const { user, backendUrl } = useAuth();
 
     const FormHandler = () => setAccreditedForm(!accreditedForm);
 
-    // const handleOptionSelect = (option) => {
-    //     const newSelectedAnswer = [...selectedAnswer];
-    //     newSelectedAnswer[currentQuiz] = option;
-    //     setSelectedAnswer(newSelectedAnswer);
-    //     if (currentQuiz < quizData.length - 1) {
-    //         setCurrentQuiz(currentQuiz + 1);
-    //     }
-    // };
+    const handleOptionSelect = (option) => {
+        const newSelectedAnswers = [...selectedAnswers];
+        newSelectedAnswers[currentQuiz] = option;
 
-    // const handlePreviousClick = () => {
-    //     setSelectedAnswer(selectedAnswer.slice(0, -1)); // Remove the last selected answer
-    //     setCurrentQuiz(currentQuiz - 1);
-    // };
+        setSelectedAnswers(newSelectedAnswers);
+        setAllQuestionsAnswered(selectedAnswers.every(answer => answer !== null));
+    };
+
+    const handlePreviousClick = () => {
+        setCurrentQuiz(currentQuiz - 1);
+    };
 
 
-    // const loadQestions = () => {
-    //     // const currentQuizData = quizData[currentQuiz];
-    //     // const quizLength = quizData.length;
+    const formHandler = async (e) => {
+        e.preventDefault();
 
-    //     return (
-    //         <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
-    //             <p className="text-left px-4 md:w-[100%] font-['Playfair-Display'] flex justify-center">
-    //                 {/* {currentQuizData.question} */}
-    //             </p>
-    //             <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[50%]">
-    //                 {['a', 'b', 'c', 'd'].map((option) => (
-    //                     <li key={option}>
-    //                         <input
-    //                             type="radio"
-    //                             name="answer"
-    //                             id={option}
-    //                             className="answer text-center"
-    //                             onClick={() => handleOptionSelect(option)}
-    //                         />
-    //                         <label
-    //                             className="text-center border-[1px] font-['Playfair-Display'] border-[#6e30a7]"
-    //                             htmlFor={option}
-    //                             id={option + "_text"}
-    //                         >
-    //                             {currentQuizData[option]}
-    //                         </label>
-    //                     </li>
-    //                 ))}
-    //                 <div
-    //                     className={currentQuiz > 0 ? "flex justify-center" : "hidden"}
-    //                     onClick={handlePreviousClick}
-    //                 >
-    //                     <p className="ml-4">PREVIOUS</p>
-    //                 </div>
-    //             </ul>
-    //         </div>
-    //     );
-    // };
+        const formData = new FormData(e.target);
+
+        const textAndEmailInputs = {};
+        formData.forEach((value, key) => {
+            textAndEmailInputs[key] = value;
+        });
+
+
+        const newSelectedAnswers = [...selectedAnswers];
+        newSelectedAnswers[currentQuiz] = textAndEmailInputs;
+
+        setSelectedAnswers(newSelectedAnswers);
+        setAllQuestionsAnswered(newSelectedAnswers.every(answer => answer !== null));
+
+        if (currentQuiz < Questions.length - 1) {
+            setCurrentQuiz(currentQuiz + 1);
+        }
+    }
+
+    const saveQuizResponses = async () => {
+        const responses = Questions.flatMap((slide, slideIndex) =>
+            slide.questions.map((question, questionIndex) => ({
+                question: question.question,
+                answer: selectedAnswers[slideIndex][question.key],
+            }))
+        );
+
+        try {
+            const res = await axios.post(`${backendUrl}/profile/investor-quiz`, {
+                responses: responses,
+                user: user,
+            });
+
+            if (res.status === 200) {
+                setCurrentQuiz(0);
+                SuccessToast("Questionnaire ");
+                setAccreditedForm(false);
+            } else {
+                Error("Something went wrong, please try again later.");
+            }
+        } catch (error) {
+            console.error("Error saving quiz responses:", error);
+            Error("Failed to save quiz responses. Please try again.");
+        }
+    };
+
+    const loadQuestions = () => {
+        const currentQuizData = Questions[currentQuiz];
+
+        return (
+            <div className="px-4 py-2 flex flex-col items-start justify-start w-full lg:text-xl font-['Playfair-Display']">
+                <p className="w-full text-center font-bold font-xl">
+                    {currentQuizData.heading}
+                </p>
+                <hr className='w-full my-4' />
+                <p className="text-left flex justify-center">
+                    {currentQuizData.description}
+                </p>
+                <div className='w-full '>
+                    <QuestionTemplate
+                        currentQuiz={currentQuiz}
+                        selectedAnswers={selectedAnswers}
+                        data={currentQuizData}
+                        formHandler={formHandler}
+                        onOptionSelect={handleOptionSelect}
+                    />
+                </div>
+                {currentQuiz > 0 && (
+                    <div className="flex justify-between items-center w-full">
+                        <button className="px-4 py-2 bg-gray-300 rounded" onClick={handlePreviousClick}>
+                            Previous
+                        </button>
+                        <div className="flex justify-center">
+                            <button onClick={saveQuizResponses} className={`bg-${allQuestionsAnswered ? "[#6e30a7]" : "[#6e30a7]/10"} font-['Playfair-Display'] text-white font-bold vsm:py-[3px] vsm:px-[5px] md:py-[5px] md:px-[5px] lg:py-2 lg:px-4 rounded`} disabled={!allQuestionsAnswered}>
+                                Save Changes
+                            </button>
+                        </div>
+                    </div>
+                )}
+            </div>
+        );
+    };
 
     return (
-        <div className="my-8 mb-12 relative flex flex-col items-center justify-center font-[' Playfair-Display'] text-lg w-[90%] lg:w-[100%] mx-auto lg:mx-0" >
+        <div className="my-8 mb-12 relative flex flex-col items-center justify-center font-['Playfair-Display'] text-lg w-[90%] lg:w-[100%] mx-auto lg:mx-0">
             <div className={`mx-auto lg:px-8 rounded-lg my-6 w-full`}>
                 <h2 className="text-2xl font-bold tracking-tight text-black">
                     Become an Accredited Investor
                 </h2>
-                <div className="mt-6 space-y-6 break-words	">
+                <div className="mt-6 space-y-6 break-words">
                     {CollapseItem.map((element, index) => (
                         <CollapeItem
                             key={index}
@@ -209,16 +390,18 @@ function AccreditedInvestor() {
                     ))}
                 </div>
             </div>
-            <div className="" onClick={FormHandler}>
-                <Button Text="Start my journey as an Accredited Investor" />
-            </div>
-            {accreditedForm && (
-                <div className="">
-                    {/* {loadQestions()} */}
+            {!accreditedForm && (
+                <div className="" onClick={FormHandler}>
+                    <Button Text="Start my journey as an Accredited Investor" />
                 </div>
             )}
-        </div >
-    )
+            {accreditedForm && (
+                <div className="">
+                    {loadQuestions()}
+                </div>
+            )}
+        </div>
+    );
 }
 
 export default AccreditedInvestor;
