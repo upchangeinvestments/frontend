@@ -5,6 +5,8 @@ import { useAuth } from "../../utils/AuthContext";
 import SuccessToast from "../../utils/successToast";
 import axios from "axios";
 
+import bgImage from "../../assets/login_BG.jpeg";
+
 const CollapseItem = [
     {
         title: "What is an accredited investor? What are the benefits of it?",
@@ -190,7 +192,7 @@ const CollapeItem = ({ title, content }) => {
     );
 };
 
-function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, formHandler }) {
+function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, formHandler, allQuestionsAnswered }) {
 
     const handleOptionSelect = (e) => {
         const { name, value, type, checked } = e.target;
@@ -203,7 +205,7 @@ function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, 
     };
 
     return (
-        <form className="my-4" onSubmit={formHandler}>
+        <form className="my-4 text-lg" onSubmit={formHandler}>
             {data.questions.map((question, index) => (
                 <div key={index} className="mb-4">
                     {question.type === "text" && (
@@ -261,7 +263,11 @@ function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, 
                     )}
                 </div>
             ))}
-            <button type="submit">Submit</button>
+            {!allQuestionsAnswered && <div className="w-full flex items-center justify-center">
+                <button className=" bg-top py-2 px-6 rounded-md text-lg text-black font-semibold bg-cover " style={{ backgroundImage: `url(${bgImage})` }}>
+                    Submit
+                </button>
+            </div>}
         </form>
     );
 }
@@ -323,11 +329,12 @@ function AccreditedInvestor() {
                 responses: responses,
                 user: user,
             });
-
             if (res.status === 200) {
                 setCurrentQuiz(0);
-                SuccessToast("Questionnaire ");
+                SuccessToast("Details saved successfully, We'll verify your details.");
                 setAccreditedForm(false);
+                setSelectedAnswers(Array(Questions.length).fill(null));
+
             } else {
                 Error("Something went wrong, please try again later.");
             }
@@ -341,12 +348,12 @@ function AccreditedInvestor() {
         const currentQuizData = Questions[currentQuiz];
 
         return (
-            <div className="px-4 py-2 flex flex-col items-start justify-start w-full lg:text-xl font-['Playfair-Display']">
-                <p className="w-full text-center font-bold font-xl">
+            <div className="px-4 py-2 flex flex-col items-start justify-start w-full font-['Playfair-Display']">
+                <p className="w-full text-center font-bold text-2xl">
                     {currentQuizData.heading}
                 </p>
                 <hr className='w-full my-4' />
-                <p className="text-left flex justify-center">
+                <p className="text-left flex justify-center text-lg">
                     {currentQuizData.description}
                 </p>
                 <div className='w-full '>
@@ -356,6 +363,7 @@ function AccreditedInvestor() {
                         data={currentQuizData}
                         formHandler={formHandler}
                         onOptionSelect={handleOptionSelect}
+                        allQuestionsAnswered={allQuestionsAnswered}
                     />
                 </div>
                 {currentQuiz > 0 && (
@@ -376,7 +384,7 @@ function AccreditedInvestor() {
 
     return (
         <div className="my-8 mb-12 relative flex flex-col items-center justify-center font-['Playfair-Display'] text-lg w-[90%] lg:w-[100%] mx-auto lg:mx-0">
-            <div className={`mx-auto lg:px-8 rounded-lg my-6 w-full`}>
+            {!accreditedForm && <div className={`mx-auto lg:px-8 rounded-lg my-6 w-full`}>
                 <h2 className="text-2xl font-bold tracking-tight text-black">
                     Become an Accredited Investor
                 </h2>
@@ -389,14 +397,14 @@ function AccreditedInvestor() {
                         />
                     ))}
                 </div>
-            </div>
+            </div>}
             {!accreditedForm && (
                 <div className="" onClick={FormHandler}>
                     <Button Text="Start my journey as an Accredited Investor" />
                 </div>
             )}
             {accreditedForm && (
-                <div className="">
+                <div className="w-full mt-6">
                     {loadQuestions()}
                 </div>
             )}
