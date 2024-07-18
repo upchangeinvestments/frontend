@@ -4,7 +4,7 @@ import { Navigate } from 'react-router-dom';
 import RingLoader from "react-spinners/RingLoader";
 
 export default function PrivateProfileRoute({ children }) {
-    const { isGuest, loadingUser } = useAuth();
+    const { isGuest, isAuth, loadingUser } = useAuth();
 
     if (loadingUser) {
         return (
@@ -18,8 +18,9 @@ export default function PrivateProfileRoute({ children }) {
         )
     }
 
-    if (isGuest) {
+    if (isGuest || !isAuth) {
         return <Navigate to="/signin?isLogin=false" />;
+
     }
 
     return children;

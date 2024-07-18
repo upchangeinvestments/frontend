@@ -1,5 +1,6 @@
 import React, { useEffect, useState, useContext } from "react";
 import { useNavigate } from "react-router-dom";
+import Error from "./Error";
 import axios from "axios";
 import { jwtDecode } from "jwt-decode";
 
@@ -83,7 +84,11 @@ const AuthProvider = ({ children }) => {
       setUser(response.data.user);
       setIsAuth(true);
       setLoadingUser(false);
+
     } catch (err) {
+      if (err.response && err.response.status === 302) {
+        Error(err.response.data.message);
+      }
       setIsAuth(false);
       // navigate("/");
       setUser({});
