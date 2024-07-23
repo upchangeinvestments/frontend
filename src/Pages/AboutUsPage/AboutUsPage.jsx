@@ -1,12 +1,18 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Footer from "../../commonComponents/Footer";
 import Navbar from "../../commonComponents/NavBar";
 import "../../styles/CategoryPage/categoryPage.css";
 import { Helmet } from 'react-helmet-async';
 import { NavHashLink } from "react-router-hash-link";
-
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 function AboutUsPage() {
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="">
       <Helmet>
@@ -90,21 +96,21 @@ function AboutUsPage() {
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 my-8 md:my-4 gap-x-4 w-[90%] md:w-[80%] mx-auto gap-y-4 md:gap-y-0">
-            <div className="flex flex-col items-center justify-start" id="vision">
+            <div className="flex flex-col items-center justify-start" data-aos="fade-right" id="vision">
               <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Vision</p>
               <div className="border-2 border-black">
                 <p className="p-6">To be the leading platform that empowers real estate investors by providing unparalleled access to a comprehensive marketplace of reputable investment firms, fostering informed decision-making and financial growth.</p>
                 <img src="https://i.postimg.cc/D0hnXdd5/vision.jpg" alt="Investor" className=" mx-auto w-32 h-32" />
               </div>
             </div>
-            <div className="flex flex-col items-center justify-start" id="mission">
+            <div className="flex flex-col items-center justify-start" data-aos="fade-up" id="mission">
               <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Mission</p>
               <div className="border-2 border-black">
                 <p className="p-6">Our mission is to create an inclusive, user-friendly platform that showcases real estate investment firms nationwide. We enable investors to easily search, compare, and connect with firms that align with their goals. We strive to be a trusted knowledge resource, guiding investors and supporting their financial success.</p>
                 <img src="https://i.postimg.cc/pLcW6jRX/mission.jpg" alt="Mission" className="mx-auto w-32 h-32" />
               </div>
             </div>
-            <div className="flex flex-col items-center justify-start" id="value">
+            <div className="flex flex-col items-center justify-start" data-aos="fade-left" id="value">
               <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Values</p>
               <div className="border-2 border-black">
                 <p className="p-6">To be the premier platform empowering real estate investors with comprehensive access to reputable investment firms. We aim to foster informed decision-making and financial growth through unparalleled transparency, innovation, and community support.</p>
@@ -113,7 +119,7 @@ function AboutUsPage() {
             </div>
           </div>
 
-          <div className="w-full flex flex-col items-center justify-center" id="knowledge">
+          <div className="w-full flex flex-col items-center justify-center" data-aos="zoom-in-left" id="knowledge">
             <p className="text-black uppercase CerebriFont text-2xl md:text-3xl text-center font-bold mt-6 mb-2">Empowering Investors with Knowledge</p>
             <div className="hidden md:flex border-2 border-black items-center justify-center w-[80%]">
               <img src="https://i.postimg.cc/ydc7xr9k/knowledge.jpg" className="w-24 h-24" alt="Knowledge" />
@@ -126,7 +132,7 @@ function AboutUsPage() {
             </div>
           </div>
 
-          <div className="w-full flex flex-col items-center justify-center" id="partners">
+          <div className="w-full flex flex-col items-center justify-center" data-aos="zoom-in-right" id="partners">
             <p className="text-black uppercase CerebriFont text-2xl md:text-3xl text-center font-bold mt-6 mb-2">A Marketplace for General Partners</p>
 
             <div className="border-2 border-black hidden md:flex items-center justify-center w-[80%]">
@@ -140,7 +146,7 @@ function AboutUsPage() {
             </div>
           </div>
 
-          <div className="w-full flex flex-col items-center justify-center" id="search">
+          <div className="w-full flex flex-col items-center justify-center" data-aos="zoom-in-left" id="search">
             <p className="text-black uppercase CerebriFont text-2xl md:text-3xl text-center font-bold mt-6 mb-2">Streamlined and Customizable Search Experience</p>
             <div className="border-2 border-black hidden md:flex items-center justify-center w-[80%]">
               <img src="https://i.postimg.cc/zfLzZfGw/search.jpg" className="w-24 h-24" alt="Search" />
@@ -153,7 +159,7 @@ function AboutUsPage() {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center justify-center w-[70%] mx-auto my-4">
+          <div className="hidden md:flex items-center justify-center w-[70%] mx-auto my-4" data-aos="zoom-in">
             <div className="w-full h-full flex flex-col items-center justify-center">
               <img src="https://i.postimg.cc/D0WcDRtC/founder2.jpg" className="object-cover object-top vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] md:w-[120px] md:h-[120px] md:mt-[30px] lg:w-[150px] lg:h-[150px] rounded-full p-2 bg-gradient-to-br from-white to-[#6e30a7] " alt="Founder" />
               <div className="mt-2">

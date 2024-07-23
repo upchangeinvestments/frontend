@@ -1,10 +1,13 @@
 import React, { useState } from 'react';
-import Button from "../../commonComponents/LoginButton";
+import GoldenButton from "../../commonComponents/LoginButton";
 import Collapse from "react-collapse";
 import { useAuth } from "../../utils/AuthContext";
 import SuccessToast from "../../utils/successToast";
 import axios from "axios";
-
+import { styled } from '@mui/material/styles';
+import Button from '@mui/material/Button';
+import { IoCloudUpload } from "react-icons/io5";
+import { IoCheckmarkSharp } from "react-icons/io5";
 import bgImage from "../../assets/login_BG.jpeg";
 
 const CollapseItem = [
@@ -40,6 +43,7 @@ const CollapseItem = [
 ]
 
 const QuestionOptions = {
+    identity: ["Myself as an individual", "A business or trust"],
     businessType: ["Public Charity", "Private Foundation", "S Corporation", "C Corporation", "Foreign Corporation", "Irrevocable Trust", "Revocable Trust", "Family Office", "Limited Liability Company", "Limited Partnership"],
     license: ["General Securities Representative (Series 7)", "Private Securities Offerings Representative (Series 82)", "Investment Advisor Representative (Series 65)"],
     status: ["Income of $200k (or $300k with spouse) in each of the past 2 year", "Net worth of $1M, individually or jointly with spouse excluding your primary residence", "Hold a professional license with FINRA that qualifies you as an accredited investor", "None of the above apply to me"],
@@ -50,6 +54,19 @@ const QuestionOptions = {
 }
 
 const Questions = [
+    {
+        name: "slide0",
+        heading: "Choose Identity",
+        description: "Please select the person or business entity you would like to submit for accreditation approval",
+        questions: [
+            {
+                question: "Identity to submit",
+                type: "list",
+                key: "identity",
+                list: QuestionOptions.identity
+            },
+        ],
+    },
     {
         name: "slide1",
         heading: "Information",
@@ -70,6 +87,97 @@ const Questions = [
     },
     {
         name: "slide2",
+        heading: "Request letter from Accoutant, Lawyer or Advisor",
+        description: "We'll reach out to the person you identify below to request that they verify your accreditation status. After they respond, we'll be able to process your application.",
+        questions: [
+            {
+                question: "First Name",
+                type: "text",
+                key: "firstName",
+            },
+            {
+                question: "Last Name",
+                type: "text",
+                key: "lastName"
+            },
+            {
+                question: "Email Address",
+                type: "email",
+                key: "email"
+            },
+            {
+                question: "Role",
+                type: "list",
+                list: QuestionOptions.role,
+                key: "role"
+            },
+        ],
+    },
+    {
+        name: "slide3",
+        heading: "2024 Expected Income",
+        description: "Please select your expected individual income for 2024. If you're married, please also select your expected 2024 joint income",
+        questions: [
+            {
+                question: "Income",
+                type: "list",
+                list: QuestionOptions.income,
+                key: "expectedIncome"
+            },
+        ],
+    },
+    {
+        name: "slide4",
+        heading: "Individual Accreditation Certification:: Income Validation",
+        questions: [
+            {
+                question: "How would you like to verify your income level",
+                type: "list",
+                list: QuestionOptions.incomeValidation,
+                key: "incomeValidation"
+            },
+        ],
+    },
+    {
+        name: "slide5",
+        heading: "Individual Accreditation Certification",
+        questions: [
+            {
+                question: "I would like to verify my status as an accredited investor by confirming",
+                type: "list",
+                list: QuestionOptions.status,
+                key: "accreditationStatus"
+            },
+        ],
+    },
+    {
+        name: "slide6",
+        heading: "Upload Certification Letter",
+        content: [
+            `You can assert your accreditation status by uploading a PDF letter from one of these representatives:`,
+            <ul className='list-disc pl-6' key="secList">
+                <li>an SEC-registered investment advisor</li>
+                <li>a licensed attorney</li>
+                <li>a certified public accountant</li>
+                <li>an enrolled agent</li>
+            </ul>,
+            `The letter should be on firm letterhead and must state that you qualify as an accredited investor (as defined in Rule 501(a) of Regulation D of the Securities Act of 1933, as amended) based on their independent analysis. If the letter only speaks to the balance in your account, you should go through our net worth verification instead.`,
+        ],
+        questions: [
+            {
+                question: "PDF file",
+                type: "upload",
+                key: "certificationLetter"
+            },
+            {
+                question: "I certify that all of the information I'm uploading is true and correct.",
+                type: "checkbox",
+                key: "certifyFile"
+            }
+        ],
+    },
+    {
+        name: "slide7",
         heading: "Individual Accreditation Certification - Professional License",
         description: "Please Provide the following details",
         questions: [
@@ -89,72 +197,6 @@ const Questions = [
                 type: "checkbox",
                 key: "certifyCRD"
             }
-        ],
-
-    },
-    {
-
-        name: "slide3",
-        heading: "Individual Accreditation Certification",
-        questions: [
-            {
-                question: "I would like to verify my status as an accredited investor by confirming",
-                type: "list",
-                list: QuestionOptions.status,
-                key: "accreditationStatus"
-            },
-        ],
-    },
-    {
-
-        name: "slide4",
-        heading: "Request letter from Accoutant, Lawyer or Advisor",
-        questions: [
-            {
-                question: "First Name",
-                type: "text",
-                key: "firstName",
-            },
-            {
-                question: "Last Name",
-                type: "text",
-                key: "lastName"
-            },
-            {
-                question: "Email Address",
-                type: "email",
-                key: "email"
-            },
-            {
-                question: "We'll reach out to the person you identify below to request that they verify your accreditation status. After they respond, we'll be able to process your application.",
-                type: "list",
-                list: QuestionOptions.role,
-                key: "role"
-            },
-        ],
-    },
-    {
-        name: "slide5",
-        heading: "2024 Expected Income",
-        questions: [
-            {
-                question: "Please select your expected individual income for 2024. If you're married, please also select your expected 2024 joint income",
-                type: "list",
-                list: QuestionOptions.income,
-                key: "expectedIncome"
-            },
-        ],
-    },
-    {
-        name: "slide6",
-        heading: "Individual Accreditation Certification:: Income Validation",
-        questions: [
-            {
-                question: "How would you like to verify your income level",
-                type: "list",
-                list: QuestionOptions.incomeValidation,
-                key: "incomeValidation"
-            },
         ],
     },
 
@@ -192,38 +234,42 @@ const CollapeItem = ({ title, content }) => {
     );
 };
 
-function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, formHandler, allQuestionsAnswered }) {
+function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, formHandler, allQuestionsAnswered, fileName }) {
 
     const handleOptionSelect = (e) => {
-        const { name, value, type, checked } = e.target;
+        const { name, value, type, checked, files } = e.target;
 
         if (type === "checkbox") {
             onOptionSelect(checked ? value : null);
+        } else if (type === "file") {
+            onOptionSelect(files[0]);
         } else {
             onOptionSelect(value);
         }
     };
+    
+    const VisuallyHiddenInput = styled('input')({
+        clip: 'rect(0 0 0 0)',
+        clipPath: 'inset(50%)',
+        height: 1,
+        overflow: 'hidden',
+        position: 'absolute',
+        bottom: 0,
+        left: 0,
+        whiteSpace: 'nowrap',
+        width: 1,
+        color: "#6e30a7",
+      });
 
     return (
         <form className="my-4 text-lg" onSubmit={formHandler}>
             {data.questions.map((question, index) => (
                 <div key={index} className="mb-4">
-                    {question.type === "text" && (
+                    {(question.type === "text" || question.type === "email") && (
                         <div className="">
                             <p className="font-semibold mb-2">{question.question}</p>
                             <input
-                                type="text"
-                                className="border p-2 w-full"
-                                name={question.key}
-                                required
-                            />
-                        </div>
-                    )}
-                    {question.type === "email" && (
-                        <div className="">
-                            <p className="font-semibold mb-2">{question.question}</p>
-                            <input
-                                type="email"
+                                type={question.type}
                                 className="border p-2 w-full"
                                 name={question.key}
                                 required
@@ -247,6 +293,31 @@ function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, 
                                     </option>
                                 ))}
                             </select>
+                        </div>
+                    )}
+                    {question.type === "upload" && (
+                        <div className="">
+                            <div className="">{data.content}</div>
+                            <div  className="mt-4 flex items-center justify-start gap-x-6">
+                                <p className="font-semibold">{question.question}</p>
+                                <Button
+                                    component="label"
+                                    role={undefined}
+                                    variant="contained"
+                                    tabIndex={-1}
+                                    color="secondary"
+                                    startIcon={<IoCloudUpload  />}
+                                    >
+                                        Upload file
+                                    <VisuallyHiddenInput type="file" onChange={handleOptionSelect}/>
+                                </Button>
+                            </div>
+                            {fileName.length>0 && (
+                                <div className="flex items-center justify-start gap-x-4 ">
+                                    <IoCheckmarkSharp color='green'/>
+                                    <p>{fileName}</p>
+                                </div>
+                            )}
                         </div>
                     )}
                     {question.type === 'checkbox' && (
@@ -278,12 +349,17 @@ function AccreditedInvestor() {
     const [selectedAnswers, setSelectedAnswers] = useState(Array(Questions.length).fill(null));
     const [allQuestionsAnswered, setAllQuestionsAnswered] = useState(false);
     const { user, backendUrl } = useAuth();
+    const [fileName, setFileName] = useState("");
 
     const FormHandler = () => setAccreditedForm(!accreditedForm);
 
     const handleOptionSelect = (option) => {
         const newSelectedAnswers = [...selectedAnswers];
         newSelectedAnswers[currentQuiz] = option;
+
+        if(option instanceof File){
+            setFileName(option.name);
+        }
 
         setSelectedAnswers(newSelectedAnswers);
         setAllQuestionsAnswered(selectedAnswers.every(answer => answer !== null));
@@ -317,17 +393,34 @@ function AccreditedInvestor() {
     }
 
     const saveQuizResponses = async () => {
+        const formData = new FormData();
         const responses = Questions.flatMap((slide, slideIndex) =>
-            slide.questions.map((question, questionIndex) => ({
-                question: question.question,
-                answer: selectedAnswers[slideIndex][question.key],
-            }))
+            slide.questions.map((question, questionIndex) => {
+                const answer = selectedAnswers[slideIndex][question.key];
+
+                if (answer instanceof File) {
+                    formData.append('file', answer);
+                    return {
+                        question: question.question,
+                        answer: answer.name,
+                    };
+                }
+
+                return {
+                    question: question.question,
+                    answer: answer,
+                };
+            })
         );
 
+        formData.append('responses', JSON.stringify(responses));
+        formData.append('user', JSON.stringify(user));
+
         try {
-            const res = await axios.post(`${backendUrl}/profile/investor-quiz`, {
-                responses: responses,
-                user: user,
+            const res = await axios.post(`${backendUrl}/profile/investor-quiz`, formData, {
+                headers: {
+                    'Content-Type': 'multipart/form-data',
+                },
             });
             if (res.status === 200) {
                 setCurrentQuiz(0);
@@ -364,6 +457,7 @@ function AccreditedInvestor() {
                         formHandler={formHandler}
                         onOptionSelect={handleOptionSelect}
                         allQuestionsAnswered={allQuestionsAnswered}
+                        fileName={fileName}
                     />
                 </div>
                 {currentQuiz > 0 && (
@@ -400,7 +494,7 @@ function AccreditedInvestor() {
             </div>}
             {!accreditedForm && (
                 <div className="" onClick={FormHandler}>
-                    <Button Text="Start my journey as an Accredited Investor" />
+                    <GoldenButton Text="Start my journey as an Accredited Investor" />
                 </div>
             )}
             {accreditedForm && (
@@ -413,3 +507,42 @@ function AccreditedInvestor() {
 }
 
 export default AccreditedInvestor;
+
+
+// import React from 'react';
+// import axios from 'axios';
+
+// frontend code to fetch the file submitted in accredited form 
+// const fetchFile = async (userId, question) => {
+//     try {
+//         const res = await axios.get(`${backendUrl}/profile/investor-quiz/file/${userId}/${question}`, {
+//             responseType: 'blob', // Important for file downloads
+//         });
+
+//         const fileURL = window.URL.createObjectURL(new Blob([res.data]));
+//         const fileLink = document.createElement('a');
+        
+//         fileLink.href = fileURL;
+//         fileLink.setAttribute('download', res.headers['content-disposition'].split('filename=')[1]);
+//         document.body.appendChild(fileLink);
+
+//         fileLink.click();
+//         fileLink.remove();
+//     } catch (error) {
+//         console.error('Error fetching file:', error);
+//     }
+// };
+
+// const AdminDashboard = ({ userId, question }) => {
+//     const handleFileDownload = async () => {
+//         await fetchFile(userId, question);
+//     };
+
+//     return (
+//         <div>
+//             <button onClick={handleFileDownload}>Download File</button>
+//         </div>
+//     );
+// };
+
+// export default AdminDashboard;
