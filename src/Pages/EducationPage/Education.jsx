@@ -1,7 +1,10 @@
-import React, { useState } from "react";
-// import bgImage from "../../assets/login_BG.jpeg";
+import React, { useState, useEffect } from "react";
 import EduModal from "./EduModal";
 import Card from "./Card";
+import Aos from "aos";
+import "aos/dist/aos.css";
+
+
 
 const EducationData = [
   {
@@ -172,14 +175,18 @@ const cardsData = [
 ];
 
 
-function ServiceCard({ data, handleDrawer, passDataObject }) {
+function ServiceCard({ data, handleDrawer, passDataObject, index }) {
   const [modalOpen, setModalOpen] = useState(false);
   const handleOpen = () => setModalOpen(!modalOpen);
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
 
   return (
     <div onClick={handleOpen} className="">
       <EduModal isOpen={modalOpen} handleOpen={handleOpen} modalContent={data.modalContent} />
-      <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 h-[160px] border border-1 border-[#6e30a7] flex flex-col ">
+      <div className="bg-white/20 backdrop-blur-xl rounded-lg shadow-md font-['Playfair-Display'] overflow-hidden text-center items-center vsm:mx-4 md:mx-8 p-4 h-[160px] border border-1 border-[#6e30a7] flex flex-col" data-aos={index % 2 === 0 ? "fade-right" : "fade-left"}>
         <h3 className="text-xl font-medium mb-2">{data.title}</h3>
         <p className="line-clamp-3 px-4 text-center md:text-left w-full h-full">{data.description}</p>
         <button onClick={handleOpen} className="hidden md:block bg-[#6e30a7] text-white  py-1 px-3 rounded mt-2 bottom-4">
@@ -200,6 +207,11 @@ function ServiceCard({ data, handleDrawer, passDataObject }) {
 }
 
 const Education = ({ handleDrawer, passDataObject }) => {
+
+  useEffect(() => {
+    Aos.init();
+  }, []);
+
   return (
     <div className="w-full ">
       <div className="bg-white/20 backdrop-blur-xl p-4 rounded-lg pb-6 shadow-[0_2px_15px_-3px_rgba(0,0,0,0.07),0_10px_20px_-2px_rgba(0,0,0,0.04)]">
@@ -214,7 +226,7 @@ const Education = ({ handleDrawer, passDataObject }) => {
         </p>
         <div className="grid grid-cols-1  md:grid-cols-2 gap-4">
           {cardsData.map((card, index) => (
-            <ServiceCard key={index} data={card} handleDrawer={handleDrawer} passDataObject={passDataObject} />
+            <ServiceCard key={index} data={card} handleDrawer={handleDrawer} passDataObject={passDataObject} index={index} />
           ))}
         </div>
       </div>

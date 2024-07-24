@@ -1,14 +1,20 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import EduModal from "./EduModal";
+import Aos from "aos";
+import "aos/dist/aos.css";
 
 const Card = ({ data, handleDrawer, passDataObject }) => {
     const [modalOpen, setModalOpen] = React.useState(false);
     const handleOpen = () => setModalOpen(!modalOpen);
 
+    useEffect(() => {
+        Aos.init();
+    }, []);
+
     return (
         <div className="">
             <EduModal isOpen={modalOpen} handleOpen={handleOpen} modalContent={data.modalContent} />
-            <div className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg vsm:h-[250px] msm:h-[230px] lg:h-[220px] xl:h-[200px] relative border border-1 border-[#6e30a7]">
+            <div className="block bg-white/20 backdrop-blur-xl shadow-md p-4 rounded-lg vsm:h-[250px] msm:h-[230px] lg:h-[220px] xl:h-[200px] relative border border-1 border-[#6e30a7]" data-aos="zoom-in">
                 <h2 className="vsm:text-xl lg:text-lg font-['Playfair-Display'] font-semibold mb-2 md:hidden">
                     {data.title.length > 33
                         ? `${data.title.substring(0, 30)}...`

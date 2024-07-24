@@ -24,6 +24,7 @@ import Privacyandpolicy from "./Pages/SpecificCategoryPage/Privacyandpolicy";
 import Welcome from "./Pages/SignInPage/Welcome";
 import HowItWorksPage from "./Pages/SpecificCategoryPage/HowItWorksPage";
 import RoiCalculator from "./Pages/RoiCalculatorPage/CalculatorPage"
+import NotFoundPage from "./Pages/NotFoundPage/NotFoundPage"
 
 function App() {
   return (
@@ -65,6 +66,7 @@ function App() {
           <Route path="/welcome" element={<Welcome />} />
           <Route path="/work" element={<HowItWorksPage />} />
           <Route path="/resetPassword/:resetToken" element={<ForgotPassword />} />
+          <Route path="*" element={<NotFoundPage />} />
         </Routes>
         <ToastContainer
           position="top-center"
