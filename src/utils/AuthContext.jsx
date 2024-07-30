@@ -84,13 +84,11 @@ const AuthProvider = ({ children }) => {
       setUser(response.data.user);
       setIsAuth(true);
       setLoadingUser(false);
-
     } catch (err) {
       if (err.response && err.response.status === 302) {
         Error(err.response.data.message);
       }
       setIsAuth(false);
-      // navigate("/");
       setUser({});
       setLoadingUser(false);
     }

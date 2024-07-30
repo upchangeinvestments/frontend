@@ -309,7 +309,7 @@ function QuestionTemplate({ data, currentQuiz, selectedAnswers, onOptionSelect, 
                                     startIcon={<IoCloudUpload  />}
                                     >
                                         Upload file
-                                    <VisuallyHiddenInput type="file" onChange={handleOptionSelect}/>
+                                    <VisuallyHiddenInput type="file" onChange={handleOptionSelect} required/>
                                 </Button>
                             </div>
                             {fileName.length>0 && (
@@ -350,15 +350,23 @@ function AccreditedInvestor() {
     const [allQuestionsAnswered, setAllQuestionsAnswered] = useState(false);
     const { user, backendUrl } = useAuth();
     const [fileName, setFileName] = useState("");
+    const [filteredQuestions, setFilteredQuestions] = useState(Questions);
+
 
     const FormHandler = () => setAccreditedForm(!accreditedForm);
-
     const handleOptionSelect = (option) => {
         const newSelectedAnswers = [...selectedAnswers];
         newSelectedAnswers[currentQuiz] = option;
 
         if(option instanceof File){
             setFileName(option.name);
+        }
+        if(currentQuiz===0){
+            if (option=== "Myself as an individual") {
+                setFilteredQuestions(Questions.filter((question) => question.name !== "slide1"));
+            } else {
+                setFilteredQuestions(Questions.filter((question) => question.name === "slide1" || question.name === "slide0"));
+              }
         }
 
         setSelectedAnswers(newSelectedAnswers);
@@ -372,7 +380,6 @@ function AccreditedInvestor() {
 
     const formHandler = async (e) => {
         e.preventDefault();
-
         const formData = new FormData(e.target);
 
         const textAndEmailInputs = {};
@@ -385,17 +392,21 @@ function AccreditedInvestor() {
         newSelectedAnswers[currentQuiz] = textAndEmailInputs;
 
         setSelectedAnswers(newSelectedAnswers);
-        setAllQuestionsAnswered(newSelectedAnswers.every(answer => answer !== null));
+        setAllQuestionsAnswered(newSelectedAnswers.every((answer, index) => answer !== null && filteredQuestions[index].questions.every((question) => question.answer !== null)));
 
-        if (currentQuiz < Questions.length - 1) {
+        if (currentQuiz < filteredQuestions.length - 1) {
             setCurrentQuiz(currentQuiz + 1);
+        } 
+        if(currentQuiz===filteredQuestions.length-1){
+            setAllQuestionsAnswered(true);
         }
     }
 
     const saveQuizResponses = async () => {
         const formData = new FormData();
-        const responses = Questions.flatMap((slide, slideIndex) =>
+        const responses = filteredQuestions.flatMap((slide, slideIndex) =>
             slide.questions.map((question, questionIndex) => {
+
                 const answer = selectedAnswers[slideIndex][question.key];
 
                 if (answer instanceof File) {
@@ -415,7 +426,7 @@ function AccreditedInvestor() {
 
         formData.append('responses', JSON.stringify(responses));
         formData.append('user', JSON.stringify(user));
-
+        
         try {
             const res = await axios.post(`${backendUrl}/profile/investor-quiz`, formData, {
                 headers: {
@@ -438,7 +449,7 @@ function AccreditedInvestor() {
     };
 
     const loadQuestions = () => {
-        const currentQuizData = Questions[currentQuiz];
+        const currentQuizData = filteredQuestions[currentQuiz];
 
         return (
             <div className="px-4 py-2 flex flex-col items-start justify-start w-full font-['Playfair-Display']">

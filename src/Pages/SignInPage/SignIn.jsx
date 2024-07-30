@@ -63,6 +63,9 @@ const SignIn = () => {
   const GoogleLoginHandler = async (event) => {
     event.preventDefault();
     try {
+      localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiration");
+
       const res = window.open(`${backendUrl}/auth/google`, "_self");
     } catch (error) {
       Error("Something went wrong, Please try again later.");
@@ -71,6 +74,9 @@ const SignIn = () => {
   const OutLookLoginHandler = async (event) => {
     event.preventDefault();
     try {
+      localStorage.removeItem("token");
+      localStorage.removeItem("tokenExpiration");
+
       window.open(`${backendUrl}/auth/outlook`, "_self");
     } catch (error) {
       Error("Something went wrong, Please try again later.");
