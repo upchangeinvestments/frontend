@@ -4,18 +4,18 @@ import { Link, useParams } from "react-router-dom";
 import { NavHashLink } from "react-router-hash-link";
 // import SearchBox from '../../commonComponents/SearchBox';
 import "../../styles/CategoryPage/categoryPage.css";
-import MaterialUIAccordion from "./Accordion";
 import successMessage from "../../utils/successToast";
 import errorMessage from "../../utils/Error";
 import Footer from "../../commonComponents/Footer";
 import "../../styles/LandingPage/Post.css";
 import InvestmentData from "../../assets/companyData.json"
 import { Helmet } from 'react-helmet-async';
-import { PieChart } from '@mui/x-charts/PieChart';
 import { RiShareBoxFill } from "react-icons/ri";
-import { BarChart } from '@mui/x-charts/BarChart';
 import bgImage from "../../assets/login_BG.jpeg";
-import { FaCircleArrowUp } from "react-icons/fa6";
+import { MdOutlineAutoGraph } from "react-icons/md";
+import { GoLock } from "react-icons/go";
+import { IoLocationOutline } from "react-icons/io5";
+import { AiOutlineDollar } from "react-icons/ai";
 import "../../App.css"
 import { WhatsappShareButton, TwitterShareButton, LinkedinShareButton, FacebookShareButton, EmailShareButton } from "react-share";
 import { MdContentCopy } from "react-icons/md";
@@ -23,7 +23,33 @@ import { WhatsappIcon, EmailIcon, FacebookIcon, LinkedinIcon, XIcon } from "reac
 import { IoMdCloseCircle } from "react-icons/io";
 import { useAuth } from "../../utils/AuthContext";
 import AccreditedModalComponent from "./AccreditedModal";
+import PostCard from "../LandingPage/PostCard";
+import Carousel from "react-grid-carousel";
+import { LeftArrow, RightArrow } from "../../commonComponents/CarouselButton";
 
+function Card({ info }) {
+
+  return (
+    <div className="">
+      <div className="relative w-full">
+        <img src={info.image} className="w-full h-[250px] rounded-xl" />
+        <div className="absolute inset-x-0 bottom-0 h-[100px] bg-gradient-to-t from-black/80 via-transparent to-transparent rounded-b-xl">
+          <div className="text-white text-xl font-medium absolute bottom-0 pb-2 pl-4">{info.projectName}</div>
+        </div>
+      </div>
+      <div className="p-4 grid grid-cols-2 font-semibold text-lg">
+        <div className="flex flex-col items-start">
+          <p className="whitespace-nowrap">Class Type: {info.classType}</p>
+          <p className="whitespace-nowrap">Return Rate: {info.returnRate}%</p>
+        </div>
+        <div className="flex flex-col items-end">
+          <p className="whitespace-nowrap">Year Started: {info.year}</p>
+          <p className="whitespace-nowrap">Year Ended: {info.yearEnd}</p>
+        </div>
+      </div>
+    </div>
+  )
+}
 
 function formatMinInvestment(minInvestment) {
   if (minInvestment >= 1000000) {
@@ -81,8 +107,11 @@ function PostPage() {
 
   useEffect(() => {
     const bannerPosition = bannerRef.current.offsetTop;
+
     const handleScroll = () => {
       if (bannerRef.current) {
+        console.log("window = ", window.scrollY);
+        console.log("banner = ", bannerPosition);
         if (window.scrollY > bannerPosition) {
           bannerRef.current.classList.add('fixed-Bannertop');
           setBannerContent(true);
@@ -192,372 +221,321 @@ function PostPage() {
           <div className="PostPage">
             <NavBar />
             <div className="" id="overview"></div>
-            <div className="YesevaFont flex items-center justify-center relative overflow-x-hidden w-full">
-              <div className="flex justify-center items-start h-[90%] relative w-[100%]">
+            <div className="YesevaFont flex items-center justify-center relative w-full">
+              <div className="flex justify-center items-start h-full relative w-[100%]">
                 <div className="relative flex flex-col w-[100%]">
                   <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
-                  <div ref={bannerRef} className="bg-white w-full">
-                    <div className={`flex items-center justify-between mx-2 md:mx-40 ${bannerContent ? 'py-3' : 'pt-5 pb-2'}`}>
-                      <p className={`YesevaFont text-2xl md:text-4xl flex items-center justify-center text-left ${bannerContent ? '' : ''}`}>{data.companyName}</p>
-                      <div className={`${bannerContent ? 'flex items-center justify-center' : ''}`}>
-                        <button onClick={() => setShareModal(true)} style={{ backgroundImage: `url(${bgImage})` }}
-                          className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
-                          <RiShareBoxFill />Share
-                        </button>
-                      </div>
-                    </div>
-                    <div className="flex items-center justify-start relative bg-gradient-to-r from-[#9b5bd4] to-purple-300 text-white px-4 md:px-12 py-4 md:w-[100vw]">
-                      <div className="flex items-center justify-start gap-x-6 overflow-x-scroll md:overflow-hidden">
-                        {bannerItems.map((data, index) => (
-                          <NavHashLink to={data.linkToSection} smooth key={index} className="border-[1px] border-white whitespace-nowrap rounded-full p-2 px-4">
-                            {data.section}
-                          </NavHashLink>
-                        ))}
-                      </div>
-                      <div className="hidden md:block text-black absolute right-8" onClick={scrollToTop}>
-                        <FaCircleArrowUp />
+
+                  <div className="bg-gradient-to-r from-[#2a235a] to-[#150d2b] flex items-center justify-center flex-col relative">
+                    <p className={`text-5xl flex items-center justify-center text-left text-white frauncesFont tracking-widest p-6 mb-16`}>{data.companyName}</p>
+                    <div ref={bannerRef} className={`container mx-auto px-4 py-2 flex justify-center space-x-6 absolute inset-x-0 ${bannerContent ? '' : 'top-1/2 transform translate-y-1/2'} bg-white text-black border-[1px] border-purple-600`}>
+                      {bannerItems.map((data, index) => (
+                        <NavHashLink to={data.linkToSection} smooth key={index} className="whitespace-nowrap py-4 text-black">
+                          <div className="flex items-center justify-center space-x-6">
+                            <p>{data.section}</p>
+                            <span className="h-8 border-[1.2px] border-gray-300"></span>
+                          </div>
+                        </NavHashLink>
+                      ))}
+                      <div onClick={() => setShareModal(true)}
+                        className={`whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold flex items-center justify-center gap-x-2`}>
+                        <RiShareBoxFill />Share
                       </div>
                     </div>
                   </div>
+
                 </div>
               </div>
             </div>
           </div>
         </div>
-        <div className="vsm:w-[90%] mx-auto lg:w-[60%] 2xl:max-w-6xl my-4 text-white">
-          <div className="flex items-center justify-center flex-col text-black">
-            <div className="flex items-center justify-start w-full lg:w-[120%]">
-              <p className="YesevaFont text-xl mb-2 text-left">Overview</p>
+        <div className="vsm:w-[90%] mx-auto md:w-full max-w-7xl my-12 text-white">
+
+          <div className="w-[90%] mx-auto flex items-center justify-center gap-6">
+            <div className="flex items-center justify-center flex-col text-black basis-[70%]">
+              <div className="flex items-center justify-start w-full">
+                <p className="YesevaFont text-2xl my-2 w-full text-center">Overview</p>
+              </div>
+              <p className="text-lg text-justify">{data.description}</p>
             </div>
-            <p className="text-xl lg:w-[120%] text-justify">{data.description}</p>
-          </div>
-          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4 ">
-            <p className="YesevaFont text-2xl text-center my-1 uppercase">{data.companyName} strategy allocation</p>
-            <div className="flex items-center justify-center flex-col md:flex-row">
-              <div className="flex items-center justify-center relative">
-                <div className="hidden md:block">
-                  <PieChart
-                    series={[
-                      {
-                        data: [
-                          { id: 0, value: 75, label: 'Equity Focused', color: "#A26CF6" },
-                          { id: 1, value: 25, label: 'Other Strategies', color: "#C59FFF" },
-                        ],
-                        highlightScope: { faded: 'global', highlighted: 'item' },
-                        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-                        innerRadius: 50,
-                        outerRadius: 100,
-                        paddingAngle: 2,
-                        cornerRadius: 5,
-                        startAngle: 0,
-                        endAngle: 360,
-                        cx: 100,
-                        cy: 120,
-                      }
-                    ]}
-                    slotProps={{
-                      legend: { hidden: true },
-                    }}
-                    width="450px"
-                    height="250px"
-                  />
-                </div>
-                <div className="md:hidden">  {/*for mobile screens*/}
-                  <PieChart
-                    series={[
-                      {
-                        data: [
-                          { id: 0, value: 75, label: 'Equity Focused', color: "#A26CF6" },
-                          { id: 1, value: 25, label: 'Other Strategies', color: "#C59FFF" },
-                        ],
-                        highlightScope: { faded: 'global', highlighted: 'item' },
-                        faded: { innerRadius: 30, additionalRadius: -30, color: 'gray' },
-                        innerRadius: 50,
-                        outerRadius: 100,
-                        paddingAngle: 2,
-                        cornerRadius: 5,
-                        startAngle: 0,
-                        endAngle: 360,
-                        cx: 170,
-                        cy: 120,
-                      }
-                    ]}
-                    slotProps={{
-                      legend: { hidden: true },
-                    }}
-                    width="360px"
-                    height="300px"
-                  />
-                </div>
-                <div className="z-10 absolute bottom-0 md:right-10 md:inset-y-0 flex flex-col items-start justify-center gap-y-2">
-                  <div className="flex items-center justify-center gap-x-2">
-                    <div className="w-4 h-4 border-[1px] border-white bg-[#A26CF6]"></div>
-                    <p>Equity Focused (25%)</p>
+            <div className="h-60 border-[1.2px] border-gray-300 "></div>
+            <div className="flex items-center justify-center flex-col text-black basis-[30%]">
+              <div className="grid grid-cols-2 mt-4 mb-2 vsm:gap-x-4 md:gap-x-6 md:px-2 lg:px-0">
+                <div className="flex flex-col items-center justify-center pb-2">
+                  <div className="bg-gray-100 rounded-full p-4">
+                    <MdOutlineAutoGraph size="25px" />
                   </div>
-                  <div className="flex items-center justify-center gap-x-2">
-                    <div className="w-4 h-4 border-[1px] border-white bg-[#C59FFF]"></div>
-                    <p>Other Strategies (75%)</p>
+                  <p className="mt-1 font-semibold text-xl">{data.feeStructure}%</p>
+                  <p className="flex flex-wrap text-center">Management Fees</p>
+                </div>
+                <div className="flex flex-col items-center justify-center pb-2">
+                  <div className="bg-gray-100 rounded-full p-4">
+                    <GoLock size="25px" />
                   </div>
+                  <p className="mt-1 font-semibold text-xl">{data.historicalReturnRates} %</p>
+                  <p className="flex flex-wrap text-center">Return Rates</p>
+                </div>
+                <div className="flex flex-col items-center justify-center pb-2">
+                  <div className="bg-gray-100 rounded-full p-4">
+                    <AiOutlineDollar size="25px" />
+                  </div>
+                  <p className="mt-1 font-semibold text-xl">{data.aum}</p>
+                  <p className="flex flex-wrap text-center">Asset Under Management</p>
+                </div>
+                <div className="flex flex-col items-center justify-center pb-2">
+                  <div className="bg-gray-100 rounded-full p-4">
+                    <IoLocationOutline size="25px" />
+                  </div>
+                  <p className="mt-1 font-semibold text-xl">{data.location}</p>
+                  <p className="flex flex-wrap text-center">Location</p>
                 </div>
               </div>
-              <div className="flex items-center justify-center flex-col mt-6 md:mt-0">
-                <p className="text-[#A26CF6] text-5xl mb-4 font-medium">{data.aum}</p>
-                <p className="text-xl CormorantFont CerebriFont">Assets Under Mangement</p>
-              </div>
             </div>
-          </div>
-          <div className="mb-4 text-black">
-            <p className="text-xl YesevaFont my-2">Investment Strategy</p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Type: </span> Equity Focused</li>
-              <li className=""> <span className="font-bold ">Insight: </span> {data.companyName} primarily follows an equity investment strategy, benefiting from property appreciation and rental income. While equity investments can offer higher returns, they also come with higher risks compared to debt investments.</li>
-            </ul>
-          </div>
-          <div className="mb-4 text-black">
-            <div id="riskType"></div>
-            <p className="text-xl YesevaFont my-2">Assets Under Management (AUM)</p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Total: </span> {data.aum}</li>
-              <li className=""> <span className="font-bold ">Insight: </span> With {data.aum} in AUM, {data.companyName} is a mid-sized firm. This level of AUM indicates stability and sufficient resources to manage investments effectively and generate returns for investors. </li>
-            </ul>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 my-6 gap-y-8">
-            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center">
-              <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Risk type</p>
-              <div className="relative h-full w-full CerebriFont">
-                <p className="absolute left-16 md:left-20 bottom-4">Low</p>
-                <p className="absolute bottom-4 right-16 md:right-20">High</p>
-                <p className="absolute top-4 inset-x-0 left-[42%]">{data.riskLevel}</p>
-                {data.riskLevel === "High" ? (
-                  <img src="https://i.postimg.cc/dt1k2mm6/highmeter.png" alt="High" />
-                ) : data.riskLevel === "Medium" ? (
-                  <img src="https://i.postimg.cc/t4nsfqcV/medium.png" alt="Medium" />
-                ) : (
-                  <img src="https://i.postimg.cc/HshJBc6g/low.png" alt="Low" />
-                )}
-              </div>
-            </div>
-            <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex items-center justify-start flex-col text-center" >
-              <div className="">
-                <p className="YesevaFont text-2xl text-center my-1 uppercase py-4">Minimum Investment</p>
-                <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">USD  {formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
-              </div>
-              <div className="text-2xl CerebriFont mt-8">
-                <p className="YesevaFont text-3xl text-center uppercase">Acceptance</p>
-                <p className="text-[#A26CF6] font-bold mt-2">Accredited only</p>
-              </div>
-            </div>
-          </div>
-          <div className="mb-4 text-black">
-            <p className="text-xl YesevaFont my-2">Risk Level</p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Level: </span> {data.riskLevel}</li>
-              <li className=""> <span className="font-bold ">Insight: </span> {data.companyName} balances its investment strategy to offer reasonable returns while managing risk. This {data.riskLevel} risk level is suitable for investors seeking a balance between growth and safety.</li>
-            </ul>
-          </div>
-          <div className="mb-4 text-black">
-            <div id="returnRates"></div>
-            <p className="text-xl YesevaFont my-2">Minimum Investment</p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Amount: </span> USD {formatMinInvestment(data.minInvestment)}</li>
-              <li className=""> <span className="font-bold ">Insight: </span> This minimum investment level makes Evsion Capital Investments accessible to both high-net-worth individuals and smaller institutional investors. It provides a moderate entry point, allowing broader participation.</li>
-            </ul>
           </div>
 
-          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg p-4 my-6">
-            <p className="YesevaFont text-2xl text-center my-1 uppercase">Historical return rates</p>
-            <div className="flex items-center justify-center -mt-8 md:-ml-8 flex-col md:flex-row gap-y-8">
-              <div className="text-white" ref={chartRef}>
-                <BarChart
-                  dataset={data.yearly_returns}
-                  yAxis={[{ scaleType: 'band', dataKey: 'year' }]}
-                  series={[{ dataKey: 'value', label: 'Annual Return Rate', valueFormatter, color: '#A26CF6', height: "200px" }]}
-                  sx={{
-                    "& .MuiChartsAxis-left .MuiChartsAxis-tickLabel": {
-                      fill: "white"
-                    },
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tickLabel": {
-                      fill: "white"
-                    },
-                    "& .MuiChartsLegend-root": {
-                      hidden: "true",
-                      display: "none",
-                    },
-                    "& .MuiChartsAxis-label ": {
-                      stroke: "white",
-                    },
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-line": {
-                      stroke: "white",
-                    },
-                    "& .MuiChartsAxis-bottom .MuiChartsAxis-tick": {
-                      stroke: "white",
-                    },
-                    "& .MuiChartsAxis-left .MuiChartsAxis-line": {
-                      stroke: "white",
-                    },
-                    "& .MuiChartsAxis-left .MuiChartsAxis-tick": {
-                      stroke: "white",
-                    }
-                  }}
-                  layout="horizontal"
-                  {...BarChartSetting}
-                />
-              </div>
-              <div className="text-4xl text-[#A26CF6] font-bold whitespace-nowrap overflow-hidden text-ellipsis flex-shrink -mt-4">
-                {data.historicalReturnRates.split("-")[0]}% - {data.historicalReturnRates.split("-")[1]}%
-              </div>
+          <div className="w-[90%] mx-auto grid grid-cols-3 gap-6 h-full my-6 ">
+            <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
+              <p className="YesevaFont text-2xl text-center my-1 uppercase">Minimum Investment</p>
+              <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">USD  {formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
+            </div>
+
+            <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
+              <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Company Age</p>
+              <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">{data.age} years</p>
+            </div>
+
+            <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
+              <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Risk Type</p>
+              <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">{data.riskLevel}</p>
+            </div>
+
+            <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
+              <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Asset Type</p>
+              <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">Multifamily</p>
+            </div>
+            <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
+              <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Markets</p>
+              <p className="text-[#A26CF6] text-2xl font-bold CerebriFont flex-wrap">Dallas, TX | Las Vegas, NV | Greenville, SC</p>
+            </div>
+            <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
+              <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Investment Type</p>
+              <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">Value-add</p>
             </div>
           </div>
-          <div className="mb-4 text-black my-4">
-            <p className="text-xl YesevaFont my-2 ">Historical Return Rates</p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Return Rate: </span> {data.historicalReturnRates}%</li>
-              <li className=""> <span className="font-bold ">Insight: </span> This indicates solid past performance, suggesting potential for consistent future returns. A historical return rate of {data.historicalReturnRates}% is attractive and implies effective portfolio management that consistently delivers positive results.</li>
-            </ul>
-          </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 gap-x-6 my-6 gap-y-8">
-            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex flex-col items-center justify-center">
-              <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Management Fees</p>
-              <div className=" text-center mb-6 CerebriFont">
-                <div className="grid grid-cols-2 gap-x-10 my-2">
-                  <div className="">
-                    <p className="text-[#A26CF6] text-3xl font-bold">1%-2%</p>
-                    <p className="">Asset Management</p>
-                  </div>
-                  <div className=" ">
-                    <p className="text-[#A26CF6] text-3xl font-bold">1%-2%</p>
-                    <p className="">Acquisition</p>
-                  </div>
-                </div>
-                <div className="w-full mx-auto text-center mt-2">
-                  <p className="text-[#A26CF6] text-3xl font-bold">15%</p>
-                  <p className=" ">Performance/Incentive</p>
-                </div>
+
+          <div className="w-[90%] mx-auto flex items-center justify-center gap-6 h-full my-4 ">
+            <div className="flex items-start justify-left basis-[70%] flex-col ">
+
+              <div className="mb-4 text-black">
+                <p className="text-xl YesevaFont my-2">Investment Strategy</p>
+                <ul className="list-disc list-inside space-y-2">
+                  <li className=""> <span className="font-bold ">Type: </span> Equity Focused</li>
+                  <li className=""> <span className="font-bold ">Insight: </span> {data.companyName} primarily follows an equity investment strategy, benefiting from property appreciation and rental income. While equity investments can offer higher returns, they also come with higher risks compared to debt investments.</li>
+                </ul>
+              </div>
+
+              <div className="mb-4 text-black">
+                <p className="text-xl YesevaFont my-2">Redemption Policy</p>
+                <ul className="list-disc list-inside space-y-2">
+                  <li className=""> <span className="font-bold ">Frequency: </span> {data.redemptionPolicy}</li>
+                  <li className=""> <span className="font-bold ">Insight: </span> The annual redemption policy allows investors to withdraw funds once a year, offering some liquidity but favoring long-term investment. This policy is suitable for investors with a long-term investment horizon.</li>
+                </ul>
+              </div>
+
+              <div className="mb-4 text-black">
+                <p className="text-xl YesevaFont my-2">Management Fees Analysis </p>
+                <ul className="list-disc list-inside space-y-2">
+                  <li className=""> <span className="font-bold ">Industry Range: </span> {data.averageAnnualReturns}% of AUM or committed capital</li>
+                  <li className=""> <span className="font-bold ">Assets Under Management: </span> {data.aum}</li>
+                  <li className=""> <span className="font-bold ">Comparison Parameters: </span> Fee percentage, basis of calculation, frequency of application, and performance fees.</li>
+                </ul>
               </div>
 
             </div>
-            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg flex items-center justify-center flex-col text-center">
-              <div className="">
-                <p className="YesevaFont text-2xl text-center my-1 uppercase py-2">Company Age</p>
-                <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">{data.age} years</p>
+            <div className="h-80 border-[1.2px] border-gray-300 "></div>
+            <div className="flex items-center justify-between basis-[30%] flex-col text-black gap-y-12">
+              <div className="flex items-center justify-center flex-col gap-y-2">
+                <p className="uppercase text-xl font-semibold">Company Accepting</p>
+                <p className="text-lg ">{data.investorEligibility.length === 2 ? "Accredited & Non-Accredited Investors" : "Accredited Investors"}</p>
+                <div className="flex items-center justify-center">
+                  <div onClick={AccreditedModalHandler}>
+                    <button style={{ backgroundImage: `url(${bgImage})` }} className={`bg-top flex-wrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2 uppercase`}>
+                      check if you quilify to be a accredited invetsor
+                    </button>
+                  </div>
+                </div>
               </div>
-              <div className="CerebriFont mt-8">
-                <p className="YesevaFont text-2xl text-center uppercase">Founded</p>
-                <p className="text-[#A26CF6] font-bold text-3xl">{data.yearFounded}</p>
-              </div>
-            </div>
-          </div>
-          <div className="mb-4 text-black">
-            <p className="text-xl YesevaFont my-2">Management Fees Analysis </p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Industry Range: </span> {data.averageAnnualReturns}% of AUM or committed capital</li>
-              <li className=""> <span className="font-bold ">Assets Under Management: </span> {data.aum}</li>
-              <li className=""> <span className="font-bold ">Comparison Parameters: </span> Fee percentage, basis of calculation, frequency of application, and performance fees.</li>
-            </ul>
-          </div>
-          <div className="mb-4 text-black">
-            <p className="text-xl YesevaFont my-2">Fee Structure</p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Management Fee: </span> {data.feeStructure}%</li>
-              <li className=""> <span className="font-bold ">Insight: </span> A {data.feeStructure}% management fee is competitive within the industry. This fee covers operational costs while aiming to maximize net returns for investors. Although not the lowest, it is justified by the firm's performance and services provided.</li>
-            </ul>
-          </div>
-          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-4 rounded-lg my-6" id="location">
-            <p className="YesevaFont text-2xl text-center my-1 uppercase">Headquarter location</p>
-            <div className="flex items-center justify-center flex-col md:flex-row gap-y-8">
-              <div className="">
-                <img src="https://i.postimg.cc/fR9Q4fFz/demographic.jpg" className="w-[400px]" alt="Location" />
-              </div>
-              <div className="text-center CerebriFont mr-[50px] my-auto">
-                <p className="text-2xl text-center uppercase YesevaFont mb-2">Location</p>
-                <p className="text-[#A26CF6] text-2xl uppercase font-bold">{data.location}, {data.state} </p>
-                <p className="text-[#A26CF6] text-2xl uppercase font-bold">USA</p>
+              <div className="flex items-center justify-center flex-col gap-y-2">
+                <p className="uppercase text-xl font-semibold">Company Website</p>
+                <p className="uppercase text-lg text-center">Explore Investment Opportunity</p>
+                <div className="flex items-center justify-center">
+                  <Link to="https://www.studio2694.com/" target='_blank'>
+                    <button style={{ backgroundImage: `url(${bgImage})` }} className={`bg-top flex-wrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2 uppercase`}>
+                      {data.companyName}
+                    </button>
+                  </Link>
+                </div>
               </div>
             </div>
           </div>
-          <div className="mb-4 text-black">
-            <p className="text-xl YesevaFont my-2">Location</p>
-            <ul className="list-disc list-inside space-y-2">
-              <li className=""> <span className="font-bold ">Region: </span> {data.location}</li>
-              <li className=""> <span className="font-bold ">Insight: </span> The firm leverages local market expertise and relationships within the {data.location} region. This geographic focus provides advantages in local market knowledge but also means that investors' exposure is concentrated in a single region, potentially impacting diversification.</li>
-            </ul>
-          </div>
-          <div className="flex flex-col items-center justify-center text-black my-4 ">
-            <div className="mb-4 text-black">
-              <p className="text-xl YesevaFont my-2">Redemption Policy</p>
-              <ul className="list-disc list-inside space-y-2">
-                <li className=""> <span className="font-bold ">Frequency: </span> {data.redemptionPolicy}</li>
-                <li className=""> <span className="font-bold ">Insight: </span> The annual redemption policy allows investors to withdraw funds once a year, offering some liquidity but favoring long-term investment. This policy is suitable for investors with a long-term investment horizon.</li>
-              </ul>
-            </div>
 
-            <div className="mb-4 text-black">
-              <p className="text-xl YesevaFont my-2">Summary</p>
-              <div className="" id="management"></div>  {/* just to match the navhashlink */}
-              <p>
-                {data.companyName} presents a compelling investment opportunity with its solid historical return rates,
-                {data.riskLevel} risk level, and competitive fee structure. The firm's equity-focused strategy and manageable minimum
-                investment make it accessible to a range of investors. While the {data.redemptionPolicy} redemption policy offers limited liquidity,
-                the firm’s substantial AUM and regional expertise in {data.location0} add to its credibility and stability.
-              </p>
+          <div className="w-[90%] mx-auto overflow-x-auto py-8 my-6">
+            <table className="min-w-full divide-y divide-gray-200 bg-white">
+              <thead>
+                <tr>
+                  <th className="px-6 py-3 bg-gray-100 text-center text-sm font-medium text-gray-500"></th>
+                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2024</div>
+                  </th>
+                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2023</div>
+                  </th>
+                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2022</div>
+                  </th>
+                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2021</div>
+                  </th>
+                </tr>
+              </thead>
+              {/* <tbody className="bg-white divide-y divide-gray-200">
+                {[
+                  { label: 'Annualized Returns', key: 'annualReturn' },
+                  { label: 'Average Cash-on-Cash', key: 'cashOnCash' },
+                  { label: 'Equity multiple', key: 'equityMultiple' },
+                  { label: 'IRR', key: 'irr' },
+                ].map((row, rowIndex) => (
+                  <tr key={rowIndex}>
+                    <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">{row.label}</td>
+                    <td className="py-4 text-center text-black">20.18%</td>
+                    {/* {compareIds.map((item, colIndex) => (
+                        <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
+                          <div className={row.key === 'minInvestment' ? "text-purple-600 text-2xl font-bold" : row.key === "investorEligibility" ? "w-[80%] mx-auto" : ""}>{row.key === "minInvestment" ? `$ ${data[item][row.key].toLocaleString()}` : `${data[item][row.key]}`}{row.key === 'feeStructure' ? "%" : ""}</div>
+                        </td>
+                      ))} */}
+              {/* </tr> ))} */}
+              {/* </tbody> */}
+              <tbody className="bg-white divide-y divide-gray-200">
+                <tr>
+                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">Annualized Returns</td>
+                  <td className="py-4 text-center text-black">20%</td>
+                  <td className="py-4 text-center text-black">22%</td>
+                  <td className="py-4 text-center text-black">15%</td>
+                  <td className="py-4 text-center text-black">23%</td>
+                </tr>
+                <tr>
+                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">Average Cash-on-Cash</td>
+                  <td className="py-4 text-center text-black">10.18%</td>
+                  <td className="py-4 text-center text-black">5.9%</td>
+                  <td className="py-4 text-center text-black">12%</td>
+                  <td className="py-4 text-center text-black">9.57%</td>
+                </tr>
+                <tr>
+                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">Equity multiple</td>
+                  <td className="py-4 text-center text-black">2.01x</td>
+                  <td className="py-4 text-center text-black">1.48x</td>
+                  <td className="py-4 text-center text-black">2.12x</td>
+                  <td className="py-4 text-center text-black">1.73x</td>
+                </tr>
+                <tr>
+                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">IRR</td>
+                  <td className="py-4 text-center text-black">18%</td>
+                  <td className="py-4 text-center text-black">15%</td>
+                  <td className="py-4 text-center text-black">17%</td>
+                  <td className="py-4 text-center text-black">10%</td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
+
+          <div className="w-[90%] mx-auto gap-4 h-full my-4 text-black flex flex-col">
+            <div className="text-3xl">
+              Project History
+            </div>
+            <span className="rounded-full text-xl p-2 px-4 border-[1px] border-purple-600 w-fit">
+              Completed
+            </span>
+            <div className="grid grid-cols-3 gap-x-6 ">
+              {data.historicalProjects.map((info, index) => (
+                <Card info={info} key={index} />
+              ))}
             </div>
           </div>
-          <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-6 py-4" >
-            <p className="YesevaFont text-2xl text-center my-1 uppercase">contact Management</p>
-            <div id="historicalProjects"></div>
-            <div className="flex items-center justify-center flex-col md:flex-row gap-x-20 py-6 gap-y-12">
-              <div className="flex flex-col items-center justify-center ">
-                <div className="flex items-center justify-center gap-x-4">
-                  <img className="w-[100px] h-[100px] rounded-full object-cover" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="person" />
-                  <div className="flex flex-col">
-                    <p>Michael Harris</p>
-                    <p>978 872-8966</p>
+
+          <div className="container items-center justify-center flex flex-col w-full mx-auto">
+            <div className=" flex flex-col items-center justify-center text-black ">
+              <div className="mb-4 text-black">
+                <p className="text-xl YesevaFont my-2">Summary</p>
+                <div className="" id="management"></div>  {/* just to match the navhashlink */}
+                <p>
+                  {data.companyName} presents a compelling investment opportunity with its solid historical return rates,
+                  {data.riskLevel} risk level, and competitive fee structure. The firm's equity-focused strategy and manageable minimum
+                  investment make it accessible to a range of investors. While the {data.redemptionPolicy} redemption policy offers limited liquidity,
+                  the firm’s substantial AUM and regional expertise in {data.location0} add to its credibility and stability.
+                </p>
+              </div>
+            </div>
+            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-4 py-4 w-full" >
+              <p className="YesevaFont text-2xl text-center my-1 uppercase">contact Management</p>
+              <div id="historicalProjects"></div>
+              <div className="flex items-center justify-center flex-col md:flex-row gap-x-20 py-6 gap-y-12">
+                <div className="flex flex-col items-center justify-center ">
+                  <div className="flex items-center justify-center gap-x-4">
+                    <img className="w-[150px] h-[150px] rounded-full object-cover" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="person" />
+                    <div className="flex flex-col">
+                      <p>Michael Harris</p>
+                      <p>978 872-8966</p>
+                      <p>Senior Investment Manager</p>
+                      <p>michael.harris@investmentfirm.com</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col text-left ml-4">
-                  <p>Senior Investment Manager</p>
-                  <p>michael.harris@investmentfirm.com</p>
-                </div>
-              </div>
-              <div className="flex flex-col items-center justify-center">
-                <div className="flex items-center justify-center gap-x-4">
-                  <img className="w-[100px] h-[100px] rounded-full object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2Zlc3Npb25hbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D" alt="person" />
-                  <div className="flex flex-col">
-                    <p>Jessica Mitchell</p>
-                    <p>978 8987-6543</p>
+                <div className="flex flex-col items-center justify-center">
+                  <div className="flex items-center justify-center gap-x-4">
+                    <img className="w-[150px] h-[150px] rounded-full object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2Zlc3Npb25hbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D" alt="person" />
+                    <div className="flex flex-col">
+                      <p>Jessica Mitchell</p>
+                      <p>978 8987-6543</p>
+                      <p>Chief Investment Officer</p>
+                      <p>jessica.mitchell@investmentfirm.com</p>
+                    </div>
                   </div>
                 </div>
-                <div className="flex flex-col text-left ml-4">
-                  <p>Chief Investment Officer</p>
-                  <p>jessica.mitchell@investmentfirm.com</p>
-                </div>
               </div>
             </div>
           </div>
-          <div className="my-8 w-full flex items-center justify-center flex-col bg-white/20 backdrop-blur-xl rounded-lg shadow-md shadow-black-400 p-4 pt-0">
-            <p className="YesevaFont text-2xl text-center my-1 uppercase text-black">Project History</p>
-            <MaterialUIAccordion data={data.historicalProjects} />
+          <div className="w-[100%] mx-auto -ml-4 my-6">
+            <div className="YesevaFont text-black flex items-center justify-center ml-4 font-bold text-2xl my-4">
+              <p className="">Explore Similar Companies</p>
+            </div>
+            <Carousel
+              cols={4}
+              rows={1}
+              gap={5}
+              arrowLeft={<LeftArrow dir="right" />}
+              arrowRight={<RightArrow dir="right" />}
+              loop={true}
+              mobileBreakpoint={767}
+              responsiveLayout={[
+                {
+                  breakpoint: 1023,
+                  cols: 2,
+                  rows: 1,
+                  gap: 10,
+                  loop: true,
+                }
+              ]}>
+              {InvestmentData.filter((firm) => firm.projectId !== data.projectId).map((element, index) => (
+                <Carousel.Item key={index}>
+                  <div className="-mx-6" key={index}>
+                    <PostCard data={element} />
+                  </div>
+                </Carousel.Item>
+              ))}
+            </Carousel>
           </div>
-          {!isGuest && (data.investorEligibility.includes('Non-Accredited') || user.AccreditedInvestor) && (
-            <div className="flex items-center justify-center YesevaFont">
-              <Link to="https://www.studio2694.com/" target="_blank">
-                <button style={{ backgroundImage: `url(${bgImage})` }}
-                  className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
-                  <RiShareBoxFill />{data.companyName}
-                </button>
-              </Link>
-            </div>
-          )}
-          {isGuest && (
-            <div className="flex items-center justify-center YesevaFont">
-              <div onClick={AccreditedModalHandler}>
-                <button style={{ backgroundImage: `url(${bgImage})` }}
-                  className={`bg-top whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2`}>
-                  <RiShareBoxFill />{data.companyName}
-                </button>
-              </div>
-            </div>
-          )}
+
+
         </div>
       </div >
       <Footer />
