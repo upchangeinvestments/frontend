@@ -65,12 +65,12 @@ function PostPage() {
   const { postId } = useParams();
   const data = InvestmentData[postId];
   const bannerRef = useRef(null);
+  const bgRef = useRef(null);
   const [bannerContent, setBannerContent] = useState(false);
   const [shareModal, setShareModal] = useState(false);
   const [AccreditedModal, setAccreditedModal] = useState(false);
   const { isGuest, user } = useAuth();
   const [chartWidth, setChartWidth] = useState(500);
-  const chartRef = useRef();
 
   const bannerItems = [
     {
@@ -78,8 +78,8 @@ function PostPage() {
       linkToSection: `/post/${postId}/#overview`,
     },
     {
-      section: "Risk Type",
-      linkToSection: `/post/${postId}/#riskType`,
+      section: "Insights",
+      linkToSection: `/post/${postId}/#insights`,
     },
     {
       section: "Return Rates",
@@ -106,16 +106,15 @@ function PostPage() {
   };
 
   useEffect(() => {
-    const bannerPosition = bannerRef.current.offsetTop;
+    const bgPosition = bgRef.current.offsetTop;
+    const bgHeight = bgRef.current.offsetHeight;
 
     const handleScroll = () => {
       if (bannerRef.current) {
-        console.log("window = ", window.scrollY);
-        console.log("banner = ", bannerPosition);
-        if (window.scrollY > bannerPosition) {
+        if (window.scrollY > (bgPosition + bgHeight)) {
           bannerRef.current.classList.add('fixed-Bannertop');
           setBannerContent(true);
-        } else if (bannerPosition >= window.scrollY) {
+        } else if ((bgPosition + bgHeight) >= window.scrollY) {
           bannerRef.current.classList.remove('fixed-Bannertop');
           setBannerContent(false);
         }
@@ -180,38 +179,59 @@ function PostPage() {
             <div className="fixed inset-0 bg-black opacity-50"></div>
             <div className="bg-white rounded-xl z-10 p-4 w-[90%] md:w-[50%] relative flex flex-col items-center justify-center">
               <IoMdCloseCircle onClick={handleModalClose} className="absolute top-4 right-4" size="17px" />
-              <p className="text-xl text-center">Share this post</p>
+              <p className="text-xl text-center uppercase">Share this post</p>
               <hr className="w-full my-2 " />
               <div className="gap-x-8 flex flex-wrap my-2 items-center justify-center mx-auto relative gap-y-4 ">
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <MdContentCopy onClick={copyToClipboard} size={40} color="rgb(82 82 91)" />
+                <div className="">
+                  <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
+                    <MdContentCopy onClick={copyToClipboard} size={40} color="rgb(82 82 91)" />
+                  </div>
+                  <p className="text-sm w-full flex items-center justify-center">Copy page url</p>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <WhatsappShareButton url={PageUrl} >
-                    <WhatsappIcon size={40} round={true} />
-                  </WhatsappShareButton>
+                <div className="">
+                  <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
+                    <WhatsappShareButton url={PageUrl} >
+                      <WhatsappIcon size={40} round={true} />
+                    </WhatsappShareButton>
+                  </div>
+                  <p className="text-sm w-full flex items-center justify-center">Whatsapp</p>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <TwitterShareButton url={PageUrl}>
-                    <XIcon size={40} round={true} />
-                  </TwitterShareButton>
+                <div>
+                  <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
+                    <TwitterShareButton url={PageUrl}>
+                      <XIcon size={40} round={true} />
+                    </TwitterShareButton>
+                  </div>
+                  <p className="text-sm w-full flex items-center justify-center">X</p>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <LinkedinShareButton url={PageUrl}>
-                    <LinkedinIcon size={40} round={true} />
-                  </LinkedinShareButton>
+
+                <div>
+                  <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
+                    <LinkedinShareButton url={PageUrl}>
+                      <LinkedinIcon size={40} round={true} />
+                    </LinkedinShareButton>
+                  </div>
+                  <p className="text-sm w-full flex items-center justify-center">LinkedIn</p>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <FacebookShareButton url={PageUrl}>
-                    <FacebookIcon size={40} round={true} />
-                  </FacebookShareButton>
+
+                <div>
+                  <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
+                    <FacebookShareButton url={PageUrl}>
+                      <FacebookIcon size={40} round={true} />
+                    </FacebookShareButton>
+                  </div>
+                  <p className="text-sm w-full flex items-center justify-center">Facebook</p>
                 </div>
-                <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
-                  <EmailShareButton url={PageUrl}>
-                    <EmailIcon size={40} round={true} />
-                  </EmailShareButton>
+                <div>
+                  <div className="flex items-center justify-center border-[1px] border-gray-200 rounded-xl px-4 md:px-8 py-2 ">
+                    <EmailShareButton url={PageUrl}>
+                      <EmailIcon size={40} round={true} />
+                    </EmailShareButton>
+                  </div>
+                  <p className="text-sm w-full flex items-center justify-center">Email</p>
                 </div>
               </div>
+
               <div className="gap-x-8 flex my-2 items-center justify-center w-[60%] mx-auto">
               </div>
             </div>
@@ -226,20 +246,22 @@ function PostPage() {
                 <div className="relative flex flex-col w-[100%]">
                   <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
 
-                  <div className="bg-gradient-to-r from-[#2a235a] to-[#150d2b] flex items-center justify-center flex-col relative">
-                    <p className={`text-5xl flex items-center justify-center text-left text-white frauncesFont tracking-widest p-6 mb-16`}>{data.companyName}</p>
-                    <div ref={bannerRef} className={`container mx-auto px-4 py-2 flex justify-center space-x-6 absolute inset-x-0 ${bannerContent ? '' : 'top-1/2 transform translate-y-1/2'} bg-white text-black border-[1px] border-purple-600`}>
-                      {bannerItems.map((data, index) => (
-                        <NavHashLink to={data.linkToSection} smooth key={index} className="whitespace-nowrap py-4 text-black">
-                          <div className="flex items-center justify-center space-x-6">
-                            <p>{data.section}</p>
-                            <span className="h-8 border-[1.2px] border-gray-300"></span>
-                          </div>
-                        </NavHashLink>
-                      ))}
-                      <div onClick={() => setShareModal(true)}
-                        className={`whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold flex items-center justify-center gap-x-2`}>
-                        <RiShareBoxFill />Share
+                  <div ref={bgRef} className="bg-gradient-to-r from-[#2a235a] to-[#150d2b] flex items-center justify-center flex-col relative">
+                    <p className={`text-5xl flex items-center justify-center text-left text-white frauncesFont tracking-widest p-6 mb-12 mt-2`}>{data.companyName}</p>\
+                    <div ref={bannerRef} className="">
+                      <div className={`w-fit xl:max-w-6xl mx-auto px-12 py-2 flex justify-center space-x-6 absolute inset-x-0 ${bannerContent ? '' : 'top-1/2 transform translate-y-1/2'} bg-white text-black border-[1px] border-purple-600`}>
+                        {bannerItems.map((data, index) => (
+                          <NavHashLink to={data.linkToSection} smooth key={index} className="whitespace-nowrap py-4 text-black">
+                            <div className="flex items-center justify-center space-x-6">
+                              <p>{data.section}</p>
+                              <span className="h-8 border-[1.2px] border-gray-300"></span>
+                            </div>
+                          </NavHashLink>
+                        ))}
+                        <div onClick={() => setShareModal(true)}
+                          className={`whitespace-nowrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold flex items-center justify-center gap-x-2`}>
+                          <RiShareBoxFill />Share
+                        </div>
                       </div>
                     </div>
                   </div>
@@ -251,14 +273,14 @@ function PostPage() {
         </div>
         <div className="vsm:w-[90%] mx-auto md:w-full max-w-7xl my-12 text-white">
 
-          <div className="w-[90%] mx-auto flex items-center justify-center gap-6">
+          <div className="w-[90%] mx-auto flex items-center justify-center gap-6 mb-12">
             <div className="flex items-center justify-center flex-col text-black basis-[70%]">
               <div className="flex items-center justify-start w-full">
                 <p className="YesevaFont text-2xl my-2 w-full text-center">Overview</p>
               </div>
               <p className="text-lg text-justify">{data.description}</p>
             </div>
-            <div className="h-60 border-[1.2px] border-gray-300 "></div>
+            <div className="h-60 border-[1.2px] border-gray-300"></div>
             <div className="flex items-center justify-center flex-col text-black basis-[30%]">
               <div className="grid grid-cols-2 mt-4 mb-2 vsm:gap-x-4 md:gap-x-6 md:px-2 lg:px-0">
                 <div className="flex flex-col items-center justify-center pb-2">
@@ -289,11 +311,12 @@ function PostPage() {
                   <p className="mt-1 font-semibold text-xl">{data.location}</p>
                   <p className="flex flex-wrap text-center">Location</p>
                 </div>
+                <div className="" id="insights"></div>   {/* just for navHash */}
               </div>
             </div>
           </div>
 
-          <div className="w-[90%] mx-auto grid grid-cols-3 gap-6 h-full my-6 ">
+          <div className="w-[90%] mx-auto grid grid-cols-3 gap-6 h-full my-6 " id="">
             <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
               <p className="YesevaFont text-2xl text-center my-1 uppercase">Minimum Investment</p>
               <p className="text-[#A26CF6] text-3xl font-bold CerebriFont">USD  {formatMinInvestment(data.minInvestment) ? formatMinInvestment(data.minInvestment) : data.Investment}</p>
@@ -342,11 +365,12 @@ function PostPage() {
                 </ul>
               </div>
 
-              <div className="mb-4 text-black">
+              <div className="text-black">
                 <p className="text-xl YesevaFont my-2">Management Fees Analysis </p>
                 <ul className="list-disc list-inside space-y-2">
                   <li className=""> <span className="font-bold ">Industry Range: </span> {data.averageAnnualReturns}% of AUM or committed capital</li>
                   <li className=""> <span className="font-bold ">Assets Under Management: </span> {data.aum}</li>
+                  <div id="returnRates"></div>  {/* this div is for the navHash Link only */}
                   <li className=""> <span className="font-bold ">Comparison Parameters: </span> Fee percentage, basis of calculation, frequency of application, and performance fees.</li>
                 </ul>
               </div>
@@ -379,7 +403,8 @@ function PostPage() {
             </div>
           </div>
 
-          <div className="w-[90%] mx-auto overflow-x-auto py-8 my-6">
+          <div className="w-[90%] mx-auto overflow-x-auto py-8">
+            <p className="font-bold text-2xl text-black YesevaFont mb-4">Historical Return Rates</p>
             <table className="min-w-full divide-y divide-gray-200 bg-white">
               <thead>
                 <tr>
@@ -398,58 +423,29 @@ function PostPage() {
                   </th>
                 </tr>
               </thead>
-              {/* <tbody className="bg-white divide-y divide-gray-200">
+              <tbody className="bg-white divide-y divide-gray-200">
                 {[
-                  { label: 'Annualized Returns', key: 'annualReturn' },
+                  { label: 'Annualized Returns', key: 'yearly_returns' },
                   { label: 'Average Cash-on-Cash', key: 'cashOnCash' },
                   { label: 'Equity multiple', key: 'equityMultiple' },
-                  { label: 'IRR', key: 'irr' },
+                  { label: 'IRR', key: 'irrHistory' },
                 ].map((row, rowIndex) => (
                   <tr key={rowIndex}>
                     <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">{row.label}</td>
-                    <td className="py-4 text-center text-black">20.18%</td>
-                    {/* {compareIds.map((item, colIndex) => (
-                        <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
-                          <div className={row.key === 'minInvestment' ? "text-purple-600 text-2xl font-bold" : row.key === "investorEligibility" ? "w-[80%] mx-auto" : ""}>{row.key === "minInvestment" ? `$ ${data[item][row.key].toLocaleString()}` : `${data[item][row.key]}`}{row.key === 'feeStructure' ? "%" : ""}</div>
-                        </td>
-                      ))} */}
-              {/* </tr> ))} */}
-              {/* </tbody> */}
-              <tbody className="bg-white divide-y divide-gray-200">
-                <tr>
-                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">Annualized Returns</td>
-                  <td className="py-4 text-center text-black">20%</td>
-                  <td className="py-4 text-center text-black">22%</td>
-                  <td className="py-4 text-center text-black">15%</td>
-                  <td className="py-4 text-center text-black">23%</td>
-                </tr>
-                <tr>
-                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">Average Cash-on-Cash</td>
-                  <td className="py-4 text-center text-black">10.18%</td>
-                  <td className="py-4 text-center text-black">5.9%</td>
-                  <td className="py-4 text-center text-black">12%</td>
-                  <td className="py-4 text-center text-black">9.57%</td>
-                </tr>
-                <tr>
-                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">Equity multiple</td>
-                  <td className="py-4 text-center text-black">2.01x</td>
-                  <td className="py-4 text-center text-black">1.48x</td>
-                  <td className="py-4 text-center text-black">2.12x</td>
-                  <td className="py-4 text-center text-black">1.73x</td>
-                </tr>
-                <tr>
-                  <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">IRR</td>
-                  <td className="py-4 text-center text-black">18%</td>
-                  <td className="py-4 text-center text-black">15%</td>
-                  <td className="py-4 text-center text-black">17%</td>
-                  <td className="py-4 text-center text-black">10%</td>
-                </tr>
+                    {data[row.key].map((item, colIndex) => (
+                      <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
+                        <div className="">{row.key === "equityMultiple" ? item.value : `${item.value}%`}</div>
+                      </td>
+                    ))
+                    }
+                  </tr>))}
               </tbody>
             </table>
+            <div id="historicalProjects"></div>
           </div>
 
           <div className="w-[90%] mx-auto gap-4 h-full my-4 text-black flex flex-col">
-            <div className="text-3xl">
+            <div className="text-2xl font-bold YesevaFont">
               Project History
             </div>
             <span className="rounded-full text-xl p-2 px-4 border-[1px] border-purple-600 w-fit">
@@ -462,7 +458,7 @@ function PostPage() {
             </div>
           </div>
 
-          <div className="container items-center justify-center flex flex-col w-full mx-auto">
+          <div className="container items-center justify-center flex flex-col w-full mx-auto xl:max-w-6xl">
             <div className=" flex flex-col items-center justify-center text-black ">
               <div className="mb-4 text-black">
                 <p className="text-xl YesevaFont my-2">Summary</p>
@@ -475,16 +471,15 @@ function PostPage() {
                 </p>
               </div>
             </div>
-            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-4 py-4 w-full" >
+            <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-4 py-4 w-full xl:max-w-6xl" >
               <p className="YesevaFont text-2xl text-center my-1 uppercase">contact Management</p>
-              <div id="historicalProjects"></div>
-              <div className="flex items-center justify-center flex-col md:flex-row gap-x-20 py-6 gap-y-12">
+              <div className="flex items-center justify-center flex-col md:flex-row gap-x-24 py-6 gap-y-12">
                 <div className="flex flex-col items-center justify-center ">
                   <div className="flex items-center justify-center gap-x-4">
                     <img className="w-[150px] h-[150px] rounded-full object-cover" src="https://images.unsplash.com/photo-1519085360753-af0119f7cbe7?q=80&w=1887&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D" alt="person" />
                     <div className="flex flex-col">
                       <p>Michael Harris</p>
-                      <p>978 872-8966</p>
+                      <p>978-872-8966</p>
                       <p>Senior Investment Manager</p>
                       <p>michael.harris@investmentfirm.com</p>
                     </div>
@@ -495,7 +490,7 @@ function PostPage() {
                     <img className="w-[150px] h-[150px] rounded-full object-cover" src="https://images.unsplash.com/photo-1573496359142-b8d87734a5a2?w=600&auto=format&fit=crop&q=60&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8Mjd8fHByb2Zlc3Npb25hbCUyMHBlcnNvbnxlbnwwfHwwfHx8MA%3D%3D" alt="person" />
                     <div className="flex flex-col">
                       <p>Jessica Mitchell</p>
-                      <p>978 8987-6543</p>
+                      <p>978-8987-6543</p>
                       <p>Chief Investment Officer</p>
                       <p>jessica.mitchell@investmentfirm.com</p>
                     </div>
@@ -504,7 +499,7 @@ function PostPage() {
               </div>
             </div>
           </div>
-          <div className="w-[100%] mx-auto -ml-4 my-6">
+          <div className="w-[100%] mx-auto -ml-4 my-6 xl:ml-0">
             <div className="YesevaFont text-black flex items-center justify-center ml-4 font-bold text-2xl my-4">
               <p className="">Explore Similar Companies</p>
             </div>

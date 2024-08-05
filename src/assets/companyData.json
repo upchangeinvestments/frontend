@@ -22,12 +22,29 @@
       "image": "https://i.postimg.cc/m2mQxbq9/tcp.jpg",
       "age": 23,
       "projectId": 0,
+      "cashOnCash": [
+        { "year": 2024, "value": 9.57 },
+        { "year": 2023, "value": 5.9 },
+        { "year": 2022, "value": 12 },
+        { "year": 2021, "value": 10.18 }
+      ], 
+      "equityMultiple": [
+        { "year": 2024, "value":  "2.20x"},
+        { "year": 2023, "value":  "2.12x"},
+        { "year": 2022, "value":  "2.01x"},
+        { "year": 2021, "value": "1.73x"}
+      ], 
+      "irrHistory": [
+        { "year": 2024, "value": 18 },
+        { "year": 2023, "value": 15 },
+        { "year": 2022, "value": 17 },
+        { "year": 2021, "value": 10 }
+      ], 
       "yearly_returns": [
-        { "year": 2019, "value": 14.53 },
-        { "year": 2020, "value": 14.83 },
-        { "year": 2021, "value": 17.03 },
+        { "year": 2024, "value": 14.53 },
+        { "year": 2023, "value": 20.38 },
         { "year": 2022, "value": 18.39 },
-        { "year": 2023, "value": 10.38 }
+        { "year": 2021, "value": 17.03 }
       ],
       "historicalProjects": [
         {
@@ -85,12 +102,29 @@
       "image": "https://i.postimg.cc/tCh39mQ9/logo11.jpg",
       "age": 18,
       "projectId": 1,
+      "cashOnCash": [
+        { "year": 2024, "value": 9.57 },
+        { "year": 2023, "value": 5.9 },
+        { "year": 2022, "value": 12 },
+        { "year": 2021, "value": 10.18 }
+      ], 
+      "equityMultiple": [
+        { "year": 2024, "value":  "1.80x"},
+        { "year": 2023, "value":  "1.67x"},
+        { "year": 2022, "value":  "1.57x"},
+        { "year": 2021, "value": "1.40x"}
+      ], 
+      "irrHistory": [
+        { "year": 2024, "value": 18 },
+        { "year": 2023, "value": 15 },
+        { "year": 2022, "value": 17 },
+        { "year": 2021, "value": 10 }
+      ], 
       "yearly_returns": [
-        { "year": 2019, "value": 13.31 },
-        { "year": 2020, "value": 18.95 },
-        { "year": 2021, "value": 12.75 },
+        { "year": 2024, "value": 18.95 },
+        { "year": 2023, "value": 11.59 },
         { "year": 2022, "value": 10.47 },
-        { "year": 2023, "value": 11.59 }
+        { "year": 2021, "value": 12.75 }
       ],
       "historicalProjects": [
         {
@@ -145,12 +179,29 @@
       "image": "https://i.postimg.cc/TYdrHykG/m2m.jpg",
       "age": 16,
       "projectId": 2,
+      "cashOnCash": [
+        { "year": 2024, "value": 9.57 },
+        { "year": 2023, "value": 5.9 },
+        { "year": 2022, "value": 12 },
+        { "year": 2021, "value": 10.18 }
+      ], 
+      "equityMultiple": [
+        { "year": 2024, "value":  "2.10x"},
+        { "year": 2023, "value":  "1.92x"},
+        { "year": 2022, "value":  "1.67x"},
+        { "year": 2021, "value": "1.60x"}
+      ], 
+      "irrHistory": [
+        { "year": 2024, "value": 18 },
+        { "year": 2023, "value": 15 },
+        { "year": 2022, "value": 17 },
+        { "year": 2021, "value": 10 }
+      ], 
       "yearly_returns": [
-        { "year": 2019, "value": 15.15 },
-        { "year": 2020, "value": 16.47 },
-        { "year": 2021, "value": 10.26 },
+        { "year": 2024, "value": 16.47 },
+        { "year": 2023, "value": 11.48 },
         { "year": 2022, "value": 9.08 },
-        { "year": 2023, "value": 11.48 }
+        { "year": 2021, "value": 10.26 }
     ],
     "historicalProjects": [
         {
@@ -205,12 +256,29 @@
         "image": "https://i.postimg.cc/tTGG4dB1/logo1.jpg",
         "age": 19,
         "projectId": 3,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "2.44x"},
+          { "year": 2023, "value":  "2.30x"},
+          { "year": 2022, "value":  "2.01x"},
+          { "year": 2021, "value": "1.73x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 16.41 },
-          { "year": 2020, "value": 11.67 },
-          { "year": 2021, "value": 10.59 },
+          { "year": 2024, "value": 16.41 },
+          { "year": 2023, "value": 13.72 },
           { "year": 2022, "value": 19.07 },
-          { "year": 2023, "value": 13.72 }
+          { "year": 2021, "value": 10.59 }
     ],
     "historicalProjects": [
           {
@@ -266,12 +334,29 @@
         "image": "https://i.postimg.cc/ydh4gJGL/logo2.jpg",
         "age": 14,
         "projectId": 4,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "2.20x"},
+          { "year": 2023, "value":  "2.01x"},
+          { "year": 2022, "value":  "1.82x"},
+          { "year": 2021, "value": "1.63x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 9.41 },
-          { "year": 2020, "value": 15.65 },
-          { "year": 2021, "value": 12.34 },
+          { "year": 2024, "value": 15.65 },
+          { "year": 2023, "value": 14.62 },
           { "year": 2022, "value": 9.77 },
-          { "year": 2023, "value": 14.62 }
+          { "year": 2021, "value": 12.34 }
     ],
       "historicalProjects": [
           {
@@ -327,12 +412,29 @@
         "image": "https://i.postimg.cc/bNwcrw9R/logo3.jpg",
         "age": 12,
         "projectId": 5,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.87x"},
+          { "year": 2023, "value":  "1.67x"},
+          { "year": 2022, "value":  "1.56x"},
+          { "year": 2021, "value": "1.33x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 14.48 },
-          { "year": 2020, "value": 15.72 },
-          { "year": 2021, "value": 18.72 },
+          { "year": 2024, "value": 15.72 },
+          { "year": 2023, "value": 13.27 },
           { "year": 2022, "value": 10.95 },
-          { "year": 2023, "value": 13.27 }
+          { "year": 2021, "value": 18.72 }
     ],
     "historicalProjects": [
           {
@@ -388,12 +490,29 @@
         "image": "https://i.postimg.cc/XNKqqMJ1/logo5.jpg",
         "age": 16,
         "projectId": 6,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.32x"},
+          { "year": 2023, "value":  "1.20x"},
+          { "year": 2022, "value":  "1.10x"},
+          { "year": 2021, "value": "1.03x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 10.04 },
-          { "year": 2020, "value": 12.17 },
-          { "year": 2021, "value": 13.08 },
+          { "year": 2024, "value": 12.17 },
+          { "year": 2023, "value": 19.79 },
           { "year": 2022, "value": 13.23 },
-          { "year": 2023, "value": 19.79 }
+          { "year": 2021, "value": 13.08 }
         ],
         "historicalProjects": [
           {
@@ -448,12 +567,29 @@
         "age": 10,
         "projectId": 7,
         "image": "https://i.postimg.cc/prkwCwR8/logo4.jpg",
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.42x"},
+          { "year": 2023, "value":  "1.31x"},
+          { "year": 2022, "value":  "1.21x"},
+          { "year": 2021, "value": "1.30x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 12.6 },
-          { "year": 2020, "value": 18.98 },
-          { "year": 2021, "value": 15.3 },
+          { "year": 2024, "value": 18.98 },
+          { "year": 2023, "value": 9.05 },
           { "year": 2022, "value": 15.89 },
-          { "year": 2023, "value": 9.05 }
+          { "year": 2021, "value": 15.3 }
         ],
         "historicalProjects": [
           {
@@ -509,12 +645,29 @@
         "image": "https://i.postimg.cc/BbFxLmjc/logo10.jpg",
         "age": 15,
         "projectId": 8,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.03x"},
+          { "year": 2023, "value":  "1.41x"},
+          { "year": 2022, "value":  "1.35x"},
+          { "year": 2021, "value": "1.31x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 13.33 },
-          { "year": 2020, "value": 9.13 },
-          { "year": 2021, "value": 17.55 },
+          { "year": 2024, "value": 20.13 },
+          { "year": 2023, "value": 17.59 },
           { "year": 2022, "value": 15.65 },
-          { "year": 2023, "value": 17.59 }
+          { "year": 2021, "value": 17.55 }
     ],
     "historicalProjects": [
           {
@@ -570,12 +723,29 @@
         "image": "https://i.postimg.cc/PqqYzXLq/logo14.jpg",
         "age": 8,
         "projectId": 9,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "2.20x"},
+          { "year": 2023, "value":  "2.12x"},
+          { "year": 2022, "value":  "1.30x"},
+          { "year": 2021, "value": "1.60x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 15.5 },
-          { "year": 2020, "value": 11.2 },
-          { "year": 2021, "value": 9.34 },
+          { "year": 2024, "value": 19.2 },
+          { "year": 2023, "value": 13.96 },
           { "year": 2022, "value": 19.12 },
-          { "year": 2023, "value": 13.96 }
+          { "year": 2021, "value": 9.34 }
     ],
     "historicalProjects": [
           {
@@ -631,12 +801,29 @@
         "image": "https://i.postimg.cc/rwj5r0wb/logo15.jpg",
         "age": 15,
         "projectId": 10,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.25x"},
+          { "year": 2023, "value":  "1.21x"},
+          { "year": 2022, "value":  "1.01x"},
+          { "year": 2021, "value": "1.03x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 15.37 },
-          { "year": 2020, "value": 9.97 },
-          { "year": 2021, "value": 11.64 },
+          { "year": 2024, "value": 15.37 },
+          { "year": 2023, "value": 11.8 },
           { "year": 2022, "value": 15.22 },
-          { "year": 2023, "value": 11.8 }
+          { "year": 2021, "value": 11.64 }
     ],
     "historicalProjects": [
           {
@@ -692,12 +879,29 @@
         "image": "https://i.postimg.cc/k46SzTv3/logo16.jpg",
         "age": 14,
         "projectId": 11,
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.21x"},
+          { "year": 2023, "value":  "1.01x"},
+          { "year": 2022, "value":  "1.19x"},
+          { "year": 2021, "value": "1.17x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 13.44 },
-          { "year": 2020, "value": 18.38 },
-          { "year": 2021, "value": 10.42 },
+          { "year": 2024, "value": 13.44 },
+          { "year": 2023, "value": 16.62 },
           { "year": 2022, "value": 18.8 },
-          { "year": 2023, "value": 9.62 }
+          { "year": 2021, "value": 18.42 }
     ],
     "historicalProjects": [
           {
@@ -752,12 +956,29 @@
         "age": 13,
         "projectId": 12,
         "dividendFrequency": "Quarterly",
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.15x"},
+          { "year": 2023, "value":  "1.09x"},
+          { "year": 2022, "value":  "0.95x"},
+          { "year": 2021, "value": "1.03x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 18.41 },
-          { "year": 2020, "value": 11.11 },
-          { "year": 2021, "value": 15.32 },
+          { "year": 2024, "value": 18.41 },
+          { "year": 2023, "value": 15.9 },
           { "year": 2022, "value": 12.64 },
-          { "year": 2023, "value": 15.9 }
+          { "year": 2021, "value": 15.32 }
         ],
         "historicalProjects": [
           {
@@ -813,12 +1034,29 @@
         "age": 12,
         "projectId": 13,
         "dividendFrequency": "Quarterly",
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.25x"},
+          { "year": 2023, "value":  "1.21x"},
+          { "year": 2022, "value":  "1.15x"},
+          { "year": 2021, "value": "1.06x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 13.16 },
-          { "year": 2020, "value": 14.86 },
-          { "year": 2021, "value": 14.41 },
+          { "year": 2024, "value": 13.16 },
+          { "year": 2023, "value": 12.52 },
           { "year": 2022, "value": 18.52 },
-          { "year": 2023, "value": 12.52 }
+          { "year": 2021, "value": 14.41 }
         ],
         "historicalProjects": [
           {
@@ -873,12 +1111,29 @@
         "age": 11,
         "projectId": 14,
         "dividendFrequency": "Quarterly",
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18}
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "2.20x"},
+          { "year": 2023, "value":  "2.12x"},
+          { "year": 2022, "value":  "2.01x"},
+          { "year": 2021, "value": "1.73x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 13.24 },
-          { "year": 2020, "value": 14.89 },
-          { "year": 2021, "value": 11.39 },
+          { "year": 2024, "value": 13.24 },
+          { "year": 2023, "value": 15.03 },
           { "year": 2022, "value": 12.03 },
-          { "year": 2023, "value": 15.03 }
+          { "year": 2021, "value": 11.39 }
         ],
         "historicalProjects": [
           {
@@ -933,12 +1188,29 @@
         "age": 10,
         "projectId": 15,
         "dividendFrequency": "Quarterly",
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.34x"},
+          { "year": 2023, "value":  "1.30x"},
+          { "year": 2022, "value":  "1.05x"},
+          { "year": 2021, "value": "1.45x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 18.71 },
-          { "year": 2020, "value": 10.58 },
-          { "year": 2021, "value": 10.36 },
+          { "year": 2024, "value": 18.71 },
+          { "year": 2023, "value": 12.6 },
           { "year": 2022, "value": 16.47 },
-          { "year": 2023, "value": 12.6 }
+          { "year": 2021, "value": 10.36 }
         ],
         "historicalProjects": [
           {
@@ -994,12 +1266,29 @@
         "age": 9,
         "projectId": 16,
         "dividendFrequency": "Quarterly",
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.34x"},
+          { "year": 2023, "value":  "1.19x"},
+          { "year": 2022, "value":  "1.31x"},
+          { "year": 2021, "value": "1.20x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 9.83 },
-          { "year": 2020, "value": 11.45 },
-          { "year": 2021, "value": 12.9 },
+          { "year": 2024, "value": 14.83 },
+          { "year": 2023, "value": 13.88},
           { "year": 2022, "value": 13.16 },
-          { "year": 2023, "value": 13.88}
+          { "year": 2021, "value": 12.9 }
         ],
         "historicalProjects": [
           {
@@ -1055,12 +1344,29 @@
         "age": 16,
         "projectId": 17,
         "dividendFrequency": "Quarterly",
+        "cashOnCash": [
+          { "year": 2024, "value": 9.57 },
+          { "year": 2023, "value": 5.9 },
+          { "year": 2022, "value": 12 },
+          { "year": 2021, "value": 10.18 }
+        ], 
+        "equityMultiple": [
+          { "year": 2024, "value":  "1.51x"},
+          { "year": 2023, "value":  "1.24x"},
+          { "year": 2022, "value":  "1.31x"},
+          { "year": 2021, "value": "1.52x"}
+        ], 
+        "irrHistory": [
+          { "year": 2024, "value": 18 },
+          { "year": 2023, "value": 15 },
+          { "year": 2022, "value": 17 },
+          { "year": 2021, "value": 10 }
+        ], 
         "yearly_returns": [
-          { "year": 2019, "value": 13.44 },
-          { "year": 2020, "value": 11.38 },
-          { "year": 2021, "value": 10.42 },
+          { "year": 2024, "value": 13.44 },
+          { "year": 2023, "value": 9.62 },
           { "year": 2022, "value": 14.8 },
-          { "year": 2023, "value": 9.62 }
+          { "year": 2021, "value": 10.42 }
         ],
         "historicalProjects": [
           {
