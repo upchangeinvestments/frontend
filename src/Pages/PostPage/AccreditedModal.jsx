@@ -23,7 +23,7 @@ function AccreditedModal({ open, CloseAccreditedModal, data }) {
             {open && (
                 <div className="w-full h-full flex items-center justify-center flex-col z-[100] fixed inset-0 overflow-hidden font-['Playfair-Display']">
                     <div className="fixed inset-0 bg-black opacity-50"></div>
-                    <div className="bg-white rounded-xl z-10 p-4 w-[50%] relative flex flex-col items-center justify-center">
+                    <div className="bg-white rounded-xl z-10 p-4 w-[90%] md:w-[50%] relative flex flex-col items-center justify-center overflow-y-scroll">
                         <IoMdCloseCircle onClick={() => CloseAccreditedModal(false)} className="absolute top-4 right-4" size="17px" />
                         <div className="p-2 px-6">
                             <h3 className="text-xl font-bold mb-4 text-center CerebriFont">Investor Confirmation</h3>
