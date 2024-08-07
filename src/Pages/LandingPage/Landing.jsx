@@ -18,7 +18,7 @@ function LandingPage() {
         <video key={key} src={BackgroundVideo} autoPlay playsInline muted></video>
       </div>
       <div className="hidden lg:flex items-center justify-center -mt-[150px]">
-        <video key={key} src={BackgroundVideo} autoPlay playsInline muted></video>
+        <video key={key} src={BackgroundVideo} autoPlay playsInline defaultMuted muted></video>
         {/* <video className="" autoPlay playsInline muted>
           <source src={BackgroundVideo} type="video/mp4" />
         </video> */}

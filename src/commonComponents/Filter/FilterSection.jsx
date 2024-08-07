@@ -10,7 +10,7 @@ function FilterSection({ sendFilteredData, setLoader }) {
   const ClassType = ["Class A", "Class B", "Class C"];
   const LocationType = ["West", "Central", "South", "Midwest", "East"];
   const InvestmentRange = ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"];
-  const CompanyAge = ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"];
+  const CompanyAge = ["1YR-10YRS", "11YRS-20YRS", "21YRS-30YRS", "31YRS-40YRS", "41YRS-50YRS", "51YRS+"];
   const InvestorType = ['Accredited', 'Non-Accredited'];
   // const [showAllCompanies, setShowAllCompanies] = useState(false);
   const RiskLevel = ['High', 'Medium', 'Low'];

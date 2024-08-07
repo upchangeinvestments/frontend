@@ -21,7 +21,7 @@ const dataObject = [
     },
     {
         title: "Company Age",
-        options: ["2YRS-4YRS", "4YRS-6YRS", "6YRS-8YRS", "8YRS-9YRS", "9YRS-10YRS", "10YRS+"],
+        options: ["1YR-10YRS", "11YRS-20YRS", "21YRS-30YRS", "31YRS-40YRS", "41YRS-50YRS", "51YRS+"],
         inputType: "checkbox",
     },
     {

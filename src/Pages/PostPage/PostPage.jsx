@@ -37,7 +37,7 @@ function Card({ info }) {
           <div className="text-white text-xl font-medium absolute bottom-0 pb-2 pl-4">{info.projectName}</div>
         </div>
       </div>
-      <div className="p-4 md:hidden lg:grid lg:grid-cols-2 font-semibold text-sm md:text-lg ">
+      <div className="p-4 grid grid-cols-2 md:hidden lg:grid lg:grid-cols-2 font-semibold text-sm md:text-lg ">
         <div className="flex flex-col items-start">
           <p className="whitespace-nowrap">Class Type: {info.classType}</p>
           <p className="whitespace-nowrap">Return Rate: {info.returnRate}%</p>
@@ -253,7 +253,7 @@ function PostPage() {
                   <p className="text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
 
                   <div ref={bgRef} className="bg-gradient-to-r from-[#2a235a] to-[#150d2b] flex items-center justify-center flex-col relative">
-                    <p className={`text-3xl md:text-4xl lg:text-5xl flex items-center justify-center text-center text-white frauncesFont tracking-widest p-6 mb-12 mt-2`}>{data.companyName}</p>
+                    <p className={`text-2xl md:text-3xl lg:text-5xl flex items-center justify-center text-center text-white frauncesFont tracking-widest p-4 mb-8 mt-2 lg:mb-12 lg:p-6`}>{data.companyName}</p>
                     <div ref={bannerRef} className="">
                       <div className={`overflow-x-scroll lg:overflow-x-hidden lg:w-fit xl:max-w-6xl mx-auto px-12 py-2 flex justify-start space-x-6 absolute inset-x-0 ${bannerContent ? '' : 'top-1/2 transform translate-y-1/2'} bg-white text-black border-[1px] border-purple-600`}>
                         {bannerItems.map((data, index) => (
@@ -279,7 +279,7 @@ function PostPage() {
         </div>
         <div className="vsm:w-[90%] mx-auto md:w-full max-w-7xl my-12 text-white">
 
-          <div className="w-[90%] mx-auto flex items-center justify-center flex-col lg:flex-row gap-6 mb-12">
+          <div className="w-[90%] mx-auto flex items-center justify-center flex-col-reverse lg:flex-row gap-2 lg:gap-6 mb-12">
             <div className="flex items-center justify-center flex-col text-black lg:basis-[70%]">
               <div className="flex items-center justify-start w-full">
                 <p className="YesevaFont text-2xl my-2 w-full text-center">Overview</p>
@@ -409,45 +409,48 @@ function PostPage() {
             </div>
           </div>
 
-          <div className="w-[90%] mx-auto overflow-x-auto py-8">
+          <div className="w-[90%] mx-auto py-8">
             <div className="md:hidden" id="returnRates"></div>
             <p className="font-bold text-2xl text-black YesevaFont mb-4">Historical Return Rates</p>
-            <table className="min-w-full divide-y divide-gray-200 bg-white">
-              <thead>
-                <tr>
-                  <th className="px-6 py-3 bg-gray-100 text-center text-sm font-medium text-gray-500"></th>
-                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
-                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2024</div>
-                  </th>
-                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
-                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2023</div>
-                  </th>
-                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
-                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2022</div>
-                  </th>
-                  <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
-                    <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2021</div>
-                  </th>
-                </tr>
-              </thead>
-              <tbody className="bg-white divide-y divide-gray-200">
-                {[
-                  { label: 'Annualized Returns', key: 'yearly_returns' },
-                  { label: 'Average Cash-on-Cash', key: 'cashOnCash' },
-                  { label: 'Equity multiple', key: 'equityMultiple' },
-                  { label: 'IRR', key: 'irrHistory' },
-                ].map((row, rowIndex) => (
-                  <tr key={rowIndex}>
-                    <td className="py-4 text-center text-xl font-medium text-gray-500 bg-gray-100">{row.label}</td>
-                    {data[row.key].map((item, colIndex) => (
-                      <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
-                        <div className="">{row.key === "equityMultiple" ? item.value : `${item.value}%`}</div>
-                      </td>
-                    ))
-                    }
-                  </tr>))}
-              </tbody>
-            </table>
+            <div className="overflow-x-auto">
+              <table className="min-w-full divide-y divide-gray-200 bg-white">
+                <thead>
+                  <tr>
+                    <th className="px-6 py-3 bg-gray-100 text-center text-sm font-medium text-gray-500 sticky left-0 z-10"></th>
+                    <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                      <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2024</div>
+                    </th>
+                    <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                      <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2023</div>
+                    </th>
+                    <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                      <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2022</div>
+                    </th>
+                    <th className="px-6 py-3 bg-white text-center text-sm font-medium text-gray-500">
+                      <div className="font-bold text-black text-xl CerebriFont mt-2 whitespace-nowrap">2021</div>
+                    </th>
+                  </tr>
+                </thead>
+                <tbody className="bg-white divide-y divide-gray-200">
+                  {[
+                    { label: 'Annualized Returns', key: 'yearly_returns' },
+                    { label: 'Average Cash-on-Cash', key: 'cashOnCash' },
+                    { label: 'Equity multiple', key: 'equityMultiple' },
+                    { label: 'IRR', key: 'irrHistory' },
+                  ].map((row, rowIndex) => (
+                    <tr key={rowIndex}>
+                      <td className="p-4 text-center md:text-xl font-medium text-gray-500 bg-gray-100 sticky left-0 z-10">{row.label}</td>
+                      {data[row.key].map((item, colIndex) => (
+                        <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
+                          <div className="">{row.key === "equityMultiple" ? item.value : `${item.value}%`}</div>
+                        </td>
+                      ))
+                      }
+                    </tr>))}
+                </tbody>
+              </table>
+            </div>
+
             <div id="historicalProjects"></div>
           </div>
 

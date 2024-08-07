@@ -177,7 +177,7 @@
       "dividendFrequency": "Quarterly",
       "description": "M2M Capital Partners is a private investment firm specializing in industrial real estate and small to mid-cap operating companies. Established in 2008 by S.P. Mitchell, the firm leverages over five decades of combined experience in commercial real estate investment and development. M2M Capital Partners focuses on delivering stabilized returns with low risk through investments in income-producing properties and operating companies, maintaining consistent performance across various market conditions.\n\n The firm is dedicated to investing in American businesses and fostering community growth, combining an entrepreneurial spirit with institutional experience. M2M's strong financial capabilities, long-term perspective, and commitment to innovation enable the firm to seize opportunities and consistently deliver value to its investment partners. By embracing its core values and executing exceptional strategies, M2M has built a proven track record of success.",
       "image": "https://i.postimg.cc/TYdrHykG/m2m.jpg",
-      "age": 16,
+      "age": 46,
       "projectId": 2,
       "cashOnCash": [
         { "year": 2024, "value": 9.57 },
@@ -332,7 +332,7 @@
         "dividendFrequency": "Annually",
         "description": "UrbanRevitalize Partners, established in 2010, aims to rejuvenate urban neighborhoods. By investing in dilapidated properties and converting them into vibrant, livable spaces, they not only generate significant capital gains but also contribute to community development. Their projects are primarily concentrated in Detroit and Philadelphia, where they have turned around several neglected areas into bustling hubs.",
         "image": "https://i.postimg.cc/ydh4gJGL/logo2.jpg",
-        "age": 14,
+        "age": 44,
         "projectId": 4,
         "cashOnCash": [
           { "year": 2024, "value": 9.57 },
@@ -564,7 +564,7 @@
         "yield": 0.055,
         "dividendFrequency": "Quarterly",
         "description": "Heritage Realty Investments, established in 2014, focuses on historical property restoration. They acquire and restore landmark buildings, converting them into luxury residences or commercial spaces. This niche market allows Heritage Realty to capitalize on the increasing demand for unique, heritage-rich properties in cities like Boston and Charleston.",
-        "age": 10,
+        "age": 33,
         "projectId": 7,
         "image": "https://i.postimg.cc/prkwCwR8/logo4.jpg",
         "cashOnCash": [
@@ -643,7 +643,7 @@
         "dividendFrequency": "Annually",
         "description": "SummitPeak Real Estate, launched in 2009, is known for its strategic acquisitions in rapidly growing suburban markets. They specialize in residential developments and mixed-use properties, focusing on areas with high population growth and development potential. Their projects in the suburbs of Atlanta and Dallas have yielded substantial capital gains for investors.",
         "image": "https://i.postimg.cc/BbFxLmjc/logo10.jpg",
-        "age": 15,
+        "age": 53,
         "projectId": 8,
         "cashOnCash": [
           { "year": 2024, "value": 9.57 },
@@ -721,7 +721,7 @@
         "dividendFrequency": "Quarterly",
         "description": "BlueWave Capital, launched in 2013, combines real estate with technology. They invest in smart buildings and tech-enabled properties that offer enhanced living and working experiences. With a portfolio that includes smart homes and tech hubs in Silicon Valley and Seattle, BlueWave Capital leverages technology to drive capital gains.",
         "image": "https://i.postimg.cc/PqqYzXLq/logo14.jpg",
-        "age": 8,
+        "age": 48,
         "projectId": 9,
         "cashOnCash": [
           { "year": 2024, "value": 9.57 },
@@ -799,7 +799,7 @@
         "dividendFrequency": "Quarterly",
         "description": "Legacy Urban Properties, established in 2009, focuses on transforming industrial spaces into modern residential lofts and commercial units. Their projects breathe new life into old warehouses and factories, particularly in cities like Brooklyn and Pittsburgh. This innovative approach has resulted in significant capital appreciation for their investors.",
         "image": "https://i.postimg.cc/rwj5r0wb/logo15.jpg",
-        "age": 15,
+        "age": 35,
         "projectId": 10,
         "cashOnCash": [
           { "year": 2024, "value": 9.57 },
@@ -877,7 +877,7 @@
         "dividendFrequency": "Quarterly",
         "description": "Sunset Capital Ventures, founded in 2011, specializes in resort and hospitality investments. They acquire and develop high-end resorts and hotels in prime vacation destinations. By focusing on luxury and exclusivity, Sunset Capital Ventures has consistently achieved impressive capital gains, with properties in places like Aspen and Key West.",
         "image": "https://i.postimg.cc/k46SzTv3/logo16.jpg",
-        "age": 14,
+        "age": 24,
         "projectId": 11,
         "cashOnCash": [
           { "year": 2024, "value": 9.57 },
@@ -1031,7 +1031,7 @@
         "yield": 0.06,
         "description": "VistaRise Real Estate, launched in 2016, specializes in high-rise residential and commercial properties. They focus on skyline-defining buildings in major cities like Houston and Denver. By investing in premium locations and top-tier architecture, VistaRise Real Estate generates substantial capital gains for their stakeholders.",
         "image": "https://i.postimg.cc/x8LzTqZ6/logo18.jpg",
-        "age": 12,
+        "age": 32,
         "projectId": 13,
         "dividendFrequency": "Quarterly",
         "cashOnCash": [
@@ -1108,7 +1108,7 @@
         "yield": 0.055,
         "description": "HorizonEdge Holdings, founded in 2008, focuses on suburban office parks and mixed-use developments. They target areas with strong economic growth and low vacancy rates, ensuring high occupancy and rental income. Their strategic investments in regions like the Research Triangle in North Carolina have yielded impressive capital gains.",
         "image": "https://i.postimg.cc/B6kTnrnn/logo7.jpg",
-        "age": 11,
+        "age": 21,
         "projectId": 14,
         "dividendFrequency": "Quarterly",
         "cashOnCash": [
