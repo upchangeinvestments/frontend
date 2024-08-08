@@ -76,7 +76,7 @@ function PostPage() {
   const [shareModal, setShareModal] = useState(false);
   const [AccreditedModal, setAccreditedModal] = useState(false);
   const { isGuest, user } = useAuth();
-  const [chartWidth, setChartWidth] = useState(500);
+  const [isLaptop, setIsLaptop] = useState(window.innerWidth >= 1024);
 
   const bannerItems = [
     {
@@ -127,38 +127,18 @@ function PostPage() {
       }
     };
 
-    window.addEventListener('scroll', handleScroll);
-
     const handleResize = () => {
-      if (window.innerWidth < 767) {
-        setChartWidth(window.innerWidth - 80);
-      } else {
-        setChartWidth(500);
-      }
+      setIsLaptop(window.innerWidth >= 1024);
     };
 
-    handleResize();
-    window.addEventListener("resize", handleResize);
+    window.addEventListener('resize', handleResize);
+    window.addEventListener('scroll', handleScroll);
 
     return () => {
       window.removeEventListener('scroll', handleScroll);
-      window.removeEventListener("resize", handleResize);
+      window.removeEventListener('resize', handleResize);
     };
   }, []);
-
-  const BarChartSetting = {
-    xAxis: [
-      {
-        label: 'Annual Return Rate (%)',
-      },
-    ],
-    width: chartWidth,
-    height: 250,
-  };
-
-  const scrollToTop = () => {
-    window.scrollTo({ top: 0, behavior: 'smooth' });
-  };
 
   const handleModalClose = () => {
     setShareModal(false);
@@ -284,7 +264,10 @@ function PostPage() {
               <div className="flex items-center justify-start w-full">
                 <p className="YesevaFont text-2xl my-2 w-full text-center">Overview</p>
               </div>
-              <p className="text-lg text-justify">{data.description}</p>
+              <p className="md:text-lg text-justify">{data.description}</p>
+              {!isLaptop &&
+                <div id="insights"></div>
+              }
             </div>
             <div className="hidden lg:block h-60 border-[1.2px] border-gray-300"></div>
             <div className="flex items-center justify-center flex-col text-black lg:basis-[30%]">
@@ -317,11 +300,12 @@ function PostPage() {
                   <p className="mt-1 font-semibold text-xl">{data.location}</p>
                   <p className="flex flex-wrap text-center">Location</p>
                 </div>
-                <div className="" id="insights"></div>   {/* just for navHash */}
+                {isLaptop &&
+                  <div id="insights"></div>
+                }
               </div>
             </div>
           </div>
-
           <div className="w-[90%] mx-auto flex flex-col gap-y-4 md:grid md:grid-cols-3 md:gap-6 h-full my-6">
             <div className="relative bg-gradient-to-r from-[#2A235A] to-[#150D2B] py-6 gap-2 rounded-lg flex items-center justify-start flex-col text-center">
               <p className="YesevaFont text-2xl text-center my-1 uppercase">Minimum Investment</p>
@@ -376,7 +360,12 @@ function PostPage() {
                 <ul className="list-disc list-inside space-y-2">
                   <li className=""> <span className="font-bold ">Industry Range: </span> {data.averageAnnualReturns}% of AUM or committed capital</li>
                   <li className=""> <span className="font-bold ">Assets Under Management: </span> {data.aum}</li>
-                  <div className="hidden md:block" id="returnRates"></div>  {/* this div is for the navHash Link only*/}
+
+                  {/* this div is for the navHash Link only*/}
+                  {isLaptop &&
+                    <div id="returnRates"></div>
+                  }
+
                   <li className=""> <span className="font-bold ">Comparison Parameters: </span> Fee percentage, basis of calculation, frequency of application, and performance fees.</li>
                 </ul>
               </div>
@@ -399,6 +388,9 @@ function PostPage() {
                 <p className="uppercase text-xl font-semibold">Company Website</p>
                 <p className="uppercase text-lg text-center">Explore Investment Opportunity</p>
                 <div className="flex items-center justify-center">
+                  {!isLaptop &&
+                    <div id="returnRates"></div>
+                  }
                   <Link to="https://www.studio2694.com/" target='_blank'>
                     <button style={{ backgroundImage: `url(${bgImage})` }} className={`bg-top flex-wrap vsm:px-4 vsm:py-1 lg:px-6 lg:py-2 rounded-xl md:text-base lg:text-base xl:text-lg text-black font-bold bg-no-repeat bg-cover flex items-center justify-center gap-x-2 uppercase`}>
                       {data.companyName}
@@ -410,7 +402,6 @@ function PostPage() {
           </div>
 
           <div className="w-[90%] mx-auto py-8">
-            <div className="md:hidden" id="returnRates"></div>
             <p className="font-bold text-2xl text-black YesevaFont mb-4">Historical Return Rates</p>
             <div className="overflow-x-auto">
               <table className="min-w-full divide-y divide-gray-200 bg-white">
@@ -442,16 +433,21 @@ function PostPage() {
                       <td className="p-4 text-center md:text-xl font-medium text-gray-500 bg-gray-100 sticky left-0 z-10">{row.label}</td>
                       {data[row.key].map((item, colIndex) => (
                         <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
-                          <div className="">{row.key === "equityMultiple" ? item.value : `${item.value}%`}</div>
+                          <div className="">
+                            {row.key === "equityMultiple" ? item.value : `${item.value}%`}
+                          </div>
                         </td>
-                      ))
+                      ))}
+                      {row.key === 'irrHistory' && (
+                        <div id="historicalProjects"> {/* Your content here */} </div>
+                      )
                       }
-                    </tr>))}
+                    </tr>
+                  ))}
+
                 </tbody>
               </table>
             </div>
-
-            <div id="historicalProjects"></div>
           </div>
 
           <div className="w-[90%] mx-auto gap-4 h-full my-4 text-black flex flex-col">
@@ -472,13 +468,19 @@ function PostPage() {
             <div className=" flex flex-col items-center justify-center text-black ">
               <div className="mb-4 text-black">
                 <p className="text-xl YesevaFont my-2">Summary</p>
-                <div className="" id="management"></div>  {/* just to match the navhashlink */}
+                {/* just to match the navhashlink */}
+                {isLaptop &&
+                  <div id="management"></div>
+                }
                 <p>
                   {data.companyName} presents a compelling investment opportunity with its solid historical return rates,
                   {data.riskLevel} risk level, and competitive fee structure. The firm's equity-focused strategy and manageable minimum
                   investment make it accessible to a range of investors. While the {data.redemptionPolicy} redemption policy offers limited liquidity,
                   the firm’s substantial AUM and regional expertise in {data.location0} add to its credibility and stability.
                 </p>
+                {!isLaptop &&
+                  <div id="management"></div>
+                }
               </div>
             </div>
             <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-lg my-4 py-4 w-full xl:max-w-6xl" >
