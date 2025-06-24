@@ -6,18 +6,21 @@ function Unique() {
 
   return (
     <div className="flex items-center w-[80%] flex-col mx-auto my-8">
-      <h1 className="font-bold text-2xl whitespace-nowrap md:text-5xl YesevaFont flex flex-col items-center justify-center uppercase">
-        <p>Discover the Power of</p>
-        <p className="text-purple-600">Choice</p>
+      <h1 className="font-bold text-2xl whitespace-nowrap md:text-4xl flex flex-col items-center justify-center font-['Playfair-Display'] uppercase">
+        <p>Where Smart <span className="text-purple-600">Choice</span></p>
+        <p>Meets the right Real Estate Firms</p>
+        <p></p>
       </h1>
-      <p className="font-['Playfair-Display'] text-xl md:text-2xl mt-4 text-justify md:text-center">We provide a comprehensive suite of reputable real estate investment firms under one roof. Our aggregator platform facilitates seamless comparison,
-        enabling investors to meticulously evaluate their options. Tailor your investment strategy with precision by selecting from a range of parameters,
-        including location, firm credibility, fees, and performance history. At Lynk Infinite Investments, we empower you to make informed decisions and choose
-        the best real estate investment firm to meet your goals.
+      <p className="font-['Playfair-Display'] text-xl mt-4 text-justify md:text-center">At LynkInfinite Investments, we believe real estate
+        investing starts with the right partnership, not just the right project. Our platform is designed to give investors a smarter, more strategic way
+        to discover and compare verified real estate investment firms all in one place. With detailed insights into firm performance, risk profiles, fees,
+        nd geographic focus, you gain the clarity to tailor your investment strategy with confidence. Whether you’re optimizing for long-term growth,
+        diversification, or cash flow, LynkInfinite empowers you to make informed decisions and align with firms that match your financial goals Intelligently
+        and Transparently.
       </p>
-      <div className="flex items-center justify-center w-[170%] md:w-[130%] lg:w-[100%]">
+      {/* <div className="flex items-center justify-center w-[170%] md:w-[130%] lg:w-[100%]">
         <video className="rounded-xl w-[90%]" src={Video} autoPlay playsInline loop muted></video>
-      </div>
+      </div> */}
     </div>
   );
 }

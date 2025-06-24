@@ -230,10 +230,10 @@ function PostPage() {
             <div className="YesevaFont flex items-center justify-center relative w-full">
               <div className="flex justify-center items-start h-full relative w-[100%]">
                 <div className="relative flex flex-col w-[100%]">
-                  <p className="text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
+                  <p className="text-[2rem] md:text-[4rem] lg:text-[4.5rem] uppercase text-center"> Company <span className="text-purple-600">Analysis</span></p>
 
                   <div ref={bgRef} className="bg-gradient-to-r from-[#2a235a] to-[#150d2b] flex items-center justify-center flex-col relative">
-                    <p className={`text-2xl md:text-3xl lg:text-5xl flex items-center justify-center text-center text-white frauncesFont tracking-widest p-4 mb-8 mt-2 lg:mb-12 lg:p-6`}>{data.companyName}</p>
+                    <p className={`text-2xl md:text-3xl lg:text-5xl flex items-center justify-center text-center text-white frauncesFont tracking-widest p-4 mb-4 mt-2 lg:mb-12 lg:p-6`}>{data.companyName}</p>
                     <div ref={bannerRef} className="">
                       <div className={`overflow-x-scroll lg:overflow-x-hidden lg:w-fit xl:max-w-6xl mx-auto px-12 py-2 flex justify-start space-x-6 absolute inset-x-0 ${bannerContent ? '' : 'top-1/2 transform translate-y-1/2'} bg-white text-black border-[1px] border-purple-600`}>
                         {bannerItems.map((data, index) => (

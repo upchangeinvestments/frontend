@@ -1,6 +1,4 @@
-import React, { useEffect, useState } from "react";
-import "../../styles/LandingPage/LandingPage.css";
-import BackgroundVideo from "../../assets/bgVideo.mp4"
+import { useEffect, useState } from "react";
 
 function LandingPage() {
   const [key, setKey] = useState(0);
@@ -10,18 +8,25 @@ function LandingPage() {
   }, []);
 
   return (
-    <div className={`relative vsm:h-[40vh] md:h-[95vh] ${navigator.userAgent.indexOf('iPad') > -1 ? 'lg:h-[85vh]' : 'lg:h-[90vh]'} w-full flex flex-col justify-center items-center Playfair-Display `}>
-      <div className="lg:hidden -mt-[50px] md:-mt-[180px] w-[150%] md:w-[130%] h-[100%]">
-        {/* <video className="video h-[110%]" autoPlay playsInline muted>
-          <source src={BackgroundVideo} type="video/mp4" />
-        </video> */}
-        <video key={key} src={BackgroundVideo} autoPlay playsInline muted></video>
+    <div className="flex flex-row m-4 mb-12 w-[90%] mx-auto">
+      <div className="basis-1/2 bordr-2 border-black">
+        <img className="mx-auto rounded-[2rem] w-[85%]" src="https://sdmntprwestcentralus.oaiusercontent.com/files/00000000-697c-61fb-82ae-6f21e286779f/raw?se=2025-06-24T19%3A44%3A35Z&sp=r&sv=2024-08-04&sr=b&scid=090f56d9-50e0-5e3b-9b19-12f3a898f7e6&skoid=e9d2f8b1-028a-4cff-8eb1-d0e66fbefcca&sktid=a48cca56-e6da-484e-a814-9c849652bcb3&skt=2025-06-24T14%3A17%3A38Z&ske=2025-06-25T14%3A17%3A38Z&sks=b&skv=2024-08-04&sig=vHSRkAFjgEqD1KtptJCeXsikd6ORFBhXv1QJCkX2qMs%3D" alt="" />
       </div>
-      <div className="hidden lg:flex items-center justify-center -mt-[150px]">
-        <video key={key} src={BackgroundVideo} autoPlay playsInline defaultMuted muted></video>
-        {/* <video className="" autoPlay playsInline muted>
-          <source src={BackgroundVideo} type="video/mp4" />
-        </video> */}
+      <div className="basis-1/2 bordr-2 border-black m-auto ">
+        <div class="max-w-lg mx-auto p-12 rounded-[2rem] bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white shadow-lg">
+          <h1 class="text-5xl font-bold leading-tight mb-8">
+            Discover Trusted <br />
+            Real Estate <br />
+            Investment Firms
+          </h1>
+          <p class="text-2xl mb-12 font-bold text-gray-300">
+            Connect with reputable companies <br />
+            and invest with confidence.
+          </p>
+          <button class="text-2xl bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold py-2 px-6 rounded-full shadow-md hover:opacity-90 transition">
+            Get Started
+          </button>
+        </div>
       </div>
     </div>
   );

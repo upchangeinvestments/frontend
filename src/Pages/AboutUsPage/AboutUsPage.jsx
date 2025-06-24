@@ -31,131 +31,33 @@ function AboutUsPage() {
             </div>
           </div>
         </div>
-        <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl my-4 relative">
-          <p className="text-black uppercase CerebriFont text-2xl md:text-4xl text-center font-bold">Company at a glance</p>
-          <div className="grid grid-cols-3 md:flex md:items-center md:justify-center gap-x-6 my-6">
-            <NavHashLink to="/about/#investor" smooth>
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center">
-                <img src="https://i.postimg.cc/pLLVCCN6/investors.jpg" alt="Investors" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">Investors</p>
-              </div>
-            </NavHashLink>
-            <NavHashLink to="/about/#knowledge" smooth>
-
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center">
-                <img src="https://i.postimg.cc/ydc7xr9k/knowledge.jpg" alt="Knowledge" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">knowledge</p>
-              </div>
-            </NavHashLink>
-            <NavHashLink to="/about/#search" smooth>
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center">
-                <img src="https://i.postimg.cc/zfLzZfGw/search.jpg" alt="Search" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">search</p>
-              </div>
-            </NavHashLink>
-            <NavHashLink to="/about/#vision" smooth>
-
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center">
-                <img src="https://i.postimg.cc/D0hnXdd5/vision.jpg" alt="Vision" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">vision</p>
-              </div>
-            </NavHashLink>
-            <NavHashLink to="/about/#mission" smooth>
-
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center">
-                <img src="https://i.postimg.cc/pLcW6jRX/mission.jpg" alt="Mission" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">mission</p>
-              </div>
-            </NavHashLink>
-            <NavHashLink to="/about/#value" smooth>
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center -mt-1">
-                <img src="https://i.postimg.cc/hGHSSqXk/value.jpg" alt="Value" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">value</p>
-              </div>
-            </NavHashLink>
-            <NavHashLink to="/about/#partners" className="grid col-span-3" smooth>
-              <div className="flex flex-col items-center hover:text-purple-600 justify-center ">
-                <img src="https://i.postimg.cc/qq9GB78f/partner.jpg" alt="Partner" className="w-12 h-12 md:w-24 md:h-24" />
-                <p className="text-center uppercase whitespace-nowrap">General Partners</p>
-              </div>
-            </NavHashLink>
-          </div>
-          <p className="w-full text-justify ">Welcome to Lynkinfinite Investments, your gateway to a world of diverse and accessible real estate investment firms. Founded in 2024, Lynkinfinite is a cutting-edge platform designed to revolutionize the way investors discover and connect with real estate investment firms. We believe that investing should be inclusive and accessible to all. Our mission is to eliminate the complexities of finding the right investment firm by providing a centralized system that aggregates and analyzes information about reputable firms nationwide. We empower investors to easily search, compare, and connect with firms that align with their goals. As a trusted knowledge resource, we guide investors through their journey and support their financial success.</p>
-          <div className="w-full flex flex-col items-center justify-center" id="investor">
-            <p className="text-black uppercase CerebriFont text-2xl md:text-3xl text-center font-bold mt-6 mb-2">Building a community of Investors</p>
-
-            <div className="hidden md:flex border-2 border-black md:items-center md:justify-center w-[80%]">
-              <p className="p-6 text-justify">You should aim to write formally and objectively using impersonal and precise language and delivering information in a straightforward manner without sharing personal opinions. You should also use appropriate transition words to link ideas or topics. Avoid things like slang and colloquial phrases, low modality language, contractions and first person pronouns.</p>
-              <img src="https://i.postimg.cc/pLLVCCN6/investors.jpg" className="w-24 h-24" alt="Investor" />
+        <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl relative">
+          <div className="flex">
+            <div className="md:basis-2/3 my-auto">
+              <h1 className="font-bold text-3xl text-center"> <span>Built for Trust.</span> <br /><span>Designed for Connection</span></h1>
+              <p className="p-6 text-center">
+                LynkInfinite is the first-of-its-kind platform where investors discover real estate investment firms — not just individual projects.
+                We provide access to verified, reputable investment firms across the U.S., enabling smarter, more confident decision-making for both seasoned
+                and first-time investors. Our goal is to simplify how capital finds trust.
+              </p>
             </div>
-
-            <div className="md:hidden border-2 border-black w-[90%]">
-              <img src="https://i.postimg.cc/pLLVCCN6/investors.jpg" className="float-left w-24 h-24 m-4 -mb-2 mx-4" alt="Investor" />
-              <p className="p-6 text-justify">You should aim to write formally and objectively using impersonal and precise language and delivering information in a straightforward manner without sharing personal opinions. You should also use appropriate transition words to link ideas or topics. Avoid things like slang and colloquial phrases, low modality language, contractions and first person pronouns.</p>
+            <div className="md:basis-1/3">
+              <img className="w-[100%] mx-auto" src="https://i.postimg.cc/fLWTc5nD/4.png" alt="" />
             </div>
           </div>
 
           <div className="grid grid-cols-1 md:grid-cols-3 my-8 md:my-4 gap-x-4 w-[90%] md:w-[80%] mx-auto gap-y-4 md:gap-y-0">
             <div className="flex flex-col items-center justify-start" data-aos="fade-right" id="vision">
               <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Vision</p>
-              <div className="border-2 border-black">
-                <p className="p-6">To be the leading platform that empowers real estate investors by providing unparalleled access to a comprehensive marketplace of reputable investment firms, fostering informed decision-making and financial growth.</p>
-                <img src="https://i.postimg.cc/D0hnXdd5/vision.jpg" alt="Investor" className=" mx-auto w-32 h-32" />
-              </div>
+              <p className="p-6">Democratize access to reputable real estate firms through clear, data-driven discovery.</p>
             </div>
             <div className="flex flex-col items-center justify-start" data-aos="fade-up" id="mission">
               <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Mission</p>
-              <div className="border-2 border-black">
-                <p className="p-6">Our mission is to create an inclusive, user-friendly platform that showcases real estate investment firms nationwide. We enable investors to easily search, compare, and connect with firms that align with their goals. We strive to be a trusted knowledge resource, guiding investors and supporting their financial success.</p>
-                <img src="https://i.postimg.cc/pLcW6jRX/mission.jpg" alt="Mission" className="mx-auto w-32 h-32" />
-              </div>
+              <p className="p-6">Build a trustworthy platform that connects the right investors with the right companies.</p>
             </div>
             <div className="flex flex-col items-center justify-start" data-aos="fade-left" id="value">
               <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Values</p>
-              <div className="border-2 border-black">
-                <p className="p-6">To be the premier platform empowering real estate investors with comprehensive access to reputable investment firms. We aim to foster informed decision-making and financial growth through unparalleled transparency, innovation, and community support.</p>
-                <img src="https://i.postimg.cc/hGHSSqXk/value.jpg" alt="Values" className="mx-auto w-32 h-32" />
-              </div>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col items-center justify-center" data-aos="zoom-in-left" id="knowledge">
-            <p className="text-black uppercase CerebriFont text-2xl md:text-3xl text-center font-bold mt-6 mb-2">Empowering Investors with Knowledge</p>
-            <div className="hidden md:flex border-2 border-black items-center justify-center w-[80%]">
-              <img src="https://i.postimg.cc/ydc7xr9k/knowledge.jpg" className="w-24 h-24" alt="Knowledge" />
-              <p className="p-6 w-[80%] text-justify">Our mission goes beyond providing a directory. We aim to be a knowledge giver for investors and a home for real estate investing companies. Whether you're an experienced investor or someone with limited direction, Lynkinfinite is here to guide you. We provide tools and resources to help you make informed decisions when selecting the right investment firm.</p>
-            </div>
-
-            <div className="md:hidden border-2 border-black w-[90%]">
-              <img src="https://i.postimg.cc/ydc7xr9k/knowledge.jpg" className="float-left w-24 h-24 my-2 mx-4" alt="Knowledge" />
-              <p className="p-4 px-6 text-justify">Our mission goes beyond providing a directory. We aim to be a knowledge giver for investors and a home for real estate investing companies. Whether you're an experienced investor or someone with limited direction, Lynkinfinite is here to guide you. We provide tools and resources to help you make informed decisions when selecting the right investment firm.</p>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col items-center justify-center" data-aos="zoom-in-right" id="partners">
-            <p className="text-black uppercase CerebriFont text-2xl md:text-3xl text-center font-bold mt-6 mb-2">A Marketplace for General Partners</p>
-
-            <div className="border-2 border-black hidden md:flex items-center justify-center w-[80%]">
-              <p className="p-6 w-[80%] text-justify">Lynkinfinite has evolved into a marketplace and advertising platform for General Partners (GPs) nationwide. Our platform brings together real estate investors and multiple investment firms, enabling you to search for, compare, and connect with the firms that resonate most with your investment goals. It's the power of choice, and it’s right at your fingertips.</p>
-              <img src="https://i.postimg.cc/qq9GB78f/partner.jpg" className="w-24 h-24" alt="partner" />
-            </div>
-
-            <div className="md:hidden border-2 border-black w-[90%]">
-              <img src="https://i.postimg.cc/qq9GB78f/partner.jpg" className="float-left w-24 h-24 my-2 mx-4" alt="partner" />
-              <p className="p-4 px-6 text-justify">Lynkinfinite has evolved into a marketplace and advertising platform for General Partners (GPs) nationwide. Our platform brings together real estate investors and multiple investment firms, enabling you to search for, compare, and connect with the firms that resonate most with your investment goals. It's the power of choice, and it’s right at your fingertips.</p>
-            </div>
-          </div>
-
-          <div className="w-full flex flex-col items-center justify-center" data-aos="zoom-in-left" id="search">
-            <p className="text-black uppercase CerebriFont text-2xl md:text-3xl text-center font-bold mt-6 mb-2">Streamlined and Customizable Search Experience</p>
-            <div className="border-2 border-black hidden md:flex items-center justify-center w-[80%]">
-              <img src="https://i.postimg.cc/zfLzZfGw/search.jpg" className="w-24 h-24" alt="Search" />
-              <p className="p-6 w-[80%] text-justify">Our streamlined approach empowers investors to explore, evaluate, and compare multiple real estate investment firms seamlessly. Whether you're looking to customize your search criteria, choose preferred locations, or select reputable investment firms, Lynkinfinite offers the flexibility to tailor your search according to your specific preferences. We believe in breaking down barriers to make informed decisions accessible to all.</p>
-            </div>
-
-            <div className="border-2 border-black md:hidden w-[90%]">
-              <img src="https://i.postimg.cc/zfLzZfGw/search.jpg" className="float-left w-24 h-24 my-2 mx-4" alt="Search" />
-              <p className="p-4 px-6 text-justify break-words">Our streamlined approach empowers investors to explore, evaluate, and compare multiple real estate investment firms seamlessly. Whether you're looking to customize your search criteria, choose preferred locations, or select reputable investment firms, Lynkinfinite offers the flexibility to tailor your search according to your specific preferences. We believe in breaking down barriers to make informed decisions accessible to all.</p>
+              <p className="p-6">We value transparency, simplicity, and empowering informed decisions.</p>
             </div>
           </div>
 

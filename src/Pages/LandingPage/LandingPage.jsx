@@ -9,6 +9,7 @@ import Unique from "./Unique";
 import HowInvestmentWorks from "./Platform";
 import FeaturedProject from "./FeaturedProject";
 import ListWithUs from "./ListWithUs";
+import Explore from "./Explore";
 import Footer from "../../commonComponents/Footer";
 import { Helmet } from 'react-helmet-async';
 
@@ -24,9 +25,10 @@ function LandingPage() {
       <NavBar />
       <Landing />
       <Unique />
-      <Questions />
-      <Features />
+      {/* <Questions /> */}
       <HowInvestmentWorks />
+      <Features />
+      <Explore />
       <FeaturedProject />
       <ListWithUs />
       <Footer />

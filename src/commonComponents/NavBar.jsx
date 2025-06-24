@@ -206,17 +206,11 @@ const NavBar = () => {
               <ProfileMenu HandleLogout={HandleLogout} user={user} />
             ) : (
               <div className="hidden md:flex md:justify-end items-center font-['Playfair-Display'] md:flex-none gap-x-4 font-semibold">
-                <Link
-                  to="/signin?isLogin=false"
-                  className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 border border-transparent rounded-full shadow-sm md:text-base lg:text-base xl:text-lg text-white bg-[#6e30a7] hover:bg-[#8e47ec] "
-                >
+                <Link to="/signin?isLogin=false" className="whitespace-nowrap inline-flex items-center justify-center md:px-4 md:py-1 lg:px-6 lg:py-1.5 shadow-sm md:text-base lg:text-base xl:text-lg text-black border-2 border-[#6e30a7] hover:border-[#8e47ec] " >
                   SIGN UP
                 </Link>
                 <Link to="/signin?isLogin=true" className="">
-                  <button
-                    style={{ backgroundImage: `url(${bgImage})` }}
-                    className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 rounded-full md:text-base lg:text-base xl:text-lg text-black bg-no-repeat bg-cover"
-                  >
+                  <button className="bg-top whitespace-nowrap vsm:px-4 md:py-1 lg:px-6 lg:py-1.5 md:text-base lg:text-base xl:text-lg text-black border-2 border-[#6e30a7] hover:border-[#8e47ec]">
                     LOGIN
                   </button>
                 </Link>
@@ -226,8 +220,7 @@ const NavBar = () => {
         </div>
         <div
           className={
-            open
-              ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden bg-white"
+            open ? "opacity-100 scale-100 ease-out duration-200 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden bg-white"
               : "opacity-0 scale-0 absolute top-0 inset-x-0 p-2 transition transform origin-top-right md:hidden"
           }>
           <div className="rounded-lg shadow-lg ring-1 ring-black ring-opacity-5 divide-y-2 ">
@@ -310,18 +303,12 @@ const NavBar = () => {
             <div className="py-6 font-['Playfair-Display'] px-5 space-y-6">
               {isAuth === false && (
                 <div>
-                  <Link
-                    to="/signin?isLogin=false"
-                    className="w-full flex items-center justify-center px-4 py-2 border border-transparent rounded-md shadow-sm text-xl font-medium text-white  bg-[#6e30a7] hover:bg-purple-600"
-                  >
+                  <Link to="/signin?isLogin=false" className="w-full flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-xl font-medium text-white border-2 border-[#6e30a7] hover:border-purple-600 ">
                     SIGN UP
                   </Link>
                   <p className="mt-6 text-center text-xl font-medium text-gray-500">
                     Existing User?
-                    <Link
-                      to="/signin?isLogin=true"
-                      className="ml-2 text-[#6e30a7] hover:text-purple-600"
-                    >
+                    <Link to="/signin?isLogin=true" className="ml-2 text-[#6e30a7] hover:text-purple-600" >
                       LOGIN
                     </Link>
                   </p>
