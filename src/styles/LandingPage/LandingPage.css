@@ -220,3 +220,17 @@ only screen and (-webkit-min-device-pixel-ratio: 2) and (min-device-width: 768px
 }
 
 /* -----------------------------end of this css is to fix all the issue/bugs in the iPad----------------------------- */
+/* LandingPage.css */
+
+.folded-br::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  right: 0;
+  width: 100px;
+  height: 100px;
+  background: linear-gradient(135deg, rgba(255, 255, 255, 0.1), rgba(0, 0, 0, 0.3));
+  clip-path: circle(100% 100%, 0% 100%, 100% 0%);
+  border-bottom-right-radius: 1.5rem;
+  z-index: 1;
+}

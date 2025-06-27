@@ -193,7 +193,7 @@ function SpecificPage() {
         />
         {/* filter section for mobile view */}
         <NavBar />
-        <div className="h-[70vh] YesevaFont flex items-center justify-center relative">
+        <div className="h-[70vh] FontLinikSans flex items-center justify-center relative">
           <div className="flex justify-center items-start h-[90%] relative">
             <div className="relative uppercase flex flex-col">
               <p className="text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] text-shadow-xl text-center md:whitespace-nowrap"> Explore <span className="text-purple-600">Companies</span></p>

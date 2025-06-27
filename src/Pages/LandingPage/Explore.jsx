@@ -16,7 +16,7 @@ const responsive = [
 function Explore() {
   return (
     <div className="flex flex-col items-center justify-center lg:-mt-10 md:mx-12 lg:mx-12 xl:mx-24">
-      <div className="mx-auto text-2xl md:text-3xl text-center mt-[40px] font-semibold mb-[30px] YesevaFont">
+      <div className="mx-auto text-2xl md:text-3xl text-center mt-[40px] font-bold mb-[30px] font-['Playfair-Display']">
         <span className="text-purple-600">EXPLORE & COMPARE</span> COMPANIES
       </div>
       <div className="w-[100%] mb-20">

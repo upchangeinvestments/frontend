@@ -88,7 +88,7 @@ function ContactForm() {
               </div>
             </div>
           </div>
-          <div className="vsm:mt-[30px] vsm:py-4 vsm:px-4 mx-4 sm:mt-[50px] sm:px-6 md:mt-[40px] md:mb-6 md:mx-0 lg:mx-4 lg:mt-0 md:col-span-2 lg:col-span-1 md:px-3 lg:mb-0 bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg  flex flex-col items-center justify-center">
+          <div className="vsm:mt-[30px] vsm:py-4 vsm:px-4 mx-4 sm:mt-[50px] sm:px-6 md:mt-[40px] md:mb-6 md:mx-0 lg:mx-4 lg:mt-0 md:col-span-2 lg:col-span-1 md:px-3 lg:mb-0 shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] rounded-lg  flex flex-col items-center justify-center">
             <p className="vsm:text-xl vsm:mb-[10px] msm:text-2xl md:text-2xl text-white font-bold ">
               Send Us a Message
             </p>
@@ -100,20 +100,20 @@ function ContactForm() {
                 >
                   Name
                 </label>
-                <input type="text" name="name" className="shadow appearance-none border rounded w-full py-2 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent" required />
+                <input type="text" name="name" className="shadow appearance-none border-b-[1px] rounded w-full py-1 px-3 text-white leading-tight focus:outline-none focus:shadow-outline bg-transparent" required />
               </div>
               <div className="mb-4">
                 <label htmlFor="email" className="block text-white text-sm font-bold mb-2" >
                   Email
                 </label>
                 <input type="email" name="email"
-                  className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent" required />
+                  className="shadow appearance-none border-b-[1px] rounded w-full py-1 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent" required />
               </div>
               <div className="mb-6">
                 <label htmlFor="message" className="block text-white text-sm font-bold mb-2" >
                   Message
                 </label>
-                <textarea name="message" rows="5" className="shadow appearance-none border rounded w-full py-2 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent" required />
+                <textarea name="message" rows="5" className="shadow appearance-none border-b-[1px] rounded w-full py-1 px-3 text-white mb-1 leading-tight focus:outline-none focus:shadow-outline bg-transparent" required />
               </div>
               <div className="flex items-center justify-center">
                 <button

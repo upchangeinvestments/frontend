@@ -4,16 +4,16 @@ const HowInvestmentWorks = () => {
   return (
     <div id="HowItWorks" className="md:mx-12 lg:mx-12 xl:mx-24">
       <div className="vsm:bg-white/20 vsm:backdrop-blur-3xl md:backdrop-blur-none md:bg-transparent vsm:py-4 vsm:mx-6 rounded-lg">
-        <h1 className="flex justify-center font-semibold YesevaFont w-full mt-2 vsm:text-2xl md:text-3xl">
+        <h1 className="flex justify-center font-bold font-['Playfair-Display'] w-full mt-2 vsm:text-2xl md:text-3xl">
           <span className="text-purple-600">CHOOSE THE FIRM&nbsp;</span> - NOT JUST THE DEAL
         </h1>
-        <h1 className="flex justify-center font-semibold YesevaFont w-full mt-2 vsm:text-2xl md:text-3xl">
+        <h1 className="flex justify-center font-bold font-['Playfair-Display'] w-full mt-2 vsm:text-2xl md:text-3xl">
           BUILD A LASTING WEALTH
         </h1>
         <div className="w-[100%] mx-auto">
           <div className="lg:flex items-center justify-between">
             <div className="vsm:h-full w-[50%] basis-3/5">
-              <img className="bg-white/20 backdrop-blur-xl rounded-lg" src="https://i.postimg.cc/rFh2058X/3.png" alt="" />
+              <img className="bg-white/20 backdrop-blur-xl rounded-lg" src="https://i.postimg.cc/vTdrXnW8/image2.png" alt="" />
             </div>
             <div className="vsm:mt-[30px] md:mt-[30px] w-[100%] lg:w-[50%]">
               <div className="flex flex-col vsm:backdrop-blur-3xl vsm:px-4 vsm:py-4 md:px-6 lg:backdrop-blur-none lg:bg-transparent vsm:rounded-lg vsm:gap-y-4 md:gap-2 w-[100%] md:w-[110%] lg:w-[95%] items-left justify-center">

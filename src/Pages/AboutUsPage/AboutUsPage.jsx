@@ -23,7 +23,7 @@ function AboutUsPage() {
       <div className="flex flex-col items-center justify-center">
         <div className="w-[100%]">
           <Navbar />
-          <div className="YesevaFont flex items-center justify-center relative">
+          <div className="FontLinikSans flex items-center justify-center relative">
             <div className="flex justify-center items-start relative">
               <div className="relative uppercase flex flex-col">
                 <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl text-center"><span className="text-purple-600 uppercase">About </span>us </p>
@@ -31,37 +31,38 @@ function AboutUsPage() {
             </div>
           </div>
         </div>
-        <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl relative">
-          <div className="flex">
+        <div className="vsm:w-[90%] 2xl:max-w-7xl relative">
+          <div className="flex mt-4">
             <div className="md:basis-2/3 my-auto">
-              <h1 className="font-bold text-3xl text-center"> <span>Built for Trust.</span> <br /><span>Designed for Connection</span></h1>
-              <p className="p-6 text-center">
-                LynkInfinite is the first-of-its-kind platform where investors discover real estate investment firms — not just individual projects.
-                We provide access to verified, reputable investment firms across the U.S., enabling smarter, more confident decision-making for both seasoned
-                and first-time investors. Our goal is to simplify how capital finds trust.
-              </p>
+              <div className="">
+                <h1 className="font-bold text-3xl text-center font-['Playfair-Display'] uppercase"> <span>Built for Trust.</span> <br /><span>Designed for Connection</span></h1>
+                <p className="p-4 pt-2 text-center text-xl font-['Playfair-Display']">
+                  LynkInfinite is the first-of-its-kind platform where investors discover real estate investment firms — not just individual projects.
+                  We provide access to verified, reputable investment firms across the U.S., enabling smarter, more confident decision-making for both seasoned
+                  and first-time investors. Our goal is to simplify how capital finds trust.
+                </p>
+              </div>
+              <div className="grid grid-cols-1 md:grid-cols-3 my-8 md:my-4 gap-x-4 mx-auto gap-y-4 md:gap-y-0 font-['Playfair-Display']">
+                <div className="flex flex-col items-center justify-start" data-aos="fade-right" id="vision">
+                  <p className="text-purple-600 font-bold YesevaFont text-2xl uppercase text-center">Vision</p>
+                  <p className="p-4 pt-2 text-xl">Democratize access to reputable real estate firms through clear, data-driven discovery.</p>
+                </div>
+                <div className="flex flex-col items-center justify-start" data-aos="fade-up" id="mission">
+                  <p className="text-purple-600 font-bold YesevaFont text-2xl uppercase text-center">Mission</p>
+                  <p className="p-4 pt-2 text-xl">Build a trustworthy platform that connects the right investors with the right companies.</p>
+                </div>
+                <div className="flex flex-col items-center justify-start" data-aos="fade-left" id="value">
+                  <p className="text-purple-600 font-bold YesevaFont text-2xl uppercase text-center">Values</p>
+                  <p className="p-4 pt-2 text-xl">We value transparency, simplicity, and empowering informed decisions.</p>
+                </div>
+              </div>
             </div>
-            <div className="md:basis-1/3">
-              <img className="w-[100%] mx-auto" src="https://i.postimg.cc/fLWTc5nD/4.png" alt="" />
+            <div className="md:basis-1/3 flex items-center justify-center">
+              <img className="mx-auto" src="https://i.postimg.cc/fLWTc5nD/4.png" alt="" />
             </div>
           </div>
 
-          <div className="grid grid-cols-1 md:grid-cols-3 my-8 md:my-4 gap-x-4 w-[90%] md:w-[80%] mx-auto gap-y-4 md:gap-y-0">
-            <div className="flex flex-col items-center justify-start" data-aos="fade-right" id="vision">
-              <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Vision</p>
-              <p className="p-6">Democratize access to reputable real estate firms through clear, data-driven discovery.</p>
-            </div>
-            <div className="flex flex-col items-center justify-start" data-aos="fade-up" id="mission">
-              <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Mission</p>
-              <p className="p-6">Build a trustworthy platform that connects the right investors with the right companies.</p>
-            </div>
-            <div className="flex flex-col items-center justify-start" data-aos="fade-left" id="value">
-              <p className="text-purple-600 font-bold Cereberi text-2xl text-center">Values</p>
-              <p className="p-6">We value transparency, simplicity, and empowering informed decisions.</p>
-            </div>
-          </div>
-
-          <div className="hidden md:flex items-center justify-center w-[70%] mx-auto my-4" data-aos="zoom-in">
+          <div className="hidden md:flex items-center justify-center w-[70%] mx-auto mb-8" data-aos="zoom-in">
             <div className="w-full h-full flex flex-col items-center justify-center">
               <img src="https://i.postimg.cc/D0WcDRtC/founder2.jpg" className="object-cover object-top vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] md:w-[120px] md:h-[120px] md:mt-[30px] lg:w-[150px] lg:h-[150px] rounded-full p-2 bg-gradient-to-br from-white to-[#6e30a7] " alt="Founder" />
               <div className="mt-2">

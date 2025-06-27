@@ -94,18 +94,18 @@ const ROICalculator = () => {
             <div className="flex flex-col items-center justify-center relative">
                 <div className="w-[100%]">
                     <NavBar />
-                    <div className="YesevaFont flex items-center justify-center relative">
+                    <div className="FontLinikSans flex items-center justify-center relative">
                         <div className="flex justify-center items-start relative">
                             <div className="relative uppercase flex flex-col">
-                                <p className="text-[3rem] md:text-[4.5rem] text-center text-purple-600 text-shadow-xl"> Wealth Calculator</p>
+                                <p className="text-[3rem] md:text-[4.5rem] text-center text-purple-600 text-shadow-xl "> Wealth Calculator</p>
                             </div>
                         </div>
                     </div>
                 </div>
-                <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl my-4 relative flex flex-col items-center justify-center md:grid md:grid-cols-3">
+                <div className="vsm:w-[90%] lg:w-[80%] 2xl:max-w-7xl my-4 relative flex flex-col items-center justify-center md:grid md:grid-cols-3 font-['Playfair-Display']">
                     <div className='col-span-2'>
-                        <p className='uppercase text-lg'>explore your future return on investments </p>
-                        <p className='text-[#A26CF6] w-[100%] md:w-[80%]'>Discover the potential of your real estate investments with our ROI
+                        <p className='uppercase text-xl font-bold'>explore your future return on investments </p>
+                        <p className='text-[#A26CF6] text-xl w-[100%] md:w-[80%] lg:w-[90%]'>Discover the potential of your real estate investments with our ROI
                             Calculator! Designed to empower investors to visualize their wealth growth
                             clearly and effortlessly. Dive in and uncover the possibilities for capital
                             gains. Start exploring now and watch your wealth thrive!
@@ -120,7 +120,7 @@ const ROICalculator = () => {
                                             type="text"
                                             value={investment.toLocaleString()}
                                             onChange={(e) => handleNumberChange(e.target.value, setInvestment, 100000)}
-                                            className="p-2 pl-8 pr-2 w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white"
+                                            className="p-2 pl-8 pr-2 w-full shadow-md bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white"
                                             style={{ borderRadius: '8px' }}
                                         />
                                     </div>
@@ -147,7 +147,7 @@ const ROICalculator = () => {
                                             step="0.1"
                                             value={roiPercentage}
                                             onChange={(e) => handleRoiChange(parseFloat(e.target.value))}
-                                            className="p-2 pl-8 pr-2 w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white"
+                                            className="p-2 pl-8 pr-2 w-full shadow-md bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white"
                                             style={{ borderRadius: '8px' }}
                                         />
                                     </div>
@@ -173,7 +173,7 @@ const ROICalculator = () => {
                                             type="text"
                                             value={duration.toLocaleString()}
                                             onChange={(e) => handleNumberChange(e.target.value, setDuration, 50)}
-                                            className="p-2 pl-8 pr-2 w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white"
+                                            className="p-2 pl-8 pr-2 w-full shadow-md bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white"
                                             style={{ borderRadius: '8px' }}
                                         />
                                     </div>
@@ -194,7 +194,7 @@ const ROICalculator = () => {
                         </div>
                     </div>
                     <div className='col-span-1 h-[90%] vsm:w-[100%]'>
-                        <div className='my-2 bg-gradient-to-r from-[#2A235A] to-[#150D2B] text-white flex flex-col items-center justify-center h-full text-center vsm:p-4 vsm:py-6 rounded-lg'>
+                        <div className='my-2 shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white flex flex-col items-center justify-center h-full text-center vsm:p-4 vsm:py-6 rounded-lg'>
                             <div className="flex flex-col items-center justify-center my-4">
                                 <p className='uppercase CerebriFont text-xl flex-shrink overflow-hidden text-ellipsis'>Investment Amount</p>
                                 <div className='text-3xl flex items-center justify-center gap-x-4 roller'>

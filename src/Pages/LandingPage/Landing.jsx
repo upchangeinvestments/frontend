@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react";
+import "../../styles/LandingPage/LandingPage.css";
+import { Link } from "react-router-dom";
 
 function LandingPage() {
   const [key, setKey] = useState(0);
@@ -10,10 +12,16 @@ function LandingPage() {
   return (
     <div className="flex flex-row m-4 mb-12 w-[90%] mx-auto">
       <div className="basis-1/2 bordr-2 border-black">
-        <img className="mx-auto rounded-[2rem] w-[85%]" src="https://i.postimg.cc/TPChFK12/temp.png" alt="" />
+        <img className="mx-auto rounded-[2rem] w-[75%]" src="https://i.postimg.cc/HxM0Qz8P/image1-crop.png" alt="" />
       </div>
       <div className="basis-1/2 bordr-2 border-black m-auto ">
-        <div class="max-w-lg mx-auto p-12 rounded-[2rem] bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white shadow-lg">
+        <div
+          className="relative max-w-lg mx-auto p-12 text-white shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] folded-br"
+          style={{
+            clipPath: 'polygon(0 0, 100% 0, 100% calc(100% - 100px), calc(100% - 100px) 100%, 0 100%)',
+            borderRadius: '1.5rem',
+          }}
+        >
           <h1 class="text-5xl font-bold leading-tight mb-8">
             Discover Trusted <br />
             Real Estate <br />
@@ -23,12 +31,14 @@ function LandingPage() {
             Connect with reputable companies <br />
             and invest with confidence.
           </p>
-          <button class="text-2xl bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold py-2 px-6 rounded-full shadow-md hover:opacity-90 transition">
-            Get Started
-          </button>
+          <Link to="/rei-firms">
+            <button class="text-2xl bg-gradient-to-r from-purple-400 to-purple-600 text-white font-semibold py-2 px-6 rounded-full shadow-md hover:opacity-90 transition">
+              Get Started
+            </button>
+          </Link>
         </div>
       </div>
-    </div>
+    </div >
   );
 }
 

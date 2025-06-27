@@ -1,4 +1,3 @@
-import React from "react";
 import Lipika_mam from "../../assets/founder2.jpg";
 import { ImQuotesLeft } from "react-icons/im";
 import BlurBuilding from "../../assets/Building_blur-md.jpg";

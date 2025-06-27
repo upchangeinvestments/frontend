@@ -291,7 +291,7 @@ function EducationPage() {
       </Helmet>
       <div className="categoryMain">
         <NavBar />
-        <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
+        <div className="lg:h-[70vh] xl:h-[65vh] FontLinikSans flex items-center justify-center relative flex-col">
           <div className="flex flex-col justify-start items-center h-[90%] relative">
             <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl text-purple-600 uppercase mt-2"> Resources </p>
           </div>

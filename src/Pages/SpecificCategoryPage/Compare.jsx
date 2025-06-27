@@ -26,9 +26,9 @@ function Compare() {
             </Helmet>
             <div className="categoryMain">
                 <NavBar />
-                <div className="lg:h-[70vh] xl:h-[65vh] YesevaFont flex items-center justify-center relative flex-col">
+                <div className="lg:h-[70vh] xl:h-[65vh] FontLinikSans flex items-center justify-center relative flex-col">
                     <div className="flex flex-col md:justify-start items-center h-[90%] relative">
-                        <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center"> Compare <span className="text-purple-600">Companies</span></p>
+                        <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center text-shadow-xl"> Compare <span className="text-purple-600">Companies</span></p>
                         <p className="uppercase w-full flex items-center justify-center CerebriFont text-center md:text-lg -mt-2 md:-mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
                     </div>
                 </div>

@@ -6,10 +6,9 @@ function Unique() {
 
   return (
     <div className="flex items-center w-[80%] flex-col mx-auto my-8">
-      <h1 className="font-bold text-2xl whitespace-nowrap md:text-4xl flex flex-col items-center justify-center font-['Playfair-Display'] uppercase">
+      <h1 className="font-bold text-2xl whitespace-nowrap md:text-3xl flex flex-col items-center justify-center font-['Playfair-Display'] uppercase">
         <p>Where Smart <span className="text-purple-600">Choice</span></p>
         <p>Meets the right Real Estate Firms</p>
-        <p></p>
       </h1>
       <p className="font-['Playfair-Display'] text-xl mt-4 text-justify md:text-center">At LynkInfinite Investments, we believe real estate
         investing starts with the right partnership, not just the right project. Our platform is designed to give investors a smarter, more strategic way

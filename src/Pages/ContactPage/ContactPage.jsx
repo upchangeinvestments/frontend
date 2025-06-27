@@ -14,7 +14,7 @@ function ContactPage() {
       </Helmet>
       <div className="categoryMain">
         <Navbar />
-        <div className="h-[60vh] YesevaFont flex items-center justify-center relative">
+        <div className="h-[60vh] FontLinikSans flex items-center justify-center relative">
           <div className="flex justify-center items-start h-[90%] relative">
             <div className="relative uppercase flex flex-col">
               <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl">  <span className="text-purple-600">Contact </span>Us</p>
