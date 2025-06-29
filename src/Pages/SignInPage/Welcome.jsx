@@ -2,12 +2,13 @@ import React from 'react'
 import { useNavigate, useLocation } from "react-router-dom";
 import NavBar from '../../commonComponents/NavBar'
 import Footer from '../../commonComponents/Footer'
-import logo from '../../assets/logo.png'
+// import logo from '../../assets/logo.png'
 import { useAuth } from "../../utils/AuthContext";
 import axios from "axios"
 import Error from "../../utils/Error";
 import SuccessToast from "../../utils/successToast";
 import { FiEdit } from "react-icons/fi";
+import logo from "../../assets/blackLogo.png";
 
 
 function Welcome() {
@@ -39,7 +40,7 @@ function Welcome() {
       <div className="contactMain text-white">
         <NavBar />
         <div className="h-[80vh] flex flex-col font-['Playfair-Display'] items-center justify-center">
-          <h2 className='text-5xl mt-[100px]'>Thanks for Choosing LynkInfinite Investments</h2>
+          <h2 className='text-5xl'>Thanks for Choosing LynkInfinite Investments</h2>
           {/* <p className='text-lg mt-[10px]'>Embark on Your Investment Journey: Let's Discover Your Preferences Together!</p> */}
           <img
             className="vsm:w-[60%] vsm:mb-6 msm:w[40%] sm:w-[50%] md:w-[45%] lg:w-[35%] xl:w-[30%]"

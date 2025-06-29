@@ -10,14 +10,13 @@ function NotFoundPage() {
     return (
         <div className="">
             <Helmet>
-                <title>About LynkInfinite Investments</title>
-                <meta name="description" content="Real Estate listed projects website" />
-                <link rel="canonical" href="/about" />
+                <title>Page not found</title>
+                <meta name="description" content="This page could not be found." />
             </Helmet>
             <div className="flex flex-col items-center justify-center">
                 <div className="w-[100%]">
                     <Navbar />
-                    <div className="YesevaFont flex items-center justify-center relative">
+                    <div className="FontLinikSans flex items-center justify-center relative">
                         <div className="flex justify-center items-start relative">
                             <div className="relative uppercase flex flex-col">
                                 <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl text-center">Page <span className="text-purple-600 uppercase">Not Found</span></p>
@@ -28,10 +27,10 @@ function NotFoundPage() {
                 </div>
                 <div className="my-4 relative">
                     <div className="my-4 flex items-center justify-center flex-col poppins-regular p-4 px-8 ">
-                        <p className="text-lg text-center">The Page you requested could not be found</p>
+                        <p className="text-xl text-center font-['Playfair-Display']">The Page you requested could not be found</p>
                         <div className="my-8">
                             <Link to="/">
-                                <GoldenButton Text="Go back to Home page" />
+                                <GoldenButton Text="Go back to Home page" classname="font-['Playfair-Display'] text-xl" />
                             </Link>
                         </div>
                     </div>

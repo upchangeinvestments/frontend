@@ -38,21 +38,21 @@ function VerifyUser() {
     }, [])
 
     return (
-        <div className=" h-[100vh] aboutMain flex items-center justify-center " >
+        <div className=" h-[100vh] aboutMain flex items-center justify-center  font-['Playfair-Display']" >
             <Helmet>
                 <title>Verified @ LynkInfinite Investments</title>
                 <meta name="description" content="Real Estate listed projects website" />
-                <link rel="canonical" href="/premium" />
+                <link rel="canonical" href="/verify-user" />
             </Helmet>
             {isVerified === true ? (
-                <div className="bg-white/20 backdrop-blur-xl p-8 rounded-lg flex flex-col items-center text-white">
+                <div className="bg-white/20 backdrop-blur-xl p-8 rounded-lg flex flex-col items-center text-black font-['Playfair-Display']">
                     <img src={VerifiedGIF} className="w-80" alt="Verify" />
                     <p className="text-4xl font-bold ">You are verified.</p>
                     <p className="text-2xl font-bold ">Thanks for verifying you ID</p>
                 </div>
             ) : (
-                <div className="bg-white/20 backdrop-blur-xl p-8 rounded-lg flex flex-col items-center text-white">
-                    <img src="https://clipart-library.com/images_k/cross-out-sign-transparent/cross-out-sign-transparent-3.jpg" className="w-80" alt="Verify" />
+                <div className="bg-white/20 backdrop-blur-xl p-8 rounded-lg flex flex-col items-center text-black font-['Playfair-Display']">
+                    <img src="https://i.postimg.cc/6QZGC626/not-Verfied.png" className="w-80" alt="Verify" />
                     <p className="text-4xl font-bold ">Not Verified</p>
                     <p className="text-2xl font-bold ">Try again later!</p>
                 </div>

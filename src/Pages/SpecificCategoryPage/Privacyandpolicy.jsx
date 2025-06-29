@@ -13,10 +13,10 @@ function Privacyandpolicy() {
         <meta name="description" content="Real Estate listed projects website" />
         <link rel="canonical" href="/privacy" />
       </Helmet>
-      <div className="contactMain text-white">
+      <div className="contactMain text-black">
         <NavBar />
-        <div className="h-[85vh] flex items-center justify-center">
-          <p className="uppercase font-['Playfair-Display'] lg:text-4xl xl:text-5xl text-white vsm:text-4xl md:text-5xl lg:-mt-[350px] xl:-mt-[430px] mx-auto lg:ml-[60%]">
+        <div className="h-[65vh] flex items-center justify-center">
+          <p className="uppercase font-['Playfair-Display'] font-bold lg:text-4xl xl:text-5xl vsm:text-4xl md:text-5xl lg:-mt-[300px] xl:-mt-[430px] mx-auto">
             Privacy and Policy
           </p>
         </div>

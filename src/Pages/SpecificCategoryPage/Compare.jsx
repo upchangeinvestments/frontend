@@ -29,7 +29,7 @@ function Compare() {
                 <div className="lg:h-[70vh] xl:h-[65vh] FontLinikSans flex items-center justify-center relative flex-col">
                     <div className="flex flex-col md:justify-start items-center h-[90%] relative">
                         <p className="text-[3.5rem] md:text-[4.5rem] uppercase text-center text-shadow-xl"> Compare <span className="text-purple-600">Companies</span></p>
-                        <p className="uppercase w-full flex items-center justify-center CerebriFont text-center md:text-lg -mt-2 md:-mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
+                        <p className="uppercase w-full flex items-center justify-center text-center md:text-lg -mt-2 md:-mt-6">Choose a trusted partners to guide you through REal estate investment journey</p>
                     </div>
                 </div>
                 <div className="overflow-x-auto w-full py-8 lg:-mt-[270px] xl:-mt-[300px] mb-10">
@@ -45,7 +45,7 @@ function Compare() {
                                 ))}
                             </tr>
                         </thead>
-                        <tbody className="bg-white divide-y divide-gray-200">
+                        <tbody className="bg-white divide-y divide-gray-200 font-['Playfair-Display']">
                             {[
                                 { label: 'INVESTMENT OPPORTUNITIES', key: 'investmentTypes' },
                                 { label: 'RISK TYPE', key: 'riskLevel' },
@@ -56,9 +56,9 @@ function Compare() {
                                 { label: '', key: "buttons" }
                             ].map((row, rowIndex) => (
                                 <tr key={rowIndex}>
-                                    <td className="px-6 py-4 text-center text-sm font-medium text-gray-500 bg-gray-100">{row.label}</td>
+                                    <td className="px-6 py-4 text-center text-base font-medium text-gray-500 bg-gray-100">{row.label}</td>
                                     {compareIds.map((item, colIndex) => (
-                                        <td key={colIndex} className="px-6 py-4 text-center text-md font-medium text-black">
+                                        <td key={colIndex} className="px-6 py-4 text-center text-lg font-medium text-black">
                                             {row.key !== 'buttons' && (
                                                 <div className={row.key === 'minInvestment' ? "text-purple-600 text-2xl font-bold" : row.key === "investorEligibility" ? "w-[80%] mx-auto" : ""}>{row.key === "minInvestment" ? `$ ${data[item][row.key].toLocaleString()}` : `${data[item][row.key]}`}{row.key === 'feeStructure' ? "%" : ""}</div>
                                             )}

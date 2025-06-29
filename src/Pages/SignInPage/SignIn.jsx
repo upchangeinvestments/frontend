@@ -209,35 +209,18 @@ const SignIn = () => {
           <div className={isSignUp ? "SignInContainer shadow-2xl -mt-8" : "SignInContainer change shadow-2xl -mt-8"}>
             <div className="forms-container">
               {/* .......................start of registration form.......................  */}
-              <div className="form-control font-['Playfair-Display'] signup-form">
+              <div className="form-control font-['Playfair-Display'] signup-form shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72]">
                 <form onSubmit={handleSignUp}>
                   <h2 className="text-2xl font-bold">SIGN UP</h2>
                   <div className="flex items-center justify-center gap-x-4 -mt-2">
                     <div onClick={GoogleLoginHandler}>
-                      <img
-                        className="w-[40px]"
-                        src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
-                        alt="googlelogo"
-                      />
+                      <img className="w-[40px]" src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png" alt="googlelogo" />
                     </div>
                     <div onClick={OutLookLoginHandler}>
-                      <img
-                        className="w-[35px]"
-                        src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
-                        alt="outlook"
-                      />
+                      <img className="w-[35px]" src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png" alt="outlook" />
                     </div>
                   </div>
-                  <input
-                    type="email"
-                    placeholder="Email"
-                    name="email"
-                    value={userData !== null ? userData.email : ""}
-                    onChange={(e) =>
-                      setUserData({ ...userData, email: e.target.value })
-                    }
-                    required
-                  />
+                  <input type="email" placeholder="Email" name="email" value={userData !== null ? userData.email : ""} onChange={(e) => setUserData({ ...userData, email: e.target.value })} required />
                   <div className="relative flex flex-start w-full eye-input">
                     <input
                       type={showPassword ? "text" : "password"}
@@ -283,23 +266,13 @@ const SignIn = () => {
               {/* .......................end of registration form....................... */}
 
               {/* .......................start of login form and forgot password form....................... */}
-              <div className="form-control font-['Playfair-Display'] signin-form">
+              <div className="form-control font-['Playfair-Display'] signin-form shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72]">
                 {/* .......................start of forgot password....................... */}
                 {showForgetPassword ? (
                   <form onSubmit={handleForgetPassword}>
                     <h2 className="">Forgot Password</h2>
-                    <input
-                      type="text"
-                      placeholder="Name"
-                      name="name"
-                      required
-                    />
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      name="ForgotEmail"
-                      required
-                    />
+                    <input type="text" placeholder="Name" name="name" required />
+                    <input type="email" placeholder="Email" name="ForgotEmail" required />
                     <button type="submit" className="font-normal">
                       RESET PASSWORD
                     </button>
@@ -318,36 +291,15 @@ const SignIn = () => {
                     <h2 className="text-2xl font-bold">SIGN IN</h2>
                     <div className="flex items-center justify-center gap-x-4 -mt-2">
                       <div onClick={GoogleLoginHandler}>
-                        <img
-                          className="w-[50px]"
-                          src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png"
-                          alt="googlelogo"
-                        />
+                        <img className="w-[50px]" src="https://i.postimg.cc/mhfvM9pZ/googleimage-removebg-preview.png" alt="googlelogo" />
                       </div>
                       <div onClick={OutLookLoginHandler}>
-                        <img
-                          className="w-[40px]"
-                          src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png"
-                          alt="outlook"
-                        />
+                        <img className="w-[40px]" src="https://i.postimg.cc/r0x8WkPj/outlook-com-microsoft-outlook-email-personal-storage-table-computer-icons-outlook-removebg-preview.png" alt="outlook" />
                       </div>
                     </div>
-                    <input
-                      type="email"
-                      placeholder="Email"
-                      name="email"
-                      value={userData !== null ? userData.email : ""}
-                      onChange={(e) =>
-                        setUserData({ ...userData, email: e.target.value })
-                      }
-                      required
-                    />
+                    <input type="email" placeholder="Email" name="email" value={userData !== null ? userData.email : ""} onChange={(e) => setUserData({ ...userData, email: e.target.value })} required />
                     <div className="logineyeinput relative flex flex-start w-[75%]">
-                      <input
-                        type={showPassword ? "text" : "password"}
-                        placeholder="Password"
-                        name="password"
-                        required
+                      <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" required
                       />
                       {showPassword ? (
                         <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />

@@ -1,8 +1,7 @@
-import React from "react";
 
 function Terms() {
   return (
-    <div className="vsm:mx-[15px] vsm:px-[10px] vsm:py-[20px] vsm:-mt-[160px] md:mx-[50px] md:px-[20px]  lg:mx-20 lg:mb-20 lg:py-12 lg:-mt-[270px] lg:px-16 mb-[50px] bg-gradient-to-r from-[#6e30a7] to-purple-300 rounded-lg  backdrop-blur-lg  text-white">
+    <div className="vsm:mx-[15px] vsm:px-[10px] vsm:py-[20px] vsm:-mt-[160px] md:mx-[50px] md:px-[20px]  lg:mx-20 lg:mb-20 lg:py-12 lg:-mt-[270px] lg:px-16 mb-[50px] shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] rounded-lg  backdrop-blur-lg text-white font-['Playfair-Display']">
       <b>Acceptance of Terms:</b>
       <br /> By accessing or using Lynkinfinite Investments, you agree to abide
       by these Terms of Service.
@@ -136,9 +135,9 @@ function Terms() {
       offered on our website.
       <br />
       <br />
-       Subcribe:
-       <br/>
-       By signing up for our newsletter, you agree to receive regular updates about our latest news, projects, and promotions. By default, you will be subscribed to all our newsletters and projects. If you wish to opt-out, you can unsubscribe at any time by clicking the 'unsubscribe' link in any of our emails. Please note that unsubscribing will only stop you from receiving future emails, and it will not remove your data from our system. We respect your privacy and will not share your information with third parties.
+      Subcribe:
+      <br />
+      By signing up for our newsletter, you agree to receive regular updates about our latest news, projects, and promotions. By default, you will be subscribed to all our newsletters and projects. If you wish to opt-out, you can unsubscribe at any time by clicking the 'unsubscribe' link in any of our emails. Please note that unsubscribing will only stop you from receiving future emails, and it will not remove your data from our system. We respect your privacy and will not share your information with third parties.
       <br />
       <br />
       <b>License:</b>

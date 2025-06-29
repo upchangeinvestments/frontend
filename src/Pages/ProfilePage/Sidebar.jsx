@@ -340,7 +340,7 @@ const TermsOfService = () => {
 };
 const PrivacyPolicy = () => {
   return (
-    <div className="">
+    <div className="font-['Playfair-Display'] text-lg">
       Information Collection:
       <br /> Lynkinfinite Investments may collect personal information from
       users, including but not limited to name, email address, and contact
@@ -507,26 +507,19 @@ const ChangePassword = () => {
   }
 
   return (
-    <div className="flex flex-col gap-4 mt-[50px] mx-4">
-      <style>
-        {`
-          input::placeholder {
-            color: #6e30a7;
-          }
-        `}
-      </style>
+    <div className="flex flex-col gap-4 mb-[50px] mx-4">
       <form className="" onSubmit={updatePasswordHandler}>
         <div className="mb-4 mt-10">
-          <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Current Password</label>
-          <input type="text" placeholder="Current Password" name="CurrentPassword" className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl text-[#6e30a7]" required />
+          <label htmlFor="Name" className="block mb-1 font-bold md:text-lg lg:text-xl">Current Password</label>
+          <input type="text" placeholder="Current Password" name="CurrentPassword" className="bg-transparent w-full border-gray-900 border-b-2 py-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-lg" required />
         </div>
         <div className="mb-4 mt-10">
-          <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">New Password</label>
-          <input type="text" placeholder="New Password" name="NewPassword" className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl text-[#6e30a7]" required />
+          <label htmlFor="Name" className="block mb-1 font-bold md:text-lg lg:text-xl">New Password</label>
+          <input type="text" placeholder="New Password" name="NewPassword" className="bg-transparent w-full border-gray-900 border-b-2 py-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-lg" required />
         </div>
         <div className="mb-4 mt-10">
-          <label htmlFor="Name" className="block mb-1 uppercase font-bold md:text-lg lg:text-xl">Confirm Password</label>
-          <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="bg-transparent w-full border-gray-900 border-b-2 p-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-xl text-[#6e30a7]" required />
+          <label htmlFor="Name" className="block mb-1 font-bold md:text-lg lg:text-xl">Confirm Password</label>
+          <input type="text" placeholder="Confirm Password" name="ConfirmPassword" className="bg-transparent w-full border-gray-900 border-b-2 py-2 focus:outline-none focus:ring-[#6e30a7] focus:border-[#6e30a7] md:text-lg lg:text-lg" required />
         </div>
       </form>
       <div className="flex flex-col items-center">
@@ -561,14 +554,14 @@ const Sidebar = ({ sendDataToProfile }) => {
       <div className="flex flex-col items-start backdrop-blur-lg md:rounded-lg lg:rounded-lg w-full">
         <ul className="flex flex-col space-y-2 w-full font-['Poppins']">
           {tabs.map((tab, index) => (
-            <li key={index} className={`vsm:p-2 sm:p-2 md:p-2 lg:p-4 ${isActive === index ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white rounded-lg  w-full" : "hover:text-purple-600"}`}
+            <li key={index} className={`vsm:p-2 sm:p-2 md:p-2 lg:p-4 ${isActive === index ? "shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white rounded-lg  w-full" : "hover:text-purple-600"}`}
               onClick={() => handleContent(index)}>
               <div className="flex items-center justify-start relative">
                 <span className="flex items-center justify-center gap-x-2">
                   {tab.icon}
-                  <p className=""> {tab.title}</p>
+                  <p className="font-['Playfair-Display'] text-xl"> {tab.title}</p>
                 </span>
-                <IoIosArrowDroprightCircle size="1.2rem" className="absolute right-0" color={isActive === index ? "white" : "rgb(147 51 234)"} />
+                <IoIosArrowDroprightCircle size="1.2rem" className="absolute right-0" color={isActive === index ? "white" : "bg-[#3b0a72]"} />
               </div>
             </li>
           ))}

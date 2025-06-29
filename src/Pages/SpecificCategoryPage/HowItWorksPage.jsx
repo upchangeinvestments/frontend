@@ -19,7 +19,7 @@ function HowItWorksPage() {
           </p>
         </div>
       </div>
-      <div className='flex flex-col vsm:mt-[-175px] md:mt-[-160px] lg:mt-[-220px] items-center justify-center'>
+      <div className="flex flex-col vsm:mt-[-175px] md:mt-[-160px] lg:mt-[-220px] items-center justify-center font-['Playfair-Display']">
         <span className="vsm:text-xl md:text-2xl vsm:mb-[20px] font-medium">What is an Aggregator System?{" "}</span>
         <div className="flex flex-col items-center justify-center vsm:bg-white/20 vsm:backdrop-blur-3xl md:backdrop-blur-none md:bg-transparent vsm:mx-4 vsm:rounded-lg vsm:mb-[50px]">
           <img className="bg-white/20 backdrop-blur-xl rounded-lg vsm:w-[80%] md:w-[40%] vsm:mt-[20px] md:mt-[30px] lg:mt-[60px] " src="https://i.postimg.cc/XJjjqRMq/lynkinv-removebg1.png" alt="" />

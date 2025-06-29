@@ -16,8 +16,8 @@ const Tabs = ({ tabs, activeIndex }) => {
             {tabs.map((tab, index) => (
               <button
                 key={index}
-                className={`text-purple-600 whitespace-nowrap  focus:outline-none ${activeTab === index
-                  ? "bg-gradient-to-r from-[#6e30a7] to-purple-300 text-white font-semibold rounded-xl py-2 px-6" : ""}`}
+                className={`text-black whitespace-nowrap  focus:outline-none ${activeTab === index
+                  ? "shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] text-white font-semibold rounded-xl py-2 px-6" : ""}`}
                 onClick={() => setActiveTab(index)}>
                 {tab.title}
               </button>

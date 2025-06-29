@@ -72,34 +72,21 @@ const Questionnaire = () => {
     const quizLength = quizData.length;
 
     return (
-      <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full lg:text-xl">
-        <p className="text-left px-4 lg:w-[100%] font-['Playfair-Display'] flex justify-center">
+      <div className="quiz-container px-4 py-2 flex flex-col items-center justify-center vsm:w-full font-['Playfair-Display']">
+        <p className="text-left px-4 lg:w-[100%] flex justify-center text-xl">
           {currentQuizData.question}
         </p>
-        <ul className="vsm:w-[90%] font-['Playfair-Display'] md:w-[50%]">
+        <ul className="vsm:w-[90%] md:w-[50%]">
           {['a', 'b', 'c', 'd'].map((option) => (
             <li key={option}>
-              <input
-                type="radio"
-                name="answer"
-                id={option}
-                className="answer text-center"
-                onClick={() => handleOptionSelect(option)}
-              />
-              <label
-                className="text-center border-[1px] font-['Playfair-Display'] border-[#6e30a7]"
-                htmlFor={option}
-                id={option + "_text"}
-              >
+              <input type="radio" name="answer" id={option} className="answer text-center" onClick={() => handleOptionSelect(option)} />
+              <label className="text-center border-[1px] border-[#6e30a7]" htmlFor={option} id={option + "_text"}  >
                 {currentQuizData[option]}
               </label>
             </li>
           ))}
-          <div
-            className={currentQuiz > 0 ? "flex justify-center" : "hidden"}
-            onClick={handlePreviousClick}
-          >
-            <p className="ml-4">PREVIOUS</p>
+          <div className={currentQuiz > 0 ? "flex justify-center" : "hidden"} onClick={handlePreviousClick}>
+            <p className="">PREVIOUS</p>
           </div>
         </ul>
       </div>
@@ -107,7 +94,7 @@ const Questionnaire = () => {
   };
 
   return (
-    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center md:justify-start items-center py-2 shadow-lg hover:shadow-xl container my-4 md:mt-12 relative w-[90%] lg:w-[100%]">
+    <div className="bg-white/20 backdrop-blur-sm rounded-lg flex flex-col justify-center md:justify-start items-center py-2 shadow-lg hover:shadow-xl container my-4 md:mt-12 relative w-[90%] lg:w-[100%] font-['Playfair-Display']">
       <div className="flex vsm:flex-col lg:flex-row w-full items-center justify-center mb-12 md:mb-0">
         <div className="w-full vsm:px-6 flex items-center justify-center m-4 mb-8 mx-auto">
           {loadQuiz()}

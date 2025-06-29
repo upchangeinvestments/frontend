@@ -3,7 +3,7 @@
 }
 
 .quiz-container {
-  font-family: "Poppins", sans-serif;
+  /* font-family: "Poppins", sans-serif; */
   /* display: flex; */
   /* align-items: center;
   justify-content: center; */
@@ -40,7 +40,7 @@ ul {
 }
 
 .quiz-container ul li {
-  /* font-size: 1.2rem; */
+  font-size: 1rem;
   margin: 1rem 0;
 }
 

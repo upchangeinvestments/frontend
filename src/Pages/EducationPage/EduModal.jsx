@@ -7,7 +7,7 @@ function EduModal({ isOpen, handleOpen, modalContent }) {
     <div className="hidden md:block">
       {isOpen && (
         <div className="absolute inset-0 z-50  flex items-center justify-center text-white">
-          <div className="flex flex-col justify-start items-center w-full h-full bg-gradient-to-r from-[#6e30a7] to-purple-300 p-6 py-8 rounded-md relative">
+          <div className="flex flex-col justify-start items-center w-full h-full shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] p-6 py-8 rounded-md relative">
             <div className="absolute right-4 top-4" onClick={handleOpen}>
               <ImCross size="20px" />
             </div>

@@ -43,7 +43,7 @@ const ProfilePage = () => {
     <div className="">
       <Helmet>
         <title>Profile page</title>
-        <meta name="description" content="Real Estate listed projects website" />
+        <meta name="description" content="user profile page" />
         <link rel="canonical" href="/profile" />
       </Helmet>
       <div className="categoryMain">
@@ -57,9 +57,9 @@ const ProfilePage = () => {
           <div className="lg:grid lg:col-span-3">
             <div className="flex items-start justify-center relative flex-col w-full">
               <div className="flex justify-center lg:justify-start items-center h-[90%] relative w-full">
-                <p className="YesevaFont text-[3.5rem] md:text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
+                <p className="FontLinikSans text-[3.5rem] md:text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
               </div>
-              <div className="w-[90%] mx-auto lg:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative gradient-bg">
+              <div className="w-[90%] mx-auto lg:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative bg-gradient-to-br from-[#1f0036] to-[#3b0a72]">
                 <div className="flex items-center p-2 font-['Poppins']">
                   <div className="vsm:ml-3 sm:ml-4 md:ml-8 lg:ml-8">
                     <p className="text-2xl text-white font-semibold">{user.name}</p>
@@ -106,8 +106,8 @@ const ProfilePage = () => {
                 <Tabs tabs={tabs} activeIndex={tabContent.activeIndex} />
               ) : (
                 <div className="mt-8 w-[90%] mx-auto lg:mx-0 flex items-center justiify-center lg:justify-start flex-col">
-                  <p className="text-2xl font-bold text-center YesevaFont mb-2">{tabContent.title}</p>
-                  <div className="flex items-center justify-center lg:items-start lg:justify-start">
+                  <p className="text-3xl font-bold text-center mb-2 font-['Playfair-Display'] uppercase">{tabContent.title}</p>
+                  <div className="flex items-center justify-center lg:items-start lg:justify-start font-['Playfair-Display'] text-xl">
                     {tabContent.content}
                   </div>
                 </div>

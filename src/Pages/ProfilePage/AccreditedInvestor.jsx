@@ -505,7 +505,7 @@ function AccreditedInvestor() {
             </div>}
             {!accreditedForm && (
                 <div className="" onClick={FormHandler}>
-                    <GoldenButton Text="Start my journey as an Accredited Investor" />
+                    <GoldenButton Text="Start my journey as an Accredited Investor" classname="lg:text-xl"/>
                 </div>
             )}
             {accreditedForm && (
