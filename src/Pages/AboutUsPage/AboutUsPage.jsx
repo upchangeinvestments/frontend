@@ -1,17 +1,9 @@
-import React, { useEffect } from "react";
 import Footer from "../../commonComponents/Footer";
 import Navbar from "../../commonComponents/NavBar";
 import "../../styles/CategoryPage/categoryPage.css";
 import { Helmet } from 'react-helmet-async';
-import { NavHashLink } from "react-router-hash-link";
-import Aos from "aos";
-import "aos/dist/aos.css";
 
 function AboutUsPage() {
-
-  useEffect(() => {
-    Aos.init();
-  }, []);
 
   return (
     <div className="">
@@ -43,15 +35,15 @@ function AboutUsPage() {
                 </p>
               </div>
               <div className="grid grid-cols-1 md:grid-cols-3 my-8 md:my-4 gap-x-4 mx-auto gap-y-4 md:gap-y-0 font-['Playfair-Display']">
-                <div className="flex flex-col items-center justify-start" data-aos="fade-right" id="vision">
+                <div className="flex flex-col items-center justify-start" id="vision">
                   <p className="text-purple-600 font-bold YesevaFont text-2xl uppercase text-center">Vision</p>
                   <p className="p-4 pt-2 text-xl">Democratize access to reputable real estate firms through clear, data-driven discovery.</p>
                 </div>
-                <div className="flex flex-col items-center justify-start" data-aos="fade-up" id="mission">
+                <div className="flex flex-col items-center justify-start" id="mission">
                   <p className="text-purple-600 font-bold YesevaFont text-2xl uppercase text-center">Mission</p>
                   <p className="p-4 pt-2 text-xl">Build a trustworthy platform that connects the right investors with the right companies.</p>
                 </div>
-                <div className="flex flex-col items-center justify-start" data-aos="fade-left" id="value">
+                <div className="flex flex-col items-center justify-start" id="value">
                   <p className="text-purple-600 font-bold YesevaFont text-2xl uppercase text-center">Values</p>
                   <p className="p-4 pt-2 text-xl">We value transparency, simplicity, and empowering informed decisions.</p>
                 </div>
@@ -62,35 +54,27 @@ function AboutUsPage() {
             </div>
           </div>
 
-          <div className="hidden md:flex items-center justify-center w-[70%] mx-auto mb-8" data-aos="zoom-in">
-            <div className="w-full h-full flex flex-col items-center justify-center">
-              <img src="https://i.postimg.cc/D0WcDRtC/founder2.jpg" className="object-cover object-top vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] md:w-[120px] md:h-[120px] md:mt-[30px] lg:w-[150px] lg:h-[150px] rounded-full p-2 bg-gradient-to-br from-white to-[#6e30a7] " alt="Founder" />
-              <div className="mt-2">
-                <p className="text-purple-600  text-3xl font-extrabold CerebriFont uppercase text-left">Lipika </p>
-                <p className="CerebriFont font-extrabold text-3xl uppercase text-left">Sharma</p>
-              </div>
-            </div>
-            <div className="ml-[2rem] lg:-mt-[1rem]">
-              <div className="flex flex-col items-start justify-center">
-                <p className="uppercase CerebriFont text-3xl font-extrabold  text-purple-600 whitespace-nowrap">Words from founder</p>
-                <p className="w-[90%]"> Join us in reshaping the landscape of accessible and comprehensive investment solutions.
-                  Discover the power of choice and the ease of informed decision-making with Lynkinfinite Investments, your trusted partner in the journey towards financial growth and security.</p>
+          <div className="hidden md:flex w-[70%] mb-8">
+            <div className="flex flex-col font-['Playfair-Display'] p-2">
+              <p className="uppercase text-2xl font-bold  text-purple-600 whitespace-nowrap">Words from founder</p>
+              <div className="w-[90%] text-xl">
+                <p>
+                  Real estate investing shouldn’t be a guessing game. LynkInfinite is here to make firm discovery transparent,
+                  data-driven, and accessible for investors of all experience levels.
+                </p>
+                <p>&mdash; Lipika Sharma, Founder</p>
               </div>
             </div>
           </div>
 
           <div className="md:hidden flex items-center justify-center flex-col w-[100%] mx-auto my-8">
             <p className="uppercase CerebriFont text-2xl font-extrabold  text-purple-600 -mb-8">Words from founder</p>
-            <div className="flex flex-col items-center justify-center">
-              <img src="https://i.postimg.cc/D0WcDRtC/founder2.jpg" className="object-cover object-top vsm:w-[150px] vsm:h-[150px] vsm:mt-[50px] rounded-full p-2 bg-gradient-to-br from-white to-[#6e30a7] " alt="Founder" />
-              <div className="m-6">
-                <p className="text-3xl font-extrabold CerebriFont uppercase text-left"><span className="text-purple-600">Lipika</span> Sharma </p>
-              </div>
-            </div>
             <div className="ml-[2rem] -mt-[1rem]">
               <div className="flex flex-col items-start justify-center">
-                <p className="w-[90%]"> Join us in reshaping the landscape of accessible and comprehensive investment solutions.
-                  Discover the power of choice and the ease of informed decision-making with Lynkinfinite Investments, your trusted partner in the journey towards financial growth and security.</p>
+                <p className="w-[90%]">
+                  Real estate investing shouldn’t be a guessing game. LynkInfinite is here to make firm discovery transparent,
+                  data-driven, and accessible for investors of all experience levels.
+                </p>
               </div>
             </div>
           </div>

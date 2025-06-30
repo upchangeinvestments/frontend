@@ -22,10 +22,10 @@ const ListedCompany = ({ company }) => {
     const { isAuth } = useAuth();
 
     return (
-        <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-xl w-full">
+        <div className="bg-gradient-to-r from-[#2A235A] to-[#150D2B] rounded-xl w-full ">
             <div className=' my-2 grid grid-cols-6 text-white p-4'>
-                <div className='col-span-3 md:col-span-2 text-left'>{company.companyName}</div>
-                <div className='col-span-3 text-center '>{formatMinInvestment(company.minInvestment) ? formatMinInvestment(company.minInvestment) : company.Investment}</div>
+                <div className='col-span-3 md:col-span-2 text-left text-xl px-2'>{company.companyName}</div>
+                <div className='col-span-3 text-center text-xl'>{formatMinInvestment(company.minInvestment) ? formatMinInvestment(company.minInvestment) : company.Investment}</div>
                 <div className='col-span-1 text-right hidden md:block'><Button Text="Know More" link={isAuth ? "/rei-firms" : "/signin?isLogin=false"} target="_blank" /></div>
             </div>
             <div className="md:hidden flex items-center justify-center -mt-4 pb-4">
@@ -37,7 +37,7 @@ const ListedCompany = ({ company }) => {
 
 const ROICalculator = () => {
     const [investment, setInvestment] = useState(0);
-    const [roiPercentage, setRoiPercentage] = useState(9);
+    const [roiPercentage, setRoiPercentage] = useState(3);
     const [duration, setDuration] = useState(1);
     const [showData, setShowData] = useState([]);
     const [roi, setRoi] = useState(0);
@@ -97,7 +97,7 @@ const ROICalculator = () => {
                     <div className="FontLinikSans flex items-center justify-center relative">
                         <div className="flex justify-center items-start relative">
                             <div className="relative uppercase flex flex-col">
-                                <p className="text-[3rem] md:text-[4.5rem] text-center text-purple-600 text-shadow-xl "> Wealth Calculator</p>
+                                <p className="text-[3rem] md:text-[3.8rem] text-center text-purple-600 text-shadow-xl "> Wealth Calculator</p>
                             </div>
                         </div>
                     </div>
@@ -155,14 +155,14 @@ const ROICalculator = () => {
                                 <input
                                     type="range"
                                     name="Return On Investment"
-                                    min={9}
+                                    min={3}
                                     max={100}
                                     value={roiPercentage}
                                     onChange={(e) => handleRoiChange(parseFloat(e.target.value))}
                                     step="1"
                                     className="w-full appearance-none bg-gray-200 h-2 rounded-full mt-2 outline-none focus:outline-none"
                                     style={{
-                                        background: `linear-gradient(to right, #6e30a7 ${(roiPercentage - 9) / (100 - 9) * 100}%, #6e30a7 ${(roiPercentage - 9) / (100 - 9) * 100}%, #CBD5E0 ${(roiPercentage - 9) / (100 - 9) * 100}%, #CBD5E0 100%)`,
+                                        background: `linear-gradient(to right, #6e30a7 ${(roiPercentage - 3) / (100 - 3) * 100}%, #6e30a7 ${(roiPercentage - 3) / (100 - 3) * 100}%, #CBD5E0 ${(roiPercentage - 3) / (100 - 3) * 100}%, #CBD5E0 100%)`,
                                     }} />
                             </div>
                             <div className="mb-6">
@@ -224,11 +224,11 @@ const ROICalculator = () => {
                 )}
                 {showData.length > 0 && (
                     <div className='flex items-center justify-center flex-col my-4'>
-                        <p className='text-center text-xl font-["Poppins"] font-semibold'>Leading Companies to Enhance Your Investment Goals</p>
+                        <p className="text-center text-2xl font-['Playfair-Display'] font-bold">Leading Companies that match Your Investment Goals</p>
                         {isAuth ? (
-                            <div className='w-[90%] md:w-full'>
-                                <div className='rounded-xl w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] my-2  grid grid-cols-6 text-white p-4 font-extrabold text-xl'>
-                                    <div className='col-span-3 md:col-span-2 text-left'>Company</div>
+                            <div className="w-[90%] md:w-full font-['Playfair-Display']">
+                                <div className='rounded-xl w-full bg-gradient-to-r from-[#2A235A] to-[#150D2B] my-2 grid grid-cols-6 text-white p-4 font-extrabold text-xl'>
+                                    <div className='col-span-3 md:col-span-2 text-left px-2'>Company</div>
                                     <div className='col-span-3 text-center'>Minimum Investment</div>
                                     <div className='col-span-1 text-right hidden md:block'></div>
                                 </div>

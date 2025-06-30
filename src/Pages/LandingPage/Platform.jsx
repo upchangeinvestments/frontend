@@ -82,7 +82,7 @@ const HowInvestmentWorks = () => {
           </div>
         </div>
         <div className="w-full my-4">
-          <p className="text-xl w-[90%] mx-auto text-center font-['Playfair-Display']">We’ve built a AI aggregator platform that centralizes verified real estate investment firms into one seamless experience—eliminating fragmented
+          <p className="text-xl w-[90%] mx-auto text-center font-['Playfair-Display']">We’ve built a aggregator platform that centralizes verified real estate investment firms into one seamless experience—eliminating fragmented
             research and replacing it with structured, insight-driven discovery. Using advanced data mapping and intuitive filtering, investors can compare
             firms by strategy, performance history, fees, and risk profile—all in one place. The platform continuously evolves to deliver smarter recommendations,
             helping investors align with firms that match their capital goals

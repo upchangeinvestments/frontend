@@ -39,7 +39,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
                     className="w-4 h-4 text-[#6e30a7]"
                     onChange={handleInputChange}
                   />
-                  <div className="text-sm">{item}</div>
+                  <div className="text-base">{item}</div>
                 </label>
               </Tooltip>
             ))
@@ -55,7 +55,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
                   checked={isChecked(item)}
                 // disabled={item === type && filterType === "category"}
                 />
-                <div className="text-sm">{item}</div>
+                <div className="text-base">{item}</div>
               </label>
             ))
           )}

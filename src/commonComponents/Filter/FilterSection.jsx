@@ -178,15 +178,6 @@ function FilterSection({ sendFilteredData, setLoader }) {
           <p className="uppercase underline whitespace-nowrap flex-shrink">Filter Companies</p>
         </div>
         <FilterSubSection
-          list={ClassType}
-          title="Class Type"
-          inputType="checkbox"
-          updateFilters={updateFilters}
-          filterType="classType"
-          clearFilter={clearFilter}
-          checkedValues={checkedValues.classType}
-        />
-        <FilterSubSection
           list={InvestmentRange}
           title="Investment Range"
           inputType="radio"
@@ -203,6 +194,15 @@ function FilterSection({ sendFilteredData, setLoader }) {
           filterType="investorType"
           clearFilter={clearFilter}
           checkedValues={checkedValues.investorType}
+        />
+        <FilterSubSection
+          list={ClassType}
+          title="Class Type"
+          inputType="checkbox"
+          updateFilters={updateFilters}
+          filterType="classType"
+          clearFilter={clearFilter}
+          checkedValues={checkedValues.classType}
         />
         <div className="flex flex-col w-full font-['Playfair-Display'] items-start justify-center px-4 md:px-0 my-4 mx-2 relative">
           <div className="text-xl font-bold text-[#6e30a7]">Management Fee </div>
