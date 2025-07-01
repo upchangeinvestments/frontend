@@ -18,8 +18,8 @@ function Articles() {
             </Helmet>
             <div className="categoryMain">
                 <NavBar />
-                <div className="h-[70vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
-                    <p className="uppercase font-['Playfair-Display'] font-bold lg:text-5xl xl:text-6xl text-black vsm:text-4xl md:text-5xl lg:-mt-[27%] mx-auto">
+                <div className="h-[40vh] md:h-[70vh] overflow-hidden flex items-center vsm:justify-center lg:justify-end">
+                    <p className="uppercase font-['Playfair-Display'] font-bold lg:text-5xl xl:text-6xl text-black vsm:text-4xl md:text-5xl -mt-[60%] lg:-mt-[27%] mx-auto">
                         Articles
                     </p>
                 </div>

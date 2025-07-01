@@ -100,8 +100,8 @@ function SubscriptionForm() {
 
     return (
         <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 rounded-lg max-w-7xl px-6 py-12 md:py-8 -mt-[40px] lg:-mt-[40vh]" >
-            <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-1 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 bg-gradient-to-r from-[#9b5bd4] to-purple-300 rounded-lg flex flex-col items-center justify-center">
-                <p className='text-xl '><span className='font-semibold'>We are Thrilled to Partner with You</span>: Please fill out our Listing Inquiry Form Below and we will get back to you within 24-48 hours! <br />(Select all that apply)</p>
+            <div className="max-w-7xl vsm:mt-[30px] vsm:py-4 vsm:px-4 sm:mt-[50px] vsm:mx-1 sm:px-6 md:mt-[40px] md:mb-6 lg:mt-0 md:col-span-2 lg:col-span-1 md:mx-0 md:px-3 lg:mb-0 shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] rounded-lg flex flex-col items-center justify-center">
+                <p className='text-lg md:text-xl text-white'><span className='font-semibold'>We are Thrilled to Partner with You</span>: Please fill out our Listing Inquiry Form Below and we will get back to you within 24-48 hours! <br />(Select all that apply)</p>
                 {!formSubmitted && <form
                     onSubmit={handleSubmit}
                     className=" rounded vsm:p-4 md:px-8 md:pt-6 w-full"

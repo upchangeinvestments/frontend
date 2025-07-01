@@ -400,13 +400,13 @@ const SignIn = () => {
                 <p className="text-purple-600">LynkInfinite Investments</p>
               </h2>
             </div>
-            <div className="m-8 py-6 px-2 rounded-lg" style={{ backgroundColor: "#9b5bd4" }}>
+            <div className="m-8 py-6 px-2 rounded-lg shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72]">
               {/* ....................... start of registration form in mobile screens....................... */}
               <form
                 className="flex flex-col items-center justify-center"
                 onSubmit={handleSignUp}
               >
-                <h2 className="">SIGN UP</h2>
+                <h2 className="text-2xl font-bold">SIGN UP</h2>
                 <div className="flex items-center justify-center gap-x-4">
                   <div onClick={GoogleLoginHandler}>
                     <img
@@ -423,33 +423,16 @@ const SignIn = () => {
                     />
                   </div>
                 </div>
-                <input
-                  type="email"
-                  placeholder="Email"
-                  name="email"
-                  defaultValue={userData !== null ? userData.email : ""}
-                  required
-                />
+                <input type="email" placeholder="Email" name="email" defaultValue={userData !== null ? userData.email : ""} required />
                 <div className="relative logineyeinput flex flex-start w-[75%]">
-                  <input
-                    type={showPassword ? "text" : "password"}
-                    placeholder="Password"
-                    name="password"
-                    className="w-full"
-                    required
-                  />
+                  <input type={showPassword ? "text" : "password"} placeholder="Password" name="password" className="w-full" required />
                   {showPassword ? (
                     <IoEyeOffOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
                   ) : (
                     <IoEyeOutline className="absolute right-2 top-1/2 transform -translate-y-1/2 cursor-pointer" onClick={togglePasswordVisibility} />
                   )}
                 </div>
-                <input
-                  type="password"
-                  placeholder="Confirm password"
-                  name="confirmPassword"
-                  required
-                />
+                <input type="password" placeholder="Confirm password" name="confirmPassword" required />
                 <div className="checkbox font-['Playfair-Display'] flex items-center justify-center gap-2 mt-4 w-[80%]">
                   <input type="checkbox" name="terms" required />
                   <label htmlFor="terms">
@@ -488,7 +471,7 @@ const SignIn = () => {
                 <span className="text-purple-600">LynkInfinite Investments</span>
               </h2>
             </div>
-            <div className="m-8 py-6 px-2 rounded-lg " style={{ backgroundColor: "#9b5bd4" }}>
+            <div className="m-8 py-6 px-2 rounded-lg shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72]">
               {showForgetPassword ? (
                 // ....................... start of forgot form .......................
                 <form className="flex flex-col items-center justify-center" onSubmit={handleForgetPassword} >

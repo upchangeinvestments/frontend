@@ -11,10 +11,10 @@ function LandingPage() {
 
   return (
     <div className="flex flex-row m-4 mb-12 w-[90%] mx-auto">
-      <div className="basis-1/2 bordr-2 border-black">
+      <div className="hidden md:flex basis-1/2 bordr-2 border-black">
         <img className="mx-auto rounded-[2rem] w-[75%]" src="https://i.postimg.cc/HxM0Qz8P/image1-crop.png" alt="" />
       </div>
-      <div className="basis-1/2 bordr-2 border-black m-auto ">
+      <div className="basis-1/2 bordr-2 border-black m-auto">
         <div
           className="relative max-w-lg mx-auto p-12 text-white shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] folded-br"
           style={{

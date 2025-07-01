@@ -303,7 +303,7 @@ const NavBar = () => {
             <div className="py-6 font-['Playfair-Display'] px-5 space-y-6">
               {isAuth === false && (
                 <div>
-                  <Link to="/signin?isLogin=false" className="w-full flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-xl font-medium text-white border-2 border-[#6e30a7] hover:border-purple-600 ">
+                  <Link to="/signin?isLogin=false" className="w-full flex items-center justify-center px-4 py-2 rounded-md shadow-sm text-xl font-medium border-2 border-[#6e30a7] hover:border-purple-600 ">
                     SIGN UP
                   </Link>
                   <p className="mt-6 text-center text-xl font-medium text-gray-500">

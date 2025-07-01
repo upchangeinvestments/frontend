@@ -12,7 +12,7 @@ function AboutUsPage() {
         <meta name="description" content="Real Estate listed projects website" />
         <link rel="canonical" href="/about" />
       </Helmet>
-      <div className="flex flex-col items-center justify-center">
+      <div className="flex flex-col items-center justify-center mb-8 md:mb-4">
         <div className="w-[100%]">
           <Navbar />
           <div className="FontLinikSans flex items-center justify-center relative">
@@ -24,11 +24,11 @@ function AboutUsPage() {
           </div>
         </div>
         <div className="vsm:w-[90%] 2xl:max-w-7xl relative">
-          <div className="flex mt-4">
+          <div className="flex flex-col md:flex-row mt-4">
             <div className="md:basis-2/3 my-auto">
               <div className="">
                 <h1 className="font-bold text-3xl text-center font-['Playfair-Display'] uppercase"> <span>Built for Trust.</span> <br /><span>Designed for Connection</span></h1>
-                <p className="p-4 pt-2 text-center text-xl font-['Playfair-Display']">
+                <p className="p-4 pt-2 text-xl font-['Playfair-Display'] text-justify">
                   LynkInfinite is the first-of-its-kind platform where investors discover real estate investment firms — not just individual projects.
                   We provide access to verified, reputable investment firms across the U.S., enabling smarter, more confident decision-making for both seasoned
                   and first-time investors. Our goal is to simplify how capital finds trust.
@@ -68,17 +68,14 @@ function AboutUsPage() {
           </div>
 
           <div className="md:hidden flex items-center justify-center flex-col w-[100%] mx-auto my-8">
-            <p className="uppercase CerebriFont text-2xl font-extrabold  text-purple-600 -mb-8">Words from founder</p>
-            <div className="ml-[2rem] -mt-[1rem]">
-              <div className="flex flex-col items-start justify-center">
-                <p className="w-[90%]">
-                  Real estate investing shouldn’t be a guessing game. LynkInfinite is here to make firm discovery transparent,
-                  data-driven, and accessible for investors of all experience levels.
-                </p>
-              </div>
+            <p className="uppercase CerebriFont text-2xl font-extrabold text-purple-600">Words from founder</p>
+            <div className="flex flex-col items-start justify-center">
+              <p className="w-[90%] mx-auto text-justify">
+                Real estate investing shouldn’t be a guessing game. LynkInfinite is here to make firm discovery transparent,
+                data-driven, and accessible for investors of all experience levels.
+              </p>
             </div>
           </div>
-
         </div>
       </div>
       <Footer />
