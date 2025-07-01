@@ -1,6 +1,4 @@
-import React from "react";
 import "../../styles/LandingPage/LandingPage.css";
-import Video from "../../assets/choiceVideo.mp4"
 
 function Unique() {
 
@@ -11,9 +9,8 @@ function Unique() {
           <p>Where Smart <span className="text-purple-600">Capital</span></p>
           <p>Meets the right Real Estate Firms</p>
         </span>
-        <span className="flex flex-col items-center justify-center md:hidden ">
-          <p>Where Smart <span className="text-purple-600">Capital</span> Meets</p>
-          <p>the right Real Estate Firms</p>
+        <span className="text-center md:hidden text-wrap">
+          <p>Where Smart <span className="text-purple-600">Capital</span> Meets the right Real Estate Firms</p>
         </span>
       </h1>
       <p className="font-['Playfair-Display'] text-xl mt-4 text-justify md:text-center">At LynkInfinite Investments, we believe real estate

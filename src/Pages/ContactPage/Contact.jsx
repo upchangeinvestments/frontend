@@ -38,11 +38,11 @@ function ContactForm() {
   };
 
   return (
-    <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 -mt-[270px] md:-mt-[170px] lg:-mt-[260px] xl:-mt-[330px]">
+    <div className="font-['Playfair-Display'] w-full md:mx-auto md:px-12 pb-12 -mt-[340px] md:-mt-[170px] lg:-mt-[260px] xl:-mt-[330px]">
       <div className="block lg:max-w-7xl mx-auto r vsm:py-[20px]  lg:px-6 lg:py-12  md:py-8 md:px-10 -mt-[120px] ">
         <div className=" text-black grid relative vsm:grid-cols-1 sm:grid-cols-1 md:grid-cols-1 lg:grid-cols-2 xl:grid-cols-2">
           <div className="md:col-span-2 lg:col-span-1 flex items-center justify-end">
-            <div className="flex flex-col mx-4 md:mx-0 w-[100%] sm:ml-0 md:w-[100%] lg:w-[90%] lg:mr-[20px] pb-[40px] bg-gradient-to-r from-purple-200 to-purple-300 lg:bg-none lg:shadow-2xl rounded-lg">
+            <div className="flex flex-col mx-4 md:mx-0 w-[100%] sm:ml-0 md:w-[100%] lg:w-[90%] lg:mr-[20px] pb-[40px] bg-none shadow-2xl rounded-lg">
               <div className="basis-1/3 pt-[20px] relative">
                 <div className="flex flex-col vsm:mt-16 sm:mt-20 lg:mt-28 items-center justify-end h-[60px]">
                   <div className="lg:w-64 vsm:w-44 sm:w-48  md:w-52">

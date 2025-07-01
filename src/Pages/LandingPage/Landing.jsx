@@ -14,7 +14,7 @@ function LandingPage() {
       <div className="hidden md:flex basis-1/2 bordr-2 border-black">
         <img className="mx-auto rounded-[2rem] w-[75%]" src="https://i.postimg.cc/HxM0Qz8P/image1-crop.png" alt="" />
       </div>
-      <div className="basis-1/2 bordr-2 border-black m-auto">
+      <div className="basis-full md:basis-1/2 bordr-2 border-black m-auto">
         <div
           className="relative max-w-lg mx-auto p-12 text-white shadow-lg bg-gradient-to-br from-[#1f0036] to-[#3b0a72] folded-br"
           style={{
@@ -22,12 +22,12 @@ function LandingPage() {
             borderRadius: '1.5rem',
           }}
         >
-          <h1 class="text-5xl font-bold leading-tight mb-8">
+          <h1 class="text-4xl md:text-5xl font-bold leading-tight mb-8">
             Discover Trusted <br />
             Real Estate <br />
             Investment Firms
           </h1>
-          <p class="text-2xl mb-12 font-bold text-gray-300">
+          <p class="text-xl md:text-2xl mb-12 font-bold text-gray-300">
             Connect with reputable companies <br />
             and invest with confidence.
           </p>

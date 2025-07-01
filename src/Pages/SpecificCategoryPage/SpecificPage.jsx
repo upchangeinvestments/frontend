@@ -202,7 +202,7 @@ function SpecificPage() {
           </div>
         </div>
       </div>
-      <div className="relative flex -mt-[250px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
+      <div className="relative flex -mt-[290px] lg:-mt-[210px] xl:-mt-[290px] mb-16">
         <FilterSection sendFilteredData={receiveFilteredData} setLoader={setLoading} />
         <div className="vsm:flex vsm:flex-col w-[100%]  lg:w-[80%] ">
           {loading === false && (

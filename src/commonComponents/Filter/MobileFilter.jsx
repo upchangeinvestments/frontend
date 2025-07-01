@@ -2,11 +2,6 @@ import React from 'react';
 
 const dataObject = [
     {
-        title: "Class Type",
-        options: ["Class A", "Class B", "Class C"],
-        inputType: "checkbox",
-    },
-    {
         title: "Investment Range",
         options: ["$100-$1k", "$1k-$10k", "$10k-$50k", "$50k-$100k", "$100k-$500k", "$500k-$1M", "$1M+"],
         inputType: "radio",
@@ -15,6 +10,11 @@ const dataObject = [
         title: "Investor Type",
         options: ['Accredited', 'Non-Accredited'],
         inputType: "radio",
+    },
+    {
+        title: "Class Type",
+        options: ["Class A", "Class B", "Class C"],
+        inputType: "checkbox",
     },
     {
         title: "Management Fee",
