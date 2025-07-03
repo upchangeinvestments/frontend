@@ -19,7 +19,7 @@ function NotFoundPage() {
                     <div className="FontLinikSans flex items-center justify-center relative">
                         <div className="flex justify-center items-start relative">
                             <div className="relative uppercase flex flex-col">
-                                <p className="text-[3.5rem] md:text-[4.5rem] text-shadow-xl text-center">Page <span className="text-purple-600 uppercase">Not Found</span></p>
+                                <p className="text-[3.5rem] md:text-[4rem] xl:text-[5rem] text-shadow-xl text-center mt-8">Page <span className="text-purple-600 uppercase">Not Found</span></p>
                                 <p className="montserrat-Stretch text-9xl mt-4 text-center"> 404</p>
                             </div>
                         </div>

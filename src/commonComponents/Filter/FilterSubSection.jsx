@@ -27,7 +27,7 @@ function FilterSubSection({ list, title, inputType, updateFilters, filterType, g
           {title}
         </div>
         <div className="flex flex-col gap-3 max-w-xs md:max-w-md font-['Playfair-Display']">
-          {filterType === "locations" ? (   // this section is only to show ToolTip
+          {(filterType === "locations" || filterType === "classType") ? (   // this section is only to show ToolTip
             list.map((item, index) => (
               <Tooltip title={getTooltipContent(item)} arrow key={index}>
                 <label className="flex flex-row gap-4 w-full items-center uppercase">

@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import { useState, useEffect, useRef } from "react";
 import Footer from "../../commonComponents/Footer";
 import MobileFilterDrawer from "../../commonComponents/Filter/MobileFilterDrawer";
 import MobileFilter from "../../commonComponents/Filter/MobileFilter";
@@ -38,7 +38,6 @@ function SpecificPage() {
   const [investmentRange, setInvestmentRange] = useState("");
   const [IRR, setIRR] = useState("");   // IRR here refers to historical return rates
   const [selectedPosts, setSelectedPosts] = useState([]);
-  const [removePost, setRemovePost] = useState(false);
 
   var postsPerPage = 12;
 
@@ -196,8 +195,8 @@ function SpecificPage() {
         <div className="h-[70vh] FontLinikSans flex items-center justify-center relative">
           <div className="flex justify-center items-start h-[90%] relative">
             <div className="relative uppercase flex flex-col">
-              <p className="text-[3.5rem] md:text-[4rem] lg:text-[4.5rem] text-shadow-xl text-center md:whitespace-nowrap"> Explore <span className="text-purple-600">Companies</span></p>
-              <p className="uppercase w-full flex items-center justify-center CerebriFont text-sm md:text-base lg:text-lg -mt-2 md:-mt-4 text-center">Choose a trusted partners to guide you through REal estate investment journey</p>
+              <p className="text-[3.5rem] md:text-[4rem] xl:text-[5rem] text-shadow-xl text-center md:whitespace-nowrap"> Explore <span className="text-purple-600">Companies</span></p>
+              <p className="uppercase flex items-center justify-center CerebriFont text-sm md:text-base lg:text-lg -mt-2 text-center w-[90%] mx-auto md:w-full text-wrap">Choose a trusted partners to guide you through REal estate investment journey</p>
             </div>
           </div>
         </div>

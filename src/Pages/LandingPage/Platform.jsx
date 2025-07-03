@@ -34,7 +34,7 @@ const HowInvestmentWorks = () => {
                     </svg>
                   </div>
                   <div className="z-40  font-['Playfair-Display']">
-                    <div className="text-xl font-bold YesevaFont">Discover Firms</div>
+                    <div className="text-xl font-bold">Discover Firms</div>
                     {/* <div className="text-lg	text-justify text-wrap	">You can browse through the available Alternative <span className="text-[#9747FF] font-bold"> Investment Opportunities </span> and set up a detailed call with <span className="text-[#9747FF] font-bold">companies</span> to further understand the product.</div> */}
                     <div className="text-xl	text-wrap	">
                       Browse curated, vetted companies nationwide
@@ -49,7 +49,7 @@ const HowInvestmentWorks = () => {
                     </svg>
                   </div>
                   <div className="font-['Playfair-Display']">
-                    <div className="text-xl font-bold YesevaFont">Compare Insights</div>
+                    <div className="text-xl font-bold">Compare Insights</div>
                     <div className="text-xl text-wrap	">
                       Analyze ROI, risk levels, firm performance, and more
                     </div>
@@ -63,7 +63,7 @@ const HowInvestmentWorks = () => {
                     </svg>
                   </div>
                   <div className="font-['Playfair-Display']">
-                    <div className="text-xl font-bold YesevaFont">Understand Performance</div>
+                    <div className="text-xl font-bold">Understand Performance</div>
                     <div className="text-xl text-wrap	">
                       Access transparency-driven data before you invest
                     </div>
@@ -76,7 +76,7 @@ const HowInvestmentWorks = () => {
                   </div>
 
                   <div className="font-['Playfair-Display']">
-                    <div className="text-xl font-bold YesevaFont">Connect & Invest</div>
+                    <div className="text-xl font-bold">Connect & Invest</div>
                     <div className="text-xl text-wrap">Find the right firm that align with your goals</div>
                   </div>
                 </div>

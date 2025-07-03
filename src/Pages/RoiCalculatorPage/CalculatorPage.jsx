@@ -97,7 +97,7 @@ const ROICalculator = () => {
                     <div className="FontLinikSans flex items-center justify-center relative">
                         <div className="flex justify-center items-start relative">
                             <div className="relative uppercase flex flex-col">
-                                <p className="text-[3rem] md:text-[3.8rem] text-center text-purple-600 text-shadow-xl "> Wealth Calculator</p>
+                                <p className="text-[3rem] md:text-[3.8rem] xl:text-[5rem] text-center text-purple-600 text-shadow-xl "> Wealth Calculator</p>
                             </div>
                         </div>
                     </div>

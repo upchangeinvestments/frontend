@@ -57,7 +57,7 @@ const ProfilePage = () => {
           <div className="lg:grid lg:col-span-3">
             <div className="flex items-start justify-center relative flex-col w-full">
               <div className="flex justify-center lg:justify-start items-center h-[90%] relative w-full">
-                <p className="FontLinikSans text-[3.5rem] md:text-[4.5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
+                <p className="FontLinikSans text-[3.5rem] md:text-[4rem] xl:text-[5rem] text-purple-600 uppercase text-shadow-xl"> Profile </p>
               </div>
               <div className="w-[90%] mx-auto lg:mx-0 p-[15px] md:p-[20px] lg:p-4 xl:p-[20px] rounded-lg shadow-xl relative bg-gradient-to-br from-[#1f0036] to-[#3b0a72]">
                 <div className="flex items-center p-2 font-['Poppins']">

@@ -162,6 +162,12 @@ function FilterSection({ sendFilteredData, setLoader }) {
         return "Ohio, Michigan, Indiana, Wisconsin";
       case "East":
         return "New York, Pennsylvania, Massachusetts, Maine , New Hampshire, Vermont , Rhode Island, Connecticut , New Jersey , Delaware , Maryland";
+      case "Class A":
+        return "These are the highest-quality properties, typically brand new or recently renovated, located in prime locations. They have modern amenities, high-end finishes, and attract top-tier tenants. Class A properties generally offer the lowest risk and lowest cap rates but also tend to come with higher purchase prices."
+      case "Class B":
+        return "These properties are usually older (10-30 years), but well-maintained and located in desirable areas, although not as prime as Class A. They may have fewer amenities or slightly outdated finishes but still offer a solid return on investment. They often appeal to middle-income tenants and can provide opportunities for renovation or rent increases."
+      case "Class C":
+        return "These are older properties (typically 30+ years), often in less desirable or transitioning neighborhoods. They may require significant repairs or upgrades and are generally more affordable for tenants with lower incomes. Class C properties tend to have higher potential returns but also come with higher risks, such as increased vacancy rates and maintenance costs."
       default:
         return "";
     }
@@ -201,6 +207,7 @@ function FilterSection({ sendFilteredData, setLoader }) {
           inputType="checkbox"
           updateFilters={updateFilters}
           filterType="classType"
+          getTooltipContent={getTooltipContent}
           clearFilter={clearFilter}
           checkedValues={checkedValues.classType}
         />
